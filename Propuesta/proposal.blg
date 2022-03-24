@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: proposal.aux
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+The style file: eptcs.bst
+Reallocating 'name_of_file' (item size: 1) to 8 items.
+Database file #1: generic.bib
+Warning--empty year in porosity
+Warning--empty pages in porosity
+Warning--missing publisher in feng2002advancing
+You've used 12 entries,
+            2701 wiz_defined-function locations,
+            662 strings with 6780 characters,
+and the built_in function-call counts, 6536 in all, are:
+= -- 481
+> -- 144
+< -- 10
++ -- 67
+- -- 48
+* -- 777
+:= -- 741
+add.period$ -- 24
+call.type$ -- 12
+change.case$ -- 52
+chr.to.int$ -- 0
+cite$ -- 27
+duplicate$ -- 555
+empty$ -- 553
+format.name$ -- 56
+if$ -- 1296
+int.to.chr$ -- 0
+int.to.str$ -- 12
+missing$ -- 107
+newline$ -- 72
+num.names$ -- 24
+pop$ -- 87
+preamble$ -- 1
+purify$ -- 48
+quote$ -- 0
+skip$ -- 203
+stack$ -- 0
+substring$ -- 326
+swap$ -- 541
+text.length$ -- 10
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 60
+warning$ -- 3
+while$ -- 51
+width$ -- 14
+write$ -- 134
+(There were 3 warnings)

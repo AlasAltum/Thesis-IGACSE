@@ -1,0 +1,127 @@
+\documentclass[submission]{eptcs}
+\setlength{\parindent}{0pt}
+\providecommand{\event}{} % Name of the event you are submitting to
+
+\title{Herramienta interactiva para enseñar sobre Grafos y algoritmos relacionados}
+\author{ Alonso Utreras
+\institute{Department of Computer Science\\
+University of Chile\\
+Santiago, Chile}
+\email{alonso.utreras@ug.uchile.cl}
+\email{autreras@dcc.uchile.cl}
+}
+\begin{document}
+\maketitle
+
+\section{Introduction}
+ 
+Una forma común de enseñar y aprender es acompañar la información con dibujos o gráficos, lo cual
+facilita el aprendizaje de quienes tienen una forma de inteligencia más visual. El presente trabajo
+busca llevar las instrucciones llevadas a cabo por los algoritmos relacionados con grafos a una
+representación visual e interactiva para que los estudiantes de computación puedan aprender acompañándose
+con esta herramienta.
+
+\section{Related work}
+
+Parte de los siguientes párrafos están inspirados en el trabajo de José Romero.
+Actualmente existen algunas librerías para generar visualizaciones de estructuras de
+datos, pero estas no incluyen interactividad. Un ejemplo de librería es Reftree [Stanch, Nick: Reftree.
+https://github.com/stanch/reftree, 2021.] que permite crear visualizaciones de estructuras de datos en
+el lenguaje Scala.
+Otro ejemplo es la librería Lolviz [ 8 ], la cual solo genera imágenes estáticas.
+Por otro lado, existe la librería Aed-Utilities [ https://github.com/ivansipiran/aed-utilities ] creada para el curso de Algoritmos
+y Estructuras de Datos de la FCFM por el Profesor Iván S.
+Además, el estudiante José Romero de la FCFM a cargo del profesor antes mencionado
+empezó un trabajo de título relacionado a la visualización de estructuras de datos
+a inicios del año 2022. [https://github.com/romero-jose/visualizations]
+Un último ejemplo más similar a lo buscado es Manim [Sanderson, Grant: Manim. https://github.com/ManimCommunity/manim, 2021], focalizada en visualizaciones 
+matemáticas. Esta librería se utiliza en el contexto de la generación de videos de Youtube,
+cuyo fundador Grant Sanderson sube videos a su canal 3Blue1Brown.
+Un canal de Youtube que se ha esforzado en hacer representaciones visuales de los algoritmos 
+es AlgoExpert 
+[https://www.youtube.com/channel/UCoRwjeG00b8vFyATaBOxmOA/featured] o
+GeeksForGeeks 
+[https://www.youtube.com/c/GeeksforGeeksVideos/], sin embargo,
+al tratarse de plataformas de videos, no han entregado interactividad al usuario para
+ejercer un rol más activo en su aprendizaje.
+
+\subsection{ Estrategia A}
+
+Texto ...  \cite{hopper2001empirical}. \\
+
+
+\subsection{ Estrategia B}
+
+
+\subsection{ Estrategia C}
+
+
+\section{Problem}
+
+Actualmente no existe una plataforma donde se pueda aplicar
+un algoritmo de forma manual e interactiva, lo cual constituye
+una buena herramienta de enseñanza. 
+
+
+\section{Research questions}
+
+P1: ¿Qué tan eficaz es el uso de herramientas de visualización de algoritmos interactivas para
+enseñar sobre algoritmos aplicados a grafos?
+
+P2: ¿Cómo se comparan los niveles de interés en el estudiantado al utilizar herramientas
+de visualización de algoritmos interactivas comparadas a aquellos grupos que no las utilizan?
+
+
+\section{Hypothesis}
+
+H1: Una plataforma de visualización interactiva de algoritmos de grafos
+es una herramienta que mejora los resultados de los estudiantes que la ocupan.
+
+H2: Una plataforma de visualización interactiva de algoritmos de grafos
+genera mayor interés en el estudiantado.
+
+Se entiende interés como una medida subjetiva de cuánto un usuario desea
+aprender sobre un tema en particular. 
+
+\section{Main Goal}
+
+Diseñar y desarrollar una aplicación interactiva que muestre grafos y 
+algoritmos relacionados a estos, que permita al usuario ir ejecutando
+acciones en la aplicación según lo pide un algoritmo desplegado en la misma
+pantalla. La aplicación debe indicar al usuario cuando está en lo correcto
+y cuándo se equivoca.
+
+\section{Specific goals}
+
+\begin{itemize}
+\item Diseñar una aplicación interactiva que muestre grafos y permita seguir
+los pasos relacionados a algoritmos que trabajen con grafos.
+
+\item Medir el interés de estudiantes de computación relacionado a grafos
+antes y después del uso de esta herramienta.
+
+\item Medir la comprensión y capacidad de replicación de un algoritmo de 
+estudiantes de computación antesy después del uso de esta herramienta.
+
+
+\end{itemize}
+
+\section{Methodology}
+
+Diseño de la herramienta interactiva.
+Desarrollo de la herramienta interactiva.
+Pruebas con casos de estudio.
+
+
+\section{Expected results}
+
+Se espera aumentar el interés de los estudiantes en el aprendizaje de algoritmos
+relacionados a grafos. Además, se busca generar una metodología de prueba para
+herramientas interactivas cuyo fin sea la enseñanza, de tal manera que otro
+memorista o tesista en el futuro pueda hacer pruebas análogas con otros algoritmos
+o estructuras de datos e incluso aplicadas a otras materias.
+
+\nocite{*}
+\bibliographystyle{eptcs}
+\bibliography{generic}
+\end{document}

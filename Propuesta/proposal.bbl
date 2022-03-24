@@ -1,0 +1,117 @@
+\begin{thebibliography}{10}
+\providecommand{\bibitemdeclare}[2]{}
+\providecommand{\surnamestart}{}
+\providecommand{\surnameend}{}
+\providecommand{\urlprefix}{Available at }
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{\texttt{#2}}
+\providecommand{\urlalt}[2]{\href{#1}{#2}}
+\providecommand{\doi}[1]{doi:\urlalt{http://dx.doi.org/#1}{#1}}
+\providecommand{\bibinfo}[2]{#2}
+
+\bibitemdeclare{article}{agarwal2002polygon}
+\bibitem{agarwal2002polygon}
+\bibinfo{author}{Pankaj~K \surnamestart Agarwal\surnameend},
+  \bibinfo{author}{Eyal \surnamestart Flato\surnameend} \& \bibinfo{author}{Dan
+  \surnamestart Halperin\surnameend} (\bibinfo{year}{2002}):
+  \emph{\bibinfo{title}{Polygon decomposition for efficient construction of
+  Minkowski sums}}.
+\newblock {\sl \bibinfo{journal}{Computational Geometry}}
+  \bibinfo{volume}{21}(\bibinfo{number}{1-2}), pp. \bibinfo{pages}{39--61}.
+
+\bibitemdeclare{incollection}{porosity}
+\bibitem{porosity}
+\bibinfo{author}{Saeed~Taheri \surnamestart Apostolos~Kantzas\surnameend,
+  Jonathan~Bryan}: \emph{\bibinfo{title}{Fundamentals of Fluid Flow in Porous
+  Media}}.
+\newblock In: {\sl \bibinfo{booktitle}{Porosity}},
+  chapter~\bibinfo{chapter}{2}, \bibinfo{publisher}{Perm Inc. TIPM Laboratory}.
+
+\bibitemdeclare{article}{bennell2009tutorial}
+\bibitem{bennell2009tutorial}
+\bibinfo{author}{Julia~A \surnamestart Bennell\surnameend} \&
+  \bibinfo{author}{Jos{\'e}~F \surnamestart Oliveira\surnameend}
+  (\bibinfo{year}{2009}): \emph{\bibinfo{title}{A tutorial in irregular shape
+  packing problems}}.
+\newblock {\sl \bibinfo{journal}{Journal of the Operational Research Society}}
+  \bibinfo{volume}{60}(\bibinfo{number}{1}), pp. \bibinfo{pages}{S93--S105}.
+
+\bibitemdeclare{article}{collins2003circle}
+\bibitem{collins2003circle}
+\bibinfo{author}{Charles~R \surnamestart Collins\surnameend} \&
+  \bibinfo{author}{Kenneth \surnamestart Stephenson\surnameend}
+  (\bibinfo{year}{2003}): \emph{\bibinfo{title}{A circle packing algorithm}}.
+\newblock {\sl \bibinfo{journal}{Computational Geometry}}
+  \bibinfo{volume}{25}(\bibinfo{number}{3}), pp. \bibinfo{pages}{233--256}.
+
+\bibitemdeclare{incollection}{feng2002advancing}
+\bibitem{feng2002advancing}
+\bibinfo{author}{YT~\surnamestart Feng\surnameend},
+  \bibinfo{author}{K~\surnamestart Han\surnameend} \& \bibinfo{author}{DRJ
+  \surnamestart Owen\surnameend} (\bibinfo{year}{2002}):
+  \emph{\bibinfo{title}{An advancing front packing of polygons, ellipses and
+  spheres}}.
+\newblock In: {\sl \bibinfo{booktitle}{Discrete Element Methods: Numerical
+  Modeling of Discontinua}}, pp. \bibinfo{pages}{93--98}.
+
+\bibitemdeclare{article}{feng2003filling}
+\bibitem{feng2003filling}
+\bibinfo{author}{YT~\surnamestart Feng\surnameend},
+  \bibinfo{author}{K~\surnamestart Han\surnameend} \& \bibinfo{author}{DRJ
+  \surnamestart Owen\surnameend} (\bibinfo{year}{2003}):
+  \emph{\bibinfo{title}{Filling domains with disks: an advancing front
+  approach}}.
+\newblock {\sl \bibinfo{journal}{International Journal for Numerical Methods in
+  Engineering}} \bibinfo{volume}{56}(\bibinfo{number}{5}), pp.
+  \bibinfo{pages}{699--713}.
+
+\bibitemdeclare{article}{gomes2006solving}
+\bibitem{gomes2006solving}
+\bibinfo{author}{A~Miguel \surnamestart Gomes\surnameend} \&
+  \bibinfo{author}{Jos{\'e}~F \surnamestart Oliveira\surnameend}
+  (\bibinfo{year}{2006}): \emph{\bibinfo{title}{Solving irregular strip packing
+  problems by hybridising simulated annealing and linear programming}}.
+\newblock {\sl \bibinfo{journal}{European Journal of Operational Research}}
+  \bibinfo{volume}{171}(\bibinfo{number}{3}), pp. \bibinfo{pages}{811--829}.
+
+\bibitemdeclare{article}{hopper2001empirical}
+\bibitem{hopper2001empirical}
+\bibinfo{author}{EBCH \surnamestart Hopper\surnameend} \&
+  \bibinfo{author}{Brian~CH \surnamestart Turton\surnameend}
+  (\bibinfo{year}{2001}): \emph{\bibinfo{title}{An empirical investigation of
+  meta-heuristic and heuristic algorithms for a 2D packing problem}}.
+\newblock {\sl \bibinfo{journal}{European Journal of Operational Research}}
+  \bibinfo{volume}{128}(\bibinfo{number}{1}), pp. \bibinfo{pages}{34--57}.
+
+\bibitemdeclare{mastersthesis}{voronoiLibrary}
+\bibitem{voronoiLibrary}
+\bibinfo{author}{Catalina~Paz \surnamestart \'{A}lvarez Inostroza\surnameend}
+  (\bibinfo{year}{2017}): \emph{\bibinfo{title}{Virtual element method for
+  linear method for linear elasticity problems in modifiable meshes}}.
+\newblock Master's thesis, \bibinfo{school}{Universidad de Chile}.
+
+\bibitemdeclare{article}{mohar1993polynomial}
+\bibitem{mohar1993polynomial}
+\bibinfo{author}{Bojan \surnamestart Mohar\surnameend} (\bibinfo{year}{1993}):
+  \emph{\bibinfo{title}{A polynomial time circle packing algorithm}}.
+\newblock {\sl \bibinfo{journal}{Discrete Mathematics}}
+  \bibinfo{volume}{117}(\bibinfo{number}{1-3}), pp. \bibinfo{pages}{257--263}.
+
+\bibitemdeclare{article}{orick2017linearized}
+\bibitem{orick2017linearized}
+\bibinfo{author}{Gerald~L \surnamestart Orick\surnameend},
+  \bibinfo{author}{Kenneth \surnamestart Stephenson\surnameend} \&
+  \bibinfo{author}{Charles \surnamestart Collins\surnameend}
+  (\bibinfo{year}{2017}): \emph{\bibinfo{title}{A linearized circle packing
+  algorithm}}.
+\newblock {\sl \bibinfo{journal}{Computational Geometry}} \bibinfo{volume}{64},
+  pp. \bibinfo{pages}{13--29}.
+
+\bibitemdeclare{article}{thurston1978geometry}
+\bibitem{thurston1978geometry}
+\bibinfo{author}{William \surnamestart Thurston\surnameend}
+  (\bibinfo{year}{1978}): \emph{\bibinfo{title}{The geometry and topology of
+  3-manifolds}}.
+\newblock {\sl \bibinfo{journal}{Lecture note}}.
+
+\end{thebibliography}
