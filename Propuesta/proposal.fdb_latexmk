@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex proposal"] 1648072518 "proposal.aux" "proposal.bbl" "proposal" 1648072599
+["bibtex proposal"] 1648178131 "proposal.aux" "proposal.bbl" "proposal" 1648178134
   "./eptcs.bst" 1648057930 28417 7a4d5f3186f0b1f5e5edac2d6b5dc4de ""
   "generic.bib" 1648057930 3275 1cf90fec9055c9cd7a01969f015200bc ""
-  "proposal.aux" 1648072599 2522 9b54335493f8adbadefb3a2801eeeb91 "pdflatex"
+  "proposal.aux" 1648178134 2522 79edd18cf419c0b9d3b3c6384ea6e050 "pdflatex"
   (generated)
   "proposal.bbl"
   "proposal.blg"
-["pdflatex"] 1648072598 "c:/Users/alons/OneDrive/Escritorio/Universidad/Magister/tesis/Propuesta/proposal.tex" "proposal.pdf" "proposal" 1648072599
+["pdflatex"] 1648178133 "c:/Users/alons/OneDrive/Escritorio/Universidad/Magister/tesis/Tesis/Propuesta/proposal.tex" "proposal.pdf" "proposal" 1648178134
   "C:/Users/alons/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1648069086 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/alons/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1648068281 10246961 3750ffb7be32ad2a42cdd5abdad46bd1 ""
   "C:/Users/alons/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -74,12 +74,12 @@
   "C:/Users/alons/AppData/Local/Programs/MiKTeX/tex/latex/refcount/refcount.sty" 1576433952 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "C:/Users/alons/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1575571282 9715 b051d5b493d9fe5f4bc251462d039e5f ""
   "C:/Users/alons/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "c:/Users/alons/OneDrive/Escritorio/Universidad/Magister/tesis/Propuesta/proposal.tex" 1648072597 5052 280f4e924369e0c657318f09bf19b553 ""
+  "c:/Users/alons/OneDrive/Escritorio/Universidad/Magister/tesis/Tesis/Propuesta/proposal.tex" 1648178132 5468 f5a83406056843d4ad3b098966f9e96d ""
   "eptcs.cls" 1648057930 9608 be233d2a467b571676f13b240c93e3b4 ""
-  "proposal.aux" 1648072599 2522 9b54335493f8adbadefb3a2801eeeb91 "pdflatex"
-  "proposal.bbl" 1648072518 5729 cd27d68baa0f0a89446870085aad22b4 "bibtex proposal"
-  "proposal.out" 1648072599 1334 1f2049f150e7570b4ec949f7ae3847a6 "pdflatex"
-  "proposal.tex" 1648072597 5052 280f4e924369e0c657318f09bf19b553 ""
+  "proposal.aux" 1648178134 2522 79edd18cf419c0b9d3b3c6384ea6e050 "pdflatex"
+  "proposal.bbl" 1648178131 5729 cd27d68baa0f0a89446870085aad22b4 "bibtex proposal"
+  "proposal.out" 1648178134 1334 1f2049f150e7570b4ec949f7ae3847a6 "pdflatex"
+  "proposal.tex" 1648178132 5468 f5a83406056843d4ad3b098966f9e96d ""
   (generated)
   "proposal.aux"
   "proposal.log"

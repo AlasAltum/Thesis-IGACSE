@@ -1,6 +1,6 @@
-PWD c:\Users\alons\OneDrive\Escritorio\Universidad\Magister\tesis\Propuesta
+PWD c:\Users\alons\OneDrive\Escritorio\Universidad\Magister\tesis\Tesis\Propuesta
 INPUT C:\Users\alons\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\alons\OneDrive\Escritorio\Universidad\Magister\tesis\Propuesta\proposal.tex
+INPUT c:\Users\alons\OneDrive\Escritorio\Universidad\Magister\tesis\Tesis\Propuesta\proposal.tex
 OUTPUT proposal.log
 INPUT .\eptcs.cls
 INPUT .\eptcs.cls
@@ -462,13 +462,13 @@ INPUT C:\Users\alons\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmb7t.v
 INPUT C:\Users\alons\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8r.tfm
 INPUT C:\Users\alons\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr7t.vf
 INPUT C:\Users\alons\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8r.tfm
-INPUT C:\Users\alons\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmb7t.vf
-INPUT C:\Users\alons\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8r.tfm
 INPUT C:\Users\alons\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
 INPUT C:\Users\alons\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
 INPUT C:\Users\alons\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
 INPUT C:\Users\alons\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
 INPUT C:\Users\alons\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8c.tfm
+INPUT C:\Users\alons\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmb7t.vf
+INPUT C:\Users\alons\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8r.tfm
 INPUT C:\Users\alons\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr8c.vf
 INPUT .\proposal.bbl
 INPUT proposal.bbl

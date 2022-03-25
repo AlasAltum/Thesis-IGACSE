@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.3.23)  23 MAR 2022 18:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.3.23)  25 MAR 2022 00:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/alons/OneDrive/Escritorio/Universidad/Magister/tesis/Propuesta/proposal.tex
-(c:/Users/alons/OneDrive/Escritorio/Universidad/Magister/tesis/Propuesta/proposal.tex
+**c:/Users/alons/OneDrive/Escritorio/Universidad/Magister/tesis/Tesis/Propuesta/proposal.tex
+(c:/Users/alons/OneDrive/Escritorio/Universidad/Magister/tesis/Tesis/Propuesta/proposal.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-02-24> (eptcs.cls
 Document Class: eptcs 2010/11/26 v1.5
@@ -243,14 +243,17 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 15.
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--51
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
 
  []
 
-[1
+
+Underfull \vbox (badness 1028) has occurred while \output is active []
+
+ [1
 
 {C:/Users/alons/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 97.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 104.
  (C:\Users\alons\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ) [2] (proposal.bbl) [3] (proposal.aux)
@@ -259,14 +262,14 @@ Package rerunfilecheck Info: File `proposal.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  7606 strings out of 478582
- 122637 string characters out of 2844344
+ 122703 string characters out of 2844344
  416665 words of memory out of 3000000
  25685 multiletter control sequences out of 15000+600000
  501846 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,13n,77p,355b,343s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 75i,13n,77p,361b,383s stack positions out of 10000i,1000n,20000p,200000b,80000s
 {C:/Users/alons/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/alons/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Users/alons/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/alons/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/alons/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/alons/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on proposal.pdf (3 pages, 91847 bytes).
+Output written on proposal.pdf (3 pages, 92187 bytes).
 PDF statistics:
  113 PDF objects out of 1000 (max. 8388607)
  29 named destinations out of 1000 (max. 500000)

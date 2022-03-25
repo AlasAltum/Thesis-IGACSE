@@ -10,7 +10,8 @@ var down
 var circle = preload("res://Node/Circle.tscn")
 var edge = preload("res://Node/Edge.tscn")
 
-var nodes_positions : Array = []
+var nodes_positions : PoolVector2Array = []
+var nodes : Array = []  # PoolAGraphNodeArray
 var json = {
 	"n": 3,
 	"matrix": [],
@@ -23,7 +24,9 @@ func create_nodes_with_weights(num_nodes: int, max_weight: int, density: float):
 		json["matrix"].append([])
 		for j in range(num_nodes):
 			if randf() < density and i != j:
-				json["matrix"][i].append(rand_range(1.0, max_weight)) 
+				json["matrix"][i].append(
+					stepify( rand_range(1.0, max_weight), 0.01)
+				) 
 			else:
 				json["matrix"][i].append(0.0)
 
@@ -35,7 +38,7 @@ func _ready():
 	up = + self.screen_size.y
 	down = 100
 	randomize()
-	create_nodes_with_weights(7, 5, 0.3)
+	create_nodes_with_weights(5, 5, 0.2)
 
 	instance_nodes()
 	instance_edges()
@@ -47,8 +50,8 @@ func _on_node_instanced(node: AGraphNode):
 	node.set_edges(self.json['matrix'][node.index])
 	self.nodes_positions.append(
 		node.init_radial_position(json["n"])
-		# node.init_random_position(left, right, down, up)
 	)
+	self.nodes.append(node)
 
 func instance_nodes():
 	for _i in range(json['matrix'].size()):
