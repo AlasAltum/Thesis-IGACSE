@@ -1,14 +1,16 @@
 extends Area2D
 
-var receiver_node: Node2D
-var selected : bool = false
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
 
 
+# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	pass # Replace with function body.
 
 
-func _on_Area2D_input_event(viewport, event, shape_idx):
-	if (event is InputEventMouseButton && event.pressed):
-		if (event.button_index == BUTTON_LEFT):
-			receiver_node._on_presed()
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass

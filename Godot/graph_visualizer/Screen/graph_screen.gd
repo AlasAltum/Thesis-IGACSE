@@ -1,7 +1,6 @@
 extends Node2D
 class_name GraphManager
 
-onready var timer = $Timer
 var screen_size : Vector2
 var left
 var right
@@ -16,6 +15,7 @@ var json = {
 	"n": 3,
 	"matrix": [],
 }
+
 
 func create_nodes_with_weights(num_nodes: int, max_weight: int, density: float):
 	json["n"] = num_nodes
@@ -69,13 +69,14 @@ func instance_edges():
 
 func instance_edge_between_nodes(node_idx1: int, node_idx2: int, label: String):
 	# Adds an edge with label between the nodes with the given indexes
-	var curr_edge : Edge = edge.instance()
+	var curr_edge = edge.instance()
 	curr_edge.set_name("Edge_%s_to_%s" % [str(node_idx1), str(node_idx2)])
 	
 	self.add_child(curr_edge)
-	curr_edge.set_label_and_positions(
-		nodes_positions[node_idx1],  # pos node_idx1,
-		nodes_positions[node_idx2],  # pos node_idx2,
+	curr_edge.set_label_and_positions_with_nodes(
+		nodes[node_idx1],  # pos node_idx1,
+		nodes[node_idx2],  # pos node_idx2,
 		label  # label
 	)
+
 

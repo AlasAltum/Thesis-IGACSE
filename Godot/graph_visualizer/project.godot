@@ -9,15 +9,15 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Sprite",
+"base": "KinematicBody2D",
 "class": "AGraphNode",
 "language": "GDScript",
-"path": "res://Node/Node.gd"
+"path": "res://Node/graph_node.gd"
 }, {
-"base": "Node2D",
+"base": "PinJoint2D",
 "class": "Edge",
 "language": "GDScript",
-"path": "res://Node/Edge.gd"
+"path": "res://Node/edge.gd"
 }, {
 "base": "Resource",
 "class": "EdgeCrossingsMinimization",
@@ -41,9 +41,13 @@ _global_script_class_icons={
 config/name="GraphVisualizator"
 config/description="Visualization for Graphs"
 run/main_scene="res://Main.tscn"
-config/use_hidden_project_data_directory=false
 config/use_custom_user_dir=true
 config/icon="res://Node/white-circle.png"
+config/use_hidden_project_data_directory=false
+
+[autoload]
+
+StoredData="*res://autoloads/stored_data.gd"
 
 [gdnative]
 

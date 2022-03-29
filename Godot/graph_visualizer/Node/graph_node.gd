@@ -1,16 +1,19 @@
-extends Sprite
+extends KinematicBody2D
 class_name AGraphNode
 
-onready var area : Area2D = $Area2D
-onready var node_name: Label = $NodeName
+onready var node_name: Label = $Sprite/NodeName
 var selected : bool = false
-var index : int
+var index : int = 0
 var edges : Array
-var radius = 200
+var radius: int = 200
+var pressed: bool = false
+
+var can_grab: bool = false
+var grabbed_offset: Vector2 = Vector2()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	area.receiver_node = self
+	add_to_group("Nodes")
 	randomize()
 
 func init_radial_position(total_nodes: int):
@@ -27,14 +30,23 @@ func init_random_position(left, right, down, up):
 func set_index(_index: int):
 	self.index = _index
 	node_name.text = str(self.index)
-	
 
 func set_edges(_edges: Array):
 	self.edges = _edges
 
-func _on_presed():
+func on_simple_press():
 	self.selected = true
 	self.modulate = Color(1.0, 1.0, 0.0, 0.8)
 	node_name.modulate = Color(0.0, 1.0, 0.0, 1.0)
-	# var font = node_name.get("custom_fonts/font")
+
+
+func _input_event(_viewport, event, _shape_idx):
+	if event is InputEventMouseButton:
+		can_grab = event.pressed
+		grabbed_offset = position - get_global_mouse_position()
+
+func _process(_delta):
+	if Input.is_mouse_button_pressed(BUTTON_LEFT) and can_grab:
+		position = get_global_mouse_position() + grabbed_offset
+
 
