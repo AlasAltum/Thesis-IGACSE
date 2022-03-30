@@ -1,3 +1,4 @@
 [gd_resource type="Theme" format=2]
 
 [resource]
+VBoxContainer/colors/Vbox = Color( 1, 0, 0, 1 )

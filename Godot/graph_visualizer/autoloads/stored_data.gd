@@ -1,7 +1,7 @@
 extends Node2D
 # class_name StoredData
 
-enum mov_status {SELECT, DRAG}
+enum mov_status {SELECT = 0, DRAG = 1}
 var status : int = mov_status.DRAG;
 
 const status_map = {

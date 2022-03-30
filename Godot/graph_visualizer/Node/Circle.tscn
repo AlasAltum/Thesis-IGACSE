@@ -4,13 +4,13 @@
 [ext_resource path="res://Node/graph_node.gd" type="Script" id=2]
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Bold.ttf" type="DynamicFontData" id=4]
 
-[sub_resource type="CircleShape2D" id=3]
-radius = 39.0
+[sub_resource type="CircleShape2D" id=1]
+radius = 39.3722
 
-[sub_resource type="CanvasItemMaterial" id=1]
+[sub_resource type="CanvasItemMaterial" id=2]
 blend_mode = 1
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 80
 outline_size = 5
 outline_color = Color( 0, 0, 0, 1 )
@@ -19,19 +19,20 @@ font_data = ExtResource( 4 )
 
 [node name="RigidBody2D" type="KinematicBody2D"]
 input_pickable = true
+motion/sync_to_physics = true
 script = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.44545, 0.222725 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-material = SubResource( 1 )
+material = SubResource( 2 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 1 )
 
@@ -40,7 +41,7 @@ margin_left = -16.6667
 margin_top = -53.3333
 margin_right = 23.3333
 margin_bottom = 51.6667
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "5"
 __meta__ = {
 "_edit_use_anchors_": false

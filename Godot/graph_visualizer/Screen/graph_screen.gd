@@ -2,10 +2,10 @@ extends Node2D
 class_name GraphManager
 
 var screen_size : Vector2
-var left
-var right
-var up
-var down
+var left: int
+var right: int
+var up: int
+var down: int
 var circle = preload("res://Node/Circle.tscn")
 var edge = preload("res://Node/Edge.tscn")
 
@@ -46,12 +46,12 @@ func _ready():
 
 func _on_node_instanced(node: AGraphNode):
 	# Set index and edges for node
-	node.set_index(self.nodes_positions.size())
+	node.set_index(self.nodes.size())
 	node.set_edges(self.json['matrix'][node.index])
-	self.nodes_positions.append(
-		node.init_radial_position(json["n"])
-	)
+	node.init_radial_position(json["n"])
+	
 	self.nodes.append(node)
+
 
 func instance_nodes():
 	for _i in range(json['matrix'].size()):
@@ -80,3 +80,9 @@ func instance_edge_between_nodes(node_idx1: int, node_idx2: int, label: String):
 	)
 
 
+func _on_AllowGraphMovementButton_pressed():
+	StoredData.set_status("DRAG")
+
+
+func _on_SelectNodeButton_pressed():
+	StoredData.set_status("SELECT")

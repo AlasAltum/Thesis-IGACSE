@@ -34,19 +34,34 @@ func set_index(_index: int):
 func set_edges(_edges: Array):
 	self.edges = _edges
 
-func on_simple_press():
+func on_simple_press_left():
 	self.selected = true
 	self.modulate = Color(1.0, 1.0, 0.0, 0.8)
 	node_name.modulate = Color(0.0, 1.0, 0.0, 1.0)
 
-
+func on_simple_press_right():
+	self.selected = false
+	self.modulate = Color(1.0, 1.0, 1.0, 1.0)
+	node_name.modulate = Color(1.0, 1.0, 1.0, 1.0)
+	
 func _input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		can_grab = event.pressed
 		grabbed_offset = position - get_global_mouse_position()
 
 func _process(_delta):
-	if Input.is_mouse_button_pressed(BUTTON_LEFT) and can_grab:
-		position = get_global_mouse_position() + grabbed_offset
+	if can_grab:
+		if Input.is_mouse_button_pressed(BUTTON_LEFT):
 
+			match StoredData.get_status():
+				StoredData.mov_status.DRAG:
+					position = get_global_mouse_position() + grabbed_offset
+				StoredData.mov_status.SELECT:
+					on_simple_press_left()
+				# _:
+				# 	pass
 
+		elif Input.is_mouse_button_pressed(BUTTON_RIGHT):
+			match StoredData.get_status():
+				StoredData.mov_status.SELECT:
+					on_simple_press_right()
