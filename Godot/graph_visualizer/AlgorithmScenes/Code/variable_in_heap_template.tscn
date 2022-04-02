@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://AlgorithmScenes/Code/debug_font.tres" type="DynamicFont" id=1]
+
+[node name="Variable" type="Label"]
+margin_top = 31.0
+margin_right = 378.0
+margin_bottom = 73.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.254902, 0.980392, 0.215686, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

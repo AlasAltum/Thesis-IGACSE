@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://AlgorithmScenes/Code/CodeLine.gd" type="Script" id=1]
+[ext_resource path="res://AlgorithmScenes/Code/code_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://AlgorithmScenes/Code/InstructionPointer.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Theme" id=1]
+default_font = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.24, 0.24, 0.24, 1 )
+border_color = Color( 1, 1, 1, 1 )
+
+[node name="PanelContainer" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -558.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = SubResource( 1 )
+custom_styles/panel = SubResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+code_text = "code_here()"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 1920.0
+margin_bottom = 522.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_right = 1920.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="InstructionPointer" parent="MarginContainer/HBoxContainer" instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 9.71564, 23.3343 )
+
+[node name="Tab" type="Label" parent="MarginContainer/HBoxContainer"]
+margin_right = 28.0
+margin_bottom = 42.0
+text = "    "
+
+[node name="CodeText" type="Label" parent="MarginContainer/HBoxContainer"]
+margin_left = 32.0
+margin_right = 158.0
+margin_bottom = 42.0
+text = "code_here()"

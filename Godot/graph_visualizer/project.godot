@@ -14,33 +14,57 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Node/graph_node.gd"
 }, {
-"base": "HBoxContainer",
+"base": "ScrollContainer",
+"class": "CodeContainer",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/Code/code_block.gd"
+}, {
+"base": "PanelContainer",
 "class": "CodeLine",
 "language": "GDScript",
-"path": "res://Screen/Code/CodeLine.gd"
+"path": "res://AlgorithmScenes/Code/CodeLine.gd"
+}, {
+"base": "ScrollContainer",
+"class": "DebugBlock",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/Code/debug_block.gd"
 }, {
 "base": "Resource",
 "class": "EdgeCrossingsMinimization",
 "language": "GDScript",
-"path": "res://Screen/edge_crossing_minimization.gd"
+"path": "res://AlgorithmScenes/Screen/edge_crossing_minimization.gd"
+}, {
+"base": "Resource",
+"class": "EffectCheck",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/Code/effect_check.gd"
 }, {
 "base": "Node2D",
 "class": "GraphManager",
 "language": "GDScript",
-"path": "res://Screen/graph_screen.gd"
+"path": "res://AlgorithmScenes/Screen/graph_screen.gd"
+}, {
+"base": "Panel",
+"class": "Slot",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/Screen/slot.gd"
 } ]
 _global_script_class_icons={
 "AGraphNode": "",
+"CodeContainer": "",
 "CodeLine": "",
+"DebugBlock": "",
 "EdgeCrossingsMinimization": "",
-"GraphManager": ""
+"EffectCheck": "",
+"GraphManager": "",
+"Slot": ""
 }
 
 [application]
 
 config/name="GraphVisualizator"
 config/description="Visualization for Graphs"
-run/main_scene="res://MainTemplate.tscn"
+run/main_scene="res://AlgorithmScenes/BFSAlgorithm/BFS.tscn"
 config/use_custom_user_dir=true
 config/icon="res://Node/white-circle.png"
 config/use_hidden_project_data_directory=false
@@ -49,9 +73,22 @@ config/use_hidden_project_data_directory=false
 
 StoredData="*res://autoloads/stored_data.gd"
 
+[display]
+
+window/size/width=1920
+window/size/height=1080
+
 [gdnative]
 
 singletons=[  ]
+
+[input]
+
+code_advance={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [rendering]
 

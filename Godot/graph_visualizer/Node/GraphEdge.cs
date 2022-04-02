@@ -16,7 +16,6 @@ public class GraphEdge : PinJoint2D
     public override void _Ready()
     {
         base._Ready();
-        GD.Print("owo");
         this.SetProcess(false);
         curr_label = GetNode<Label>("Label");
         line = GetNode<Line2D>("Line2D");

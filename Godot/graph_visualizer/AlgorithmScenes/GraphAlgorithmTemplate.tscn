@@ -1,0 +1,188 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://AlgorithmScenes/Code/CodeLine.tscn" type="PackedScene" id=1]
+[ext_resource path="res://OneToggleButtonVBoxContaner.cs" type="Script" id=2]
+[ext_resource path="res://AlgorithmScenes/Code/code_block.gd" type="Script" id=3]
+[ext_resource path="res://AlgorithmScenes/Code/null_effect.gd" type="Script" id=4]
+[ext_resource path="res://AlgorithmScenes/Screen/graph_screen.gd" type="Script" id=5]
+[ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Bold.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://AlgorithmScenes/Screen/button_theme.tres" type="Theme" id=7]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0.396078, 1, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.6, 0.6, 0.24, 1 )
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.24, 0.24, 0.24, 1 )
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.24, 0.24, 0.24, 1 )
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.24, 0.24, 0.24, 1 )
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+border_color = Color( 1, 0, 0, 1 )
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="DynamicFont" id=7]
+size = 20
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="Theme" id=8]
+default_font = SubResource( 7 )
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CodeBlock" type="ScrollContainer" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -405.892
+margin_top = 5.0
+margin_right = -16.8921
+margin_bottom = 221.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/bg = SubResource( 1 )
+scroll_horizontal_enabled = false
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="LinesContainer" type="VBoxContainer" parent="CanvasLayer/CodeBlock"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 385.0
+margin_bottom = 172.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_constants/separation = 0
+
+[node name="PanelContainer" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 380.0
+margin_bottom = 42.0
+custom_styles/panel = SubResource( 2 )
+focused = true
+code_text = "BFS():"
+effect_check = ExtResource( 4 )
+
+[node name="PanelContainer3" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 42.0
+margin_right = 380.0
+margin_bottom = 84.0
+size_flags_horizontal = 1
+custom_styles/panel = SubResource( 3 )
+line_index = 1
+code_text = "    take_node_0();"
+effect_check = ExtResource( 4 )
+
+[node name="PanelContainer2" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 84.0
+margin_right = 380.0
+margin_bottom = 126.0
+size_flags_horizontal = 1
+custom_styles/panel = SubResource( 4 )
+line_index = 1
+code_text = "    take_edge_1();"
+effect_check = ExtResource( 4 )
+
+[node name="PanelContainer4" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 126.0
+margin_right = 380.0
+margin_bottom = 168.0
+size_flags_horizontal = 1
+custom_styles/panel = SubResource( 5 )
+line_index = 1
+code_text = "    take_node_0();"
+effect_check = ExtResource( 4 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+margin_left = 9.48879
+margin_top = 9.06835
+margin_right = 213.489
+margin_bottom = 145.068
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer"]
+margin_right = 204.0
+margin_bottom = 135.0
+custom_styles/panel = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OneToggleButtonVBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 194.0
+margin_bottom = 125.0
+theme = SubResource( 8 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+available_modes = [ "SelectNode", "AllowGraphMovement" ]
+
+[node name="SelectNodeButton" type="Button" parent="CanvasLayer/MarginContainer/PanelContainer/OneToggleButtonVBoxContainer"]
+margin_right = 184.0
+margin_bottom = 33.0
+toggle_mode = true
+text = "Select Mode"
+
+[node name="AllowGraphMovementButton" type="Button" parent="CanvasLayer/MarginContainer/PanelContainer/OneToggleButtonVBoxContainer"]
+margin_top = 37.0
+margin_right = 184.0
+margin_bottom = 70.0
+theme = ExtResource( 7 )
+toggle_mode = true
+pressed = true
+text = " Move Nodes Mode"
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/PanelContainer/OneToggleButtonVBoxContainer/SelectNodeButton" to="." method="_on_SelectNodeButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/PanelContainer/OneToggleButtonVBoxContainer/AllowGraphMovementButton" to="." method="_on_AllowGraphMovementButton_pressed"]

@@ -4,6 +4,7 @@
 
 # notes
 apuntes.txt
+*.pptx
 
 ### Godot ###
 # Godot-specific ignores
