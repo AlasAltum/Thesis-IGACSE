@@ -405,10 +405,8 @@ __meta__ = {
 
 [connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/SelectNodeButton" to="." method="_on_SelectNodeButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/AllowGraphMovementButton" to="." method="_on_AllowGraphMovementButton_pressed"]
-[connection signal="input_event" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_exited"]
-[connection signal="text_entered" from="Popup/NameAssign" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_NameAssign_text_entered"]
 [connection signal="text_entered" from="Popup/NameAssign" to="Popup" method="_on_NameAssign_text_entered"]
 
 [editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer"]
