@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://AlgorithmScenes/Screen/following_mouse_texture.gd" type="Script" id=1]
+[ext_resource path="res://AlgorithmScenes/Screen/structure_queue.png" type="Texture" id=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float amplitude = 1.0;
+uniform float offset = 0.5;
+uniform float freq = 4.0;
+
+void vertex() {
+	VERTEX.x = (sin(TIME * freq) + offset) * amplitude * VERTEX.x;
+	VERTEX.y = (sin(TIME * freq) + offset) * amplitude * VERTEX.y;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/amplitude = 0.01
+shader_param/offset = 50.0
+shader_param/freq = 7.0
+
+[node name="FollowingMouseTexture" type="Node2D"]
+modulate = Color( 1, 1, 1, 0.352941 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 1 )
+
+[node name="DataStructureTexture" type="TextureRect" parent="."]
+material = SubResource( 2 )
+margin_right = 100.0
+margin_bottom = 100.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

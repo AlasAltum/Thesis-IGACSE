@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "ADT",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/Code/ADTs/adt.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "AGraphNode",
 "language": "GDScript",
@@ -40,9 +45,19 @@ _global_script_classes=[ {
 "path": "res://AlgorithmScenes/Code/effect_check.gd"
 }, {
 "base": "Node2D",
+"class": "FollowingMouseTexture",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/Screen/following_mouse_texture.gd"
+}, {
+"base": "Node2D",
 "class": "GraphManager",
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Screen/graph_screen.gd"
+}, {
+"base": "ADT",
+"class": "QueueADT",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/Code/ADTs/queue_adt.gd"
 }, {
 "base": "Panel",
 "class": "Slot",
@@ -50,13 +65,16 @@ _global_script_classes=[ {
 "path": "res://AlgorithmScenes/Screen/slot.gd"
 } ]
 _global_script_class_icons={
+"ADT": "",
 "AGraphNode": "",
 "CodeContainer": "",
 "CodeLine": "",
 "DebugBlock": "",
 "EdgeCrossingsMinimization": "",
 "EffectCheck": "",
+"FollowingMouseTexture": "",
 "GraphManager": "",
+"QueueADT": "",
 "Slot": ""
 }
 

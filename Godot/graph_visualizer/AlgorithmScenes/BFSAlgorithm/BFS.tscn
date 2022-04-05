@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://OneToggleButtonVBoxContaner.cs" type="Script" id=1]
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Bold.ttf" type="DynamicFontData" id=2]
@@ -12,8 +12,10 @@
 [ext_resource path="res://AlgorithmScenes/Screen/Slot.tscn" type="PackedScene" id=10]
 [ext_resource path="res://AlgorithmScenes/Code/debug_block.gd" type="Script" id=11]
 [ext_resource path="res://AlgorithmScenes/Screen/structure_queue.png" type="Texture" id=12]
+[ext_resource path="res://AlgorithmScenes/Code/ADTs/queue_adt.gd" type="Script" id=13]
+[ext_resource path="res://AlgorithmScenes/Screen/popup_for_object_creation.gd" type="Script" id=14]
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 4.0
 content_margin_right = 4.0
 content_margin_top = 4.0
@@ -29,8 +31,16 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.6, 0.6, 0.24, 1 )
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.24, 0.24, 0.24, 1 )
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.24, 0.24, 0.24, 1 )
 border_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="StyleBoxFlat" id=5]
@@ -38,14 +48,6 @@ bg_color = Color( 0.24, 0.24, 0.24, 1 )
 border_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0.24, 0.24, 0.24, 1 )
-border_color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="StyleBoxFlat" id=7]
-bg_color = Color( 0.24, 0.24, 0.24, 1 )
-border_color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 10.0
@@ -58,15 +60,15 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 anti_aliasing = false
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=7]
 size = 20
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="Theme" id=3]
-default_font = SubResource( 2 )
+[sub_resource type="Theme" id=8]
+default_font = SubResource( 7 )
 
 [sub_resource type="DynamicFont" id=9]
 size = 20
@@ -75,6 +77,9 @@ outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 9 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 100.442, 152.984 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 4 )
@@ -90,7 +95,7 @@ margin_right = -16.8921
 margin_bottom = 221.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/bg = SubResource( 8 )
+custom_styles/bg = SubResource( 1 )
 scroll_horizontal_enabled = false
 script = ExtResource( 7 )
 __meta__ = {
@@ -110,19 +115,19 @@ custom_constants/separation = 0
 [node name="PanelContainer" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 381.0
+margin_right = 380.0
 margin_bottom = 42.0
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 2 )
 focused = true
 code_text = "BFS(starting_node=0):"
 effect_check = ExtResource( 5 )
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer" index="0"]
-margin_right = 381.0
+margin_right = 380.0
 margin_bottom = 42.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer/MarginContainer" index="0"]
-margin_right = 381.0
+margin_right = 380.0
 
 [node name="InstructionPointer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer/MarginContainer/HBoxContainer" index="0"]
 visible = true
@@ -135,10 +140,10 @@ text = "BFS(starting_node=0):"
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 42.0
-margin_right = 381.0
+margin_right = 380.0
 margin_bottom = 84.0
 size_flags_horizontal = 1
-custom_styles/panel = SubResource( 5 )
+custom_styles/panel = SubResource( 3 )
 line_index = 1
 code_text = "    t = starting_node;"
 effect_check = ExtResource( 8 )
@@ -147,20 +152,20 @@ effect_check = ExtResource( 8 )
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 84.0
-margin_right = 381.0
+margin_right = 380.0
 margin_bottom = 126.0
 size_flags_horizontal = 1
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 4 )
 line_index = 1
 code_text = "    q = Queue();"
 effect_check = ExtResource( 5 )
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2" index="0"]
-margin_right = 381.0
+margin_right = 380.0
 margin_bottom = 42.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2/MarginContainer" index="0"]
-margin_right = 381.0
+margin_right = 380.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2/MarginContainer/HBoxContainer" index="2"]
 margin_right = 194.0
@@ -170,10 +175,10 @@ text = "    q = Queue();"
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 126.0
-margin_right = 381.0
+margin_right = 380.0
 margin_bottom = 168.0
 size_flags_horizontal = 1
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 5 )
 line_index = 1
 code_text = "    take_node_0();"
 effect_check = ExtResource( 5 )
@@ -190,6 +195,7 @@ __meta__ = {
 [node name="ModeSelector" type="MarginContainer" parent="CanvasLayer/LeftPanel"]
 margin_right = 205.0
 margin_bottom = 90.0
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -197,7 +203,7 @@ __meta__ = {
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/LeftPanel/ModeSelector"]
 margin_right = 205.0
 margin_bottom = 90.0
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -207,7 +213,7 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = 195.0
 margin_bottom = 80.0
-theme = SubResource( 3 )
+theme = SubResource( 8 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -234,8 +240,9 @@ margin_top = 94.0
 margin_right = 205.0
 margin_bottom = 394.0
 rect_min_size = Vector2( 0, 300 )
+mouse_filter = 2
 size_flags_horizontal = 3
-custom_styles/bg = SubResource( 8 )
+custom_styles/bg = SubResource( 1 )
 scroll_horizontal_enabled = false
 script = ExtResource( 11 )
 __meta__ = {
@@ -247,23 +254,36 @@ __meta__ = {
 margin_left = 4.0
 margin_top = 4.0
 margin_right = 201.0
-margin_bottom = 31.0
+margin_bottom = 35.0
+mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/LeftPanel/DebugBlock/LinesContainer"]
 margin_right = 197.0
-margin_bottom = 27.0
+mouse_filter = 2
 size_flags_horizontal = 3
 
-[node name="DebuggerTitle" type="Label" parent="CanvasLayer/LeftPanel/DebugBlock/LinesContainer/CenterContainer"]
-margin_left = 79.0
-margin_right = 117.0
-margin_bottom = 27.0
+[node name="DebuggerTitle" type="Label" parent="CanvasLayer/LeftPanel/DebugBlock/LinesContainer"]
+margin_top = 4.0
+margin_right = 197.0
+margin_bottom = 31.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 custom_fonts/font = SubResource( 9 )
 text = "Heap"
+align = 1
 uppercase = true
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/LeftPanel/DebugBlock"]
+position = Vector2( 41.2171, -0.0319672 )
+z_index = 15
+z_as_relative = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/LeftPanel/DebugBlock/Area2D"]
+position = Vector2( 60.6882, 147.465 )
+z_index = 5
+z_as_relative = false
+shape = SubResource( 10 )
 
 [node name="ADTSelectionPanel" type="MarginContainer" parent="CanvasLayer/LeftPanel"]
 margin_top = 398.0
@@ -280,7 +300,7 @@ __meta__ = {
 margin_right = 205.0
 margin_bottom = 200.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -296,9 +316,8 @@ margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 custom_fonts/font = SubResource( 9 )
-text = "Heap"
+text = "Data Structures"
 align = 1
-uppercase = true
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer"]
 margin_top = 31.0
@@ -314,10 +333,9 @@ columns = 2
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 40.0
-grow_horizontal = 1
-grow_vertical = 1
 hover_text = "Queue"
 slot_texture = ExtResource( 12 )
+generated_adt = ExtResource( 13 )
 
 [node name="Slot2" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 10 )]
 anchor_right = 0.0
@@ -351,8 +369,47 @@ grow_vertical = 1
 rect_min_size = Vector2( 40, 40 )
 hover_text = "Set"
 
+[node name="Popup" type="WindowDialog" parent="."]
+visible = true
+margin_left = 523.0
+margin_top = 234.0
+margin_right = 1035.0
+margin_bottom = 393.0
+popup_exclusive = true
+window_title = "Assign name to Data Structure"
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Explanation" type="Label" parent="Popup"]
+margin_left = -1.0
+margin_top = 15.0
+margin_right = 511.0
+margin_bottom = 133.0
+size_flags_horizontal = 3
+text = "You are about to create a Queue, please, specify its name"
+align = 1
+autowrap = true
+
+[node name="NameAssign" type="LineEdit" parent="Popup"]
+margin_left = 66.0
+margin_top = 44.0
+margin_right = 441.0
+margin_bottom = 84.0
+align = 1
+placeholder_text = "Variable/Object name..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/SelectNodeButton" to="." method="_on_SelectNodeButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/AllowGraphMovementButton" to="." method="_on_AllowGraphMovementButton_pressed"]
+[connection signal="input_event" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_input_event"]
+[connection signal="mouse_entered" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_exited"]
+[connection signal="text_entered" from="Popup/NameAssign" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_NameAssign_text_entered"]
+[connection signal="text_entered" from="Popup/NameAssign" to="Popup" method="_on_NameAssign_text_entered"]
 
 [editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer"]
 [editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2"]

@@ -30,8 +30,8 @@ func create_nodes_with_weights(num_nodes: int, max_weight: int, density: float):
 func _ready():
 	self.screen_size = get_viewport().get_visible_rect().size
 	left = 100
-	right = + self.screen_size.x
-	up = + self.screen_size.y
+	right = + int(self.screen_size.x)
+	up = + int(self.screen_size.y)
 	down = 100
 	randomize()
 	create_nodes_with_weights(5, 5, 0.2)
@@ -44,7 +44,6 @@ func _on_node_instanced(node: AGraphNode):
 	node.set_index(StoredData.nodes.size())
 	node.set_edges(StoredData.json['matrix'][node.index])
 	node.init_radial_position(StoredData.json["n"])
-	
 	StoredData.nodes.append(node)
 
 
