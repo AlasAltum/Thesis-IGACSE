@@ -13,6 +13,9 @@ onready var instruction_pointer : Sprite = $MarginContainer/HBoxContainer/Instru
 const NOT_SELECTED_COLOR: Color = Color(0.24, 0.24, 0.24, 1.0);
 const SELECTED_COLOR: Color = Color(0.6, 0.6, 0.24, 1.0);
 
+var unfocused_style: StyleBox = preload("res://AlgorithmScenes/Code/default_line_code_style.tres")
+var focused_style: StyleBox = preload("res://AlgorithmScenes/Code/focused_line_code_style.tres")
+
 
 func _ready():
 	code_label.text = code_text
@@ -28,8 +31,10 @@ func _on_focused():
 	if instruction_pointer:
 		instruction_pointer.visible = true
 
-	var stylebox = get_stylebox("panel") # .duplicate()
-	stylebox.bg_color = SELECTED_COLOR
+	add_stylebox_override("panel", focused_style)
+#	var stylebox = get_stylebox("panel")
+#	print(stylebox)
+#	stylebox.bg_color = SELECTED_COLOR
 
 
 # TODO: debug purpose only, erase
@@ -38,8 +43,9 @@ func not_focused():
 	if instruction_pointer:
 		instruction_pointer.visible = false
 
-	var stylebox = get_stylebox("panel") # .duplicate()
-	stylebox.bg_color = NOT_SELECTED_COLOR
+	add_stylebox_override("panel", unfocused_style)
+#	var stylebox = get_stylebox("panel")
+#	stylebox.bg_color = NOT_SELECTED_COLOR
 
 func focus():
 	focused = true

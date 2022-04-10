@@ -28,13 +28,13 @@ func set_status(incoming_state: String):
 	self.status = status_map[incoming_state]
 
 
-func variable_exists(variable_name: String):
+func has_variable(variable_name: String):
 	return variable_name in heap_dictionary or heap.has_variable(variable_name)
 
 
 func add_variable(var_name, data):
 	if heap:
-		if variable_exists(var_name):
+		if has_variable(var_name):
 			heap.modify_variable(var_name, data)
 		else:
 			heap.add_variable(var_name, data)
@@ -77,3 +77,9 @@ func _on_correct_variable_creation(variable_name: String):
 	self.dragged_adt = null
 
 
+func get_data_type_of_variable(var_name: String):
+	# Case there is no data type for that
+	if not self.has_variable(var_name):
+		return ""
+	print(str(heap_dictionary[var_name]))
+	return str(heap_dictionary[var_name])
