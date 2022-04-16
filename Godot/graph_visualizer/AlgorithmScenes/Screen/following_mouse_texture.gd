@@ -22,3 +22,7 @@ func get_adt_name():
 func as_variable():
 	if resource:
 		return resource.as_variable()
+
+func get_object():
+	if resource:
+		return resource.get_object()

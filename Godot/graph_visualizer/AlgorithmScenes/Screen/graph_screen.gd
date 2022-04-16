@@ -34,7 +34,7 @@ func _ready():
 	up = + int(self.screen_size.y)
 	down = 100
 	randomize()
-	create_nodes_with_weights(5, 5, 0.2)
+	create_nodes_with_weights(10, 5, 0.2)
 
 	instance_nodes()
 	instance_edges()
@@ -44,6 +44,9 @@ func _on_node_instanced(node: AGraphNode):
 	node.set_index(StoredData.nodes.size())
 	node.set_edges(StoredData.json['matrix'][node.index])
 	node.init_radial_position(StoredData.json["n"])
+	
+	node.connect("node_add_to_object", self, "_on_node_add_to_object")
+	
 	StoredData.nodes.append(node)
 
 
@@ -80,3 +83,9 @@ func _on_AllowGraphMovementButton_pressed():
 
 func _on_SelectNodeButton_pressed():
 	StoredData.set_status("SELECT")
+
+
+func _on_node_add_to_object(node: AGraphNode):
+	var add_node_popup : AddNodePopup = $AddNodePopup
+	add_node_popup.popup()
+	add_node_popup.incoming_node = node

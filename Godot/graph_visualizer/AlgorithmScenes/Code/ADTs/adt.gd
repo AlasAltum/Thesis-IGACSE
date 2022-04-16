@@ -9,8 +9,12 @@ extends Resource
 func _ready():
 	pass # Replace with function body.
 
-static func get_adt_name():
+static func get_type() -> String:
 	return "Abstract Object Name"
 
-static func as_variable() -> String:
+func as_variable() -> String:
 	return "Abstract Object"
+
+func get_object() -> Object:
+	return self
+

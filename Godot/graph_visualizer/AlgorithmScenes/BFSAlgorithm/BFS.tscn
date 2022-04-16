@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://OneToggleButtonVBoxContaner.cs" type="Script" id=1]
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Bold.ttf" type="DynamicFontData" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://AlgorithmScenes/Screen/popup_for_object_creation.gd" type="Script" id=14]
 [ext_resource path="res://AlgorithmScenes/BFSAlgorithm/2_queue.gd" type="Script" id=15]
 [ext_resource path="res://AlgorithmScenes/Code/focused_line_code_style.tres" type="StyleBox" id=16]
+[ext_resource path="res://AlgorithmScenes/Screen/popup_for_node_add_to_object.gd" type="Script" id=17]
+[ext_resource path="res://AlgorithmScenes/BFSAlgorithm/3_add_to_queue.gd" type="Script" id=18]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 4.0
@@ -33,7 +35,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=2]
 content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 10.0
@@ -46,17 +48,17 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 anti_aliasing = false
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=3]
 size = 20
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="Theme" id=8]
-default_font = SubResource( 7 )
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=5]
 size = 20
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -64,10 +66,26 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 9 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 100.442, 152.984 )
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=7]
+resource_name = "message_modulation"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
 resource_name = "message_modulation"
 length = 3.0
 tracks/0/type = "value"
@@ -92,9 +110,9 @@ script = ExtResource( 4 )
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -409.0
-margin_top = 12.0
+margin_top = 11.0
 margin_right = -14.0
-margin_bottom = 315.0
+margin_bottom = 526.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/bg = SubResource( 1 )
@@ -109,7 +127,7 @@ __meta__ = {
 margin_left = 4.0
 margin_top = 4.0
 margin_right = 391.0
-margin_bottom = 256.0
+margin_bottom = 508.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 custom_constants/separation = 0
@@ -180,7 +198,7 @@ margin_bottom = 168.0
 size_flags_horizontal = 1
 line_index = 3
 code_text = "    q.add(t);"
-effect_check = ExtResource( 5 )
+effect_check = ExtResource( 18 )
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3" index="0"]
 margin_right = 387.0
@@ -201,6 +219,7 @@ margin_right = 387.0
 margin_bottom = 210.0
 size_flags_horizontal = 1
 line_index = 4
+jump_index = 10
 code_text = "    while q.is_not_empty():"
 effect_check = ExtResource( 5 )
 
@@ -237,34 +256,145 @@ margin_right = 387.0
 margin_right = 198.0
 text = "        v = q.top()"
 
-[node name="PanelContainer6" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 6 )]
+[node name="PanelContainer7" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 252.0
 margin_right = 387.0
-margin_bottom = 252.0
+margin_bottom = 294.0
 size_flags_horizontal = 1
 line_index = 6
-code_text = "    q.add(t);"
+jump_index = 9
+code_text = "        for (Edge u in v.edges()):"
 effect_check = ExtResource( 5 )
 
-[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6" index="0"]
-visible = false
+[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7" index="0"]
 margin_right = 387.0
 margin_bottom = 42.0
 
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6/MarginContainer" index="0"]
-visible = false
+[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7/MarginContainer" index="0"]
 margin_right = 387.0
 
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6/MarginContainer/HBoxContainer" index="2"]
-margin_right = 151.0
-text = "    q.add(t);"
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7/MarginContainer/HBoxContainer" index="2"]
+margin_right = 355.0
+text = "        for (Edge u in v.edges()):"
+
+[node name="PanelContainer8" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 294.0
+margin_right = 387.0
+margin_bottom = 336.0
+size_flags_horizontal = 1
+line_index = 7
+code_text = "            if u is not explored:"
+effect_check = ExtResource( 5 )
+
+[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8" index="0"]
+margin_right = 387.0
+margin_bottom = 42.0
+
+[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8/MarginContainer" index="0"]
+margin_right = 387.0
+
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8/MarginContainer/HBoxContainer" index="2"]
+margin_right = 332.0
+text = "            if u is not explored:"
+
+[node name="PanelContainer9" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 336.0
+margin_right = 387.0
+margin_bottom = 378.0
+size_flags_horizontal = 1
+line_index = 8
+code_text = "                mark_as_explored(u)"
+effect_check = ExtResource( 5 )
+
+[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer9" index="0"]
+margin_right = 387.0
+margin_bottom = 42.0
+
+[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer9/MarginContainer" index="0"]
+margin_right = 387.0
+
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer9/MarginContainer/HBoxContainer" index="2"]
+margin_right = 370.0
+text = "                mark_as_explored(u)"
+
+[node name="PanelContainer10" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 378.0
+margin_right = 387.0
+margin_bottom = 420.0
+size_flags_horizontal = 1
+line_index = 9
+code_text = "                q.add(u)"
+effect_check = ExtResource( 5 )
+
+[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10" index="0"]
+margin_right = 387.0
+margin_bottom = 42.0
+
+[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10/MarginContainer" index="0"]
+margin_right = 387.0
+
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10/MarginContainer/HBoxContainer" index="2"]
+margin_right = 233.0
+text = "                q.add(u)"
+
+[node name="PanelContainer11" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 420.0
+margin_right = 387.0
+margin_bottom = 462.0
+size_flags_horizontal = 1
+line_index = 9
+code_text = "        end for;"
+effect_check = ExtResource( 5 )
+
+[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer11" index="0"]
+margin_right = 387.0
+margin_bottom = 42.0
+
+[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer11/MarginContainer" index="0"]
+margin_right = 387.0
+
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer11/MarginContainer/HBoxContainer" index="2"]
+margin_right = 174.0
+text = "        end for;"
+
+[node name="PanelContainer12" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 462.0
+margin_right = 387.0
+margin_bottom = 504.0
+size_flags_horizontal = 1
+line_index = 9
+code_text = "    end while;"
+effect_check = ExtResource( 5 )
+
+[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer12" index="0"]
+margin_right = 387.0
+margin_bottom = 42.0
+
+[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer12/MarginContainer" index="0"]
+margin_right = 387.0
+
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer12/MarginContainer/HBoxContainer" index="2"]
+margin_right = 175.0
+text = "    end while;"
 
 [node name="LeftPanel" type="VBoxContainer" parent="CanvasLayer"]
 anchor_bottom = 1.0
 margin_left = 1.0
+margin_top = -1.0
 margin_right = 206.0
+margin_bottom = -1.0
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -281,7 +411,7 @@ __meta__ = {
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/LeftPanel/ModeSelector"]
 margin_right = 205.0
 margin_bottom = 90.0
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -291,7 +421,7 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = 195.0
 margin_bottom = 80.0
-theme = SubResource( 8 )
+theme = SubResource( 4 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -347,10 +477,9 @@ margin_right = 197.0
 margin_bottom = 31.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 9 )
-text = "Heap"
+custom_fonts/font = SubResource( 5 )
+text = "Variables"
 align = 1
-uppercase = true
 
 [node name="Area2D" type="Area2D" parent="CanvasLayer/LeftPanel/DebugBlock"]
 position = Vector2( 41.2171, -0.0319672 )
@@ -361,7 +490,7 @@ z_as_relative = false
 position = Vector2( 60.6882, 147.465 )
 z_index = 5
 z_as_relative = false
-shape = SubResource( 10 )
+shape = SubResource( 6 )
 
 [node name="ADTSelectionPanel" type="MarginContainer" parent="CanvasLayer/LeftPanel"]
 margin_top = 398.0
@@ -378,7 +507,7 @@ __meta__ = {
 margin_right = 205.0
 margin_bottom = 200.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -393,7 +522,7 @@ margin_right = 205.0
 margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 5 )
 text = "Data Structures"
 align = 1
 
@@ -448,10 +577,9 @@ rect_min_size = Vector2( 40, 40 )
 hover_text = "Set"
 
 [node name="Popup" type="WindowDialog" parent="."]
-visible = true
-margin_left = 523.0
+margin_left = 524.122
 margin_top = 233.47
-margin_right = 1035.0
+margin_right = 1036.12
 margin_bottom = 392.47
 popup_exclusive = true
 window_title = "Assign name to Data Structure"
@@ -493,7 +621,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Popup/ErrorNotification"]
-anims/message_modulation = SubResource( 11 )
+anims/message_modulation = SubResource( 7 )
 
 [node name="NameAssign" type="LineEdit" parent="Popup"]
 margin_left = 66.0
@@ -519,16 +647,95 @@ __meta__ = {
 
 [node name="Timer" type="Timer" parent="Popup"]
 
+[node name="AddNodePopup" type="WindowDialog" parent="."]
+margin_left = 525.523
+margin_top = 431.922
+margin_right = 1037.52
+margin_bottom = 590.922
+popup_exclusive = true
+window_title = "Add node to object"
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Explanation" type="Label" parent="AddNodePopup"]
+margin_left = 5.0
+margin_top = 13.0
+margin_right = 506.0
+margin_bottom = 39.0
+rect_pivot_offset = Vector2( 265.108, 0 )
+size_flags_horizontal = 3
+text = "You are about to add node of index 0 to a Queue. Insert Object name"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ErrorNotification" type="Label" parent="AddNodePopup"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.1 )
+margin_left = 5.52972
+margin_top = 87.6922
+margin_right = 506.53
+margin_bottom = 113.692
+rect_pivot_offset = Vector2( 265.108, 0 )
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.878431, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 2
+text = "Object is not listed in variables"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AddNodePopup/ErrorNotification"]
+anims/message_modulation = SubResource( 8 )
+
+[node name="NameAssign" type="LineEdit" parent="AddNodePopup"]
+margin_left = 66.0
+margin_top = 44.0
+margin_right = 441.0
+margin_bottom = 84.0
+align = 1
+placeholder_text = "Object name..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnterButton" type="Button" parent="AddNodePopup"]
+modulate = Color( 0.121569, 0.913725, 0, 1 )
+margin_left = 195.42
+margin_top = 118.366
+margin_right = 289.42
+margin_bottom = 144.366
+text = "Enter"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="AddNodePopup"]
+
 [connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/SelectNodeButton" to="." method="_on_SelectNodeButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/AllowGraphMovementButton" to="." method="_on_AllowGraphMovementButton_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_exited"]
 [connection signal="text_entered" from="Popup/NameAssign" to="Popup" method="_on_NameAssign_text_entered"]
 [connection signal="pressed" from="Popup/EnterButton" to="Popup" method="_on_EnterButton_pressed"]
+[connection signal="text_entered" from="AddNodePopup/NameAssign" to="AddNodePopup" method="_on_NameAssign_text_entered"]
+[connection signal="pressed" from="AddNodePopup/EnterButton" to="AddNodePopup" method="_on_EnterButton_pressed"]
 
 [editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0"]
 [editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2"]
 [editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3"]
 [editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4"]
 [editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6"]
+[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7"]
+[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8"]
+[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer9"]
+[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10"]
+[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer11"]
+[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer12"]

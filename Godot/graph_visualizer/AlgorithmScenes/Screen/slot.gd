@@ -22,13 +22,15 @@ func _on_Area2D_mouse_entered():
 func _on_Area2D_mouse_exited():
 	hover_label.visible = false
 
+# When an ADT is pressed in the menu, create an internal resource
 func _on_Area2D_input_event(_viewport, event, _shape_idx):
 	if (event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed 
 		and not StoredData.dragging_adt):
 		# instance texture that follows mouse
-		# Instance FollowingMouseTexture
-		var draggable_adt : FollowingMouseTexture = following_mouse_texture.instance()
-		get_node("/root/Main/CanvasLayer").add_child(draggable_adt)
+		# Instance FollowingMouseTexture		
 		StoredData.dragging_adt = true
-		draggable_adt.resource = generated_adt
+		var draggable_adt : FollowingMouseTexture = following_mouse_texture.instance()
+		draggable_adt.resource = generated_adt.new()
+		get_node("/root/Main/CanvasLayer").add_child(draggable_adt)
 		StoredData.dragged_adt = draggable_adt
+		

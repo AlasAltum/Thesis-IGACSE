@@ -2,6 +2,7 @@ extends KinematicBody2D
 class_name AGraphNode
 
 onready var node_name: Label = $Sprite/NodeName
+onready var popup_menu: Popup = $Popup
 var selected : bool = false
 var index : int = 0
 var edges : Array
@@ -10,6 +11,9 @@ var pressed: bool = false
 
 var can_grab: bool = false
 var grabbed_offset: Vector2 = Vector2()
+
+signal node_add_to_object(node)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,11 +43,23 @@ func on_simple_press_left():
 	self.modulate = Color(1.0, 1.0, 0.0, 0.8)
 	node_name.modulate = Color(0.0, 1.0, 0.0, 1.0)
 
+# Right click menu and actions
 func on_simple_press_right():
+	popup_menu.popup()
+	popup_menu.set_position(self.position)
+
+# with right click menu
+func _on_UnselectButton_pressed():
 	self.selected = false
 	self.modulate = Color(1.0, 1.0, 1.0, 1.0)
 	node_name.modulate = Color(1.0, 1.0, 1.0, 1.0)
-	
+	popup_menu.hide()
+
+# With right click menu
+func _on_AddToObjectButton_pressed():
+	emit_signal("node_add_to_object", self)
+
+
 func _input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		can_grab = event.pressed
@@ -51,17 +67,20 @@ func _input_event(_viewport, event, _shape_idx):
 
 func _process(_delta):
 	if can_grab:
-		if Input.is_mouse_button_pressed(BUTTON_LEFT):
 
+		if Input.is_mouse_button_pressed(BUTTON_LEFT):
 			match StoredData.get_status():
 				StoredData.mov_status.DRAG:
 					position = get_global_mouse_position() + grabbed_offset
 				StoredData.mov_status.SELECT:
 					on_simple_press_left()
-				# _:
-				# 	pass
+
 
 		elif Input.is_mouse_button_pressed(BUTTON_RIGHT):
 			match StoredData.get_status():
 				StoredData.mov_status.SELECT:
 					on_simple_press_right()
+
+
+func as_variable() -> String:
+	return "Node(" + str( self.index) + ")"

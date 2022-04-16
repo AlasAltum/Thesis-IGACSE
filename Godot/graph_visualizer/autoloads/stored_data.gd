@@ -5,7 +5,7 @@ enum mov_status {SELECT = 0, DRAG = 1}
 
 var status : int = mov_status.DRAG;
 var nodes : Array = []  # PoolAGraphNodeArray
-var heap : ScrollContainer  # It is a DebugBlock, but we cannot specify it
+var heap : ScrollContainer  # Class DebugBlock
 var json = {
 	"n": 3,
 	"matrix": [],
@@ -21,25 +21,15 @@ const status_map = {
 	"SELECT": mov_status.SELECT
 }
 
+
+#func _process(_delta):
+#	heap.update_data_with_dictionary(heap_dictionary)
+
 func get_status():
 	return status
 
 func set_status(incoming_state: String):
 	self.status = status_map[incoming_state]
-
-
-func has_variable(variable_name: String):
-	return variable_name in heap_dictionary or heap.has_variable(variable_name)
-
-
-func add_variable(var_name, data):
-	if heap:
-		if has_variable(var_name):
-			heap.modify_variable(var_name, data)
-		else:
-			heap.add_variable(var_name, data)
-		heap_dictionary[var_name] = data  # just replace value
-
 
 func get_selected_nodes() -> Array:
 	var selected_nodes : Array = []
@@ -65,21 +55,43 @@ func make_following_texture_transparent():
 func _on_adt_drop_on_heap():
 	popup = get_tree().get_root().get_node("/root/Main/Popup")
 	popup.visible = true
+	self.dragged_adt.visible = false
+	self.dragging_adt = false
+
 
 # if the variable was correctly created from the ADT Grid
 func _on_correct_variable_creation(variable_name: String):
-	self.dragging_adt = false
 	self.add_variable(
 		variable_name,
-		self.dragged_adt.as_variable()
+		self.dragged_adt.get_object()
 	)
 	self.dragged_adt.queue_free()
 	self.dragged_adt = null
 
 
+func has_variable(variable_name: String):
+	return variable_name in heap_dictionary # or heap.has_variable(variable_name)
+	
+	
+func add_variable(var_name, data):
+	heap_dictionary[var_name] = data
+	_on_data_update()
+
 func get_data_type_of_variable(var_name: String):
 	# Case there is no data type for that
 	if not self.has_variable(var_name):
 		return ""
-	print(str(heap_dictionary[var_name]))
-	return str(heap_dictionary[var_name])
+	return heap_dictionary[var_name].get_type()
+
+
+# add a node to object in variables list
+func add_node_to_object(variable_name: String, node: AGraphNode):
+	if has_variable(variable_name):
+		var var_data = heap_dictionary[variable_name]
+		var_data.add_data(node)  # This method should be special for every ADT
+		heap_dictionary[variable_name] = var_data
+		_on_data_update()
+#		heap.modify_variable(variable_name, var_data)
+
+func _on_data_update():
+	heap.update_data_with_dictionary(self.heap_dictionary)

@@ -18,17 +18,30 @@ func variable_has_valid_name(variable: String):
 func _on_EnterButton_pressed():
 	_on_NameAssign_text_entered(name_assign.text)
 
+func _close_popup():
+	self.visible = false
+
+func show_error():
+	error_label.visible = true
+	error_anim.stop()
+	error_anim.play("message_modulation")
 
 func _on_NameAssign_text_entered(variable: String):
 	if variable_has_valid_name(variable):
 		self.visible = false
 		StoredData._on_correct_variable_creation(variable)
-		return true
+
 	else:
-		error_label.visible = true
-		error_anim.stop()
-		error_anim.play("message_modulation")
+		show_error()
+		return
 
-	return false
+	_close_popup()
 
 
+# ADT Creation flow:
+# When the slot is pressed: StoredData.dragged_adt = draggable_adt by 
+# calling the function Slot._on_Area2D_input_event(_viewport, event, _shape_idx)
+# Then, when the object is dragged to the variables:
+# popup_for_object_creation._on_NameAssign_text_entered(var_name)
+# StoredData._on_correct_variable_creation(var_name)
+# StoredData.add_variable(var_name, StoredData.dragged_adt)

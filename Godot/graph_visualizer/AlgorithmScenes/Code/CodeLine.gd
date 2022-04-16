@@ -3,6 +3,7 @@ extends PanelContainer
 class_name CodeLine
 
 export (int) var line_index = 0
+export (int) var jump_index = 0
 export var focused: bool = false
 export (String) var code_text = 'BFS():'
 export (Resource) var effect_check;
