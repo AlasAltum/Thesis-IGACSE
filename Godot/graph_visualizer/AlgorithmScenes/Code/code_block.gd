@@ -6,6 +6,7 @@ var code_lines: Array = []
 var curr_line_index : int = 0
 var current_line: CodeLine
 
+
 func _ready():
 	for child in lines_container.get_children():
 		if child.get_class() == "CodeLine":
@@ -13,20 +14,22 @@ func _ready():
 	current_line = code_lines[0]
 
 
-func pass_to_next_line() -> void:
-	if curr_line_index < code_lines.size() - 1:
+func advance_to_line(next_line: int) -> void:
+	if next_line < code_lines.size() - 1:
 		code_lines[curr_line_index].unfocus()
-		self.curr_line_index += 1
+		self.curr_line_index = next_line
 		code_lines[curr_line_index].focus()
 		current_line = code_lines[curr_line_index]
 	else:
-		print("Finished!")
-		# TODO: Add notification msg
-	
+		_on_code_finished()
+		# TODO: Add notification msg that ended
+
 
 func _input(event):
 	if event.is_action_pressed("code_advance"):
-		var can_pass_to_next_line: bool = current_line.can_advance_to_next_line()
-		if can_pass_to_next_line:
-			pass_to_next_line()
+		advance_to_line(current_line.get_next_line())
 
+
+
+func _on_code_finished():
+	pass
