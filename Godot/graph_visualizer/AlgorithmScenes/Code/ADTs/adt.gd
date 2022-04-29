@@ -12,7 +12,7 @@ func _ready():
 static func get_type() -> String:
 	return "Abstract Object Name"
 
-func as_variable() -> String:
+func as_string() -> String:
 	return "Abstract Object"
 
 func get_object() -> Object:

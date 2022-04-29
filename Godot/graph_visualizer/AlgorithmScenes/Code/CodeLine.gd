@@ -2,6 +2,7 @@ tool
 extends PanelContainer
 class_name CodeLine
 
+
 export (int) var line_index = 0
 export (int) var jump_index = 0
 export var focused: bool = false
@@ -20,6 +21,10 @@ var focused_style: StyleBox = preload("res://AlgorithmScenes/Code/focused_line_c
 
 func _ready():
 	code_label.text = code_text
+	if self.effect_check:
+		self.effect_check = effect_check.new()
+		if self.effect_check:
+			self.effect_check.set_code_line(self)
 
 func _process(_delta):
 	if focused:
@@ -33,9 +38,6 @@ func _on_focused():
 		instruction_pointer.visible = true
 
 	add_stylebox_override("panel", focused_style)
-#	var stylebox = get_stylebox("panel")
-#	print(stylebox)
-#	stylebox.bg_color = SELECTED_COLOR
 
 
 # TODO: debug purpose only, erase
@@ -45,8 +47,6 @@ func not_focused():
 		instruction_pointer.visible = false
 
 	add_stylebox_override("panel", unfocused_style)
-#	var stylebox = get_stylebox("panel")
-#	stylebox.bg_color = NOT_SELECTED_COLOR
 
 func focus():
 	focused = true
@@ -57,16 +57,23 @@ func unfocus():
 	not_focused()
 
 
-func can_advance_to_next_line():
+# Given the EffectCheck for this code line,
+# Get the next line that should be included
+func get_next_line() -> int:
 	if focused and effect_check:
 		if effect_check.check_actions_correct():
-			print('Well done! Next!')
-			return true
-		else:
-			print('Ohh, its wrong. Keep trying.')
-			return false
-			
-	return false
+			return effect_check.get_next_line()
+	else:
+		print("Error with line N° " + str(line_index))
+
+	return line_index
+
 # Override
 func get_class():
 	return "CodeLine"
+
+func should_jump_to_line() -> bool:
+	return effect_check.should_jump_to_line()
+
+func get_line_jump() -> int:
+	return jump_index

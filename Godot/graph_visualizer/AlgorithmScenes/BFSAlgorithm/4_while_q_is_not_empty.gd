@@ -10,7 +10,7 @@ func check_actions_correct() -> bool:
 func get_next_line() -> int:
 	if StoredData.has_variable("q"):
 		# NEXT LINE
-		if "Queue(Node(" in StoredData.heap_dictionary["q"].as_variable():
+		if "Queue(Node(" in StoredData.heap_dictionary["q"].as_string():
 #			StoredData.execute_jump()
 			return .get_next_line()  # super.get_next_line()
 

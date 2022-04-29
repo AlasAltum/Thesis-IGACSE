@@ -23,6 +23,11 @@ func update_data_with_dictionary(new_data: Dictionary):
 				variable,
 				new_data[variable]
 			)
+	# There is a label that should be erased
+	if labels.size() > new_data.size():
+		for _label_name in labels:
+			if not _label_name in new_data:
+				labels[_label_name].queue_free()
 
 func add_variable(var_name, var_data):
 	var new_label : Label = self.label_template.instance() as Label
@@ -31,9 +36,10 @@ func add_variable(var_name, var_data):
 
 func set_data_to_label(label: Label, var_name: String, var_data):
 	label.name = str("heap_" + var_name)
-	label.text = str(var_name + " : " + str(var_data.as_variable()))
+	label.text = str(var_name + " : " + str(var_data.as_string()))
 	self.labels[var_name] = label
 	label.add_to_group("heap_objects")
+	label.clip_text = true
 
 
 func modify_variable(var_name, var_data):

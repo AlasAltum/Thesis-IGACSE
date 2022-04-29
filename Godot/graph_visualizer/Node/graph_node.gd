@@ -1,13 +1,13 @@
 extends KinematicBody2D
 class_name AGraphNode
 
-onready var node_name: Label = $Sprite/NodeName
-onready var popup_menu: Popup = $Popup
 var selected : bool = false
 var index : int = 0
 var edges : Array
 var radius: int = 200
 var pressed: bool = false
+onready var node_name: Label = $Sprite/NodeName
+onready var popup_menu: Popup = $Popup
 
 var can_grab: bool = false
 var grabbed_offset: Vector2 = Vector2()
@@ -38,10 +38,15 @@ func set_index(_index: int):
 func set_edges(_edges: Array):
 	self.edges = _edges
 
-func on_simple_press_left():
+func set_selected():
 	self.selected = true
 	self.modulate = Color(1.0, 1.0, 0.0, 0.8)
 	node_name.modulate = Color(0.0, 1.0, 0.0, 1.0)
+	# StoredData.selected_nodes.append(self)
+
+# Select node using left click
+func on_simple_press_left():
+	set_selected()
 
 # Right click menu and actions
 func on_simple_press_right():
@@ -54,11 +59,13 @@ func _on_UnselectButton_pressed():
 	self.modulate = Color(1.0, 1.0, 1.0, 1.0)
 	node_name.modulate = Color(1.0, 1.0, 1.0, 1.0)
 	popup_menu.hide()
+	popup_menu.visible = false
+	# StoredData.selected_nodes.erase(self)
 
 # With right click menu
 func _on_AddToObjectButton_pressed():
 	emit_signal("node_add_to_object", self)
-
+	popup_menu.visible = false
 
 func _input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
@@ -82,5 +89,5 @@ func _process(_delta):
 					on_simple_press_right()
 
 
-func as_variable() -> String:
+func as_string() -> String:
 	return "Node(" + str( self.index) + ")"

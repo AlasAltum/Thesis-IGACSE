@@ -3,9 +3,10 @@ extends Node2D
 
 enum mov_status {SELECT = 0, DRAG = 1}
 
-var status : int = mov_status.DRAG;
+var status : int = mov_status.SELECT;
 var nodes : Array = []  # PoolAGraphNodeArray
 var heap : ScrollContainer  # Class DebugBlock
+var json_matrix = []
 var json = {
 	"n": 3,
 	"matrix": [],
@@ -32,7 +33,7 @@ func set_status(incoming_state: String):
 	self.status = status_map[incoming_state]
 
 func get_selected_nodes() -> Array:
-	var selected_nodes : Array = []
+	var selected_nodes: Array = []
 	for _node in self.nodes:
 		if _node.selected:
 			selected_nodes.append(_node)
@@ -69,12 +70,19 @@ func _on_correct_variable_creation(variable_name: String):
 	self.dragged_adt = null
 
 
-func has_variable(variable_name: String):
+func has_variable(variable_name: String) -> bool:
 	return variable_name in heap_dictionary # or heap.has_variable(variable_name)
-	
+
+func get_variable(variable_name: String):
+	return heap_dictionary[variable_name]
+
 	
 func add_variable(var_name, data):
 	heap_dictionary[var_name] = data
+	_on_data_update()
+
+func erase_variable(var_name: String) -> void:
+	heap_dictionary.erase(var_name)
 	_on_data_update()
 
 func get_data_type_of_variable(var_name: String):
@@ -95,3 +103,7 @@ func add_node_to_object(variable_name: String, node: AGraphNode):
 
 func _on_data_update():
 	heap.update_data_with_dictionary(self.heap_dictionary)
+
+# TODO: Create a notification
+func notify(msg: String) -> void:
+	print(msg)

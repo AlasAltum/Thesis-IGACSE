@@ -19,9 +19,9 @@ func get_adt_name():
 	if resource:
 		return resource.get_adt_name()
 
-func as_variable():
+func as_string():
 	if resource:
-		return resource.as_variable()
+		return resource.as_string()
 
 func get_object():
 	if resource:

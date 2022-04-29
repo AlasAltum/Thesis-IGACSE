@@ -15,7 +15,7 @@ func _ready():
 
 
 func advance_to_line(next_line: int) -> void:
-	if next_line < code_lines.size() - 1:
+	if next_line < code_lines.size():
 		code_lines[curr_line_index].unfocus()
 		self.curr_line_index = next_line
 		code_lines[curr_line_index].focus()

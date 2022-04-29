@@ -1,6 +1,5 @@
-# Null effect, this is just for function initializations and skip lines.
 extends EffectCheck
-
+# finish code
 
 func _ready():
 	pass
@@ -8,5 +7,9 @@ func _ready():
 func _init():
 	code_line = null
 
+# TODO: Add notification
+func side_effect() -> void:
+	print("Code Finished!")
+
 func check_actions_correct() -> bool:
-	return true
+	return false
