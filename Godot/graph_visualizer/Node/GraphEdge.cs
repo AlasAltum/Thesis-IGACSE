@@ -9,7 +9,9 @@ public class GraphEdge : PinJoint2D
     private Line2D line;
     private CollisionShape2D edge_collision;
     private float weight = 1.0f;
+    [Export]
     private Node2D joint_end1;
+    [Export]
     private Node2D joint_end2;
     
     // Called when the node enters the scene tree for the first time.
@@ -41,6 +43,8 @@ public class GraphEdge : PinJoint2D
         this.SetProcess(true);
         joint_end1 = node1;
         joint_end2 = node2;
+        this.NodeA = node1.GetPath();
+        this.NodeB = node2.GetPath();
     }
 
 

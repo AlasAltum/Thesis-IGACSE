@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://OneToggleButtonVBoxContaner.cs" type="Script" id=1]
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Bold.ttf" type="DynamicFontData" id=2]
@@ -43,9 +43,6 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 anti_aliasing = false
-
-[sub_resource type="Resource" id=2]
-script = ExtResource( 5 )
 
 [sub_resource type="StyleBoxFlat" id=3]
 content_margin_left = 10.0
@@ -150,7 +147,7 @@ margin_bottom = 42.0
 custom_styles/panel = ExtResource( 16 )
 focused = true
 code_text = "BFS(starting_node=0):"
-effect_check = SubResource( 2 )
+effect_check = ExtResource( 5 )
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0" index="0"]
 margin_right = 387.0

@@ -24,10 +24,10 @@ func update_data_with_dictionary(new_data: Dictionary):
 				new_data[variable]
 			)
 	# There is a label that should be erased
-	if labels.size() > new_data.size():
-		for _label_name in labels:
-			if not _label_name in new_data:
-				labels[_label_name].queue_free()
+	if labels.size() > new_data.size() and "u" in labels:
+		labels["u"].queue_free()
+		labels.erase("u")
+
 
 func add_variable(var_name, var_data):
 	var new_label : Label = self.label_template.instance() as Label
@@ -63,4 +63,3 @@ func _on_Area2D_mouse_exited():
 	if StoredData.dragging_adt:
 		mouse_inside_area = false
 		StoredData.make_following_texture_transparent()
-

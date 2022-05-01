@@ -20,7 +20,7 @@ func create_nodes_with_weights(num_nodes: int, max_weight: int, density: float):
 		StoredData.json_matrix.append([])
 
 	for i in range(num_nodes):
-		for j in range(num_nodes):
+		for j in range(i + 1, num_nodes):
 			if randf() < density and i != j:
 				# TODO: add condition:
 				# and StoredData.json_matrix[j] does not contain a pair that has [i]
@@ -38,7 +38,7 @@ func _ready():
 	up = + int(self.screen_size.y)
 	down = 100
 	randomize()
-	create_nodes_with_weights(5, 5, 0.2)
+	create_nodes_with_weights(5, 5, 0.4)
 
 	instance_nodes()
 	instance_edges()

@@ -8,13 +8,7 @@ func check_actions_correct() -> bool:
 
 func execute_side_effect() -> void:
 	var v : AGraphNode = StoredData.get_variable("v")
-
-	# TODO: Fix, u must be a AGraphNode
 	# v.edges[iteration_index] is a pair [node_index, weight]
-	# Get node_index
-
-	# Get nodes that have not been selected
-
 	var u_index : int = v.edges[iteration_index][0]
 	var u : AGraphNode = StoredData.nodes[u_index]
 	iteration_index += 1
@@ -26,9 +20,7 @@ func execute_side_effect() -> void:
 #
 #		self.iteration_index += 1
 #
-#		if u.selected == false:
-#			StoredData.add_variable("u", u)
-#			break
+
 
 func get_max_iteration_index(v: AGraphNode) -> int:
 	return v.edges.size()
@@ -36,6 +28,7 @@ func get_max_iteration_index(v: AGraphNode) -> int:
 func for_condition_is_true() -> bool:
 	var v : AGraphNode = StoredData.get_variable("v")
 	# If for condition is true, keep reading following lines and execute side effects
+	print(v.edges)
 	if iteration_index < get_max_iteration_index(v):
 		return true
 	# Skip and get jump line
@@ -50,4 +43,6 @@ func get_next_line() -> int:
 	# Jump and erase u node
 	if StoredData.has_variable("u"):
 		StoredData.erase_variable("u")
+		iteration_index = 0
+
 	return .get_jump_line()
