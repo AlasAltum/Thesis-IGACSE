@@ -621,7 +621,7 @@ grow_vertical = 1
 rect_min_size = Vector2( 40, 40 )
 hover_text = "Set"
 
-[node name="Popup" type="WindowDialog" parent="."]
+[node name="AssignNameToDataStructurePopup" type="WindowDialog" parent="."]
 margin_left = 524.122
 margin_top = 233.47
 margin_right = 1036.12
@@ -633,7 +633,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Explanation" type="Label" parent="Popup"]
+[node name="Explanation" type="Label" parent="AssignNameToDataStructurePopup"]
 margin_left = 5.0
 margin_top = 13.0
 margin_right = 506.0
@@ -647,7 +647,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ErrorNotification" type="Label" parent="Popup"]
+[node name="ErrorNotification" type="Label" parent="AssignNameToDataStructurePopup"]
 self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 5.52972
 margin_top = 87.6922
@@ -665,10 +665,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Popup/ErrorNotification"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AssignNameToDataStructurePopup/ErrorNotification"]
 anims/message_modulation = SubResource( 8 )
 
-[node name="NameAssign" type="LineEdit" parent="Popup"]
+[node name="NameAssign" type="LineEdit" parent="AssignNameToDataStructurePopup"]
 margin_left = 66.0
 margin_top = 44.0
 margin_right = 441.0
@@ -679,7 +679,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="EnterButton" type="Button" parent="Popup"]
+[node name="EnterButton" type="Button" parent="AssignNameToDataStructurePopup"]
 modulate = Color( 0.121569, 0.913725, 0, 1 )
 margin_left = 195.42
 margin_top = 118.366
@@ -690,10 +690,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Timer" type="Timer" parent="Popup"]
+[node name="Timer" type="Timer" parent="AssignNameToDataStructurePopup"]
 
 [node name="AddNodePopup" type="WindowDialog" parent="."]
-visible = true
 margin_left = 549.142
 margin_top = 267.275
 margin_right = 1061.14
@@ -769,8 +768,9 @@ __meta__ = {
 [connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/AllowGraphMovementButton" to="." method="_on_AllowGraphMovementButton_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_exited"]
-[connection signal="text_entered" from="Popup/NameAssign" to="Popup" method="_on_NameAssign_text_entered"]
-[connection signal="pressed" from="Popup/EnterButton" to="Popup" method="_on_EnterButton_pressed"]
+[connection signal="text_entered" from="AssignNameToDataStructurePopup/NameAssign" to="AssignNameToDataStructurePopup" method="_on_NameAssign_text_entered"]
+[connection signal="pressed" from="AssignNameToDataStructurePopup/EnterButton" to="AssignNameToDataStructurePopup" method="_on_EnterButton_pressed"]
+[connection signal="animation_finished" from="AddNodePopup/ErrorNotification/AnimationPlayer" to="AddNodePopup" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="text_entered" from="AddNodePopup/NameAssign" to="AddNodePopup" method="_on_NameAssign_text_entered"]
 [connection signal="pressed" from="AddNodePopup/EnterButton" to="AddNodePopup" method="_on_EnterButton_pressed"]
 
