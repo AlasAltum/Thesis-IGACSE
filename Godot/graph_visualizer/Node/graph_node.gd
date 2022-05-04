@@ -80,8 +80,8 @@ func _process(_delta):
 				StoredData.mov_status.DRAG:
 					position = get_global_mouse_position() + grabbed_offset
 				StoredData.mov_status.SELECT:
-					on_simple_press_left()
-
+					if self.index in StoredData.selectable_nodes:
+						on_simple_press_left()
 
 		elif Input.is_mouse_button_pressed(BUTTON_RIGHT):
 			match StoredData.get_status():

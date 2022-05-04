@@ -5,8 +5,8 @@ extends EffectCheck
 func _ready():
 	code_line = null
 
-#func init():
-#	code_line = null
+func init():
+	code_line = null
 
 func check_actions_correct() -> bool:
 	return true

@@ -3,14 +3,13 @@ extends EffectCheck
 
 
 func check_actions_correct() -> bool:
-	return true  # This is not required
-
-func execute_side_effect() -> void:
-	# mark u as explored
 	var u : AGraphNode = StoredData.get_variable("u")
-	u.set_selected()
+	if u in StoredData.get_selected_nodes():
+		return true  # This is not required
+	return false
 
+# Once we are in this line, node 0 may be added
+func effect_check_on_focused():
+	var u : AGraphNode = StoredData.get_variable("u")
+	StoredData.selectable_nodes.append(u.index)
 
-func get_next_line() -> int:
-	execute_side_effect()
-	return .get_next_line()  # super.get_next_line()

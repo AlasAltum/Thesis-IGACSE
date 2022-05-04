@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://OneToggleButtonVBoxContaner.cs" type="Script" id=1]
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Bold.ttf" type="DynamicFontData" id=2]
@@ -44,7 +44,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=13]
 content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 10.0
@@ -57,17 +57,17 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 anti_aliasing = false
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=14]
 size = 20
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="Theme" id=5]
-default_font = SubResource( 4 )
+[sub_resource type="Theme" id=15]
+default_font = SubResource( 14 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=16]
 size = 20
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -75,10 +75,10 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 9 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 170.095, 152.984 )
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=18]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
@@ -93,7 +93,61 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=20]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=21]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=19]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
@@ -110,6 +164,7 @@ tracks/0/keys = {
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 4 )
+graph_density = 0.654
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -455,7 +510,7 @@ __meta__ = {
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/LeftPanel/ModeSelector"]
 margin_right = 205.0
 margin_bottom = 90.0
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -465,7 +520,7 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = 195.0
 margin_bottom = 80.0
-theme = SubResource( 5 )
+theme = SubResource( 15 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -521,7 +576,7 @@ margin_right = 197.0
 margin_bottom = 31.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 16 )
 text = "Variables"
 align = 1
 clip_text = true
@@ -535,7 +590,7 @@ z_as_relative = false
 position = Vector2( 60.6882, 147.465 )
 z_index = 5
 z_as_relative = false
-shape = SubResource( 7 )
+shape = SubResource( 17 )
 
 [node name="ADTSelectionPanel" type="MarginContainer" parent="CanvasLayer/LeftPanel"]
 margin_top = 398.0
@@ -552,7 +607,7 @@ __meta__ = {
 margin_right = 205.0
 margin_bottom = 200.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -567,7 +622,7 @@ margin_right = 205.0
 margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 16 )
 text = "Data Structures"
 align = 1
 
@@ -666,7 +721,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AssignNameToDataStructurePopup/ErrorNotification"]
-anims/message_modulation = SubResource( 8 )
+anims/message_modulation = SubResource( 18 )
 
 [node name="NameAssign" type="LineEdit" parent="AssignNameToDataStructurePopup"]
 margin_left = 66.0
@@ -692,11 +747,148 @@ __meta__ = {
 
 [node name="Timer" type="Timer" parent="AssignNameToDataStructurePopup"]
 
+[node name="UNodeIsExploredPopup" type="WindowDialog" parent="."]
+margin_left = 524.122
+margin_top = 233.47
+margin_right = 1036.12
+margin_bottom = 392.47
+popup_exclusive = true
+window_title = "Confirmation"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Explanation" type="Label" parent="UNodeIsExploredPopup"]
+margin_left = 5.0
+margin_top = 13.0
+margin_right = 506.0
+margin_bottom = 39.0
+rect_pivot_offset = Vector2( 265.108, 0 )
+size_flags_horizontal = 3
+text = "Is the U node (index) explored?"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ErrorNotification" type="Label" parent="UNodeIsExploredPopup"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 2.05951
+margin_top = 112.692
+margin_right = 503.06
+margin_bottom = 138.692
+rect_pivot_offset = Vector2( 265.108, 0 )
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.878431, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 2
+text = "Error: Wrong answer"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UNodeIsExploredPopup/ErrorNotification"]
+anims/message_modulation = SubResource( 20 )
+
+[node name="YesButton" type="Button" parent="UNodeIsExploredPopup"]
+modulate = Color( 0.121569, 0.913725, 0, 1 )
+margin_left = 115.407
+margin_top = 63.2947
+margin_right = 209.407
+margin_bottom = 89.2947
+text = "Yes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NoButton" type="Button" parent="UNodeIsExploredPopup"]
+modulate = Color( 0.980392, 0.156863, 0.156863, 1 )
+margin_left = 317.165
+margin_top = 64.6618
+margin_right = 411.165
+margin_bottom = 90.6618
+text = "No"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QIsNotEmptyPopup" type="WindowDialog" parent="."]
+visible = true
+margin_left = 524.122
+margin_top = 233.47
+margin_right = 1036.12
+margin_bottom = 392.47
+popup_exclusive = true
+window_title = "Confirmation"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Explanation" type="Label" parent="QIsNotEmptyPopup"]
+margin_left = 5.0
+margin_top = 13.0
+margin_right = 506.0
+margin_bottom = 39.0
+rect_pivot_offset = Vector2( 265.108, 0 )
+size_flags_horizontal = 3
+text = "Is the Queue q empty?"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ErrorNotification" type="Label" parent="QIsNotEmptyPopup"]
+visible = false
+margin_left = 2.05951
+margin_top = 112.692
+margin_right = 503.06
+margin_bottom = 138.692
+rect_pivot_offset = Vector2( 265.108, 0 )
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.878431, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 2
+text = "Error: Wrong answer"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="QIsNotEmptyPopup/ErrorNotification"]
+anims/message_modulation = SubResource( 21 )
+
+[node name="YesButton" type="Button" parent="QIsNotEmptyPopup"]
+modulate = Color( 0.121569, 0.913725, 0, 1 )
+margin_left = 115.407
+margin_top = 63.2947
+margin_right = 209.407
+margin_bottom = 89.2947
+text = "Yes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NoButton" type="Button" parent="QIsNotEmptyPopup"]
+modulate = Color( 0.980392, 0.156863, 0.156863, 1 )
+margin_left = 317.165
+margin_top = 64.6618
+margin_right = 411.165
+margin_bottom = 90.6618
+text = "No"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AddNodePopup" type="WindowDialog" parent="."]
-margin_left = 549.142
-margin_top = 267.275
-margin_right = 1061.14
-margin_bottom = 426.275
+margin_left = 521.565
+margin_top = 234.041
+margin_right = 1033.56
+margin_bottom = 393.041
 popup_exclusive = true
 window_title = "Add node to object"
 script = ExtResource( 17 )
@@ -738,7 +930,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AddNodePopup/ErrorNotification"]
-anims/message_modulation = SubResource( 9 )
+anims/message_modulation = SubResource( 19 )
 
 [node name="NameAssign" type="LineEdit" parent="AddNodePopup"]
 margin_left = 66.0
@@ -762,7 +954,55 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Timer" type="Timer" parent="AddNodePopup"]
+[node name="BFSFinishedPopup" type="WindowDialog" parent="."]
+margin_left = 525.1
+margin_top = 232.627
+margin_right = 1037.1
+margin_bottom = 391.627
+popup_exclusive = true
+window_title = "Algorithm Finished!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Explanation" type="Label" parent="BFSFinishedPopup"]
+margin_left = 5.0
+margin_top = 13.0
+margin_right = 506.0
+margin_bottom = 74.0
+rect_pivot_offset = Vector2( 265.108, 0 )
+size_flags_horizontal = 3
+text = "Congratulations! You have successfully finished the BFS Algorithm!"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetButton" type="Button" parent="BFSFinishedPopup"]
+modulate = Color( 0.121569, 0.913725, 0, 1 )
+margin_left = 200.759
+margin_top = 76.986
+margin_right = 294.759
+margin_bottom = 102.986
+rect_pivot_offset = Vector2( 72.8572, 10.7062 )
+text = "Reset"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButton" type="Button" parent="BFSFinishedPopup"]
+modulate = Color( 0.827451, 0.717647, 0.117647, 1 )
+margin_left = 201.293
+margin_top = 113.927
+margin_right = 295.293
+margin_bottom = 139.927
+rect_pivot_offset = Vector2( 72.8572, 10.7062 )
+text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/SelectNodeButton" to="." method="_on_SelectNodeButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/AllowGraphMovementButton" to="." method="_on_AllowGraphMovementButton_pressed"]
@@ -770,9 +1010,15 @@ __meta__ = {
 [connection signal="mouse_exited" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_exited"]
 [connection signal="text_entered" from="AssignNameToDataStructurePopup/NameAssign" to="AssignNameToDataStructurePopup" method="_on_NameAssign_text_entered"]
 [connection signal="pressed" from="AssignNameToDataStructurePopup/EnterButton" to="AssignNameToDataStructurePopup" method="_on_EnterButton_pressed"]
+[connection signal="pressed" from="UNodeIsExploredPopup/YesButton" to="." method="_on_YesButton_pressed"]
+[connection signal="pressed" from="UNodeIsExploredPopup/NoButton" to="." method="_on_NoButton_pressed"]
+[connection signal="pressed" from="QIsNotEmptyPopup/YesButton" to="." method="_on_q_is_empty_YesButton_pressed"]
+[connection signal="pressed" from="QIsNotEmptyPopup/NoButton" to="." method="_on_q_is_empty_NoButton_pressed"]
 [connection signal="animation_finished" from="AddNodePopup/ErrorNotification/AnimationPlayer" to="AddNodePopup" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="text_entered" from="AddNodePopup/NameAssign" to="AddNodePopup" method="_on_NameAssign_text_entered"]
 [connection signal="pressed" from="AddNodePopup/EnterButton" to="AddNodePopup" method="_on_EnterButton_pressed"]
+[connection signal="pressed" from="BFSFinishedPopup/ResetButton" to="." method="_on_ResetButton_pressed"]
+[connection signal="pressed" from="BFSFinishedPopup/MenuButton" to="." method="_on_MenuButton_pressed"]
 
 [editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0"]
 [editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1"]

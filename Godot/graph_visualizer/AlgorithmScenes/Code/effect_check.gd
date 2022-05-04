@@ -17,7 +17,6 @@ func _init():
 	code_line = null
 
 func check_actions_correct() -> bool:
-	StoredData.notify("Abstract class application, this should not be printed")
 	return true
 
 func set_code_line(_code_line: CodeLine) -> void:
@@ -25,8 +24,6 @@ func set_code_line(_code_line: CodeLine) -> void:
 
 # Function called to know the next line index that will be
 # Focused after this execution
-# For an implementation of this class, this method should know
-# When 
 func get_next_line() -> int:
 	if code_line:
 		# By default, return just the next line
@@ -39,3 +36,12 @@ func get_jump_line() -> int:
 	if code_line:
 		return code_line.jump_index
 	return -1
+
+# This method may be overriden according to what is needed
+func effect_check_on_focused():
+	return
+
+# By default, do nothing. This method may be overriden
+func reset():
+	return
+

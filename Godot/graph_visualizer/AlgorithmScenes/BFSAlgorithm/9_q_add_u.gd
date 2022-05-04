@@ -1,12 +1,6 @@
 extends EffectCheck
 
 
-func _ready():
-	pass
-
-func execute_side_effect() -> void:
-	pass
-
 func check_actions_correct() -> bool:
 	if StoredData.has_variable("q") and StoredData.has_variable("u"):
 		var u: AGraphNode = StoredData.get_variable("u")

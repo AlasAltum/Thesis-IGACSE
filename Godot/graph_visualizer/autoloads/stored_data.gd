@@ -15,16 +15,18 @@ var heap_dictionary : Dictionary = {}
 var dragging_adt : bool = false
 var dragged_adt : FollowingMouseTexture
 var adt_hovering : bool = false
-var popup : WindowDialog
+var assign_name_popup : WindowDialog
 var variable_to_add
+var world_node: Node2D  # : GraphManager
 const status_map = {
 	"DRAG": mov_status.DRAG,
 	"SELECT": mov_status.SELECT
 }
+var selectable_nodes = []
+## Code continue conditions
+var u_is_explored_right_answer : bool = false
+var q_is_empty_right_answer : bool = false
 
-
-#func _process(_delta):
-#	heap.update_data_with_dictionary(heap_dictionary)
 
 func get_status():
 	return status
@@ -54,8 +56,8 @@ func make_following_texture_transparent():
 
 # ask for variable name to add it to the heap
 func _on_adt_drop_on_heap():
-	popup = get_tree().get_root().get_node("/root/Main/Popup")
-	popup.visible = true
+	assign_name_popup = get_tree().get_root().get_node("/root/Main/AssignNameToDataStructurePopup")
+	assign_name_popup.visible = true
 	self.dragged_adt.visible = false
 	self.dragging_adt = false
 
@@ -107,3 +109,31 @@ func _on_data_update():
 # TODO: Create a notification
 func notify(msg: String) -> void:
 	print(msg)
+
+
+func on_code_finished_popup(_msg: String):
+	self.world_node.on_code_finished_popup(_msg)
+
+func ask_user_if_graph_node_is_explored(u: AGraphNode, condition_value: bool):
+	self.world_node.ask_user_if_graph_node_is_explored(u, condition_value)
+
+func ask_user_if_queue_is_empty(is_q_empty: bool):
+	self.world_node.ask_user_if_queue_is_empty(is_q_empty)
+
+# When game gets reset, reset data
+func reset_data():
+	self.status = mov_status.SELECT;
+	self.nodes = []  # PoolAGraphNodeArray
+	self.heap = null # Class DebugBlock
+	self.json_matrix = []
+	self.json = {
+		"n": 3,
+		"matrix": [],
+	}
+	self.heap_dictionary = {}
+	self.dragging_adt = false
+	self.dragged_adt = null
+	self.adt_hovering = false
+	self.assign_name_popup = null
+	self.variable_to_add = null
+	self.world_node = null

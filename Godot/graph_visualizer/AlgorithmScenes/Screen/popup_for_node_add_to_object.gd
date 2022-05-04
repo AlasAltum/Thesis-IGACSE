@@ -1,5 +1,7 @@
 extends WindowDialog
 class_name AddNodePopup
+# Popup that appears when we want to add a node to a ADT
+# By making right click on a node and selecting to add to an ADT
 
 var incoming_node: AGraphNode
 onready var error_label: Label = $ErrorNotification
@@ -22,12 +24,14 @@ func _on_NameAssign_text_entered(object_name):
 	if incoming_node:
 		if StoredData.has_variable(object_name):
 			StoredData.add_node_to_object(object_name, incoming_node)
-		else:
+
+		else: # Case a node was tried to be added to a non-existing object
 			show_error()
 			return
-	else:
-		# TODO: Show error
-		_close_popup()
+#	else:  # Other kind of errors
+#		# TODO: Show error
+#		show_error()
+##		_close_popup()
 
 
 func _on_EnterButton_pressed():

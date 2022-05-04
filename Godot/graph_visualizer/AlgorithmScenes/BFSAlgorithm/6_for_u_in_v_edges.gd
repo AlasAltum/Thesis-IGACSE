@@ -3,9 +3,8 @@ extends EffectCheck
 var iteration_index : int = 0
 
 
-func check_actions_correct() -> bool:
-	return true  # This is not required
 
+# set u as node
 func execute_side_effect() -> void:
 	var v : AGraphNode = StoredData.get_variable("v")
 	# v.edges[iteration_index] is a pair [node_index, weight]
@@ -14,21 +13,14 @@ func execute_side_effect() -> void:
 	iteration_index += 1
 	StoredData.add_variable("u", u)
 
-#	while ( true ):
-#		if  iteration_index >= get_max_iteration_index(v):
-#			break
-#
-#		self.iteration_index += 1
-#
-
 
 func get_max_iteration_index(v: AGraphNode) -> int:
 	return v.edges.size()
 
+# In this case, for is for an i < length(v.edges())
 func for_condition_is_true() -> bool:
 	var v : AGraphNode = StoredData.get_variable("v")
 	# If for condition is true, keep reading following lines and execute side effects
-	print(v.edges)
 	if iteration_index < get_max_iteration_index(v):
 		return true
 	# Skip and get jump line
@@ -43,6 +35,7 @@ func get_next_line() -> int:
 	# Jump and erase u node
 	if StoredData.has_variable("u"):
 		StoredData.erase_variable("u")
+		# Reset iteration index to 0
 		iteration_index = 0
 
 	return .get_jump_line()
