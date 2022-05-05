@@ -44,7 +44,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id=13]
+[sub_resource type="StyleBoxFlat" id=2]
 content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 10.0
@@ -57,17 +57,17 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 anti_aliasing = false
 
-[sub_resource type="DynamicFont" id=14]
+[sub_resource type="DynamicFont" id=3]
 size = 20
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="Theme" id=15]
-default_font = SubResource( 14 )
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
 
-[sub_resource type="DynamicFont" id=16]
+[sub_resource type="DynamicFont" id=5]
 size = 20
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -75,10 +75,10 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 9 )
 
-[sub_resource type="RectangleShape2D" id=17]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 170.095, 152.984 )
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=7]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
@@ -93,34 +93,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=20]
-length = 3.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=8]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
@@ -147,7 +120,34 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=9]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=10]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
@@ -164,7 +164,8 @@ tracks/0/keys = {
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 4 )
-graph_density = 0.654
+graph_density = 0.3
+graph_size = 7
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -510,7 +511,7 @@ __meta__ = {
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/LeftPanel/ModeSelector"]
 margin_right = 205.0
 margin_bottom = 90.0
-custom_styles/panel = SubResource( 13 )
+custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -520,7 +521,7 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = 195.0
 margin_bottom = 80.0
-theme = SubResource( 15 )
+theme = SubResource( 4 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -576,7 +577,7 @@ margin_right = 197.0
 margin_bottom = 31.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 5 )
 text = "Variables"
 align = 1
 clip_text = true
@@ -590,7 +591,7 @@ z_as_relative = false
 position = Vector2( 60.6882, 147.465 )
 z_index = 5
 z_as_relative = false
-shape = SubResource( 17 )
+shape = SubResource( 6 )
 
 [node name="ADTSelectionPanel" type="MarginContainer" parent="CanvasLayer/LeftPanel"]
 margin_top = 398.0
@@ -607,7 +608,7 @@ __meta__ = {
 margin_right = 205.0
 margin_bottom = 200.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 13 )
+custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -622,7 +623,7 @@ margin_right = 205.0
 margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 5 )
 text = "Data Structures"
 align = 1
 
@@ -721,7 +722,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AssignNameToDataStructurePopup/ErrorNotification"]
-anims/message_modulation = SubResource( 18 )
+anims/message_modulation = SubResource( 7 )
 
 [node name="NameAssign" type="LineEdit" parent="AssignNameToDataStructurePopup"]
 margin_left = 66.0
@@ -791,7 +792,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UNodeIsExploredPopup/ErrorNotification"]
-anims/message_modulation = SubResource( 20 )
+anims/message_modulation = SubResource( 8 )
 
 [node name="YesButton" type="Button" parent="UNodeIsExploredPopup"]
 modulate = Color( 0.121569, 0.913725, 0, 1 )
@@ -860,7 +861,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="QIsNotEmptyPopup/ErrorNotification"]
-anims/message_modulation = SubResource( 21 )
+anims/message_modulation = SubResource( 9 )
 
 [node name="YesButton" type="Button" parent="QIsNotEmptyPopup"]
 modulate = Color( 0.121569, 0.913725, 0, 1 )
@@ -930,7 +931,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AddNodePopup/ErrorNotification"]
-anims/message_modulation = SubResource( 19 )
+anims/message_modulation = SubResource( 10 )
 
 [node name="NameAssign" type="LineEdit" parent="AddNodePopup"]
 margin_left = 66.0
