@@ -16,6 +16,7 @@ func _ready():
 func _init():
 	code_line = null
 
+
 func check_actions_correct() -> bool:
 	return true
 
@@ -23,8 +24,11 @@ func set_code_line(_code_line: CodeLine) -> void:
 	self.code_line = _code_line
 
 # Function called to know the next line index that will be
-# Focused after this execution
+# Focused after this execution, this is always called
+# If the user wants to execute a jump, this method must be
+# overriden and its body should be get_jump_line
 func get_next_line() -> int:
+	_trigger_on_next_line_side_effect()
 	if code_line:
 		# By default, return just the next line
 		return code_line.line_index + 1 
@@ -39,6 +43,10 @@ func get_jump_line() -> int:
 
 # This method may be overriden according to what is needed
 func effect_check_on_focused():
+	return
+
+# This method may be overriden according to what is needed
+func _trigger_on_next_line_side_effect() -> void:
 	return
 
 # By default, do nothing. This method may be overriden

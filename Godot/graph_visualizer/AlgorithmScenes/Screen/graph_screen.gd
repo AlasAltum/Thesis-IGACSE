@@ -21,12 +21,14 @@ onready var finished_popup : WindowDialog = $BFSFinishedPopup
 onready var u_is_explored_popup : WindowDialog = $UNodeIsExploredPopup
 onready var q_is_empty_popup : WindowDialog = $QIsNotEmptyPopup
 
+## Hint Label ##
+onready var hint_label: RichTextLabel = $CanvasLayer/TextHintContainer/HintLabel
 
 ## Continue conditions ##
 var u_is_explored: bool = false
 var q_is_empty: bool = false
 
-
+## Node related functions ##
 func create_nodes_with_weights(num_nodes: int, max_weight: int):
 	StoredData.json["n"] = num_nodes
 
@@ -116,6 +118,12 @@ func _on_node_add_to_object(node: AGraphNode):
 func on_code_finished_popup(_msg: String) -> void:
 	finished_popup.show()
 #	return
+## Node related functions ##
+
+## Hint related methods ##
+func set_hint_text(new_text: String) -> void:
+	self.hint_label.bbcode_text = new_text
+## Hint related methods ##
 
 ## BFS Finished Popup signals ##
 

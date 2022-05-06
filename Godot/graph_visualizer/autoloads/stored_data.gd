@@ -1,5 +1,8 @@
-extends Node2D
 # class_name StoredData
+extends Node2D
+# This object creates the graph and also communicates with the rest
+# of the nodes in the world. It works as a bridge between
+# the Autoload StoredData and the world nodes.
 
 enum mov_status {SELECT = 0, DRAG = 1}
 
@@ -42,6 +45,8 @@ func get_selected_nodes() -> Array:
 
 	return selected_nodes
 
+func set_hint_text(new_text: String) -> void:
+	self.world_node.set_hint_text(new_text)
 
 func make_following_texture_opaque():
 	if self.dragging_adt:

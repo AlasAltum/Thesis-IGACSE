@@ -1,12 +1,18 @@
-tool
-extends PanelContainer
 class_name CodeLine
+extends PanelContainer
+
+# Codelines are used to guide the user. 
+# They are focused by an instruction pointer.
+# They contain the effect check exported variable
+# Which are scripts that contain the logic of each code line
+#  When code lines are focused, they use the focus() method
 
 export (int) var line_index = 0
 export (int) var jump_index = 0
-export var focused: bool = false
+export (bool) var focused = false
 export (String) var code_text = 'BFS():'
 export (Resource) var effect_check;
+export (String) var hint_text = "Press Enter";
 #var effect_check2 : EffectCheck
 var on_focus_effect_triggered : bool = false
 
@@ -27,39 +33,34 @@ func _ready():
 		self.effect_check.code_line = self
 
 
-func _process(_delta):
-	if focused:
-		_on_focused()
-	else:
-		_on_unfocus()
-
-# TODO: debug purpose only, erase from process
-func _on_focused():
-	if instruction_pointer:
-		instruction_pointer.visible = true
-	add_stylebox_override("panel", focused_style)
-
-
-# TODO: debug purpose only, erase from process
-func _on_unfocus():
-	self.modulate = Color(1.0, 1.0, 1.0, 1.0)
-	if instruction_pointer:
-		instruction_pointer.visible = false
-
-	add_stylebox_override("panel", unfocused_style)
-
 func focus():
+	_on_focused()
+
+func _on_focused():
 	focused = true
 	if self.effect_check and not self.on_focus_effect_triggered:
 		self.effect_check.effect_check_on_focused()
 		self.on_focus_effect_triggered = true
-	_on_focused()
+		# Visual effects, change color and add InsPointer
+		if instruction_pointer:
+			instruction_pointer.visible = true
+		add_stylebox_override("panel", focused_style)
+	StoredData.set_hint_text(self.hint_text)
 
 func unfocus():
+	_on_unfocus()
+
+func _on_unfocus():
 	focused = false
 	# RESET variables
 	reset_effect_check()
-	_on_unfocus()
+	# Visual effects, change color and add InsPointer
+	if instruction_pointer:
+		instruction_pointer.visible = false
+
+	add_stylebox_override("panel", unfocused_style)
+	
+
 
 # Resett side effect 
 func reset_effect_check():
@@ -82,10 +83,10 @@ func get_next_line() -> int:
 func get_class():
 	return "CodeLine"
 
-# fors, functions, ifs and whiles perform instruction jumps
-# this jumps are personalized in the effect check script for each line
-func should_jump_to_line() -> bool:
-	return effect_check.should_jump_to_line()
+## fors, functions, ifs and whiles perform instruction jumps
+## this jumps are personalized in the effect check script for each line
+#func should_jump_to_line() -> bool:
+#	return effect_check.should_jump_to_line()
 
 func get_line_jump() -> int:
 	return jump_index

@@ -8,7 +8,7 @@ func check_actions_correct() -> bool:
 		return true  # This is not required
 	return false
 
-# Once we are in this line, node 0 may be added
+# Once we are in this line, node u may be added
 func effect_check_on_focused():
 	var u : AGraphNode = StoredData.get_variable("u")
 	StoredData.selectable_nodes.append(u.index)
