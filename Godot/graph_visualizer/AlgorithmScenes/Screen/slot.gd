@@ -5,12 +5,15 @@ export (String) var hover_text
 export (Texture) var slot_texture
 export (Resource) var generated_adt;
 
-onready var texture : TextureRect = $SlotTexture/TextureRect
+onready var texture : TextureRect = $SlotTexture/ADTTexture
 onready var hover_label : Label = $Node2D/HoverText
+onready var ADT_name : Label = $SlotTexture/BelowADTName
+
 var following_mouse_texture : PackedScene = preload("res://AlgorithmScenes/Screen/FollowingMouseTexture.tscn")
 
 func _ready():
 	hover_label.text = self.hover_text
+	ADT_name.text = hover_text
 	if slot_texture:
 		texture.texture = slot_texture
 
