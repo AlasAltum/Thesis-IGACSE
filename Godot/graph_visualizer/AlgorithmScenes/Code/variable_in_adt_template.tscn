@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://AlgorithmScenes/Code/debug_font.tres" type="DynamicFont" id=1]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Variable" type="Label" parent="."]
+margin_right = 107.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.254902, 0.980392, 0.215686, 1 )
+text = "q: Queue("
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Variable3" type="Label" parent="."]
+margin_left = 111.0
+margin_right = 118.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.254902, 0.980392, 0.215686, 1 )
+text = ")"
+__meta__ = {
+"_edit_use_anchors_": false
+}

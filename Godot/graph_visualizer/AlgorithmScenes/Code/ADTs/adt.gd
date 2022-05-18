@@ -5,6 +5,8 @@
 class_name ADT
 extends Resource
 
+var representation: ADTRepresentation
+var representation_path: String
 
 func _ready():
 	pass # Replace with function body.

@@ -3,7 +3,7 @@ class_name AGraphNode
 
 var selected : bool = false
 var index : int = 0
-var edges : Array
+var edges : Array setget set_edges, get_edges
 var radius: int = 200
 var pressed: bool = false
 onready var node_name: Label = $Sprite/NodeName
@@ -35,8 +35,15 @@ func set_index(_index: int):
 	self.index = _index
 	node_name.text = str(self.index)
 
-func set_edges(_edges: Array):
-	self.edges = _edges
+# Edges type is:
+# pairs<node_index <int>, weight <float>>
+func set_edges(_edges: Array) -> void:
+	edges = _edges
+
+# Returns an array of pairs with type:
+# pairs<node_index <int>, weight <float>>:
+func get_edges() -> Array:
+	return edges
 
 func set_selected():
 	self.selected = true
@@ -90,4 +97,4 @@ func _process(_delta):
 
 
 func as_string() -> String:
-	return "Node(" + str( self.index) + ")"
+	return "(" + str( self.index) + ")"

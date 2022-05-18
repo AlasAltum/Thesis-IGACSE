@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Code/CodeLine.gd" type="Script" id=1]
 [ext_resource path="res://AlgorithmScenes/Code/code_font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://AlgorithmScenes/Code/InstructionPointer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://AlgorithmScenes/Code/default_line_code_style.tres" type="StyleBox" id=4]
+[ext_resource path="res://AlgorithmScenes/Screen/Assets/InstructionPointer.svg" type="Texture" id=5]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 2 )
@@ -37,7 +38,9 @@ size_flags_vertical = 0
 
 [node name="InstructionPointer" parent="MarginContainer/HBoxContainer" instance=ExtResource( 3 )]
 visible = false
-position = Vector2( 9.71564, 23.3343 )
+position = Vector2( 15, 22 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 5 )
 
 [node name="Tab" type="Label" parent="MarginContainer/HBoxContainer"]
 margin_right = 28.0

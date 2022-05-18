@@ -1,0 +1,259 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://AlgorithmScenes/Screen/ADT/on_hover_adt_animation.gd" type="Script" id=2]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -53.1848, -29.6405, -20.6092, -17.9494, 20.6092, 17.9494, -7.09571, -18.8137, 0, 0, 0, 0, 9.38501, 80.9504 )
+}
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 1
+anti_aliasing = false
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -48.1226, -35.807, -10.7252, -14.2973, 10.7252, 14.2973, -3.19501, -15.942, 0, 0, 0, 0, 8.10209, 53.7187 )
+}
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 1
+anti_aliasing = false
+
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 24.2339, 43.2064, -20.0111, 14.1092, 20.0111, -14.1092, 37.5972, -24.8856, 0, 0, 0, 0, 85.2603, -32.0128 )
+}
+
+[sub_resource type="Animation" id=8]
+length = 3.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathIn/PathFollowIn1/NodeIn:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.00305025, 0.2, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PathIn/PathFollowIn1/NodeIn:self_modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PathIn/PathFollowIn1:unit_offset")
+tracks/2/interp = 2
+tracks/2/loop_wrap = false
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.0119746, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("PathIn2/PathFollowIn2/NodeIn2:visible")
+tracks/3/interp = 2
+tracks/3/loop_wrap = false
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.0213518, 1.10724, 2.4, 3.47809 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PathIn2/PathFollowIn2/NodeIn2:self_modulate")
+tracks/4/interp = 2
+tracks/4/loop_wrap = false
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1.10419, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("PathIn2/PathFollowIn2:unit_offset")
+tracks/5/interp = 2
+tracks/5/loop_wrap = false
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1.2079, 2.14128 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("PathOut/PathFollowOut:unit_offset")
+tracks/6/interp = 2
+tracks/6/loop_wrap = false
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 2.2, 3.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("PathOut/PathFollowOut/NodeOut:visible")
+tracks/7/interp = 2
+tracks/7/loop_wrap = false
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 2.4, 3.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("PathOut/PathFollowOut/NodeOut:self_modulate")
+tracks/8/interp = 2
+tracks/8/loop_wrap = false
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 2.4, 2.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Main" type="Node2D"]
+position = Vector2( 0.5, 0.5 )
+script = ExtResource( 2 )
+
+[node name="LeftSide" type="Line2D" parent="."]
+position = Vector2( -1.25993, 0 )
+points = PoolVector2Array( 0.00232351, 9.16328, 0, 100 )
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="RightSide" type="Line2D" parent="."]
+position = Vector2( 0.353554, 0.176781 )
+points = PoolVector2Array( 50.0136, 8.89535, 50, 100 )
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="PathIn" type="Path2D" parent="."]
+self_modulate = Color( 0.501961, 0.6, 1, 0 )
+position = Vector2( 11.2299, 2.22976 )
+scale = Vector2( 1.03759, 1 )
+curve = SubResource( 1 )
+
+[node name="PathFollowIn1" type="PathFollow2D" parent="PathIn"]
+position = Vector2( 9.54525, 76.5434 )
+offset = 147.584
+rotate = false
+
+[node name="NodeIn" type="Label" parent="PathIn/PathFollowIn1"]
+visible = false
+margin_left = -15.686
+margin_top = -2.24492
+margin_right = 22.314
+margin_bottom = 13.7551
+custom_styles/normal = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "A"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="PathIn"]
+position = Vector2( 9.52541, 51.2001 )
+offset = 122.421
+rotate = false
+
+[node name="PathIn2" type="Path2D" parent="."]
+self_modulate = Color( 0.501961, 0.6, 1, 0 )
+position = Vector2( 12.4799, 5.97976 )
+scale = Vector2( 1.03759, 1 )
+curve = SubResource( 3 )
+
+[node name="PathFollowIn2" type="PathFollow2D" parent="PathIn2"]
+position = Vector2( -48.1226, -35.807 )
+rotate = false
+
+[node name="NodeIn2" type="Label" parent="PathIn2/PathFollowIn2"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = -16.3323
+margin_top = 3.56762
+margin_right = 21.6677
+margin_bottom = 19.5676
+custom_styles/normal = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "B"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PathOut" type="Path2D" parent="."]
+self_modulate = Color( 0.501961, 0.6, 1, 0 )
+position = Vector2( 2.30949, 5.17839 )
+curve = SubResource( 4 )
+
+[node name="PathFollowOut" type="PathFollow2D" parent="PathOut"]
+position = Vector2( 72.5149, -33.6635 )
+offset = 108.526
+rotate = false
+
+[node name="NodeOut" type="Label" parent="PathOut/PathFollowOut"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = -21.8944
+margin_top = 15.7514
+margin_right = 16.1056
+margin_bottom = 31.7514
+custom_styles/normal = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "B"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "HoverAnimation"
+anims/HoverAnimation = SubResource( 8 )

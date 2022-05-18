@@ -28,20 +28,17 @@ onready var hint_label: RichTextLabel = $CanvasLayer/TextHintContainer/HintLabel
 var u_is_explored: bool = false
 var q_is_empty: bool = false
 
-## Node related functions ##
-func create_nodes_with_weights(num_nodes: int, max_weight: int):
+func _init_graph_matrix(num_nodes: int) -> void:
 	StoredData.json["n"] = num_nodes
-
 	for _i in range(num_nodes):
-		StoredData.json_matrix.append([])
+			StoredData.json_matrix.append([])
 
+# Node related functions
+func create_nodes_with_weights(num_nodes: int, max_weight: int):
+	_init_graph_matrix(num_nodes)
 	for i in range(num_nodes):
 		for j in range(i + 1, num_nodes):
 			if randf() < self.graph_density and i != j:
-				# TODO: add condition:
-				# and StoredData.json_matrix[j] does not contain a pair that has [i]
-				# Maybe use a dictionary to make it easier 
-				# Add a pair (node number, weight)
 				var weight = stepify( rand_range(1.0, max_weight), 0.01)
 				StoredData.json_matrix[i].append( [j, weight] )
 				StoredData.json_matrix[j].append( [i, weight] )
@@ -55,13 +52,14 @@ func _ready():
 	down = 100
 	randomize()
 	create_nodes_with_weights(graph_size, edge_max_weight)
-
 	instance_nodes()
 	instance_edges()
-	
+	create_additional_weights_to_make_graph_connected(graph_size, edge_max_weight)
+	instance_edges()
 	StoredData.world_node = self
 
-func _on_node_instanced(node: AGraphNode):
+# node: AGraphNode
+func _on_node_instanced(node):
 	# Set index and edges for node
 	node.set_index(StoredData.nodes.size())
 	node.set_edges(StoredData.json_matrix[node.index])
@@ -73,7 +71,7 @@ func _on_node_instanced(node: AGraphNode):
 
 func instance_nodes():
 	for _i in range(StoredData.json_matrix.size()):
-		var curr_node : AGraphNode = circle.instance()
+		var curr_node = circle.instance()  # curr_node: AGraphNode
 		self.add_child(curr_node)
 		_on_node_instanced(curr_node)
 
@@ -97,6 +95,39 @@ func instance_edge_between_nodes(node_idx1: int, node_idx2: int, label_with_weig
 		label_with_weight  # label
 	)
 
+# Get a node whose index is not in the given array
+# So we know that if we have two separated trees, we can join them
+# using this
+func _get_index_of_node_absent_in_array(connected_node_indexes: Array) -> int:
+	# i.e connected_node_indexes = [1, 4, 6]
+	# all_nodes = [1, 2, 3, 4, 5, 6]
+	# so we could get a number like 2, 3 or 5
+	var complement = []
+	for node_index in StoredData.nodes:
+		if not node_index in connected_node_indexes:
+			complement.append(node_index)
+
+	var generator = RandomNumberGenerator.new()
+	var complement_index_to_return = generator.randi_range(0, complement.size() - 1)
+	return complement[complement_index_to_return].index
+
+
+# For each node V_i, check if the graph is connected from that node.
+# If not, find a node V_j whose index is not in the connected component of V_i
+# If we make an edge between (V_i, V_j), then we make another connected component
+# If we do that for each node, we surely will end up with a connected graph
+func create_additional_weights_to_make_graph_connected(num_nodes, max_weight):
+	for _i in range(StoredData.nodes.size()):
+		var node = StoredData.nodes[_i]  # AGraphNode
+		var i = node.index  # _i may not be equal to i
+		if not _graph_is_connected():
+			# We need to connect this node's tree to other tree
+			var connected_nodes = _get_connected_nodes_for_node(node)
+			var j = _get_index_of_node_absent_in_array(connected_nodes)
+			var weight = stepify( rand_range(1.0, max_weight), 0.01 )
+			StoredData.json_matrix[i].append( [j, weight] )
+			StoredData.json_matrix[j].append( [i, weight] )
+
 
 func _on_AllowGraphMovementButton_pressed():
 	StoredData.set_status("DRAG")
@@ -106,7 +137,9 @@ func _on_SelectNodeButton_pressed():
 	StoredData.set_status("SELECT")
 
 
-func _on_node_add_to_object(node: AGraphNode):
+# node: AGraphNode
+# Commented to avoid Ciclyc dependencies
+func _on_node_add_to_object(node):
 	var add_node_popup : AddNodePopup = $AddNodePopup
 	add_node_popup.popup()
 	add_node_popup.incoming_node = node
@@ -139,7 +172,7 @@ func _on_MenuButton_pressed() -> void:
 
 ## U.is_explored() popup signals ##
 # Show popup 
-func ask_user_if_graph_node_is_explored(u: AGraphNode, condition_value: bool):
+func ask_user_if_graph_node_is_explored(u, condition_value: bool):
 	u_is_explored_popup.show()
 	u_is_explored_popup.get_node("Explanation").text = "Is the U node (" + str(u.index) + ") explored?"
 	 # This stablishes whether yes or no should be pressed
@@ -203,3 +236,34 @@ func notify_q_is_empty_wrong_answer():
 	$QIsNotEmptyPopup/ErrorNotification/AnimationPlayer.stop()
 	$QIsNotEmptyPopup/ErrorNotification/AnimationPlayer.play("message_modulation")
 	# TODO: Add sound effect
+
+
+## utils for connected graphs ##
+# Perform a BFS and get connected nodes
+# node: AGraphNode
+func _get_connected_nodes_for_node(node) -> Array:
+	var queue: Queue = Queue.new()
+	var visited: Array = []
+	queue.push(node)
+	visited.append(node)
+
+	while queue.is_not_empty():
+		var current_node = queue.pop()  # current_node: AGraphNode
+		for neighbor_node in current_node.get_edges():
+			# Select node Object, not pair <index, weight>
+			neighbor_node = StoredData.nodes[neighbor_node[0]]
+			if not neighbor_node in visited:
+				queue.push(neighbor_node)
+				visited.append(neighbor_node)
+
+	return visited
+
+
+# If graph of size N is connected:
+# after a BFS exploration starting from every node
+# should find at least N 
+func _graph_is_connected() -> bool:
+	for node in StoredData.nodes:
+		if _get_connected_nodes_for_node(node).size() != self.graph_size:
+			return false
+	return true

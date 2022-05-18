@@ -10,7 +10,22 @@ region_rect = Rect2( 0, 0, 18, 18 )
 extents = Vector2( 40, 40 )
 
 [sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.909804, 0.941176, 0.490196, 1 )
+content_margin_left = 10.0
+content_margin_right = 50.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color( 0.87451, 0.815686, 0.196078, 0.588235 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 2
 
 [node name="Slot" type="Panel"]
 anchor_right = 0.0416667
@@ -75,23 +90,41 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="HoverPanel" type="Node2D" parent="."]
+visible = false
 position = Vector2( 19.5854, 19.5854 )
 z_index = 2
 z_as_relative = false
 
-[node name="HoverText" type="Label" parent="Node2D"]
-visible = false
-margin_left = 6.12493
-margin_top = 11.359
-margin_right = 49.1249
-margin_bottom = 25.359
-custom_styles/normal = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Queue"
+[node name="ColorRect" type="Panel" parent="HoverPanel"]
+margin_left = 11.0
+margin_top = 5.0
+margin_right = 144.0
+margin_bottom = 159.0
+rect_clip_content = true
+mouse_filter = 2
+custom_styles/panel = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="HoverText" type="Label" parent="HoverPanel/ColorRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -21.5
+margin_top = 10.0
+margin_right = 21.5
+margin_bottom = 24.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Queue"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlaceholder" type="Node2D" parent="HoverPanel/ColorRect"]
+position = Vector2( 40, 30 )
 
 [connection signal="input_event" from="SlotTexture/Area2D" to="." method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="SlotTexture/Area2D" to="." method="_on_Area2D_mouse_entered"]
