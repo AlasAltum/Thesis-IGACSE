@@ -1,2 +1,4 @@
-# Tesis
-For my Thesis on Interactive Graph Algorithms for Computer Science Education
+# Thesis
+For my Thesis on Videogames for teaching Graph-related Algorithms
+
+The game is being developed in the Godot Game Engine.

@@ -1,14 +1,10 @@
-# Circle Pop
+# Graph Visualizer
 
-Demo of a simple game using visual script.
-You must click the circles to "pop" them in
-order to stop their invasion of the screen.
+An educative interactive application to learn graph-related algorithms such as BFS, DFS, Kruskal and Prim.
+This application was made in Godot using mainly GDScript. C# was used in the beggining, but it does not allow to export games to HTML5, so it is not being used anymore.
+The purpose of this job is to analyze if this interactive application help new CS students to learn new algorithms and data structures.
 
-Language: [VisualScript](https://docs.godotengine.org/en/latest/tutorials/scripting/visual_script/index.html)
-
-Renderer: GLES 2
-
-Check out this demo on the asset library: https://godotengine.org/asset-library/asset/137
+Renderer: GLES 3
 
 ## Screenshots
 
