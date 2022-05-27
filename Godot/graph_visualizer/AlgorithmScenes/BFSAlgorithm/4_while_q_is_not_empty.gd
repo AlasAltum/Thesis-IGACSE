@@ -6,7 +6,7 @@ func check_actions_correct() -> bool:
 	return StoredData.q_is_empty_right_answer  # This is not required
 
 func while_condition_is_true():
-	return "Queue(Node(" in StoredData.heap_dictionary["q"].as_string()
+	return "Queue((" in StoredData.heap_dictionary["q"].as_string()
 
 # Considering that it is a while, it should return
 # the next line if the cicle continues, or jump to the jump line

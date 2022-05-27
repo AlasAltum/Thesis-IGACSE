@@ -5,48 +5,46 @@ Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: eptcs.bst
 Reallocating 'name_of_file' (item size: 1) to 8 items.
 Database file #1: generic.bib
-Warning--empty year in porosity
-Warning--empty pages in porosity
-Warning--missing publisher in feng2002advancing
-You've used 12 entries,
+Warning--empty journal in petri2018method
+You've used 8 entries,
             2701 wiz_defined-function locations,
-            662 strings with 6780 characters,
-and the built_in function-call counts, 6536 in all, are:
-= -- 481
-> -- 144
-< -- 10
-+ -- 67
+            635 strings with 6790 characters,
+and the built_in function-call counts, 4439 in all, are:
+= -- 318
+> -- 136
+< -- 5
++ -- 59
 - -- 48
-* -- 777
-:= -- 741
-add.period$ -- 24
-call.type$ -- 12
-change.case$ -- 52
+* -- 547
+:= -- 530
+add.period$ -- 16
+call.type$ -- 8
+change.case$ -- 41
 chr.to.int$ -- 0
-cite$ -- 27
-duplicate$ -- 555
-empty$ -- 553
-format.name$ -- 56
-if$ -- 1296
+cite$ -- 17
+duplicate$ -- 360
+empty$ -- 346
+format.name$ -- 55
+if$ -- 855
 int.to.chr$ -- 0
-int.to.str$ -- 12
-missing$ -- 107
-newline$ -- 72
-num.names$ -- 24
-pop$ -- 87
+int.to.str$ -- 8
+missing$ -- 75
+newline$ -- 52
+num.names$ -- 16
+pop$ -- 68
 preamble$ -- 1
-purify$ -- 48
+purify$ -- 39
 quote$ -- 0
-skip$ -- 203
+skip$ -- 121
 stack$ -- 0
-substring$ -- 326
-swap$ -- 541
-text.length$ -- 10
+substring$ -- 182
+swap$ -- 356
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 60
-warning$ -- 3
-while$ -- 51
-width$ -- 14
-write$ -- 134
-(There were 3 warnings)
+type$ -- 40
+warning$ -- 1
+while$ -- 31
+width$ -- 9
+write$ -- 94
+(There was 1 warning)

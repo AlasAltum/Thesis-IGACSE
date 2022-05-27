@@ -32,7 +32,7 @@
 [ext_resource path="res://AlgorithmScenes/Screen/ADT/Queue/QueueAnimation.tscn" type="PackedScene" id=30]
 [ext_resource path="res://AlgorithmScenes/Code/ADTs/stack_adt.gd" type="Script" id=31]
 [ext_resource path="res://AlgorithmScenes/Code/Arrow.png" type="Texture" id=32]
-[ext_resource path="res://AlgorithmScenes/Screen/ADTsShower.tscn" type="PackedScene" id=33]
+[ext_resource path="res://AlgorithmScenes/Screen/ADTsShower2.tscn" type="PackedScene" id=34]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 4.0
@@ -170,8 +170,8 @@ tracks/0/keys = {
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 4 )
-graph_density = 0.24
-graph_size = 7
+graph_density = 0.169
+graph_size = 4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -639,7 +639,8 @@ __meta__ = {
 }
 
 [node name="ModeSelector" type="MarginContainer" parent="CanvasLayer/LeftPanel"]
-margin_right = 205.0
+visible = false
+margin_right = 234.0
 margin_bottom = 90.0
 mouse_filter = 2
 __meta__ = {
@@ -647,7 +648,7 @@ __meta__ = {
 }
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/LeftPanel/ModeSelector"]
-margin_right = 205.0
+margin_right = 234.0
 margin_bottom = 90.0
 custom_styles/panel = SubResource( 2 )
 __meta__ = {
@@ -657,7 +658,7 @@ __meta__ = {
 [node name="OneToggleButtonVBoxContainer" type="VBoxContainer" parent="CanvasLayer/LeftPanel/ModeSelector/PanelContainer"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 195.0
+margin_right = 224.0
 margin_bottom = 80.0
 theme = SubResource( 4 )
 script = ExtResource( 1 )
@@ -667,7 +668,7 @@ __meta__ = {
 available_modes = [ "SelectNode", "AllowGraphMovement" ]
 
 [node name="SelectNodeButton" type="Button" parent="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer"]
-margin_right = 185.0
+margin_right = 214.0
 margin_bottom = 33.0
 toggle_mode = true
 pressed = true
@@ -675,7 +676,7 @@ text = "Select Mode"
 
 [node name="AllowGraphMovementButton" type="Button" parent="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer"]
 margin_top = 37.0
-margin_right = 185.0
+margin_right = 214.0
 margin_bottom = 70.0
 theme = ExtResource( 3 )
 disabled = true
@@ -683,9 +684,8 @@ toggle_mode = true
 text = " Move Nodes Mode"
 
 [node name="DebugBlock" type="ScrollContainer" parent="CanvasLayer/LeftPanel"]
-margin_top = 94.0
-margin_right = 205.0
-margin_bottom = 394.0
+margin_right = 234.0
+margin_bottom = 300.0
 rect_min_size = Vector2( 0, 300 )
 mouse_filter = 2
 custom_styles/bg = SubResource( 1 )
@@ -699,13 +699,13 @@ __meta__ = {
 [node name="LinesContainer" type="VBoxContainer" parent="CanvasLayer/LeftPanel/DebugBlock"]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 201.0
+margin_right = 230.0
 margin_bottom = 61.0
 mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="DebuggerTitle" type="Label" parent="CanvasLayer/LeftPanel/DebugBlock/LinesContainer"]
-margin_right = 197.0
+margin_right = 226.0
 margin_bottom = 57.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
@@ -715,18 +715,6 @@ text = "Variables
 align = 1
 valign = 1
 clip_text = true
-
-[node name="ADTStructureButton" type="Button" parent="CanvasLayer/LeftPanel/DebugBlock/LinesContainer/DebuggerTitle"]
-show_behind_parent = true
-margin_left = 168.0
-margin_top = 5.0
-margin_right = 189.0
-margin_bottom = 25.0
-rect_pivot_offset = Vector2( 29, 80.6549 )
-text = "?"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Area2D" type="Area2D" parent="CanvasLayer/LeftPanel/DebugBlock"]
 position = Vector2( 41.2171, -0.0319672 )
@@ -739,10 +727,20 @@ z_index = 5
 z_as_relative = false
 shape = SubResource( 6 )
 
+[node name="ADTShower" parent="CanvasLayer/LeftPanel" instance=ExtResource( 34 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 304.0
+margin_right = 234.0
+margin_bottom = 538.0
+
 [node name="ADTSelectionPanel" type="MarginContainer" parent="CanvasLayer/LeftPanel"]
-margin_top = 398.0
-margin_right = 205.0
-margin_bottom = 698.0
+margin_top = 542.0
+margin_right = 234.0
+margin_bottom = 842.0
 rect_min_size = Vector2( 170, 300 )
 mouse_filter = 2
 custom_constants/margin_bottom = 0
@@ -751,7 +749,7 @@ __meta__ = {
 }
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/LeftPanel/ADTSelectionPanel"]
-margin_right = 205.0
+margin_right = 234.0
 margin_bottom = 300.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 2 )
@@ -760,12 +758,12 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/LeftPanel/ADTSelectionPanel"]
-margin_right = 205.0
+margin_right = 234.0
 margin_bottom = 300.0
 mouse_filter = 2
 
 [node name="DebuggerTitle" type="Label" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer"]
-margin_right = 205.0
+margin_right = 234.0
 margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
@@ -775,7 +773,7 @@ align = 1
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer"]
 margin_top = 31.0
-margin_right = 205.0
+margin_right = 234.0
 margin_bottom = 171.0
 rect_min_size = Vector2( 40, 40 )
 mouse_filter = 2
@@ -1184,11 +1182,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ADTsShower" parent="." instance=ExtResource( 33 )]
-
 [connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/SelectNodeButton" to="." method="_on_SelectNodeButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/AllowGraphMovementButton" to="." method="_on_AllowGraphMovementButton_pressed"]
-[connection signal="pressed" from="CanvasLayer/LeftPanel/DebugBlock/LinesContainer/DebuggerTitle/ADTStructureButton" to="ADTsShower" method="_on_ADTStructureButton_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_exited"]
 [connection signal="text_entered" from="AssignNameToDataStructurePopup/NameAssign" to="AssignNameToDataStructurePopup" method="_on_NameAssign_text_entered"]

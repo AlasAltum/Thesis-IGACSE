@@ -39,19 +39,12 @@ func update_data_with_dictionary(new_data: Dictionary):
 		labels["u"].queue_free()
 		labels.erase("u")
 
-
+# Add a variable to the heap
 func add_variable(var_name, var_data):
-	# Cases: var_data is a Node
-	if var_data is AGraphNode:
-		var new_label : Label = self.label_template.instance() as Label
-		set_data_to_label(new_label, var_name, var_data)
-		lines_container.add_child(new_label)
+	var new_label : Label = self.label_template.instance() as Label
+	set_data_to_label(new_label, var_name, var_data)
+	lines_container.add_child(new_label)
 
-	elif var_data is ADT:
-		
-		var new_label : Label = self.label_template.instance() as Label
-		set_data_to_label(new_label, var_name, var_data)
-		lines_container.add_child(new_label)
 
 func set_data_to_label(label: Label, var_name: String, var_data):
 	label.name = str("heap_" + var_name)
@@ -85,7 +78,7 @@ func _on_Area2D_mouse_exited():
 
 # This is done to focus the variable shown in the ADTShower
 func change_focus_of_label(index: int):
-	if curr_label:
+	if curr_label and is_instance_valid(curr_label):
 		curr_label.add_stylebox_override("normal", unfocused_style)
 		curr_label.material = null
 

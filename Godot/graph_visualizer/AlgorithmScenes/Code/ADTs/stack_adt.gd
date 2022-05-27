@@ -3,8 +3,12 @@ extends ADT
 
 var data : Array = []  # Array of Node2D
 
-func _ready():
-	self.representation = StackRepresentation.new()
+#func _ready():
+#	self.representation = StackRepresentation.new()
+
+func _init():
+	self.representation = preload("res://AlgorithmScenes/Screen/ADT/Stack/StackRepresentation.tscn").instance()
+
 
 static func get_type() -> String:
 	return "Stack"

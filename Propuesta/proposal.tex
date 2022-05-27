@@ -2,7 +2,7 @@
 \setlength{\parindent}{0pt}
 \providecommand{\event}{} % Name of the event you are submitting to
 
-\title{Herramienta interactiva para enseñar sobre Grafos y algoritmos relacionados}
+\title{Videojuego educativo para enseñar algoritmos relacionados a grafos}
 \author{ Alonso Utreras
 \institute{Department of Computer Science\\
 University of Chile\\
@@ -15,49 +15,137 @@ Santiago, Chile}
 
 \section{Introduction}
  
-Una forma común de enseñar y aprender es acompañar la información con dibujos o gráficos, lo cual
-facilita el aprendizaje de quienes tienen una forma de inteligencia más visual. El presente trabajo
-busca llevar las instrucciones llevadas a cabo por los algoritmos relacionados con grafos a una
+Una forma común de enseñar y aprender es acompañar la información con dibujos o gráficos. La presente investigación
+busca llevar las instrucciones llevadas a cabo por los algoritmos relacionados a grafos a una
 representación visual e interactiva para que los estudiantes de computación puedan aprender acompañándose
-con esta herramienta.
+con esta herramienta. 
 
-\section{Related work}
+El trabajo consiste en presentarle un videojuego donde se muestren grafos, en que el jugador
+debe ejecutar las instrucciones de estos algoritmos, apoyándose en elementos visuales. El objetivo de esta investigación de tesis es 
+determinar si se ven diferencias en los niveles de motivación percibidos por el estudiantado y en el entendimiento
+de los algoritmos, medido a través de tareas de programación. El público objetivo son estudiantes
+que estén en su primer año de ciencias de la computación (CS por sus siglas en inglés).
 
-Parte de los siguientes párrafos están inspirados en el trabajo de José Romero.
-Actualmente existen algunas librerías para generar visualizaciones de estructuras de
-datos, pero estas no incluyen interactividad. Un ejemplo de librería es Reftree [Stanch, Nick: Reftree.
-https://github.com/stanch/reftree, 2021.] que permite crear visualizaciones de estructuras de datos en
-el lenguaje Scala.
-Otro ejemplo es la librería Lolviz [ 8 ], la cual solo genera imágenes estáticas.
-Por otro lado, existe la librería Aed-Utilities [ https://github.com/ivansipiran/aed-utilities ] creada para el curso de Algoritmos
-y Estructuras de Datos de la FCFM por el Profesor Iván S.
-Además, el estudiante José Romero de la FCFM a cargo del profesor antes mencionado
-empezó un trabajo de título relacionado a la visualización de estructuras de datos
-a inicios del año 2022. [https://github.com/romero-jose/visualizations]
-Un último ejemplo más similar a lo buscado es Manim [Sanderson, Grant: Manim. https://github.com/ManimCommunity/manim, 2021], focalizada en visualizaciones 
-matemáticas. Esta librería se utiliza en el contexto de la generación de videos de Youtube,
-cuyo fundador Grant Sanderson sube videos a su canal 3Blue1Brown.
-Un canal de Youtube que se ha esforzado en hacer representaciones visuales de los algoritmos 
-es AlgoExpert 
-[https://www.youtube.com/channel/UCoRwjeG00b8vFyATaBOxmOA/featured] o
-GeeksForGeeks 
-[https://www.youtube.com/c/GeeksforGeeksVideos/], sin embargo,
-al tratarse de plataformas de videos, no han entregado interactividad al usuario para
-ejercer un rol más activo en su aprendizaje.
-Un último ejemplo destacable aplicado a Computación es Scratch, un lenguaje de programación por bloques
-hecho especialmente para enseñar programación a infantes y adolescentes a través de visualizaciones y acciones,
-ofreciendo gran interactividad [https://scratch.mit.edu/].
+Un videojuego es una forma de aprendizaje activo, \cite{active_learning_review} pues el proceso de enseñanza no se desarrolla partiendo por un profesor
+exponiendo frente a un estudiante. En este caso, quien aprende debe ejectuar pasos y
+participar en alguna actividad a través de la cual se construye el conocimiento. En la reseña realizada por Hartikainen et al. \cite{active_learning_review}
+se enumeran justificaciones para el aprendizaje activo:  mejores resultados, recomendaciones políticas y las nuevas demandas de la vida laboral actual,
+como capacidades de comunicación o descubrimiento por cuenta propia. 
+
+Los videojuegos serios (Serious Gaming) son una forma de aprendizaje activo. Un trabajo de Bell y Gibson \cite{evaluation_of_games_for_teaching_cs} indican que juegos
+educacionales son más efectivos que las clases, lecturas, videos y tareas. Se resume que el uso de juegos resulta en 9\% mejor retención, 11\% mejor conocimiento fáctico,
+14\% mejor conocimiento basado en habilidades y 20\% mayor autoeficacia. Sin embargo, recomiendan que los juegos deben ser acompañados
+de otras formas de enseñanza, así como hacer actividades post juego donde se le pregunta al estudiantado cómo se relacionan los juegos a la materia.
 
 
-\subsection{ Estrategia A}
-
-Texto ...  \cite{hopper2001empirical}. \\
-
-
-\subsection{ Estrategia B}
+Bell y Gibson \cite{evaluation_of_games_for_teaching_cs} identificaron y clasificaron videosjuegos de Ciencias de la Computación (CS),
+considerando un total de 41 videojuegos. De esos, uno de ellos (Map Coloring) se trata sobre grafos, tomando el tema de coloreo de grafos.
+Se realizó una búsqueda del juego a la fecha (2022), pero no se encontró ningún material al respecto.
 
 
-\subsection{ Estrategia C}
+Kiili y su equipo \cite{using_videogames_maths} analizaron el uso de videojuegos en enseñanza
+y evaluación en matemáticas a través de los títulos "Semideus" y "Wuzzit Trouble". A través
+de estos, llegaron a la conclusión de que es posible utilizar videojuegos para enseñar y
+evaluar al mismo tiempo. Además, caracterizaron estadísticamente las diferencias producidas por el uso
+de videojuegos entre resultados de un pre test y un post test.
+
+Kiili, Bell, Gibson y Giani \cite{petri2018method} están de acuerdo en que no hay sistematización
+en los videojuegos educativos. En efecto, hay juegos serios que ni siquiera se denominan o consideran como tales
+\cite{evaluation_of_games_for_teaching_cs}. Por otra parte, no existe una forma estándar de evaluarlos, razón por
+la cual Petri, Giani y otros \cite{petri2018method} crearon el modelo MEEGA+ (Model for the Evaluation of Educational
+Games and EGameFlow scale).
+
+Entre las faltas mencionadas al momento de crear videojuegos, se mencionan las faltas de 1) Definición de un objetivo
+de evaluación, 2) Diseño de investigación, 3) Programa de medición, 4) instrumentos de recolección de datos y 5) y métodos
+de análisis de datos. Es más, es común ver que se utilizan comentarios informales por parte del estudiantado \cite{petri2018method}.
+
+
+% Revisar MEEGA+
+% https://www.incod.ufsc.br/wp-content/uploads/2018/03/Relatorio-Tecnico-INCoD_GQS_05_2018_E.pdf: 
+
+% EEGA+ model
+% (exploratory factor analysis), analysing a sample of 718
+% students from 40 case studies [14], the MEEGA+ model is
+% decomposed into two quality factors (usability and player
+% experience) and their dimensions (Figure 2). We define
+% usability as the degree to which a product (educational
+% game) can be used by specified users (students) to achieve
+% specified goals with effectiveness and efficiency in a
+% specified context of use (computing education), being
+% composed of the following dimensions: aesthetics,
+% learnability, operability, and accessibility. Player
+% experience is a quality factor that covers a deep
+% involvement of the student in the gaming task, including
+% his/her perception of learning, feelings, pleasures, and
+% interactions with the game, environment and other players,
+% being composed of the following dimensions: focused
+% attention, fun, challenge, social interaction, confidence,
+% relevance, satisfaction, and perceived learning
+
+% Actualmente existen algunas librerías para generar visualizaciones de estructuras de
+% datos, pero estas no incluyen interactividad. Un ejemplo de librería es Reftree [Stanch, Nick: Reftree.
+% https://github.com/stanch/reftree, 2021.] que permite crear visualizaciones de estructuras de datos en
+% el lenguaje Scala.
+% Otro ejemplo es la librería Lolviz [ 8 ], la cual solo genera imágenes estáticas.
+% Por otro lado, existe la librería Aed-Utilities [ https://github.com/ivansipiran/aed-utilities ] creada para el curso de Algoritmos
+% y Estructuras de Datos de la FCFM por el Profesor Iván S.
+% Además, el estudiante José Romero de la FCFM a cargo del profesor antes mencionado
+% empezó un trabajo de título relacionado a la visualización de estructuras de datos
+% a inicios del año 2022. [https://github.com/romero-jose/visualizations]
+% Un último ejemplo más similar a lo buscado es Manim [Sanderson, Grant: Manim. https://github.com/ManimCommunity/manim, 2021], focalizada en visualizaciones 
+% matemáticas. Esta librería se utiliza en el contexto de la generación de videos de Youtube,
+% cuyo fundador Grant Sanderson sube videos a su canal 3Blue1Brown.
+% Un canal de Youtube que se ha esforzado en hacer representaciones visuales de los algoritmos 
+% es AlgoExpert 
+% [https://www.youtube.com/channel/UCoRwjeG00b8vFyATaBOxmOA/featured] o
+% GeeksForGeeks 
+% [https://www.youtube.com/c/GeeksforGeeksVideos/], sin embargo,
+% al tratarse de plataformas de videos, no han entregado interactividad al usuario para
+% ejercer un rol más activo en su aprendizaje.
+% Un último ejemplo destacable aplicado a Computación es Scratch, un lenguaje de programación por bloques
+% hecho especialmente para enseñar programación a infantes y adolescentes a través de visualizaciones y acciones,
+% ofreciendo gran interactividad [https://scratch.mit.edu/].
+
+
+\subsection{Propiedades que debería tener el juego}
+
+Según \cite{evaluation_of_games_for_teaching_cs}, el juego debería ser divertido, separado, incierto,
+gobernado por reglas y ficticio. Además, debería generar inmersión y enganche en un jugador. Por otra parte,
+se recomiendan ciertos lineamientos como innovación y escalamiento en la dificultad, lo cual permite generar
+inmersión (en inglés y en la literatura más conocido como flow), esto le permite a un jugador generar confianza en
+un ambiente libre de riesgos para experimentar y poner a prueba sus conocimientos. 
+
+Un problema del aprendizaje activo es que, pese a lograr mejores resultados, incomoda a los estudiantes, pues les
+genera la percepción de que su aprendizaje fue menor con respecto a actividades de enseñanza pasiva \cite{active_learning_versus_feeling_of_learning}.
+Los autores de este trabajo atribuyen tales resultados al sentimiento de desconocimiento que sienten los alumnos mientras realizan estas actividades,
+ahunado a que, al no estar familiarizados con aprendizaje activo intenso en clases, no comprenden que
+el alto esfuerzo cognitivo implicado es un signo de aprendizaje efectivo.
+
+Sin embargo, un videojuego que entregue retroalimentación constante al jugador de que sus acciones
+son correctas o incorrectas, sumado a que cada estudiante estaría realizando las actividades
+de forma individual, dejaría de exponer sus errores y quitaría esta incomidad para los estudiantes,
+sobretodo si el juego logra la inmersión del jugador, haciendo que este olvide que está aprendiendo.
+
+% Agregar referencias y definicion de juego
+% Typically, an educational game is characterized by various elements,
+% such as goals, rules, restrictions, interaction, challenge, competition, rewards and
+% feedback (Abt, 2002; Prensky, 2007; Ritterfeld et al., 2010; Djaouti et al., 2011).
+% \section{Related work} https://www.incod.ufsc.br/wp-content/uploads/2018/03/Relatorio-Tecnico-INCoD_GQS_05_2018_E.pdf
+
+
+
+% Having observed this negative correlation between students’ FOL and their actual learning,
+% we sought to understand the causal factors behind this observation. A survey of the 
+% existing literature suggests 2 likely factors: 1) the cognitive fluency of lectures can 
+% mislead students into thinking that they are learning more than they actually are (30, 31)
+%  and 2) novices in a subject have poor metacognition and thus are ill-equipped to judge
+%  how much they have learned (27–29). We also propose a third factor: 3) students who are
+%  unfamiliar with intense active learning in the college classroom may not appreciate that
+%  the increased cognitive struggle accompanying active learning is actually a sign that the
+%  learning is effective. We describe below some evidence suggesting that all 3 factors are
+%  involved and propose some specific strategies to improve students’ engagement with active
+%  learning.
+
 
 
 \section{Problem}
@@ -66,25 +154,29 @@ Actualmente no existe una plataforma donde se pueda aplicar
 un algoritmo de forma manual e interactiva, lo cual constituye
 una buena herramienta de enseñanza. 
 
+[Acá tengo dudas de qué más podría colocar]
+
+
+
 
 \section{Research questions}
 
-P1: ¿Qué tan eficaz es el uso de herramientas de visualización de algoritmos interactivas para
-enseñar sobre algoritmos aplicados a grafos?
+P1: ¿Cómo se comparan los resultados en un test de programación entre un grupo de control y otro que
+jugó un videojuego que enseña algoritmos relacionados a grafos?
 
-P2: ¿Cómo se comparan los niveles de interés en el estudiantado al utilizar herramientas
-de visualización de algoritmos interactivas comparadas a aquellos grupos que no las utilizan?
+P2: ¿Cómo se comparan los niveles de interés entre un grupo de control y otro que jugó un videojuego
+que enseña algoritmos relacionados a grafos?
 
 
 \section{Hypothesis}
 
-H1: Una plataforma de visualización interactiva de algoritmos de grafos
-es una herramienta que mejora los resultados de los estudiantes que la ocupan.
+H1: Un videojuego que enseña algoritmos relacionados a grafos es una herramienta
+que mejora los resultados académicos de los estudiantes de computación.
 
-H2: Una plataforma de visualización interactiva de algoritmos de grafos
-genera mayor interés en el estudiantado.
+H2: Un videojuego que enseña algoritmos relacionados a grafos genera mayor interés
+en el estudiantado.
 
-Se entienden mejores resultados como mejores notas en evaluaciones estándares
+Se entienden mejores resultados académicos como notas más elevadas en evaluaciones estándares
 realizadas por los equipos docentes a cargo del ramo.
 
 Se entiende interés como una medida subjetiva de cuánto un usuario desea
@@ -92,11 +184,10 @@ aprender sobre un tema en particular.
 
 \section{Main Goal}
 
-Diseñar y desarrollar una aplicación interactiva que muestre grafos y 
-algoritmos relacionados a estos, que permita al usuario ir ejecutando
-acciones en la aplicación según lo pide un algoritmo desplegado en la misma
-pantalla. La aplicación debe indicar al usuario cuando está en lo correcto
-y cuándo se equivoca.
+Diseñar y desarrollar un videojuego que muestre grafos y algoritmos relacionados a estos,
+que permita al usuario ir ejecutando acciones en la aplicación según lo pide un algoritmo
+desplegado en la misma pantalla. La aplicación debe indicar al usuario cuando está en lo
+correcto y cuándo se equivoca.
 
 \section{Specific goals}
 
@@ -107,26 +198,46 @@ los pasos relacionados a algoritmos que trabajen con grafos.
 \item Medir el interés de estudiantes de computación relacionado a grafos
 antes y después del uso de esta herramienta.
 
-\item Medir la comprensión y capacidad de replicación de un algoritmo de 
-estudiantes de computación antesy después del uso de esta herramienta.
-
+\item Medir la comprensión y capacidad de replicación de un algoritmo relacionado a grafos
+de un grupo de estudiantes de computación antes y después de probar el videojuego presentado.
 
 \end{itemize}
 
 \section{Methodology}
 
-Diseño de la herramienta interactiva.
-Desarrollo de la herramienta interactiva.
-Pruebas con casos de estudio.
+Se desarrollará el videojuego considerando el feedback de un profesor guía y otros estudiantes
+que no sean parte de la población objetivo del estudio, ajustándolo según sea necesario. \\
+Asegurarse que el videojuego cumple con las características seguridas por \cite{evaluation_of_games_for_teaching_cs},
+\cite{petri2018method} y \cite{using_videogames_maths}. Si no, seguir iterando. \\
+Presentar el juego en los cursos cuando se esté impartiendo la materia relacionada a grafos. El uso del
+videojuego será voluntario y sugerido, con el requisito de llenar un formulario de forma anterior y posterior al uso del juego.
+El formulario poseerá un cuestionario siguiendo los lineamientos de MEEGA+ planteados en \cite{petri2018meegaplus} \\
+Se revisarán los datos llenados por los estudiantes que accedieron al formulario, en conjunto con los
+datos recolectados durante el juego mismo, para ver si estos se condicen. Por ejemplo, el juego medirá el tiempo
+entre clicks. Se espera que un jugador que esté motivado posea un alto nivel de actividad, y una alta cadencia de clicks. \\
+Finalmente, se realizará una prueba de programación en los cursos que vean la materia de grafos, donde los estudiantes
+tendrán que responder preguntas relacionadas a los algoritmos vistos en el juego. Se separarán dos grupos, 
+uno de control con la gente que decidió no jugar, y otro experimental que sí probó el videojuego.
+
+\subsection{Desventajas y debilidades del proceso}
+
+El tamaño muestral puede no ser suficiente. No se sabe cuánto será el tamaño de los grupos de control
+y experimental, pero se espera que el total de participantes sea superior a 250. \\
+Existe un sesgo al presentar el uso del videojuego como una opción voluntaria, por lo que los estudiantes
+con más tiempo e interés tenderán a probar el videojuego, pero son quienes a su vez tienen mejores notas. \\
 
 
 \section{Expected results}
 
-Se espera aumentar el interés de los estudiantes en el aprendizaje de algoritmos
-relacionados a grafos. Además, se busca generar una metodología de prueba para
-herramientas interactivas cuyo fin sea la enseñanza, de tal manera que otro
-memorista o tesista en el futuro pueda hacer pruebas análogas con otros algoritmos
+Se espera observar un nivel de interés superior en los estudiantes en algoritmos
+relacionados a grafos a través del cuestionario entregado.
+Se esperan mejores resultados en el grupo que pruebe el videojuego, en un intervalo del
+8\% al 14\% de diferencia, lo que debe ser entre 5 y 7 décimas en una escala de evaluación del 1.0 al 7.0
+considerando valores decimales intermedios.
+Además, se busca generar una metodología de prueba para herramientas interactivas cuyo fin sea la enseñanza,
+de tal manera que otro memorista o tesista en el futuro pueda hacer pruebas análogas con otros algoritmos
 o estructuras de datos e incluso aplicadas a otras materias.
+
 
 \nocite{*}
 \bibliographystyle{eptcs}

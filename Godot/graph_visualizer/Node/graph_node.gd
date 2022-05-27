@@ -9,8 +9,16 @@ var pressed: bool = false
 onready var node_name: Label = $Sprite/NodeName
 onready var popup_menu: Popup = $Popup
 
+const representation_prefab = preload("res://Node/NodeRepresentation.tscn")
+var representation: NodeRepresentation 
+
 var can_grab: bool = false
 var grabbed_offset: Vector2 = Vector2()
+
+const NORMAL_COLOR = Color(1.0, 1.0, 1.0, 1.0)
+const ITERATED_COLOR = Color(0.7, 0.4, 0.2)
+const SELECTED_COLOR = Color(1.0, 1.0, 0.0, 0.8)
+const SELECTED_LABEL_COLOR = Color(0.0, 1.0, 0.0, 1.0)
 
 signal node_add_to_object(node)
 
@@ -18,7 +26,16 @@ signal node_add_to_object(node)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("Nodes")
+	self.representation = representation_prefab.instance()
 	randomize()
+
+func create_representation() -> NodeRepresentation:
+	self.representation = representation_prefab.instance()
+	self.representation.set_index(self.index)
+	if self.selected:
+		self.representation.set_selected()
+
+	return self.representation
 
 func init_radial_position(total_nodes: int):
 	var angle = 2 * PI / (total_nodes + 1) * (self.index + 1)
@@ -33,7 +50,8 @@ func init_random_position(left, right, down, up):
 
 func set_index(_index: int):
 	self.index = _index
-	node_name.text = str(self.index)
+	representation.set_index(_index)
+	node_name.text = str(_index)
 
 # Edges type is:
 # pairs<node_index <int>, weight <float>>
@@ -47,9 +65,15 @@ func get_edges() -> Array:
 
 func set_selected():
 	self.selected = true
-	self.modulate = Color(1.0, 1.0, 0.0, 0.8)
-	node_name.modulate = Color(0.0, 1.0, 0.0, 1.0)
-	# StoredData.selected_nodes.append(self)
+	self.modulate = SELECTED_COLOR
+	node_name.modulate = SELECTED_LABEL_COLOR
+	representation.set_selected()
+	# This array is not being used anymore
+	# Now it is created each time it is queried
+	#	StoredData.selected_nodes.append(self)
+
+func mark_as_iterated():
+	self.modulate = ITERATED_COLOR
 
 # Select node using left click
 func on_simple_press_left():
@@ -63,13 +87,14 @@ func on_simple_press_right():
 # with right click menu
 func _on_UnselectButton_pressed():
 	self.selected = false
-	self.modulate = Color(1.0, 1.0, 1.0, 1.0)
-	node_name.modulate = Color(1.0, 1.0, 1.0, 1.0)
+	self.modulate = NORMAL_COLOR
+	node_name.modulate = NORMAL_COLOR
+	representation.set_unselected()
 	popup_menu.hide()
 	popup_menu.visible = false
 	# StoredData.selected_nodes.erase(self)
 
-# With right click menu
+## Right click menu related methods ##
 func _on_AddToObjectButton_pressed():
 	emit_signal("node_add_to_object", self)
 	popup_menu.visible = false
@@ -95,6 +120,7 @@ func _process(_delta):
 				StoredData.mov_status.SELECT:
 					on_simple_press_right()
 
+## Right click menu related methods ##
 
 func as_string() -> String:
 	return "(" + str( self.index) + ")"

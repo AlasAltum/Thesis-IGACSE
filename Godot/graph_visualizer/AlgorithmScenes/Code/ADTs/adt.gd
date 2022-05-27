@@ -20,3 +20,5 @@ func as_string() -> String:
 func get_object() -> Object:
 	return self
 
+func create_representation() -> ADTRepresentation:
+	return self.representation

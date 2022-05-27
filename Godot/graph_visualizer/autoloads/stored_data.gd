@@ -81,10 +81,18 @@ func _on_correct_variable_creation(variable_name: String):
 	self.dragged_adt.queue_free()
 	self.dragged_adt = null
 
+# Create a new variable, considering it in the
+# ADT Shower and in the Debug Block
 func add_variable(var_name, data):
+	adt_shower.update_representation(var_name, data)
 	heap_dictionary[var_name] = data
-	adt_shower.add_representation(var_name, data)
+#	if var_name in heap_dictionary:
+#		adt_shower.erase_representation(var_name)
+#	adt_shower.add_representation(var_name, data)
 	_on_data_update()
+
+func _on_data_update():
+	debug_block.update_data_with_dictionary(self.heap_dictionary)
 
 func has_variable(variable_name: String) -> bool:
 	return variable_name in heap_dictionary # or heap.has_variable(variable_name)
@@ -105,21 +113,16 @@ func get_data_type_of_variable(var_name: String):
 
 
 # add a node to object in variables list: Like Queue, Stack, Array, Set...
-func add_node_to_object(variable_name: String, node: AGraphNode):
+func add_node_to_adt(variable_name: String, node: AGraphNode):
 	if has_variable(variable_name):
 		var var_data = heap_dictionary[variable_name]
 		var_data.add_data(node)  # This method should be special for every ADT
 		heap_dictionary[variable_name] = var_data
 		_on_data_update()
 
-
-func _on_data_update():
-	debug_block.update_data_with_dictionary(self.heap_dictionary)
-
 # TODO: Create a notification
 func notify(msg: String) -> void:
 	print(msg)
-
 
 func on_code_finished_popup(_msg: String):
 	self.world_node.on_code_finished_popup(_msg)
@@ -132,9 +135,10 @@ func ask_user_if_queue_is_empty(is_q_empty: bool):
 
 # When game gets reset, reset data
 func reset_data():
+	self.selected_variable_index = 0
+	self.selectable_nodes = []
 	self.status = mov_status.SELECT;
 	self.nodes = []  # PoolAGraphNodeArray
-	self.heap = null # Class DebugBlock
 	self.json_matrix = []
 	self.json = {
 		"n": 3,
@@ -147,3 +151,4 @@ func reset_data():
 	self.assign_name_popup = null
 	self.variable_to_add = null
 	self.world_node = null
+	# self.heap = null # Class DebugBlock

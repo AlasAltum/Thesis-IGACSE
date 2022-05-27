@@ -23,15 +23,11 @@ func _close_popup():
 func _on_NameAssign_text_entered(object_name):
 	if incoming_node:
 		if StoredData.has_variable(object_name):
-			StoredData.add_node_to_object(object_name, incoming_node)
+			StoredData.add_node_to_adt(object_name, incoming_node)
 
 		else: # Case a node was tried to be added to a non-existing object
 			show_error()
 			return
-#	else:  # Other kind of errors
-#		# TODO: Show error
-#		show_error()
-##		_close_popup()
 
 
 func _on_EnterButton_pressed():
