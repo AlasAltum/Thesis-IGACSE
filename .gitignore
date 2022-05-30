@@ -9,3 +9,6 @@ export_presets.cfg
 data_*/
 vectors_for_images.pptx
 ~$vectors_for_images.pptx
+Propuesta/proposal.aux
+Propuesta/proposal.fdb_latexmk
+Propuesta/proposal.log
