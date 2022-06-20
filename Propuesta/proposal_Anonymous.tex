@@ -3,18 +3,17 @@
 \providecommand{\event}{} % Name of the event you are submitting to
 
 \title{Videojuego educativo para enseñar algoritmos relacionados a grafos}
-\author{ Alonso Utreras\\
-Profesor Guía: Iván Sipirán
-\institute{Departmento de Ciencias de la Computación\\
-Universidad de Chile\\
+\author{ 
+\institute{Department of Computer Science\\
+University of Chile\\
 Santiago, Chile}
-\email{alonso.utreras@ug.uchile.cl}
-\email{autreras@dcc.uchile.cl}
+\email{}
+\email{}
 }
 \begin{document}
 \maketitle
 
-\section{Introducción}
+\section{Introduction}
  
 Una forma común de enseñar y aprender es acompañar la información con dibujos o gráficos. La presente investigación
 busca llevar las instrucciones llevadas a cabo por los algoritmos relacionados a grafos a una
@@ -27,10 +26,10 @@ determinar si se ven diferencias en los niveles de motivación percibidos por el
 de los algoritmos, medido a través de tareas de programación. El público objetivo son estudiantes
 que estén en su primer año de ciencias de la computación (CS por sus siglas en inglés).
 
-\section{Trabajo relacionado} 
+\section{Related work} 
 
 
-Un videojuego es una forma de aprendizaje activo, pues el proceso de enseñanza no se desarrolla partiendo por un profesor
+Un videojuego es una forma de aprendizaje activo, \cite{active_learning_review} pues el proceso de enseñanza no se desarrolla partiendo por un profesor
 exponiendo frente a un estudiante. En este caso, quien aprende debe ejectuar pasos y
 participar en alguna actividad a través de la cual se construye el conocimiento. En la reseña realizada por Hartikainen et al. \cite{active_learning_review}
 se enumeran justificaciones para el aprendizaje activo:  mejores resultados, recomendaciones políticas y las nuevas demandas de la vida laboral actual,
@@ -52,7 +51,7 @@ de estos, llegaron a la conclusión de que es posible utilizar videojuegos para 
 evaluar al mismo tiempo. Además, caracterizaron estadísticamente las diferencias producidas por el uso
 de videojuegos entre resultados de un pre test y un post test.
 
-En el trabajo realizado por Zhao y Shute \cite{video_game_foster_computational_thinking} se enumeran ejemplos de videojuegos pensados para enseñar programación,
+En \cite{video_game_foster_computational_thinking} se enumeran ejemplos de videojuegos pensados para enseñar programación,
 tales como Wu's Castle \cite{wuscastle}, CodeCombat \cite{CodeCombat}, CodeSpell \cite{codespells}, MiniColon \cite{minicolon},
 tales ejemplos utilizan programación con texto. Sin embargo, también hay numerosos ejemplos que utilizan programación por
 bloques, como LightBot \cite{LightBot}, Scratch \cite{maloney2010scratch}, \cite{scratch} y RoboBuilder \cite{RoboBuilder}, los
@@ -61,14 +60,15 @@ Sin embargo, el impacto de estos videojuegos no ha sido evaluado en muchos casos
 muestras pequeñas, además de que se trata principalmente de evaluaciones puramente cualitativas \cite{video_game_foster_computational_thinking},
 \cite{effectiveness_gbl}.
 
-Kiili y su equipo, Bell et al., Giani y otros \cite{petri2018method} están de acuerdo en que no hay sistematización en la evaluación de
-videojuegos educativos. En efecto, hay juegos serios que ni siquiera se denominan o consideran como tales
+
+Kiili, Bell, Gibson y Giani \cite{petri2018method} están de acuerdo en que no hay sistematización
+en los videojuegos educativos. En efecto, hay juegos serios que ni siquiera se denominan o consideran como tales
 \cite{evaluation_of_games_for_teaching_cs}. Por otra parte, no existe una forma estándar de evaluarlos, razón por
 la cual Petri, Giani y otros \cite{petri2018method} crearon el modelo MEEGA+ (Model for the Evaluation of Educational
 Games and EGameFlow scale).
 
 Entre las faltas mencionadas al momento de crear videojuegos, se mencionan las faltas de 1) Definición de un objetivo
-de evaluación; 2) Diseño de investigación; 3) Programa de medición; 4) Instrumentos de recolección de datos y 5) Métodos
+de evaluación, 2) Diseño de investigación, 3) Programa de medición, 4) Instrumentos de recolección de datos y 5) Métodos
 de análisis de datos. Un ejemplo de falta de sistematización: una práctica común al analizar estas herramientas son los 
 comentarios informales por parte del estudiantado \cite{petri2018method}.
 
@@ -76,7 +76,7 @@ comentarios informales por parte del estudiantado \cite{petri2018method}.
 
 \subsection{Propiedades que debería tener el juego}
 
-Según Gibson y Bell \cite{evaluation_of_games_for_teaching_cs}, el juego debería ser divertido, acotado en tiempo y espacio (separado), incierto
+Según \cite{evaluation_of_games_for_teaching_cs}, el juego debería ser divertido, acotado en tiempo y espacio (separado), incierto
 (Su desarrollo no está predeterminado), gobernado por reglas y ficticio. Además, debería generar inmersión y enganche en un jugador.
 Por otra parte, se recomiendan ciertos lineamientos como innovación y escalamiento en la dificultad, lo cual permite generar
 inmersión (en inglés y en la literatura más conocido como flow), esto le permite a un jugador generar confianza en
@@ -86,16 +86,12 @@ Un problema del aprendizaje activo es que, pese a lograr mejores resultados, inc
 genera la percepción de que su aprendizaje fue menor con respecto a actividades de enseñanza pasiva \cite{active_learning_versus_feeling_of_learning}.
 Los autores de este trabajo atribuyen tales resultados al sentimiento de desconocimiento que sienten los alumnos mientras realizan estas actividades,
 ahunado a que, al no estar familiarizados con aprendizaje activo intenso en clases, no comprenden que
-el esfuerzo cognitivo implicado es un signo de aprendizaje efectivo.
+el alto esfuerzo cognitivo implicado es un signo de aprendizaje efectivo.
 
 Sin embargo, un videojuego que entregue retroalimentación constante al jugador de que sus acciones
 son correctas o incorrectas, sumado a que cada estudiante estaría realizando las actividades
 de forma individual, dejaría de exponer sus errores y quitaría esta incomidad para los estudiantes,
 sobretodo si el juego logra la inmersión del jugador, haciendo que este olvide que está aprendiendo.
-
-El juego se acotará a los cuatro algoritmos: BFS, DFS, Kruskal y Prim relacionados a grafos a través de distintos niveles.
-El jugador podrá elegir partir por BFS o DFS. Una vez los haya ejecutado correctamente, podrá acceder a los niveles para resolver
-distancias en grafos con Kruskal y Prim.
 
 
 % owever, research on using video games to foster CT skills is very limited. A number of
@@ -125,11 +121,10 @@ distancias en grafos con Kruskal y Prim.
 
 
 
-\section{Problema}
+\section{Problem}
 
-
-Autores como Zehetmeier et al. \cite{abstract_thinking_cs}, Ghezzi et al. \cite{fundamentals_software_abstract} y Wing \cite{wingresearch_abstract} afirman
-que el pensamiento abstracto es una de las habilidades fundamentales del pensamiento computacional
+En trabajos como \cite{abstract_thinking_cs}, \cite{fundamentals_software_abstract} y \cite{wingresearch_abstract}
+se afirma que el pensamiento abstracto es una de las habilidades fundamentales del pensamiento computacional
 y para las ciencias de la computación. Se observa a nivel general que hay estudiantes que ven muy difícil
 el abstraer problemas o la forma de una solución. Ante esto, han surgido intentos como Scratch \cite{scratch}, Snap! o 
 Blockly \cite{Blockly}, que buscan funcionar como herramientas de programación visuales para facilitar
@@ -137,11 +132,11 @@ el aprendizaje y facilitar el proceso de abstracción \cite{programming_educatio
 % Scratch (Resnick et al., 2009), Snap! (Harvey & Mönig,
 % 2010), and Blockly (Fraser, 2013),
 
-McGonigal \cite{games_makes_us_better} y Barab et al. \cite{barab2009transformational}, indican que los videojuegos son
-una herramienta potencial para el aprendizaje y motivación a través de la inmersión en el videojuego. 
+Autores como \cite{games_makes_us_better} y \cite{barab2009transformational}, indican que los videojuegos son
+una herramienta potencial para el aprendizaje y motivación, a través de la inmersión en el videojuego. 
 
 
-\section{Preguntas de Investigación}
+\section{Research questions}
 
 P1: ¿Cómo se comparan los resultados en un test de programación entre un grupo de control y otro que
 jugó un videojuego que enseña algoritmos relacionados a grafos?
@@ -153,7 +148,7 @@ que enseña algoritmos relacionados a grafos?
 % los resultados en el nivel de programación son de manera objetiva, se puede validar cuántos llegaron al outcome y cuántos no
 % Respecto a los niveles de interés, es más subjetivo. 
 
-\section{Hipótesis}
+\section{Hypothesis}
 
 H1: Un videojuego que enseña algoritmos relacionados a grafos es una herramienta
 que mejora los resultados en un test de programación de los estudiantes de computación.
@@ -167,7 +162,7 @@ realizadas por los equipos docentes a cargo del ramo.
 Se entiende interés como una medida subjetiva de cuánto un usuario desea
 aprender sobre un tema en particular. 
 
-\section{Objetivo principal}
+\section{Main Goal}
 
 % En la metodología debería especificar lo específico de estos objetivos con las preguntas de investigación
 % En la metodología hay que enlazar objetivo con la pregunta de investigación
@@ -178,7 +173,7 @@ que permita al usuario ir ejecutando acciones en la aplicación según lo pide u
 desplegado en la misma pantalla. La aplicación debe indicar al usuario cuando está en lo
 correcto y cuándo se equivoca.
 
-\section{Objetivos específicos}
+\section{Specific goals}
 
 \begin{itemize}
 \item Diseñar una aplicación interactiva que muestre grafos y permita seguir
@@ -192,30 +187,24 @@ de un grupo de estudiantes de computación antes y después de probar el videoju
 
 \end{itemize}
 
-\section{Metodología}
+\section{Methodology}
 
 
-Se desarrolla un videojuego considerando el feedback de un profesor guía y otros estudiantes
+Se desarrollará el videojuego considerando el feedback de un profesor guía y otros estudiantes
 que no sean parte de la población objetivo del estudio, ajustándolo según sea necesario. \\
-Asegurarse que el videojuego cumple con las características seguridas por autores que proponen
-metodologías para la evaluación de videojuegos educativos: Gibson et al. \cite{evaluation_of_games_for_teaching_cs},
-Petri, Giano y otros, \cite{petri2018method} y Kiili et al. \cite{using_videogames_maths}. Si no, seguir iterando. \\
+Asegurarse que el videojuego cumple con las características seguridas por \cite{evaluation_of_games_for_teaching_cs},
+\cite{petri2018method} y \cite{using_videogames_maths}. Si no, seguir iterando. \\
 Cuando se haya impartido la materia relacionada a grafos y se hayan visto los algoritmos BFS y DFS, preguntarle a
 los alumnos si se creen capaces de programar tales algoritmos desde 0 y guardar estos resultados.
 Presentar el juego en los cursos cuando se esté impartiendo la materia relacionada a grafos. El uso del
 videojuego será voluntario y sugerido, con el requisito de llenar un formulario posterior al uso del juego.
-El formulario poseerá un cuestionario siguiendo los lineamientos de MEEGA+ planteados \cite{petri2018meegaplus} \\
+El formulario poseerá un cuestionario siguiendo los lineamientos de MEEGA+ planteados en \cite{petri2018meegaplus} \\
 Se revisarán los datos llenados por los estudiantes que accedieron al formulario, en conjunto con los
 datos recolectados durante el juego mismo, para ver si estos se condicen. Por ejemplo, el juego medirá el tiempo
 entre clicks. Se espera que un jugador que esté motivado posea un alto nivel de actividad, y una alta cadencia de clicks. \\
 Finalmente, se realizará una prueba de programación en los cursos que vean la materia de grafos, donde los estudiantes
 tendrán que responder preguntas relacionadas a los algoritmos vistos en el juego. Se separarán dos grupos, 
 uno de control con la gente que decidió no jugar, y otro experimental que sí probó el videojuego.
-
-El programa ofrecerá a los jugadores ejecutar tareas relacionadas con los algoritmos BFS, DFS, Kruskal y Prim relacionados a grafos.
-Para completar los desafíos presentados, el usuario deberá realizar las instrucciones dictadas por un computador, invirtiendo los roles
-de un programador y un computador. En este caso, el juego limita al jugador por medio de sus reglas, a seguir los pasos del algoritmo 
-presentado. Si el jugador ejecuta correctamente ls instrucciones, ganará, pudiendo pasar a otro nivel.
 
 El videojuego guardará datos durante su ejecución y los enviará a alguna base de datos donde se almacenarán para su posterior
 análisis. Los datos que se guardarán serán: clicks, movimientos del mouse, acciones del teclado a lo largo del tiempo.
@@ -230,7 +219,7 @@ Existe un sesgo al presentar el uso del videojuego como una opción voluntaria, 
 con más tiempo e interés tenderán a probar el videojuego, pero son quienes a su vez tienen mejores notas. \\
 
 
-\section{Resultados esperados}
+\section{Expected results}
 
 
 Se espera observar un nivel de interés superior en los estudiantes con respecto a tópicos de algoritmos
