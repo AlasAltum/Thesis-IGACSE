@@ -1,7 +1,15 @@
 using Godot;
 using System;
 
-
+/*
+Author disclaimer:
+This class is done in C# since its constantly being processed.
+I would like to do everything in C#, but since Godot has some
+limitations when using it, I am trying to write everything in GDscript.
+*/
+/*
+GraphEdge keeps the nodes together and moves the lines when nodes are moved
+*/
 public class GraphEdge : PinJoint2D
 {
 

@@ -1,7 +1,7 @@
 class_name ADTMediator
 extends Resource
 
-# Clas made to store all data regarding the model so it is in only one place
+# Class made to store all data regarding the model so it is in only one place
 # This makes sure the StoredData Singleton, DebugBlock and ADTShower
 # have only one single source of truth
 

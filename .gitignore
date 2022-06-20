@@ -7,6 +7,10 @@
 export.cfg
 export_presets.cfg
 
+# Releases
+html_release
+import
+
 # Mono-specific ignores
 .mono/
 data_*/
@@ -23,4 +27,3 @@ Propuesta/*.synctex.gz
 Propuesta/*.log
 Propuesta/*.bbl
 Propuesta/*.out
-# 

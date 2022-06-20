@@ -11,7 +11,7 @@ onready var hover_panel : Node2D = $HoverPanel
 onready var hover_label : Label = $HoverPanel/ColorRect/HoverText
 onready var ADT_name : Label = $SlotTexture/BelowADTName
 
-var following_mouse_texture : PackedScene = preload("res://AlgorithmScenes/Screen/FollowingMouseTexture.tscn")
+var following_mouse_texture : PackedScene = preload("res://AlgorithmScenes/Screen/GUI/FollowingMouseTexture.tscn")
 var hover_animation_instance: Node2D
 
 func _ready():
@@ -46,7 +46,7 @@ func _on_Area2D_input_event(_viewport, event, _shape_idx):
 		# instance texture that follows mouse
 		# Instance FollowingMouseTexture		
 		StoredData.dragging_adt = true
-		var draggable_adt : FollowingMouseTexture = following_mouse_texture.instance()
+		var draggable_adt = following_mouse_texture.instance()
 		draggable_adt.resource = generated_adt.new()
 		get_node("/root/Main/CanvasLayer").add_child(draggable_adt)
 		StoredData.dragged_adt = draggable_adt

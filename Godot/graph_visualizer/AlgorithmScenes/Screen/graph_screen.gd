@@ -19,14 +19,14 @@ export (bool) var weighted_graph = false
 ## Code execution popups ##
 onready var finished_popup : WindowDialog = $BFSFinishedPopup
 onready var u_is_explored_popup : WindowDialog = $UNodeIsExploredPopup
-onready var q_is_empty_popup : WindowDialog = $QIsNotEmptyPopup
+onready var adt_is_empty_popup : WindowDialog = $QIsNotEmptyPopup
 
 ## Hint Label ##
 onready var hint_label: RichTextLabel = $CanvasLayer/TextHintContainer/HintLabel
 
 ## Continue conditions ##
 var u_is_explored: bool = false
-var q_is_empty: bool = false
+var adt_is_empty: bool = false
 
 func _init_graph_matrix(num_nodes: int) -> void:
 	StoredData.json["n"] = num_nodes
@@ -53,10 +53,19 @@ func _ready():
 	randomize()
 	create_nodes_with_weights(graph_size, edge_max_weight)
 	instance_nodes()
-	instance_edges()
+	instance_edges()  # Make edges randomly
 	create_additional_weights_to_make_graph_connected(graph_size, edge_max_weight)
-	instance_edges()
+	instance_edges()  # To make sure the graph is connected
 	StoredData.world_node = self
+	
+	# TODO: ERASE
+#	var dataserver = DataServer.new()
+#	dataserver.send_data(
+#		{
+#			'clicks': [1, 2, 3, 5, 6],
+#			'errors': ['bad click on node', 'bad click on conditional'],
+#		}
+#	)
 
 # node: AGraphNode
 func _on_node_instanced(node):
@@ -186,6 +195,7 @@ func notify_u_is_explored_correct_answer():
 
 func notify_u_is_explored_wrong_answer():
 	# Visual effect
+	print($UNodeIsExploredPopup/ErrorNotification/AnimationPlayer)
 	$UNodeIsExploredPopup/ErrorNotification/AnimationPlayer.stop()
 	$UNodeIsExploredPopup/ErrorNotification/AnimationPlayer.play("message_modulation")
 	# TODO: Add sound effect
@@ -207,31 +217,30 @@ func _on_NoButton_pressed() -> void:
 
 ## U.is_explored() popup signals ##
 
-## q.is_not_empty() popup signals ##
-func ask_user_if_queue_is_empty(is_q_empty: bool):
-	q_is_empty_popup.show()
+## adt.is_not_empty() popup signals ##
+func ask_user_if_adt_is_empty(is_adt_empty: bool):
+	adt_is_empty_popup.show()
 	 # This stablishes whether yes or no should be pressed
-	self.q_is_empty = is_q_empty
+	self.adt_is_empty = is_adt_empty
 
-
-func _on_q_is_empty_YesButton_pressed() -> void:
-	if self.q_is_empty:  # Wrong
-		self.notify_q_is_empty_wrong_answer()
+func _on_adt_is_empty_YesButton_pressed() -> void:
+	if self.adt_is_empty:  # Wrong
+		self.notify_adt_is_empty_wrong_answer()
 	else:  # Right!
-		self.notify_q_is_empty_correct_answer()
+		self.notify_adt_is_empty_correct_answer()
 
-func _on_q_is_empty_NoButton_pressed() -> void:
+func _on_adt_is_empty_NoButton_pressed() -> void:
 	# if q is empty, expected answer is yes
-	if self.q_is_empty:
-		self.notify_q_is_empty_correct_answer()
+	if self.adt_is_empty:
+		self.notify_adt_is_empty_correct_answer()
 	else:  # Wrong
-		self.notify_q_is_empty_wrong_answer()
+		self.notify_adt_is_empty_wrong_answer()
 
-func notify_q_is_empty_correct_answer():
-	StoredData.q_is_empty_right_answer = true
-	q_is_empty_popup.hide()
+func notify_adt_is_empty_correct_answer():
+	StoredData.adt_is_empty_right_answer = true
+	adt_is_empty_popup.hide()
 
-func notify_q_is_empty_wrong_answer():
+func notify_adt_is_empty_wrong_answer():
 	# Visual effect
 	$QIsNotEmptyPopup/ErrorNotification/AnimationPlayer.stop()
 	$QIsNotEmptyPopup/ErrorNotification/AnimationPlayer.play("message_modulation")

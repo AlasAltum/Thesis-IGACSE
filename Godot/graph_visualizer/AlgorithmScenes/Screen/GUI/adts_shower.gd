@@ -40,6 +40,7 @@ func _update_shown_adt_after_index_change():
 	current_adt = stored_adts[self.selected_variable_index]
 
 	if current_adt:
+		# TODO: BUG with selected variable index after u is created
 		debug_block.change_focus_of_label(self.selected_variable_index)
 		set_name_of_label(debug_block.map_int_to_name[selected_variable_index])
 		current_adt.visible = true  # make the previous adt invisible
@@ -83,13 +84,14 @@ func add_representation(var_name, data) -> void:
 	$VBoxContainer/Container.add_child(representation)
 	representation.visible = false
 
-	# Show the new added representation
-	self.selected_variable_index = stored_adts.find_last(representation)
-	
-	if self.stored_adts.size() > 1:
-		call_deferred("_update_shown_adt_after_index_change")
-		representation.visible = true
-		self.current_adt = representation
+#   TODO: Check if this is a good option
+#	# Show the new added representation
+#	self.selected_variable_index = stored_adts.find_last(representation)
+#
+#	if self.stored_adts.size() > 1:
+#		call_deferred("_update_shown_adt_after_index_change")
+#		representation.visible = true
+#		self.current_adt = representation
 
 
 

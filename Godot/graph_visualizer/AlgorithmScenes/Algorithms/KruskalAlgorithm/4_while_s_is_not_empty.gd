@@ -3,16 +3,15 @@ extends EffectCheck
 
 # Ask the user whether answer is true or false
 func check_actions_correct() -> bool:
-	return StoredData.q_is_empty_right_answer  # This is not required
+	return StoredData.adt_is_empty_right_answer  # This is not required
 
 func while_condition_is_true():
-	return "Queue((" in StoredData.heap_dictionary["q"].as_string()
+	return "Stack((" in StoredData.heap_dictionary["s"].as_string()
 
 # Considering that it is a while, it should return
 # the next line if the cicle continues, or jump to the jump line
-# elsewise
 func get_next_line() -> int:
-	if StoredData.has_variable("q"):
+	if StoredData.has_variable("s"):
 		# If the while condition is true, keep with the next line
 		if self.while_condition_is_true():
 			return .get_next_line()  # super.get_next_line()
@@ -32,9 +31,9 @@ func ask_user() -> void:
 	# Show a popup that asks the user whether q is empty or not
 	# While condition is true when Q is NOT empty, therefore
 	# We put a not before, so it is easier to think of
-	var q_is_empty : bool = self.while_condition_is_true()
-	StoredData.ask_user_if_queue_is_empty(q_is_empty)
+	var s_is_empty : bool = self.while_condition_is_true()
+	StoredData.ask_user_if_stack_is_empty(s_is_empty)
 
 # Set the variable to false so the user may not skip this instruction	
 func reset():
-	StoredData.q_is_empty_right_answer = false
+	StoredData.s_is_empty_right_answer = false

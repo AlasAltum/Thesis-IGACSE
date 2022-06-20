@@ -19,7 +19,6 @@ var dragging_adt : bool = false
 var dragged_adt : FollowingMouseTexture
 var adt_hovering : bool = false
 var assign_name_popup : WindowDialog
-var variable_to_add
 var world_node: Node2D  # : GraphManager
 const status_map = {
 	"DRAG": mov_status.DRAG,
@@ -28,10 +27,10 @@ const status_map = {
 var selectable_nodes = []
 ## Code continue conditions
 var u_is_explored_right_answer : bool = false
-var q_is_empty_right_answer : bool = false
+var adt_is_empty_right_answer : bool = false
 ## ADT selection
 var adt_shower: ADTShower
-var selected_variable_index : int = 0
+var selected_variable_index : int = 0  # Used to emphasize the current variable
 
 
 func get_status():
@@ -67,7 +66,7 @@ func make_following_texture_transparent():
 func _on_adt_drop_on_heap():
 	assign_name_popup = get_tree().get_root().get_node("Main/AssignNameToDataStructurePopup")
 	assign_name_popup.visible = true
-	self.dragged_adt.visible = false
+	self.dragged_adt.visible = false  # We still need it for variable creation
 	self.dragging_adt = false
 
 
@@ -91,6 +90,7 @@ func add_variable(var_name, data):
 #	adt_shower.add_representation(var_name, data)
 	_on_data_update()
 
+
 func _on_data_update():
 	debug_block.update_data_with_dictionary(self.heap_dictionary)
 
@@ -100,13 +100,12 @@ func has_variable(variable_name: String) -> bool:
 func get_variable(variable_name: String):
 	return heap_dictionary[variable_name]
 
-
 func erase_variable(var_name: String) -> void:
 	heap_dictionary.erase(var_name)
 	_on_data_update()
 
 func get_data_type_of_variable(var_name: String):
-	# Case there is no data type for that
+	# Case there is no data type for that variable
 	if not self.has_variable(var_name):
 		return ""
 	return heap_dictionary[var_name].get_type()
@@ -133,6 +132,12 @@ func ask_user_if_graph_node_is_explored(u: AGraphNode, condition_value: bool):
 func ask_user_if_queue_is_empty(is_q_empty: bool):
 	self.world_node.ask_user_if_queue_is_empty(is_q_empty)
 
+func ask_user_if_stack_is_empty(is_s_empty: bool):
+	self.world_node.ask_user_if_stack_is_empty(is_s_empty)
+
+func ask_user_if_adt_is_empty(is_s_empty: bool):
+	self.world_node.ask_user_if_adt_is_empty(is_s_empty)
+
 # When game gets reset, reset data
 func reset_data():
 	self.selected_variable_index = 0
@@ -149,6 +154,5 @@ func reset_data():
 	self.dragged_adt = null
 	self.adt_hovering = false
 	self.assign_name_popup = null
-	self.variable_to_add = null
 	self.world_node = null
 	# self.heap = null # Class DebugBlock

@@ -14,15 +14,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Code/ADTs/adt.gd"
 }, {
+"base": "Resource",
+"class": "ADTMediator",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/Code/ADTs/adt_mediator.gd"
+}, {
 "base": "Node2D",
 "class": "ADTRepresentation",
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Screen/ADT/adt_representation.gd"
 }, {
-"base": "PanelContainer",
+"base": "Reference",
 "class": "ADTShower",
 "language": "GDScript",
-"path": "res://AlgorithmScenes/Screen/adts_shower.gd"
+"path": "res://AlgorithmScenes/Screen/GUI/adts_shower.gd"
 }, {
 "base": "Resource",
 "class": "ADTVector",
@@ -50,6 +55,16 @@ _global_script_classes=[ {
 "path": "res://AlgorithmScenes/Code/CodeLine.gd"
 }, {
 "base": "Resource",
+"class": "ColorInterpolator",
+"language": "GDScript",
+"path": "res://ResourceClasses/color_interpolator.gd"
+}, {
+"base": "Resource",
+"class": "DataServer",
+"language": "GDScript",
+"path": "res://ResourceClasses/data_sender.gd"
+}, {
+"base": "Resource",
 "class": "DataSynchronizer",
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Code/ADTs/adt_shower_and_debug_block_synchronizer.gd"
@@ -62,7 +77,7 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "EdgeCrossingsMinimization",
 "language": "GDScript",
-"path": "res://AlgorithmScenes/Screen/edge_crossing_minimization.gd"
+"path": "res://AlgorithmScenes/Screen/utils/edge_crossing_minimization.gd"
 }, {
 "base": "Resource",
 "class": "EffectCheck",
@@ -72,7 +87,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "FollowingMouseTexture",
 "language": "GDScript",
-"path": "res://AlgorithmScenes/Screen/following_mouse_texture.gd"
+"path": "res://AlgorithmScenes/Screen/GUI/following_mouse_texture.gd"
 }, {
 "base": "Node2D",
 "class": "GraphManager",
@@ -126,6 +141,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "ADT": "",
+"ADTMediator": "",
 "ADTRepresentation": "",
 "ADTShower": "",
 "ADTVector": "",
@@ -133,6 +149,8 @@ _global_script_class_icons={
 "AddNodePopup": "",
 "CodeContainer": "",
 "CodeLine": "",
+"ColorInterpolator": "",
+"DataServer": "",
 "DataSynchronizer": "",
 "DebugBlock": "",
 "EdgeCrossingsMinimization": "",
@@ -154,7 +172,7 @@ _global_script_class_icons={
 
 config/name="GraphVisualizator"
 config/description="Visualization for Graphs"
-run/main_scene="res://AlgorithmScenes/BFSAlgorithm/BFS.tscn"
+run/main_scene="res://AlgorithmScenes/Algorithms/BFSAlgorithm/BFS.tscn"
 config/use_custom_user_dir=true
 config/icon="res://Node/white-circle.png"
 config/use_hidden_project_data_directory=false

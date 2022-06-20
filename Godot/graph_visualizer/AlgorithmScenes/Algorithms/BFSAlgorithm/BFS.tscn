@@ -1,0 +1,1122 @@
+[gd_scene load_steps=44 format=2]
+
+[ext_resource path="res://AlgorithmScenes/Code/debug_block.gd" type="Script" id=1]
+[ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://AlgorithmScenes/Screen/GUI/OneToggleButtonVBoxContaner.cs" type="Script" id=4]
+[ext_resource path="res://AlgorithmScenes/Screen/button_theme.tres" type="Theme" id=5]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/12_end_while.gd" type="Script" id=6]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/1_take_node_0.gd" type="Script" id=7]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/10_v_mark_as_iterated.gd" type="Script" id=8]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/2_queue.gd" type="Script" id=9]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/3_add_to_queue.gd" type="Script" id=10]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/11_end_for.gd" type="Script" id=11]
+[ext_resource path="res://AlgorithmScenes/Code/focused_line_code_style.tres" type="StyleBox" id=12]
+[ext_resource path="res://AlgorithmScenes/Screen/popup_for_object_creation.gd" type="Script" id=13]
+[ext_resource path="res://AlgorithmScenes/Code/finish_code.gd" type="Script" id=14]
+[ext_resource path="res://AlgorithmScenes/Screen/graph_screen.gd" type="Script" id=15]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/9_q_add_u.gd" type="Script" id=16]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/4_while_q_is_not_empty.gd" type="Script" id=17]
+[ext_resource path="res://AlgorithmScenes/Code/ADTs/queue_adt.gd" type="Script" id=18]
+[ext_resource path="res://AlgorithmScenes/Code/null_effect.gd" type="Script" id=19]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/5_v_q_top.gd" type="Script" id=20]
+[ext_resource path="res://AlgorithmScenes/Screen/popup_for_node_add_to_object.gd" type="Script" id=21]
+[ext_resource path="res://AlgorithmScenes/Code/ADTs/stack_adt.gd" type="Script" id=22]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/6_for_u_in_v_edges.gd" type="Script" id=23]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/7_if_u_is_not_explored.gd" type="Script" id=24]
+[ext_resource path="res://AlgorithmScenes/Code/code_block.gd" type="Script" id=25]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/8_u_mark_as_explored.gd" type="Script" id=26]
+[ext_resource path="res://AlgorithmScenes/Screen/ADT/Stack/StackAnimation.tscn" type="PackedScene" id=27]
+[ext_resource path="res://AlgorithmScenes/Screen/GUI/ADTsShower2.tscn" type="PackedScene" id=28]
+[ext_resource path="res://AlgorithmScenes/Screen/ADT/Queue/QueueAnimation.tscn" type="PackedScene" id=29]
+[ext_resource path="res://AlgorithmScenes/Code/CodeLine.tscn" type="PackedScene" id=30]
+[ext_resource path="res://AlgorithmScenes/Screen/Slot.tscn" type="PackedScene" id=31]
+[ext_resource path="res://AlgorithmScenes/Code/Arrow.png" type="Texture" id=32]
+[ext_resource path="res://AlgorithmScenes/Screen/structure_queue.png" type="Texture" id=33]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+border_color = Color( 1, 0, 0, 1 )
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 170.095, 152.984 )
+
+[sub_resource type="Animation" id=7]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 15 )
+graph_density = 0.169
+graph_size = 6
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CodeBlock" type="ScrollContainer" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -409.0
+margin_top = 11.0
+margin_right = -9.0
+margin_bottom = 482.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/bg = SubResource( 1 )
+scroll_horizontal_enabled = false
+script = ExtResource( 25 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="LinesContainer" type="VBoxContainer" parent="CanvasLayer/CodeBlock"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 396.0
+margin_bottom = 466.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_constants/separation = 0
+
+[node name="PanelContainer0" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 392.0
+margin_bottom = 33.0
+custom_styles/panel = ExtResource( 12 )
+focused = true
+code_text = "BFS(starting_node=0):"
+effect_check = ExtResource( 19 )
+hint_text = "Press [b]ENTER[/b]"
+
+[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0/MarginContainer/HBoxContainer" index="2"]
+margin_right = 212.0
+text = "BFS(starting_node=0):"
+
+[node name="PanelContainer1" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 33.0
+margin_right = 392.0
+margin_bottom = 66.0
+size_flags_horizontal = 1
+line_index = 1
+code_text = "    t = starting_node;"
+effect_check = ExtResource( 7 )
+hint_text = "[b]LEFT CLICK[/b] Node 0 and then [b]ENTER[/b]"
+
+[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1/MarginContainer/HBoxContainer" index="2"]
+margin_right = 193.0
+text = "    t = starting_node;"
+
+[node name="PanelContainer2" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 66.0
+margin_right = 392.0
+margin_bottom = 99.0
+size_flags_horizontal = 1
+line_index = 2
+code_text = "    q = Queue();"
+effect_check = ExtResource( 9 )
+hint_text = "Go to Data Structures, click the Slot \"Queue\", bring it to Variables and then press [b]ENTER[/b]"
+
+[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2/MarginContainer/HBoxContainer" index="2"]
+margin_right = 148.0
+text = "    q = Queue();"
+
+[node name="PanelContainer3" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 99.0
+margin_right = 392.0
+margin_bottom = 132.0
+size_flags_horizontal = 1
+line_index = 3
+code_text = "    q.add(t);"
+effect_check = ExtResource( 10 )
+hint_text = "[b]RIGHT CLICK[/b] on Node [color=#00FF00] t [/color], then add it to the Queue [color=#00FF00] q [/color]"
+
+[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3/MarginContainer/HBoxContainer" index="2"]
+margin_right = 115.0
+text = "    q.add(t);"
+
+[node name="PanelContainer4" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 132.0
+margin_right = 392.0
+margin_bottom = 165.0
+size_flags_horizontal = 1
+line_index = 4
+jump_index = 13
+code_text = "    while q.is_not_empty():"
+effect_check = ExtResource( 17 )
+hint_text = "Answer if the queue is empty"
+
+[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4/MarginContainer/HBoxContainer" index="2"]
+margin_right = 239.0
+text = "    while q.is_not_empty():"
+
+[node name="PanelContainer5" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 165.0
+margin_right = 392.0
+margin_bottom = 198.0
+size_flags_horizontal = 1
+line_index = 5
+code_text = "        v = q.top(); q.pop();"
+effect_check = ExtResource( 20 )
+hint_text = "See the variables after you press [b]ENTER[/b]!"
+
+[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5/MarginContainer/HBoxContainer" index="2"]
+margin_right = 225.0
+text = "        v = q.top(); q.pop();"
+
+[node name="PanelContainer6" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 198.0
+margin_right = 392.0
+margin_bottom = 231.0
+size_flags_horizontal = 1
+line_index = 6
+jump_index = 11
+code_text = "        for (Edge u in v.edges()):"
+effect_check = ExtResource( 23 )
+hint_text = "Check the U variable after you press [b]ENTER[/b]!"
+
+[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6/MarginContainer/HBoxContainer" index="2"]
+margin_right = 271.0
+text = "        for (Edge u in v.edges()):"
+
+[node name="PanelContainer7" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 231.0
+margin_right = 392.0
+margin_bottom = 264.0
+size_flags_horizontal = 1
+line_index = 7
+jump_index = 10
+code_text = "            if u.is_not_explored():"
+effect_check = ExtResource( 24 )
+hint_text = "Answer: is the [color=#00FF00] u [/color] node explored?"
+
+[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7/MarginContainer/HBoxContainer" index="2"]
+margin_right = 266.0
+text = "            if u.is_not_explored():"
+
+[node name="PanelContainer8" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 264.0
+margin_right = 392.0
+margin_bottom = 297.0
+size_flags_horizontal = 1
+line_index = 8
+code_text = "                u.mark_as_explored();"
+effect_check = ExtResource( 26 )
+hint_text = "Select the [color=#00FF00] u [/color] node with a left click"
+
+[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8/MarginContainer/HBoxContainer" index="2"]
+margin_right = 289.0
+text = "                u.mark_as_explored();"
+
+[node name="PanelContainer9" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 297.0
+margin_right = 392.0
+margin_bottom = 330.0
+size_flags_horizontal = 1
+line_index = 9
+code_text = "                q.add(u)"
+effect_check = ExtResource( 16 )
+hint_text = "Add the Node [color=#00FF00] u [/color] to the queue by right clicking on it"
+
+[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer9" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer9/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer9/MarginContainer/HBoxContainer" index="2"]
+margin_right = 174.0
+text = "                q.add(u)"
+
+[node name="PanelContainer10" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 330.0
+margin_right = 392.0
+margin_bottom = 363.0
+size_flags_horizontal = 1
+line_index = 10
+jump_index = 6
+code_text = "        end for;"
+effect_check = ExtResource( 11 )
+hint_text = "Press [b]ENTER[/b]"
+
+[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10/MarginContainer/HBoxContainer" index="2"]
+margin_right = 130.0
+text = "        end for;"
+
+[node name="PanelContainer11" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 363.0
+margin_right = 392.0
+margin_bottom = 396.0
+size_flags_horizontal = 1
+line_index = 11
+code_text = "        v.mark_as_iterated();"
+effect_check = ExtResource( 8 )
+hint_text = "Press [b]ENTER[/b]"
+
+[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer11" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer11/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer11/MarginContainer/HBoxContainer" index="2"]
+margin_right = 239.0
+text = "        v.mark_as_iterated();"
+
+[node name="PanelContainer12" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 396.0
+margin_right = 392.0
+margin_bottom = 429.0
+size_flags_horizontal = 1
+line_index = 12
+jump_index = 4
+code_text = "    end while;"
+effect_check = ExtResource( 6 )
+hint_text = "Press [b]ENTER[/b]"
+
+[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer12" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer12/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer12/MarginContainer/HBoxContainer" index="2"]
+margin_right = 133.0
+text = "    end while;"
+
+[node name="PanelContainer13" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 429.0
+margin_right = 392.0
+margin_bottom = 462.0
+size_flags_horizontal = 1
+line_index = 13
+jump_index = 4
+code_text = "end BFS;"
+effect_check = ExtResource( 14 )
+hint_text = "Press [b]ENTER[/b]"
+
+[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13/MarginContainer/HBoxContainer" index="2"]
+margin_right = 99.0
+text = "end BFS;"
+
+[node name="LeftPanel" type="VBoxContainer" parent="CanvasLayer"]
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = -1.0
+margin_right = 206.0
+margin_bottom = -1.0
+rect_clip_content = true
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ModeSelector" type="MarginContainer" parent="CanvasLayer/LeftPanel"]
+visible = false
+margin_right = 234.0
+margin_bottom = 90.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/LeftPanel/ModeSelector"]
+margin_right = 234.0
+margin_bottom = 90.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OneToggleButtonVBoxContainer" type="VBoxContainer" parent="CanvasLayer/LeftPanel/ModeSelector/PanelContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 224.0
+margin_bottom = 80.0
+theme = SubResource( 4 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+available_modes = [ "SelectNode", "AllowGraphMovement" ]
+
+[node name="SelectNodeButton" type="Button" parent="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer"]
+margin_right = 214.0
+margin_bottom = 33.0
+toggle_mode = true
+pressed = true
+text = "Select Mode"
+
+[node name="AllowGraphMovementButton" type="Button" parent="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer"]
+margin_top = 37.0
+margin_right = 214.0
+margin_bottom = 70.0
+theme = ExtResource( 5 )
+disabled = true
+toggle_mode = true
+text = " Move Nodes Mode"
+
+[node name="DebugBlock" type="ScrollContainer" parent="CanvasLayer/LeftPanel"]
+margin_right = 234.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 230, 300 )
+mouse_filter = 2
+custom_styles/bg = SubResource( 1 )
+scroll_horizontal_enabled = false
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="LinesContainer" type="VBoxContainer" parent="CanvasLayer/LeftPanel/DebugBlock"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 230.0
+margin_bottom = 61.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="DebuggerTitle" type="Label" parent="CanvasLayer/LeftPanel/DebugBlock/LinesContainer"]
+margin_right = 226.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 5 )
+text = "Variables
+"
+align = 1
+valign = 1
+clip_text = true
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/LeftPanel/DebugBlock"]
+position = Vector2( 41.2171, -0.0319672 )
+z_index = 15
+z_as_relative = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/LeftPanel/DebugBlock/Area2D"]
+position = Vector2( 61.0628, 146.87 )
+z_index = 5
+z_as_relative = false
+shape = SubResource( 6 )
+
+[node name="ADTShower" parent="CanvasLayer/LeftPanel" instance=ExtResource( 28 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 304.0
+margin_right = 234.0
+margin_bottom = 538.0
+
+[node name="ADTSelectionPanel" type="MarginContainer" parent="CanvasLayer/LeftPanel"]
+margin_top = 542.0
+margin_right = 234.0
+margin_bottom = 842.0
+rect_min_size = Vector2( 170, 300 )
+mouse_filter = 2
+custom_constants/margin_bottom = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/LeftPanel/ADTSelectionPanel"]
+margin_right = 234.0
+margin_bottom = 300.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/LeftPanel/ADTSelectionPanel"]
+margin_right = 234.0
+margin_bottom = 300.0
+mouse_filter = 2
+
+[node name="DebuggerTitle" type="Label" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer"]
+margin_right = 234.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+custom_fonts/font = SubResource( 5 )
+text = "Data Structures"
+align = 1
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer"]
+margin_top = 31.0
+margin_right = 234.0
+margin_bottom = 171.0
+rect_min_size = Vector2( 40, 40 )
+mouse_filter = 2
+custom_constants/vseparation = 100
+custom_constants/hseparation = 60
+columns = 2
+
+[node name="Slot" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 31 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+hover_text = "Queue"
+slot_texture = ExtResource( 33 )
+generated_adt = ExtResource( 18 )
+on_hover_animation = ExtResource( 29 )
+
+[node name="Slot2" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 31 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 100.0
+margin_right = 140.0
+grow_horizontal = 1
+grow_vertical = 1
+hover_text = "Stack"
+slot_texture = ExtResource( 32 )
+generated_adt = ExtResource( 22 )
+on_hover_animation = ExtResource( 27 )
+
+[node name="BelowADTName" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot2/SlotTexture" index="2"]
+text = "Stack"
+
+[node name="Slot3" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 31 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 100.0
+margin_right = 40.0
+margin_bottom = 140.0
+grow_horizontal = 1
+grow_vertical = 1
+rect_min_size = Vector2( 40, 40 )
+hover_text = "Array"
+
+[node name="BelowADTName" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot3/SlotTexture" index="2"]
+text = "Array"
+
+[node name="Slot4" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 31 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 100.0
+margin_top = 100.0
+margin_right = 140.0
+margin_bottom = 140.0
+grow_horizontal = 1
+grow_vertical = 1
+rect_min_size = Vector2( 40, 40 )
+hover_text = "Set"
+
+[node name="TextHintContainer" type="CenterContainer" parent="CanvasLayer"]
+anchor_left = 0.229687
+anchor_top = 0.012037
+anchor_right = 0.584896
+anchor_bottom = 0.150926
+rect_min_size = Vector2( 400, 150 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HintLabel" type="RichTextLabel" parent="CanvasLayer/TextHintContainer"]
+margin_left = 141.0
+margin_top = 25.0
+margin_right = 541.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 400, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+bbcode_text = "Press Enter to skip  to next instruction"
+text = "Press Enter to skip  to next instruction"
+fit_content_height = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AssignNameToDataStructurePopup" type="WindowDialog" parent="."]
+visible = true
+margin_left = 524.122
+margin_top = 233.47
+margin_right = 1036.12
+margin_bottom = 392.47
+popup_exclusive = true
+window_title = "Assign name to Data Structure"
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Explanation" type="Label" parent="AssignNameToDataStructurePopup"]
+margin_left = 5.544
+margin_top = 13.0
+margin_right = 506.544
+margin_bottom = 39.0
+rect_pivot_offset = Vector2( 265.108, 0 )
+size_flags_horizontal = 3
+text = "You are about to create a Queue, please, specify its name"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ErrorNotification" type="Label" parent="AssignNameToDataStructurePopup"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 5.52972
+margin_top = 87.6922
+margin_right = 506.53
+margin_bottom = 113.692
+rect_pivot_offset = Vector2( 265.108, 0 )
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.878431, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 2
+text = "Invalid name for variable"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AssignNameToDataStructurePopup/ErrorNotification"]
+anims/message_modulation = SubResource( 7 )
+
+[node name="NameAssign" type="LineEdit" parent="AssignNameToDataStructurePopup"]
+margin_left = 66.0
+margin_top = 44.0
+margin_right = 441.0
+margin_bottom = 84.0
+align = 1
+placeholder_text = "Variable/Object name..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnterButton" type="Button" parent="AssignNameToDataStructurePopup"]
+modulate = Color( 0.121569, 0.913725, 0, 1 )
+margin_left = 195.42
+margin_top = 118.366
+margin_right = 289.42
+margin_bottom = 144.366
+text = "Enter"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="AssignNameToDataStructurePopup"]
+
+[node name="UNodeIsExploredPopup" type="WindowDialog" parent="."]
+margin_left = 524.122
+margin_top = 233.47
+margin_right = 1036.12
+margin_bottom = 392.47
+popup_exclusive = true
+window_title = "Confirmation"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Explanation" type="Label" parent="UNodeIsExploredPopup"]
+margin_left = 5.0
+margin_top = 13.0
+margin_right = 506.0
+margin_bottom = 39.0
+rect_pivot_offset = Vector2( 265.108, 0 )
+size_flags_horizontal = 3
+text = "Is the U node (index) explored?"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ErrorNotification" type="Label" parent="UNodeIsExploredPopup"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 2.05951
+margin_top = 112.692
+margin_right = 503.06
+margin_bottom = 138.692
+rect_pivot_offset = Vector2( 265.108, 0 )
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.878431, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 2
+text = "Error: Wrong answer"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UNodeIsExploredPopup/ErrorNotification"]
+anims/message_modulation = SubResource( 8 )
+
+[node name="YesButton" type="Button" parent="UNodeIsExploredPopup"]
+modulate = Color( 0.121569, 0.913725, 0, 1 )
+margin_left = 115.407
+margin_top = 63.2947
+margin_right = 209.407
+margin_bottom = 89.2947
+text = "Yes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NoButton" type="Button" parent="UNodeIsExploredPopup"]
+modulate = Color( 0.980392, 0.156863, 0.156863, 1 )
+margin_left = 317.165
+margin_top = 64.6618
+margin_right = 411.165
+margin_bottom = 90.6618
+text = "No"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QIsNotEmptyPopup" type="WindowDialog" parent="."]
+margin_left = 524.122
+margin_top = 233.47
+margin_right = 1036.12
+margin_bottom = 392.47
+popup_exclusive = true
+window_title = "Confirmation"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Explanation" type="Label" parent="QIsNotEmptyPopup"]
+margin_left = 5.0
+margin_top = 13.0
+margin_right = 506.0
+margin_bottom = 39.0
+rect_pivot_offset = Vector2( 265.108, 0 )
+size_flags_horizontal = 3
+text = "Is the Queue q empty?"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ErrorNotification" type="Label" parent="QIsNotEmptyPopup"]
+visible = false
+margin_left = 2.05951
+margin_top = 112.692
+margin_right = 503.06
+margin_bottom = 138.692
+rect_pivot_offset = Vector2( 265.108, 0 )
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.878431, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 2
+text = "Error: Wrong answer"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="QIsNotEmptyPopup/ErrorNotification"]
+anims/message_modulation = SubResource( 9 )
+
+[node name="YesButton" type="Button" parent="QIsNotEmptyPopup"]
+modulate = Color( 0.121569, 0.913725, 0, 1 )
+margin_left = 115.407
+margin_top = 63.2947
+margin_right = 209.407
+margin_bottom = 89.2947
+text = "Yes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NoButton" type="Button" parent="QIsNotEmptyPopup"]
+modulate = Color( 0.980392, 0.156863, 0.156863, 1 )
+margin_left = 317.165
+margin_top = 64.6618
+margin_right = 411.165
+margin_bottom = 90.6618
+text = "No"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AddNodePopup" type="WindowDialog" parent="."]
+margin_left = 521.565
+margin_top = 234.041
+margin_right = 1033.56
+margin_bottom = 393.041
+popup_exclusive = true
+window_title = "Add node to object"
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Explanation" type="Label" parent="AddNodePopup"]
+margin_left = 5.0
+margin_top = 13.0
+margin_right = 506.0
+margin_bottom = 39.0
+rect_pivot_offset = Vector2( 265.108, 0 )
+size_flags_horizontal = 3
+text = "You are about to add node of index 0 to a Queue. Insert Object name"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ErrorNotification" type="Label" parent="AddNodePopup"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.1 )
+margin_left = 5.52972
+margin_top = 87.6922
+margin_right = 506.53
+margin_bottom = 113.692
+rect_pivot_offset = Vector2( 265.108, 0 )
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.878431, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 2
+text = "Object is not listed in variables"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AddNodePopup/ErrorNotification"]
+anims/message_modulation = SubResource( 10 )
+
+[node name="NameAssign" type="LineEdit" parent="AddNodePopup"]
+margin_left = 66.0
+margin_top = 44.0
+margin_right = 441.0
+margin_bottom = 84.0
+align = 1
+placeholder_text = "Object name..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnterButton" type="Button" parent="AddNodePopup"]
+modulate = Color( 0.121569, 0.913725, 0, 1 )
+margin_left = 195.42
+margin_top = 118.366
+margin_right = 289.42
+margin_bottom = 144.366
+text = "Enter"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BFSFinishedPopup" type="WindowDialog" parent="."]
+margin_left = 525.1
+margin_top = 232.627
+margin_right = 1037.1
+margin_bottom = 391.627
+popup_exclusive = true
+window_title = "Algorithm Finished!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Explanation" type="Label" parent="BFSFinishedPopup"]
+margin_left = 5.0
+margin_top = 13.0
+margin_right = 506.0
+margin_bottom = 74.0
+rect_pivot_offset = Vector2( 265.108, 0 )
+size_flags_horizontal = 3
+text = "Congratulations! You have successfully finished the BFS Algorithm!"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetButton" type="Button" parent="BFSFinishedPopup"]
+modulate = Color( 0.121569, 0.913725, 0, 1 )
+margin_left = 200.759
+margin_top = 76.986
+margin_right = 294.759
+margin_bottom = 102.986
+rect_pivot_offset = Vector2( 72.8572, 10.7062 )
+text = "Reset"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButton" type="Button" parent="BFSFinishedPopup"]
+modulate = Color( 0.827451, 0.717647, 0.117647, 1 )
+margin_left = 201.293
+margin_top = 113.927
+margin_right = 295.293
+margin_bottom = 139.927
+rect_pivot_offset = Vector2( 72.8572, 10.7062 )
+text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/SelectNodeButton" to="." method="_on_SelectNodeButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/AllowGraphMovementButton" to="." method="_on_AllowGraphMovementButton_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_exited"]
+[connection signal="text_entered" from="AssignNameToDataStructurePopup/NameAssign" to="AssignNameToDataStructurePopup" method="_on_NameAssign_text_entered"]
+[connection signal="pressed" from="AssignNameToDataStructurePopup/EnterButton" to="AssignNameToDataStructurePopup" method="_on_EnterButton_pressed"]
+[connection signal="pressed" from="UNodeIsExploredPopup/YesButton" to="." method="_on_YesButton_pressed"]
+[connection signal="pressed" from="UNodeIsExploredPopup/NoButton" to="." method="_on_NoButton_pressed"]
+[connection signal="pressed" from="QIsNotEmptyPopup/YesButton" to="." method="_on_q_is_empty_YesButton_pressed"]
+[connection signal="pressed" from="QIsNotEmptyPopup/NoButton" to="." method="_on_q_is_empty_NoButton_pressed"]
+[connection signal="animation_finished" from="AddNodePopup/ErrorNotification/AnimationPlayer" to="AddNodePopup" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="text_entered" from="AddNodePopup/NameAssign" to="AddNodePopup" method="_on_NameAssign_text_entered"]
+[connection signal="pressed" from="AddNodePopup/EnterButton" to="AddNodePopup" method="_on_EnterButton_pressed"]
+[connection signal="pressed" from="BFSFinishedPopup/ResetButton" to="." method="_on_ResetButton_pressed"]
+[connection signal="pressed" from="BFSFinishedPopup/MenuButton" to="." method="_on_MenuButton_pressed"]
+
+[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0"]
+[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1"]
+[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2"]
+[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3"]
+[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4"]
+[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5"]
+[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6"]
+[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7"]
+[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8"]
+[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer9"]
+[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10"]
+[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer11"]
+[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer12"]
+[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13"]
+[editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot2"]
+[editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot3"]
