@@ -11,7 +11,7 @@ onready var lines_container: VBoxContainer = $LinesContainer
 
 var mouse_inside_area: bool = false
 var labels = {}  # Type<String, Label>
-var map_int_to_name = {} # Type<int, String>
+var map_inta_to_name = {} # Type<int, String>
 var curr_label: Label
 # We use labels[map_int_to_name[0]] to get the label object from an integer
 

@@ -40,7 +40,7 @@ public class OneToggleButtonVBoxContaner : VBoxContainer
         
         toggle_buttons = new Godot.Collections.Array<Button>();
 
-        foreach(var button in mapped_buttons)
+        foreach (var button in mapped_buttons)
         {
             toggle_buttons.Add(button);
             button.Connect("pressed", this, "ToggleButton", new Godot.Collections.Array { button });

@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Screen/ADT/adt_representation.gd"
 }, {
-"base": "Reference",
+"base": "PanelContainer",
 "class": "ADTShower",
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Screen/GUI/adts_shower.gd"

@@ -1,9 +1,9 @@
 [gd_scene load_steps=44 format=2]
 
-[ext_resource path="res://AlgorithmScenes/Code/debug_block.gd" type="Script" id=1]
+[ext_resource path="res://c_sharp_src/DebugBlock.cs" type="Script" id=1]
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Bold.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Regular.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://AlgorithmScenes/Screen/GUI/OneToggleButtonVBoxContaner.cs" type="Script" id=4]
+[ext_resource path="res://c_sharp_src/OneToggleButtonVBoxContaner.cs" type="Script" id=4]
 [ext_resource path="res://AlgorithmScenes/Screen/button_theme.tres" type="Theme" id=5]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/12_end_while.gd" type="Script" id=6]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/1_take_node_0.gd" type="Script" id=7]
@@ -218,9 +218,16 @@ margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0/MarginContainer" index="0"]
 margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="Tab" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0/MarginContainer/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 33.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0/MarginContainer/HBoxContainer" index="2"]
+margin_left = 24.0
 margin_right = 212.0
+margin_bottom = 33.0
 text = "BFS(starting_node=0):"
 
 [node name="PanelContainer1" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -241,9 +248,16 @@ margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1/MarginContainer" index="0"]
 margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="Tab" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1/MarginContainer/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 33.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1/MarginContainer/HBoxContainer" index="2"]
+margin_left = 24.0
 margin_right = 193.0
+margin_bottom = 33.0
 text = "    t = starting_node;"
 
 [node name="PanelContainer2" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -264,9 +278,16 @@ margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2/MarginContainer" index="0"]
 margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="Tab" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2/MarginContainer/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 33.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2/MarginContainer/HBoxContainer" index="2"]
+margin_left = 24.0
 margin_right = 148.0
+margin_bottom = 33.0
 text = "    q = Queue();"
 
 [node name="PanelContainer3" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -287,9 +308,16 @@ margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3/MarginContainer" index="0"]
 margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="Tab" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3/MarginContainer/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 33.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3/MarginContainer/HBoxContainer" index="2"]
+margin_left = 24.0
 margin_right = 115.0
+margin_bottom = 33.0
 text = "    q.add(t);"
 
 [node name="PanelContainer4" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -311,9 +339,16 @@ margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4/MarginContainer" index="0"]
 margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="Tab" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4/MarginContainer/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 33.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4/MarginContainer/HBoxContainer" index="2"]
+margin_left = 24.0
 margin_right = 239.0
+margin_bottom = 33.0
 text = "    while q.is_not_empty():"
 
 [node name="PanelContainer5" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -334,9 +369,16 @@ margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5/MarginContainer" index="0"]
 margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="Tab" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5/MarginContainer/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 33.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5/MarginContainer/HBoxContainer" index="2"]
+margin_left = 24.0
 margin_right = 225.0
+margin_bottom = 33.0
 text = "        v = q.top(); q.pop();"
 
 [node name="PanelContainer6" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -358,9 +400,16 @@ margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6/MarginContainer" index="0"]
 margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="Tab" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6/MarginContainer/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 33.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6/MarginContainer/HBoxContainer" index="2"]
+margin_left = 24.0
 margin_right = 271.0
+margin_bottom = 33.0
 text = "        for (Edge u in v.edges()):"
 
 [node name="PanelContainer7" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -382,9 +431,16 @@ margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7/MarginContainer" index="0"]
 margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="Tab" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7/MarginContainer/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 33.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7/MarginContainer/HBoxContainer" index="2"]
+margin_left = 24.0
 margin_right = 266.0
+margin_bottom = 33.0
 text = "            if u.is_not_explored():"
 
 [node name="PanelContainer8" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -405,9 +461,16 @@ margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8/MarginContainer" index="0"]
 margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="Tab" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8/MarginContainer/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 33.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8/MarginContainer/HBoxContainer" index="2"]
+margin_left = 24.0
 margin_right = 289.0
+margin_bottom = 33.0
 text = "                u.mark_as_explored();"
 
 [node name="PanelContainer9" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -428,9 +491,16 @@ margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer9/MarginContainer" index="0"]
 margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="Tab" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer9/MarginContainer/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 33.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer9/MarginContainer/HBoxContainer" index="2"]
+margin_left = 24.0
 margin_right = 174.0
+margin_bottom = 33.0
 text = "                q.add(u)"
 
 [node name="PanelContainer10" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -452,9 +522,16 @@ margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10/MarginContainer" index="0"]
 margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="Tab" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10/MarginContainer/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 33.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10/MarginContainer/HBoxContainer" index="2"]
+margin_left = 24.0
 margin_right = 130.0
+margin_bottom = 33.0
 text = "        end for;"
 
 [node name="PanelContainer11" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -475,9 +552,16 @@ margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer11/MarginContainer" index="0"]
 margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="Tab" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer11/MarginContainer/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 33.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer11/MarginContainer/HBoxContainer" index="2"]
+margin_left = 24.0
 margin_right = 239.0
+margin_bottom = 33.0
 text = "        v.mark_as_iterated();"
 
 [node name="PanelContainer12" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -499,9 +583,16 @@ margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer12/MarginContainer" index="0"]
 margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="Tab" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer12/MarginContainer/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 33.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer12/MarginContainer/HBoxContainer" index="2"]
+margin_left = 24.0
 margin_right = 133.0
+margin_bottom = 33.0
 text = "    end while;"
 
 [node name="PanelContainer13" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -523,9 +614,16 @@ margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13/MarginContainer" index="0"]
 margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="Tab" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13/MarginContainer/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 33.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13/MarginContainer/HBoxContainer" index="2"]
+margin_left = 24.0
 margin_right = 99.0
+margin_bottom = 33.0
 text = "end BFS;"
 
 [node name="LeftPanel" type="VBoxContainer" parent="CanvasLayer"]
