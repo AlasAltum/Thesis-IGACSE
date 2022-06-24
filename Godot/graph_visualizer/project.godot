@@ -24,11 +24,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Screen/ADT/adt_representation.gd"
 }, {
-"base": "PanelContainer",
-"class": "ADTShower",
-"language": "GDScript",
-"path": "res://AlgorithmScenes/Screen/GUI/adts_shower.gd"
-}, {
 "base": "Resource",
 "class": "ADTVector",
 "language": "GDScript",
@@ -143,7 +138,6 @@ _global_script_class_icons={
 "ADT": "",
 "ADTMediator": "",
 "ADTRepresentation": "",
-"ADTShower": "",
 "ADTVector": "",
 "AGraphNode": "",
 "AddNodePopup": "",
@@ -179,7 +173,7 @@ config/use_hidden_project_data_directory=false
 
 [autoload]
 
-StoredData="*res://autoloads/stored_data.gd"
+StoredData="*res://ResourceClasses/autoloads/stored_data.gd"
 
 [display]
 

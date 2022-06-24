@@ -29,7 +29,7 @@ var selectable_nodes = []
 var u_is_explored_right_answer : bool = false
 var adt_is_empty_right_answer : bool = false
 ## ADT selection
-var adt_shower: ADTShower
+var adt_shower
 var adt_mediator # ADTMediator class
 var selected_variable_index : int = 0  # Used to emphasize the current variable
 
@@ -75,7 +75,7 @@ func _on_adt_drop_on_heap():
 func _on_correct_variable_creation(variable_name: String):
 	var generated_object = self.dragged_adt.get_object()
 
-	adt_mediator.
+	
 	# TODO: This was using GDScript	self.add_variable(variable_name, generated_object)
 	self.dragged_adt.queue_free()
 	self.dragged_adt = null
@@ -83,12 +83,13 @@ func _on_correct_variable_creation(variable_name: String):
 # Create a new variable, considering it in the
 # ADT Shower and in the Debug Block
 func add_variable(var_name, data):
-	adt_shower.update_representation(var_name, data)
-	heap_dictionary[var_name] = data
+	adt_mediator.add_variable(var_name, data)
+#	adt_shower.update_representation(var_name, data)
+#	heap_dictionary[var_name] = data
 #	if var_name in heap_dictionary:
 #		adt_shower.erase_representation(var_name)
 #	adt_shower.add_representation(var_name, data)
-	_on_data_update()
+#	_on_data_update()
 
 
 func _on_data_update():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://c_sharp_src/DebugBlock.cs" type="Script" id=1]
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Bold.ttf" type="DynamicFontData" id=2]
@@ -33,6 +33,7 @@
 [ext_resource path="res://AlgorithmScenes/Screen/Slot.tscn" type="PackedScene" id=31]
 [ext_resource path="res://AlgorithmScenes/Code/Arrow.png" type="Texture" id=32]
 [ext_resource path="res://AlgorithmScenes/Screen/structure_queue.png" type="Texture" id=33]
+[ext_resource path="res://AlgorithmScenes/Code/Mediators/ADTMediator.tscn" type="PackedScene" id=34]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 4.0
@@ -170,10 +171,15 @@ tracks/0/keys = {
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 15 )
+__meta__ = {
+"_edit_vertical_guides_": [ -164.416 ]
+}
 graph_density = 0.169
 graph_size = 6
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ADTMediator" parent="CanvasLayer" instance=ExtResource( 34 )]
 
 [node name="CodeBlock" type="ScrollContainer" parent="CanvasLayer"]
 anchor_left = 1.0

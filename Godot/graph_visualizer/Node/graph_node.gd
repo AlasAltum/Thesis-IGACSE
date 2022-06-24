@@ -103,10 +103,9 @@ func _input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		can_grab = event.pressed
 		grabbed_offset = position - get_global_mouse_position()
-
+#
 func _process(_delta):
 	if can_grab:
-
 		if Input.is_mouse_button_pressed(BUTTON_LEFT):
 			match StoredData.get_status():
 				StoredData.mov_status.DRAG:

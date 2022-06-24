@@ -14,5 +14,8 @@ public abstract class ADT : Resource
         return this;
     }
     
+    public ADTRepresentation get_representation(){
+        return this.representation;
+    }
 
 }

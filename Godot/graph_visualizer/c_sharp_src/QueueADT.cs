@@ -8,25 +8,10 @@ using System.Collections.Generic;
 
 public class QueueADT : ADT
 {
-    // private override PackedScene representation_path = {
-    //     get { GD.Load("res://AlgorithmScenes/Screen/ADT/Queue/QueueRepresentation.tscn"); }
-    // };
 
-    // public override ADTRepresentation representation;
-
+    /// We are not explicting AGraphNode class since it was designed in GDScript
     public Godot.Collections.Array<KinematicBody2D> data = new Godot.Collections.Array<KinematicBody2D>(); /// Uses a GraphNode
-    /// We are not giving the AGraphNode class since it was designed in GDScript
 
-    public override void create_representation(){
-        representation_path = (PackedScene) ResourceLoader.Load("res://AlgorithmScenes/Screen/ADT/Queue/QueueRepresentation.tscn");
-        representation = (ADTRepresentation) representation_path.Instance();
-    }
-
-    // // Called when the node enters the scene tree for the first time.
-    // public override void _Ready()
-    // {
-        
-    // }
     public override string get_type(){
         return "Queue";
     }
@@ -53,11 +38,18 @@ public class QueueADT : ADT
         representation.Call("_add_node", incoming_node); // TODO: Check, maybe we need to call method in other way
     }
 
+    /// Get the first GraphNode from the Queue, take it from the queue and return it
+    public KinematicBody2D top(){
+        KinematicBody2D ret = data[0];
+        representation.Call("_remove_node", ret); // TODO: Check since this is cross language
+        data.RemoveAt(0);
+        return ret;
+    }
 
+    /// This method should be called after the creation of the Queue
+    public override void create_representation(){
+        representation_path = (PackedScene) GD.Load("res://AlgorithmScenes/Screen/ADT/Queue/QueueRepresentation.tscn");
+        representation = (ADTRepresentation) representation_path.Instance();
+    }
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
 }

@@ -1,15 +1,12 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31613.86
-MinimumVisualStudioVersion = 10.0.40219.1
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphVisualizator", "GraphVisualizator.csproj", "{63F6CB82-39E4-4D40-8C6F-ED85A0508668}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		ExportDebug|Any CPU = ExportDebug|Any CPU
-		ExportRelease|Any CPU = ExportRelease|Any CPU
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{63F6CB82-39E4-4D40-8C6F-ED85A0508668}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -18,11 +15,5 @@ Global
 		{63F6CB82-39E4-4D40-8C6F-ED85A0508668}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
 		{63F6CB82-39E4-4D40-8C6F-ED85A0508668}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
 		{63F6CB82-39E4-4D40-8C6F-ED85A0508668}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D8389E24-6E2E-405A-9120-94E44FCCC62D}
 	EndGlobalSection
 EndGlobal

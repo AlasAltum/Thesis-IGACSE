@@ -82,7 +82,7 @@ func change_focus_of_label(index: int):
 		curr_label.add_stylebox_override("normal", unfocused_style)
 		curr_label.material = null
 
-	if map_int_to_name.size() > 0 and labels.size() < index:
-		curr_label = labels[map_int_to_name[index]]
-		curr_label.add_stylebox_override("normal", focused_style)
-		curr_label.material = focused_material
+#	if map_int_to_name.size() > 0 and labels.size() < index:
+#		curr_label = labels[map_int_to_name[index]]
+#		curr_label.add_stylebox_override("normal", focused_style)
+#		curr_label.material = focused_material
