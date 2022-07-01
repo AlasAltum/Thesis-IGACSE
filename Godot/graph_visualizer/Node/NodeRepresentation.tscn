@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Node/white-circle.png" type="Texture" id=1]
-[ext_resource path="res://Node/node_representation.gd" type="Script" id=2]
+[ext_resource path="res://c_sharp_src/NodeRepresentation.cs" type="Script" id=2]
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Bold.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="CanvasItemMaterial" id=1]

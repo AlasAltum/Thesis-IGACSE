@@ -5,7 +5,7 @@ extends PanelContainer
 # They are focused by an instruction pointer.
 # They contain the effect check exported variable
 # Which are scripts that contain the logic of each code line
-#  When code lines are focused, they use the focus() method
+# When code lines are focused, they use the focus() method
 
 export (int) var line_index = 0
 export (int) var jump_index = 0
@@ -59,7 +59,6 @@ func _on_unfocus():
 		instruction_pointer.visible = false
 
 	add_stylebox_override("panel", unfocused_style)
-	
 
 
 # Resett side effect 

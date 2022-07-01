@@ -30,6 +30,5 @@ func _input(event):
 		advance_to_line(current_line.get_next_line())
 
 
-
 func _on_code_finished():
 	pass

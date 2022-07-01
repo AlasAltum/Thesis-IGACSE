@@ -10,7 +10,7 @@ onready var node_name: Label = $Sprite/NodeName
 onready var popup_menu: Popup = $Popup
 
 const representation_prefab = preload("res://Node/NodeRepresentation.tscn")
-var representation: NodeRepresentation 
+var representation 
 
 var can_grab: bool = false
 var grabbed_offset: Vector2 = Vector2()
@@ -26,10 +26,10 @@ signal node_add_to_object(node)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("Nodes")
-	self.representation = representation_prefab.instance()
+	self.representation = self.create_representation()
 	randomize()
 
-func create_representation() -> NodeRepresentation:
+func create_representation():
 	self.representation = representation_prefab.instance()
 	self.representation.set_index(self.index)
 	if self.selected:
@@ -103,10 +103,9 @@ func _input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		can_grab = event.pressed
 		grabbed_offset = position - get_global_mouse_position()
-
+#
 func _process(_delta):
 	if can_grab:
-
 		if Input.is_mouse_button_pressed(BUTTON_LEFT):
 			match StoredData.get_status():
 				StoredData.mov_status.DRAG:

@@ -11,7 +11,7 @@ onready var lines_container: VBoxContainer = $LinesContainer
 
 var mouse_inside_area: bool = false
 var labels = {}  # Type<String, Label>
-var map_int_to_name = {} # Type<int, String>
+var map_inta_to_name = {} # Type<int, String>
 var curr_label: Label
 # We use labels[map_int_to_name[0]] to get the label object from an integer
 
@@ -82,7 +82,7 @@ func change_focus_of_label(index: int):
 		curr_label.add_stylebox_override("normal", unfocused_style)
 		curr_label.material = null
 
-	if map_int_to_name.size() > 0 and labels.size() < index:
-		curr_label = labels[map_int_to_name[index]]
-		curr_label.add_stylebox_override("normal", focused_style)
-		curr_label.material = focused_material
+#	if map_int_to_name.size() > 0 and labels.size() < index:
+#		curr_label = labels[map_int_to_name[index]]
+#		curr_label.add_stylebox_override("normal", focused_style)
+#		curr_label.material = focused_material
