@@ -13,20 +13,20 @@ public class ADTVector : Resource
         index = _index;
     }
 
-    // public string get_name(){
-    //     return name;
-    // }
-    
+    public string get_name()
+    {
+        return name;
+    }
+
     public ADT get_data(){
         return data;
     }
 
+    public ADTRepresentation get_data_representation(){
+        return data.representation;
+    }
     public void set_data(ADT _data){
         data = _data;
     }
 
-    internal string get_name()
-    {
-        throw new NotImplementedException();
-    }
 }

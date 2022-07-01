@@ -23,7 +23,7 @@ onready var adt_is_empty_popup : WindowDialog = $QIsNotEmptyPopup
 
 ## Hint Label ##
 onready var hint_label: RichTextLabel = $CanvasLayer/TextHintContainer/HintLabel
-onready var adt_mediator = $ADTMediator
+onready var adt_mediator = $CanvasLayer/ADTMediator
 ## Continue conditions ##
 var u_is_explored: bool = false
 var adt_is_empty: bool = false
@@ -57,9 +57,9 @@ func _ready():
 	create_additional_weights_to_make_graph_connected(graph_size, edge_max_weight)
 	instance_edges()  # To make sure the graph is connected
 	StoredData.world_node = self
-	
-	
-	
+
+
+
 	# TODO: ERASE
 #	var dataserver = DataServer.new()
 #	dataserver.send_data(

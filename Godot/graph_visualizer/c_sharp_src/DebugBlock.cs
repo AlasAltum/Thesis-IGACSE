@@ -15,7 +15,7 @@ public class DebugBlock : ScrollContainer
     private StyleBox focused_style = (StyleBox) GD.Load("res://AlgorithmScenes/Screen/DebugBlock/focus_line_stylebox.stylebox");
     private StyleBox unfocused_style = (StyleBox) GD.Load("res://AlgorithmScenes/Screen/DebugBlock/unfocus_line_stylebox.stylebox");
     private Material focused_material = (Material) GD.Load("res://AlgorithmScenes/Screen/DebugBlock/debug_block_line_focus.material");
-    private PackedScene label_template = (PackedScene)  GD.Load("res://AlgorithmScenes/Code/variable_in_heap_template.tscn");
+    private PackedScene label_template; // = ResourceLoader<PackedScene>.Load("res://AlgorithmScenes/Code/variable_in_heap_template.tscn");
     private VBoxContainer lines_container;
 
     private bool mouse_inside_area = false;
@@ -27,6 +27,7 @@ public class DebugBlock : ScrollContainer
     {
         lines_container = GetNode<VBoxContainer>("LinesContainer");
         GetNode<Node2D>("/root/StoredData").Set("debug_block", this);// TODO: If this doesn't work, we can search the node
+
         // Elsewise, StoredData.singleton.debug_block = this
     }
 
@@ -40,6 +41,7 @@ public class DebugBlock : ScrollContainer
     }
 
     private void add_variable(string var_name, ADT var_data){
+        label_template = (PackedScene) ResourceLoader.Load("res://AlgorithmScenes/Code/variable_in_heap_template.tscn");
         Label new_label = (Label) label_template.Instance();
         new_label.Text = var_data.as_string();
         new_label.Visible = false;
@@ -51,8 +53,7 @@ public class DebugBlock : ScrollContainer
 
     public void update_model(Godot.Collections.Array<ADTVector> data){
         names_to_labels.Clear();
-        foreach (ADTVector variable in data)
-        {
+        foreach (ADTVector variable in data){
             string variable_name = variable.get_name();
             ADT variable_data = variable.get_data();
             add_variable(variable_name, variable_data);

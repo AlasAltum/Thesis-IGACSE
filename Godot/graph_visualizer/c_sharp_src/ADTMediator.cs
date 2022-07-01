@@ -54,7 +54,7 @@ public class ADTMediator : Node2D
 
     /// Updates data in associated structures. Should be called before update views
     public void update_models(){
-	    adt_shower?.update_model(data);
+	    adt_shower.update_model(data);
 	    debug_block.update_model(data);
     }
 
