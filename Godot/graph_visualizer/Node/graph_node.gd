@@ -10,7 +10,11 @@ onready var node_name: Label = $Sprite/NodeName
 onready var popup_menu: Popup = $Popup
 
 const representation_prefab = preload("res://Node/NodeRepresentation.tscn")
+var adt_type = load("res://AlgorithmScenes/Code/ADTs/node_adt.gd")
+
 var representation 
+var adt #: NodeADT
+
 
 var can_grab: bool = false
 var grabbed_offset: Vector2 = Vector2()
@@ -26,10 +30,14 @@ signal node_add_to_object(node)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("Nodes")
-	self.representation = self.create_representation()
+	self.representation = self.get_representation()
+	self.adt = adt_type.new(self)
 	randomize()
 
-func create_representation():
+func get_adt():
+	return self.adt
+
+func get_representation():
 	self.representation = representation_prefab.instance()
 	self.representation.set_index(self.index)
 	if self.selected:
@@ -122,4 +130,4 @@ func _process(_delta):
 ## Right click menu related methods ##
 
 func as_string() -> String:
-	return "(" + str( self.index) + ")"
+	return "(" + str(self.index) + ")"

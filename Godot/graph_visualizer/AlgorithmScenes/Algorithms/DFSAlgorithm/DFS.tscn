@@ -29,10 +29,11 @@
 [ext_resource path="res://AlgorithmScenes/Screen/ADT/Stack/StackAnimation.tscn" type="PackedScene" id=27]
 [ext_resource path="res://AlgorithmScenes/Screen/Slot.tscn" type="PackedScene" id=28]
 [ext_resource path="res://AlgorithmScenes/Screen/ADT/Queue/QueueAnimation.tscn" type="PackedScene" id=29]
-[ext_resource path="res://AlgorithmScenes/Screen/GUI/ADTsShower2.tscn" type="PackedScene" id=30]
+[ext_resource path="res://AlgorithmScenes/Screen/GUI/ADTsShower.tscn" type="PackedScene" id=30]
 [ext_resource path="res://AlgorithmScenes/Code/CodeLine.tscn" type="PackedScene" id=31]
 [ext_resource path="res://AlgorithmScenes/Code/Arrow.png" type="Texture" id=32]
 [ext_resource path="res://AlgorithmScenes/Screen/structure_queue.png" type="Texture" id=33]
+
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 4.0

@@ -17,8 +17,8 @@ static func get_type() -> String:
 func as_string() -> String:
 	return "Abstract Object"
 
-func get_object() -> Object:
+func get_object() -> ADT:
 	return self
 
-func create_representation() -> ADTRepresentation:
+func get_representation() -> ADTRepresentation:
 	return self.representation

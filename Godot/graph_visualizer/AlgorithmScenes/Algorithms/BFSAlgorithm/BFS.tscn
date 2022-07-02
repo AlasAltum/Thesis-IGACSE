@@ -1,6 +1,6 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
-[ext_resource path="res://c_sharp_src/DebugBlock.cs" type="Script" id=1]
+[ext_resource path="res://AlgorithmScenes/Code/debug_block.gd" type="Script" id=1]
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Bold.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://c_sharp_src/OneToggleButtonVBoxContaner.cs" type="Script" id=4]
@@ -27,13 +27,14 @@
 [ext_resource path="res://AlgorithmScenes/Code/code_block.gd" type="Script" id=25]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/8_u_mark_as_explored.gd" type="Script" id=26]
 [ext_resource path="res://AlgorithmScenes/Screen/ADT/Stack/StackAnimation.tscn" type="PackedScene" id=27]
-[ext_resource path="res://AlgorithmScenes/Screen/GUI/ADTsShower2.tscn" type="PackedScene" id=28]
+[ext_resource path="res://AlgorithmScenes/Screen/GUI/ADTsShower.tscn" type="PackedScene" id=28]
 [ext_resource path="res://AlgorithmScenes/Screen/ADT/Queue/QueueAnimation.tscn" type="PackedScene" id=29]
 [ext_resource path="res://AlgorithmScenes/Code/CodeLine.tscn" type="PackedScene" id=30]
 [ext_resource path="res://AlgorithmScenes/Screen/Slot.tscn" type="PackedScene" id=31]
 [ext_resource path="res://AlgorithmScenes/Code/Arrow.png" type="Texture" id=32]
 [ext_resource path="res://AlgorithmScenes/Screen/structure_queue.png" type="Texture" id=33]
 [ext_resource path="res://AlgorithmScenes/Code/Mediators/ADTMediator.tscn" type="PackedScene" id=34]
+[ext_resource path="res://AlgorithmScenes/Screen/hint_label.gd" type="Script" id=35]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 4.0
@@ -860,11 +861,12 @@ bbcode_text = "Press Enter to skip  to next instruction"
 text = "Press Enter to skip  to next instruction"
 fit_content_height = true
 scroll_active = false
+script = ExtResource( 35 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AssignNameToDataStructurePopup" type="WindowDialog" parent="."]
+[node name="PopUpForObjectCreation" type="WindowDialog" parent="."]
 visible = true
 margin_left = 524.122
 margin_top = 233.47
@@ -877,7 +879,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Explanation" type="Label" parent="AssignNameToDataStructurePopup"]
+[node name="Explanation" type="Label" parent="PopUpForObjectCreation"]
 margin_left = 5.544
 margin_top = 13.0
 margin_right = 506.544
@@ -891,8 +893,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ErrorNotification" type="Label" parent="AssignNameToDataStructurePopup"]
-self_modulate = Color( 1, 1, 1, 0 )
+[node name="ErrorNotification" type="Label" parent="PopUpForObjectCreation"]
 margin_left = 5.52972
 margin_top = 87.6922
 margin_right = 506.53
@@ -909,10 +910,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AssignNameToDataStructurePopup/ErrorNotification"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PopUpForObjectCreation/ErrorNotification"]
 anims/message_modulation = SubResource( 7 )
 
-[node name="NameAssign" type="LineEdit" parent="AssignNameToDataStructurePopup"]
+[node name="NameAssign" type="LineEdit" parent="PopUpForObjectCreation"]
 margin_left = 66.0
 margin_top = 44.0
 margin_right = 441.0
@@ -923,7 +924,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="EnterButton" type="Button" parent="AssignNameToDataStructurePopup"]
+[node name="EnterButton" type="Button" parent="PopUpForObjectCreation"]
 modulate = Color( 0.121569, 0.913725, 0, 1 )
 margin_left = 195.42
 margin_top = 118.366
@@ -934,7 +935,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Timer" type="Timer" parent="AssignNameToDataStructurePopup"]
+[node name="Timer" type="Timer" parent="PopUpForObjectCreation"]
 
 [node name="UNodeIsExploredPopup" type="WindowDialog" parent="."]
 margin_left = 524.122
@@ -1004,7 +1005,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QIsNotEmptyPopup" type="WindowDialog" parent="."]
+[node name="ADTIsNotEmptyPopup" type="WindowDialog" parent="."]
 margin_left = 524.122
 margin_top = 233.47
 margin_right = 1036.12
@@ -1015,7 +1016,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Explanation" type="Label" parent="QIsNotEmptyPopup"]
+[node name="Explanation" type="Label" parent="ADTIsNotEmptyPopup"]
 margin_left = 5.0
 margin_top = 13.0
 margin_right = 506.0
@@ -1029,7 +1030,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ErrorNotification" type="Label" parent="QIsNotEmptyPopup"]
+[node name="ErrorNotification" type="Label" parent="ADTIsNotEmptyPopup"]
 visible = false
 margin_left = 2.05951
 margin_top = 112.692
@@ -1047,10 +1048,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="QIsNotEmptyPopup/ErrorNotification"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ADTIsNotEmptyPopup/ErrorNotification"]
 anims/message_modulation = SubResource( 9 )
 
-[node name="YesButton" type="Button" parent="QIsNotEmptyPopup"]
+[node name="YesButton" type="Button" parent="ADTIsNotEmptyPopup"]
 modulate = Color( 0.121569, 0.913725, 0, 1 )
 margin_left = 115.407
 margin_top = 63.2947
@@ -1061,7 +1062,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NoButton" type="Button" parent="QIsNotEmptyPopup"]
+[node name="NoButton" type="Button" parent="ADTIsNotEmptyPopup"]
 modulate = Color( 0.980392, 0.156863, 0.156863, 1 )
 margin_left = 317.165
 margin_top = 64.6618
@@ -1181,6 +1182,7 @@ __meta__ = {
 }
 
 [node name="MenuButton" type="Button" parent="BFSFinishedPopup"]
+visible = false
 modulate = Color( 0.827451, 0.717647, 0.117647, 1 )
 margin_left = 201.293
 margin_top = 113.927
@@ -1196,17 +1198,13 @@ __meta__ = {
 [connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/AllowGraphMovementButton" to="." method="_on_AllowGraphMovementButton_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_exited"]
-[connection signal="text_entered" from="AssignNameToDataStructurePopup/NameAssign" to="AssignNameToDataStructurePopup" method="_on_NameAssign_text_entered"]
-[connection signal="pressed" from="AssignNameToDataStructurePopup/EnterButton" to="AssignNameToDataStructurePopup" method="_on_EnterButton_pressed"]
-[connection signal="pressed" from="UNodeIsExploredPopup/YesButton" to="." method="_on_YesButton_pressed"]
-[connection signal="pressed" from="UNodeIsExploredPopup/NoButton" to="." method="_on_NoButton_pressed"]
-[connection signal="pressed" from="QIsNotEmptyPopup/YesButton" to="." method="_on_q_is_empty_YesButton_pressed"]
-[connection signal="pressed" from="QIsNotEmptyPopup/NoButton" to="." method="_on_q_is_empty_NoButton_pressed"]
+[connection signal="text_entered" from="PopUpForObjectCreation/NameAssign" to="PopUpForObjectCreation" method="_on_NameAssign_text_entered"]
+[connection signal="pressed" from="PopUpForObjectCreation/EnterButton" to="PopUpForObjectCreation" method="_on_EnterButton_pressed"]
+[connection signal="pressed" from="ADTIsNotEmptyPopup/YesButton" to="." method="_on_q_is_empty_YesButton_pressed"]
+[connection signal="pressed" from="ADTIsNotEmptyPopup/NoButton" to="." method="_on_q_is_empty_NoButton_pressed"]
 [connection signal="animation_finished" from="AddNodePopup/ErrorNotification/AnimationPlayer" to="AddNodePopup" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="text_entered" from="AddNodePopup/NameAssign" to="AddNodePopup" method="_on_NameAssign_text_entered"]
 [connection signal="pressed" from="AddNodePopup/EnterButton" to="AddNodePopup" method="_on_EnterButton_pressed"]
-[connection signal="pressed" from="BFSFinishedPopup/ResetButton" to="." method="_on_ResetButton_pressed"]
-[connection signal="pressed" from="BFSFinishedPopup/MenuButton" to="." method="_on_MenuButton_pressed"]
 
 [editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0"]
 [editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1"]

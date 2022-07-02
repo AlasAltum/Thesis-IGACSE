@@ -65,7 +65,7 @@ func make_following_texture_transparent():
 
 # ask for variable name to add it to the heap
 func _on_adt_drop_on_heap():
-	assign_name_popup = get_tree().get_root().get_node("Main/AssignNameToDataStructurePopup")
+	assign_name_popup = $Main/PopUpForObjectCreation
 	assign_name_popup.visible = true
 	self.dragged_adt.visible = false  # We still need it for variable creation
 	self.dragging_adt = false
@@ -73,9 +73,8 @@ func _on_adt_drop_on_heap():
 
 # if the variable was correctly created from the ADT Grid
 func _on_correct_variable_creation(variable_name: String):
-	var generated_object = self.dragged_adt.get_object()
-
-	adt_mediator.
+	var generated_object: ADT = self.dragged_adt.get_object()
+	adt_mediator.add_variable(variable_name, generated_object)
 	# TODO: This was using GDScript	self.add_variable(variable_name, generated_object)
 	self.dragged_adt.queue_free()
 	self.dragged_adt = null
@@ -111,13 +110,13 @@ func get_data_type_of_variable(var_name: String):
 	return heap_dictionary[var_name].get_type()
 
 
-# add a node to object in variables list: Like Queue, Stack, Array, Set...
-func add_node_to_adt(variable_name: String, node: AGraphNode):
-	if has_variable(variable_name):
-		var var_data = heap_dictionary[variable_name]
-		var_data.add_data(node)  # This method should be special for every ADT
-		heap_dictionary[variable_name] = var_data
-		_on_data_update()
+# # add a node to object in variables list: Like Queue, Stack, Array, Set...
+# func add_node_to_adt(variable_name: String, node: AGraphNode):	
+# 	if has_variable(variable_name):
+# 		var var_data = heap_dictionary[variable_name]
+# 		var_data.add_data(node)  # This method should be special for every ADT
+# 		heap_dictionary[variable_name] = var_data
+# 		_on_data_update()
 
 # TODO: Create a notification
 func notify(msg: String) -> void:

@@ -32,9 +32,6 @@ func as_string() -> String:
 func add_data(incoming_data):
 	data.append(incoming_data)
 
-func get_object() -> Object:
-	return self
-
 func top():
 	var ret = data[data.size() - 1]
 	data.remove(data.size() - 1)

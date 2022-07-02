@@ -25,5 +25,5 @@ func _remove_node(node: AGraphNode) -> void:
 	var child_to_remove: Label = nodes_vbox.find_node("NodeInStack" + str(node.index))
 	child_to_remove.queue_free()
 
-func create_representation() -> StackRepresentation:
+func get_representation() -> StackRepresentation:
 	return self.representation

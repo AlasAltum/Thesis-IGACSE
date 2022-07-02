@@ -8,6 +8,19 @@ var data : Array = []  # Array of AGraphNode
 func _init():
 	self.representation = preload("res://AlgorithmScenes/Screen/ADT/Queue/QueueRepresentation.tscn").instance()
 
+func init():
+	self.representation = preload("res://AlgorithmScenes/Screen/ADT/Queue/QueueRepresentation.tscn").instance()
+
+func get_representation() -> ADTRepresentation:
+	if not self.representation:
+		return self.create_representation()
+	return self.representation
+
+func create_representation() -> ADTRepresentation:
+	self.representation = preload("res://AlgorithmScenes/Screen/ADT/Queue/QueueRepresentation.tscn").instance()
+	return self.representation
+
+
 static func get_type() -> String:
 	return "Queue"
 
@@ -28,10 +41,6 @@ func as_string() -> String:
 func add_data(incoming_data):
 	data.append(incoming_data)
 	representation._add_node(incoming_data)
-
-func get_object() -> Object:
-	return self
-
 
 
 func top():
