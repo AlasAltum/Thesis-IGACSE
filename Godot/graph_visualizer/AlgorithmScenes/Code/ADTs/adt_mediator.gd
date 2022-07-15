@@ -55,7 +55,7 @@ func add_or_update_variable(var_name: String, _data: ADT) -> void:
 func _update_variable(var_name: String, _data: ADT, update_on_finish = false) -> void:
 	for adt_vector in data:
 		if adt_vector.name == var_name:
-			adt_vector.data = _data  # Modify variable stored in data
+			adt_vector.set_data(_data)  # Modify variable stored in data
 	# Update may not be necessary since it is made at the end
 	if update_on_finish:
 		update()

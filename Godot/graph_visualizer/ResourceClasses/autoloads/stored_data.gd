@@ -14,7 +14,6 @@ var json = {
 	"n": 3,
 	"matrix": [],
 }
-# var heap_dictionary : Dictionary = {}
 var dragging_adt : bool = false
 var dragged_adt : FollowingMouseTexture
 var adt_hovering : bool = false
@@ -78,20 +77,10 @@ func _on_adt_drop_on_heap():
 # Create a new variable, considering it in the
 # ADT Shower and in the Debug Block
 func add_variable(var_name, data):
-	# TODO: Fix bug. data is KinematicBody2D
 	if data.get_class() == "KinematicBody2D":
 		data = data.get_adt()
 	adt_mediator.add_or_update_variable(var_name, data)
-#	adt_shower.update_representation(var_name, data)
-#	heap_dictionary[var_name] = data
-#	if var_name in heap_dictionary:
-#		adt_shower.erase_representation(var_name)
-#	adt_shower.add_representation(var_name, data)
-#	_on_data_update()
 
-
-# func _on_data_update():
-# 	debug_block.update_data_with_dictionary(self.heap_dictionary)
 
 func has_variable(variable_name: String) -> bool:
 	return adt_mediator.has_variable(variable_name)
@@ -101,8 +90,6 @@ func get_variable(variable_name: String):
 
 func erase_variable(var_name: String) -> void:
 	adt_mediator.erase_variable_by_name(var_name)
-	# # heap_dictionary.erase(var_name)
-	# _on_data_update()
 
 func get_data_type_of_variable(var_name: String):
 	# Case there is no data type for that variable
@@ -110,16 +97,7 @@ func get_data_type_of_variable(var_name: String):
 		return ""
 	return adt_mediator.get_variable(var_name).get_type()
 
-
-# add a node to object in variables list: Like Queue, Stack, Array, Set...
-# func add_node_to_adt(variable_name: String, node: AGraphNode):
-# 	if has_variable(variable_name):
-# 		var var_data = heap_dictionary[variable_name]
-# 		var_data.add_data(node)  # This method should be special for every ADT
-# 		heap_dictionary[variable_name] = var_data
-# 		_on_data_update()
-
-# TODO: Create a notification
+# TODO: Maybe this could be erased
 func notify(msg: String) -> void:
 	print(msg)
 
@@ -135,10 +113,9 @@ func reset_data():
 		"n": 3,
 		"matrix": [],
 	}
-	self.heap_dictionary = {}
 	self.dragging_adt = false
 	self.dragged_adt = null
 	self.adt_hovering = false
 	self.assign_name_popup = null
 	self.world_node = null
-	# self.heap = null # Class DebugBlock
+

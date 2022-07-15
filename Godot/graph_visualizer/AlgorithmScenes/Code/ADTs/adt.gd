@@ -7,6 +7,8 @@ extends Resource
 
 var representation: ADTRepresentation
 var representation_path: String
+export (Array) var data = []  # Array of NodeADT
+
 
 func _ready():
 	pass # Replace with function body.

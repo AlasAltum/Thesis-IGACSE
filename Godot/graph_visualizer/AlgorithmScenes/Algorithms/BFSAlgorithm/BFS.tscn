@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Code/debug_block.gd" type="Script" id=1]
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Bold.ttf" type="DynamicFontData" id=2]
@@ -37,6 +37,7 @@
 [ext_resource path="res://AlgorithmScenes/Screen/hint_label.gd" type="Script" id=35]
 [ext_resource path="res://AlgorithmScenes/Screen/ADTIsNotEmptyPopup.tscn" type="PackedScene" id=36]
 [ext_resource path="res://AlgorithmScenes/Screen/UNodeIsExploredPopup.tscn" type="PackedScene" id=37]
+[ext_resource path="res://AlgorithmScenes/Screen/finished_code_popup.gd" type="Script" id=38]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 4.0
@@ -109,7 +110,7 @@ __meta__ = {
 "_edit_vertical_guides_": [ -164.416 ]
 }
 graph_density = 0.169
-graph_size = 6
+graph_size = 3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -876,12 +877,14 @@ __meta__ = {
 [node name="AddNodePopup" parent="." instance=ExtResource( 21 )]
 
 [node name="BFSFinishedPopup" type="WindowDialog" parent="."]
+visible = true
 margin_left = 525.1
 margin_top = 232.627
 margin_right = 1037.1
 margin_bottom = 391.627
 popup_exclusive = true
 window_title = "Algorithm Finished!"
+script = ExtResource( 38 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -914,7 +917,6 @@ __meta__ = {
 }
 
 [node name="MenuButton" type="Button" parent="BFSFinishedPopup"]
-visible = false
 modulate = Color( 0.827451, 0.717647, 0.117647, 1 )
 margin_left = 201.293
 margin_top = 113.927
@@ -932,6 +934,7 @@ __meta__ = {
 [connection signal="mouse_exited" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_exited"]
 [connection signal="text_entered" from="PopUpForObjectCreation/NameAssign" to="PopUpForObjectCreation" method="_on_NameAssign_text_entered"]
 [connection signal="pressed" from="PopUpForObjectCreation/EnterButton" to="PopUpForObjectCreation" method="_on_EnterButton_pressed"]
+[connection signal="pressed" from="BFSFinishedPopup/ResetButton" to="BFSFinishedPopup" method="_on_ResetButton_pressed"]
 
 [editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0"]
 [editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1"]

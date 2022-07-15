@@ -2,8 +2,6 @@ class_name QueueADT
 extends ADT
 
 # RepresentationClass: QueueRepresentation
-var data : Array = []  # Array of AGraphNode
-
 
 func _init():
 	self.representation = preload("res://AlgorithmScenes/Screen/ADT/Queue/QueueRepresentation.tscn").instance()

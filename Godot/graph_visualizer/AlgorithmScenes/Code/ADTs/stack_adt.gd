@@ -1,8 +1,6 @@
 class_name StackADT
 extends ADT
 
-var data : Array = []  # Array of Node2D
-
 #func _ready():
 #	self.representation = StackRepresentation.new()
 

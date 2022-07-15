@@ -13,7 +13,7 @@ const representation_prefab = preload("res://Node/NodeRepresentation.tscn")
 var adt_type = load("res://AlgorithmScenes/Code/ADTs/node_adt.gd")
 
 var representation 
-var adt #: NodeADT
+var adt  #: NodeADT
 
 
 var can_grab: bool = false

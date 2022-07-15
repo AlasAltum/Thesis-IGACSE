@@ -52,10 +52,13 @@ func set_hint_text(new_text: String) -> void:
 
 ## BFS Finished Popup signals ##
 
-func _on_ResetButton_pressed() -> void:
+func reset_game():
 	StoredData.reset_data()
 	self.reset_data()
 	get_tree().reload_current_scene()
+
+func _on_ResetButton_pressed() -> void:
+	reset_game()
 
 func _on_MenuButton_pressed() -> void:
 	pass # TODO: Add Menu for different algorithms
