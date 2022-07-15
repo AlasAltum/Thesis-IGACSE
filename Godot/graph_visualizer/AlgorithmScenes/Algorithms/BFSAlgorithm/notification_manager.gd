@@ -40,9 +40,6 @@ func _on_SelectNodeButton_pressed():
 	StoredData.set_status("SELECT")
 	
 
-# StoredData Autoload will trigger
-# func on_code_finished_popup(_msg: String):
-#	self.world_node.on_code_finished_popup(_msg)
 func on_code_finished_popup(_msg: String) -> void:
 	finished_popup.show()
 #	return
@@ -82,11 +79,7 @@ func notify_u_is_explored_correct_answer():
 	# TODO: Add visual effect
 
 func notify_u_is_explored_wrong_answer():
-	# Visual effect
-	print($UNodeIsExploredPopup/ErrorNotification/AnimationPlayer)
-	$UNodeIsExploredPopup/ErrorNotification/AnimationPlayer.stop()
-	$UNodeIsExploredPopup/ErrorNotification/AnimationPlayer.play("message_modulation")
-	# TODO: Add sound effect
+	u_is_explored_popup.notify_u_is_explored_wrong_answer()
 
 func _on_YesButton_pressed() -> void:
 	if self.u_is_explored:  # Expected answer
@@ -130,6 +123,6 @@ func notify_adt_is_empty_correct_answer():
 
 func notify_adt_is_empty_wrong_answer():
 	# TODO: Visual effect
-	$QIsNotEmptyPopup/ErrorNotification/AnimationPlayer.stop()
-	$QIsNotEmptyPopup/ErrorNotification/AnimationPlayer.play("message_modulation")
+	adt_is_empty_popup.play_wrong_animation()
+#	$ADTIsNotEmptyPopup/ErrorNotification/AnimationPlayer.play("message_modulation")
 	# TODO: Add sound effect

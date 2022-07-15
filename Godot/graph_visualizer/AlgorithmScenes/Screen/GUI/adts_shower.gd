@@ -5,22 +5,19 @@ extends PanelContainer
 # of each variable in the stack 
 # This class may be a: QueueRepresentation, StackRepresentation
 var current_adt: ADTRepresentation
-var stored_adt_reps: Array = []
+var stored_adt_reps: Array = []  # Array<ADTRepresentation>
 var name_to_representation: Dictionary = {}
 
 onready var variable_name_label: Label = $VBoxContainer/VarNameLabel
+onready var rep_container: Container = $VBoxContainer/Container
 
 signal _on_variable_index_up  # Signal emitted when pressing up and moving the variable
 signal _on_variable_index_down # Signal emitted when pressing down and moving the variable
 
 func _ready() -> void:
 	StoredData.adt_mediator.adt_shower = self
-	StoredData.adt_mediator.connect("_on_variable_index_up", StoredData.adt_mediator, "_on_variable_index_up")
+	self.connect("_on_variable_index_up", StoredData.adt_mediator, "_on_variable_index_up")
 	self.connect("_on_variable_index_down", StoredData.adt_mediator, "_on_variable_index_down")
-
-
-func set_name_of_label(var_name: String):
-	variable_name_label.text = "Current variable: " + var_name
 
 func _input(event):
 	if event.is_action_pressed("up"):
@@ -36,16 +33,16 @@ func _on_DownButton_pressed() -> void:
 
 func clear_current_models():
 	for adt_rep in stored_adt_reps:
-		remove_child(adt_rep)
+		_remove_child(adt_rep)
 	stored_adt_reps.clear()
 
 func update_models(data: Array) -> void:
 	clear_current_models()
-	# Data is an array of ADTVectors
+	# Data is an array of ADTVector
 	for adt_vector in data:
 		var adt_representation = adt_vector.get_representation()
 		stored_adt_reps.append(adt_representation)
-		add_child(adt_representation)
+		_add_child(adt_representation)
 
 func update_views(selected_index: int) -> void:
 	#  make the previous adt representation invisible
@@ -57,4 +54,9 @@ func update_views(selected_index: int) -> void:
 		# TODO: BUG with selected variable index after u is created
 		current_adt.visible = true  # make the previous adt invisible
 
+func _remove_child(adt_representation):
+	rep_container.remove_child(adt_representation)
+
+func _add_child(adt_representation):
+	rep_container.add_child(adt_representation)
 

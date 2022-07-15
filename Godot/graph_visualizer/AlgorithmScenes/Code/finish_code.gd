@@ -7,7 +7,7 @@ func _init():
 
 # TODO: Add notification
 func side_effect() -> void:
-	StoredData.on_code_finished_popup(message)
+	NotificationManager.on_code_finished_popup(message)
 	print("Code Finished!")
 
 func check_actions_correct() -> bool:

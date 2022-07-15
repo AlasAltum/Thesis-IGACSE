@@ -15,13 +15,13 @@ func ask_user() -> void:
 	# Show a popup that asks the user whether u is explored or not
 	# condition is true if not explored, 
 	var explored = not if_condition_is_true();
-	var u : AGraphNode = StoredData.get_variable("u")
+	var u : AGraphNode = StoredData.get_variable("u").get_node()
 	StoredData.ask_user_if_graph_node_is_explored(u, explored)
 	# This sets the StoredData.u_is_explored_right_answer variable
 	
 # If u.is_not_explored()
 func if_condition_is_true() -> bool:
-	var u : AGraphNode = StoredData.get_variable("u")
+	var u : AGraphNode = StoredData.get_variable("u").get_node()
 	if (u in StoredData.get_selected_nodes()):
 		return false
 	return true

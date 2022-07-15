@@ -12,7 +12,7 @@ func _ready() -> void:
 
 
 # Add new node to the StackADT representation
-func _add_node(node: AGraphNode) -> void:
+func add_node(node: AGraphNode) -> void:
 	var new_label: Label = node_label_prefab.instance().get_node("Node")
 	new_label.text = str(node.index)
 	# Change name in tree, so it can be erased later by using its index
@@ -20,8 +20,8 @@ func _add_node(node: AGraphNode) -> void:
 	nodes_vbox.add_child(new_label)
 	nodes_vbox.move_child(new_label, 0)
 
-# Remove Node from StackADT representation
-func _remove_node(node: AGraphNode) -> void:
+# Remove Node from the StackADT representation
+func remove_node(node: AGraphNode) -> void:
 	var child_to_remove: Label = nodes_vbox.find_node("NodeInStack" + str(node.index))
 	child_to_remove.queue_free()
 

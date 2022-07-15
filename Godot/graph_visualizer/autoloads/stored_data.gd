@@ -122,20 +122,6 @@ func get_data_type_of_variable(var_name: String):
 func notify(msg: String) -> void:
 	print(msg)
 
-func on_code_finished_popup(_msg: String):
-	self.world_node.on_code_finished_popup(_msg)
-
-func ask_user_if_graph_node_is_explored(u: AGraphNode, condition_value: bool):
-	self.world_node.ask_user_if_graph_node_is_explored(u, condition_value)
-
-func ask_user_if_queue_is_empty(is_q_empty: bool):
-	self.world_node.ask_user_if_queue_is_empty(is_q_empty)
-
-func ask_user_if_stack_is_empty(is_s_empty: bool):
-	self.world_node.ask_user_if_stack_is_empty(is_s_empty)
-
-func ask_user_if_adt_is_empty(is_s_empty: bool):
-	self.world_node.ask_user_if_adt_is_empty(is_s_empty)
 
 # When game gets reset, reset data
 func reset_data():

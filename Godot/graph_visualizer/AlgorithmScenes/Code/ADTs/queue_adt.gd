@@ -35,17 +35,15 @@ func _data_as_string():
 
 func as_string() -> String:
 	var format_string = "Queue({data})"
-	# Using the 'format' method, replace the 'str' placeholder
 	return format_string.format({"data": _data_as_string()})
 
 func add_data(incoming_data):
 	data.append(incoming_data)
-	representation._add_node(incoming_data)
+	representation.add_node(incoming_data)
 
 
 func top():
 	var ret = data[0]
-	self.representation._remove_node(ret)
+	representation.remove_node(ret)
 	data.remove(0)
-	# QueueRepresentation
 	return ret

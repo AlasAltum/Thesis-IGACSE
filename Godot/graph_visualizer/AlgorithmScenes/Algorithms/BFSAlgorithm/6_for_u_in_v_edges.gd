@@ -6,7 +6,7 @@ var iteration_index : int = 0
 
 # set u as node
 func execute_side_effect() -> void:
-	var v : AGraphNode = StoredData.get_variable("v")
+	var v : AGraphNode = StoredData.get_variable("v").get_node()
 	# v.edges[iteration_index] is a pair [node_index, weight]
 	var u_index : int = v.edges[iteration_index][0]
 	var u : AGraphNode = StoredData.nodes[u_index]
@@ -19,7 +19,7 @@ func get_max_iteration_index(v: AGraphNode) -> int:
 
 # In this case, for is for an i < length(v.edges())
 func for_condition_is_true() -> bool:
-	var v : AGraphNode = StoredData.get_variable("v")
+	var v : AGraphNode = StoredData.get_variable("v").get_node()
 	# If for condition is true, keep reading following lines and execute side effects
 	if iteration_index < get_max_iteration_index(v):
 		return true

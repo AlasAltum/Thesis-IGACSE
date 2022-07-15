@@ -79,6 +79,8 @@ func _on_adt_drop_on_heap():
 # ADT Shower and in the Debug Block
 func add_variable(var_name, data):
 	# TODO: Fix bug. data is KinematicBody2D
+	if data.get_class() == "KinematicBody2D":
+		data = data.get_adt()
 	adt_mediator.add_or_update_variable(var_name, data)
 #	adt_shower.update_representation(var_name, data)
 #	heap_dictionary[var_name] = data
@@ -121,21 +123,6 @@ func get_data_type_of_variable(var_name: String):
 func notify(msg: String) -> void:
 	print(msg)
 
-func on_code_finished_popup(_msg: String):
-	self.world_node.on_code_finished_popup(_msg)
-
-# u: : AGraphNode
-func ask_user_if_graph_node_is_explored(u, condition_value: bool):
-	self.world_node.ask_user_if_graph_node_is_explored(u, condition_value)
-
-func ask_user_if_queue_is_empty(is_q_empty: bool):
-	self.world_node.ask_user_if_queue_is_empty(is_q_empty)
-
-func ask_user_if_stack_is_empty(is_s_empty: bool):
-	self.world_node.ask_user_if_stack_is_empty(is_s_empty)
-
-func ask_user_if_adt_is_empty(is_s_empty: bool):
-	self.world_node.ask_user_if_adt_is_empty(is_s_empty)
 
 # When game gets reset, reset data
 func reset_data():

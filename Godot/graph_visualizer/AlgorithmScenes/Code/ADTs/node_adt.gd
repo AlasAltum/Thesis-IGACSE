@@ -20,3 +20,6 @@ func get_object(): # -> ADT:
 
 func get_representation(): # -> ADTRepresentation:
 	return parent_node.get_representation()
+
+func get_node():
+	return parent_node

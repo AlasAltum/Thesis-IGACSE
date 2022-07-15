@@ -14,27 +14,27 @@ func effect_check_on_focused():
 func ask_user() -> void:
 	# Show a popup that asks the user whether u is explored or not
 	# condition is true if not explored, 
-	var explored = not if_condition_is_true();
-	var u : AGraphNode = StoredData.get_variable("u")
-	StoredData.ask_user_if_graph_node_is_explored(u, explored)
+	var u = StoredData.get_variable("u").get_node()
+	var explored = not if_condition_is_true(u);
+	NotificationManager.ask_user_if_graph_node_is_explored(u, explored)
 	# This sets the StoredData.u_is_explored_right_answer variable
 	
 # If u.is_not_explored()
-func if_condition_is_true() -> bool:
-	var u : AGraphNode = StoredData.get_variable("u")
+func if_condition_is_true(u) -> bool:
 	if (u in StoredData.get_selected_nodes()):
 		return false
+
 	return true
 
 # If user presses enter
 # Ask the user whether this is true or false
 func get_next_line() -> int:
 	if StoredData.u_is_explored_right_answer:
-		if self.if_condition_is_true():
+		var u = StoredData.get_variable("u").get_node()
+		if self.if_condition_is_true(u):
 			return .get_next_line()  # super.get_next_line()
 
 		return .get_jump_line()
-
 	# Else: Do not move
 	return self.code_line.line_index
 

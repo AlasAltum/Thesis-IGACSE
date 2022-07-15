@@ -6,7 +6,8 @@ extends ADTRepresentation
 var index: int = 0
 
 func _ready() -> void:
-	pass # Replace with function body.
+	self.position = Vector2(95.0, 60.0)
+	self.scale = Vector2(2.0, 2.0)
 
 func set_index(_index: int) -> void:
 	self.index = index

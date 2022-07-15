@@ -8,7 +8,7 @@ func execute_side_effect() -> void:
 	if StoredData.has_variable("q"):
 		var queue : QueueADT = StoredData.get_variable("q")
 		var top_node_in_queue : AGraphNode = queue.top()
-		StoredData.add_variable("v", top_node_in_queue)
+		StoredData.add_variable("v", top_node_in_queue.get_adt())
 
 func get_next_line() -> int:
 	self.execute_side_effect()

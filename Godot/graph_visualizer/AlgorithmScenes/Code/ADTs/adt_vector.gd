@@ -33,9 +33,6 @@ func set_name(_name: String):
 func get_name():
 	return name
 
-func get_data_representation():
-	return adt.get_representation()
-
 func set_representation(_rep):
 	representation = _rep
 

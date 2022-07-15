@@ -7,13 +7,12 @@ extends Node2D
 func _ready() -> void:
 	pass # Replace with function body.
 
-
 # Override this method
-func _add_node(node) -> void:
+func add_node(node) -> void:
 	pass
 
 # Override this method
-func _remove_node(node) -> void:
+func remove_node(node) -> void:
 	pass
 
 func set_properties() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Code/debug_block.gd" type="Script" id=1]
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Bold.ttf" type="DynamicFontData" id=2]
@@ -20,7 +20,7 @@
 [ext_resource path="res://AlgorithmScenes/Code/ADTs/queue_adt.gd" type="Script" id=18]
 [ext_resource path="res://AlgorithmScenes/Code/null_effect.gd" type="Script" id=19]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/5_v_q_top.gd" type="Script" id=20]
-[ext_resource path="res://AlgorithmScenes/Screen/popup_for_node_add_to_object.gd" type="Script" id=21]
+[ext_resource path="res://AlgorithmScenes/Screen/AddNodePopup.tscn" type="PackedScene" id=21]
 [ext_resource path="res://AlgorithmScenes/Code/ADTs/stack_adt.gd" type="Script" id=22]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/6_for_u_in_v_edges.gd" type="Script" id=23]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/7_if_u_is_not_explored.gd" type="Script" id=24]
@@ -35,6 +35,8 @@
 [ext_resource path="res://AlgorithmScenes/Screen/structure_queue.png" type="Texture" id=33]
 [ext_resource path="res://AlgorithmScenes/Code/Mediators/ADTMediator.tscn" type="PackedScene" id=34]
 [ext_resource path="res://AlgorithmScenes/Screen/hint_label.gd" type="Script" id=35]
+[ext_resource path="res://AlgorithmScenes/Screen/ADTIsNotEmptyPopup.tscn" type="PackedScene" id=36]
+[ext_resource path="res://AlgorithmScenes/Screen/UNodeIsExploredPopup.tscn" type="PackedScene" id=37]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 4.0
@@ -87,75 +89,6 @@ font_data = ExtResource( 3 )
 extents = Vector2( 170.095, 152.984 )
 
 [sub_resource type="Animation" id=7]
-length = 3.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-
-[sub_resource type="Animation" id=8]
-length = 3.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-
-[sub_resource type="Animation" id=9]
-length = 3.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-
-[sub_resource type="Animation" id=10]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
@@ -867,7 +800,6 @@ __meta__ = {
 }
 
 [node name="PopUpForObjectCreation" type="WindowDialog" parent="."]
-visible = true
 margin_left = 524.122
 margin_top = 233.47
 margin_right = 1036.12
@@ -937,211 +869,11 @@ __meta__ = {
 
 [node name="Timer" type="Timer" parent="PopUpForObjectCreation"]
 
-[node name="UNodeIsExploredPopup" type="WindowDialog" parent="."]
-margin_left = 524.122
-margin_top = 233.47
-margin_right = 1036.12
-margin_bottom = 392.47
-popup_exclusive = true
-window_title = "Confirmation"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="UNodeIsExploredPopup" parent="." instance=ExtResource( 37 )]
 
-[node name="Explanation" type="Label" parent="UNodeIsExploredPopup"]
-margin_left = 5.0
-margin_top = 13.0
-margin_right = 506.0
-margin_bottom = 39.0
-rect_pivot_offset = Vector2( 265.108, 0 )
-size_flags_horizontal = 3
-text = "Is the U node (index) explored?"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="ADTIsNotEmptyPopup" parent="." instance=ExtResource( 36 )]
 
-[node name="ErrorNotification" type="Label" parent="UNodeIsExploredPopup"]
-self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 2.05951
-margin_top = 112.692
-margin_right = 503.06
-margin_bottom = 138.692
-rect_pivot_offset = Vector2( 265.108, 0 )
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0.878431, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_as_outline = 2
-text = "Error: Wrong answer"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UNodeIsExploredPopup/ErrorNotification"]
-anims/message_modulation = SubResource( 8 )
-
-[node name="YesButton" type="Button" parent="UNodeIsExploredPopup"]
-modulate = Color( 0.121569, 0.913725, 0, 1 )
-margin_left = 115.407
-margin_top = 63.2947
-margin_right = 209.407
-margin_bottom = 89.2947
-text = "Yes"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NoButton" type="Button" parent="UNodeIsExploredPopup"]
-modulate = Color( 0.980392, 0.156863, 0.156863, 1 )
-margin_left = 317.165
-margin_top = 64.6618
-margin_right = 411.165
-margin_bottom = 90.6618
-text = "No"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ADTIsNotEmptyPopup" type="WindowDialog" parent="."]
-margin_left = 524.122
-margin_top = 233.47
-margin_right = 1036.12
-margin_bottom = 392.47
-popup_exclusive = true
-window_title = "Confirmation"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Explanation" type="Label" parent="ADTIsNotEmptyPopup"]
-margin_left = 5.0
-margin_top = 13.0
-margin_right = 506.0
-margin_bottom = 39.0
-rect_pivot_offset = Vector2( 265.108, 0 )
-size_flags_horizontal = 3
-text = "Is the Queue q empty?"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ErrorNotification" type="Label" parent="ADTIsNotEmptyPopup"]
-visible = false
-margin_left = 2.05951
-margin_top = 112.692
-margin_right = 503.06
-margin_bottom = 138.692
-rect_pivot_offset = Vector2( 265.108, 0 )
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0.878431, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_as_outline = 2
-text = "Error: Wrong answer"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ADTIsNotEmptyPopup/ErrorNotification"]
-anims/message_modulation = SubResource( 9 )
-
-[node name="YesButton" type="Button" parent="ADTIsNotEmptyPopup"]
-modulate = Color( 0.121569, 0.913725, 0, 1 )
-margin_left = 115.407
-margin_top = 63.2947
-margin_right = 209.407
-margin_bottom = 89.2947
-text = "Yes"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NoButton" type="Button" parent="ADTIsNotEmptyPopup"]
-modulate = Color( 0.980392, 0.156863, 0.156863, 1 )
-margin_left = 317.165
-margin_top = 64.6618
-margin_right = 411.165
-margin_bottom = 90.6618
-text = "No"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AddNodePopup" type="WindowDialog" parent="."]
-margin_left = 521.565
-margin_top = 234.041
-margin_right = 1033.56
-margin_bottom = 393.041
-popup_exclusive = true
-window_title = "Add node to object"
-script = ExtResource( 21 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Explanation" type="Label" parent="AddNodePopup"]
-margin_left = 5.0
-margin_top = 13.0
-margin_right = 506.0
-margin_bottom = 39.0
-rect_pivot_offset = Vector2( 265.108, 0 )
-size_flags_horizontal = 3
-text = "You are about to add node of index 0 to a Queue. Insert Object name"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ErrorNotification" type="Label" parent="AddNodePopup"]
-visible = false
-self_modulate = Color( 1, 1, 1, 0.1 )
-margin_left = 5.52972
-margin_top = 87.6922
-margin_right = 506.53
-margin_bottom = 113.692
-rect_pivot_offset = Vector2( 265.108, 0 )
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0.878431, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_as_outline = 2
-text = "Object is not listed in variables"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AddNodePopup/ErrorNotification"]
-anims/message_modulation = SubResource( 10 )
-
-[node name="NameAssign" type="LineEdit" parent="AddNodePopup"]
-margin_left = 66.0
-margin_top = 44.0
-margin_right = 441.0
-margin_bottom = 84.0
-align = 1
-placeholder_text = "Object name..."
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="EnterButton" type="Button" parent="AddNodePopup"]
-modulate = Color( 0.121569, 0.913725, 0, 1 )
-margin_left = 195.42
-margin_top = 118.366
-margin_right = 289.42
-margin_bottom = 144.366
-text = "Enter"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="AddNodePopup" parent="." instance=ExtResource( 21 )]
 
 [node name="BFSFinishedPopup" type="WindowDialog" parent="."]
 margin_left = 525.1
@@ -1200,11 +932,6 @@ __meta__ = {
 [connection signal="mouse_exited" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_exited"]
 [connection signal="text_entered" from="PopUpForObjectCreation/NameAssign" to="PopUpForObjectCreation" method="_on_NameAssign_text_entered"]
 [connection signal="pressed" from="PopUpForObjectCreation/EnterButton" to="PopUpForObjectCreation" method="_on_EnterButton_pressed"]
-[connection signal="pressed" from="ADTIsNotEmptyPopup/YesButton" to="." method="_on_q_is_empty_YesButton_pressed"]
-[connection signal="pressed" from="ADTIsNotEmptyPopup/NoButton" to="." method="_on_q_is_empty_NoButton_pressed"]
-[connection signal="animation_finished" from="AddNodePopup/ErrorNotification/AnimationPlayer" to="AddNodePopup" method="_on_AnimationPlayer_animation_finished"]
-[connection signal="text_entered" from="AddNodePopup/NameAssign" to="AddNodePopup" method="_on_NameAssign_text_entered"]
-[connection signal="pressed" from="AddNodePopup/EnterButton" to="AddNodePopup" method="_on_EnterButton_pressed"]
 
 [editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0"]
 [editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1"]

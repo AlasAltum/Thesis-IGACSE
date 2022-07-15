@@ -16,7 +16,8 @@ font_data = ExtResource( 4 )
 
 [node name="NodeRepresentation" type="KinematicBody2D"]
 visible = false
-position = Vector2( 300, 90 )
+z_index = 3
+z_as_relative = false
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
