@@ -22,8 +22,8 @@ onready var instruction_pointer : Sprite = $MarginContainer/HBoxContainer/Instru
 const NOT_SELECTED_COLOR: Color = Color(0.24, 0.24, 0.24, 1.0);
 const SELECTED_COLOR: Color = Color(0.6, 0.6, 0.24, 1.0);
 
-var unfocused_style: StyleBox = preload("res://AlgorithmScenes/Code/default_line_code_style.tres")
-var focused_style: StyleBox = preload("res://AlgorithmScenes/Code/focused_line_code_style.tres")
+const unfocused_style: StyleBox = preload("res://AlgorithmScenes/Code/default_line_code_style.tres")
+const focused_style: StyleBox = preload("res://AlgorithmScenes/Code/focused_line_code_style.tres")
 
 
 func _ready():
@@ -36,6 +36,7 @@ func _ready():
 func focus():
 	_on_focused()
 
+
 func _on_focused():
 	focused = true
 	if self.effect_check and not self.on_focus_effect_triggered:
@@ -47,8 +48,10 @@ func _on_focused():
 		add_stylebox_override("panel", focused_style)
 	StoredData.set_hint_text(self.hint_text)
 
+
 func unfocus():
 	_on_unfocus()
+
 
 func _on_unfocus():
 	focused = false
@@ -66,6 +69,7 @@ func reset_effect_check():
 	self.on_focus_effect_triggered = false
 	if self.effect_check:
 		self.effect_check.reset()
+
 
 # Given the EffectCheck for this code line,
 # Get the next line that should be included

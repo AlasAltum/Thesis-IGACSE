@@ -16,6 +16,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 0
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( -0.1, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [node name="AddNodePopup" type="WindowDialog"]
 visible = true
@@ -45,8 +57,7 @@ __meta__ = {
 }
 
 [node name="ErrorNotification" type="Label" parent="."]
-visible = false
-self_modulate = Color( 1, 1, 1, 0.1 )
+self_modulate = Color( 1, 1, 1, 0.5 )
 margin_left = 5.52972
 margin_top = 87.6922
 margin_right = 506.53

@@ -86,7 +86,6 @@ func notify_u_is_explored_wrong_answer():
 
 func _on_YesButton_pressed() -> void:
 	if self.u_is_explored:  # Expected answer
-		# Close the popup
 		notify_u_is_explored_correct_answer()
 	else: # Wrong answer
 		notify_u_is_explored_wrong_answer()
@@ -96,7 +95,6 @@ func _on_NoButton_pressed() -> void:
 	if self.u_is_explored:  # Wrong answer
 		notify_u_is_explored_wrong_answer()
 	else:  # Expected answer
-		# Close the popup
 		notify_u_is_explored_correct_answer()
 
 ## U.is_explored() popup signals ##

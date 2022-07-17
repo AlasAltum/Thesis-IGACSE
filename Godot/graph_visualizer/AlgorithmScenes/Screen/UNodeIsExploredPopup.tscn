@@ -56,7 +56,7 @@ __meta__ = {
 }
 
 [node name="ErrorNotification" type="Label" parent="."]
-self_modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0.718485 )
 margin_left = 2.05951
 margin_top = 112.692
 margin_right = 503.06

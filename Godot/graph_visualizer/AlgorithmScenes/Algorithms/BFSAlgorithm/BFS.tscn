@@ -37,7 +37,7 @@
 [ext_resource path="res://AlgorithmScenes/Screen/hint_label.gd" type="Script" id=35]
 [ext_resource path="res://AlgorithmScenes/Screen/ADTIsNotEmptyPopup.tscn" type="PackedScene" id=36]
 [ext_resource path="res://AlgorithmScenes/Screen/UNodeIsExploredPopup.tscn" type="PackedScene" id=37]
-[ext_resource path="res://AlgorithmScenes/Screen/finished_code_popup.gd" type="Script" id=38]
+[ext_resource path="res://AlgorithmScenes/Screen/FinishedPopup.tscn" type="PackedScene" id=38]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 4.0
@@ -102,6 +102,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( -0.1, 0.2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
 }
 
 [node name="Main" type="Node2D"]
@@ -293,8 +305,10 @@ margin_bottom = 33.0
 text = "    while q.is_not_empty():"
 
 [node name="PanelContainer5" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
+anchor_left = 0.00510204
+anchor_top = 0.0021645
+anchor_right = 0.00510204
+anchor_bottom = 0.0021645
 margin_top = 165.0
 margin_right = 392.0
 margin_bottom = 198.0
@@ -801,6 +815,7 @@ __meta__ = {
 }
 
 [node name="PopUpForObjectCreation" type="WindowDialog" parent="."]
+visible = true
 margin_left = 524.122
 margin_top = 233.47
 margin_right = 1036.12
@@ -827,6 +842,8 @@ __meta__ = {
 }
 
 [node name="ErrorNotification" type="Label" parent="PopUpForObjectCreation"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 5.52972
 margin_top = 87.6922
 margin_right = 506.53
@@ -875,66 +892,17 @@ __meta__ = {
 [node name="ADTIsNotEmptyPopup" parent="." instance=ExtResource( 36 )]
 
 [node name="AddNodePopup" parent="." instance=ExtResource( 21 )]
+visible = false
 
-[node name="BFSFinishedPopup" type="WindowDialog" parent="."]
-visible = true
-margin_left = 525.1
-margin_top = 232.627
-margin_right = 1037.1
-margin_bottom = 391.627
-popup_exclusive = true
-window_title = "Algorithm Finished!"
-script = ExtResource( 38 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Explanation" type="Label" parent="BFSFinishedPopup"]
-margin_left = 5.0
-margin_top = 13.0
-margin_right = 506.0
-margin_bottom = 74.0
-rect_pivot_offset = Vector2( 265.108, 0 )
-size_flags_horizontal = 3
-text = "Congratulations! You have successfully finished the BFS Algorithm!"
-align = 1
-valign = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ResetButton" type="Button" parent="BFSFinishedPopup"]
-modulate = Color( 0.121569, 0.913725, 0, 1 )
-margin_left = 200.759
-margin_top = 76.986
-margin_right = 294.759
-margin_bottom = 102.986
-rect_pivot_offset = Vector2( 72.8572, 10.7062 )
-text = "Reset"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MenuButton" type="Button" parent="BFSFinishedPopup"]
-modulate = Color( 0.827451, 0.717647, 0.117647, 1 )
-margin_left = 201.293
-margin_top = 113.927
-margin_right = 295.293
-margin_bottom = 139.927
-rect_pivot_offset = Vector2( 72.8572, 10.7062 )
-text = "Menu"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="FinishedPopup" parent="." instance=ExtResource( 38 )]
 
 [connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/SelectNodeButton" to="." method="_on_SelectNodeButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/AllowGraphMovementButton" to="." method="_on_AllowGraphMovementButton_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_exited"]
+[connection signal="animation_finished" from="PopUpForObjectCreation/ErrorNotification/AnimationPlayer" to="PopUpForObjectCreation" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="text_entered" from="PopUpForObjectCreation/NameAssign" to="PopUpForObjectCreation" method="_on_NameAssign_text_entered"]
 [connection signal="pressed" from="PopUpForObjectCreation/EnterButton" to="PopUpForObjectCreation" method="_on_EnterButton_pressed"]
-[connection signal="pressed" from="BFSFinishedPopup/ResetButton" to="BFSFinishedPopup" method="_on_ResetButton_pressed"]
 
 [editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0"]
 [editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1"]

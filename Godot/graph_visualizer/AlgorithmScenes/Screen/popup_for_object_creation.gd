@@ -10,9 +10,10 @@ onready var error_anim: AnimationPlayer = $ErrorNotification/AnimationPlayer
 
 func _ready():
 	valid_name_regex.compile("^[a-zA-Z_$][a-zA-Z_$0-9]*$")
+	error_label.visible = false
 
 func _close_popup():
-	self.visible = false
+	self.hide()
 
 func variable_has_valid_name(variable: String):
 	if valid_name_regex.search(variable):
@@ -43,6 +44,7 @@ func show_error():
 	error_label.visible = true
 	error_anim.stop()
 	error_anim.play("message_modulation")
+
+
+func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	_close_popup()
-
-

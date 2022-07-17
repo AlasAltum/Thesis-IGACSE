@@ -43,6 +43,7 @@ func update_models(data: Array) -> void:
 		var adt_representation = adt_vector.get_representation()
 		stored_adt_reps.append(adt_representation)
 		_add_child(adt_representation)
+		adt_representation.visible = false
 
 func update_views(selected_index: int) -> void:
 	#  make the previous adt representation invisible

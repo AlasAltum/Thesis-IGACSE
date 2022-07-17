@@ -197,7 +197,7 @@ config/use_hidden_project_data_directory=false
 
 [autoload]
 
-StoredData="*res://ResourceClasses/autoloads/stored_data.gd"
+StoredData="*res://autoloads/stored_data.gd"
 NotificationManager="*res://autoloads/NotificationManager.tscn"
 
 [display]

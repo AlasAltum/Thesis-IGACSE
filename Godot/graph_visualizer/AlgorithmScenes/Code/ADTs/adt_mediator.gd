@@ -42,9 +42,8 @@ func get_variable(var_name: String) -> ADT:
 
 func add_or_update_variable(var_name: String, _data: ADT) -> void:
 	# TODO: Consider what to do with selected index
-	var new_row: ADTVector
 	if not has_variable(var_name):
-		new_row = ADTVector.new(_data, self.data.size(), var_name)
+		var new_row: ADTVector = ADTVector.new(_data, self.data.size(), var_name)
 		self.data.append(new_row)
 	else:
 		_update_variable(var_name, _data)
@@ -56,7 +55,7 @@ func _update_variable(var_name: String, _data: ADT, update_on_finish = false) ->
 	for adt_vector in data:
 		if adt_vector.name == var_name:
 			adt_vector.set_data(_data)  # Modify variable stored in data
-	# Update may not be necessary since it is made at the end
+	# Update may not be necessary since it is made at the end of other functions
 	if update_on_finish:
 		update()
 
@@ -120,6 +119,4 @@ func _on_variable_index_down():
 		else:
 			selected_index += 1
 		update_views()
-
-
 
