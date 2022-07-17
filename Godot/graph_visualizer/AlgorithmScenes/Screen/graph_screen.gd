@@ -133,7 +133,7 @@ func create_additional_weights_to_make_graph_connected(max_weight):
 			StoredData.json_matrix[j].append( [i, weight] )
 
 
-## utils for connected graphs ##
+# utils for connected graphs ##
 # Perform a BFS and get connected nodes
 # node: AGraphNode
 func _get_connected_nodes_for_node(node) -> Array:
