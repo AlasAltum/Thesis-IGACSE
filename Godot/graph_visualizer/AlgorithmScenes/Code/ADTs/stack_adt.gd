@@ -29,11 +29,11 @@ func as_string() -> String:
 
 func add_data(incoming_data):
 	data.append(incoming_data)
-	representation._add_node(incoming_data)
+	representation.add_node(incoming_data)
 
 func top():
 	var ret = data[data.size() - 1]
-	representation._remove_node(ret)
+	representation.remove_node(ret)
 	data.remove(data.size() - 1)
 	return ret
 

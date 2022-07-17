@@ -1,5 +1,5 @@
 extends EffectCheck
-# while q.is_not_empty()
+# while s.is_not_empty()
 
 # Ask the user whether answer is true or false
 func check_actions_correct() -> bool:
@@ -32,7 +32,7 @@ func ask_user() -> void:
 	# While condition is true when Q is NOT empty, therefore
 	# We put a not before, so it is easier to think of
 	var s_is_empty : bool = self.while_condition_is_true()
-	StoredData.ask_user_if_adt_is_empty(s_is_empty)
+	NotificationManager.ask_user_if_adt_is_empty(s_is_empty)
 
 # Set the variable to false so the user may not skip this instruction	
 func reset():

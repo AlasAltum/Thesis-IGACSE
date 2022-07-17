@@ -1,0 +1,106 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://AlgorithmScenes/Screen/popup_for_object_creation.gd" type="Script" id=1]
+
+[sub_resource type="Animation" id=7]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( -0.1, 0.2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+
+[node name="PopUpForObjectCreation" type="WindowDialog"]
+margin_left = 524.122
+margin_top = 233.47
+margin_right = 1036.12
+margin_bottom = 392.47
+popup_exclusive = true
+window_title = "Assign name to Data Structure"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Explanation" type="Label" parent="."]
+margin_left = 5.544
+margin_top = 13.0
+margin_right = 506.544
+margin_bottom = 39.0
+rect_pivot_offset = Vector2( 265.108, 0 )
+size_flags_horizontal = 3
+text = "You are about to create a Queue, please, specify its name"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ErrorNotification" type="Label" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 5.52972
+margin_top = 87.6922
+margin_right = 506.53
+margin_bottom = 113.692
+rect_pivot_offset = Vector2( 265.108, 0 )
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.878431, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 2
+text = "Invalid name for variable"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ErrorNotification"]
+anims/message_modulation = SubResource( 7 )
+
+[node name="NameAssign" type="LineEdit" parent="."]
+margin_left = 66.0
+margin_top = 44.0
+margin_right = 441.0
+margin_bottom = 84.0
+align = 1
+placeholder_text = "Variable/Object name..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnterButton" type="Button" parent="."]
+modulate = Color( 0.121569, 0.913725, 0, 1 )
+margin_left = 195.42
+margin_top = 118.366
+margin_right = 289.42
+margin_bottom = 144.366
+text = "Enter"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="animation_finished" from="ErrorNotification/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="text_entered" from="NameAssign" to="." method="_on_NameAssign_text_entered"]
+[connection signal="pressed" from="EnterButton" to="." method="_on_EnterButton_pressed"]
