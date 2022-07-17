@@ -23,7 +23,7 @@ tracks/1/loop_wrap = false
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( -0.1, 0.1 ),
+"times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -57,7 +57,7 @@ __meta__ = {
 }
 
 [node name="ErrorNotification" type="Label" parent="."]
-self_modulate = Color( 1, 1, 1, 0.5 )
+self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 5.52972
 margin_top = 87.6922
 margin_right = 506.53

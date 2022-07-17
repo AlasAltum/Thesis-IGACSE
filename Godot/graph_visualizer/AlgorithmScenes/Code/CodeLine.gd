@@ -24,17 +24,25 @@ const SELECTED_COLOR: Color = Color(0.6, 0.6, 0.24, 1.0);
 
 const unfocused_style: StyleBox = preload("res://AlgorithmScenes/Code/default_line_code_style.tres")
 const focused_style: StyleBox = preload("res://AlgorithmScenes/Code/focused_line_code_style.tres")
-
+const completed_style: StyleBox = preload("res://AlgorithmScenes/Code/completed_line_code_style.tres")
 
 func _ready():
 	code_label.text = code_text
+	self.set_process(false)
 	if self.effect_check:
 		self.effect_check = self.effect_check.new()
 		self.effect_check.code_line = self
 
+func _process(delta: float) -> void:
+	if self.effect_check:
+		var action_completed = self.effect_check.check_actions_correct()
+		if action_completed:
+			add_stylebox_override("panel", completed_style)
 
 func focus():
 	_on_focused()
+	if self.effect_check:
+		self.set_process(true)
 
 
 func _on_focused():
@@ -51,7 +59,8 @@ func _on_focused():
 
 func unfocus():
 	_on_unfocus()
-
+	if self.effect_check:
+		self.set_process(false)
 
 func _on_unfocus():
 	focused = false

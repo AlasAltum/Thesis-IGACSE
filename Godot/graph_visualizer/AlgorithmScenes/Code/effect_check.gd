@@ -6,7 +6,7 @@ extends Resource
 class_name EffectCheck
 
 
-var code_line: CodeLine
+var code_line  # : CodeLine
 
 
 func _ready():
@@ -20,7 +20,9 @@ func _init():
 func check_actions_correct() -> bool:
 	return true
 
-func set_code_line(_code_line: CodeLine) -> void:
+
+# _code_line: CodeLine
+func set_code_line(_code_line) -> void:
 	self.code_line = _code_line
 
 # Function called to know the next line index that will be
