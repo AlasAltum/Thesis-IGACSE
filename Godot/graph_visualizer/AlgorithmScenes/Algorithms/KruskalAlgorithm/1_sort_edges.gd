@@ -1,6 +1,8 @@
 extends EffectCheck
+# sort_edges()
 
-
+# Action expected from player:
+# Press edges in ascending order according to weight
 func check_actions_correct() -> bool:
 	var selected_nodes = StoredData.get_selected_nodes()
 	if selected_nodes.size() == 1 && selected_nodes[0].index == 0:

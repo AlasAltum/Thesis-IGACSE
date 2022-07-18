@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Code/debug_block.gd" type="Script" id=1]
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Bold.ttf" type="DynamicFontData" id=2]
@@ -12,7 +12,6 @@
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/3_add_to_stack.gd" type="Script" id=10]
 [ext_resource path="res://AlgorithmScenes/Code/focused_line_code_style.tres" type="StyleBox" id=11]
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/6_for_u_in_v_edges.gd" type="Script" id=12]
-[ext_resource path="res://AlgorithmScenes/Screen/popup_for_object_creation.gd" type="Script" id=13]
 [ext_resource path="res://AlgorithmScenes/Code/finish_code.gd" type="Script" id=14]
 [ext_resource path="res://AlgorithmScenes/Screen/graph_screen.gd" type="Script" id=15]
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/4_while_s_is_not_empty.gd" type="Script" id=16]
@@ -89,21 +88,6 @@ font_data = ExtResource( 3 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 170.095, 152.984 )
-
-[sub_resource type="Animation" id=7]
-length = 3.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 15 )
@@ -681,77 +665,7 @@ __meta__ = {
 [node name="HintLabel" parent="CanvasLayer/TextHintContainer" instance=ExtResource( 35 )]
 
 [node name="PopUpForObjectCreation" parent="." instance=ExtResource( 38 )]
-
-[node name="AssignNameToDataStructurePopup" type="WindowDialog" parent="."]
-margin_left = 524.122
-margin_top = 233.47
-margin_right = 1036.12
-margin_bottom = 392.47
-popup_exclusive = true
-window_title = "Assign name to Data Structure"
-script = ExtResource( 13 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Explanation" type="Label" parent="AssignNameToDataStructurePopup"]
-margin_left = 5.544
-margin_top = 13.0
-margin_right = 506.544
-margin_bottom = 39.0
-rect_pivot_offset = Vector2( 265.108, 0 )
-size_flags_horizontal = 3
-text = "You are about to create a Stack, please, specify its name"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ErrorNotification" type="Label" parent="AssignNameToDataStructurePopup"]
-self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 5.52972
-margin_top = 87.6922
-margin_right = 506.53
-margin_bottom = 113.692
-rect_pivot_offset = Vector2( 265.108, 0 )
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0.878431, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_as_outline = 2
-text = "Invalid name for variable"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AssignNameToDataStructurePopup/ErrorNotification"]
-anims/message_modulation = SubResource( 7 )
-
-[node name="NameAssign" type="LineEdit" parent="AssignNameToDataStructurePopup"]
-margin_left = 66.0
-margin_top = 44.0
-margin_right = 441.0
-margin_bottom = 84.0
-align = 1
-placeholder_text = "Variable/Object name..."
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="EnterButton" type="Button" parent="AssignNameToDataStructurePopup"]
-modulate = Color( 0.121569, 0.913725, 0, 1 )
-margin_left = 195.42
-margin_top = 118.366
-margin_right = 289.42
-margin_bottom = 144.366
-text = "Enter"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Timer" type="Timer" parent="AssignNameToDataStructurePopup"]
+visible = true
 
 [node name="AddNodePopup" parent="." instance=ExtResource( 23 )]
 visible = false
@@ -765,18 +679,22 @@ text = "Is the Stack S empty?"
 visible = true
 
 [node name="FinishedPopup" parent="." instance=ExtResource( 36 )]
+margin_top = 231.92
+margin_bottom = 390.92
 
 [node name="Explanation" parent="FinishedPopup" index="1"]
 text = "Congratulations! You have successfully finished the DFS Algorithm!"
 
 [node name="UNodeIsExploredPopup" parent="." instance=ExtResource( 39 )]
+margin_left = 524.0
+margin_top = 233.0
+margin_right = 1036.0
+margin_bottom = 392.0
 
 [connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/SelectNodeButton" to="." method="_on_SelectNodeButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/AllowGraphMovementButton" to="." method="_on_AllowGraphMovementButton_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_exited"]
-[connection signal="text_entered" from="AssignNameToDataStructurePopup/NameAssign" to="AssignNameToDataStructurePopup" method="_on_NameAssign_text_entered"]
-[connection signal="pressed" from="AssignNameToDataStructurePopup/EnterButton" to="AssignNameToDataStructurePopup" method="_on_EnterButton_pressed"]
 
 [editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0"]
 [editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1"]
