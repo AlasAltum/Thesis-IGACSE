@@ -93,11 +93,11 @@ func take_top_from_adt(object_name: String):
 
 # if the variable was correctly created from the ADT Grid
 func _on_correct_variable_creation(variable_name: String):
-	var generated_object: ADT = StoredData.dragged_adt.get_object()
+	var generated_object: ADT = StoredData.adt_to_be_created
 	add_or_update_variable(variable_name, generated_object)
 	# TODO: This was using GDScript	self.add_variable(variable_name, generated_object)
-	StoredData.dragged_adt.queue_free()
-	StoredData.dragged_adt = null
+	StoredData.adt_to_be_created = null
+
 
 # Change focus of variable in debug block and change representation
 func _on_variable_index_up():

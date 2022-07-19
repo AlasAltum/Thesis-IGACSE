@@ -1,5 +1,5 @@
 extends EffectCheck
-
+# Edge e = min(graph.edge_weights)
 
 func check_actions_correct() -> bool:
 	var selected_nodes = StoredData.get_selected_nodes()

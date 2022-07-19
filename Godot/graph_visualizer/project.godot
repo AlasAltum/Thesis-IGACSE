@@ -44,6 +44,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Node/graph_node.gd"
 }, {
+"base": "AGraphNode",
+"class": "AGraphNodeOnHover",
+"language": "GDScript",
+"path": "res://Node/graph_node_on_hover_select.gd"
+}, {
 "base": "WindowDialog",
 "class": "AddNodePopup",
 "language": "GDScript",
@@ -104,6 +109,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Node/node_representation.gd"
 }, {
+"base": "ADT",
+"class": "NullADT",
+"language": "GDScript",
+"path": "res://ResourceClasses/null_adt.gd"
+}, {
 "base": "WindowDialog",
 "class": "PopupForObjectCreation",
 "language": "GDScript",
@@ -162,6 +172,7 @@ _global_script_class_icons={
 "ADTShower": "",
 "ADTVector": "",
 "AGraphNode": "",
+"AGraphNodeOnHover": "",
 "AddNodePopup": "",
 "CodeContainer": "",
 "CodeLine": "",
@@ -174,6 +185,7 @@ _global_script_class_icons={
 "GraphManager": "",
 "NodeADT": "",
 "NodeRepresentation": "",
+"NullADT": "",
 "PopupForObjectCreation": "",
 "Queue": "",
 "QueueADT": "",

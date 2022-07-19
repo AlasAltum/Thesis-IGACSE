@@ -456,7 +456,6 @@ __meta__ = {
 visible = false
 
 [node name="PopUpForObjectCreation" parent="." instance=ExtResource( 21 )]
-visible = true
 
 [node name="UNodeIsExploredPopup" parent="." instance=ExtResource( 20 )]
 

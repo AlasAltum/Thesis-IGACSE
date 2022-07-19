@@ -68,22 +68,4 @@ func _focus_current_label():
 		curr_label.add_stylebox_override("normal", focused_style)
 		curr_label.material = focused_material
 
-func _input(event):
-	if (self.mouse_inside_area and
-		StoredData.dragging_adt and 
-		event is InputEventMouseButton and
-		event.button_index == BUTTON_LEFT and
-		event.pressed
-	):
-		StoredData._on_adt_drop_on_heap()
 
-func _on_Area2D_mouse_entered():
-	if StoredData.dragging_adt:
-		mouse_inside_area = true
-		StoredData.make_following_texture_opaque()
-
-
-func _on_Area2D_mouse_exited():
-	if StoredData.dragging_adt:
-		mouse_inside_area = false
-		StoredData.make_following_texture_transparent()

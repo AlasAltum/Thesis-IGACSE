@@ -26,6 +26,9 @@ func _on_NameAssign_text_entered(object_name):
 			show_error()
 			return
 
+func set_incoming_node(node):
+	self.incoming_node = node
+
 func show_error():
 	error_label.visible = true
 	error_anim.stop()

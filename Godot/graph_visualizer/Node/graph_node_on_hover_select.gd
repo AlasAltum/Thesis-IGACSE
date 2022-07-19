@@ -1,30 +1,5 @@
-class_name AGraphNode
-extends KinematicBody2D
-
-var selected : bool = false
-var index : int = 0
-var edges : Array setget set_edges, get_edges
-var radius: int = 200
-var pressed: bool = false
-onready var node_name: Label = $Sprite/NodeName
-onready var popup_menu: Popup = $Popup
-
-const representation_prefab = preload("res://Node/NodeRepresentation.tscn")
-var adt_type = load("res://AlgorithmScenes/Code/ADTs/node_adt.gd")
-
-var representation 
-var adt  #: NodeADT
-
-
-var can_grab: bool = false
-var grabbed_offset: Vector2 = Vector2()
-
-const NORMAL_COLOR = Color(1.0, 1.0, 1.0, 1.0)
-const ITERATED_COLOR = Color(0.7, 0.4, 0.2)
-const SELECTED_COLOR = Color(1.0, 1.0, 0.0, 0.8)
-const SELECTED_LABEL_COLOR = Color(0.0, 1.0, 0.0, 1.0)
-
-signal node_add_to_object_request(node)
+class_name AGraphNodeOnHover
+extends AGraphNode
 
 
 # Called when the node enters the scene tree for the first time.
@@ -122,22 +97,12 @@ func _process(_delta):
 					if self.index in StoredData.selectable_nodes:
 						on_simple_press_left()
 
-#		elif Input.is_mouse_button_pressed(BUTTON_RIGHT):
-#			match StoredData.get_status():
-#				StoredData.mov_status.SELECT:
-#					on_simple_press_right()
+		elif Input.is_mouse_button_pressed(BUTTON_RIGHT):
+			match StoredData.get_status():
+				StoredData.mov_status.SELECT:
+					on_simple_press_right()
 
 ## Right click menu related methods ##
 
 func as_string() -> String:
 	return "(" + str(self.index) + ")"
-
-
-# Show hover menu
-func _on_Area2D_mouse_entered() -> void:
-	popup_menu.set_position(self.position + Vector2(45.0, -30.0))
-	popup_menu.popup()
-
-# Unshow hover menu
-func _on_Area2D_mouse_exited() -> void:
-	popup_menu.hide()

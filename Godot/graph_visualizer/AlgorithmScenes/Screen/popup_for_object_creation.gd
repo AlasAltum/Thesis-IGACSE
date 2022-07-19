@@ -9,11 +9,10 @@ onready var error_anim: AnimationPlayer = $ErrorNotification/AnimationPlayer
 
 
 func _ready():
+	NotificationManager.object_creation_popup = self
 	valid_name_regex.compile("^[a-zA-Z_$][a-zA-Z_$0-9]*$")
 	error_label.visible = false
 
-func _close_popup():
-	self.hide()
 
 func variable_has_valid_name(variable: String):
 	if valid_name_regex.search(variable):
@@ -30,7 +29,7 @@ func _on_EnterButton_pressed():
 # Then, when the object is dragged to the variables:
 # popup_for_object_creation._on_NameAssign_text_entered(var_name)
 # StoredData._on_correct_variable_creation(var_name)
-# StoredData.add_variable(var_name, StoredData.dragged_adt)
+# adt_mediator.add_variable(var_name, StoredData.adt_to_be_created)
 func _on_NameAssign_text_entered(variable: String):
 	if variable_has_valid_name(variable):
 		self.visible = false
@@ -46,5 +45,13 @@ func show_error():
 	error_anim.play("message_modulation")
 
 
-func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
+func _on_AnimationPlayer_animation_finished(_anim_name: String) -> void:
 	_close_popup()
+
+func _popup():
+	self.popup()
+	name_assign.grab_focus()
+
+
+func _close_popup():
+	self.hide()

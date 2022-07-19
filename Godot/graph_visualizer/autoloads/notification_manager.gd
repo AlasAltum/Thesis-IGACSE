@@ -6,6 +6,8 @@ var finished_popup : WindowDialog;
 var u_is_explored_popup : WindowDialog # = $UNodeIsExploredPopup
 var adt_is_empty_popup : WindowDialog # = $QIsNotEmptyPopup
 var add_node_popup : AddNodePopup 
+var object_creation_popup: WindowDialog # PopupForObjectCreation
+
 
 ## Continue conditions ##
 var u_is_explored: bool = false
@@ -20,18 +22,18 @@ func reset_data():
 	add_node_popup = null
 	u_is_explored = false
 	adt_is_empty = false
+	object_creation_popup = null  # = get_tree().get_root().get_node("Main/PopUpForObjectCreation")
 
-# func _ready():
-# 	finished_popup = get_tree().get_node("root/BFSFinishedPopup")
-# 	u_is_explored_popup = get_tree().get_node("root/UNodeIsExploredPopup")
-# 	adt_is_empty_popup = get_tree().get_node("root/QIsNotEmptyPopup")
-# 	add_node_popup = get_tree().get_node("root/AddNodePopup")
+
+func _on_variable_creation_popup():
+	object_creation_popup.popup()
 
 # node: AGraphNode
 # Commented to avoid Ciclyc dependencies
 func _on_node_add_to_object(node):
+	add_node_popup.set_incoming_node(node)
 	add_node_popup.popup()
-	add_node_popup.incoming_node = node
+
 
 func _on_AllowGraphMovementButton_pressed():
 	StoredData.set_status("DRAG")
@@ -42,7 +44,6 @@ func _on_SelectNodeButton_pressed():
 
 func on_code_finished_popup(_msg: String) -> void:
 	finished_popup.show()
-#	return
 ## Node related functions ##
 
 ## Hint related methods ##

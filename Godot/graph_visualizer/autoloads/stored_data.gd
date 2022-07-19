@@ -31,6 +31,7 @@ var adt_is_empty_right_answer : bool = false
 var adt_shower
 var adt_mediator # ADTMediator class
 var selected_variable_index : int = 0  # Used to emphasize the current variable
+var adt_to_be_created: ADT
 
 
 func get_status():
@@ -65,13 +66,14 @@ func make_following_texture_transparent():
 		adt_hovering = false
 
 
+# TODO: ERASE THIS
 # ask for variable name to add it to the heap
-func _on_adt_drop_on_heap():
-	assign_name_popup = get_tree().get_root().get_node("Main/PopUpForObjectCreation")
-	assign_name_popup.show()
-	# We still need it for variable creation, so we just make it invisible
-	self.dragged_adt.visible = false
-	self.dragging_adt = false
+#func _on_adt_drop_on_heap():
+#	assign_name_popup = get_tree().get_root().get_node("Main/PopUpForObjectCreation")
+#	assign_name_popup.show()
+#	# We still need it for variable creation, so we just make it invisible
+#	self.dragged_adt.visible = false
+#	self.dragging_adt = false
 
 
 # Create a new variable, considering it in the

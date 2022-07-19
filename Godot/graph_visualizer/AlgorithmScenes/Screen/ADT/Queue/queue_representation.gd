@@ -22,7 +22,10 @@ func add_node(node) -> void:
 # Remove Node from QueueADT representation
 func remove_node(node) -> void:
 	var child_to_remove: Label = label_indexes[node.index]
-	child_to_remove.queue_free()
+	if child_to_remove != null:
+		child_to_remove.queue_free()
+	else:
+		print("Problem with child to remove")
 
 func clear():
 	label_indexes.clear()

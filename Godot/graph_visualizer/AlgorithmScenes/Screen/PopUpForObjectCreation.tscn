@@ -2,7 +2,7 @@
 
 [ext_resource path="res://AlgorithmScenes/Screen/popup_for_object_creation.gd" type="Script" id=1]
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=1]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
@@ -30,6 +30,7 @@ tracks/1/keys = {
 }
 
 [node name="PopUpForObjectCreation" type="WindowDialog"]
+visible = true
 margin_left = 524.122
 margin_top = 233.47
 margin_right = 1036.12
@@ -56,7 +57,6 @@ __meta__ = {
 }
 
 [node name="ErrorNotification" type="Label" parent="."]
-visible = false
 self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 5.52972
 margin_top = 87.6922
@@ -75,7 +75,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ErrorNotification"]
-anims/message_modulation = SubResource( 7 )
+anims/message_modulation = SubResource( 1 )
 
 [node name="NameAssign" type="LineEdit" parent="."]
 margin_left = 66.0
@@ -91,9 +91,9 @@ __meta__ = {
 [node name="EnterButton" type="Button" parent="."]
 modulate = Color( 0.121569, 0.913725, 0, 1 )
 margin_left = 195.42
-margin_top = 118.366
+margin_top = 117.366
 margin_right = 289.42
-margin_bottom = 144.366
+margin_bottom = 143.366
 text = "Enter"
 __meta__ = {
 "_edit_use_anchors_": false

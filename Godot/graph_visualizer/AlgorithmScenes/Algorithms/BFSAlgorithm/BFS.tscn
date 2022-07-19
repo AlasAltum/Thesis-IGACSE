@@ -467,9 +467,8 @@ __meta__ = {
 }
 
 [node name="ModeSelector" type="MarginContainer" parent="CanvasLayer/LeftPanel"]
-visible = false
 margin_right = 234.0
-margin_bottom = 90.0
+margin_bottom = 127.0
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -477,7 +476,7 @@ __meta__ = {
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/LeftPanel/ModeSelector"]
 margin_right = 234.0
-margin_bottom = 90.0
+margin_bottom = 127.0
 custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -487,7 +486,7 @@ __meta__ = {
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 224.0
-margin_bottom = 80.0
+margin_bottom = 117.0
 theme = SubResource( 4 )
 script = ExtResource( 4 )
 __meta__ = {
@@ -502,18 +501,27 @@ toggle_mode = true
 pressed = true
 text = "Select Mode"
 
-[node name="AllowGraphMovementButton" type="Button" parent="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer"]
+[node name="AddNodeToDataStructure" type="Button" parent="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer"]
 margin_top = 37.0
 margin_right = 214.0
 margin_bottom = 70.0
+toggle_mode = true
+pressed = true
+text = "Add Node to Current ADT"
+
+[node name="AllowGraphMovementButton" type="Button" parent="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer"]
+margin_top = 74.0
+margin_right = 214.0
+margin_bottom = 107.0
 theme = ExtResource( 5 )
 disabled = true
 toggle_mode = true
 text = " Move Nodes Mode"
 
 [node name="DebugBlock" type="ScrollContainer" parent="CanvasLayer/LeftPanel"]
+margin_top = 131.0
 margin_right = 234.0
-margin_bottom = 300.0
+margin_bottom = 431.0
 rect_min_size = Vector2( 230, 300 )
 mouse_filter = 2
 custom_styles/bg = SubResource( 1 )
@@ -561,14 +569,14 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 304.0
+margin_top = 435.0
 margin_right = 234.0
-margin_bottom = 538.0
+margin_bottom = 669.0
 
 [node name="ADTSelectionPanel" type="MarginContainer" parent="CanvasLayer/LeftPanel"]
-margin_top = 542.0
+margin_top = 673.0
 margin_right = 234.0
-margin_bottom = 842.0
+margin_bottom = 973.0
 rect_min_size = Vector2( 170, 300 )
 mouse_filter = 2
 custom_constants/margin_bottom = 0
@@ -673,21 +681,20 @@ __meta__ = {
 visible = false
 
 [node name="PopUpForObjectCreation" parent="." instance=ExtResource( 13 )]
-visible = true
+visible = false
 
 [node name="UNodeIsExploredPopup" parent="." instance=ExtResource( 37 )]
+visible = false
 
 [node name="ADTIsNotEmptyPopup" parent="." instance=ExtResource( 36 )]
 
 [node name="AddNodePopup" parent="." instance=ExtResource( 21 )]
-visible = false
 
 [node name="FinishedPopup" parent="." instance=ExtResource( 38 )]
 
 [connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/SelectNodeButton" to="." method="_on_SelectNodeButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/AddNodeToDataStructure" to="." method="_on_SelectNodeButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/AllowGraphMovementButton" to="." method="_on_AllowGraphMovementButton_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_exited"]
 
 [editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0"]
 [editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1"]

@@ -7,7 +7,7 @@ var left: int
 var right: int
 var up: int
 var down: int
-var circle = preload("res://Node/Circle.tscn")
+var circle = preload("res://Node/Node.tscn")
 var edge = preload("res://Node/Edge.tscn")
 
 export (float) var graph_density = 0.1
@@ -76,7 +76,7 @@ func _on_node_instanced(node):
 	node.set_edges(StoredData.json_matrix[node.index])
 	node.init_radial_position(StoredData.json["n"])
 	# Connect signals
-	node.connect("node_add_to_object", NotificationManager, "_on_node_add_to_object")
+	node.connect("node_add_to_object_request", NotificationManager, "_on_node_add_to_object")
 	StoredData.nodes.append(node)
 
 

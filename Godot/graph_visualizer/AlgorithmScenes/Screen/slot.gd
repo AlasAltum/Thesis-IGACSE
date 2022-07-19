@@ -1,9 +1,13 @@
 class_name Slot
 extends Panel
 
+# A slot contains a Data Structure.
+# If the user presses a slot with a data structure, a popup
+# should prompt asking the user for a name for the new structure
+
 export (String) var hover_text
 export (Texture) var slot_texture
-export (Resource) var generated_adt;
+export (Resource) var generated_adt  # The ADT for the corresponding slot
 export (PackedScene) var on_hover_animation
 
 onready var texture : TextureRect = $SlotTexture/ADTTexture
@@ -13,6 +17,7 @@ onready var ADT_name : Label = $SlotTexture/BelowADTName
 
 var following_mouse_texture : PackedScene = preload("res://AlgorithmScenes/Screen/GUI/FollowingMouseTexture.tscn")
 var hover_animation_instance: Node2D
+
 
 func _ready():
 	# Add label to hover and animation
@@ -41,13 +46,6 @@ func _on_Area2D_mouse_exited():
 
 # When an ADT is pressed in the menu, create an internal resource
 func _on_Area2D_input_event(_viewport, event, _shape_idx):
-	if (event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed 
-		and not StoredData.dragging_adt):
-		# instance texture that follows mouse
-		# Instance FollowingMouseTexture		
-		StoredData.dragging_adt = true
-		var draggable_adt = following_mouse_texture.instance()
-		draggable_adt.resource = generated_adt.new()
-		get_node("/root/Main/CanvasLayer").add_child(draggable_adt)
-		StoredData.dragged_adt = draggable_adt
-		
+	if (event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed):
+		StoredData.adt_to_be_created = generated_adt.new()
+		NotificationManager._on_variable_creation_popup()

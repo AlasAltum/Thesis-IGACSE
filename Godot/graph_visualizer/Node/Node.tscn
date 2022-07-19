@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Node/white-circle.png" type="Texture" id=1]
-[ext_resource path="res://Node/graph_node.gd" type="Script" id=2]
+[ext_resource path="res://Node/graph_node_on_hover_select.gd" type="Script" id=2]
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Bold.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -17,7 +17,7 @@ outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 font_data = ExtResource( 4 )
 
-[node name="RigidBody2D" type="KinematicBody2D"]
+[node name="GraphNode" type="KinematicBody2D"]
 input_pickable = true
 motion/sync_to_physics = true
 script = ExtResource( 2 )
