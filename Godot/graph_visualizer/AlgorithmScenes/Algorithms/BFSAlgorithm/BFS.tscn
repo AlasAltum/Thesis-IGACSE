@@ -90,12 +90,14 @@ font_data = ExtResource( 3 )
 extents = Vector2( 170.095, 152.984 )
 
 [node name="Main" type="Node2D"]
+position = Vector2( -1, 0 )
 script = ExtResource( 15 )
 __meta__ = {
 "_edit_vertical_guides_": [ -164.416 ]
 }
 graph_density = 0.169
 graph_size = 6
+weighted_graph = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -668,10 +670,10 @@ rect_min_size = Vector2( 40, 40 )
 hover_text = "Set"
 
 [node name="TextHintContainer" type="CenterContainer" parent="CanvasLayer"]
-anchor_left = 0.229687
-anchor_top = 0.012037
-anchor_right = 0.584896
-anchor_bottom = 0.150926
+anchor_left = 0.229166
+anchor_top = 0.0111111
+anchor_right = 0.584375
+anchor_bottom = 0.15
 rect_min_size = Vector2( 400, 150 )
 __meta__ = {
 "_edit_use_anchors_": true

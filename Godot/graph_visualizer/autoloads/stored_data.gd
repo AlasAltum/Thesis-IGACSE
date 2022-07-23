@@ -6,8 +6,11 @@ extends Node2D
 
 enum mov_status {SELECT = 0, DRAG = 1}
 
+var allow_select_edges = false
 var status : int = mov_status.SELECT;
 var nodes : Array = []  # PoolAGraphNodeArray
+var edges : Array = []
+
 var debug_block: ScrollContainer  # : DebugBlock
 var json_matrix = []  # contains pairs [node_index <int>, weight <float>]:
 var json = {
@@ -16,6 +19,8 @@ var json = {
 }
 var dragging_adt : bool = false
 var dragged_adt : FollowingMouseTexture
+var selected_edge
+var min_weight: float
 var adt_hovering : bool = false
 var assign_name_popup : WindowDialog
 var world_node: Node2D  # : GraphManager
@@ -81,6 +86,9 @@ func make_following_texture_transparent():
 func add_variable(var_name, data):
 	if data.get_class() == "KinematicBody2D":
 		data = data.get_adt()
+	elif data.get_class() == "GraphEdge":
+		var parent_edge = data
+		data = data.get_adt().new(parent_edge)
 	adt_mediator.add_or_update_variable(var_name, data)
 
 
@@ -99,6 +107,8 @@ func get_data_type_of_variable(var_name: String):
 		return ""
 	return adt_mediator.get_variable(var_name).get_type()
 
+func get_selected_edge():
+	return selected_edge
 
 # When game gets reset, reset data
 func reset_data():

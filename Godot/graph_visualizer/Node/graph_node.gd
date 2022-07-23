@@ -6,6 +6,8 @@ var index : int = 0
 var edges : Array setget set_edges, get_edges
 var radius: int = 200
 var pressed: bool = false
+
+
 onready var node_name: Label = $Sprite/NodeName
 onready var popup_menu: Popup = $Popup
 

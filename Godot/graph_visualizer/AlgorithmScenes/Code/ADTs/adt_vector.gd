@@ -10,9 +10,9 @@ var representation: ADTRepresentation setget set_representation, get_representat
 
 
 func _init(_adt: ADT, _index: int, _name: String) -> void:
-	adt = _adt
 	index = _index
 	name = _name
+	adt = _adt
 	representation = adt.get_representation()
 
 func set_data(_adt: ADT):

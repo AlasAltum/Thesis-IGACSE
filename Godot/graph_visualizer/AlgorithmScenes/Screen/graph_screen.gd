@@ -14,6 +14,7 @@ export (float) var graph_density = 0.1
 export (int) var graph_size = 5
 export (float) var edge_max_weight = 5.0
 export (bool) var weighted_graph = false
+export (bool) var allow_selected_edges = false
 
 ## Hint Label ##
 onready var hint_label: RichTextLabel = $CanvasLayer/TextHintContainer/HintLabel
@@ -30,10 +31,13 @@ func _ready():
 	randomize()
 	create_nodes_with_weights(graph_size, edge_max_weight)
 	instance_nodes()
-	instance_edges()  # Make edges randomly
+#	instance_edges()  # Make edges randomly
 	create_additional_weights_to_make_graph_connected(edge_max_weight)
 	instance_edges()  # To make sure the graph is connected
 	StoredData.world_node = self
+	for _edge in StoredData.edges:
+		_edge.set_collision_box()
+	StoredData.allow_select_edges = self.allow_selected_edges
 
 
 	# TODO: ERASE
@@ -84,12 +88,14 @@ func instance_edges():
 	for i in range(StoredData.json_matrix.size()):
 		for pair in StoredData.json_matrix[i]:
 			# pair = [node_number, weight]
-			instance_edge_between_nodes( i, pair[0], str(pair[1]) )
+			if i < pair[0]:
+				instance_edge_between_nodes( i, pair[0], str(pair[1]) )
 
 func instance_edge_between_nodes(node_idx1: int, node_idx2: int, label_with_weight: String):
 	# Adds an edge with label between the nodes with the given indexes
 	var curr_edge = edge.instance()
 	curr_edge.set_name("Edge_%s_to_%s" % [str(node_idx1), str(node_idx2)])
+	StoredData.edges.append(curr_edge)
 	self.add_child(curr_edge)
 	if weighted_graph == false:
 		label_with_weight = ""

@@ -2,6 +2,9 @@ class_name AGraphNodeOnHover
 extends AGraphNode
 
 
+var aux_position: Vector2
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("Nodes")
@@ -22,7 +25,10 @@ func get_representation():
 
 func init_radial_position(total_nodes: int):
 	var angle = 2 * PI / (total_nodes + 1) * (self.index + 1)
-	self.position = Vector2(cos(angle) * radius + 550, sin(angle) * radius + 350)
+#	print(self.position)  # GODOT is not updating this position immediately, it takes a whole cycle
+	aux_position = Vector2(cos(angle) * radius + 550, sin(angle) * radius + 350)
+	self.position = aux_position
+#	print(self.position)
 	return self.position
 
 func init_random_position(left, right, down, up):

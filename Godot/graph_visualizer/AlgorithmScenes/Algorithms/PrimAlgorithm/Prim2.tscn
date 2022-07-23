@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://c_sharp_src/OneToggleButtonVBoxContaner.cs" type="Script" id=1]
 [ext_resource path="res://AlgorithmScenes/Code/ADTs/queue_adt.gd" type="Script" id=2]
@@ -23,6 +23,8 @@
 [ext_resource path="res://AlgorithmScenes/Screen/PopUpForObjectCreation.tscn" type="PackedScene" id=21]
 [ext_resource path="res://AlgorithmScenes/Screen/GUI/ADTsShower.tscn" type="PackedScene" id=22]
 [ext_resource path="res://AlgorithmScenes/Screen/ADTIsNotEmptyPopup.tscn" type="PackedScene" id=23]
+[ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/1_e_min_weight.gd" type="Script" id=24]
+[ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/2_v_w.gd" type="Script" id=25]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 4.0
@@ -83,6 +85,7 @@ __meta__ = {
 graph_density = 0.169
 graph_size = 6
 weighted_graph = true
+allow_selected_edges = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -106,143 +109,177 @@ __meta__ = {
 }
 
 [node name="LinesContainer" parent="CanvasLayer/CodeBlock" instance=ExtResource( 18 )]
+margin_right = 405.0
+
+[node name="PanelContainer0" parent="CanvasLayer/CodeBlock/LinesContainer" index="0"]
+margin_right = 401.0
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0" index="0"]
-margin_right = 392.0
+margin_right = 401.0
 margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0/MarginContainer" index="0"]
-margin_right = 392.0
+margin_right = 401.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0/MarginContainer/HBoxContainer" index="2"]
 margin_right = 80.0
 text = "Prim():"
 
+[node name="PanelContainer1" parent="CanvasLayer/CodeBlock/LinesContainer" index="1"]
+margin_right = 401.0
+effect_check = ExtResource( 24 )
+
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1" index="0"]
-margin_right = 392.0
+margin_right = 401.0
 margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1/MarginContainer" index="0"]
-margin_right = 392.0
+margin_right = 401.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1/MarginContainer/HBoxContainer" index="2"]
 margin_right = 332.0
 text = "   Edge e = min(graph.edge_weights)"
 
+[node name="PanelContainer2" parent="CanvasLayer/CodeBlock/LinesContainer" index="2"]
+margin_right = 401.0
+code_text = "   (v, w) = nodes_connected_with(e)"
+effect_check = ExtResource( 25 )
+
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2" index="0"]
-margin_right = 392.0
+margin_right = 401.0
 margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2/MarginContainer" index="0"]
-margin_right = 392.0
+margin_right = 401.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2/MarginContainer/HBoxContainer" index="2"]
-margin_right = 283.0
-text = "   (v,w) = vertices(graph.edges)"
+margin_right = 322.0
+text = "   (v, w) = nodes_connected_with(e)"
+
+[node name="PanelContainer3" parent="CanvasLayer/CodeBlock/LinesContainer" index="3"]
+margin_right = 401.0
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3" index="0"]
-margin_right = 392.0
+margin_right = 401.0
 margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3/MarginContainer" index="0"]
-margin_right = 392.0
+margin_right = 401.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3/MarginContainer/HBoxContainer" index="2"]
 margin_right = 124.0
 text = "    MST = [e]"
 
+[node name="PanelContainer3_t" parent="CanvasLayer/CodeBlock/LinesContainer" index="4"]
+margin_right = 401.0
+
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3_t" index="0"]
-margin_right = 392.0
+margin_right = 401.0
 margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3_t/MarginContainer" index="0"]
-margin_right = 392.0
+margin_right = 401.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3_t/MarginContainer/HBoxContainer" index="2"]
 margin_right = 153.0
 text = "   Set A = {v, w}"
 
+[node name="PanelContainer4" parent="CanvasLayer/CodeBlock/LinesContainer" index="5"]
+margin_right = 401.0
+
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4" index="0"]
-margin_right = 392.0
+margin_right = 401.0
 margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4/MarginContainer" index="0"]
-margin_right = 392.0
+margin_right = 401.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4/MarginContainer/HBoxContainer" index="2"]
 margin_right = 356.0
 text = "   while (A.size() < graph.vertices.size()):"
 
+[node name="PanelContainer5" parent="CanvasLayer/CodeBlock/LinesContainer" index="6"]
+margin_right = 401.0
+
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5" index="0"]
-margin_right = 392.0
+margin_right = 401.0
 margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5/MarginContainer" index="0"]
-margin_right = 392.0
+margin_right = 401.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5/MarginContainer/HBoxContainer" index="2"]
 margin_right = 344.0
 text = "        e = min_edge_connecting(V, V-A)"
 
 [node name="PanelContainer6" parent="CanvasLayer/CodeBlock/LinesContainer" index="7"]
+margin_right = 401.0
 code_text = "        (v,w) = vertices(e)"
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6" index="0"]
-margin_right = 392.0
+margin_right = 401.0
 margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6/MarginContainer" index="0"]
-margin_right = 392.0
+margin_right = 401.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6/MarginContainer/HBoxContainer" index="2"]
 margin_right = 209.0
 text = "       (v,w) = vertices(e)"
 
 [node name="PanelContainer7" parent="CanvasLayer/CodeBlock/LinesContainer" index="8"]
+margin_right = 401.0
 code_text = "        MST.append(e)"
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7" index="0"]
-margin_right = 392.0
+margin_right = 401.0
 margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7/MarginContainer" index="0"]
-margin_right = 392.0
+margin_right = 401.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7/MarginContainer/HBoxContainer" index="2"]
 margin_right = 187.0
 text = "       MST.append(e)"
 
 [node name="PanelContainer8" parent="CanvasLayer/CodeBlock/LinesContainer" index="9"]
+margin_right = 401.0
 code_text = "        T.append(e)"
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8" index="0"]
-margin_right = 392.0
+margin_right = 401.0
 margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8/MarginContainer" index="0"]
-margin_right = 392.0
+margin_right = 401.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8/MarginContainer/HBoxContainer" index="2"]
 margin_right = 160.0
 text = "       T.append(e)"
 
+[node name="PanelContainer10" parent="CanvasLayer/CodeBlock/LinesContainer" index="10"]
+margin_right = 401.0
+
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10" index="0"]
-margin_right = 392.0
+margin_right = 401.0
 margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10/MarginContainer" index="0"]
-margin_right = 392.0
+margin_right = 401.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10/MarginContainer/HBoxContainer" index="2"]
 margin_right = 133.0
 text = "    end while;"
 
+[node name="PanelContainer13" parent="CanvasLayer/CodeBlock/LinesContainer" index="11"]
+margin_right = 401.0
+
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13" index="0"]
-margin_right = 392.0
+margin_right = 401.0
 margin_bottom = 33.0
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13/MarginContainer" index="0"]
-margin_right = 392.0
+margin_right = 401.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13/MarginContainer/HBoxContainer" index="2"]
 margin_right = 105.0
