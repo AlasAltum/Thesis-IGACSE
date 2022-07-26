@@ -23,19 +23,20 @@ func get_representation():
 
 	return self.representation
 
+
 func init_radial_position(total_nodes: int):
 	var angle = 2 * PI / (total_nodes + 1) * (self.index + 1)
-#	print(self.position)  # GODOT is not updating this position immediately, it takes a whole cycle
+	# GODOT is not updating this position immediately, it takes a whole cycle
 	aux_position = Vector2(cos(angle) * radius + 550, sin(angle) * radius + 350)
 	self.position = aux_position
-#	print(self.position)
-	return self.position
+
 
 func init_random_position(left, right, down, up):
 	self.position = Vector2(
 		rand_range(left, right), rand_range(down, up)
 	)
 	return self.position
+
 
 func set_index(_index: int):
 	self.index = _index
@@ -47,10 +48,12 @@ func set_index(_index: int):
 func set_edges(_edges: Array) -> void:
 	edges = _edges
 
+
 # Returns an array of pairs with type:
 # pairs<node_index <int>, weight <float>>:
 func get_edges() -> Array:
 	return edges
+
 
 func set_selected():
 	self.selected = true
@@ -61,17 +64,21 @@ func set_selected():
 	# Now it is created each time it is queried
 	#	StoredData.selected_nodes.append(self)
 
+
 func mark_as_iterated():
 	self.modulate = ITERATED_COLOR
+
 
 # Select node using left click
 func on_simple_press_left():
 	set_selected()
 
+
 # Right click menu and actions
 func on_simple_press_right():
 	popup_menu.popup()
 	popup_menu.set_position(self.position)
+
 
 # with right click menu
 func _on_UnselectButton_pressed():
@@ -83,16 +90,19 @@ func _on_UnselectButton_pressed():
 	popup_menu.visible = false
 	# StoredData.selected_nodes.erase(self)
 
+
 ## Right click menu related methods ##
 func _on_AddToObjectButton_pressed():
 	emit_signal("node_add_to_object_request", self)
 	popup_menu.visible = false
 
+
 func _input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		can_grab = event.pressed
 		grabbed_offset = position - get_global_mouse_position()
-#
+
+
 func _process(_delta):
 	if can_grab:
 		if Input.is_mouse_button_pressed(BUTTON_LEFT):
@@ -108,7 +118,7 @@ func _process(_delta):
 				StoredData.mov_status.SELECT:
 					on_simple_press_right()
 
-## Right click menu related methods ##
 
+## Right click menu related methods ##
 func as_string() -> String:
 	return "(" + str(self.index) + ")"

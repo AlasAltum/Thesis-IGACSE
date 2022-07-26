@@ -119,5 +119,12 @@ public class GraphEdge : PinJoint2D
 		return "Edge (" + joint_end1.Get("index") + "-" + joint_end2.Get("index") + ")";
 	}
 
+	public Node2D[] get_connecting_nodes(){ 
+		return new []{joint_end1, joint_end2};
+	}
+
+	public void set_selected(){
+		this.Modulate = new Color(1.0f, 0.0f, 0.0f);
+	}
 }
 

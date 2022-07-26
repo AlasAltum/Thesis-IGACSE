@@ -25,5 +25,8 @@ func get_object(): # -> ADT:
 func get_representation(): # -> ADTRepresentation:
 	return self.representation
 
+func get_connecting_nodes():
+	return edge.get_connecting_nodes()
+
 func get_edge():
 	return edge

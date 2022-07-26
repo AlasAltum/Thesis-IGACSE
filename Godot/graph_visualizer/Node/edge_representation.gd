@@ -11,9 +11,4 @@ func _ready():
 		edge.joint_end1.position,
 		edge.joint_end1.position,
 	])
-	print(line.points)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

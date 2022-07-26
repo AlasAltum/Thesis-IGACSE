@@ -25,7 +25,7 @@ func remove_node(node) -> void:
 	if child_to_remove != null:
 		child_to_remove.queue_free()
 	else:
-		print("Problem with child to remove")
+		printerr("Problem with child to remove")
 
 func clear():
 	label_indexes.clear()
