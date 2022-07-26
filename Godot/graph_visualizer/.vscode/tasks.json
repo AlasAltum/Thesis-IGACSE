@@ -3,7 +3,7 @@
     "tasks": [
         {
             "label": "build",
-            "command": "D:/Godot Projects/Godot_v3.3.2-stable_mono_win64/Godot_v3.3.2-stable_mono_win64.exe\r",
+            "command": "/home/xubuntual/Applications/Godot/Godot_v3.4.4-stable_mono_x11.64",
             "type": "process",
             "args": [
                 "--build-solutions",

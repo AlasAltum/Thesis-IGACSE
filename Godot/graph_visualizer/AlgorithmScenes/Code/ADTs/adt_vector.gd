@@ -6,7 +6,7 @@ extends Resource
 var adt: ADT setget set_data, get_data
 var index: int setget set_index, get_index
 var name: String setget set_name, get_name
-var representation: ADTRepresentation setget set_representation, get_representation
+var representation: ADTRepresentation
 
 
 func _init(_adt: ADT, _index: int, _name: String) -> void:

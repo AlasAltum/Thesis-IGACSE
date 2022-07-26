@@ -97,7 +97,6 @@ __meta__ = {
 }
 graph_density = 0.169
 graph_size = 6
-weighted_graph = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

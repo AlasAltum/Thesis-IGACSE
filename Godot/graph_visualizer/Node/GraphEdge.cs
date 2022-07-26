@@ -17,7 +17,6 @@ public class GraphEdge : PinJoint2D
 	private Line2D line;
 	private CollisionShape2D collision_line;
 
-	[Export]
 	private static Resource adt = GD.Load("res://AlgorithmScenes/Code/ADTs/edge_adt.gd");
 	[Export]
 	private RectangleShape2D clickable_area;
@@ -113,6 +112,11 @@ public class GraphEdge : PinJoint2D
 
 	public String get_class(){
 		return "GraphEdge";
+	}
+
+
+	public String as_string(){
+		return "Edge (" + joint_end1.Get("index") + "-" + joint_end2.Get("index") + ")";
 	}
 
 }

@@ -1,25 +1,29 @@
 class_name EdgeADT
 extends ADT
+# Edge ADT to be stored in variables
 
-var parent_node  # AGraphNode
 
-func _init(_parent_node):
-	parent_node = _parent_node
+var edge  # GraphEdge.cs
+const edge_rep_prefab = preload("res://Node/EdgeRepresentation.tscn")
 
-func _ready():
-	pass # Replace with function body.
+
+func _init(_edge):
+	edge = _edge
+	self.representation = edge_rep_prefab.instance()
+	self.representation.edge = _edge
+
 
 static func get_type() -> String:
 	return "Edge"
 
 func as_string() -> String:
-	return "(" + str(parent_node.index) + ")"
+	return edge.as_string()
 
 func get_object(): # -> ADT:
 	return self
 
 func get_representation(): # -> ADTRepresentation:
-	return parent_node.get_representation()
+	return self.representation
 
-func get_node():
-	return parent_node
+func get_edge():
+	return edge

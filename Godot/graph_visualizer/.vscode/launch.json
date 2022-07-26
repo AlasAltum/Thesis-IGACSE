@@ -1,8 +1,5 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
+    "version": "2.0.0",
     "configurations": [
         {
             "name": "Play in Editor",
@@ -16,7 +13,9 @@
             "request": "launch",
             "mode": "executable",
             "preLaunchTask": "build",
-            "executable": "D:/Godot Projects/Godot_v3.3.2-stable_mono_win64/Godot_v3.3.2-stable_mono_win64.exe\r",
+            "executable": "/home/xubuntual/Applications/Godot/Godot_v3.4.4-stable_mono_x11.64",
+            // See which arguments are available here:
+            // https://docs.godotengine.org/en/stable/getting_started/editor/command_line_tutorial.html
             "executableArguments": [
                 "--path",
                 "${workspaceRoot}"
@@ -28,7 +27,9 @@
             "request": "launch",
             "mode": "executable",
             "preLaunchTask": "build",
-            "executable": "D:/Godot Projects/Godot_v3.3.2-stable_mono_win64/Godot_v3.3.2-stable_mono_win64.exe\r",
+            "executable": "/home/xubuntual/Applications/Godot/Godot_v3.4.4-stable_mono_x11.64",
+            // See which arguments are available here:
+            // https://docs.godotengine.org/en/stable/getting_started/editor/command_line_tutorial.html
             "executableArguments": [
                 "--path",
                 "${workspaceRoot}",
