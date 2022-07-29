@@ -17,6 +17,9 @@ onready var popup_menu: Popup = $Popup
 const representation_prefab = preload("res://Node/NodeRepresentation.tscn")
 var adt_type = load("res://AlgorithmScenes/Code/ADTs/node_adt.gd")
 
+enum MOUSE_STATUS {INSIDE, OUTSIDE}
+
+var mouse_status = MOUSE_STATUS.OUTSIDE
 var representation 
 var adt  #: NodeADT
 
@@ -118,15 +121,18 @@ func _on_AddToObjectButton_pressed():
 func as_string() -> String:
 	return "(" + str(self.index) + ")"
 
-func _input_event(viewport, event, shape_idx):
+func _input(event):
 	if event is InputEventMouseButton:
 		can_grab = event.pressed
 		grabbed_offset = position - get_global_mouse_position()
+		if (event.button_index == BUTTON_LEFT and event.pressed and self.mouse_status == MOUSE_STATUS.OUTSIDE):
+			hide_popup_menu()
+
 
 # Show hover menu
 func _on_Area2D_mouse_entered() -> void:
 	popup_menu.set_position(self.position + Vector2(25.0, -15.0))
-	self.clickable = true
+	self.mouse_status = MOUSE_STATUS.INSIDE
 	popup_menu.popup()
 
 
@@ -135,20 +141,40 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 		event is InputEventMouseButton and
 		event.button_index == BUTTON_LEFT and
 		event.pressed and
-		self.clickable
+		self.mouse_status == MOUSE_STATUS.INSIDE
 	):
 		self.should_keep_on_hover_popup = true
+		focus_popup_menu()
 		popup_menu.popup()
 
 # Unshow hover menu
 func _on_Area2D_mouse_exited() -> void:
 	if not self.should_keep_on_hover_popup:
 		self.hide_popup_menu()
-	else:
-		popup_menu.popup()
+	self.mouse_status = MOUSE_STATUS.OUTSIDE
 
 
+# Some methods must be repeated, because a click can be considered as a mouse exited from the area2D.
 func hide_popup_menu():
 	popup_menu.hide()
+	unfocus_popup_menu()
+	self.clickable = false
+	self.should_keep_on_hover_popup = false
+
+func focus_popup_menu():
+	popup_menu.modulate = Color(1.0, 1.0, 1.0, 1.0)
+
+func unfocus_popup_menu():
+	popup_menu.modulate = Color(1.0, 1.0, 1.0, 0.75)
+
+
+#func _on_Popup_popup_hide():
+#	unfocus_popup_menu()
+#	self.clickable = false
+#	self.should_keep_on_hover_popup = false
+
+
+func _on_Popup_focus_exited():
+	unfocus_popup_menu()
 	self.clickable = false
 	self.should_keep_on_hover_popup = false
