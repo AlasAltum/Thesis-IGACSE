@@ -54,9 +54,11 @@ public class GraphEdge : PinJoint2D
 	public void set_label_and_positions_with_nodes(Node2D node1, Node2D node2, String label_text){
 		Vector2[] line_vertices = {node1.Position, node2.Position}; 
 		line.Points = line_vertices;
-		// if (label_text != "") 
-		curr_label.Text = label_text;
-		this.weight = float.Parse(label_text); // we prefer to receive a string and turn it into a float
+		if (label_text != "") 
+		{
+			curr_label.Text = label_text;
+			this.weight = float.Parse(label_text); // we prefer to receive a string and turn it into a float
+		}
 		// Since this allows easier rounding
 		this.ZIndex = -1;
 		this.SetProcess(true);
@@ -126,5 +128,9 @@ public class GraphEdge : PinJoint2D
 	public void set_selected(){
 		this.Modulate = new Color(1.0f, 0.0f, 0.0f);
 	}
-}
 
+	public void set_weight_visible(bool visible_weight){
+		curr_label.Visible = visible_weight;
+	}
+
+}

@@ -13,7 +13,7 @@ var edge = preload("res://Node/Edge.tscn")
 export (float) var graph_density = 0.1
 export (int) var graph_size = 5
 export (float) var edge_max_weight = 5.0
-export (bool) var weighted_graph = false
+export (bool) var is_weighted_graph = false
 export (bool) var allow_selected_edges = false
 
 ## Hint Label ##
@@ -97,13 +97,12 @@ func instance_edge_between_nodes(node_idx1: int, node_idx2: int, label_with_weig
 	curr_edge.set_name("Edge_%s_to_%s" % [str(node_idx1), str(node_idx2)])
 	StoredData.edges.append(curr_edge)
 	self.add_child(curr_edge)
-	if weighted_graph == false:
-		label_with_weight = ""
 	curr_edge.set_label_and_positions_with_nodes(
 		StoredData.nodes[node_idx1],  # pos node_idx1,
 		StoredData.nodes[node_idx2],  # pos node_idx2,
 		label_with_weight  # label
 	)
+	curr_edge.set_weight_visible(is_weighted_graph)  # invisible if BFS or DFS
 
 # Get a node whose index is not in the given array
 # So we know that if we have two separated trees, we can join them
