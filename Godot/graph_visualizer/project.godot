@@ -44,11 +44,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Node/graph_node.gd"
 }, {
-"base": "AGraphNode",
-"class": "AGraphNodeOnHover",
-"language": "GDScript",
-"path": "res://Node/graph_node_on_hover_select.gd"
-}, {
 "base": "WindowDialog",
 "class": "AddNodePopup",
 "language": "GDScript",
@@ -182,7 +177,6 @@ _global_script_class_icons={
 "ADTShower": "",
 "ADTVector": "",
 "AGraphNode": "",
-"AGraphNodeOnHover": "",
 "AddNodePopup": "",
 "CodeContainer": "",
 "CodeLine": "",

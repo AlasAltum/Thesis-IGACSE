@@ -1,12 +1,15 @@
 class_name AGraphNode
 extends KinematicBody2D
 
+
 var selected : bool = false
 var index : int = 0
 var edges : Array setget set_edges, get_edges
 var radius: int = 200
 var pressed: bool = false
-
+var aux_position: Vector2
+var node_pressed_to_keep_hover_menu: bool = false
+var clickable = false
 
 onready var node_name: Label = $Sprite/NodeName
 onready var popup_menu: Popup = $Popup
@@ -49,8 +52,9 @@ func get_representation():
 
 func init_radial_position(total_nodes: int):
 	var angle = 2 * PI / (total_nodes + 1) * (self.index + 1)
-	self.position = Vector2(cos(angle) * radius + 550, sin(angle) * radius + 350)
-	return self.position
+	# GODOT is not updating this position immediately, it takes a whole cycle
+	aux_position = Vector2(cos(angle) * radius + 550, sin(angle) * radius + 350)
+	self.position = aux_position
 
 func init_random_position(left, right, down, up):
 	self.position = Vector2(
@@ -124,10 +128,6 @@ func _process(_delta):
 					if self.index in StoredData.selectable_nodes:
 						on_simple_press_left()
 
-#		elif Input.is_mouse_button_pressed(BUTTON_RIGHT):
-#			match StoredData.get_status():
-#				StoredData.mov_status.SELECT:
-#					on_simple_press_right()
 
 ## Right click menu related methods ##
 
@@ -138,8 +138,22 @@ func as_string() -> String:
 # Show hover menu
 func _on_Area2D_mouse_entered() -> void:
 	popup_menu.set_position(self.position + Vector2(45.0, -30.0))
+	self.clickable = true
 	popup_menu.popup()
+
+func _on_Area2D_input_event(viewport, event, shape_idx):
+	if (
+		event is InputEventMouseButton and event.button_index == BUTTON_LEFT and 
+		event.pressed and 
+		self.clickable
+	):
+		self.node_pressed_to_keep_hover_menu = true
+		popup_menu.popup()
 
 # Unshow hover menu
 func _on_Area2D_mouse_exited() -> void:
-	popup_menu.hide()
+	if not self.node_pressed_to_keep_hover_menu:
+		popup_menu.hide()
+		self.clickable = false
+	else:
+		popup_menu.popup()

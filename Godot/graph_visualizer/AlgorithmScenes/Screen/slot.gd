@@ -44,7 +44,7 @@ func _on_Area2D_mouse_exited():
 		hover_panel.visible = false
 		hover_animation_instance.stop_animation()
 
-# When an ADT is pressed in the menu, create an internal resource
+# When an ADT is left clicked on the menu, create an internal resource
 func _on_Area2D_input_event(_viewport, event, _shape_idx):
 	if (event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed):
 		StoredData.adt_to_be_created = generated_adt.new()
