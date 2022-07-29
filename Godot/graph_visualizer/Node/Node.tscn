@@ -59,7 +59,7 @@ mouse_filter = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="Popup/PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 105.0
+margin_right = 120.0
 margin_bottom = 51.0
 mouse_filter = 2
 size_flags_horizontal = 3
@@ -68,15 +68,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="UnselectButton" type="Button" parent="Popup/PanelContainer/VBoxContainer"]
-margin_right = 98.0
+[node name="SelectUnselectButton" type="Button" parent="Popup/PanelContainer/VBoxContainer"]
+margin_right = 113.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
-text = "Unselect"
+text = "Select/Unselect"
 
 [node name="AddToObjectButton" type="Button" parent="Popup/PanelContainer/VBoxContainer"]
 margin_top = 24.0
-margin_right = 98.0
+margin_right = 113.0
 margin_bottom = 44.0
 size_flags_horizontal = 3
 text = "Add to object"
@@ -87,5 +87,5 @@ __meta__ = {
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]
-[connection signal="pressed" from="Popup/PanelContainer/VBoxContainer/UnselectButton" to="." method="_on_UnselectButton_pressed"]
+[connection signal="pressed" from="Popup/PanelContainer/VBoxContainer/SelectUnselectButton" to="." method="_on_Select_UnselectButton_pressed"]
 [connection signal="pressed" from="Popup/PanelContainer/VBoxContainer/AddToObjectButton" to="." method="_on_AddToObjectButton_pressed"]
