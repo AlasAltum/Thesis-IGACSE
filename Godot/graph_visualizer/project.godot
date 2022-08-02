@@ -49,6 +49,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Screen/popup_for_node_add_to_object.gd"
 }, {
+"base": "ADT",
+"class": "ArrayADT",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/Code/ADTs/array_adt.gd"
+}, {
+"base": "ADTRepresentation",
+"class": "ArrayRepresentation",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/Screen/ADT/Array/array_representation.gd"
+}, {
 "base": "ScrollContainer",
 "class": "CodeContainer",
 "language": "GDScript",
@@ -178,6 +188,8 @@ _global_script_class_icons={
 "ADTVector": "",
 "AGraphNode": "",
 "AddNodePopup": "",
+"ArrayADT": "",
+"ArrayRepresentation": "",
 "CodeContainer": "",
 "CodeLine": "",
 "ColorInterpolator": "",

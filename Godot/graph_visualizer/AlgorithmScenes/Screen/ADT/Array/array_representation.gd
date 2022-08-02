@@ -1,9 +1,9 @@
-class_name QueueRepresentation
+class_name ArrayRepresentation
 extends ADTRepresentation
-# This class is intended to be shown in the ADTShower class
+
 
 const node_label_prefab = preload("res://AlgorithmScenes/Screen/ADT/NodeInADT.tscn")
-onready var nodes_vbox: VBoxContainer = $NodesVBox
+onready var nodes_vbox: VBoxContainer = $NodesHBox
 var label_indexes: Dictionary = {}  # Dictionary<int, Label>
 
 func _ready() -> void:
@@ -14,7 +14,7 @@ func add_node(node) -> void:
 	var new_label: Label = node_label_prefab.instance()
 	new_label.text = str(node.index)
 	# Change name in tree, so it can be erased later by using its index
-	new_label.name = "NodeInQueue" + str(node.index)
+	new_label.name = "NodeInArray" + str(node.index)
 	label_indexes[node.index] = new_label
 	nodes_vbox.add_child(new_label)
 	nodes_vbox.move_child(new_label, 0)

@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://AlgorithmScenes/Screen/ADT/Array/array_representation.gd" type="Script" id=1]
+
+[node name="ArrayRepresentation" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Bottom" type="Line2D" parent="."]
+position = Vector2( -1.25993, 4.54167 )
+scale = Vector2( 1, 1.45417 )
+points = PoolVector2Array( 15.2599, 16.1318, 170.26, 16.1318 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="Top" type="Line2D" parent="."]
+position = Vector2( 0.353554, 4.67678 )
+scale = Vector2( 1, 1.45 )
+points = PoolVector2Array( 12.6464, -2.53571, 168.646, -2.53571 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="NodesHBox" type="VBoxContainer" parent="."]
+margin_left = 13.0
+margin_right = 173.0
+margin_bottom = 30.0
+rect_clip_content = true
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
