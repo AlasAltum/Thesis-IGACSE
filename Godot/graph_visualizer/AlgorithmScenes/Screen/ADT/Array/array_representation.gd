@@ -2,30 +2,25 @@ class_name ArrayRepresentation
 extends ADTRepresentation
 
 
-const node_label_prefab = preload("res://AlgorithmScenes/Screen/ADT/NodeInADT.tscn")
+
 onready var nodes_vbox: VBoxContainer = $NodesHBox
 var label_indexes: Dictionary = {}  # Dictionary<int, Label>
 
 func _ready() -> void:
 	self.position = Vector2(80.0, 20.0)
 
-# Add new node to the QueueADT representation
+# Not needed.
 func add_node(node) -> void:
-	var new_label: Label = node_label_prefab.instance()
-	new_label.text = str(node.index)
-	# Change name in tree, so it can be erased later by using its index
-	new_label.name = "NodeInArray" + str(node.index)
-	label_indexes[node.index] = new_label
-	nodes_vbox.add_child(new_label)
-	nodes_vbox.move_child(new_label, 0)
+	return
 
-# Remove Node from QueueADT representation
+# TODO: implement this
+func add_data(edge) -> void:
+	return
+
+# This is not necessary.
 func remove_node(node) -> void:
-	var child_to_remove: Label = label_indexes[node.index]
-	if child_to_remove != null:
-		child_to_remove.queue_free()
-	else:
-		printerr("Problem removing child")
+	printerr("this should not be called")
+	return
 
 func clear():
 	label_indexes.clear()

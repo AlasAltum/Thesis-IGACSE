@@ -1,19 +1,20 @@
 class_name ArrayADT
-extends ADT	
+extends ADT
 
 # Abstract Data Type that represents an array
 
 func _init():
-	# self.representation = preload("res://AlgorithmScenes/Screen/ADT/Queue/QueueRepresentation.tscn").instance()
-	pass
+	self.representation = preload("res://AlgorithmScenes/Screen/ADT/Array/ArrayRepresentation.tscn").instance()
 
 
 func get_representation() -> ADTRepresentation:
+	if not self.representation:
+		return self.create_representation()
 	return self.representation
 
 
 func create_representation() -> ADTRepresentation:
-	# self.representation = preload("res://AlgorithmScenes/Screen/ADT/Queue/QueueRepresentation.tscn").instance()
+	self.representation = preload("res://AlgorithmScenes/Screen/ADT/Array/ArrayRepresentation.tscn").instance()
 	return self.representation
 
 
@@ -32,14 +33,14 @@ func _data_as_string():
 
 
 func as_string() -> String:
-	var format_string = "Queue({data})"
+	var format_string = "[{data}]"
 	return format_string.format({"data": _data_as_string()})
 
 
 func add_data(incoming_data):
 	data.append(incoming_data)
-	representation.add_node(incoming_data)
-
+#	representation.add_node(incoming_data)
+	representation.add_data(incoming_data)
 
 func first():
 	var ret = data[0]

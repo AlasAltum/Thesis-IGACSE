@@ -6,13 +6,12 @@ extends ADT
 func _init():
 	self.representation = preload("res://AlgorithmScenes/Screen/ADT/Queue/QueueRepresentation.tscn").instance()
 
-func init():
-	self.representation = preload("res://AlgorithmScenes/Screen/ADT/Queue/QueueRepresentation.tscn").instance()
 
 func get_representation() -> ADTRepresentation:
 	if not self.representation:
 		return self.create_representation()
 	return self.representation
+
 
 func create_representation() -> ADTRepresentation:
 	self.representation = preload("res://AlgorithmScenes/Screen/ADT/Queue/QueueRepresentation.tscn").instance()
