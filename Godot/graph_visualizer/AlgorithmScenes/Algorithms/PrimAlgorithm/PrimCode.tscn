@@ -1,19 +1,21 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Code/focused_line_code_style.tres" type="StyleBox" id=1]
-[ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/5_v_s_top.gd" type="Script" id=3]
-[ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/8_u_mark_as_explored.gd" type="Script" id=4]
-[ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/7_if_u_is_not_explored.gd" type="Script" id=5]
+[ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/2_v_w.gd" type="Script" id=2]
+[ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/7_e_min_edge_connecting_v_v_a.gd" type="Script" id=3]
+[ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/9_mst_append_e.gd" type="Script" id=4]
+[ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/10_a_append_e.gd" type="Script" id=5]
+[ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/1_e_min_weight.gd" type="Script" id=6]
 [ext_resource path="res://AlgorithmScenes/Code/finish_code.gd" type="Script" id=7]
 [ext_resource path="res://AlgorithmScenes/Code/null_effect.gd" type="Script" id=8]
 [ext_resource path="res://AlgorithmScenes/Code/code_font.tres" type="DynamicFont" id=9]
 [ext_resource path="res://AlgorithmScenes/Code/CodeLine.tscn" type="PackedScene" id=10]
-[ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/2_stack.gd" type="Script" id=11]
-[ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/4_while_s_is_not_empty.gd" type="Script" id=12]
-[ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/3_add_to_stack.gd" type="Script" id=13]
-[ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/1_sort_edges.gd" type="Script" id=14]
+[ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/3_mst_e.gd" type="Script" id=11]
+[ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/6_while_a_size_less_graph_vertices_size.gd" type="Script" id=12]
+[ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/5_v_graph_vertices_A.gd" type="Script" id=13]
+[ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/4_set_a_vw.gd" type="Script" id=14]
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/11_end_for.gd" type="Script" id=15]
-[ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/6_for_u_in_v_edges.gd" type="Script" id=16]
+[ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/8_v_w_vertices_e.gd" type="Script" id=16]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 9 )
@@ -59,7 +61,7 @@ margin_bottom = 66.0
 theme = SubResource( 1 )
 line_index = 1
 code_text = "   Edge e = min(graph.edge_weights)"
-effect_check = ExtResource( 14 )
+effect_check = ExtResource( 6 )
 hint_text = "[b]LEFT CLICK[/b] on edges by [b]ascending[/b] order"
 
 [node name="MarginContainer" parent="PanelContainer1" index="0"]
@@ -82,7 +84,7 @@ margin_bottom = 99.0
 theme = SubResource( 1 )
 line_index = 2
 code_text = "   (v,w) = vertices(graph.edges)"
-effect_check = ExtResource( 11 )
+effect_check = ExtResource( 2 )
 hint_text = "Go to Data Structures, click the Slot \"Stack\", bring it to Variables and then press [b]ENTER[/b]"
 
 [node name="MarginContainer" parent="PanelContainer2" index="0"]
@@ -105,7 +107,7 @@ margin_bottom = 132.0
 theme = SubResource( 1 )
 line_index = 3
 code_text = "   MST = [e]"
-effect_check = ExtResource( 13 )
+effect_check = ExtResource( 11 )
 hint_text = "[b]RIGHT CLICK[/b] on Node [color=#00FF00] t [/color], then add it to the Queue [color=#00FF00] q [/color]"
 
 [node name="MarginContainer" parent="PanelContainer3" index="0"]
@@ -126,9 +128,9 @@ margin_top = 132.0
 margin_right = 392.0
 margin_bottom = 165.0
 theme = SubResource( 1 )
-line_index = 3
+line_index = 4
 code_text = "   Set A = {v, w}"
-effect_check = ExtResource( 13 )
+effect_check = ExtResource( 14 )
 hint_text = "[b]RIGHT CLICK[/b] on Node [color=#00FF00] t [/color], then add it to the Queue [color=#00FF00] q [/color]"
 
 [node name="MarginContainer" parent="PanelContainer4" index="0"]
@@ -149,7 +151,7 @@ margin_top = 165.0
 margin_right = 392.0
 margin_bottom = 198.0
 theme = SubResource( 1 )
-line_index = 3
+line_index = 5
 code_text = "   Set V = {graph.vertices} - A"
 effect_check = ExtResource( 13 )
 hint_text = "[b]RIGHT CLICK[/b] on Node [color=#00FF00] t [/color], then add it to the Queue [color=#00FF00] q [/color]"
@@ -172,7 +174,7 @@ margin_top = 198.0
 margin_right = 392.0
 margin_bottom = 231.0
 theme = SubResource( 1 )
-line_index = 4
+line_index = 6
 jump_index = 13
 code_text = "   while (A.size() < graph.vertices.size()):"
 effect_check = ExtResource( 12 )
@@ -196,7 +198,7 @@ margin_top = 231.0
 margin_right = 392.0
 margin_bottom = 264.0
 theme = SubResource( 1 )
-line_index = 5
+line_index = 7
 code_text = "        e = min_edge_connecting(V, V-A)"
 effect_check = ExtResource( 3 )
 hint_text = "See the variables after you press [b]ENTER[/b]!"
@@ -219,8 +221,7 @@ margin_top = 264.0
 margin_right = 392.0
 margin_bottom = 297.0
 theme = SubResource( 1 )
-line_index = 6
-jump_index = 11
+line_index = 8
 code_text = "       (v,w) = vertices(e)"
 effect_check = ExtResource( 16 )
 hint_text = "Check the U variable after you press [b]ENTER[/b]!"
@@ -243,10 +244,9 @@ margin_top = 297.0
 margin_right = 392.0
 margin_bottom = 330.0
 theme = SubResource( 1 )
-line_index = 7
-jump_index = 10
+line_index = 9
 code_text = "       MST.append(e)"
-effect_check = ExtResource( 5 )
+effect_check = ExtResource( 4 )
 hint_text = "Answer: is the [color=#00FF00] u [/color] node explored?"
 
 [node name="MarginContainer" parent="PanelContainer9" index="0"]
@@ -267,9 +267,9 @@ margin_top = 330.0
 margin_right = 392.0
 margin_bottom = 363.0
 theme = SubResource( 1 )
-line_index = 8
+line_index = 10
 code_text = "       A.append(e)"
-effect_check = ExtResource( 4 )
+effect_check = ExtResource( 5 )
 hint_text = "Select the [color=#00FF00] u [/color] node with a left click"
 
 [node name="MarginContainer" parent="PanelContainer10" index="0"]
@@ -290,7 +290,7 @@ margin_top = 363.0
 margin_right = 392.0
 margin_bottom = 396.0
 theme = SubResource( 1 )
-line_index = 10
+line_index = 11
 jump_index = 6
 code_text = "        end while;"
 effect_check = ExtResource( 15 )
@@ -314,7 +314,7 @@ margin_top = 396.0
 margin_right = 392.0
 margin_bottom = 429.0
 theme = SubResource( 1 )
-line_index = 13
+line_index = 12
 jump_index = 4
 code_text = "end Prim;"
 effect_check = ExtResource( 7 )

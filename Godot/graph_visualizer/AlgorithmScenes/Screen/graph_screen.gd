@@ -18,7 +18,6 @@ export (bool) var allow_selected_edges = false
 
 ## Hint Label ##
 onready var hint_label: RichTextLabel = $CanvasLayer/TextHintContainer/HintLabel
-
 onready var adt_mediator = $CanvasLayer/ADTMediator
 
 
@@ -38,7 +37,6 @@ func _ready():
 	for _edge in StoredData.edges:
 		_edge.set_collision_box()
 	StoredData.allow_select_edges = self.allow_selected_edges
-
 
 	# TODO: ERASE
 #	var dataserver = DataServer.new()

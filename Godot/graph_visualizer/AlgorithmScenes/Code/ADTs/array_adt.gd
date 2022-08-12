@@ -23,6 +23,7 @@ static func get_type() -> String:
 
 
 func _data_as_string():
+	# TODO: Data is having null elements.
 	if data.size() > 0:
 		var ret = ""
 		for index in range(data.size() - 1):
@@ -38,9 +39,12 @@ func as_string() -> String:
 
 
 func add_data(incoming_data):
-	data.append(incoming_data)
-#	representation.add_node(incoming_data)
-	representation.add_data(incoming_data)
+	if incoming_data != null:
+		data.append(incoming_data)
+	#	representation.add_node(incoming_data)
+		representation.add_data(incoming_data)
+	else:
+		printerr("Adding invalid data")
 
 func first():
 	var ret = data[0]

@@ -11,9 +11,10 @@ func _ready() -> void:
 
 # Not needed.
 func add_node(node) -> void:
+	printerr("Until now this is not necessary ")
 	return
 
-# TODO: implement this
+# TODO: Implement this
 func add_data(edge) -> void:
 	return
 

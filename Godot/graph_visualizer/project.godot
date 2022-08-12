@@ -154,6 +154,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ResourceClasses/set.gd"
 }, {
+"base": "ADT",
+"class": "SetADT",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/Code/ADTs/set_adt.gd"
+}, {
 "base": "Panel",
 "class": "Slot",
 "language": "GDScript",
@@ -209,6 +214,7 @@ _global_script_class_icons={
 "QueueADT": "",
 "QueueRepresentation": "",
 "Set": "",
+"SetADT": "",
 "Slot": "",
 "Stack": "",
 "StackADT": "",
