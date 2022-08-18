@@ -20,7 +20,12 @@ public class GraphEdge : PinJoint2D
 	private static Resource adt = GD.Load("res://AlgorithmScenes/Code/ADTs/edge_adt.gd");
 	[Export]
 	private RectangleShape2D clickable_area;
+	
+	[Export]
 	private float weight = 1.0f;
+	
+	[Export]
+	private bool is_selected = false;
 	[Export]
 	private Node2D joint_end1;
 	[Export]
@@ -126,6 +131,7 @@ public class GraphEdge : PinJoint2D
 	}
 
 	public void set_selected(){
+		this.is_selected = true;
 		this.Modulate = new Color(1.0f, 0.0f, 0.0f);
 	}
 
@@ -133,4 +139,8 @@ public class GraphEdge : PinJoint2D
 		curr_label.Visible = visible_weight;
 	}
 
+	public bool is_not_selected()
+	{
+		return !this.is_selected;
+	}
 }

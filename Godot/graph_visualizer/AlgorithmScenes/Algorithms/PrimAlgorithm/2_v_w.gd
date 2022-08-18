@@ -22,3 +22,6 @@ func check_actions_correct() -> bool:
 		return true
 	return false
 
+func _trigger_on_next_line_side_effect():
+	StoredData.add_variable("v", v)
+	StoredData.add_variable("w", w)

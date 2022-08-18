@@ -1,9 +1,7 @@
 extends EffectCheck
-# v.mark_as_iterated()
-const ITERATED_COLOR = Color(0.7, 0.4, 0.2)
+# A.append(e)
 
 func _trigger_on_next_line_side_effect():
-	var v: AGraphNode = StoredData.get_variable("v")
-	v.mark_as_iterated()
-	
-
+	var a : SetADT = StoredData.get_variable("A")
+	a.add_data(StoredData.get_variable("w"))
+	a.add_data(StoredData.get_variable("v"))

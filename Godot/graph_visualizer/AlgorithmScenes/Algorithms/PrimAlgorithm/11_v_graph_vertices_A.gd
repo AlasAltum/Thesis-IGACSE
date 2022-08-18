@@ -1,9 +1,9 @@
 extends EffectCheck
-#    Set V = {graph.vertices} - A
+# V = {graph.vertices} - A
 
 
 # Get the list of node objects from an ArrayADT
-func get_nodes_objecets_from_array_adt(variable_in_stored_data: String):
+func get_nodes_objects_from_array_adt(variable_in_stored_data: String):
 	# This gets the Node ADTs, but we need the Node objects
 	var nodes_in_a_data: Array = StoredData.get_variable(variable_in_stored_data).data
 	# Get the node objects
@@ -18,7 +18,7 @@ func execute_side_effect() -> void:
 	var all_nodes = StoredData.nodes
 	for node in all_nodes:
 		v.add_data(node)
-	var nodes_in_a = self.get_nodes_objecets_from_array_adt("A")
+	var nodes_in_a = self.get_nodes_objects_from_array_adt("A")
 	for node_in_a in nodes_in_a:
 		v.substract_data(node_in_a)
 	StoredData.add_variable("V", v)

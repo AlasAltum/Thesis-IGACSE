@@ -4,9 +4,9 @@ extends EffectCheck
 
 # In this case, A.size() < graph.vertices.size()
 func for_condition_is_true() -> bool:
-	var a_set : SetADT = StoredData.get_variable("a")
+	var mst : ArrayADT = StoredData.get_variable("MST")
 	# If while condition is true, keep reading following lines
-	if a_set.data.size() < StoredData.nodes.size():
+	if mst.data.size() < StoredData.nodes.size():
 		return true
 	# Skip and get jump line
 	return false

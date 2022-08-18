@@ -7,11 +7,20 @@ extends Resource
 
 var representation: ADTRepresentation
 var representation_path: String
-export (Array) var data = []  # Array of NodeADT
+export (Array) var data = [] setget set_data, get_data # Array of NodeADT
 
+
+func _init():
+	self.data = []
 
 func _ready():
-	pass # Replace with function body.
+	self.data = []
+
+func set_data(_data):
+	data = _data
+
+func get_data():
+	return data
 
 static func get_type() -> String:
 	return "Abstract Object Name"

@@ -3,6 +3,7 @@ extends ADT
 
 # RepresentationClass: QueueRepresentation
 
+
 func _init():
 	self.representation = preload("res://AlgorithmScenes/Screen/ADT/Queue/QueueRepresentation.tscn").instance()
 

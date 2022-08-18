@@ -226,7 +226,7 @@ _global_script_class_icons={
 
 config/name="GraphVisualizator"
 config/description="Visualization for Graphs"
-run/main_scene="res://AlgorithmScenes/Algorithms/BFSAlgorithm/BFS.tscn"
+run/main_scene="res://AlgorithmScenes/Algorithms/PrimAlgorithm/Prim2.tscn"
 config/use_hidden_project_data_directory=false
 config/use_custom_user_dir=true
 config/icon="res://Node/white-circle.png"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Code/focused_line_code_style.tres" type="StyleBox" id=1]
 [ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/2_v_w.gd" type="Script" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/4_set_a_vw.gd" type="Script" id=14]
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/11_end_for.gd" type="Script" id=15]
 [ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/8_v_w_vertices_e.gd" type="Script" id=16]
+[ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/11_v_graph_vertices_A.gd" type="Script" id=17]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 9 )
@@ -176,7 +177,7 @@ margin_bottom = 231.0
 theme = SubResource( 1 )
 line_index = 6
 jump_index = 13
-code_text = "   while (A.size() < graph.vertices.size()):"
+code_text = "   while (MST.size() < graph.vertices.size()):"
 effect_check = ExtResource( 12 )
 hint_text = "Answer if the queue is empty"
 
@@ -188,8 +189,8 @@ margin_bottom = 33.0
 margin_right = 392.0
 
 [node name="CodeText" parent="PanelContainer6/MarginContainer/HBoxContainer" index="2"]
-margin_right = 356.0
-text = "   while (A.size() < graph.vertices.size()):"
+margin_right = 382.0
+text = "   while (MST.size() < graph.vertices.size()):"
 
 [node name="PanelContainer7" parent="." instance=ExtResource( 10 )]
 anchor_right = 0.0
@@ -268,7 +269,7 @@ margin_right = 392.0
 margin_bottom = 363.0
 theme = SubResource( 1 )
 line_index = 10
-code_text = "       A.append(e)"
+code_text = "       A.append(v, w)"
 effect_check = ExtResource( 5 )
 hint_text = "Select the [color=#00FF00] u [/color] node with a left click"
 
@@ -280,8 +281,8 @@ margin_bottom = 33.0
 margin_right = 392.0
 
 [node name="CodeText" parent="PanelContainer10/MarginContainer/HBoxContainer" index="2"]
-margin_right = 161.0
-text = "       A.append(e)"
+margin_right = 186.0
+text = "       A.append(v, w)"
 
 [node name="PanelContainer11" parent="." instance=ExtResource( 10 )]
 anchor_right = 0.0
@@ -290,11 +291,10 @@ margin_top = 363.0
 margin_right = 392.0
 margin_bottom = 396.0
 theme = SubResource( 1 )
-line_index = 11
-jump_index = 6
-code_text = "        end while;"
-effect_check = ExtResource( 15 )
-hint_text = "Press [b]ENTER[/b]"
+line_index = 10
+code_text = "       V = {graph.vertices} - A"
+effect_check = ExtResource( 17 )
+hint_text = "Select the [color=#00FF00] u [/color] node with a left click"
 
 [node name="MarginContainer" parent="PanelContainer11" index="0"]
 margin_right = 392.0
@@ -304,8 +304,8 @@ margin_bottom = 33.0
 margin_right = 392.0
 
 [node name="CodeText" parent="PanelContainer11/MarginContainer/HBoxContainer" index="2"]
-margin_right = 133.0
-text = "    end while;"
+margin_right = 254.0
+text = "       V = {graph.vertices} - A"
 
 [node name="PanelContainer12" parent="." instance=ExtResource( 10 )]
 anchor_right = 0.0
@@ -314,10 +314,10 @@ margin_top = 396.0
 margin_right = 392.0
 margin_bottom = 429.0
 theme = SubResource( 1 )
-line_index = 12
-jump_index = 4
-code_text = "end Prim;"
-effect_check = ExtResource( 7 )
+line_index = 11
+jump_index = 6
+code_text = "        end while;"
+effect_check = ExtResource( 15 )
 hint_text = "Press [b]ENTER[/b]"
 
 [node name="MarginContainer" parent="PanelContainer12" index="0"]
@@ -328,6 +328,30 @@ margin_bottom = 33.0
 margin_right = 392.0
 
 [node name="CodeText" parent="PanelContainer12/MarginContainer/HBoxContainer" index="2"]
+margin_right = 133.0
+text = "    end while;"
+
+[node name="PanelContainer13" parent="." instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 429.0
+margin_right = 392.0
+margin_bottom = 462.0
+theme = SubResource( 1 )
+line_index = 12
+jump_index = 4
+code_text = "end Prim;"
+effect_check = ExtResource( 7 )
+hint_text = "Press [b]ENTER[/b]"
+
+[node name="MarginContainer" parent="PanelContainer13" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="PanelContainer13/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="PanelContainer13/MarginContainer/HBoxContainer" index="2"]
 margin_right = 105.0
 text = "end Prim;"
 
@@ -344,3 +368,4 @@ text = "end Prim;"
 [editable path="PanelContainer10"]
 [editable path="PanelContainer11"]
 [editable path="PanelContainer12"]
+[editable path="PanelContainer13"]

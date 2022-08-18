@@ -28,7 +28,7 @@ func _data_as_string():
 		var ret = ""
 		for index in range(data.size() - 1):
 			ret += str(data[index].as_string() + ", ")
-		ret += str(data[-1].as_string())
+		ret += str(data[data.size() - 1].as_string())
 		return ret
 	return ""
 
@@ -40,8 +40,7 @@ func as_string() -> String:
 
 func add_data(incoming_data):
 	if incoming_data != null:
-		data.append(incoming_data)
-	#	representation.add_node(incoming_data)
+		self.data.append(incoming_data)
 		representation.add_data(incoming_data)
 	else:
 		printerr("Adding invalid data")

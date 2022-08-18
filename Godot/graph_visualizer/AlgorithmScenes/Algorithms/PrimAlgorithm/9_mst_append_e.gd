@@ -1,12 +1,14 @@
 extends EffectCheck
+# MST.append(e)
 
-
+# Make sure that user has created a queue with name q and it has the node(0). 
 func check_actions_correct() -> bool:
-	if StoredData.has_variable("s") and StoredData.has_variable("u"):
-		var u: AGraphNode = StoredData.get_variable("u").get_node()
-		var u_as_string: String = u.as_string()
-		# print(StoredData.get_variable("q").as_string()
-		# It will show Queue() if it is empty. The player must add the u node
-		if u_as_string in StoredData.get_variable("s").as_string():
-			return true
+	if StoredData.has_variable("MST"):
+		return true
 	return false
+
+func _trigger_on_next_line_side_effect() -> void:
+	var e: EdgeADT = StoredData.get_variable("e")
+	var mst = StoredData.get_variable("MST")
+	mst.add_data(e)
+	StoredData.adt_mediator.update()
