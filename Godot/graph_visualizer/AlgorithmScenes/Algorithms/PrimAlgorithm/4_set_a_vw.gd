@@ -8,6 +8,6 @@ func check_actions_correct() -> bool:
 
 func _trigger_on_next_line_side_effect() -> void:
 	var a = SetADT.new()
-	a.add_data(StoredData.get_variable("w"))
 	a.add_data(StoredData.get_variable("v"))
+	a.add_data(StoredData.get_variable("w"))
 	StoredData.add_variable("A", a)

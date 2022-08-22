@@ -43,6 +43,7 @@ func _on_SelectNodeButton_pressed():
 	
 
 func on_code_finished_popup(_msg: String) -> void:
+	InputRecorder.send_requests_with_records()
 	finished_popup.show()
 ## Node related functions ##
 

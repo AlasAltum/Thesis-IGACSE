@@ -9,7 +9,6 @@ func _init():
 func side_effect() -> void:
 	NotificationManager.on_code_finished_popup(message)
 
-
 func check_actions_correct() -> bool:
 	self.side_effect()
 	return true

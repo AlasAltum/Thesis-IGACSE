@@ -9,7 +9,8 @@ func get_nodes_objects_from_array_adt(variable_in_stored_data: String):
 	# Get the node objects
 	var nodes_in_a: Array = []
 	for node in nodes_in_a_data:
-		nodes_in_a.append(node.parent_node)
+		if not node.parent_node in nodes_in_a:
+			nodes_in_a.append(node.parent_node)
 	return nodes_in_a
 
 

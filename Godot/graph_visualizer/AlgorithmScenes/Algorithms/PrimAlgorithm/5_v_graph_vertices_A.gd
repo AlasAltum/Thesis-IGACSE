@@ -1,5 +1,5 @@
 extends EffectCheck
-#    Set V = {graph.vertices} - A
+# Set V = {graph.vertices} - A
 
 
 # Get the list of node objects from an ArrayADT
