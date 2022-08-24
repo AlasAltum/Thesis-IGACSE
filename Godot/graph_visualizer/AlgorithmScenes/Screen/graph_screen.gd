@@ -35,7 +35,7 @@ func _ready():
 	instance_edges()  # To make sure the graph is connected
 	StoredData.world_node = self
 	for _edge in StoredData.edges:
-		_edge.set_collision_box()
+		_edge.set_collision_box()  # TODO: error when reseting
 	StoredData.allow_select_edges = self.allow_selected_edges
 
 	# TODO: ERASE

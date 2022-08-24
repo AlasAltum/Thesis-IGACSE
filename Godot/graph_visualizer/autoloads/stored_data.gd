@@ -29,6 +29,7 @@ const status_map = {
 	"SELECT": mov_status.SELECT
 }
 var selectable_nodes = []
+var selected_edges = []
 ## Code continue conditions
 var u_is_explored_right_answer : bool = false
 var adt_is_empty_right_answer : bool = false
@@ -115,7 +116,9 @@ func reset_data():
 	self.selected_variable_index = 0
 	self.selectable_nodes = []
 	self.status = mov_status.SELECT;
+	self.selected_edge = null
 	self.nodes = []  # PoolAGraphNodeArray
+	self.edges = []
 	self.json_matrix = []
 	self.json = {
 		"n": 3,

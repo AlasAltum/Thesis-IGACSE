@@ -1,7 +1,7 @@
 extends EffectCheck
-# A.append(e)
+# T.append(e)
 
 func _trigger_on_next_line_side_effect():
-	var a : SetADT = StoredData.get_variable("A")
-	a.add_data(StoredData.get_variable("v"))
-	a.add_data(StoredData.get_variable("w"))
+	var t : SetADT = StoredData.get_variable("T")
+	t.add_data(StoredData.get_variable("v"))
+	t.add_data(StoredData.get_variable("w"))
