@@ -56,6 +56,28 @@ public class GraphEdge : PinJoint2D
 		set_collision_box();
 	}
 
+	private bool valueIsCloseTo(float value1, float value2, float tolerance)
+	{
+		return Godot.Mathf.Abs(value1 - value2) < tolerance;
+	}
+
+	private float normalizeRotation(float rotation)
+	{
+		if ( valueIsCloseTo(rotation, Mathf.Pi/2, 0.05f) || valueIsCloseTo(rotation, -Mathf.Pi/2, 0.05f) || valueIsCloseTo(rotation, Mathf.Pi, 0.05f) )
+		{
+			return 0.0f;
+		}
+		else if (Mathf.Pi < rotation) 
+		{
+			rotation = rotation - Mathf.Pi;
+		}
+		else if (rotation < -Mathf.Pi/2) 
+		{
+			rotation = rotation + Mathf.Pi;
+		}
+		return rotation;
+	}
+
 	public void set_label_and_positions_with_nodes(Node2D node1, Node2D node2, String label_text){
 		Vector2[] line_vertices = {node1.Position, node2.Position}; 
 		line.Points = line_vertices;
@@ -63,6 +85,12 @@ public class GraphEdge : PinJoint2D
 		{
 			curr_label.Text = label_text;
 			this.weight = float.Parse(label_text); // we prefer to receive a string and turn it into a float
+			Vector2 node1_pos = (Godot.Vector2) node1.Get("aux_position");
+			Vector2 node2_pos = (Godot.Vector2) node2.Get("aux_position");
+			Vector2 difference = node2_pos - node1_pos;
+			float rotation = Godot.Mathf.Atan2( (float) difference.y, (float) difference.x);
+			rotation = normalizeRotation(rotation);
+			curr_label.SetRotation(rotation);
 		}
 		// Since this allows easier rounding
 		this.ZIndex = -1;

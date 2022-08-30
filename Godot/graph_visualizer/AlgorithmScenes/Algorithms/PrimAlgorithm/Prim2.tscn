@@ -81,7 +81,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_vertical_guides_": [ -164.416 ]
 }
-graph_density = 0.969
+graph_density = 0.6
 is_weighted_graph = true
 allow_selected_edges = true
 
@@ -116,11 +116,11 @@ margin_right = 152.0
 text = "   Set T = {v, w}"
 
 [node name="PanelContainer5" parent="CanvasLayer/CodeBlock/LinesContainer" index="5"]
-code_text = "   Set Rest = {graph.vertices} - A"
+code_text = "   Set A = {graph.vertices} - T"
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5/MarginContainer/HBoxContainer" index="2"]
-margin_right = 292.0
-text = "   Set Rest = {graph.vertices} - A"
+margin_right = 266.0
+text = "   Set A = {graph.vertices} - T"
 
 [node name="PanelContainer6" parent="CanvasLayer/CodeBlock/LinesContainer" index="6"]
 code_text = "   while (T.size() < graph.vertices.size()):"
@@ -129,17 +129,27 @@ code_text = "   while (T.size() < graph.vertices.size()):"
 margin_right = 355.0
 text = "   while (T.size() < graph.vertices.size()):"
 
+[node name="PanelContainer7" parent="CanvasLayer/CodeBlock/LinesContainer" index="7"]
+code_text = "        e = min_edge_connecting(A, T)"
+
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7/MarginContainer/HBoxContainer" index="2"]
-margin_right = 325.0
-text = "        e = min_edge_connecting(A, V)"
+margin_right = 324.0
+text = "        e = min_edge_connecting(A, T)"
+
+[node name="PanelContainer10" parent="CanvasLayer/CodeBlock/LinesContainer" index="10"]
+code_text = "       T.append(v, w)"
+
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10/MarginContainer/HBoxContainer" index="2"]
+margin_right = 185.0
+text = "       T.append(v, w)"
 
 [node name="PanelContainer11" parent="CanvasLayer/CodeBlock/LinesContainer" index="11"]
 line_index = 11
-code_text = "       Rest = {graph.vertices} - A"
+code_text = "       A = {graph.vertices} - T"
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer11/MarginContainer/HBoxContainer" index="2"]
-margin_right = 279.0
-text = "       Rest = {graph.vertices} - A"
+margin_right = 253.0
+text = "   	    A = {graph.vertices} - T"
 
 [node name="PanelContainer12" parent="CanvasLayer/CodeBlock/LinesContainer" index="12"]
 line_index = 12
@@ -367,6 +377,8 @@ visible = false
 [node name="PopUpForObjectCreation" parent="." instance=ExtResource( 21 )]
 
 [node name="UNodeIsExploredPopup" parent="." instance=ExtResource( 20 )]
+margin_top = 231.47
+margin_bottom = 390.47
 
 [node name="ADTIsNotEmptyPopup" parent="." instance=ExtResource( 23 )]
 

@@ -79,13 +79,17 @@ func reset_effect_check():
 	if self.effect_check:
 		self.effect_check.reset()
 
-
+func effect_actions_are_correct():
+	if effect_check:
+		return effect_check.check_actions_correct()
+	
 # Given the EffectCheck for this code line,
 # Get the next line that should be included
 func get_next_line() -> int:
 	if focused and effect_check:
-		if effect_check.check_actions_correct():
-			return effect_check.get_next_line()
+		# The next line is given by the effect of the line
+		# Since jumps may happen
+		return effect_check.get_next_line()
 	else:
 		print("Error with line N° " + str(line_index))
 

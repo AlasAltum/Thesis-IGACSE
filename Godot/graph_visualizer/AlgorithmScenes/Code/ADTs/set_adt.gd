@@ -41,7 +41,7 @@ func as_string() -> String:
 
 
 func add_data(incoming_data):
-	if not incoming_data in data:
+	if not incoming_data in self.data:
 		data.append(incoming_data)
 
 

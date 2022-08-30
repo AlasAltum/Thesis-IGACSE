@@ -15,14 +15,19 @@ func get_nodes_objects_from_array_adt(variable_in_stored_data: String):
 
 
 func execute_side_effect() -> void:
-	var v = SetADT.new()
 	var all_nodes = StoredData.nodes
-	for node in all_nodes:
-		v.add_data(node)
 	var nodes_in_t = self.get_nodes_objects_from_array_adt("T")
+	# Create set A: all nodes excepting the ones in A
+	var a = SetADT.new()
+	for node in all_nodes:
+		a.add_data(node)
 	for node_in_a in nodes_in_t:
-		v.substract_data(node_in_a)
-	StoredData.add_variable("V", v)
+		a.substract_data(node_in_a)
+	# Until now, all nodes are of the type AGraphNode
+	# We need to get their respective NodeADT
+	for graph_node_index in range(a.data.size()):
+		a.data[graph_node_index] = a.data[graph_node_index].adt
+	StoredData.add_variable("A", a)
 
 
 func get_next_line() -> int:
