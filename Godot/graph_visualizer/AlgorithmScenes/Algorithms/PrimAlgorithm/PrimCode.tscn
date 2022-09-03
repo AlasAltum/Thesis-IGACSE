@@ -63,7 +63,7 @@ theme = SubResource( 1 )
 line_index = 1
 code_text = "   Edge e = min(graph.edge_weights)"
 effect_check = ExtResource( 6 )
-hint_text = "[b]LEFT CLICK[/b] on edges by [b]ascending[/b] order"
+hint_text = "[color=#00FF00]LEFT CLICK[/color] on the edge with the [color=#ff00ff]lowest[/color] weight."
 
 [node name="MarginContainer" parent="PanelContainer1" index="0"]
 margin_right = 392.0

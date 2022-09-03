@@ -679,7 +679,6 @@ __meta__ = {
 }
 
 [node name="HintLabel" parent="CanvasLayer/TextHintContainer" instance=ExtResource( 35 )]
-visible = false
 
 [node name="PopUpForObjectCreation" parent="." instance=ExtResource( 13 )]
 visible = false

@@ -75,6 +75,11 @@ _global_script_classes=[ {
 "path": "res://ResourceClasses/color_interpolator.gd"
 }, {
 "base": "Resource",
+"class": "ColorMap",
+"language": "GDScript",
+"path": "res://ResourceClasses/color_map.gd"
+}, {
+"base": "Resource",
 "class": "DataServer",
 "language": "GDScript",
 "path": "res://ResourceClasses/data_sender.gd"
@@ -198,6 +203,7 @@ _global_script_class_icons={
 "CodeContainer": "",
 "CodeLine": "",
 "ColorInterpolator": "",
+"ColorMap": "",
 "DataServer": "",
 "DebugBlock": "",
 "EdgeADT": "",
@@ -226,7 +232,7 @@ _global_script_class_icons={
 
 config/name="GraphVisualizator"
 config/description="Visualization for Graphs"
-run/main_scene="res://AlgorithmScenes/Algorithms/PrimAlgorithm/Prim2.tscn"
+run/main_scene="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/Kruskal2.tscn"
 config/use_hidden_project_data_directory=false
 config/use_custom_user_dir=true
 config/icon="res://Node/white-circle.png"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://c_sharp_src/OneToggleButtonVBoxContaner.cs" type="Script" id=1]
 [ext_resource path="res://AlgorithmScenes/Code/ADTs/queue_adt.gd" type="Script" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://AlgorithmScenes/Screen/PopUpForObjectCreation.tscn" type="PackedScene" id=21]
 [ext_resource path="res://AlgorithmScenes/Screen/GUI/ADTsShower.tscn" type="PackedScene" id=22]
 [ext_resource path="res://AlgorithmScenes/Screen/ADTIsNotEmptyPopup.tscn" type="PackedScene" id=23]
+[ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/2_create_sets_for_v_in_graph_vertices.gd" type="Script" id=24]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 4.0
@@ -82,6 +83,7 @@ __meta__ = {
 graph_density = 0.169
 graph_size = 6
 is_weighted_graph = true
+allow_selected_edges = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -100,7 +102,6 @@ custom_styles/bg = SubResource( 1 )
 scroll_horizontal_enabled = false
 script = ExtResource( 8 )
 __meta__ = {
-"_edit_use_anchors_": false,
 "_editor_description_": ""
 }
 
@@ -117,6 +118,9 @@ margin_right = 392.0
 margin_right = 105.0
 text = "Kruskal():"
 
+[node name="PanelContainer1" parent="CanvasLayer/CodeBlock/LinesContainer" index="1"]
+code_text = "    graph_edges = sort_edges();"
+
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1" index="0"]
 margin_right = 392.0
 margin_bottom = 33.0
@@ -124,9 +128,15 @@ margin_bottom = 33.0
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1/MarginContainer" index="0"]
 margin_right = 392.0
 
+[node name="InstructionPointer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1/MarginContainer/HBoxContainer" index="0"]
+visible = true
+
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1/MarginContainer/HBoxContainer" index="2"]
-margin_right = 152.0
-text = "    sort_edges();"
+margin_right = 280.0
+text = "    graph_edges = sort_edges();"
+
+[node name="PanelContainer2" parent="CanvasLayer/CodeBlock/LinesContainer" index="2"]
+effect_check = ExtResource( 24 )
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2" index="0"]
 margin_right = 392.0
@@ -194,6 +204,9 @@ margin_right = 392.0
 margin_right = 234.0
 text = "        if Find(v) != Find(w):"
 
+[node name="PanelContainer8" parent="CanvasLayer/CodeBlock/LinesContainer" index="8"]
+code_text = "            MST.append(e)"
+
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8" index="0"]
 margin_right = 392.0
 margin_bottom = 33.0
@@ -202,8 +215,11 @@ margin_bottom = 33.0
 margin_right = 392.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8/MarginContainer/HBoxContainer" index="2"]
-margin_right = 185.0
-text = "            T.append(e)"
+margin_right = 212.0
+text = "            MST.append(e)"
+
+[node name="PanelContainer9" parent="CanvasLayer/CodeBlock/LinesContainer" index="9"]
+code_text = "            Union(Find(v), Find(w))"
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer9" index="0"]
 margin_right = 392.0
@@ -213,8 +229,8 @@ margin_bottom = 33.0
 margin_right = 392.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer9/MarginContainer/HBoxContainer" index="2"]
-margin_right = 151.0
-text = "            s.add(u)"
+margin_right = 280.0
+text = "            Union(Find(v), Find(w))"
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10" index="0"]
 margin_right = 392.0
@@ -246,9 +262,6 @@ margin_right = 206.0
 margin_bottom = -1.0
 rect_clip_content = true
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ModeSelector" type="MarginContainer" parent="CanvasLayer/LeftPanel"]
 margin_right = 234.0
@@ -453,7 +466,6 @@ __meta__ = {
 }
 
 [node name="HintLabel" parent="CanvasLayer/TextHintContainer" instance=ExtResource( 14 )]
-visible = false
 
 [node name="PopUpForObjectCreation" parent="." instance=ExtResource( 21 )]
 
@@ -462,7 +474,6 @@ visible = false
 [node name="ADTIsNotEmptyPopup" parent="." instance=ExtResource( 23 )]
 
 [node name="AddNodePopup" parent="." instance=ExtResource( 16 )]
-visible = false
 
 [node name="FinishedPopup" parent="." instance=ExtResource( 12 )]
 

@@ -61,6 +61,7 @@ public class GraphEdge : PinJoint2D
 		return Godot.Mathf.Abs(value1 - value2) < tolerance;
 	}
 
+	/// Make sure Labels are not that much rotated so they are always readable
 	private float normalizeRotation(float rotation)
 	{
 		if ( valueIsCloseTo(rotation, Mathf.Pi/2, 0.05f) || valueIsCloseTo(rotation, -Mathf.Pi/2, 0.05f) || valueIsCloseTo(rotation, Mathf.Pi, 0.05f) )
@@ -74,6 +75,10 @@ public class GraphEdge : PinJoint2D
 		else if (rotation < -Mathf.Pi/2) 
 		{
 			rotation = rotation + Mathf.Pi;
+		}
+		else if (rotation > 150 / (2 * Mathf.Pi) )
+		{
+			rotation = rotation - Mathf.Pi;
 		}
 		return rotation;
 	}

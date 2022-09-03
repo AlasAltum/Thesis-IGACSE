@@ -27,9 +27,6 @@ margin_bottom = 400.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 custom_constants/separation = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="PanelContainer0" parent="." instance=ExtResource( 11 )]
 anchor_right = 0.0
@@ -41,7 +38,7 @@ custom_styles/panel = ExtResource( 1 )
 focused = true
 code_text = "Kruskal():"
 effect_check = ExtResource( 9 )
-hint_text = "Press [b]ENTER[/b]"
+hint_text = "Press [color=#ff00ff]ENTER[/color]"
 
 [node name="PanelContainer1" parent="." instance=ExtResource( 11 )]
 anchor_right = 0.0
@@ -53,7 +50,7 @@ theme = SubResource( 1 )
 line_index = 1
 code_text = "    sort_edges();"
 effect_check = ExtResource( 15 )
-hint_text = "[b]LEFT CLICK[/b] on edges by [b]ascending[/b] order"
+hint_text = "Press [color=#ff00ff]ENTER[/color] [color=]LEFT CLICK[/b] on edges by [b]ascending[/b] order"
 
 [node name="PanelContainer2" parent="." instance=ExtResource( 11 )]
 anchor_right = 0.0

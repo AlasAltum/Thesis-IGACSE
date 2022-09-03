@@ -108,56 +108,6 @@ __meta__ = {
 [node name="LinesContainer" parent="CanvasLayer/CodeBlock" instance=ExtResource( 18 )]
 margin_bottom = 466.0
 
-[node name="PanelContainer4" parent="CanvasLayer/CodeBlock/LinesContainer" index="4"]
-code_text = "   Set T = {v, w}"
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4/MarginContainer/HBoxContainer" index="2"]
-margin_right = 152.0
-text = "   Set T = {v, w}"
-
-[node name="PanelContainer5" parent="CanvasLayer/CodeBlock/LinesContainer" index="5"]
-code_text = "   Set A = {graph.vertices} - T"
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5/MarginContainer/HBoxContainer" index="2"]
-margin_right = 266.0
-text = "   Set A = {graph.vertices} - T"
-
-[node name="PanelContainer6" parent="CanvasLayer/CodeBlock/LinesContainer" index="6"]
-code_text = "   while (T.size() < graph.vertices.size()):"
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6/MarginContainer/HBoxContainer" index="2"]
-margin_right = 355.0
-text = "   while (T.size() < graph.vertices.size()):"
-
-[node name="PanelContainer7" parent="CanvasLayer/CodeBlock/LinesContainer" index="7"]
-code_text = "        e = min_edge_connecting(A, T)"
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7/MarginContainer/HBoxContainer" index="2"]
-margin_right = 324.0
-text = "        e = min_edge_connecting(A, T)"
-
-[node name="PanelContainer10" parent="CanvasLayer/CodeBlock/LinesContainer" index="10"]
-code_text = "       T.append(v, w)"
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10/MarginContainer/HBoxContainer" index="2"]
-margin_right = 185.0
-text = "       T.append(v, w)"
-
-[node name="PanelContainer11" parent="CanvasLayer/CodeBlock/LinesContainer" index="11"]
-line_index = 11
-code_text = "       A = {graph.vertices} - T"
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer11/MarginContainer/HBoxContainer" index="2"]
-margin_right = 253.0
-text = "   	    A = {graph.vertices} - T"
-
-[node name="PanelContainer12" parent="CanvasLayer/CodeBlock/LinesContainer" index="12"]
-line_index = 12
-
-[node name="PanelContainer13" parent="CanvasLayer/CodeBlock/LinesContainer" index="13"]
-line_index = 13
-jump_index = 0
-
 [node name="LeftPanel" type="VBoxContainer" parent="CanvasLayer"]
 anchor_bottom = 1.0
 margin_left = 1.0
@@ -372,7 +322,6 @@ __meta__ = {
 }
 
 [node name="HintLabel" parent="CanvasLayer/TextHintContainer" instance=ExtResource( 14 )]
-visible = false
 
 [node name="PopUpForObjectCreation" parent="." instance=ExtResource( 21 )]
 
@@ -391,20 +340,5 @@ margin_bottom = 390.47
 [connection signal="mouse_entered" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_exited"]
 
-[editable path="CanvasLayer/CodeBlock/LinesContainer"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer9"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer11"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer12"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13"]
 [editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot2"]
 [editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot3"]

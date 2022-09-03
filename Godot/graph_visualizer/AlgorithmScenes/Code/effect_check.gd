@@ -13,10 +13,25 @@ func _ready():
 func _init():
 	code_line = null
 
+# Execute side effect when the code line that contains 
+# this effect check is focused
+func effect_check_on_focused() -> void:
+	return
+
 # Code being executed constantly to check whether the actions
 # of the player are correct
 func check_actions_correct() -> bool:
 	return true
+
+# Execute side effect when the code line that contains
+# this effect check was executed and the next line is focused
+func _trigger_on_next_line_side_effect() -> void:
+	return
+
+# By default, do nothing. This method may be overriden
+# Reset to default variables of a given effect check to allow loops
+func reset() -> void:
+	return
 
 
 # @param: CodeLine _code_line: the line to be set
@@ -41,19 +56,4 @@ func get_jump_line() -> int:
 	if code_line:
 		return code_line.jump_index
 	return -1
-
-# Execute side effect when the code line that contains 
-# this effect check is focused
-func effect_check_on_focused() -> void:
-	return
-
-# Execute side effect when the code line that contains
-# this effect check was executed and the next line is focused
-func _trigger_on_next_line_side_effect() -> void:
-	return
-
-# By default, do nothing. This method may be overriden
-# Reset to default variables of a given effect check to allow loops
-func reset() -> void:
-	return
 
