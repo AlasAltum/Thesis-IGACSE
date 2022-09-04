@@ -1,8 +1,10 @@
 extends EffectCheck
+# MST = []
 
 # Make sure that user has created a queue with name q and it has the node(0). 
 func check_actions_correct() -> bool:
-	if StoredData.has_variable("s") and StoredData.has_variable("t"):
-		if StoredData.get_variable("s").as_string() == "Stack((0))":
+	if StoredData.has_variable("MST"):
+		var mst_str : String = StoredData.get_variable("MST").as_string()
+		if "[" in mst_str and "]" in mst_str:
 			return true
 	return false

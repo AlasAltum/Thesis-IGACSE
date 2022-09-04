@@ -1,5 +1,5 @@
 extends EffectCheck
-# while q.is_not_empty()
+# if (len(C) == 1)
 
 # Ask the user whether answer is true or false
 func check_actions_correct() -> bool:

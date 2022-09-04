@@ -3,7 +3,7 @@ extends EffectCheck
 
 
 var edges_in_ascending_weight = []
-var edges_in_ascending_weight_original = []
+
 
 # Action expected from player:
 # Press edges in ascending order according to weight

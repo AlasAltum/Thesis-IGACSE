@@ -10,6 +10,7 @@ var pressed: bool = false
 var aux_position: Vector2
 var should_keep_on_hover_popup: bool = false
 var clickable = false
+var node_color: Color setget set_color, get_color
 
 onready var node_name: Label = $Sprite/NodeName
 onready var popup_menu: Popup = $Popup
@@ -178,3 +179,10 @@ func _on_Popup_focus_exited():
 	unfocus_popup_menu()
 	self.clickable = false
 	self.should_keep_on_hover_popup = false
+
+func set_color(in_color: Color) -> void:
+	node_color = in_color
+	$Sprite.material.set_shader_param("assigned_color", in_color)
+
+func get_color() -> Color:
+	return  $Sprite.material.get_shader_param("assigned_color")

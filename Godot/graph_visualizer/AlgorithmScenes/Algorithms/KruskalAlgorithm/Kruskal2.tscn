@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://c_sharp_src/OneToggleButtonVBoxContaner.cs" type="Script" id=1]
 [ext_resource path="res://AlgorithmScenes/Code/ADTs/queue_adt.gd" type="Script" id=2]
@@ -24,6 +24,8 @@
 [ext_resource path="res://AlgorithmScenes/Screen/GUI/ADTsShower.tscn" type="PackedScene" id=22]
 [ext_resource path="res://AlgorithmScenes/Screen/ADTIsNotEmptyPopup.tscn" type="PackedScene" id=23]
 [ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/2_create_sets_for_v_in_graph_vertices.gd" type="Script" id=24]
+[ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/3_create_mst.gd" type="Script" id=25]
+[ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/4_for_u_in_v_edges.gd" type="Script" id=26]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 4.0
@@ -149,6 +151,9 @@ margin_right = 392.0
 margin_right = 304.0
 text = "    C = [[v] for v in graph.vertices];"
 
+[node name="PanelContainer3" parent="CanvasLayer/CodeBlock/LinesContainer" index="3"]
+effect_check = ExtResource( 25 )
+
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3" index="0"]
 margin_right = 392.0
 margin_bottom = 33.0
@@ -160,6 +165,10 @@ margin_right = 392.0
 margin_right = 114.0
 text = "    MST = []"
 
+[node name="PanelContainer4" parent="CanvasLayer/CodeBlock/LinesContainer" index="4"]
+code_text = "    for (Edge e in graph.edges):"
+effect_check = ExtResource( 26 )
+
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4" index="0"]
 margin_right = 392.0
 margin_bottom = 33.0
@@ -168,8 +177,8 @@ margin_bottom = 33.0
 margin_right = 392.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4/MarginContainer/HBoxContainer" index="2"]
-margin_right = 266.0
-text = "    for Edge e in graph.edges:"
+margin_right = 278.0
+text = "    for (Edge e in graph.edges):"
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5" index="0"]
 margin_right = 392.0

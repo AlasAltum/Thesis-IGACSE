@@ -13,5 +13,8 @@ func effect_check_on_focused() -> void:
 	
 	assert(colors.size() == num_nodes)
 	for index in range(num_nodes):
-		var current_node = StoredData.nodes[index]
+		var current_node: AGraphNode = StoredData.nodes[index]
+		# To have different colors for each node, it is important
+		# That each shader is a separated instance. This can be
+		# achieved by checking the "Local to Scene" box in the Shader's editor
 		current_node.set_color(colors[index])

@@ -667,7 +667,6 @@ __meta__ = {
 [node name="PopUpForObjectCreation" parent="." instance=ExtResource( 38 )]
 
 [node name="AddNodePopup" parent="." instance=ExtResource( 23 )]
-visible = false
 
 [node name="ADTIsNotEmptyPopup" parent="." instance=ExtResource( 37 )]
 

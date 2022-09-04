@@ -40,6 +40,8 @@ static func generate_n_colors(num_nodes: int) -> Array:
 	var colors: Array = []
 	var jump_size : int = civiridis.size() / num_nodes
 	for index in range(0, civiridis.size(), jump_size):
+		if colors.size() == num_nodes:
+			break
 		colors.append(array_to_color(civiridis[index]))
 	return colors
 

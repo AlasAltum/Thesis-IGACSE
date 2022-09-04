@@ -1,5 +1,4 @@
 extends EffectCheck
-
 # for (Edge e in Graph.edges):
 
 # Since this is a for loop, we would like to keep our iteration index,
