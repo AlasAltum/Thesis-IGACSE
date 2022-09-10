@@ -61,24 +61,31 @@ public class GraphEdge : PinJoint2D
 		return Godot.Mathf.Abs(value1 - value2) < tolerance;
 	}
 
+	private float RadiansToDegrees(float angle)
+	{
+		return angle * 180 / Mathf.Pi;
+	}
 	/// Make sure Labels are not that much rotated so they are always readable
+	// Rotation is coming in radians
 	private float normalizeRotation(float rotation)
 	{
+		// Make 90° labels vertical by not rotating them 
 		if ( valueIsCloseTo(rotation, Mathf.Pi/2, 0.05f) || valueIsCloseTo(rotation, -Mathf.Pi/2, 0.05f) || valueIsCloseTo(rotation, Mathf.Pi, 0.05f) )
 		{
 			return 0.0f;
 		}
-		else if (Mathf.Pi < rotation) 
+		// Turn label until rotation is between [-90°, 90°] degrees
+		while (Godot.Mathf.Abs(RadiansToDegrees(rotation)) > 90.0f )
 		{
-			rotation = rotation - Mathf.Pi;
-		}
-		else if (rotation < -Mathf.Pi/2) 
-		{
-			rotation = rotation + Mathf.Pi;
-		}
-		else if (rotation > 150 / (2 * Mathf.Pi) )
-		{
-			rotation = rotation - Mathf.Pi;
+			if (RadiansToDegrees(rotation) > 90.0f)
+			{
+				rotation = rotation - Mathf.Pi;
+			}
+			// lower than -150 degrees => 30 degrees
+			else if (RadiansToDegrees(rotation) < -90.0f)
+			{
+				rotation = rotation + Mathf.Pi;
+			}
 		}
 		return rotation;
 	}

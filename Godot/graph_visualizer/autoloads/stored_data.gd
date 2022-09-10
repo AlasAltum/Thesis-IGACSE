@@ -33,6 +33,10 @@ var selected_edges = []
 ## Code continue conditions
 var u_is_explored_right_answer : bool = false
 var adt_is_empty_right_answer : bool = false
+
+# Kruskal El de la esquina es wom
+var length_c_is_one_correct_answer: bool = false
+
 ## ADT selection
 var adt_shower
 var adt_mediator # ADTMediator class

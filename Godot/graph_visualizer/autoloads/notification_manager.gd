@@ -7,13 +7,13 @@ var u_is_explored_popup : WindowDialog # = $UNodeIsExploredPopup
 var adt_is_empty_popup : WindowDialog # = $QIsNotEmptyPopup
 var add_node_popup : AddNodePopup 
 var object_creation_popup: WindowDialog # PopupForObjectCreation
-
+var length_c_is_1_popup: WindowDialog # = LengthCIsOnePopup
 
 ## Continue conditions ##
 var u_is_explored: bool = false
 var adt_is_empty: bool = false
+var length_c_is_1: bool = false
 var hint_label
-
 
 func reset_data():
 	finished_popup = null
@@ -129,3 +129,34 @@ func notify_adt_is_empty_wrong_answer():
 	adt_is_empty_popup.play_wrong_animation()
 #	$ADTIsNotEmptyPopup/ErrorNotification/AnimationPlayer.play("message_modulation")
 	# TODO: Add sound effect
+
+## adt.is_not_empty() popup signals ##
+
+## Length C is 1 popup signals ##
+func ask_user_if_lenth_c_is_1(_length_c_is_1: bool) -> void:
+	if length_c_is_1_popup:
+		length_c_is_1_popup.show()
+		self.length_c_is_1 = _length_c_is_1
+
+
+func _on_YesButton_length_c_is_1_popup_pressed():
+	if self.length_c_is_1:  # Right!
+		self.notify_length_c_is_one_correct_answer()
+	else:  # Wrong!
+		self.notify_length_c_is_one_wrong_answer()
+
+func _on_NoButton_length_c_is_1_popup_pressed():
+	if self.length_c_is_1:  # Wrong
+		self.notify_length_c_is_one_wrong_answer()
+	else:  # Right
+		self.notify_length_c_is_one_correct_answer()
+
+func notify_length_c_is_one_correct_answer():
+	StoredData.length_c_is_one_correct_answer = true
+	if length_c_is_1_popup:
+		length_c_is_1_popup.hide()
+
+func notify_length_c_is_one_wrong_answer():
+	# TODO: Visual effect
+	if length_c_is_1_popup:
+		length_c_is_1_popup.play_wrong_animation()

@@ -29,10 +29,4 @@ func get_next_line() -> int:
 		execute_side_effect()
 		return .get_next_line()  # super.get_next_line()
 
-	# Jump and erase u node
-	if StoredData.has_variable("u"):
-		StoredData.erase_variable("u")
-		# Reset iteration index to 0
-		iteration_index = 0
-
 	return .get_jump_line()

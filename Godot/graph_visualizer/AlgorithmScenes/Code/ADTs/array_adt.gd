@@ -45,8 +45,18 @@ func add_data(incoming_data):
 	else:
 		printerr("Adding invalid data")
 
+func size() -> int:
+	return self.data.size()
+	
 func first():
 	var ret = data[0]
 	representation.remove_node(ret)
 	data.remove(0)
 	return ret
+
+func erase(object):
+	self.data.erase(object)
+
+func append(object):
+	self.data.append(object)
+	

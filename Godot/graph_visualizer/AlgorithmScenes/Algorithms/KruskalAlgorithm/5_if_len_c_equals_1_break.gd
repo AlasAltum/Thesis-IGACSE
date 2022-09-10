@@ -1,39 +1,37 @@
 extends EffectCheck
 # if (len(C) == 1)
 
-# Ask the user whether answer is true or false
-func check_actions_correct() -> bool:
-	return StoredData.adt_is_empty_right_answer  # This is not required
-
-func while_condition_is_true():
-	return "Stack((" in StoredData.get_variable("s").as_string()
 
 # Considering that it is a while, it should return
 # the next line if the cicle continues, or jump to the jump line
 func get_next_line() -> int:
-	if StoredData.has_variable("s"):
-		# If the while condition is true, keep with the next line
-		if self.while_condition_is_true():
-			return .get_next_line()  # super.get_next_line()
+	# If the while condition is true, keep with the next line
+	if self.compute_if_length_c_is_1():
+		return .get_jump_line()  # super.get_next_line()
 
-		# elsewise, just jump to the end while line
-		else:
-			return .get_jump_line()
+	# elsewise, just jump to the end while line
+	else:
+		return .get_next_line()
 
-	# Else: Do not move if the user has not answered correctly
-	return self.code_line.line_index
 
 # Override from EffectCheck
 func effect_check_on_focused():
 	ask_user()
 
 func ask_user() -> void:
-	# Show a popup that asks the user whether q is empty or not
-	# While condition is true when Q is NOT empty, therefore
-	# We put a not before, so it is easier to think of
-	var s_is_empty : bool = self.while_condition_is_true()
-	StoredData.ask_user_if_stack_is_empty(s_is_empty)
+	# Show a popup that asks the user wheter len(C) is 1
+	var length_c_is_1: bool = self.compute_if_length_c_is_1()
+	NotificationManager.ask_user_if_lenth_c_is_1(length_c_is_1)
+
+
+func compute_if_length_c_is_1() -> bool:
+	var c: ArrayADT = StoredData.get_variable("C")
+	return c.size() == 1
+
+# Ask the user whether answer is true or false
+func check_actions_correct() -> bool:
+	return StoredData.length_c_is_one_correct_answer
 
 # Set the variable to false so the user may not skip this instruction	
 func reset():
-	StoredData.s_is_empty_right_answer = false
+	StoredData.length_c_is_one_correct_answer = false

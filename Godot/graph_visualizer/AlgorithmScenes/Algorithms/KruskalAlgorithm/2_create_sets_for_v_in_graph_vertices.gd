@@ -18,3 +18,11 @@ func effect_check_on_focused() -> void:
 		# That each shader is a separated instance. This can be
 		# achieved by checking the "Local to Scene" box in the Shader's editor
 		current_node.set_color(colors[index])
+
+func _trigger_on_next_line_side_effect() -> void:
+	var c_array: ArrayADT = ArrayADT.new()
+	for node in StoredData.nodes:
+		var array_with_v: ArrayADT = ArrayADT.new()
+		array_with_v.add_data(node.get_adt())  # We always work with adt in backend
+		c_array.add_data(array_with_v)
+	StoredData.add_variable("C", c_array)

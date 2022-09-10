@@ -16,7 +16,7 @@ func _init(_edge):
 static func get_type() -> String:
 	return "Edge"
 
-func as_string() -> String:
+func as_string():
 	return edge.as_string()
 
 func get_object(): # -> ADT:

@@ -119,6 +119,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Screen/graph_screen.gd"
 }, {
+"base": "WindowDialog",
+"class": "LengthCIsOnePopup",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/Screen/length_c_is_one_popup.gd"
+}, {
 "base": "ADT",
 "class": "NodeADT",
 "language": "GDScript",
@@ -212,6 +217,7 @@ _global_script_class_icons={
 "EffectCheck": "",
 "FollowingMouseTexture": "",
 "GraphManager": "",
+"LengthCIsOnePopup": "",
 "NodeADT": "",
 "NodeRepresentation": "",
 "NullADT": "",

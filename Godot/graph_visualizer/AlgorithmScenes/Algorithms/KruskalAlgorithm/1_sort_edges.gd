@@ -3,7 +3,7 @@ extends EffectCheck
 
 
 var edges_in_ascending_weight = []
-
+var EDGES_IN_ASCENDING_WEIGHT_FIXED: Array
 
 # Action expected from player:
 # Press edges in ascending order according to weight
@@ -13,12 +13,13 @@ func check_actions_correct() -> bool:
 	if edges_in_ascending_weight.size() > 0 and _edge == edges_in_ascending_weight[0]:
 		edges_in_ascending_weight.remove(0)  # CORRECT!
 		_edge.set_selected()
-		print("Correct!")
+
 	if edges_in_ascending_weight.size() == 0:
 		return true
 	return false
 
 
+# Set edges_in_ascending_weight
 func effect_check_on_focused():
 	# We will use selection sort since it is easier to use in this context
 	var edges: Array = StoredData.edges.duplicate(true)  # Create a deep copy
@@ -35,6 +36,13 @@ func effect_check_on_focused():
 		# minimum weight that is NOT in our edges_in_ascending_weight
 		edges_in_ascending_weight.append(temp_min_weight_edge)
 
+	EDGES_IN_ASCENDING_WEIGHT_FIXED = edges_in_ascending_weight.duplicate(true)
+	StoredData.edges = EDGES_IN_ASCENDING_WEIGHT_FIXED
+
+func _trigger_on_next_line_side_effect():
+	var graph_edges: ArrayADT = ArrayADT.new()
+	graph_edges.data = EDGES_IN_ASCENDING_WEIGHT_FIXED
+	StoredData.add_variable("graph_edges", graph_edges)
 
 func reset():
 	edges_in_ascending_weight = []
