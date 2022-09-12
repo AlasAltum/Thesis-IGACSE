@@ -665,6 +665,7 @@ __meta__ = {
 [node name="HintLabel" parent="CanvasLayer/TextHintContainer" instance=ExtResource( 35 )]
 
 [node name="PopUpForObjectCreation" parent="." instance=ExtResource( 38 )]
+visible = false
 
 [node name="AddNodePopup" parent="." instance=ExtResource( 23 )]
 
@@ -677,6 +678,7 @@ text = "Is the Stack S empty?"
 visible = true
 
 [node name="FinishedPopup" parent="." instance=ExtResource( 36 )]
+visible = true
 margin_top = 231.92
 margin_bottom = 390.92
 
@@ -684,6 +686,7 @@ margin_bottom = 390.92
 text = "Congratulations! You have successfully finished the DFS Algorithm!"
 
 [node name="UNodeIsExploredPopup" parent="." instance=ExtResource( 39 )]
+visible = false
 margin_left = 524.0
 margin_top = 233.0
 margin_right = 1036.0

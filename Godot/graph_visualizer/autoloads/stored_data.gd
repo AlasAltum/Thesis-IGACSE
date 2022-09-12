@@ -4,12 +4,20 @@ extends Node2D
 # of the nodes in the world. It works as a bridge between
 # the Autoload StoredData and the world nodes.
 
+var finished_levels = {
+	"BFS": false,
+	"DFS": false,
+	"Prim": false,
+	"Kruskal": false,
+}
+
 enum mov_status {SELECT = 0, DRAG = 1}
 
 var allow_select_edges = false
 var status : int = mov_status.SELECT;
 var nodes : Array = []  # PoolAGraphNodeArray
 var edges : Array = []
+
 
 var debug_block: ScrollContainer  # : DebugBlock
 var json_matrix = []  # contains pairs [node_index <int>, weight <float>]:

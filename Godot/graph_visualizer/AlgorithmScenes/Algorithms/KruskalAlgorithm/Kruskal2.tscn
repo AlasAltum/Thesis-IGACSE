@@ -11,7 +11,7 @@
 [ext_resource path="res://AlgorithmScenes/Screen/graph_screen.gd" type="Script" id=9]
 [ext_resource path="res://AlgorithmScenes/Screen/structure_queue.png" type="Texture" id=10]
 [ext_resource path="res://AlgorithmScenes/Code/Arrow.png" type="Texture" id=11]
-[ext_resource path="res://AlgorithmScenes/Screen/FinishedPopup.tscn" type="PackedScene" id=12]
+[ext_resource path="res://AlgorithmScenes/Screen/finished_code_popup.gd" type="Script" id=12]
 [ext_resource path="res://AlgorithmScenes/Screen/ADT/Queue/QueueAnimation.tscn" type="PackedScene" id=13]
 [ext_resource path="res://AlgorithmScenes/Screen/GUI/HintLabel.tscn" type="PackedScene" id=14]
 [ext_resource path="res://AlgorithmScenes/Screen/ADT/Stack/StackAnimation.tscn" type="PackedScene" id=15]
@@ -155,6 +155,7 @@ text = "Kruskal():"
 
 [node name="PanelContainer1" parent="CanvasLayer/CodeBlock/LinesContainer" index="1"]
 code_text = "    graph_edges = sort_edges();"
+hint_text = "[color=#ff00ff] LEFT CLICK [/color] on edges by ascending order considering their weights"
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1" index="0"]
 margin_right = 392.0
@@ -172,6 +173,7 @@ text = "    graph_edges = sort_edges();"
 
 [node name="PanelContainer2" parent="CanvasLayer/CodeBlock/LinesContainer" index="2"]
 effect_check = ExtResource( 24 )
+hint_text = "Press [color=#ff00ff]ENTER[/color]"
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2" index="0"]
 margin_right = 392.0
@@ -186,6 +188,7 @@ text = "    C = [[v] for v in graph.vertices];"
 
 [node name="PanelContainer3" parent="CanvasLayer/CodeBlock/LinesContainer" index="3"]
 effect_check = ExtResource( 25 )
+hint_text = "Create an array with the name MST with [b] LEFT CLICK [/b] on =#00FF00] t [/color], then add it to the Queue [color=#00FF00] the array slot in data structures"
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3" index="0"]
 margin_right = 392.0
@@ -202,6 +205,7 @@ text = "    MST = []"
 jump_index = 11
 code_text = "    for (Edge e in graph.edges):"
 effect_check = ExtResource( 26 )
+hint_text = "Press [color=#ff00ff]ENTER[/color] and see the new variable [color=#ff00ff]e[/color]"
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4" index="0"]
 margin_right = 392.0
@@ -217,6 +221,7 @@ text = "    for (Edge e in graph.edges):"
 [node name="PanelContainer5" parent="CanvasLayer/CodeBlock/LinesContainer" index="5"]
 jump_index = 11
 effect_check = ExtResource( 30 )
+hint_text = "Answer the question. Does the array of arrays [color=#ff00ff]C[/color] contain only one element?"
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5" index="0"]
 margin_right = 392.0
@@ -232,6 +237,7 @@ text = "        if (len(C) == 1):    break;"
 [node name="PanelContainer6" parent="CanvasLayer/CodeBlock/LinesContainer" index="6"]
 jump_index = 0
 effect_check = ExtResource( 28 )
+hint_text = "Select the nodes connecting the edge [color=#ff00ff]e[/color]"
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6" index="0"]
 margin_right = 392.0
@@ -246,6 +252,7 @@ text = "        (v, w) = e"
 
 [node name="PanelContainer7" parent="CanvasLayer/CodeBlock/LinesContainer" index="7"]
 effect_check = ExtResource( 29 )
+hint_text = "Are the nodes [color=#ff00ff]v[/color] and [color=#ff00ff]w[/color] in the same set?"
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7" index="0"]
 margin_right = 392.0
@@ -261,6 +268,7 @@ text = "        if Find(v) != Find(w):"
 [node name="PanelContainer8" parent="CanvasLayer/CodeBlock/LinesContainer" index="8"]
 code_text = "            MST.append(e)"
 effect_check = ExtResource( 31 )
+hint_text = "Press [color=#ff00ff]ENTER[/color]"
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8" index="0"]
 margin_right = 392.0
@@ -276,6 +284,7 @@ text = "            MST.append(e)"
 [node name="PanelContainer9" parent="CanvasLayer/CodeBlock/LinesContainer" index="9"]
 code_text = "            Union(Find(v), Find(w))"
 effect_check = ExtResource( 23 )
+hint_text = "Press [color=#ff00ff]ENTER[/color]"
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer9" index="0"]
 margin_right = 392.0
@@ -290,6 +299,7 @@ text = "            Union(Find(v), Find(w))"
 
 [node name="PanelContainer10" parent="CanvasLayer/CodeBlock/LinesContainer" index="10"]
 jump_index = 4
+hint_text = "Press [color=#ff00ff]ENTER[/color]"
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10" index="0"]
 margin_right = 392.0
@@ -304,6 +314,7 @@ text = "        end for;"
 
 [node name="PanelContainer13" parent="CanvasLayer/CodeBlock/LinesContainer" index="11"]
 line_index = 11
+hint_text = ""
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13" index="0"]
 margin_right = 392.0
@@ -535,9 +546,9 @@ __meta__ = {
 [node name="HintLabel" parent="CanvasLayer/TextHintContainer" instance=ExtResource( 14 )]
 
 [node name="PopUpForObjectCreation" parent="." instance=ExtResource( 21 )]
+visible = false
 
 [node name="LengthCIsOnePopup" type="WindowDialog" parent="."]
-visible = true
 margin_left = 524.122
 margin_top = 233.47
 margin_right = 1036.12
@@ -605,7 +616,54 @@ __meta__ = {
 
 [node name="AddNodePopup" parent="." instance=ExtResource( 16 )]
 
-[node name="FinishedPopup" parent="." instance=ExtResource( 12 )]
+[node name="FinishedPopup" type="WindowDialog" parent="."]
+visible = true
+margin_left = 525.1
+margin_top = 232.627
+margin_right = 1037.1
+margin_bottom = 391.627
+popup_exclusive = true
+window_title = "Algorithm Finished!"
+script = ExtResource( 12 )
+
+[node name="Explanation" type="Label" parent="FinishedPopup"]
+margin_left = 5.0
+margin_top = 13.0
+margin_right = 506.0
+margin_bottom = 74.0
+rect_pivot_offset = Vector2( 265.108, 0 )
+size_flags_horizontal = 3
+text = "Congratulations! You have successfully finished the Kruskal Algorithm!"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetButton" type="Button" parent="FinishedPopup"]
+modulate = Color( 0.121569, 0.913725, 0, 1 )
+margin_left = 200.759
+margin_top = 76.986
+margin_right = 294.759
+margin_bottom = 102.986
+rect_pivot_offset = Vector2( 72.8572, 10.7062 )
+text = "Reset"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButton" type="Button" parent="FinishedPopup"]
+modulate = Color( 0.827451, 0.717647, 0.117647, 1 )
+margin_left = 201.293
+margin_top = 113.927
+margin_right = 295.293
+margin_bottom = 139.927
+rect_pivot_offset = Vector2( 72.8572, 10.7062 )
+text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/SelectNodeButton" to="." method="_on_SelectNodeButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/AllowGraphMovementButton" to="." method="_on_AllowGraphMovementButton_pressed"]
@@ -613,6 +671,7 @@ __meta__ = {
 [connection signal="mouse_exited" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_exited"]
 [connection signal="pressed" from="LengthCIsOnePopup/YesButton" to="LengthCIsOnePopup" method="_on_YesButton_pressed"]
 [connection signal="pressed" from="LengthCIsOnePopup/NoButton" to="LengthCIsOnePopup" method="_on_NoButton_pressed"]
+[connection signal="pressed" from="FinishedPopup/ResetButton" to="FinishedPopup" method="_on_ResetButton_pressed"]
 
 [editable path="CanvasLayer/CodeBlock/LinesContainer"]
 [editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0"]

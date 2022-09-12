@@ -11,7 +11,7 @@
 [ext_resource path="res://AlgorithmScenes/Screen/graph_screen.gd" type="Script" id=9]
 [ext_resource path="res://AlgorithmScenes/Screen/structure_queue.png" type="Texture" id=10]
 [ext_resource path="res://AlgorithmScenes/Code/Arrow.png" type="Texture" id=11]
-[ext_resource path="res://AlgorithmScenes/Screen/FinishedPopup.tscn" type="PackedScene" id=12]
+[ext_resource path="res://AlgorithmScenes/Screen/finished_code_popup.gd" type="Script" id=12]
 [ext_resource path="res://AlgorithmScenes/Screen/ADT/Queue/QueueAnimation.tscn" type="PackedScene" id=13]
 [ext_resource path="res://AlgorithmScenes/Screen/GUI/HintLabel.tscn" type="PackedScene" id=14]
 [ext_resource path="res://AlgorithmScenes/Screen/ADT/Stack/StackAnimation.tscn" type="PackedScene" id=15]
@@ -324,8 +324,10 @@ __meta__ = {
 [node name="HintLabel" parent="CanvasLayer/TextHintContainer" instance=ExtResource( 14 )]
 
 [node name="PopUpForObjectCreation" parent="." instance=ExtResource( 21 )]
+visible = false
 
 [node name="UNodeIsExploredPopup" parent="." instance=ExtResource( 20 )]
+visible = false
 margin_top = 231.47
 margin_bottom = 390.47
 
@@ -333,12 +335,60 @@ margin_bottom = 390.47
 
 [node name="AddNodePopup" parent="." instance=ExtResource( 16 )]
 
-[node name="FinishedPopup" parent="." instance=ExtResource( 12 )]
+[node name="FinishedPopup" type="WindowDialog" parent="."]
+visible = true
+margin_left = 525.1
+margin_top = 232.627
+margin_right = 1037.1
+margin_bottom = 391.627
+popup_exclusive = true
+window_title = "Algorithm Finished!"
+script = ExtResource( 12 )
+
+[node name="Explanation" type="Label" parent="FinishedPopup"]
+margin_left = 5.0
+margin_top = 13.0
+margin_right = 506.0
+margin_bottom = 74.0
+rect_pivot_offset = Vector2( 265.108, 0 )
+size_flags_horizontal = 3
+text = "Congratulations! You have successfully finished the Prim Algorithm!"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetButton" type="Button" parent="FinishedPopup"]
+modulate = Color( 0.121569, 0.913725, 0, 1 )
+margin_left = 200.759
+margin_top = 76.986
+margin_right = 294.759
+margin_bottom = 102.986
+rect_pivot_offset = Vector2( 72.8572, 10.7062 )
+text = "Reset"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButton" type="Button" parent="FinishedPopup"]
+modulate = Color( 0.827451, 0.717647, 0.117647, 1 )
+margin_left = 201.293
+margin_top = 113.927
+margin_right = 295.293
+margin_bottom = 139.927
+rect_pivot_offset = Vector2( 72.8572, 10.7062 )
+text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/SelectNodeButton" to="." method="_on_SelectNodeButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/AllowGraphMovementButton" to="." method="_on_AllowGraphMovementButton_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_exited"]
+[connection signal="pressed" from="FinishedPopup/ResetButton" to="FinishedPopup" method="_on_ResetButton_pressed"]
 
 [editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot2"]
 [editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot3"]
