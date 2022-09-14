@@ -1,6 +1,6 @@
 extends EffectCheck
 # finish code
-var message: String = "Kruskal Finished"
+var message: String = "DFS Finished"
 
 
 # TODO: Add notification

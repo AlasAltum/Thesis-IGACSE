@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://c_sharp_src/OneToggleButtonVBoxContaner.cs" type="Script" id=1]
 [ext_resource path="res://AlgorithmScenes/Code/ADTs/queue_adt.gd" type="Script" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/7_if_find_v_unequal_find_w.gd" type="Script" id=29]
 [ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/5_if_len_c_equals_1_break.gd" type="Script" id=30]
 [ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/8_mst_append_e.gd" type="Script" id=31]
+[ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/13_kruskal_code_finished.gd" type="Script" id=32]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 4.0
@@ -115,6 +116,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_vertical_guides_": [ -164.416 ]
 }
+level_name = "Kruskal"
 graph_density = 0.942
 graph_size = 6
 is_weighted_graph = true
@@ -314,6 +316,7 @@ text = "        end for;"
 
 [node name="PanelContainer13" parent="CanvasLayer/CodeBlock/LinesContainer" index="11"]
 line_index = 11
+effect_check = ExtResource( 32 )
 hint_text = ""
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13" index="0"]

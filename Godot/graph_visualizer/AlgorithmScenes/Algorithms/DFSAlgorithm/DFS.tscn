@@ -12,7 +12,7 @@
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/3_add_to_stack.gd" type="Script" id=10]
 [ext_resource path="res://AlgorithmScenes/Code/focused_line_code_style.tres" type="StyleBox" id=11]
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/6_for_u_in_v_edges.gd" type="Script" id=12]
-[ext_resource path="res://AlgorithmScenes/Code/finish_code.gd" type="Script" id=14]
+[ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/13_dfs_code_finished.gd" type="Script" id=13]
 [ext_resource path="res://AlgorithmScenes/Screen/graph_screen.gd" type="Script" id=15]
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/4_while_s_is_not_empty.gd" type="Script" id=16]
 [ext_resource path="res://AlgorithmScenes/Code/ADTs/queue_adt.gd" type="Script" id=17]
@@ -110,7 +110,6 @@ custom_styles/bg = SubResource( 1 )
 scroll_horizontal_enabled = false
 script = ExtResource( 26 )
 __meta__ = {
-"_edit_use_anchors_": false,
 "_editor_description_": ""
 }
 
@@ -436,7 +435,7 @@ size_flags_horizontal = 1
 line_index = 13
 jump_index = 4
 code_text = "end DFS;"
-effect_check = ExtResource( 14 )
+effect_check = ExtResource( 13 )
 hint_text = "Press [b]ENTER[/b]"
 
 [node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13" index="0"]
@@ -678,7 +677,6 @@ text = "Is the Stack S empty?"
 visible = true
 
 [node name="FinishedPopup" parent="." instance=ExtResource( 36 )]
-visible = true
 margin_top = 231.92
 margin_bottom = 390.92
 

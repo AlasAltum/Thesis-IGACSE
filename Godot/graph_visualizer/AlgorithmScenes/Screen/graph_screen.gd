@@ -1,6 +1,8 @@
 extends Node2D
 class_name GraphManager
 
+export (String) var level_name = "BFS" # DFS, Kruskal, Prim...
+
 ## Graph related variables
 var screen_size : Vector2
 var left: int
@@ -37,7 +39,7 @@ func _ready():
 	for _edge in StoredData.edges:
 		_edge.set_collision_box()  # TODO: error when reseting
 	StoredData.allow_select_edges = self.allow_selected_edges
-
+	self.add_to_group("Main")
 	# TODO: ERASE
 #	var dataserver = DataServer.new()
 #	dataserver.send_data(
