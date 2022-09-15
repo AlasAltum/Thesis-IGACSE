@@ -92,6 +92,7 @@ extents = Vector2( 170.095, 152.984 )
 [node name="Main" type="Node2D"]
 script = ExtResource( 15 )
 graph_density = 0.169
+graph_size = 4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

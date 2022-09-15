@@ -114,6 +114,9 @@ func get_variable(variable_name: String):
 func erase_variable(var_name: String) -> void:
 	adt_mediator.erase_variable_by_name(var_name)
 
+func add_node_to_adt(object_name: String, incoming_node: Object) -> void:
+	adt_mediator.add_node_to_adt(object_name, incoming_node)
+
 func get_data_type_of_variable(var_name: String):
 	# Case there is no data type for that variable
 	if not self.has_variable(var_name):
@@ -122,6 +125,12 @@ func get_data_type_of_variable(var_name: String):
 
 func get_selected_edge():
 	return selected_edge
+
+func selected_variable_allows_object_adition() -> bool:
+	return adt_mediator.selected_variable_allows_object_adition()
+
+func get_selected_variable_name() -> String:
+	return adt_mediator.get_selected_variable_name()
 
 # When game gets reset, reset data
 func reset_data():

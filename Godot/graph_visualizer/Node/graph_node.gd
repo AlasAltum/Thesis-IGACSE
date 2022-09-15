@@ -35,6 +35,8 @@ const SELECTED_LABEL_COLOR = Color(0.0, 1.0, 0.0, 1.0)
 
 signal node_add_to_object_request(node)
 
+var is_mouse_inside: bool = false
+var was_clicked_by_mouse: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -113,10 +115,11 @@ func select_node():
 
 ## Right click menu related methods ##
 func _on_AddToObjectButton_pressed():
-	emit_signal("node_add_to_object_request", self)
+	get_added_to_focused_object_in_variables()
 	popup_menu.visible = false
 
-
+func get_added_to_focused_object_in_variables():
+	emit_signal("node_add_to_object_request", self)
 
 ## Right click menu related methods ##
 func as_string() -> String:
@@ -125,10 +128,18 @@ func as_string() -> String:
 func _input(event):
 	if event is InputEventMouseButton:
 		can_grab = event.pressed
-		grabbed_offset = position - get_global_mouse_position()
 		if (event.button_index == BUTTON_LEFT and event.pressed and self.mouse_status == MOUSE_STATUS.OUTSIDE):
 			hide_popup_menu()
+	# Menu must be open to allow these options
+	elif event is InputEventKey and (MOUSE_STATUS.INSIDE or self.should_keep_on_hover_popup):
+		# Q action corresponds to add select the node
+		if Input.is_key_pressed(KEY_Q):
+			_on_Select_UnselectButton_pressed()
+		# W Action 
+		elif Input.is_key_pressed(KEY_W):
+			get_added_to_focused_object_in_variables()
 
+		hide_popup_menu()
 
 # Show hover menu
 func _on_Area2D_mouse_entered() -> void:
@@ -136,23 +147,22 @@ func _on_Area2D_mouse_entered() -> void:
 	self.mouse_status = MOUSE_STATUS.INSIDE
 	popup_menu.popup()
 
+# Hide hover menu
+func _on_Area2D_mouse_exited() -> void:
+	if not self.should_keep_on_hover_popup:
+		self.hide_popup_menu()
+	self.mouse_status = MOUSE_STATUS.OUTSIDE
+
 
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if (
 		event is InputEventMouseButton and
 		event.button_index == BUTTON_LEFT and
-		event.pressed and
-		self.mouse_status == MOUSE_STATUS.INSIDE
+		event.pressed
 	):
 		self.should_keep_on_hover_popup = true
 		focus_popup_menu()
 		popup_menu.popup()
-
-# Unshow hover menu
-func _on_Area2D_mouse_exited() -> void:
-	if not self.should_keep_on_hover_popup:
-		self.hide_popup_menu()
-	self.mouse_status = MOUSE_STATUS.OUTSIDE
 
 
 # Some methods must be repeated, because a click can be considered as a mouse exited from the area2D.

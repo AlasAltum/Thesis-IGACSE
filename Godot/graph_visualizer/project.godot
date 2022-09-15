@@ -238,7 +238,7 @@ _global_script_class_icons={
 
 config/name="GraphVisualizator"
 config/description="Visualization for Graphs"
-run/main_scene="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/Kruskal2.tscn"
+run/main_scene="res://GameFlow/MainMenu.tscn"
 config/use_hidden_project_data_directory=false
 config/use_custom_user_dir=true
 config/icon="res://Node/white-circle.png"
@@ -290,12 +290,12 @@ right={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
-up={
+KEY_up={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
-down={
+KEY_down={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]

@@ -28,12 +28,22 @@ func reset_data():
 func _on_variable_creation_popup():
 	object_creation_popup.popup()
 
+
+const NOT_YET_SELECTED_VARIABLE = -1
 # node: AGraphNode
 # Commented to avoid Ciclyc dependencies
 func _on_node_add_to_object(node):
-	add_node_popup.set_incoming_node(node)
-	add_node_popup.popup()
+	# Selected variable index has not been selected yet
+	if StoredData.selected_variable_index == NOT_YET_SELECTED_VARIABLE:
+		# TODO: Show popup with error message
+		print("There is no selected variable in the variables stack!")
 
+	if StoredData.selected_variable_allows_object_adition():
+		add_node_popup.set_incoming_node(node)
+		add_node_popup.popup()
+	else:
+		# TODO: show popup with error message
+		print("You cannot add this object to the current selected variable")
 
 func _on_AllowGraphMovementButton_pressed():
 	StoredData.set_status("DRAG")

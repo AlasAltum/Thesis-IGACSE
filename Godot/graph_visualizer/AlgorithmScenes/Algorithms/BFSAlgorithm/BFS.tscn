@@ -96,7 +96,7 @@ __meta__ = {
 "_edit_vertical_guides_": [ -164.416 ]
 }
 graph_density = 0.169
-graph_size = 6
+graph_size = 4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

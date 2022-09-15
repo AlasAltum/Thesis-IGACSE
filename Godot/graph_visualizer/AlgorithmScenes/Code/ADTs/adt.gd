@@ -33,3 +33,6 @@ func get_object() -> ADT:
 
 func get_representation() -> ADTRepresentation:
 	return self.representation
+
+func allows_object_adition() -> bool:
+	return false

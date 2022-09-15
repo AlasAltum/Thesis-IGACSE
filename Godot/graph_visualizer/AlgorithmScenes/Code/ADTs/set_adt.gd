@@ -6,6 +6,10 @@ func _init():
 	self.representation = preload("res://AlgorithmScenes/Screen/ADT/Queue/QueueRepresentation.tscn").instance()
 	pass
 
+func allows_object_adition() -> bool:
+	return true
+
+
 func _ready():
 	#representation: ADTRepresentation
 	#representation_path: String

@@ -7,6 +7,8 @@ extends ADT
 func _init():
 	self.representation = preload("res://AlgorithmScenes/Screen/ADT/Queue/QueueRepresentation.tscn").instance()
 
+func allows_object_adition() -> bool:
+	return true
 
 func get_representation() -> ADTRepresentation:
 	if not self.representation:
