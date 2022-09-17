@@ -1,15 +1,83 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Code/debug_font.tres" type="DynamicFont" id=1]
+
+[sub_resource type="Animation" id=5]
+resource_name = "emphasize_error"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:custom_colors/font_color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.254902, 0.980392, 0.215686, 1 ), Color( 1, 0.0470588, 0, 1 ), Color( 0.254902, 0.980392, 0.215686, 1 ), Color( 1, 0.0470588, 0, 1 ), Color( 0.254902, 0.980392, 0.215686, 1 ), Color( 1, 0.0470588, 0, 1 ), Color( 0.254902, 0.980392, 0.215686, 1 ), Color( 1, 0.0470588, 0, 1 ), Color( 0.254902, 0.980392, 0.215686, 1 ), Color( 1, 0.0470588, 0, 1 ), Color( 0.254902, 0.980392, 0.215686, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 32, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -2, 2 ), Vector2( -2, -2 ), Vector2( 0, 2 ), Vector2( -2, -2 ), Vector2( -1, 2 ), Vector2( -2, -2 ), Vector2( 0, 2 ), Vector2( -1, 0 ), Vector2( -2, 2 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "emphasize_modification"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:custom_colors/font_color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.254902, 0.980392, 0.215686, 1 ), Color( 1, 1, 0, 1 ), Color( 0.254902, 0.980392, 0.215686, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:custom_fonts/font:outline_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 0, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:custom_fonts/font:outline_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1, 3, 1 ]
+}
 
 [node name="Variable" type="Label"]
 margin_left = 11.0
 margin_right = 118.0
 margin_bottom = 42.0
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.254902, 0.980392, 0.215686, 1 )
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = ExtResource( 1 )
 text = "q: Queue("
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/emphasize_error = SubResource( 5 )
+anims/emphasize_modification = SubResource( 7 )

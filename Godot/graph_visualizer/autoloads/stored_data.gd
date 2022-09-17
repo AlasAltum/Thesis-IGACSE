@@ -70,18 +70,25 @@ func get_selected_nodes() -> Array:
 
 	return selected_nodes
 
-func set_hint_text(new_text: String) -> void:
-	NotificationManager.set_hint_text(new_text)
+#func make_following_texture_opaque():
+#	if self.dragging_adt:
+#		dragged_adt.modulate = Color(1.0, 1.0, 1.0, 1.0)
+#		adt_hovering = true
+#
+#func make_following_texture_transparent():
+#	if self.dragging_adt:
+#		dragged_adt.modulate = Color(1.0, 1.0, 1.0, 0.3)
+#		adt_hovering = false
 
-func make_following_texture_opaque():
-	if self.dragging_adt:
-		dragged_adt.modulate = Color(1.0, 1.0, 1.0, 1.0)
-		adt_hovering = true
 
-func make_following_texture_transparent():
-	if self.dragging_adt:
-		dragged_adt.modulate = Color(1.0, 1.0, 1.0, 0.3)
-		adt_hovering = false
+func emphasize_current_selected_variable():
+	if adt_mediator:
+		adt_mediator.emphasize_current_selected_variable()
+
+
+func emphasize_error_on_current_selected_variable():
+	if adt_mediator:
+		adt_mediator.emphasize_error_on_current_selected_variable()
 
 
 # TODO: ERASE THIS

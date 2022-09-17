@@ -11,7 +11,6 @@ var data : Array = []  # Array of ADTVector <ADT, int, String>
 var selected_index: int = 0 setget set_selected_index, get_selected_index
 
 
-
 func _ready():
 	StoredData.set_adt_mediator(self)
 
@@ -125,8 +124,26 @@ func _on_variable_index_down():
 		if selected_index == data.size() - 1:
 			set_selected_index(0)
 		else:
-			set_selected_index(selected_index)
+			set_selected_index(selected_index + 1)
 		update_views()
+
+
+const EMPHASIZE_TIME: float = 1.0;
+
+##  These functions are triggered when the user tries to add a node ##
+# to the current selected variable. If it allows object adition
+# trigger emphasize_current_selected_variable
+func emphasize_current_selected_variable() -> void:
+	if debug_block:
+		# TODO: Replace modified label by a stack for short period requests
+		debug_block.emphasize_current_selected_variable()
+		
+
+# if object does not allow object adition, trigger this function
+func emphasize_error_on_current_selected_variable() -> void:
+	if debug_block:
+		debug_block.emphasize_error_on_current_selected_variable()
+## ##
 
 func get_selected_variable_name() -> String:
 	if self.get_selected_index() == -1:

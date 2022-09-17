@@ -14,6 +14,9 @@ var node_color: Color setget set_color, get_color
 
 onready var node_name: Label = $Sprite/NodeName
 onready var popup_menu: Popup = $Popup
+onready var select_unselect_button: Button = $Popup/PanelContainer/VBoxContainer/SelectUnselectButton
+onready var add_to_object_button: Button = $Popup/PanelContainer/VBoxContainer/AddToObjectButton
+
 
 const representation_prefab = preload("res://Node/NodeRepresentation.tscn")
 var adt_type = load("res://AlgorithmScenes/Code/ADTs/node_adt.gd")
@@ -126,12 +129,8 @@ func as_string() -> String:
 	return "(" + str(self.index) + ")"
 
 func _input(event):
-	if event is InputEventMouseButton:
-		can_grab = event.pressed
-		if (event.button_index == BUTTON_LEFT and event.pressed and self.mouse_status == MOUSE_STATUS.OUTSIDE):
-			hide_popup_menu()
 	# Menu must be open to allow these options
-	elif event is InputEventKey and (MOUSE_STATUS.INSIDE or self.should_keep_on_hover_popup):
+	if event is InputEventKey and (MOUSE_STATUS.INSIDE or self.should_keep_on_hover_popup):
 		# Q action corresponds to add select the node
 		if Input.is_key_pressed(KEY_Q):
 			_on_Select_UnselectButton_pressed()

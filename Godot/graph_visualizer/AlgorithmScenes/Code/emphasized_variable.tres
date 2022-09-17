@@ -1,0 +1,43 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float FREQ = 40.0f;
+uniform vec4 YELLOW = vec4(1.0, 1.0, 0.0, 1.0);
+uniform float ENTRY_TIME = 0.0f;
+
+void vertex()
+{
+	float delta_t = TIME - ENTRY_TIME;
+	VERTEX.x = VERTEX.x + cos(sin(delta_t * FREQ));
+	VERTEX.y = VERTEX.y + sin(cos(delta_t * FREQ));
+}
+
+
+void fragment()
+{
+	vec4 tex = texture(TEXTURE, UV);
+	tex.r *= COLOR.r;
+	tex.g *= COLOR.g;
+	tex.b *= COLOR.b;
+	tex.a *= COLOR.a;
+	vec4 original_color = tex;
+	
+	vec4 tex2 = texture(TEXTURE, UV);
+	tex2.r *= YELLOW.r;
+	tex2.g *= YELLOW.g;
+	tex2.b *= YELLOW.b;
+	tex2.a *= YELLOW.a;
+	vec4 yellow_transformation = tex2;
+
+	float delta_t = TIME; // - ENTRY_TIME;
+	float t = cos(delta_t * 4.0) * 0.5 + 0.5;
+	COLOR = original_color * delta_t + yellow_transformation * (1.0 - delta_t); 
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/FREQ = 40.0
+shader_param/YELLOW = Plane( 1, 1, 0, 1 )
+shader_param/ENTRY_TIME = 0.0

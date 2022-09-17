@@ -1,0 +1,38 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float FREQ = 40.0f;
+uniform vec4 FINAL_COLOR = vec4(1.0, 0.0, 0.0, 1.0);
+
+void vertex()
+{
+	VERTEX.x = VERTEX.x + cos(sin(TIME * FREQ));
+	VERTEX.y = VERTEX.y + sin(cos(TIME * FREQ));
+}
+
+void fragment()
+{
+	vec4 tex = texture(TEXTURE, UV);
+	tex.r *= COLOR.r;
+	tex.g *= COLOR.g;
+	tex.b *= COLOR.b;
+	tex.a *= COLOR.a;
+	vec4 original_color = tex;
+	
+	vec4 tex2 = texture(TEXTURE, UV);
+	tex2.r *= FINAL_COLOR.r;
+	tex2.g *= FINAL_COLOR.g;
+	tex2.b *= FINAL_COLOR.b;
+	tex2.a *= FINAL_COLOR.a;
+	vec4 error_transformation = tex2;
+
+	float t = cos(TIME * 4.0) * 0.5 + 0.5;
+	COLOR = error_transformation * (1.0 - t) + original_color * t; 
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/FREQ = 40.0
+shader_param/FINAL_COLOR = Plane( 1, 1, 0, 1 )

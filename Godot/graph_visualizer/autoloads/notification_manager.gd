@@ -41,8 +41,11 @@ func _on_node_add_to_object(node):
 	if StoredData.selected_variable_allows_object_adition():
 		add_node_popup.set_incoming_node(node)
 		add_node_popup.popup()
+		StoredData.emphasize_current_selected_variable()
+
 	else:
 		# TODO: show popup with error message
+		StoredData.emphasize_error_on_current_selected_variable()
 		print("You cannot add this object to the current selected variable")
 
 func _on_AllowGraphMovementButton_pressed():

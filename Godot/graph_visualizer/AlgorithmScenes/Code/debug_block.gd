@@ -4,13 +4,15 @@ extends ScrollContainer
 # Contains the variables displayed in the left panel of the screen
 # The labels have a format: var_name: var_data
 
+const label_template : PackedScene = preload("res://AlgorithmScenes/Code/variable_in_heap_template.tscn")
+
 const focused_style: StyleBox = preload("res://AlgorithmScenes/Screen/DebugBlock/focus_line_stylebox.stylebox")
 const focused_material: Material = preload("res://AlgorithmScenes/Screen/DebugBlock/debug_block_line_focus.material")
 const unfocused_style: StyleBox = preload("res://AlgorithmScenes/Screen/DebugBlock/unfocus_line_stylebox.stylebox")
-const label_template : PackedScene = preload("res://AlgorithmScenes/Code/variable_in_heap_template.tscn")
 
 # This lines container will have the Labels with format var_name: var_data
 onready var lines_container: VBoxContainer = $LinesContainer
+
 
 var mouse_inside_area: bool = false
 var names_to_label = {}  # Type<String, Label>
@@ -56,6 +58,11 @@ func update_views(selected_index: int) -> void:
 	curr_label = names_to_label[map_int_to_name[selected_index]]
 	_focus_current_label()
 
+func get_current_label() -> Label:
+	if curr_label:
+		return curr_label
+	return null
+
 func _unfocus_current_label():
 	if curr_label:
 		curr_label.add_stylebox_override("normal", unfocused_style)
@@ -68,4 +75,15 @@ func _focus_current_label():
 		curr_label.add_stylebox_override("normal", focused_style)
 		curr_label.material = focused_material
 
+func _play_anim(anim_name: String) -> void:
+	if curr_label:
+		var anim: AnimationPlayer = curr_label.get_node("./AnimationPlayer")
+		anim.stop(true)
+		anim.play(anim_name)
 
+# To emphasize that a recent action has happened on selected variable
+func emphasize_current_selected_variable():
+	_play_anim("emphasize_modification")
+
+func emphasize_error_on_current_selected_variable():
+	_play_anim("emphasize_error")

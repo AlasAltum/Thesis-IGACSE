@@ -54,7 +54,7 @@ func _on_focused():
 		if instruction_pointer:
 			instruction_pointer.visible = true
 		add_stylebox_override("panel", focused_style)
-	StoredData.set_hint_text(self.hint_text)
+	NotificationManager.set_hint_text(self.hint_text)
 
 
 func unfocus():
