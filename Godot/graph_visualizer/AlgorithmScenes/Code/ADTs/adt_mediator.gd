@@ -146,14 +146,17 @@ func emphasize_error_on_current_selected_variable() -> void:
 ## ##
 
 func get_selected_variable_name() -> String:
-	if self.get_selected_index() == -1:
-		return "ERROR: no variable selected"
+	if not data.empty() and data.size() > selected_index - 1:
+		var adt_vector: ADTVector = data[selected_index]
+		return adt_vector.get_name()
+#	if self.get_selected_index() == -1:
+	return "ERROR: no variable selected"
 
-	var adt_vector: ADTVector = data[selected_index]
-	return adt_vector.get_name()
 
 func selected_variable_allows_object_adition() -> bool:
-	var selected_adt_vector: ADTVector = data[selected_index]
-	if selected_adt_vector.get_data() and selected_adt_vector.get_data().has_method("allows_object_adition"):
-		return selected_adt_vector.get_data().call("allows_object_adition")
+	if not data.empty() and data.size() > selected_index - 1:
+		var selected_adt_vector: ADTVector = data[selected_index]
+		if selected_adt_vector.get_data() and selected_adt_vector.get_data().has_method("allows_object_adition"):
+			return selected_adt_vector.get_data().call("allows_object_adition")
+	# TODO: Add a popup message telling the user has made a mistake
 	return false

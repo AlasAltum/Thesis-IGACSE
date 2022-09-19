@@ -28,7 +28,6 @@ var json = {
 var dragging_adt : bool = false
 var dragged_adt : FollowingMouseTexture
 var selected_edge
-var min_weight: float
 var adt_hovering : bool = false
 var assign_name_popup : WindowDialog
 var world_node: Node2D  # : GraphManager
@@ -139,14 +138,14 @@ func selected_variable_allows_object_adition() -> bool:
 func get_selected_variable_name() -> String:
 	return adt_mediator.get_selected_variable_name()
 
-# When game gets reset, reset data
+# When game gets reset, reset data excepting finished_levels 
 func reset_data():
-	self.selected_variable_index = 0
-	self.selectable_nodes = []
+	self.allow_select_edges = false;
 	self.status = mov_status.SELECT;
-	self.selected_edge = null
 	self.nodes = []  # PoolAGraphNodeArray
 	self.edges = []
+
+	self.debug_block = null
 	self.json_matrix = []
 	self.json = {
 		"n": 3,
@@ -154,7 +153,18 @@ func reset_data():
 	}
 	self.dragging_adt = false
 	self.dragged_adt = null
+	self.selected_edge = null
 	self.adt_hovering = false
 	self.assign_name_popup = null
 	self.world_node = null
+	self.selectable_nodes = []
+	self.selected_edges = []
+
+	self.u_is_explored_right_answer = false
+	self.adt_is_empty_right_answer = false
+	self.length_c_is_one_correct_answer = false
+	self.adt_shower = null
+	self.adt_mediator = null
+	self.selected_variable_index = 0
+	self.adt_to_be_created = null
 

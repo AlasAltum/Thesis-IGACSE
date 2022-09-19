@@ -1,6 +1,7 @@
 extends EffectCheck
+# s.add(u)
 
-
+# check that node U is inside stack S
 func check_actions_correct() -> bool:
 	if StoredData.has_variable("s") and StoredData.has_variable("u"):
 		var u: AGraphNode = StoredData.get_variable("u").get_node()

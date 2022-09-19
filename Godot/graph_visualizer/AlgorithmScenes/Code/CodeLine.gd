@@ -47,6 +47,7 @@ func focus():
 
 func _on_focused():
 	focused = true
+	NotificationManager.set_hint_text(self.hint_text)
 	if self.effect_check and not self.on_focus_effect_triggered:
 		self.effect_check.effect_check_on_focused()
 		self.on_focus_effect_triggered = true
@@ -54,7 +55,6 @@ func _on_focused():
 		if instruction_pointer:
 			instruction_pointer.visible = true
 		add_stylebox_override("panel", focused_style)
-	NotificationManager.set_hint_text(self.hint_text)
 
 
 func unfocus():

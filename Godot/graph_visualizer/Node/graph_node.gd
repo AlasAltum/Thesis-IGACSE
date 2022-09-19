@@ -17,7 +17,6 @@ onready var popup_menu: Popup = $Popup
 onready var select_unselect_button: Button = $Popup/PanelContainer/VBoxContainer/SelectUnselectButton
 onready var add_to_object_button: Button = $Popup/PanelContainer/VBoxContainer/AddToObjectButton
 
-
 const representation_prefab = preload("res://Node/NodeRepresentation.tscn")
 var adt_type = load("res://AlgorithmScenes/Code/ADTs/node_adt.gd")
 
@@ -38,8 +37,6 @@ const SELECTED_LABEL_COLOR = Color(0.0, 1.0, 0.0, 1.0)
 
 signal node_add_to_object_request(node)
 
-var is_mouse_inside: bool = false
-var was_clicked_by_mouse: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -89,6 +86,10 @@ func get_edges() -> Array:
 func mark_as_iterated():
 	self.modulate = ITERATED_COLOR
 
+## Right click menu related methods ##
+func as_string() -> String:
+	return "(" + str(self.index) + ")"
+
 # with right click menu, choose the option to select or unselect
 func _on_Select_UnselectButton_pressed():
 	# Unselect
@@ -105,18 +106,14 @@ func unselect_node():
 	representation.set_unselected()
 	popup_menu.hide()
 	popup_menu.visible = false
-	# StoredData.selected_nodes.erase(self)
 
 func select_node():
 	self.selected = true
 	self.modulate = SELECTED_COLOR
 	node_name.modulate = SELECTED_LABEL_COLOR
 	representation.set_selected()
-	# This array is not being used anymore
-	# Now it is created each time it is queried
-	#	StoredData.selected_nodes.append(self)
 
-## Right click menu related methods ##
+
 func _on_AddToObjectButton_pressed():
 	get_added_to_focused_object_in_variables()
 	popup_menu.visible = false
@@ -124,13 +121,10 @@ func _on_AddToObjectButton_pressed():
 func get_added_to_focused_object_in_variables():
 	emit_signal("node_add_to_object_request", self)
 
-## Right click menu related methods ##
-func as_string() -> String:
-	return "(" + str(self.index) + ")"
 
 func _input(event):
 	# Menu must be open to allow these options
-	if event is InputEventKey and (MOUSE_STATUS.INSIDE or self.should_keep_on_hover_popup):
+	if event is InputEventKey and self.mouse_status == MOUSE_STATUS.INSIDE:
 		# Q action corresponds to add select the node
 		if Input.is_key_pressed(KEY_Q):
 			_on_Select_UnselectButton_pressed()
@@ -148,44 +142,22 @@ func _on_Area2D_mouse_entered() -> void:
 
 # Hide hover menu
 func _on_Area2D_mouse_exited() -> void:
-	if not self.should_keep_on_hover_popup:
-		self.hide_popup_menu()
+	self.hide_popup_menu()
 	self.mouse_status = MOUSE_STATUS.OUTSIDE
 
-
-func _on_Area2D_input_event(viewport, event, shape_idx):
-	if (
-		event is InputEventMouseButton and
+func _event_is_left_click(event):
+	return (event is InputEventMouseButton and
 		event.button_index == BUTTON_LEFT and
-		event.pressed
-	):
-		self.should_keep_on_hover_popup = true
-		focus_popup_menu()
-		popup_menu.popup()
+		event.pressed)
 
+# Click on the node = Press select/unselect node
+func _on_Area2D_input_event(_viewport, event, _shape_idx):
+	if _event_is_left_click(event):
+		_on_Select_UnselectButton_pressed()
 
 # Some methods must be repeated, because a click can be considered as a mouse exited from the area2D.
 func hide_popup_menu():
 	popup_menu.hide()
-	unfocus_popup_menu()
-	self.clickable = false
-	self.should_keep_on_hover_popup = false
-
-func focus_popup_menu():
-	popup_menu.modulate = Color(1.0, 1.0, 1.0, 1.0)
-
-func unfocus_popup_menu():
-	popup_menu.modulate = Color(1.0, 1.0, 1.0, 0.75)
-
-
-#func _on_Popup_popup_hide():
-#	unfocus_popup_menu()
-#	self.clickable = false
-#	self.should_keep_on_hover_popup = false
-
-
-func _on_Popup_focus_exited():
-	unfocus_popup_menu()
 	self.clickable = false
 	self.should_keep_on_hover_popup = false
 

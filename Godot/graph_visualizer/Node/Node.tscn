@@ -49,7 +49,6 @@ text = "5"
 
 [node name="Popup" type="Popup" parent="."]
 visible = true
-modulate = Color( 1, 1, 1, 0.627451 )
 margin_right = 110.0
 margin_bottom = 55.0
 mouse_filter = 2
@@ -91,7 +90,6 @@ __meta__ = {
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]
-[connection signal="focus_exited" from="Popup" to="." method="_on_Popup_focus_exited"]
 [connection signal="popup_hide" from="Popup" to="." method="_on_Popup_popup_hide"]
 [connection signal="pressed" from="Popup/PanelContainer/VBoxContainer/SelectUnselectButton" to="." method="_on_Select_UnselectButton_pressed"]
 [connection signal="pressed" from="Popup/PanelContainer/VBoxContainer/AddToObjectButton" to="." method="_on_AddToObjectButton_pressed"]

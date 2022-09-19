@@ -16,17 +16,21 @@ public class AlgorithmSelectionMenu : Node2D
     private Button DFSButton;
     private Button PrimButton;
     private Button KruskalButton;
+    private Button BackButton;
 
-    // Called when the node enters the scene tree for the first time.
-    public override void _Ready()
+    [Signal]
+    delegate void OnSelectionMenuExitSignal();
+
+    [Signal]
+    delegate void OnBackButtonPressedSignal();
+    /// <summary>
+    /// Check in the StoredData singleton the variable finished_levels, which is a dictionary of type <Str, bool>
+    /// Indicating the names of each level and whether the player has finished it. If BFS and DFS are finished,
+    /// unblock next levels, Prim and Kruskal
+    /// </summary>
+    private void ComputePlayerHasFinishedBFSAndDFS()
     {
-        BFSButton = GetNode<Button>("CanvasLayer/GridContainer/BFS");
-        DFSButton = GetNode<Button>("CanvasLayer/GridContainer/DFS");
-        PrimButton = GetNode<Button>("CanvasLayer/GridContainer/Prim");
-        KruskalButton = GetNode<Button>("CanvasLayer/GridContainer/Kruskal");
-        // Get StoredData singleton
         Node2D StoredData = GetTree().Root.GetNode<Node2D>("/root/StoredData");
-        bool playerHasFinishedBFSAndDFS = false;
         if (StoredData != null){
             Godot.Collections.Dictionary finishedLevels = (Godot.Collections.Dictionary) StoredData.Get("finished_levels");
             
@@ -35,28 +39,42 @@ public class AlgorithmSelectionMenu : Node2D
                 playerHasFinishedBFSAndDFS = (bool) finishedLevels["BFS"] && (bool) finishedLevels["DFS"];
             }
         }
+    }
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
+    {
+        BFSButton = GetNode<Button>("GridContainer/BFS");
+        DFSButton = GetNode<Button>("GridContainer/DFS");
+        PrimButton = GetNode<Button>("GridContainer/Prim");
+        KruskalButton = GetNode<Button>("GridContainer/Kruskal");
+        BackButton = GetNode<Button>("BackButton");
 
-        BFSButton.Connect("pressed", this, "OnBFSButtonPressed");
-        DFSButton.Connect("pressed", this, "OnDFSButtonPressed");
-        PrimButton.Connect("pressed", this, "OnPrimButtonPressed");
-        KruskalButton.Connect("pressed", this, "OnKruskalButtonPressed");
+        PrimButton.Disabled = true;
+        KruskalButton.Disabled = true;
+
+        BFSButton.Connect("pressed", this, nameof(OnBFSButtonPressed));
+        DFSButton.Connect("pressed", this, nameof(OnDFSButtonPressed));
+        PrimButton.Connect("pressed", this, nameof(OnPrimButtonPressed));
+        KruskalButton.Connect("pressed", this, nameof(OnKruskalButtonPressed));
+        BackButton.Connect("pressed", this, nameof(OnBackButtonPressed));
+        
         CurrentScene = this;
-
+        ComputePlayerHasFinishedBFSAndDFS();
         if (playerHasFinishedBFSAndDFS)
         {
-            PrimButton.Disabled = false;
-            KruskalButton.Disabled = false;
+            SetProcess(false);
         }
     }
 
     public override void _Process(float delta)
     {
         base._Process(delta);
-
+        ComputePlayerHasFinishedBFSAndDFS();
         if (playerHasFinishedBFSAndDFS)
         {
             PrimButton.Disabled = false;
             KruskalButton.Disabled = false;
+            SetProcess(false);
         }
     }
 
@@ -78,6 +96,11 @@ public class AlgorithmSelectionMenu : Node2D
         GotoScene(KRUSKAL_SCENE);
     }
 
+    public void OnBackButtonPressed()
+    {
+        EmitSignal("OnBackButtonPressedSignal");
+    }
+
     public void OnExitGame()
     {
         GetTree().Quit();
@@ -91,6 +114,7 @@ public class AlgorithmSelectionMenu : Node2D
     private void DeferredGotoScene(string path)
     {
         CurrentScene.QueueFree();
+        EmitSignal("OnSelectionMenuExitSignal");
         var nextScene = (PackedScene) GD.Load(path);
         CurrentScene = nextScene.Instance();
         GetTree().Root.AddChild(CurrentScene);

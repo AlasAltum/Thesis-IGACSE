@@ -13,7 +13,7 @@
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/11_end_for.gd" type="Script" id=11]
 [ext_resource path="res://AlgorithmScenes/Code/focused_line_code_style.tres" type="StyleBox" id=12]
 [ext_resource path="res://AlgorithmScenes/Screen/PopUpForObjectCreation.tscn" type="PackedScene" id=13]
-[ext_resource path="res://AlgorithmScenes/Code/finish_code.gd" type="Script" id=14]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/13_bfs_code_finished.gd" type="Script" id=14]
 [ext_resource path="res://AlgorithmScenes/Screen/graph_screen.gd" type="Script" id=15]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/9_q_add_u.gd" type="Script" id=16]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/4_while_q_is_not_empty.gd" type="Script" id=17]
@@ -459,9 +459,6 @@ margin_right = 206.0
 margin_bottom = -1.0
 rect_clip_content = true
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ModeSelector" type="MarginContainer" parent="CanvasLayer/LeftPanel"]
 margin_right = 234.0

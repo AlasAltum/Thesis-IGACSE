@@ -1,4 +1,4 @@
-# class_name NotificationManager 
+# class_name NotificationManager
 extends Node2D
 
 ## Code execution popups ##
@@ -15,16 +15,6 @@ var adt_is_empty: bool = false
 var length_c_is_1: bool = false
 var hint_label
 
-func reset_data():
-	finished_popup = null
-	u_is_explored_popup = null
-	adt_is_empty_popup = null
-	add_node_popup = null
-	u_is_explored = false
-	adt_is_empty = false
-	object_creation_popup = null  # = get_tree().get_root().get_node("Main/PopUpForObjectCreation")
-
-
 func _on_variable_creation_popup():
 	object_creation_popup.popup()
 
@@ -39,8 +29,7 @@ func _on_node_add_to_object(node):
 		print("There is no selected variable in the variables stack!")
 
 	if StoredData.selected_variable_allows_object_adition():
-		add_node_popup.set_incoming_node(node)
-		add_node_popup.popup()
+		StoredData.add_node_to_adt(StoredData.get_selected_variable_name(), node)
 		StoredData.emphasize_current_selected_variable()
 
 	else:
@@ -62,7 +51,8 @@ func on_code_finished_popup(_msg: String) -> void:
 
 ## Hint related methods ##
 func set_hint_text(new_text: String) -> void:
-	hint_label.bbcode_text = new_text
+	if hint_label and new_text:
+		hint_label.bbcode_text = new_text
 ## Hint related methods ##
 
 ## BFS Finished Popup signals ##
@@ -173,3 +163,16 @@ func notify_length_c_is_one_wrong_answer():
 	# TODO: Visual effect
 	if length_c_is_1_popup:
 		length_c_is_1_popup.play_wrong_animation()
+
+func reset_data():
+	self.finished_popup = null
+	self.u_is_explored_popup = null
+	self.adt_is_empty_popup = null
+	self.add_node_popup = null
+	self.object_creation_popup = null
+	self.length_c_is_1_popup = null
+	## Continue conditions ## = null
+	self.u_is_explored = false
+	self.adt_is_empty = false
+	self.length_c_is_1 = false
+	self.hint_label = null

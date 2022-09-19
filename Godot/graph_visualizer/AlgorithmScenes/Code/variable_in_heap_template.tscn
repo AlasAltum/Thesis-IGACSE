@@ -17,16 +17,16 @@ tracks/0/keys = {
 "values": [ Color( 0.254902, 0.980392, 0.215686, 1 ), Color( 1, 0.0470588, 0, 1 ), Color( 0.254902, 0.980392, 0.215686, 1 ), Color( 1, 0.0470588, 0, 1 ), Color( 0.254902, 0.980392, 0.215686, 1 ), Color( 1, 0.0470588, 0, 1 ), Color( 0.254902, 0.980392, 0.215686, 1 ), Color( 1, 0.0470588, 0, 1 ), Color( 0.254902, 0.980392, 0.215686, 1 ), Color( 1, 0.0470588, 0, 1 ), Color( 0.254902, 0.980392, 0.215686, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_position")
+tracks/1/path = NodePath(".:rect_rotation")
 tracks/1/interp = 1
-tracks/1/loop_wrap = false
+tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
-"transitions": PoolRealArray( 1, 32, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.3, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( -2, 2 ), Vector2( -2, -2 ), Vector2( 0, 2 ), Vector2( -2, -2 ), Vector2( -1, 2 ), Vector2( -2, -2 ), Vector2( 0, 2 ), Vector2( -1, 0 ), Vector2( -2, 2 ), Vector2( 0, 0 ) ]
+"values": [ 0.0, 1.0, -1.0, 0.0 ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -69,8 +69,8 @@ tracks/2/keys = {
 }
 
 [node name="Variable" type="Label"]
-margin_left = 11.0
-margin_right = 118.0
+anchor_right = 0.016
+margin_right = 107.0
 margin_bottom = 42.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0.254902, 0.980392, 0.215686, 1 )

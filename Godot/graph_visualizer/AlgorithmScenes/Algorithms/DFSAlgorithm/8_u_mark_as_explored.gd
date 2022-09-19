@@ -1,14 +1,15 @@
 extends EffectCheck
-# MST.append(e)
+# u.mark_as_explored()
 
 
 func check_actions_correct() -> bool:
-	var mst : ArrayADT = StoredData.get_variable("MST")
-	var e: EdgeADT = StoredData.get_variable("e")
-	var mst_string = mst.as_string()
-	var e_string = e.as_string()
-	if mst and e and e_string in mst_string:
-		return true
+	var u : AGraphNode = StoredData.get_variable("u").get_node()
+	if u in StoredData.get_selected_nodes():
+		return true  # This is not required
 	return false
 
+# Once we are in this line, node u may be added
+func effect_check_on_focused():
+	var u : AGraphNode = StoredData.get_variable("u").get_node()
+	StoredData.selectable_nodes.append(u.index)
 
