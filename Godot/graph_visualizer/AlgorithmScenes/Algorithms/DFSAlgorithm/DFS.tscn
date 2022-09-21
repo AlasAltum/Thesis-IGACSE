@@ -222,7 +222,7 @@ margin_top = 132.0
 margin_right = 392.0
 margin_bottom = 165.0
 size_flags_horizontal = 1
-line_index = 12
+line_index = 4
 jump_index = 13
 code_text = "    while s.is_not_empty():"
 effect_check = ExtResource( 16 )
@@ -318,6 +318,7 @@ margin_right = 392.0
 margin_bottom = 297.0
 size_flags_horizontal = 1
 line_index = 8
+jump_index = 8
 code_text = "                u.mark_as_explored();"
 effect_check = ExtResource( 19 )
 hint_text = "Select the [color=#00FF00] u [/color] node with a left click"
@@ -341,6 +342,7 @@ margin_right = 392.0
 margin_bottom = 330.0
 size_flags_horizontal = 1
 line_index = 9
+jump_index = 9
 code_text = "                s.add(u)"
 effect_check = ExtResource( 22 )
 hint_text = "Add the Node [color=#00FF00] u [/color] to the queue by right clicking on it"

@@ -44,6 +44,7 @@ func add_data(incoming_data):
 
 func top():
 	var ret = data[0]
-	representation.remove_node(ret)
-	data.remove(0)
-	return ret
+	if ret:
+		representation.remove_node(ret)
+		data.remove(0)
+		return ret

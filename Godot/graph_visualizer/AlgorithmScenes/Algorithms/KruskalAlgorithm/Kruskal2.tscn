@@ -674,7 +674,6 @@ __meta__ = {
 [connection signal="mouse_exited" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_exited"]
 [connection signal="pressed" from="LengthCIsOnePopup/YesButton" to="LengthCIsOnePopup" method="_on_YesButton_pressed"]
 [connection signal="pressed" from="LengthCIsOnePopup/NoButton" to="LengthCIsOnePopup" method="_on_NoButton_pressed"]
-[connection signal="pressed" from="FinishedPopup/ResetButton" to="FinishedPopup" method="_on_ResetButton_pressed"]
 
 [editable path="CanvasLayer/CodeBlock/LinesContainer"]
 [editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0"]

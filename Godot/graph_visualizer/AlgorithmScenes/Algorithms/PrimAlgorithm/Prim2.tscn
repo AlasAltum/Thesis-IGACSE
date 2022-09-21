@@ -369,9 +369,6 @@ margin_right = 294.759
 margin_bottom = 102.986
 rect_pivot_offset = Vector2( 72.8572, 10.7062 )
 text = "Reset"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MenuButton" type="Button" parent="FinishedPopup"]
 modulate = Color( 0.827451, 0.717647, 0.117647, 1 )
@@ -389,7 +386,6 @@ __meta__ = {
 [connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/AllowGraphMovementButton" to="." method="_on_AllowGraphMovementButton_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_exited"]
-[connection signal="pressed" from="FinishedPopup/ResetButton" to="FinishedPopup" method="_on_ResetButton_pressed"]
 
 [editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot2"]
 [editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot3"]

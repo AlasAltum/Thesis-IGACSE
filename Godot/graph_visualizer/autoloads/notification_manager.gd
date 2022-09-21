@@ -37,17 +37,12 @@ func _on_node_add_to_object(node):
 		StoredData.emphasize_error_on_current_selected_variable()
 		print("You cannot add this object to the current selected variable")
 
+## Node related functions ##
 func _on_AllowGraphMovementButton_pressed():
 	StoredData.set_status("DRAG")
 
 func _on_SelectNodeButton_pressed():
 	StoredData.set_status("SELECT")
-	
-
-func on_code_finished_popup(_msg: String) -> void:
-	InputRecorder.send_requests_with_records()
-	finished_popup.show()
-## Node related functions ##
 
 ## Hint related methods ##
 func set_hint_text(new_text: String) -> void:
@@ -55,18 +50,16 @@ func set_hint_text(new_text: String) -> void:
 		hint_label.bbcode_text = new_text
 ## Hint related methods ##
 
-## BFS Finished Popup signals ##
+## Finished Popup related methods ##
+func show_code_finished_popup(_msg: String) -> void:
+	InputRecorder.send_requests_with_records()
+	finished_popup.show()
 
+# Called from finished code popup, when finishing an algorithm
 func reset_game():
 	StoredData.reset_data()
 	self.reset_data()
 	get_tree().reload_current_scene()
-
-func _on_ResetButton_pressed() -> void:
-	reset_game()
-
-func _on_MenuButton_pressed() -> void:
-	pass # TODO: Add Menu for different algorithms
 
 ## BFS Finished Popup signals ##
 

@@ -59,11 +59,6 @@ public class AlgorithmSelectionMenu : Node2D
         BackButton.Connect("pressed", this, nameof(OnBackButtonPressed));
         
         CurrentScene = this;
-        ComputePlayerHasFinishedBFSAndDFS();
-        if (playerHasFinishedBFSAndDFS)
-        {
-            SetProcess(false);
-        }
     }
 
     public override void _Process(float delta)
@@ -74,7 +69,7 @@ public class AlgorithmSelectionMenu : Node2D
         {
             PrimButton.Disabled = false;
             KruskalButton.Disabled = false;
-            SetProcess(false);
+            CallDeferred("SetProcess" , false);
         }
     }
 
