@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Code/debug_block.gd" type="Script" id=1]
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Bold.ttf" type="DynamicFontData" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/7_if_u_is_not_explored.gd" type="Script" id=20]
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/11_end_for.gd" type="Script" id=21]
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/9_s_add_u.gd" type="Script" id=22]
+[ext_resource path="res://AlgorithmScenes/Screen/AddNodePopup.tscn" type="PackedScene" id=23]
 [ext_resource path="res://AlgorithmScenes/Code/ADTs/stack_adt.gd" type="Script" id=24]
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/5_v_s_top.gd" type="Script" id=25]
 [ext_resource path="res://AlgorithmScenes/Code/code_block.gd" type="Script" id=26]
@@ -94,471 +95,12 @@ level_name = "DFS"
 graph_density = 0.169
 graph_size = 4
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ADTMediator" parent="CanvasLayer" instance=ExtResource( 34 )]
-
-[node name="CodeBlock" type="ScrollContainer" parent="CanvasLayer"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -409.0
-margin_top = 11.0
-margin_right = -9.0
-margin_bottom = 484.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_styles/bg = SubResource( 1 )
-scroll_horizontal_enabled = false
-script = ExtResource( 26 )
-__meta__ = {
-"_editor_description_": ""
-}
-
-[node name="LinesContainer" type="VBoxContainer" parent="CanvasLayer/CodeBlock"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 396.0
-margin_bottom = 466.0
-size_flags_horizontal = 3
-size_flags_vertical = 0
-custom_constants/separation = 0
-
-[node name="PanelContainer0" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 31 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 392.0
-margin_bottom = 33.0
-custom_styles/panel = ExtResource( 11 )
-focused = true
-code_text = "DFS(starting_node=0):"
-effect_check = ExtResource( 18 )
-hint_text = "Press [b]ENTER[/b]"
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0" index="0"]
-margin_right = 392.0
-
-[node name="PanelContainer1" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 31 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 33.0
-margin_right = 392.0
-margin_bottom = 66.0
-size_flags_horizontal = 1
-line_index = 1
-code_text = "    t = starting_node;"
-effect_check = ExtResource( 8 )
-hint_text = "[b]LEFT CLICK[/b] Node 0 and then [b]ENTER[/b]"
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1" index="0"]
-margin_right = 392.0
-
-[node name="PanelContainer2" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 31 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 66.0
-margin_right = 392.0
-margin_bottom = 99.0
-size_flags_horizontal = 1
-line_index = 2
-code_text = "    s = Stack();"
-effect_check = ExtResource( 9 )
-hint_text = "Go to Data Structures, click the Slot \"Stack\", bring it to Variables and then press [b]ENTER[/b]"
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2" index="0"]
-margin_right = 392.0
-
-[node name="PanelContainer3" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 31 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 99.0
-margin_right = 392.0
-margin_bottom = 132.0
-size_flags_horizontal = 1
-line_index = 3
-code_text = "    s.add(t);"
-effect_check = ExtResource( 10 )
-hint_text = "[b]RIGHT CLICK[/b] on Node [color=#00FF00] t [/color], then add it to the Queue [color=#00FF00] q [/color]"
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3" index="0"]
-margin_right = 392.0
-
-[node name="PanelContainer4" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 31 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 132.0
-margin_right = 392.0
-margin_bottom = 165.0
-size_flags_horizontal = 1
-line_index = 4
-jump_index = 13
-code_text = "    while s.is_not_empty():"
-effect_check = ExtResource( 16 )
-hint_text = "Answer if the queue is empty"
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4" index="0"]
-margin_right = 392.0
-
-[node name="PanelContainer5" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 31 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 165.0
-margin_right = 392.0
-margin_bottom = 198.0
-size_flags_horizontal = 1
-line_index = 5
-code_text = "        v = s.top(); s.pop();"
-effect_check = ExtResource( 25 )
-hint_text = "See the variables after you press [b]ENTER[/b]!"
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5" index="0"]
-margin_right = 392.0
-
-[node name="PanelContainer6" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 31 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 198.0
-margin_right = 392.0
-margin_bottom = 231.0
-size_flags_horizontal = 1
-line_index = 6
-jump_index = 11
-code_text = "        for (Edge u in v.edges()):"
-effect_check = ExtResource( 12 )
-hint_text = "Check the U variable after you press [b]ENTER[/b]!"
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6" index="0"]
-margin_right = 392.0
-
-[node name="PanelContainer7" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 31 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 231.0
-margin_right = 392.0
-margin_bottom = 264.0
-size_flags_horizontal = 1
-line_index = 7
-jump_index = 10
-code_text = "            if u.is_not_explored():"
-effect_check = ExtResource( 20 )
-hint_text = "Answer: is the [color=#00FF00] u [/color] node explored?"
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7" index="0"]
-margin_right = 392.0
-
-[node name="PanelContainer8" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 31 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 264.0
-margin_right = 392.0
-margin_bottom = 297.0
-size_flags_horizontal = 1
-line_index = 8
-jump_index = 8
-code_text = "                u.mark_as_explored();"
-effect_check = ExtResource( 19 )
-hint_text = "Select the [color=#00FF00] u [/color] node with a left click"
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8" index="0"]
-margin_right = 392.0
-
-[node name="PanelContainer9" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 31 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 297.0
-margin_right = 392.0
-margin_bottom = 330.0
-size_flags_horizontal = 1
-line_index = 9
-jump_index = 9
-code_text = "                s.add(u)"
-effect_check = ExtResource( 22 )
-hint_text = "Add the Node [color=#00FF00] u [/color] to the queue by right clicking on it"
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer9" index="0"]
-margin_right = 392.0
-
-[node name="PanelContainer11" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 31 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 330.0
-margin_right = 392.0
-margin_bottom = 363.0
-size_flags_horizontal = 1
-line_index = 10
-jump_index = 6
-code_text = "        end for;"
-effect_check = ExtResource( 21 )
-hint_text = "Press [b]ENTER[/b]"
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer11" index="0"]
-margin_right = 392.0
-
-[node name="PanelContainer10" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 31 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 363.0
-margin_right = 392.0
-margin_bottom = 396.0
-size_flags_horizontal = 1
-line_index = 11
-code_text = "        v.mark_as_iterated();"
-effect_check = ExtResource( 6 )
-hint_text = "Press [b]ENTER[/b]"
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10" index="0"]
-margin_right = 392.0
-
-[node name="PanelContainer12" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 31 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 396.0
-margin_right = 392.0
-margin_bottom = 429.0
-size_flags_horizontal = 1
-line_index = 12
-jump_index = 4
-code_text = "    end while;"
-effect_check = ExtResource( 7 )
-hint_text = "Press [b]ENTER[/b]"
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer12" index="0"]
-margin_right = 392.0
-
-[node name="PanelContainer13" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 31 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 429.0
-margin_right = 392.0
-margin_bottom = 462.0
-size_flags_horizontal = 1
-line_index = 13
-jump_index = 4
-code_text = "end DFS;"
-effect_check = ExtResource( 13 )
-hint_text = "Press [b]ENTER[/b]"
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13" index="0"]
-margin_right = 392.0
-
-[node name="LeftPanel" type="VBoxContainer" parent="CanvasLayer"]
-anchor_bottom = 1.0
-margin_left = 1.0
-margin_top = -1.0
-margin_right = 206.0
-margin_bottom = -1.0
-rect_clip_content = true
-mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ModeSelector" type="MarginContainer" parent="CanvasLayer/LeftPanel"]
-visible = false
-margin_right = 234.0
-margin_bottom = 90.0
-mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/LeftPanel/ModeSelector"]
-margin_right = 234.0
-margin_bottom = 90.0
-custom_styles/panel = SubResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="OneToggleButtonVBoxContainer" type="VBoxContainer" parent="CanvasLayer/LeftPanel/ModeSelector/PanelContainer"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 224.0
-margin_bottom = 80.0
-theme = SubResource( 4 )
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-available_modes = [ "SelectNode", "AllowGraphMovement" ]
-
-[node name="SelectNodeButton" type="Button" parent="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer"]
-margin_right = 214.0
-margin_bottom = 33.0
-toggle_mode = true
-pressed = true
-text = "Select Mode"
-
-[node name="AllowGraphMovementButton" type="Button" parent="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer"]
-margin_top = 37.0
-margin_right = 214.0
-margin_bottom = 70.0
-theme = ExtResource( 5 )
-disabled = true
-toggle_mode = true
-text = " Move Nodes Mode"
-
-[node name="DebugBlock" type="ScrollContainer" parent="CanvasLayer/LeftPanel"]
-margin_right = 234.0
-margin_bottom = 300.0
-rect_min_size = Vector2( 0, 300 )
-mouse_filter = 2
-custom_styles/bg = SubResource( 1 )
-scroll_horizontal_enabled = false
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false,
-"_editor_description_": ""
-}
-
-[node name="LinesContainer" type="VBoxContainer" parent="CanvasLayer/LeftPanel/DebugBlock"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 230.0
-margin_bottom = 61.0
-mouse_filter = 2
-size_flags_horizontal = 3
-
-[node name="DebuggerTitle" type="Label" parent="CanvasLayer/LeftPanel/DebugBlock/LinesContainer"]
-margin_right = 226.0
-margin_bottom = 57.0
-size_flags_horizontal = 3
-size_flags_vertical = 7
-custom_fonts/font = SubResource( 5 )
-text = "Variables
-"
-align = 1
-valign = 1
-clip_text = true
-
-[node name="Area2D" type="Area2D" parent="CanvasLayer/LeftPanel/DebugBlock"]
-position = Vector2( 41.2171, -0.0319672 )
-z_index = 15
-z_as_relative = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/LeftPanel/DebugBlock/Area2D"]
-position = Vector2( 61.0628, 146.87 )
-z_index = 5
-z_as_relative = false
-shape = SubResource( 6 )
-
-[node name="ADTShower" parent="CanvasLayer/LeftPanel" instance=ExtResource( 30 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 304.0
-margin_right = 234.0
-margin_bottom = 538.0
-
-[node name="ADTSelectionPanel" type="MarginContainer" parent="CanvasLayer/LeftPanel"]
-margin_top = 542.0
-margin_right = 234.0
-margin_bottom = 842.0
-rect_min_size = Vector2( 170, 300 )
-mouse_filter = 2
-custom_constants/margin_bottom = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/LeftPanel/ADTSelectionPanel"]
-margin_right = 234.0
-margin_bottom = 300.0
-mouse_filter = 2
-custom_styles/panel = SubResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/LeftPanel/ADTSelectionPanel"]
-margin_right = 234.0
-margin_bottom = 300.0
-mouse_filter = 2
-
-[node name="DebuggerTitle" type="Label" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer"]
-margin_right = 234.0
-margin_bottom = 27.0
-size_flags_horizontal = 3
-size_flags_vertical = 5
-custom_fonts/font = SubResource( 5 )
-text = "Data Structures"
-align = 1
-
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer"]
-margin_top = 31.0
-margin_right = 234.0
-margin_bottom = 171.0
-rect_min_size = Vector2( 40, 40 )
-mouse_filter = 2
-custom_constants/vseparation = 100
-custom_constants/hseparation = 60
-columns = 2
-
-[node name="Slot" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 28 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 40.0
-hover_text = "Queue"
-slot_texture = ExtResource( 33 )
-generated_adt = ExtResource( 17 )
-on_hover_animation = ExtResource( 29 )
-
-[node name="Slot2" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 28 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 100.0
-margin_right = 140.0
-grow_horizontal = 1
-grow_vertical = 1
-hover_text = "Stack"
-slot_texture = ExtResource( 32 )
-generated_adt = ExtResource( 24 )
-on_hover_animation = ExtResource( 27 )
-
-[node name="BelowADTName" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot2/SlotTexture" index="2"]
-text = "Stack"
-
-[node name="Slot3" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 28 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 100.0
-margin_right = 40.0
-margin_bottom = 140.0
-grow_horizontal = 1
-grow_vertical = 1
-rect_min_size = Vector2( 40, 40 )
-hover_text = "Array"
-
-[node name="Slot4" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 28 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 100.0
-margin_top = 100.0
-margin_right = 140.0
-margin_bottom = 140.0
-grow_horizontal = 1
-grow_vertical = 1
-rect_min_size = Vector2( 40, 40 )
-hover_text = "Set"
-
-[node name="TextHintContainer" type="CenterContainer" parent="CanvasLayer"]
-anchor_left = 0.230514
-anchor_top = 0.0113021
-anchor_right = 0.585723
-anchor_bottom = 0.150191
-rect_min_size = Vector2( 400, 150 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="HintLabel" parent="CanvasLayer/TextHintContainer" instance=ExtResource( 35 )]
-
 [node name="PopUpForObjectCreation" parent="." instance=ExtResource( 38 )]
 visible = false
 
+[node name="AddNodePopup" parent="." instance=ExtResource( 23 )]
+
 [node name="ADTIsNotEmptyPopup" parent="." instance=ExtResource( 37 )]
-visible = false
 
 [node name="Explanation" parent="ADTIsNotEmptyPopup" index="1"]
 text = "Is the Stack S empty?"
@@ -580,25 +122,595 @@ margin_top = 233.0
 margin_right = 1036.0
 margin_bottom = 392.0
 
-[connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/SelectNodeButton" to="." method="_on_SelectNodeButton_pressed"]
-[connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/AllowGraphMovementButton" to="." method="_on_AllowGraphMovementButton_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_exited"]
+[node name="ADTMediator" parent="." instance=ExtResource( 34 )]
 
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer9"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer11"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer12"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13"]
-[editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot2"]
+[node name="CodeBlock" type="ScrollContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 1511.0
+margin_top = 11.0
+margin_right = 1911.0
+margin_bottom = 484.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/bg = SubResource( 1 )
+scroll_horizontal_enabled = false
+script = ExtResource( 26 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="LinesContainer" type="VBoxContainer" parent="CodeBlock"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 396.0
+margin_bottom = 466.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_constants/separation = 0
+
+[node name="PanelContainer0" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 392.0
+margin_bottom = 33.0
+custom_styles/panel = ExtResource( 11 )
+focused = true
+code_text = "DFS(starting_node=0):"
+effect_check = ExtResource( 18 )
+hint_text = "Press [b]ENTER[/b]"
+
+[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer0" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer0/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer0/MarginContainer/HBoxContainer" index="2"]
+margin_right = 213.0
+text = "DFS(starting_node=0):"
+
+[node name="PanelContainer1" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 33.0
+margin_right = 392.0
+margin_bottom = 66.0
+size_flags_horizontal = 1
+line_index = 1
+code_text = "    t = starting_node;"
+effect_check = ExtResource( 8 )
+hint_text = "[b]LEFT CLICK[/b] Node 0 and then [b]ENTER[/b]"
+
+[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer1" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer1/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer1/MarginContainer/HBoxContainer" index="2"]
+margin_right = 193.0
+text = "    t = starting_node;"
+
+[node name="PanelContainer2" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 66.0
+margin_right = 392.0
+margin_bottom = 99.0
+size_flags_horizontal = 1
+line_index = 2
+code_text = "    s = Stack();"
+effect_check = ExtResource( 9 )
+hint_text = "Go to Data Structures, click the Slot \"Stack\", bring it to Variables and then press [b]ENTER[/b]"
+
+[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer2" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer2/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer2/MarginContainer/HBoxContainer" index="2"]
+margin_right = 136.0
+text = "    s = Stack();"
+
+[node name="PanelContainer3" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 99.0
+margin_right = 392.0
+margin_bottom = 132.0
+size_flags_horizontal = 1
+line_index = 3
+code_text = "    s.add(t);"
+effect_check = ExtResource( 10 )
+hint_text = "[b]RIGHT CLICK[/b] on Node [color=#00FF00] t [/color], then add it to the Queue [color=#00FF00] q [/color]"
+
+[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer3" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer3/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer3/MarginContainer/HBoxContainer" index="2"]
+margin_right = 112.0
+text = "    s.add(t);"
+
+[node name="PanelContainer4" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 132.0
+margin_right = 392.0
+margin_bottom = 165.0
+size_flags_horizontal = 1
+line_index = 4
+jump_index = 13
+code_text = "    while s.is_not_empty():"
+effect_check = ExtResource( 16 )
+hint_text = "Answer if the queue is empty"
+
+[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer4" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer4/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer4/MarginContainer/HBoxContainer" index="2"]
+margin_right = 236.0
+text = "    while s.is_not_empty():"
+
+[node name="PanelContainer5" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 165.0
+margin_right = 392.0
+margin_bottom = 198.0
+size_flags_horizontal = 1
+line_index = 5
+code_text = "        v = s.top(); s.pop();"
+effect_check = ExtResource( 25 )
+hint_text = "See the variables after you press [b]ENTER[/b]!"
+
+[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer5" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer5/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer5/MarginContainer/HBoxContainer" index="2"]
+margin_right = 219.0
+text = "        v = s.top(); s.pop();"
+
+[node name="PanelContainer6" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 198.0
+margin_right = 392.0
+margin_bottom = 231.0
+size_flags_horizontal = 1
+line_index = 6
+jump_index = 11
+code_text = "        for (Edge u in v.edges()):"
+effect_check = ExtResource( 12 )
+hint_text = "Check the U variable after you press [b]ENTER[/b]!"
+
+[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer6" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer6/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer6/MarginContainer/HBoxContainer" index="2"]
+margin_right = 271.0
+text = "        for (Edge u in v.edges()):"
+
+[node name="PanelContainer7" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 231.0
+margin_right = 392.0
+margin_bottom = 264.0
+size_flags_horizontal = 1
+line_index = 7
+jump_index = 10
+code_text = "            if u.is_not_explored():"
+effect_check = ExtResource( 20 )
+hint_text = "Answer: is the [color=#00FF00] u [/color] node explored?"
+
+[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer7" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer7/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer7/MarginContainer/HBoxContainer" index="2"]
+margin_right = 266.0
+text = "            if u.is_not_explored():"
+
+[node name="PanelContainer8" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 264.0
+margin_right = 392.0
+margin_bottom = 297.0
+size_flags_horizontal = 1
+line_index = 8
+jump_index = 8
+code_text = "                u.mark_as_explored();"
+effect_check = ExtResource( 19 )
+hint_text = "Select the [color=#00FF00] u [/color] node with a left click"
+
+[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer8" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer8/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer8/MarginContainer/HBoxContainer" index="2"]
+margin_right = 289.0
+text = "                u.mark_as_explored();"
+
+[node name="PanelContainer9" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 297.0
+margin_right = 392.0
+margin_bottom = 330.0
+size_flags_horizontal = 1
+line_index = 9
+jump_index = 9
+code_text = "                s.add(u)"
+effect_check = ExtResource( 22 )
+hint_text = "Add the Node [color=#00FF00] u [/color] to the queue by right clicking on it"
+
+[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer9" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer9/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer9/MarginContainer/HBoxContainer" index="2"]
+margin_right = 171.0
+text = "                s.add(u)"
+
+[node name="PanelContainer11" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 330.0
+margin_right = 392.0
+margin_bottom = 363.0
+size_flags_horizontal = 1
+line_index = 10
+jump_index = 6
+code_text = "        end for;"
+effect_check = ExtResource( 21 )
+hint_text = "Press [b]ENTER[/b]"
+
+[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer11" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer11/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer11/MarginContainer/HBoxContainer" index="2"]
+margin_right = 130.0
+text = "        end for;"
+
+[node name="PanelContainer10" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 363.0
+margin_right = 392.0
+margin_bottom = 396.0
+size_flags_horizontal = 1
+line_index = 11
+code_text = "        v.mark_as_iterated();"
+effect_check = ExtResource( 6 )
+hint_text = "Press [b]ENTER[/b]"
+
+[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer10" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer10/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer10/MarginContainer/HBoxContainer" index="2"]
+margin_right = 239.0
+text = "        v.mark_as_iterated();"
+
+[node name="PanelContainer12" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 396.0
+margin_right = 392.0
+margin_bottom = 429.0
+size_flags_horizontal = 1
+line_index = 12
+jump_index = 4
+code_text = "    end while;"
+effect_check = ExtResource( 7 )
+hint_text = "Press [b]ENTER[/b]"
+
+[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer12" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer12/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer12/MarginContainer/HBoxContainer" index="2"]
+margin_right = 133.0
+text = "    end while;"
+
+[node name="PanelContainer13" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 429.0
+margin_right = 392.0
+margin_bottom = 462.0
+size_flags_horizontal = 1
+line_index = 13
+jump_index = 4
+code_text = "end DFS;"
+effect_check = ExtResource( 13 )
+hint_text = "Press [b]ENTER[/b]"
+
+[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer13" index="0"]
+margin_right = 392.0
+margin_bottom = 33.0
+
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer13/MarginContainer" index="0"]
+margin_right = 392.0
+
+[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer13/MarginContainer/HBoxContainer" index="2"]
+margin_right = 100.0
+text = "end DFS;"
+
+[node name="LeftPanel" type="VBoxContainer" parent="."]
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = -1.0
+margin_right = 235.0
+margin_bottom = 841.0
+rect_clip_content = true
+mouse_filter = 2
+
+[node name="ModeSelector" type="MarginContainer" parent="LeftPanel"]
+visible = false
+margin_right = 234.0
+margin_bottom = 90.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="LeftPanel/ModeSelector"]
+margin_right = 234.0
+margin_bottom = 90.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OneToggleButtonVBoxContainer" type="VBoxContainer" parent="LeftPanel/ModeSelector/PanelContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 224.0
+margin_bottom = 80.0
+theme = SubResource( 4 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+available_modes = [ "SelectNode", "AllowGraphMovement" ]
+
+[node name="SelectNodeButton" type="Button" parent="LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer"]
+margin_right = 214.0
+margin_bottom = 33.0
+toggle_mode = true
+pressed = true
+text = "Select Mode"
+
+[node name="AllowGraphMovementButton" type="Button" parent="LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer"]
+margin_top = 37.0
+margin_right = 214.0
+margin_bottom = 70.0
+theme = ExtResource( 5 )
+disabled = true
+toggle_mode = true
+text = " Move Nodes Mode"
+
+[node name="DebugBlock" type="ScrollContainer" parent="LeftPanel"]
+margin_right = 234.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 0, 300 )
+mouse_filter = 2
+custom_styles/bg = SubResource( 1 )
+scroll_horizontal_enabled = false
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="LinesContainer" type="VBoxContainer" parent="LeftPanel/DebugBlock"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 230.0
+margin_bottom = 61.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="DebuggerTitle" type="Label" parent="LeftPanel/DebugBlock/LinesContainer"]
+margin_right = 226.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 5 )
+text = "Variables
+"
+align = 1
+valign = 1
+clip_text = true
+
+[node name="Area2D" type="Area2D" parent="LeftPanel/DebugBlock"]
+position = Vector2( 41.2171, -0.0319672 )
+z_index = 15
+z_as_relative = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftPanel/DebugBlock/Area2D"]
+position = Vector2( 61.0628, 146.87 )
+z_index = 5
+z_as_relative = false
+shape = SubResource( 6 )
+
+[node name="ADTShower" parent="LeftPanel" instance=ExtResource( 30 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 304.0
+margin_right = 234.0
+margin_bottom = 538.0
+
+[node name="ADTSelectionPanel" type="MarginContainer" parent="LeftPanel"]
+margin_top = 542.0
+margin_right = 234.0
+margin_bottom = 842.0
+rect_min_size = Vector2( 170, 300 )
+mouse_filter = 2
+custom_constants/margin_bottom = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="LeftPanel/ADTSelectionPanel"]
+margin_right = 234.0
+margin_bottom = 300.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LeftPanel/ADTSelectionPanel"]
+margin_right = 234.0
+margin_bottom = 300.0
+mouse_filter = 2
+
+[node name="DebuggerTitle" type="Label" parent="LeftPanel/ADTSelectionPanel/VBoxContainer"]
+margin_right = 234.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+custom_fonts/font = SubResource( 5 )
+text = "Data Structures"
+align = 1
+
+[node name="GridContainer" type="GridContainer" parent="LeftPanel/ADTSelectionPanel/VBoxContainer"]
+margin_top = 31.0
+margin_right = 234.0
+margin_bottom = 171.0
+rect_min_size = Vector2( 40, 40 )
+mouse_filter = 2
+custom_constants/vseparation = 100
+custom_constants/hseparation = 60
+columns = 2
+
+[node name="Slot" parent="LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 28 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+hover_text = "Queue"
+slot_texture = ExtResource( 33 )
+generated_adt = ExtResource( 17 )
+on_hover_animation = ExtResource( 29 )
+
+[node name="Slot2" parent="LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 28 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 100.0
+margin_right = 140.0
+grow_horizontal = 1
+grow_vertical = 1
+hover_text = "Stack"
+slot_texture = ExtResource( 32 )
+generated_adt = ExtResource( 24 )
+on_hover_animation = ExtResource( 27 )
+
+[node name="BelowADTName" parent="LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot2/SlotTexture" index="2"]
+text = "Stack"
+
+[node name="Slot3" parent="LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 28 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 100.0
+margin_right = 40.0
+margin_bottom = 140.0
+grow_horizontal = 1
+grow_vertical = 1
+rect_min_size = Vector2( 40, 40 )
+hover_text = "Array"
+
+[node name="Slot4" parent="LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 28 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 100.0
+margin_top = 100.0
+margin_right = 140.0
+margin_bottom = 140.0
+grow_horizontal = 1
+grow_vertical = 1
+rect_min_size = Vector2( 40, 40 )
+hover_text = "Set"
+
+[node name="TextHintContainer" type="CenterContainer" parent="."]
+anchor_left = 0.230514
+anchor_top = 0.0113021
+anchor_right = 0.585723
+anchor_bottom = 0.150191
+margin_left = 442.587
+margin_top = 12.2063
+margin_right = 842.587
+margin_bottom = 162.206
+rect_min_size = Vector2( 400, 150 )
+
+[node name="HintLabel" parent="TextHintContainer" instance=ExtResource( 35 )]
+margin_left = 0.0
+margin_right = 400.0
+
+[connection signal="pressed" from="LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/SelectNodeButton" to="." method="_on_SelectNodeButton_pressed"]
+[connection signal="pressed" from="LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/AllowGraphMovementButton" to="." method="_on_AllowGraphMovementButton_pressed"]
+[connection signal="mouse_entered" from="LeftPanel/DebugBlock/Area2D" to="LeftPanel/DebugBlock" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="LeftPanel/DebugBlock/Area2D" to="LeftPanel/DebugBlock" method="_on_Area2D_mouse_exited"]
+
 [editable path="ADTIsNotEmptyPopup"]
 [editable path="FinishedPopup"]
+[editable path="CodeBlock/LinesContainer/PanelContainer0"]
+[editable path="CodeBlock/LinesContainer/PanelContainer1"]
+[editable path="CodeBlock/LinesContainer/PanelContainer2"]
+[editable path="CodeBlock/LinesContainer/PanelContainer3"]
+[editable path="CodeBlock/LinesContainer/PanelContainer4"]
+[editable path="CodeBlock/LinesContainer/PanelContainer5"]
+[editable path="CodeBlock/LinesContainer/PanelContainer6"]
+[editable path="CodeBlock/LinesContainer/PanelContainer7"]
+[editable path="CodeBlock/LinesContainer/PanelContainer8"]
+[editable path="CodeBlock/LinesContainer/PanelContainer9"]
+[editable path="CodeBlock/LinesContainer/PanelContainer11"]
+[editable path="CodeBlock/LinesContainer/PanelContainer10"]
+[editable path="CodeBlock/LinesContainer/PanelContainer12"]
+[editable path="CodeBlock/LinesContainer/PanelContainer13"]
+[editable path="LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot2"]

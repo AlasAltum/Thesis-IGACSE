@@ -37,6 +37,8 @@ const status_map = {
 }
 var selectable_nodes = []
 var selected_edges = []
+var iterated_nodes = []
+
 ## Code continue conditions
 var u_is_explored_right_answer : bool = false
 var adt_is_empty_right_answer : bool = false
@@ -69,16 +71,6 @@ func get_selected_nodes() -> Array:
 
 	return selected_nodes
 
-#func make_following_texture_opaque():
-#	if self.dragging_adt:
-#		dragged_adt.modulate = Color(1.0, 1.0, 1.0, 1.0)
-#		adt_hovering = true
-#
-#func make_following_texture_transparent():
-#	if self.dragging_adt:
-#		dragged_adt.modulate = Color(1.0, 1.0, 1.0, 0.3)
-#		adt_hovering = false
-
 
 func emphasize_current_selected_variable():
 	if adt_mediator:
@@ -88,16 +80,6 @@ func emphasize_current_selected_variable():
 func emphasize_error_on_current_selected_variable():
 	if adt_mediator:
 		adt_mediator.emphasize_error_on_current_selected_variable()
-
-
-# TODO: ERASE THIS
-# ask for variable name to add it to the heap
-#func _on_adt_drop_on_heap():
-#	assign_name_popup = get_tree().get_root().get_node("Main/PopUpForObjectCreation")
-#	assign_name_popup.show()
-#	# We still need it for variable creation, so we just make it invisible
-#	self.dragged_adt.visible = false
-#	self.dragging_adt = false
 
 
 # Create a new variable, considering it in the
@@ -159,6 +141,7 @@ func reset_data():
 	self.world_node = null
 	self.selectable_nodes = []
 	self.selected_edges = []
+	self.iterated_nodes = []
 
 	self.u_is_explored_right_answer = false
 	self.adt_is_empty_right_answer = false

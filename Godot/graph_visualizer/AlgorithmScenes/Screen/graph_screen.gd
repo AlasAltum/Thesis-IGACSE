@@ -19,8 +19,8 @@ export (bool) var is_weighted_graph = false
 export (bool) var allow_selected_edges = false
 
 ## Hint Label ##
-onready var hint_label: RichTextLabel = $CanvasLayer/TextHintContainer/HintLabel
-onready var adt_mediator = $CanvasLayer/ADTMediator
+onready var hint_label: RichTextLabel = $TextHintContainer/HintLabel
+onready var adt_mediator = $ADTMediator
 
 
 func _ready():

@@ -85,6 +85,9 @@ func get_edges() -> Array:
 
 func mark_as_iterated():
 	self.modulate = ITERATED_COLOR
+	self.select_node()
+	if not self in StoredData.iterated_nodes: 
+		StoredData.iterated_nodes.append(self)
 
 ## Right click menu related methods ##
 func as_string() -> String:

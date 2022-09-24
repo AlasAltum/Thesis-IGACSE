@@ -41,7 +41,6 @@ func get_variable(var_name: String) -> ADT:
 	return null
 
 func add_or_update_variable(var_name: String, _data: ADT) -> void:
-	# TODO: Consider what to do with selected index
 	if not has_variable(var_name):
 		var new_row: ADTVector = ADTVector.new(_data, self.data.size(), var_name)
 		self.data.append(new_row)
@@ -95,7 +94,6 @@ func take_top_from_adt(object_name: String):
 func _on_correct_variable_creation(variable_name: String):
 	var generated_object: ADT = StoredData.adt_to_be_created
 	add_or_update_variable(variable_name, generated_object)
-	# TODO: This was using GDScript	self.add_variable(variable_name, generated_object)
 	StoredData.adt_to_be_created = null
 
 # Make sure the changes are also reflected in StoredData
@@ -136,8 +134,9 @@ const EMPHASIZE_TIME: float = 1.0;
 func emphasize_current_selected_variable() -> void:
 	if debug_block:
 		# TODO: Replace modified label by a stack for short period requests
+		# when there are many movements in short periods of time
 		debug_block.emphasize_current_selected_variable()
-		
+
 
 # if object does not allow object adition, trigger this function
 func emphasize_error_on_current_selected_variable() -> void:

@@ -26,7 +26,6 @@ static func get_type() -> String:
 
 
 func _data_as_string():
-	# TODO: Data is having null elements.
 	if data.size() > 0:
 		var ret = ""
 		for index in range(data.size() - 1):

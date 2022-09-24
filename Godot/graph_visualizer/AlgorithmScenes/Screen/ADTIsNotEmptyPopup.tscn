@@ -3,7 +3,7 @@
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/adt_is_not_empty_popup.gd" type="Script" id=1]
 
 [sub_resource type="Animation" id=1]
-length = 3.0
+length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 2
@@ -11,7 +11,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 3 ),
+"times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -23,13 +23,14 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.2, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false, true, false ]
 }
 
 [node name="ADTIsNotEmptyPopup" type="WindowDialog"]
+visible = true
 margin_left = 524.122
 margin_top = 233.47
 margin_right = 1036.12
@@ -57,6 +58,7 @@ __meta__ = {
 
 [node name="ErrorNotification" type="Label" parent="."]
 visible = false
+self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 2.05951
 margin_top = 112.692
 margin_right = 503.06
@@ -69,9 +71,6 @@ custom_constants/shadow_as_outline = 2
 text = "Error: Wrong answer"
 align = 1
 autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ErrorNotification"]
 anims/message_modulation = SubResource( 1 )

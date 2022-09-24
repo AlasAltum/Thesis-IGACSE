@@ -16,8 +16,8 @@ export (String) var hint_text = "Press Enter";
 #var effect_check2 : EffectCheck
 var on_focus_effect_triggered : bool = false
 
-onready var code_label = $MarginContainer/HBoxContainer/CodeText
-onready var instruction_pointer : Sprite = $MarginContainer/HBoxContainer/InstructionPointer
+onready var code_label = $HBoxContainer/CodeText
+onready var instruction_pointer : Sprite = $HBoxContainer/InstructionPointer
 
 const NOT_SELECTED_COLOR: Color = Color(0.24, 0.24, 0.24, 1.0);
 const SELECTED_COLOR: Color = Color(0.6, 0.6, 0.24, 1.0);

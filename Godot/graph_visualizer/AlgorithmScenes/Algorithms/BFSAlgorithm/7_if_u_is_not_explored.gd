@@ -1,6 +1,5 @@
 extends EffectCheck
 # If u.is_not_explored()
-# TODO: Fix bug that lets you select a node and pass it without adding it to the queue
 
 # Ask the user whether answer is true or false
 func check_actions_correct() -> bool:
@@ -15,13 +14,13 @@ func ask_user() -> void:
 	# Show a popup that asks the user whether u is explored or not
 	# condition is true if not explored, 
 	var u = StoredData.get_variable("u").get_node()
-	var explored = not if_condition_is_true(u);
-	NotificationManager.ask_user_if_graph_node_is_explored(u, explored)
+	var u_is_explored = not if_condition_is_true(u);
+	NotificationManager.ask_user_if_graph_node_is_explored(u, u_is_explored)
 	# This sets the StoredData.u_is_explored_right_answer variable
 	
 # If u.is_not_explored()
 func if_condition_is_true(u) -> bool:
-	if (u in StoredData.get_selected_nodes()):
+	if (u in StoredData.iterated_nodes):
 		return false
 
 	return true
