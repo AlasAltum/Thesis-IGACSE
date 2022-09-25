@@ -160,16 +160,8 @@ code_text = "DFS(starting_node=0):"
 effect_check = ExtResource( 18 )
 hint_text = "Press [b]ENTER[/b]"
 
-[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer0" index="0"]
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer0" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer0/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer0/MarginContainer/HBoxContainer" index="2"]
-margin_right = 213.0
-text = "DFS(starting_node=0):"
 
 [node name="PanelContainer1" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
 anchor_right = 0.0
@@ -183,16 +175,8 @@ code_text = "    t = starting_node;"
 effect_check = ExtResource( 8 )
 hint_text = "[b]LEFT CLICK[/b] Node 0 and then [b]ENTER[/b]"
 
-[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer1" index="0"]
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer1" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer1/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer1/MarginContainer/HBoxContainer" index="2"]
-margin_right = 193.0
-text = "    t = starting_node;"
 
 [node name="PanelContainer2" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
 anchor_right = 0.0
@@ -206,16 +190,8 @@ code_text = "    s = Stack();"
 effect_check = ExtResource( 9 )
 hint_text = "Go to Data Structures, click the Slot \"Stack\", bring it to Variables and then press [b]ENTER[/b]"
 
-[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer2" index="0"]
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer2" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer2/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer2/MarginContainer/HBoxContainer" index="2"]
-margin_right = 136.0
-text = "    s = Stack();"
 
 [node name="PanelContainer3" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
 anchor_right = 0.0
@@ -229,16 +205,8 @@ code_text = "    s.add(t);"
 effect_check = ExtResource( 10 )
 hint_text = "[b]RIGHT CLICK[/b] on Node [color=#00FF00] t [/color], then add it to the Queue [color=#00FF00] q [/color]"
 
-[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer3" index="0"]
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer3" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer3/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer3/MarginContainer/HBoxContainer" index="2"]
-margin_right = 112.0
-text = "    s.add(t);"
 
 [node name="PanelContainer4" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
 anchor_right = 0.0
@@ -253,16 +221,8 @@ code_text = "    while s.is_not_empty():"
 effect_check = ExtResource( 16 )
 hint_text = "Answer if the queue is empty"
 
-[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer4" index="0"]
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer4" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer4/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer4/MarginContainer/HBoxContainer" index="2"]
-margin_right = 236.0
-text = "    while s.is_not_empty():"
 
 [node name="PanelContainer5" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
 anchor_right = 0.0
@@ -276,16 +236,8 @@ code_text = "        v = s.top(); s.pop();"
 effect_check = ExtResource( 25 )
 hint_text = "See the variables after you press [b]ENTER[/b]!"
 
-[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer5" index="0"]
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer5" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer5/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer5/MarginContainer/HBoxContainer" index="2"]
-margin_right = 219.0
-text = "        v = s.top(); s.pop();"
 
 [node name="PanelContainer6" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
 anchor_right = 0.0
@@ -300,16 +252,8 @@ code_text = "        for (Edge u in v.edges()):"
 effect_check = ExtResource( 12 )
 hint_text = "Check the U variable after you press [b]ENTER[/b]!"
 
-[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer6" index="0"]
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer6" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer6/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer6/MarginContainer/HBoxContainer" index="2"]
-margin_right = 271.0
-text = "        for (Edge u in v.edges()):"
 
 [node name="PanelContainer7" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
 anchor_right = 0.0
@@ -324,16 +268,8 @@ code_text = "            if u.is_not_explored():"
 effect_check = ExtResource( 20 )
 hint_text = "Answer: is the [color=#00FF00] u [/color] node explored?"
 
-[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer7" index="0"]
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer7" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer7/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer7/MarginContainer/HBoxContainer" index="2"]
-margin_right = 266.0
-text = "            if u.is_not_explored():"
 
 [node name="PanelContainer8" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
 anchor_right = 0.0
@@ -348,16 +284,8 @@ code_text = "                u.mark_as_explored();"
 effect_check = ExtResource( 19 )
 hint_text = "Select the [color=#00FF00] u [/color] node with a left click"
 
-[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer8" index="0"]
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer8" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer8/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer8/MarginContainer/HBoxContainer" index="2"]
-margin_right = 289.0
-text = "                u.mark_as_explored();"
 
 [node name="PanelContainer9" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
 anchor_right = 0.0
@@ -372,16 +300,8 @@ code_text = "                s.add(u)"
 effect_check = ExtResource( 22 )
 hint_text = "Add the Node [color=#00FF00] u [/color] to the queue by right clicking on it"
 
-[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer9" index="0"]
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer9" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer9/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer9/MarginContainer/HBoxContainer" index="2"]
-margin_right = 171.0
-text = "                s.add(u)"
 
 [node name="PanelContainer11" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
 anchor_right = 0.0
@@ -396,16 +316,8 @@ code_text = "        end for;"
 effect_check = ExtResource( 21 )
 hint_text = "Press [b]ENTER[/b]"
 
-[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer11" index="0"]
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer11" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer11/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer11/MarginContainer/HBoxContainer" index="2"]
-margin_right = 130.0
-text = "        end for;"
 
 [node name="PanelContainer10" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
 anchor_right = 0.0
@@ -419,16 +331,8 @@ code_text = "        v.mark_as_iterated();"
 effect_check = ExtResource( 6 )
 hint_text = "Press [b]ENTER[/b]"
 
-[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer10" index="0"]
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer10" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer10/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer10/MarginContainer/HBoxContainer" index="2"]
-margin_right = 239.0
-text = "        v.mark_as_iterated();"
 
 [node name="PanelContainer12" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
 anchor_right = 0.0
@@ -443,16 +347,8 @@ code_text = "    end while;"
 effect_check = ExtResource( 7 )
 hint_text = "Press [b]ENTER[/b]"
 
-[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer12" index="0"]
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer12" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer12/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer12/MarginContainer/HBoxContainer" index="2"]
-margin_right = 133.0
-text = "    end while;"
 
 [node name="PanelContainer13" parent="CodeBlock/LinesContainer" instance=ExtResource( 31 )]
 anchor_right = 0.0
@@ -467,16 +363,8 @@ code_text = "end DFS;"
 effect_check = ExtResource( 13 )
 hint_text = "Press [b]ENTER[/b]"
 
-[node name="MarginContainer" parent="CodeBlock/LinesContainer/PanelContainer13" index="0"]
+[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer13" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CodeBlock/LinesContainer/PanelContainer13/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CodeBlock/LinesContainer/PanelContainer13/MarginContainer/HBoxContainer" index="2"]
-margin_right = 100.0
-text = "end DFS;"
 
 [node name="LeftPanel" type="VBoxContainer" parent="."]
 anchor_bottom = 1.0

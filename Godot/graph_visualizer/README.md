@@ -20,4 +20,6 @@ Renderer: GLES 3
 
 * Adding Multiplayer: You advance two lines of code, I do another two!
 
-*  I 
+* Adding more algorithms with the same idea and pattern. Maybe not for graphs, like array sorting, searching algorithms and others...
+
+* 
