@@ -9,10 +9,7 @@ func _init():
 func allows_object_adition() -> bool:
 	return true
 
-
 func _ready():
-	#representation: ADTRepresentation
-	#representation_path: String
 	data = []
 	return
 
@@ -28,7 +25,6 @@ func create_representation() -> ADTRepresentation:
 static func get_type() -> String:
 	return "Set"
 
-
 func _data_as_string():
 	if data.size() > 0:
 		var ret = ""
@@ -38,16 +34,16 @@ func _data_as_string():
 		return ret
 	return ""
 
-
 func as_string() -> String:
 	var format_string = "Set{{data}}"
 	return format_string.format({"data": _data_as_string()})
-
 
 func add_data(incoming_data):
 	if not incoming_data in self.data:
 		data.append(incoming_data)
 
-
 func substract_data(incoming_data):
 	data.erase(incoming_data)
+
+func size() -> int:
+	return data.size()

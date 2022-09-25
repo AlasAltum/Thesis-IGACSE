@@ -11,7 +11,7 @@
 [ext_resource path="res://AlgorithmScenes/Code/code_font.tres" type="DynamicFont" id=9]
 [ext_resource path="res://AlgorithmScenes/Code/CodeLine.tscn" type="PackedScene" id=10]
 [ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/3_mst_e.gd" type="Script" id=11]
-[ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/6_while_a_size_less_graph_vertices_size.gd" type="Script" id=12]
+[ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/6_while_mst_size_less_than_graph_vertices_size.gd" type="Script" id=12]
 [ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/5_v_graph_vertices_A.gd" type="Script" id=13]
 [ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/4_set_a_vw.gd" type="Script" id=14]
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/11_end_for.gd" type="Script" id=15]
@@ -42,16 +42,8 @@ code_text = "Prim():"
 effect_check = ExtResource( 8 )
 hint_text = "Press [b]ENTER[/b]"
 
-[node name="MarginContainer" parent="PanelContainer0" index="0"]
+[node name="HBoxContainer" parent="PanelContainer0" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="PanelContainer0/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="PanelContainer0/MarginContainer/HBoxContainer" index="2"]
-margin_right = 80.0
-text = "Prim():"
 
 [node name="PanelContainer1" parent="." instance=ExtResource( 10 )]
 anchor_right = 0.0
@@ -65,16 +57,8 @@ code_text = "   Edge e = min(graph.edge_weights)"
 effect_check = ExtResource( 6 )
 hint_text = "[color=#00FF00]LEFT CLICK[/color] on the edge with the [color=#ff00ff]lowest[/color] weight."
 
-[node name="MarginContainer" parent="PanelContainer1" index="0"]
+[node name="HBoxContainer" parent="PanelContainer1" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="PanelContainer1/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="PanelContainer1/MarginContainer/HBoxContainer" index="2"]
-margin_right = 332.0
-text = "   Edge e = min(graph.edge_weights)"
 
 [node name="PanelContainer2" parent="." instance=ExtResource( 10 )]
 anchor_right = 0.0
@@ -88,16 +72,8 @@ code_text = "   (v,w) = vertices(graph.edges)"
 effect_check = ExtResource( 2 )
 hint_text = "Go to Data Structures, click the Slot \"Stack\", bring it to Variables and then press [b]ENTER[/b]"
 
-[node name="MarginContainer" parent="PanelContainer2" index="0"]
+[node name="HBoxContainer" parent="PanelContainer2" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="PanelContainer2/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="PanelContainer2/MarginContainer/HBoxContainer" index="2"]
-margin_right = 347.0
-text = "   (v,w) = vertices(e.connecting_nodes)"
 
 [node name="PanelContainer3" parent="." instance=ExtResource( 10 )]
 anchor_right = 0.0
@@ -111,16 +87,8 @@ code_text = "   MST = [e]"
 effect_check = ExtResource( 11 )
 hint_text = "[b]RIGHT CLICK[/b] on Node [color=#00FF00] t [/color], then add it to the Queue [color=#00FF00] q [/color]"
 
-[node name="MarginContainer" parent="PanelContainer3" index="0"]
+[node name="HBoxContainer" parent="PanelContainer3" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="PanelContainer3/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="PanelContainer3/MarginContainer/HBoxContainer" index="2"]
-margin_right = 119.0
-text = "   MST = [e]"
 
 [node name="PanelContainer4" parent="." instance=ExtResource( 10 )]
 anchor_right = 0.0
@@ -134,16 +102,8 @@ code_text = "   Set A = {v, w}"
 effect_check = ExtResource( 14 )
 hint_text = "[b]RIGHT CLICK[/b] on Node [color=#00FF00] t [/color], then add it to the Queue [color=#00FF00] q [/color]"
 
-[node name="MarginContainer" parent="PanelContainer4" index="0"]
+[node name="HBoxContainer" parent="PanelContainer4" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="PanelContainer4/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="PanelContainer4/MarginContainer/HBoxContainer" index="2"]
-margin_right = 153.0
-text = "   Set A = {v, w}"
 
 [node name="PanelContainer5" parent="." instance=ExtResource( 10 )]
 anchor_right = 0.0
@@ -157,16 +117,8 @@ code_text = "   Set V = {graph.vertices} - A"
 effect_check = ExtResource( 13 )
 hint_text = "[b]RIGHT CLICK[/b] on Node [color=#00FF00] t [/color], then add it to the Queue [color=#00FF00] q [/color]"
 
-[node name="MarginContainer" parent="PanelContainer5" index="0"]
+[node name="HBoxContainer" parent="PanelContainer5" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="PanelContainer5/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="PanelContainer5/MarginContainer/HBoxContainer" index="2"]
-margin_right = 267.0
-text = "   Set V = {graph.vertices} - A"
 
 [node name="PanelContainer6" parent="." instance=ExtResource( 10 )]
 anchor_right = 0.0
@@ -181,16 +133,8 @@ code_text = "   while (MST.size() < graph.vertices.size()):"
 effect_check = ExtResource( 12 )
 hint_text = "Answer if the queue is empty"
 
-[node name="MarginContainer" parent="PanelContainer6" index="0"]
+[node name="HBoxContainer" parent="PanelContainer6" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="PanelContainer6/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="PanelContainer6/MarginContainer/HBoxContainer" index="2"]
-margin_right = 382.0
-text = "   while (MST.size() < graph.vertices.size()):"
 
 [node name="PanelContainer7" parent="." instance=ExtResource( 10 )]
 anchor_right = 0.0
@@ -204,16 +148,8 @@ code_text = "        e = min_edge_connecting(V, V-A)"
 effect_check = ExtResource( 3 )
 hint_text = "See the variables after you press [b]ENTER[/b]!"
 
-[node name="MarginContainer" parent="PanelContainer7" index="0"]
+[node name="HBoxContainer" parent="PanelContainer7" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="PanelContainer7/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="PanelContainer7/MarginContainer/HBoxContainer" index="2"]
-margin_right = 344.0
-text = "        e = min_edge_connecting(V, V-A)"
 
 [node name="PanelContainer8" parent="." instance=ExtResource( 10 )]
 anchor_right = 0.0
@@ -227,16 +163,8 @@ code_text = "       (v,w) = vertices(e)"
 effect_check = ExtResource( 16 )
 hint_text = "Check the U variable after you press [b]ENTER[/b]!"
 
-[node name="MarginContainer" parent="PanelContainer8" index="0"]
+[node name="HBoxContainer" parent="PanelContainer8" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="PanelContainer8/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="PanelContainer8/MarginContainer/HBoxContainer" index="2"]
-margin_right = 209.0
-text = "       (v,w) = vertices(e)"
 
 [node name="PanelContainer9" parent="." instance=ExtResource( 10 )]
 anchor_right = 0.0
@@ -250,16 +178,8 @@ code_text = "       MST.append(e)"
 effect_check = ExtResource( 4 )
 hint_text = "Answer: is the [color=#00FF00] u [/color] node explored?"
 
-[node name="MarginContainer" parent="PanelContainer9" index="0"]
+[node name="HBoxContainer" parent="PanelContainer9" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="PanelContainer9/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="PanelContainer9/MarginContainer/HBoxContainer" index="2"]
-margin_right = 192.0
-text = "        MST.append(e)"
 
 [node name="PanelContainer10" parent="." instance=ExtResource( 10 )]
 anchor_right = 0.0
@@ -273,16 +193,8 @@ code_text = "       A.append(v, w)"
 effect_check = ExtResource( 5 )
 hint_text = "Select the [color=#00FF00] u [/color] node with a left click"
 
-[node name="MarginContainer" parent="PanelContainer10" index="0"]
+[node name="HBoxContainer" parent="PanelContainer10" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="PanelContainer10/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="PanelContainer10/MarginContainer/HBoxContainer" index="2"]
-margin_right = 186.0
-text = "       A.append(v, w)"
 
 [node name="PanelContainer11" parent="." instance=ExtResource( 10 )]
 anchor_right = 0.0
@@ -296,16 +208,8 @@ code_text = "       V = {graph.vertices} - A"
 effect_check = ExtResource( 17 )
 hint_text = "Select the [color=#00FF00] u [/color] node with a left click"
 
-[node name="MarginContainer" parent="PanelContainer11" index="0"]
+[node name="HBoxContainer" parent="PanelContainer11" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="PanelContainer11/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="PanelContainer11/MarginContainer/HBoxContainer" index="2"]
-margin_right = 254.0
-text = "       V = {graph.vertices} - A"
 
 [node name="PanelContainer12" parent="." instance=ExtResource( 10 )]
 anchor_right = 0.0
@@ -320,16 +224,8 @@ code_text = "        end while;"
 effect_check = ExtResource( 15 )
 hint_text = "Press [b]ENTER[/b]"
 
-[node name="MarginContainer" parent="PanelContainer12" index="0"]
+[node name="HBoxContainer" parent="PanelContainer12" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="PanelContainer12/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="PanelContainer12/MarginContainer/HBoxContainer" index="2"]
-margin_right = 133.0
-text = "    end while;"
 
 [node name="PanelContainer13" parent="." instance=ExtResource( 10 )]
 anchor_right = 0.0
@@ -344,16 +240,8 @@ code_text = "end Prim;"
 effect_check = ExtResource( 7 )
 hint_text = "Press [b]ENTER[/b]"
 
-[node name="MarginContainer" parent="PanelContainer13" index="0"]
+[node name="HBoxContainer" parent="PanelContainer13" index="0"]
 margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="PanelContainer13/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="PanelContainer13/MarginContainer/HBoxContainer" index="2"]
-margin_right = 105.0
-text = "end Prim;"
 
 [editable path="PanelContainer0"]
 [editable path="PanelContainer1"]

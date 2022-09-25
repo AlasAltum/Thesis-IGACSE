@@ -1,5 +1,5 @@
 extends EffectCheck
-# Set A = {graph.vertices} - T
+# Set T = {graph.vertices} - A
 
 
 # Get the list of node objects from a Set
