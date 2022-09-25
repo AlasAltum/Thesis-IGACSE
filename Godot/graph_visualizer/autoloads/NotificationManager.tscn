@@ -3,5 +3,5 @@
 [ext_resource path="res://autoloads/notification_manager.gd" type="Script" id=1]
 
 [node name="NotificationManager" type="Node2D"]
-position = Vector2( 0, -1 )
+position = Vector2( 1, 0 )
 script = ExtResource( 1 )

@@ -4,10 +4,21 @@ extends Node2D
 # of the nodes in the world. It works as a bridge between
 # the Autoload StoredData and the world nodes.
 
+var finished_levels = {
+	"BFS": false,
+	"DFS": false,
+	"Prim": false,
+	"Kruskal": false,
+}
+
 enum mov_status {SELECT = 0, DRAG = 1}
 
+var allow_select_edges = false
 var status : int = mov_status.SELECT;
 var nodes : Array = []  # PoolAGraphNodeArray
+var edges : Array = []
+
+
 var debug_block: ScrollContainer  # : DebugBlock
 var json_matrix = []  # contains pairs [node_index <int>, weight <float>]:
 var json = {
@@ -16,6 +27,7 @@ var json = {
 }
 var dragging_adt : bool = false
 var dragged_adt : FollowingMouseTexture
+var selected_edge
 var adt_hovering : bool = false
 var assign_name_popup : WindowDialog
 var world_node: Node2D  # : GraphManager
@@ -24,9 +36,16 @@ const status_map = {
 	"SELECT": mov_status.SELECT
 }
 var selectable_nodes = []
+var selected_edges = []
+var iterated_nodes = []
+
 ## Code continue conditions
 var u_is_explored_right_answer : bool = false
 var adt_is_empty_right_answer : bool = false
+
+# Kruskal El de la esquina es wom
+var length_c_is_one_correct_answer: bool = false
+
 ## ADT selection
 var adt_shower
 var adt_mediator # ADTMediator class
@@ -52,28 +71,15 @@ func get_selected_nodes() -> Array:
 
 	return selected_nodes
 
-func set_hint_text(new_text: String) -> void:
-	NotificationManager.set_hint_text(new_text)
 
-func make_following_texture_opaque():
-	if self.dragging_adt:
-		dragged_adt.modulate = Color(1.0, 1.0, 1.0, 1.0)
-		adt_hovering = true
-
-func make_following_texture_transparent():
-	if self.dragging_adt:
-		dragged_adt.modulate = Color(1.0, 1.0, 1.0, 0.3)
-		adt_hovering = false
+func emphasize_current_selected_variable():
+	if adt_mediator:
+		adt_mediator.emphasize_current_selected_variable()
 
 
-# TODO: ERASE THIS
-# ask for variable name to add it to the heap
-#func _on_adt_drop_on_heap():
-#	assign_name_popup = get_tree().get_root().get_node("Main/PopUpForObjectCreation")
-#	assign_name_popup.show()
-#	# We still need it for variable creation, so we just make it invisible
-#	self.dragged_adt.visible = false
-#	self.dragging_adt = false
+func emphasize_error_on_current_selected_variable():
+	if adt_mediator:
+		adt_mediator.emphasize_error_on_current_selected_variable()
 
 
 # Create a new variable, considering it in the
@@ -81,6 +87,9 @@ func make_following_texture_transparent():
 func add_variable(var_name, data):
 	if data.get_class() == "KinematicBody2D":
 		data = data.get_adt()
+	elif data.get_class() == "GraphEdge":
+		var parent_edge = data
+		data = data.get_adt().new(parent_edge)
 	adt_mediator.add_or_update_variable(var_name, data)
 
 
@@ -93,19 +102,32 @@ func get_variable(variable_name: String):
 func erase_variable(var_name: String) -> void:
 	adt_mediator.erase_variable_by_name(var_name)
 
+func add_node_to_adt(object_name: String, incoming_node: Object) -> void:
+	adt_mediator.add_node_to_adt(object_name, incoming_node)
+
 func get_data_type_of_variable(var_name: String):
 	# Case there is no data type for that variable
 	if not self.has_variable(var_name):
 		return ""
 	return adt_mediator.get_variable(var_name).get_type()
 
+func get_selected_edge():
+	return selected_edge
 
-# When game gets reset, reset data
+func selected_variable_allows_object_adition() -> bool:
+	return adt_mediator.selected_variable_allows_object_adition()
+
+func get_selected_variable_name() -> String:
+	return adt_mediator.get_selected_variable_name()
+
+# When game gets reset, reset data excepting finished_levels 
 func reset_data():
-	self.selected_variable_index = 0
-	self.selectable_nodes = []
+	self.allow_select_edges = false;
 	self.status = mov_status.SELECT;
 	self.nodes = []  # PoolAGraphNodeArray
+	self.edges = []
+
+	self.debug_block = null
 	self.json_matrix = []
 	self.json = {
 		"n": 3,
@@ -113,7 +135,19 @@ func reset_data():
 	}
 	self.dragging_adt = false
 	self.dragged_adt = null
+	self.selected_edge = null
 	self.adt_hovering = false
 	self.assign_name_popup = null
 	self.world_node = null
+	self.selectable_nodes = []
+	self.selected_edges = []
+	self.iterated_nodes = []
+
+	self.u_is_explored_right_answer = false
+	self.adt_is_empty_right_answer = false
+	self.length_c_is_one_correct_answer = false
+	self.adt_shower = null
+	self.adt_mediator = null
+	self.selected_variable_index = 0
+	self.adt_to_be_created = null
 

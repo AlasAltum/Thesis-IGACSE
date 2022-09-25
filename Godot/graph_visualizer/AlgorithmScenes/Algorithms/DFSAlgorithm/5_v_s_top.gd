@@ -1,5 +1,5 @@
 extends EffectCheck
-# v = s.top()
+# v = s.top(); s.pop()
 
 func check_actions_correct() -> bool:
 	return true  # This is not required

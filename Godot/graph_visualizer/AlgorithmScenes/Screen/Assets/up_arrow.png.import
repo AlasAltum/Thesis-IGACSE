@@ -2,7 +2,7 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/up_arrow.png-52135aba7330b5fd56cbf5c4bd53458f.stex"
+path="res://import/up_arrow.png-52135aba7330b5fd56cbf5c4bd53458f.stex"
 metadata={
 "vram_texture": false
 }
@@ -10,7 +10,7 @@ metadata={
 [deps]
 
 source_file="res://AlgorithmScenes/Screen/Assets/up_arrow.png"
-dest_files=[ "res://.import/up_arrow.png-52135aba7330b5fd56cbf5c4bd53458f.stex" ]
+dest_files=[ "res://import/up_arrow.png-52135aba7330b5fd56cbf5c4bd53458f.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

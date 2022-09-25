@@ -7,6 +7,8 @@ extends ADT
 func _init():
 	self.representation = preload("res://AlgorithmScenes/Screen/ADT/Stack/StackRepresentation.tscn").instance()
 
+func allows_object_adition() -> bool:
+	return true
 
 static func get_type() -> String:
 	return "Stack"

@@ -3,16 +3,18 @@ extends ADT
 
 # RepresentationClass: QueueRepresentation
 
+
 func _init():
 	self.representation = preload("res://AlgorithmScenes/Screen/ADT/Queue/QueueRepresentation.tscn").instance()
 
-func init():
-	self.representation = preload("res://AlgorithmScenes/Screen/ADT/Queue/QueueRepresentation.tscn").instance()
+func allows_object_adition() -> bool:
+	return true
 
 func get_representation() -> ADTRepresentation:
 	if not self.representation:
 		return self.create_representation()
 	return self.representation
+
 
 func create_representation() -> ADTRepresentation:
 	self.representation = preload("res://AlgorithmScenes/Screen/ADT/Queue/QueueRepresentation.tscn").instance()
@@ -42,6 +44,7 @@ func add_data(incoming_data):
 
 func top():
 	var ret = data[0]
-	representation.remove_node(ret)
-	data.remove(0)
-	return ret
+	if ret:
+		representation.remove_node(ret)
+		data.remove(0)
+		return ret

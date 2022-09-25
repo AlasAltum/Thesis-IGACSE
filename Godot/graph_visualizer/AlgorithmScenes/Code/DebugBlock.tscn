@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://AlgorithmScenes/Code/debug_block.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 170.095, 152.984 )
+
+[node name="DebugBlock" type="ScrollContainer"]
+margin_top = 131.0
+margin_right = 234.0
+margin_bottom = 431.0
+rect_min_size = Vector2( 230, 300 )
+mouse_filter = 2
+custom_styles/bg = SubResource( 1 )
+scroll_horizontal_enabled = false
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="LinesContainer" type="VBoxContainer" parent="."]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 230.0
+margin_bottom = 61.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="DebuggerTitle" type="Label" parent="LinesContainer"]
+margin_right = 226.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 5 )
+text = "Variables
+"
+align = 1
+valign = 1
+clip_text = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 41.2171, -0.0319672 )
+z_index = 15
+z_as_relative = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 61.0628, 146.87 )
+z_index = 5
+z_as_relative = false
+shape = SubResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

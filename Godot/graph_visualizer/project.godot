@@ -44,15 +44,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Node/graph_node.gd"
 }, {
-"base": "AGraphNode",
-"class": "AGraphNodeOnHover",
-"language": "GDScript",
-"path": "res://Node/graph_node_on_hover_select.gd"
-}, {
 "base": "WindowDialog",
 "class": "AddNodePopup",
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Screen/popup_for_node_add_to_object.gd"
+}, {
+"base": "ADT",
+"class": "ArrayADT",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/Code/ADTs/array_adt.gd"
+}, {
+"base": "ADTRepresentation",
+"class": "ArrayRepresentation",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/Screen/ADT/Array/array_representation.gd"
 }, {
 "base": "ScrollContainer",
 "class": "CodeContainer",
@@ -70,6 +75,11 @@ _global_script_classes=[ {
 "path": "res://ResourceClasses/color_interpolator.gd"
 }, {
 "base": "Resource",
+"class": "ColorMap",
+"language": "GDScript",
+"path": "res://ResourceClasses/color_map.gd"
+}, {
+"base": "Resource",
 "class": "DataServer",
 "language": "GDScript",
 "path": "res://ResourceClasses/data_sender.gd"
@@ -79,15 +89,35 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Code/debug_block.gd"
 }, {
+"base": "ADT",
+"class": "EdgeADT",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/Code/ADTs/edge_adt.gd"
+}, {
 "base": "Resource",
 "class": "EdgeCrossingsMinimization",
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Screen/utils/edge_crossing_minimization.gd"
 }, {
+"base": "ADTRepresentation",
+"class": "EdgeRepresentation",
+"language": "GDScript",
+"path": "res://Node/edge_representation.gd"
+}, {
 "base": "Resource",
 "class": "EffectCheck",
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Code/effect_check.gd"
+}, {
+"base": "EffectCheck",
+"class": "FinishCodeEffect",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/Code/finish_code.gd"
+}, {
+"base": "WindowDialog",
+"class": "FinishedPopup",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/Screen/finished_code_popup.gd"
 }, {
 "base": "Node2D",
 "class": "FollowingMouseTexture",
@@ -98,6 +128,11 @@ _global_script_classes=[ {
 "class": "GraphManager",
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Screen/graph_screen.gd"
+}, {
+"base": "WindowDialog",
+"class": "LengthCIsOnePopup",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/Screen/length_c_is_one_popup.gd"
 }, {
 "base": "ADT",
 "class": "NodeADT",
@@ -139,6 +174,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ResourceClasses/set.gd"
 }, {
+"base": "ADT",
+"class": "SetADT",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/Code/ADTs/set_adt.gd"
+}, {
 "base": "Panel",
 "class": "Slot",
 "language": "GDScript",
@@ -172,17 +212,24 @@ _global_script_class_icons={
 "ADTShower": "",
 "ADTVector": "",
 "AGraphNode": "",
-"AGraphNodeOnHover": "",
 "AddNodePopup": "",
+"ArrayADT": "",
+"ArrayRepresentation": "",
 "CodeContainer": "",
 "CodeLine": "",
 "ColorInterpolator": "",
+"ColorMap": "",
 "DataServer": "",
 "DebugBlock": "",
+"EdgeADT": "",
 "EdgeCrossingsMinimization": "",
+"EdgeRepresentation": "",
 "EffectCheck": "",
+"FinishCodeEffect": "",
+"FinishedPopup": "",
 "FollowingMouseTexture": "",
 "GraphManager": "",
+"LengthCIsOnePopup": "",
 "NodeADT": "",
 "NodeRepresentation": "",
 "NullADT": "",
@@ -191,6 +238,7 @@ _global_script_class_icons={
 "QueueADT": "",
 "QueueRepresentation": "",
 "Set": "",
+"SetADT": "",
 "Slot": "",
 "Stack": "",
 "StackADT": "",
@@ -202,60 +250,70 @@ _global_script_class_icons={
 
 config/name="GraphVisualizator"
 config/description="Visualization for Graphs"
-run/main_scene="res://AlgorithmScenes/Algorithms/BFSAlgorithm/BFS.tscn"
+run/main_scene="res://GameFlow/MainMenu.tscn"
+config/use_hidden_project_data_directory=false
 config/use_custom_user_dir=true
 config/icon="res://Node/white-circle.png"
-config/use_hidden_project_data_directory=false
 
 [autoload]
 
 StoredData="*res://autoloads/stored_data.gd"
 NotificationManager="*res://autoloads/NotificationManager.tscn"
+InputRecorder="*res://c_sharp_src/InputRecorder.cs"
 
 [display]
 
 window/size/width=1920
 window/size/height=1080
+window/size/borderless=true
+window/vsync/use_vsync=false
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [gdnative]
 
 singletons=[  ]
 
+[global]
+
+port=false
+localhost=true
+
 [input]
 
 code_advance={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 O={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":79,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":79,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 P={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":80,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":80,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 left={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 right={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
-up={
+KEY_up={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
-down={
+KEY_down={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

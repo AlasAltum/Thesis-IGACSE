@@ -19,3 +19,7 @@ func notify_u_is_explored_wrong_answer():
 	$ErrorNotification/AnimationPlayer.stop()
 	$ErrorNotification/AnimationPlayer.play("message_modulation")
 	# TODO: Add sound effect
+
+func _process(delta):
+	var a = 3
+	

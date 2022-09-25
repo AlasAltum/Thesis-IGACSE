@@ -8,7 +8,7 @@ extends Node2D
 var adt_shower: ADTShower
 var debug_block: DebugBlock
 var data : Array = []  # Array of ADTVector <ADT, int, String>
-var selected_index = 0
+var selected_index: int = 0 setget set_selected_index, get_selected_index
 
 
 func _ready():
@@ -41,7 +41,6 @@ func get_variable(var_name: String) -> ADT:
 	return null
 
 func add_or_update_variable(var_name: String, _data: ADT) -> void:
-	# TODO: Consider what to do with selected index
 	if not has_variable(var_name):
 		var new_row: ADTVector = ADTVector.new(_data, self.data.size(), var_name)
 		self.data.append(new_row)
@@ -95,19 +94,25 @@ func take_top_from_adt(object_name: String):
 func _on_correct_variable_creation(variable_name: String):
 	var generated_object: ADT = StoredData.adt_to_be_created
 	add_or_update_variable(variable_name, generated_object)
-	# TODO: This was using GDScript	self.add_variable(variable_name, generated_object)
 	StoredData.adt_to_be_created = null
 
+# Make sure the changes are also reflected in StoredData
+func set_selected_index(_selected_index: int):
+	selected_index = _selected_index
+	StoredData.selected_variable_index = selected_index
+
+func get_selected_index() -> int:
+	return selected_index
 
 # Change focus of variable in debug block and change representation
 func _on_variable_index_up():
 	if data.size() > 0:
 		# Force circular behaviour
 		if selected_index == 0:
-			selected_index = data.size() - 1
+			set_selected_index(data.size() - 1)
 
 		else:
-			selected_index -= 1
+			set_selected_index(selected_index - 1)
 		update_views()
 
 # Change focus of variable in debug block and change representation
@@ -115,8 +120,42 @@ func _on_variable_index_down():
 	if data.size() > 0:
 		# Force circular behaviour
 		if selected_index == data.size() - 1:
-			selected_index = 0
+			set_selected_index(0)
 		else:
-			selected_index += 1
+			set_selected_index(selected_index + 1)
 		update_views()
 
+
+const EMPHASIZE_TIME: float = 1.0;
+
+##  These functions are triggered when the user tries to add a node ##
+# to the current selected variable. If it allows object adition
+# trigger emphasize_current_selected_variable
+func emphasize_current_selected_variable() -> void:
+	if debug_block:
+		# TODO: Replace modified label by a stack for short period requests
+		# when there are many movements in short periods of time
+		debug_block.emphasize_current_selected_variable()
+
+
+# if object does not allow object adition, trigger this function
+func emphasize_error_on_current_selected_variable() -> void:
+	if debug_block:
+		debug_block.emphasize_error_on_current_selected_variable()
+## ##
+
+func get_selected_variable_name() -> String:
+	if not data.empty() and data.size() > selected_index - 1:
+		var adt_vector: ADTVector = data[selected_index]
+		return adt_vector.get_name()
+#	if self.get_selected_index() == -1:
+	return "ERROR: no variable selected"
+
+
+func selected_variable_allows_object_adition() -> bool:
+	if not data.empty() and data.size() > selected_index - 1:
+		var selected_adt_vector: ADTVector = data[selected_index]
+		if selected_adt_vector.get_data() and selected_adt_vector.get_data().has_method("allows_object_adition"):
+			return selected_adt_vector.get_data().call("allows_object_adition")
+	# TODO: Add a popup message telling the user has made a mistake
+	return false

@@ -27,7 +27,8 @@ func advance_to_line(next_line: int) -> void:
 
 func _input(event):
 	if event.is_action_pressed("code_advance"):
-		advance_to_line(current_line.get_next_line())
+		if current_line.effect_actions_are_correct():
+			advance_to_line(current_line.get_next_line())
 
 
 func _on_code_finished():

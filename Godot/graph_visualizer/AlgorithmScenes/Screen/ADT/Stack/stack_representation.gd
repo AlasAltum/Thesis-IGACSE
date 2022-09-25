@@ -25,7 +25,8 @@ func add_node(node: AGraphNode) -> void:
 # Remove Node from the StackADT representation
 func remove_node(node: AGraphNode) -> void:
 	var child_to_remove: Label = label_indexes[node.index]
-	child_to_remove.queue_free()
+	if child_to_remove:
+		child_to_remove.queue_free()
 
 func get_representation() -> StackRepresentation:
 	return self.representation

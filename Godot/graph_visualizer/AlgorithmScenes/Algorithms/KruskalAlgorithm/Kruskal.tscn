@@ -157,7 +157,6 @@ tracks/0/keys = {
 script = ExtResource( 21 )
 graph_density = 0.169
 graph_size = 6
-weighted_graph = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -693,6 +692,7 @@ __meta__ = {
 }
 
 [node name="BFSFinishedPopup" type="WindowDialog" parent="."]
+visible = true
 margin_left = 525.1
 margin_top = 232.627
 margin_right = 1037.1
@@ -710,13 +710,10 @@ margin_right = 506.0
 margin_bottom = 74.0
 rect_pivot_offset = Vector2( 265.108, 0 )
 size_flags_horizontal = 3
-text = "Congratulations! You have successfully finished the BFS Algorithm!"
+text = "Congratulations! You have successfully finished the Kruskal Algorithm!"
 align = 1
 valign = 1
 autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ResetButton" type="Button" parent="BFSFinishedPopup"]
 modulate = Color( 0.121569, 0.913725, 0, 1 )

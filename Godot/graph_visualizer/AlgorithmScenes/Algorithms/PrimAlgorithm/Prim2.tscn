@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://c_sharp_src/OneToggleButtonVBoxContaner.cs" type="Script" id=1]
 [ext_resource path="res://AlgorithmScenes/Code/ADTs/queue_adt.gd" type="Script" id=2]
@@ -11,7 +11,7 @@
 [ext_resource path="res://AlgorithmScenes/Screen/graph_screen.gd" type="Script" id=9]
 [ext_resource path="res://AlgorithmScenes/Screen/structure_queue.png" type="Texture" id=10]
 [ext_resource path="res://AlgorithmScenes/Code/Arrow.png" type="Texture" id=11]
-[ext_resource path="res://AlgorithmScenes/Screen/FinishedPopup.tscn" type="PackedScene" id=12]
+[ext_resource path="res://AlgorithmScenes/Screen/finished_code_popup.gd" type="Script" id=12]
 [ext_resource path="res://AlgorithmScenes/Screen/ADT/Queue/QueueAnimation.tscn" type="PackedScene" id=13]
 [ext_resource path="res://AlgorithmScenes/Screen/GUI/HintLabel.tscn" type="PackedScene" id=14]
 [ext_resource path="res://AlgorithmScenes/Screen/ADT/Stack/StackAnimation.tscn" type="PackedScene" id=15]
@@ -23,6 +23,7 @@
 [ext_resource path="res://AlgorithmScenes/Screen/PopUpForObjectCreation.tscn" type="PackedScene" id=21]
 [ext_resource path="res://AlgorithmScenes/Screen/GUI/ADTsShower.tscn" type="PackedScene" id=22]
 [ext_resource path="res://AlgorithmScenes/Screen/ADTIsNotEmptyPopup.tscn" type="PackedScene" id=23]
+[ext_resource path="res://AlgorithmScenes/Code/ADTs/array_adt.gd" type="Script" id=26]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 4.0
@@ -80,187 +81,101 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_vertical_guides_": [ -164.416 ]
 }
-graph_density = 0.169
-graph_size = 6
-weighted_graph = true
+graph_density = 0.6
+graph_size = 4
+is_weighted_graph = true
+allow_selected_edges = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="PopUpForObjectCreation" parent="." instance=ExtResource( 21 )]
+visible = false
 
-[node name="ADTMediator" parent="CanvasLayer" instance=ExtResource( 19 )]
+[node name="UNodeIsExploredPopup" parent="." instance=ExtResource( 20 )]
+visible = false
+margin_top = 231.47
+margin_bottom = 390.47
 
-[node name="CodeBlock" type="ScrollContainer" parent="CanvasLayer"]
+[node name="ADTIsNotEmptyPopup" parent="." instance=ExtResource( 23 )]
+
+[node name="AddNodePopup" parent="." instance=ExtResource( 16 )]
+
+[node name="FinishedPopup" type="WindowDialog" parent="."]
+visible = true
+margin_left = 525.1
+margin_top = 232.627
+margin_right = 1037.1
+margin_bottom = 391.627
+popup_exclusive = true
+window_title = "Algorithm Finished!"
+script = ExtResource( 12 )
+
+[node name="Explanation" type="Label" parent="FinishedPopup"]
+margin_left = 5.0
+margin_top = 13.0
+margin_right = 506.0
+margin_bottom = 74.0
+rect_pivot_offset = Vector2( 265.108, 0 )
+size_flags_horizontal = 3
+text = "Congratulations! You have successfully finished the Prim Algorithm!"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetButton" type="Button" parent="FinishedPopup"]
+modulate = Color( 0.121569, 0.913725, 0, 1 )
+margin_left = 200.759
+margin_top = 76.986
+margin_right = 294.759
+margin_bottom = 102.986
+rect_pivot_offset = Vector2( 72.8572, 10.7062 )
+text = "Reset"
+
+[node name="MenuButton" type="Button" parent="FinishedPopup"]
+modulate = Color( 0.827451, 0.717647, 0.117647, 1 )
+margin_left = 201.293
+margin_top = 113.927
+margin_right = 295.293
+margin_bottom = 139.927
+rect_pivot_offset = Vector2( 72.8572, 10.7062 )
+text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ADTMediator" parent="." instance=ExtResource( 19 )]
+position = Vector2( 0, 0.529732 )
+
+[node name="CodeBlock" type="ScrollContainer" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -409.0
-margin_top = 11.0
-margin_right = -9.0
-margin_bottom = 416.0
+margin_left = 1511.0
+margin_top = 11.5297
+margin_right = 1911.0
+margin_bottom = 483.53
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/bg = SubResource( 1 )
 scroll_horizontal_enabled = false
 script = ExtResource( 8 )
 __meta__ = {
-"_edit_use_anchors_": false,
 "_editor_description_": ""
 }
 
-[node name="LinesContainer" parent="CanvasLayer/CodeBlock" instance=ExtResource( 18 )]
+[node name="LinesContainer" parent="CodeBlock" instance=ExtResource( 18 )]
+margin_bottom = 466.0
 
-[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0" index="0"]
-margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0/MarginContainer/HBoxContainer" index="2"]
-margin_right = 80.0
-text = "Prim():"
-
-[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1" index="0"]
-margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1/MarginContainer/HBoxContainer" index="2"]
-margin_right = 332.0
-text = "   Edge e = min(graph.edge_weights)"
-
-[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2" index="0"]
-margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2/MarginContainer/HBoxContainer" index="2"]
-margin_right = 283.0
-text = "   (v,w) = vertices(graph.edges)"
-
-[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3" index="0"]
-margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3/MarginContainer/HBoxContainer" index="2"]
-margin_right = 124.0
-text = "    MST = [e]"
-
-[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3_t" index="0"]
-margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3_t/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3_t/MarginContainer/HBoxContainer" index="2"]
-margin_right = 153.0
-text = "   Set A = {v, w}"
-
-[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4" index="0"]
-margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4/MarginContainer/HBoxContainer" index="2"]
-margin_right = 356.0
-text = "   while (A.size() < graph.vertices.size()):"
-
-[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5" index="0"]
-margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5/MarginContainer/HBoxContainer" index="2"]
-margin_right = 344.0
-text = "        e = min_edge_connecting(V, V-A)"
-
-[node name="PanelContainer6" parent="CanvasLayer/CodeBlock/LinesContainer" index="7"]
-code_text = "        (v,w) = vertices(e)"
-
-[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6" index="0"]
-margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6/MarginContainer/HBoxContainer" index="2"]
-margin_right = 209.0
-text = "       (v,w) = vertices(e)"
-
-[node name="PanelContainer7" parent="CanvasLayer/CodeBlock/LinesContainer" index="8"]
-code_text = "        MST.append(e)"
-
-[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7" index="0"]
-margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7/MarginContainer/HBoxContainer" index="2"]
-margin_right = 187.0
-text = "       MST.append(e)"
-
-[node name="PanelContainer8" parent="CanvasLayer/CodeBlock/LinesContainer" index="9"]
-code_text = "        T.append(e)"
-
-[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8" index="0"]
-margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8/MarginContainer/HBoxContainer" index="2"]
-margin_right = 160.0
-text = "       T.append(e)"
-
-[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10" index="0"]
-margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10/MarginContainer/HBoxContainer" index="2"]
-margin_right = 133.0
-text = "    end while;"
-
-[node name="MarginContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13" index="0"]
-margin_right = 392.0
-margin_bottom = 33.0
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13/MarginContainer" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13/MarginContainer/HBoxContainer" index="2"]
-margin_right = 105.0
-text = "end Prim;"
-
-[node name="LeftPanel" type="VBoxContainer" parent="CanvasLayer"]
+[node name="LeftPanel" type="VBoxContainer" parent="."]
 anchor_bottom = 1.0
 margin_left = 1.0
-margin_top = -1.0
-margin_right = 206.0
-margin_bottom = -1.0
+margin_top = -0.470268
+margin_right = 235.0
+margin_bottom = 935.53
 rect_clip_content = true
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="ModeSelector" type="MarginContainer" parent="CanvasLayer/LeftPanel"]
+[node name="ModeSelector" type="MarginContainer" parent="LeftPanel"]
 margin_right = 234.0
 margin_bottom = 90.0
 mouse_filter = 2
@@ -268,7 +183,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/LeftPanel/ModeSelector"]
+[node name="PanelContainer" type="PanelContainer" parent="LeftPanel/ModeSelector"]
 margin_right = 234.0
 margin_bottom = 90.0
 custom_styles/panel = SubResource( 2 )
@@ -276,7 +191,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="OneToggleButtonVBoxContainer" type="VBoxContainer" parent="CanvasLayer/LeftPanel/ModeSelector/PanelContainer"]
+[node name="OneToggleButtonVBoxContainer" type="VBoxContainer" parent="LeftPanel/ModeSelector/PanelContainer"]
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 224.0
@@ -288,14 +203,14 @@ __meta__ = {
 }
 available_modes = [ "SelectNode", "AllowGraphMovement" ]
 
-[node name="SelectNodeButton" type="Button" parent="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer"]
+[node name="SelectNodeButton" type="Button" parent="LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer"]
 margin_right = 214.0
 margin_bottom = 33.0
 toggle_mode = true
 pressed = true
 text = "Select Mode"
 
-[node name="AllowGraphMovementButton" type="Button" parent="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer"]
+[node name="AllowGraphMovementButton" type="Button" parent="LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer"]
 margin_top = 37.0
 margin_right = 214.0
 margin_bottom = 70.0
@@ -303,7 +218,7 @@ theme = ExtResource( 6 )
 toggle_mode = true
 text = " Move Nodes Mode"
 
-[node name="DebugBlock" type="ScrollContainer" parent="CanvasLayer/LeftPanel"]
+[node name="DebugBlock" type="ScrollContainer" parent="LeftPanel"]
 margin_top = 94.0
 margin_right = 234.0
 margin_bottom = 394.0
@@ -317,7 +232,7 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="LinesContainer" type="VBoxContainer" parent="CanvasLayer/LeftPanel/DebugBlock"]
+[node name="LinesContainer" type="VBoxContainer" parent="LeftPanel/DebugBlock"]
 margin_left = 4.0
 margin_top = 4.0
 margin_right = 230.0
@@ -325,7 +240,7 @@ margin_bottom = 61.0
 mouse_filter = 2
 size_flags_horizontal = 3
 
-[node name="DebuggerTitle" type="Label" parent="CanvasLayer/LeftPanel/DebugBlock/LinesContainer"]
+[node name="DebuggerTitle" type="Label" parent="LeftPanel/DebugBlock/LinesContainer"]
 margin_right = 226.0
 margin_bottom = 57.0
 size_flags_horizontal = 3
@@ -337,18 +252,18 @@ align = 1
 valign = 1
 clip_text = true
 
-[node name="Area2D" type="Area2D" parent="CanvasLayer/LeftPanel/DebugBlock"]
+[node name="Area2D" type="Area2D" parent="LeftPanel/DebugBlock"]
 position = Vector2( 41.2171, -0.0319672 )
 z_index = 15
 z_as_relative = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/LeftPanel/DebugBlock/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftPanel/DebugBlock/Area2D"]
 position = Vector2( 61.0628, 146.87 )
 z_index = 5
 z_as_relative = false
 shape = SubResource( 6 )
 
-[node name="ADTShower" parent="CanvasLayer/LeftPanel" instance=ExtResource( 22 )]
+[node name="ADTShower" parent="LeftPanel" instance=ExtResource( 22 )]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -358,7 +273,7 @@ margin_top = 398.0
 margin_right = 234.0
 margin_bottom = 632.0
 
-[node name="ADTSelectionPanel" type="MarginContainer" parent="CanvasLayer/LeftPanel"]
+[node name="ADTSelectionPanel" type="MarginContainer" parent="LeftPanel"]
 margin_top = 636.0
 margin_right = 234.0
 margin_bottom = 936.0
@@ -369,7 +284,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/LeftPanel/ADTSelectionPanel"]
+[node name="PanelContainer" type="PanelContainer" parent="LeftPanel/ADTSelectionPanel"]
 margin_right = 234.0
 margin_bottom = 300.0
 mouse_filter = 2
@@ -378,12 +293,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/LeftPanel/ADTSelectionPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="LeftPanel/ADTSelectionPanel"]
 margin_right = 234.0
 margin_bottom = 300.0
 mouse_filter = 2
 
-[node name="DebuggerTitle" type="Label" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer"]
+[node name="DebuggerTitle" type="Label" parent="LeftPanel/ADTSelectionPanel/VBoxContainer"]
 margin_right = 234.0
 margin_bottom = 27.0
 size_flags_horizontal = 3
@@ -392,7 +307,7 @@ custom_fonts/font = SubResource( 5 )
 text = "Data Structures"
 align = 1
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="LeftPanel/ADTSelectionPanel/VBoxContainer"]
 margin_top = 31.0
 margin_right = 234.0
 margin_bottom = 171.0
@@ -402,7 +317,7 @@ custom_constants/vseparation = 100
 custom_constants/hseparation = 60
 columns = 2
 
-[node name="Slot" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 17 )]
+[node name="Slot" parent="LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 17 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 40.0
@@ -411,7 +326,7 @@ slot_texture = ExtResource( 10 )
 generated_adt = ExtResource( 2 )
 on_hover_animation = ExtResource( 13 )
 
-[node name="Slot2" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 17 )]
+[node name="Slot2" parent="LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 17 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 100.0
@@ -423,10 +338,10 @@ slot_texture = ExtResource( 11 )
 generated_adt = ExtResource( 3 )
 on_hover_animation = ExtResource( 15 )
 
-[node name="BelowADTName" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot2/SlotTexture" index="2"]
+[node name="BelowADTName" parent="LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot2/SlotTexture" index="2"]
 text = "Stack"
 
-[node name="Slot3" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 17 )]
+[node name="Slot3" parent="LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 17 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 100.0
@@ -436,11 +351,13 @@ grow_horizontal = 1
 grow_vertical = 1
 rect_min_size = Vector2( 40, 40 )
 hover_text = "Array"
+slot_texture = ExtResource( 10 )
+generated_adt = ExtResource( 26 )
 
-[node name="BelowADTName" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot3/SlotTexture" index="2"]
+[node name="BelowADTName" parent="LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot3/SlotTexture" index="2"]
 text = "Array"
 
-[node name="Slot4" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 17 )]
+[node name="Slot4" parent="LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 17 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 100.0
@@ -452,47 +369,25 @@ grow_vertical = 1
 rect_min_size = Vector2( 40, 40 )
 hover_text = "Set"
 
-[node name="TextHintContainer" type="CenterContainer" parent="CanvasLayer"]
+[node name="TextHintContainer" type="CenterContainer" parent="."]
 anchor_left = 0.229687
 anchor_top = 0.012037
 anchor_right = 0.584896
 anchor_bottom = 0.150926
+margin_left = 440.999
+margin_top = 13.5297
+margin_right = 840.999
+margin_bottom = 163.53
 rect_min_size = Vector2( 400, 150 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
-[node name="HintLabel" parent="CanvasLayer/TextHintContainer" instance=ExtResource( 14 )]
-visible = false
+[node name="HintLabel" parent="TextHintContainer" instance=ExtResource( 14 )]
+margin_left = 0.0
+margin_right = 400.0
 
-[node name="PopUpForObjectCreation" parent="." instance=ExtResource( 21 )]
+[connection signal="pressed" from="LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/SelectNodeButton" to="." method="_on_SelectNodeButton_pressed"]
+[connection signal="pressed" from="LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/AllowGraphMovementButton" to="." method="_on_AllowGraphMovementButton_pressed"]
+[connection signal="mouse_entered" from="LeftPanel/DebugBlock/Area2D" to="LeftPanel/DebugBlock" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="LeftPanel/DebugBlock/Area2D" to="LeftPanel/DebugBlock" method="_on_Area2D_mouse_exited"]
 
-[node name="UNodeIsExploredPopup" parent="." instance=ExtResource( 20 )]
-
-[node name="ADTIsNotEmptyPopup" parent="." instance=ExtResource( 23 )]
-
-[node name="AddNodePopup" parent="." instance=ExtResource( 16 )]
-visible = false
-
-[node name="FinishedPopup" parent="." instance=ExtResource( 12 )]
-
-[connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/SelectNodeButton" to="." method="_on_SelectNodeButton_pressed"]
-[connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/AllowGraphMovementButton" to="." method="_on_AllowGraphMovementButton_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_exited"]
-
-[editable path="CanvasLayer/CodeBlock/LinesContainer"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3_t"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13"]
-[editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot2"]
-[editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot3"]
+[editable path="LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot2"]
+[editable path="LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot3"]

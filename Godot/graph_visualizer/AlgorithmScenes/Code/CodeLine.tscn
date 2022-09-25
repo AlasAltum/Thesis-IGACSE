@@ -19,35 +19,28 @@ theme = SubResource( 1 )
 custom_styles/panel = ExtResource( 4 )
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_use_anchors_": false,
 "_editor_description_": ""
 }
 code_text = "code_here()"
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-margin_right = 1920.0
-margin_bottom = 522.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_right = 1920.0
 margin_bottom = 33.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
-[node name="InstructionPointer" parent="MarginContainer/HBoxContainer" instance=ExtResource( 3 )]
+[node name="InstructionPointer" parent="HBoxContainer" instance=ExtResource( 3 )]
 visible = false
 position = Vector2( 15, 22 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 5 )
 
-[node name="Tab" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="Tab" type="Label" parent="HBoxContainer"]
 margin_right = 20.0
 margin_bottom = 33.0
 text = "    "
 
-[node name="CodeText" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="CodeText" type="Label" parent="HBoxContainer"]
 margin_left = 24.0
 margin_right = 123.0
 margin_bottom = 33.0
