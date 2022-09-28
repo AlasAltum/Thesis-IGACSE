@@ -1,9 +1,10 @@
 extends EffectCheck
-# v = s.top(); s.pop()
+# if (len(C) == 1):    break;
 
 func check_actions_correct() -> bool:
 	return true  # This is not required
 
+# When entering next line
 func execute_side_effect() -> void:
 	if StoredData.has_variable("s"):
 		var stack : StackADT = StoredData.get_variable("s")

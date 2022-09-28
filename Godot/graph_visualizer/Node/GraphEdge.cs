@@ -36,6 +36,7 @@ public class GraphEdge : PinJoint2D
 	public override void _Ready()
 	{
 		base._Ready();
+		this.ZIndex = -3;
 		SetProcess(false);
 		curr_label = GetNode<Label>("Label");
 		line = GetNode<Line2D>("Line2D");
@@ -105,7 +106,6 @@ public class GraphEdge : PinJoint2D
 			curr_label.SetRotation(rotation);
 		}
 		// Since this allows easier rounding
-		this.ZIndex = -1;
 		this.SetProcess(true);
 		joint_end1 = node1;
 		joint_end2 = node2;

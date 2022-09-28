@@ -53,7 +53,10 @@ func set_hint_text(new_text: String) -> void:
 ## Finished Popup related methods ##
 func show_code_finished_popup(_msg: String) -> void:
 	InputRecorder.send_requests_with_records()
-	finished_popup.show()
+	if finished_popup:
+		finished_popup.show()
+	else:
+		printerr("Notification Manager: No finished pop up found!")
 
 # Called from finished code popup, when finishing an algorithm
 func reset_game():

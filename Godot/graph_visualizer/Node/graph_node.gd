@@ -8,7 +8,6 @@ var edges : Array setget set_edges, get_edges
 var radius: int = 200
 var pressed: bool = false
 var aux_position: Vector2
-var should_keep_on_hover_popup: bool = false
 var clickable = false
 var node_color: Color setget set_color, get_color
 
@@ -158,11 +157,10 @@ func _on_Area2D_input_event(_viewport, event, _shape_idx):
 	if _event_is_left_click(event):
 		_on_Select_UnselectButton_pressed()
 
-# Some methods must be repeated, because a click can be considered as a mouse exited from the area2D.
+# This method must be repeated, because a click can be considered as a mouse exited from the area2D.
 func hide_popup_menu():
 	popup_menu.hide()
 	self.clickable = false
-	self.should_keep_on_hover_popup = false
 
 func set_color(in_color: Color) -> void:
 	node_color = in_color

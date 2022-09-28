@@ -8,11 +8,11 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 # Override this method
-func add_node(node) -> void:
+func add_node(_node) -> void:
 	pass
 
 # Override this method
-func remove_node(node) -> void:
+func remove_node(_node) -> void:
 	pass
 
 func set_properties() -> void:

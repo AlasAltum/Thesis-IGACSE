@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://c_sharp_src/OneToggleButtonVBoxContaner.cs" type="Script" id=1]
 [ext_resource path="res://AlgorithmScenes/Code/ADTs/queue_adt.gd" type="Script" id=2]
@@ -11,7 +11,7 @@
 [ext_resource path="res://AlgorithmScenes/Screen/graph_screen.gd" type="Script" id=9]
 [ext_resource path="res://AlgorithmScenes/Screen/structure_queue.png" type="Texture" id=10]
 [ext_resource path="res://AlgorithmScenes/Code/Arrow.png" type="Texture" id=11]
-[ext_resource path="res://AlgorithmScenes/Screen/finished_code_popup.gd" type="Script" id=12]
+[ext_resource path="res://AlgorithmScenes/Screen/GameplayMenuPopup.tscn" type="PackedScene" id=12]
 [ext_resource path="res://AlgorithmScenes/Screen/ADT/Queue/QueueAnimation.tscn" type="PackedScene" id=13]
 [ext_resource path="res://AlgorithmScenes/Screen/GUI/HintLabel.tscn" type="PackedScene" id=14]
 [ext_resource path="res://AlgorithmScenes/Screen/ADT/Stack/StackAnimation.tscn" type="PackedScene" id=15]
@@ -23,6 +23,7 @@
 [ext_resource path="res://AlgorithmScenes/Screen/PopUpForObjectCreation.tscn" type="PackedScene" id=21]
 [ext_resource path="res://AlgorithmScenes/Screen/GUI/ADTsShower.tscn" type="PackedScene" id=22]
 [ext_resource path="res://AlgorithmScenes/Screen/ADTIsNotEmptyPopup.tscn" type="PackedScene" id=23]
+[ext_resource path="res://AlgorithmScenes/Screen/FinishedPopup.tscn" type="PackedScene" id=24]
 [ext_resource path="res://AlgorithmScenes/Code/ADTs/array_adt.gd" type="Script" id=26]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -81,8 +82,8 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_vertical_guides_": [ -164.416 ]
 }
-graph_density = 0.6
-graph_size = 6
+graph_density = 0.3
+graph_size = 4
 is_weighted_graph = true
 allow_selected_edges = true
 
@@ -95,51 +96,13 @@ margin_top = 231.47
 margin_bottom = 390.47
 
 [node name="ADTIsNotEmptyPopup" parent="." instance=ExtResource( 23 )]
+visible = false
 
 [node name="AddNodePopup" parent="." instance=ExtResource( 16 )]
 
-[node name="FinishedPopup" type="WindowDialog" parent="."]
-visible = true
-margin_left = 525.1
-margin_top = 232.627
-margin_right = 1037.1
-margin_bottom = 391.627
-popup_exclusive = true
-window_title = "Algorithm Finished!"
-script = ExtResource( 12 )
+[node name="FinishedPopup" parent="." instance=ExtResource( 24 )]
 
-[node name="Explanation" type="Label" parent="FinishedPopup"]
-margin_left = 5.0
-margin_top = 13.0
-margin_right = 506.0
-margin_bottom = 74.0
-rect_pivot_offset = Vector2( 265.108, 0 )
-size_flags_horizontal = 3
-text = "Congratulations! You have successfully finished the Prim Algorithm!"
-align = 1
-valign = 1
-autowrap = true
-
-[node name="ResetButton" type="Button" parent="FinishedPopup"]
-modulate = Color( 0.121569, 0.913725, 0, 1 )
-margin_left = 200.759
-margin_top = 76.986
-margin_right = 294.759
-margin_bottom = 102.986
-rect_pivot_offset = Vector2( 72.8572, 10.7062 )
-text = "Reset"
-
-[node name="MenuButton" type="Button" parent="FinishedPopup"]
-modulate = Color( 0.827451, 0.717647, 0.117647, 1 )
-margin_left = 201.293
-margin_top = 113.927
-margin_right = 295.293
-margin_bottom = 139.927
-rect_pivot_offset = Vector2( 72.8572, 10.7062 )
-text = "Menu"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="GameplayMenuPopup" parent="." instance=ExtResource( 12 )]
 
 [node name="ADTMediator" parent="." instance=ExtResource( 19 )]
 position = Vector2( 0, 0.529732 )

@@ -1,15 +1,11 @@
-class_name FinishedPopup
+class_name GameplayMenuPopup
 extends WindowDialog
-
-export (String) var explanation_in_label = "Congratulations! You have successfully finished the BFS Algorithm!"
 
 
 func _ready() -> void:
 	# Needed for the Notification Manager to show when the game is finished
-	NotificationManager.finished_popup = self
 	$ResetButton.connect("pressed", self, "_on_ResetButton_pressed")
 	$MenuButton.connect("pressed", self, "_on_MenuButton_pressed")
-	$Explanation.text = explanation_in_label
 
 func _on_ResetButton_pressed() -> void:
 	NotificationManager.reset_game()

@@ -1,0 +1,296 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://AlgorithmScenes/Code/code_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://AlgorithmScenes/Code/focused_line_code_style.tres" type="StyleBox" id=2]
+[ext_resource path="res://AlgorithmScenes/Code/CodeLine.gd" type="Script" id=3]
+[ext_resource path="res://AlgorithmScenes/Code/default_line_code_style.tres" type="StyleBox" id=4]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/10_v_mark_as_iterated.gd" type="Script" id=5]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/1_take_node_0.gd" type="Script" id=6]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/3_add_to_queue.gd" type="Script" id=7]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/4_while_q_is_not_empty.gd" type="Script" id=8]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/5_v_q_top.gd" type="Script" id=9]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/6_for_u_in_v_edges.gd" type="Script" id=10]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/7_if_u_is_not_explored.gd" type="Script" id=11]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/8_u_mark_as_explored.gd" type="Script" id=12]
+[ext_resource path="res://AlgorithmScenes/Code/code_block.gd" type="Script" id=13]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/9_q_add_u.gd" type="Script" id=14]
+[ext_resource path="res://AlgorithmScenes/Code/null_effect.gd" type="Script" id=15]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/13_bfs_code_finished.gd" type="Script" id=16]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/11_end_for.gd" type="Script" id=17]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/2_queue.gd" type="Script" id=18]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/12_end_while.gd" type="Script" id=19]
+[ext_resource path="res://AlgorithmScenes/Code/CodeLine.tscn" type="PackedScene" id=20]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="Theme" id=2]
+default_font = ExtResource( 1 )
+
+[node name="CodeBlock" type="ScrollContainer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -409.0
+margin_top = 11.0
+margin_right = -9.0
+margin_bottom = 482.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/bg = SubResource( 1 )
+scroll_horizontal_enabled = false
+script = ExtResource( 13 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="LinesContainer" type="VBoxContainer" parent="."]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 396.0
+margin_bottom = 466.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_constants/separation = 0
+
+[node name="PanelContainer0" type="PanelContainer" parent="LinesContainer" instance=ExtResource( 20 )]
+margin_right = 392.0
+margin_bottom = 33.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = SubResource( 2 )
+custom_styles/panel = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+focused = true
+code_text = "BFS(starting_node=0):"
+effect_check = ExtResource( 15 )
+hint_text = "Press [b]ENTER[/b]"
+
+[node name="PanelContainer1" type="PanelContainer" parent="LinesContainer" instance=ExtResource( 20 )]
+margin_top = 33.0
+margin_right = 392.0
+margin_bottom = 66.0
+size_flags_vertical = 0
+theme = SubResource( 2 )
+custom_styles/panel = ExtResource( 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+line_index = 1
+code_text = "    t = starting_node;"
+effect_check = ExtResource( 6 )
+hint_text = "[b]LEFT CLICK[/b] Node 0 and then [b]ENTER[/b]"
+
+[node name="PanelContainer2" type="PanelContainer" parent="LinesContainer" instance=ExtResource( 20 )]
+margin_top = 66.0
+margin_right = 392.0
+margin_bottom = 99.0
+size_flags_vertical = 0
+theme = SubResource( 2 )
+custom_styles/panel = ExtResource( 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+line_index = 2
+code_text = "    q = Queue();"
+effect_check = ExtResource( 18 )
+hint_text = "Go to Data Structures, click the Slot \"Queue\", bring it to Variables and then press [b]ENTER[/b]"
+
+[node name="PanelContainer3" type="PanelContainer" parent="LinesContainer" instance=ExtResource( 20 )]
+margin_top = 99.0
+margin_right = 392.0
+margin_bottom = 132.0
+size_flags_vertical = 0
+theme = SubResource( 2 )
+custom_styles/panel = ExtResource( 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+line_index = 3
+code_text = "    q.add(t);"
+effect_check = ExtResource( 7 )
+hint_text = "[b]RIGHT CLICK[/b] on Node [color=#00FF00] t [/color], then add it to the Queue [color=#00FF00] q [/color]"
+
+[node name="PanelContainer4" type="PanelContainer" parent="LinesContainer" instance=ExtResource( 20 )]
+margin_top = 132.0
+margin_right = 392.0
+margin_bottom = 165.0
+size_flags_vertical = 0
+theme = SubResource( 2 )
+custom_styles/panel = ExtResource( 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+line_index = 4
+jump_index = 13
+code_text = "    while q.is_not_empty():"
+effect_check = ExtResource( 8 )
+hint_text = "Answer if the queue is empty"
+
+[node name="PanelContainer5" type="PanelContainer" parent="LinesContainer" instance=ExtResource( 20 )]
+margin_top = 165.0
+margin_right = 392.0
+margin_bottom = 198.0
+size_flags_vertical = 0
+theme = SubResource( 2 )
+custom_styles/panel = ExtResource( 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+line_index = 5
+code_text = "        v = q.top(); q.pop();"
+effect_check = ExtResource( 9 )
+hint_text = "See the variables after you press [b]ENTER[/b]!"
+
+[node name="PanelContainer6" type="PanelContainer" parent="LinesContainer" instance=ExtResource( 20 )]
+margin_top = 198.0
+margin_right = 392.0
+margin_bottom = 231.0
+size_flags_vertical = 0
+theme = SubResource( 2 )
+custom_styles/panel = ExtResource( 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+line_index = 6
+jump_index = 11
+code_text = "        for (Edge u in v.edges()):"
+effect_check = ExtResource( 10 )
+hint_text = "Check the U variable after you press [b]ENTER[/b]!"
+
+[node name="PanelContainer7" type="PanelContainer" parent="LinesContainer" instance=ExtResource( 20 )]
+margin_top = 231.0
+margin_right = 392.0
+margin_bottom = 264.0
+size_flags_vertical = 0
+theme = SubResource( 2 )
+custom_styles/panel = ExtResource( 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+line_index = 7
+jump_index = 10
+code_text = "            if u.is_not_explored():"
+effect_check = ExtResource( 11 )
+hint_text = "Answer: is the [color=#00FF00] u [/color] node explored?"
+
+[node name="PanelContainer8" type="PanelContainer" parent="LinesContainer" instance=ExtResource( 20 )]
+margin_top = 264.0
+margin_right = 392.0
+margin_bottom = 297.0
+size_flags_vertical = 0
+theme = SubResource( 2 )
+custom_styles/panel = ExtResource( 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+line_index = 8
+code_text = "                u.mark_as_explored();"
+effect_check = ExtResource( 12 )
+hint_text = "Select the [color=#00FF00] u [/color] node with a left click"
+
+[node name="PanelContainer9" type="PanelContainer" parent="LinesContainer" instance=ExtResource( 20 )]
+margin_top = 297.0
+margin_right = 392.0
+margin_bottom = 330.0
+size_flags_vertical = 0
+theme = SubResource( 2 )
+custom_styles/panel = ExtResource( 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+line_index = 9
+code_text = "                q.add(u)"
+effect_check = ExtResource( 14 )
+hint_text = "Add the Node [color=#00FF00] u [/color] to the queue by right clicking on it"
+
+[node name="PanelContainer10" type="PanelContainer" parent="LinesContainer" instance=ExtResource( 20 )]
+margin_top = 330.0
+margin_right = 392.0
+margin_bottom = 363.0
+size_flags_vertical = 0
+theme = SubResource( 2 )
+custom_styles/panel = ExtResource( 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+line_index = 10
+jump_index = 6
+code_text = "        end for;"
+effect_check = ExtResource( 17 )
+hint_text = "Press [b]ENTER[/b]"
+
+[node name="PanelContainer11" type="PanelContainer" parent="LinesContainer" instance=ExtResource( 20 )]
+margin_top = 363.0
+margin_right = 392.0
+margin_bottom = 396.0
+size_flags_vertical = 0
+theme = SubResource( 2 )
+custom_styles/panel = ExtResource( 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+line_index = 11
+code_text = "        v.mark_as_iterated();"
+effect_check = ExtResource( 5 )
+hint_text = "Press [b]ENTER[/b]"
+
+[node name="PanelContainer12" type="PanelContainer" parent="LinesContainer" instance=ExtResource( 20 )]
+margin_top = 396.0
+margin_right = 392.0
+margin_bottom = 429.0
+size_flags_vertical = 0
+theme = SubResource( 2 )
+custom_styles/panel = ExtResource( 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+line_index = 12
+jump_index = 4
+code_text = "    end while;"
+effect_check = ExtResource( 19 )
+hint_text = "Press [b]ENTER[/b]"
+
+[node name="PanelContainer13" type="PanelContainer" parent="LinesContainer" instance=ExtResource( 20 )]
+margin_top = 429.0
+margin_right = 392.0
+margin_bottom = 462.0
+size_flags_vertical = 0
+theme = SubResource( 2 )
+custom_styles/panel = ExtResource( 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+line_index = 13
+jump_index = 4
+code_text = "end BFS;"
+effect_check = ExtResource( 16 )
+hint_text = "Press [b]ENTER[/b]"

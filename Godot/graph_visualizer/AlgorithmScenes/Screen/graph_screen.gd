@@ -19,8 +19,10 @@ export (bool) var is_weighted_graph = false
 export (bool) var allow_selected_edges = false
 
 ## Hint Label ##
-onready var hint_label: RichTextLabel = $TextHintContainer/HintLabel
 onready var adt_mediator = $ADTMediator
+
+func _init():
+	StoredData.reset_data()
 
 
 func _ready():
@@ -51,9 +53,9 @@ func _ready():
 
 
 func _init_graph_matrix(num_nodes: int) -> void:
-	StoredData.json["n"] = num_nodes
+	StoredData.number_of_nodes = num_nodes
 	for _i in range(num_nodes):
-			StoredData.json_matrix.append([])
+			StoredData.matrix.append([])
 
 # Node related functions
 func create_nodes_with_weights(num_nodes: int, max_weight: int):
@@ -62,12 +64,12 @@ func create_nodes_with_weights(num_nodes: int, max_weight: int):
 		for j in range(i + 1, num_nodes):
 			if randf() < self.graph_density and i != j:
 				var weight = stepify( rand_range(1.0, max_weight), 0.01)
-				StoredData.json_matrix[i].append( [j, weight] )
-				StoredData.json_matrix[j].append( [i, weight] )
+				StoredData.matrix[i].append( [j, weight] )
+				StoredData.matrix[j].append( [i, weight] )
 
 
 func instance_nodes():
-	for _i in range(StoredData.json_matrix.size()):
+	for _i in range(StoredData.matrix.size()):
 		var curr_node = circle.instance()  # curr_node: AGraphNode
 		self.add_child(curr_node)
 		_on_node_instanced(curr_node)
@@ -76,17 +78,17 @@ func instance_nodes():
 # node: AGraphNode
 func _on_node_instanced(node):
 	# Set index and edges for node
-	node.set_index(StoredData.nodes.size())
-	node.set_edges(StoredData.json_matrix[node.index])
-	node.init_radial_position(StoredData.json["n"])
+	node.set_index(StoredData.nodes.size())  # This array will change after each instantation
+	node.set_edges(StoredData.matrix[node.index])
+	node.init_radial_position(StoredData.number_of_nodes)
 	# Connect signals
 	node.connect("node_add_to_object_request", NotificationManager, "_on_node_add_to_object")
 	StoredData.nodes.append(node)
 
 
 func instance_edges():
-	for i in range(StoredData.json_matrix.size()):
-		for pair in StoredData.json_matrix[i]:
+	for i in range(StoredData.number_of_nodes):
+		for pair in StoredData.matrix[i]:
 			# pair = [node_number, weight]
 			if i < pair[0]:
 				instance_edge_between_nodes( i, pair[0], str(pair[1]) )
@@ -134,8 +136,8 @@ func create_additional_weights_to_make_graph_connected(max_weight):
 			var connected_nodes = _get_connected_nodes_for_node(node)
 			var j = _get_index_of_node_absent_in_array(connected_nodes)
 			var weight = stepify( rand_range(1.0, max_weight), 0.01 )
-			StoredData.json_matrix[i].append( [j, weight] )
-			StoredData.json_matrix[j].append( [i, weight] )
+			StoredData.matrix[i].append( [j, weight] )
+			StoredData.matrix[j].append( [i, weight] )
 
 
 # utils for connected graphs ##
@@ -167,3 +169,12 @@ func _is_graph_connected() -> bool:
 		if _get_connected_nodes_for_node(node).size() != self.graph_size:
 			return false
 	return true
+
+# To show the menu during gameplay
+# It is not in a singleton like Notificationmanager because we want it
+# to be available only during gameplay
+func _input(event):
+	if event.is_action_pressed("Menu"):
+		var gameplay_menu_popup = $GameplayMenuPopup
+		if gameplay_menu_popup:
+			$GameplayMenuPopup.show()

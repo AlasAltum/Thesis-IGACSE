@@ -95,6 +95,7 @@ margin_left = 570.0
 margin_top = 368.0
 margin_right = 1471.0
 margin_bottom = 805.0
+custom_constants/separation = 0
 
 [node name="StartGame" type="Button" parent="VBoxContainer"]
 margin_right = 901.0
@@ -105,9 +106,9 @@ __meta__ = {
 }
 
 [node name="ExitGame" type="Button" parent="VBoxContainer"]
-margin_top = 24.0
+margin_top = 20.0
 margin_right = 901.0
-margin_bottom = 44.0
+margin_bottom = 40.0
 text = "Exit Game"
 __meta__ = {
 "_edit_use_anchors_": true

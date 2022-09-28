@@ -6,6 +6,9 @@ const node_label_prefab = preload("res://AlgorithmScenes/Screen/ADT/NodeInADT.ts
 onready var nodes_vbox: VBoxContainer = $NodesVBox
 var label_indexes: Dictionary = {}  # Dictionary<int, Label>
 
+const REMOVE_NODE_ERROR_MSG_REPEATED_LABEL_WAS_REMOVED: String = "Error trying to get index of value already removed. You added a node twice"
+
+
 func _ready() -> void:
 	self.position = Vector2(80.0, 20.0)
 
@@ -21,6 +24,9 @@ func add_node(node) -> void:
 
 # Remove Node from QueueADT representation
 func remove_node(node) -> void:
+	if not label_indexes.has(node.index):
+		printerr(REMOVE_NODE_ERROR_MSG_REPEATED_LABEL_WAS_REMOVED)
+		return;
 	var child_to_remove: Label = label_indexes[node.index]
 	if child_to_remove:
 		label_indexes.erase(node.index)

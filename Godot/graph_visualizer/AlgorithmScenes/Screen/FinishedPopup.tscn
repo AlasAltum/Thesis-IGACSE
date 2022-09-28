@@ -3,6 +3,7 @@
 [ext_resource path="res://AlgorithmScenes/Screen/finished_code_popup.gd" type="Script" id=1]
 
 [node name="FinishedPopup" type="WindowDialog"]
+visible = true
 margin_left = 525.1
 margin_top = 232.627
 margin_right = 1037.1

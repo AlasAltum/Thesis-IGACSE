@@ -1,0 +1,181 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://AlgorithmScenes/Screen/GUI/adts_shower.gd" type="Script" id=1]
+[ext_resource path="res://AlgorithmScenes/Code/debug_block.gd" type="Script" id=2]
+[ext_resource path="res://c_sharp_src/OneToggleButtonVBoxContaner.cs" type="Script" id=3]
+[ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Bold.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://AlgorithmScenes/Screen/GUI/ADTsShower.tscn" type="PackedScene" id=6]
+[ext_resource path="res://AlgorithmScenes/Screen/ADTSelectionPanel.tscn" type="PackedScene" id=7]
+[ext_resource path="res://AlgorithmScenes/Screen/button_theme.tres" type="Theme" id=8]
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+border_color = Color( 1, 0, 0, 1 )
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 170.095, 152.984 )
+
+[node name="LeftPanel" type="VBoxContainer"]
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = -1.0
+margin_right = 206.0
+margin_bottom = -1.0
+rect_clip_content = true
+mouse_filter = 2
+
+[node name="ModeSelector" type="MarginContainer" parent="."]
+visible = false
+margin_right = 234.0
+margin_bottom = 90.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="ModeSelector"]
+margin_right = 234.0
+margin_bottom = 90.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OneToggleButtonVBoxContainer" type="VBoxContainer" parent="ModeSelector/PanelContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 224.0
+margin_bottom = 80.0
+theme = SubResource( 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+available_modes = [ "SelectNode", "AllowGraphMovement" ]
+
+[node name="SelectNodeButton" type="Button" parent="ModeSelector/PanelContainer/OneToggleButtonVBoxContainer"]
+margin_right = 214.0
+margin_bottom = 33.0
+toggle_mode = true
+pressed = true
+text = "Select Mode"
+
+[node name="AllowGraphMovementButton" type="Button" parent="ModeSelector/PanelContainer/OneToggleButtonVBoxContainer"]
+margin_top = 37.0
+margin_right = 214.0
+margin_bottom = 70.0
+theme = ExtResource( 8 )
+disabled = true
+toggle_mode = true
+text = " Move Nodes Mode"
+
+[node name="DebugBlock" type="ScrollContainer" parent="."]
+margin_right = 234.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 0, 300 )
+mouse_filter = 2
+custom_styles/bg = SubResource( 1 )
+scroll_horizontal_enabled = false
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="LinesContainer" type="VBoxContainer" parent="DebugBlock"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 230.0
+margin_bottom = 61.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="DebuggerTitle" type="Label" parent="DebugBlock/LinesContainer"]
+margin_right = 226.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 5 )
+text = "Variables
+"
+align = 1
+valign = 1
+clip_text = true
+
+[node name="Area2D" type="Area2D" parent="DebugBlock"]
+position = Vector2( 41.2171, -0.0319672 )
+z_index = 15
+z_as_relative = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DebugBlock/Area2D"]
+position = Vector2( 61.0628, 146.87 )
+z_index = 5
+z_as_relative = false
+shape = SubResource( 6 )
+
+[node name="ADTShower" type="PanelContainer" parent="." instance=ExtResource( 6 )]
+margin_top = 304.0
+margin_right = 234.0
+margin_bottom = 538.0
+rect_min_size = Vector2( 234, 200 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ADTSelectionPanel" type="MarginContainer" parent="." instance=ExtResource( 7 )]
+margin_top = 542.0
+margin_right = 234.0
+margin_bottom = 842.0
+rect_min_size = Vector2( 170, 300 )
+mouse_filter = 2
+custom_constants/margin_bottom = 0
+
+[connection signal="mouse_entered" from="DebugBlock/Area2D" to="DebugBlock" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="DebugBlock/Area2D" to="DebugBlock" method="_on_Area2D_mouse_exited"]

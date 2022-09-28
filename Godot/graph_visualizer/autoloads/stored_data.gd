@@ -20,11 +20,8 @@ var edges : Array = []
 
 
 var debug_block: ScrollContainer  # : DebugBlock
-var json_matrix = []  # contains pairs [node_index <int>, weight <float>]:
-var json = {
-	"n": 3,
-	"matrix": [],
-}
+var number_of_nodes: int = 3
+var matrix: Array = []
 var dragging_adt : bool = false
 var dragged_adt : FollowingMouseTexture
 var selected_edge
@@ -47,7 +44,7 @@ var adt_is_empty_right_answer : bool = false
 var length_c_is_one_correct_answer: bool = false
 
 ## ADT selection
-var adt_shower
+var adt_shower # ADTShower
 var adt_mediator # ADTMediator class
 var selected_variable_index : int = 0  # Used to emphasize the current variable
 var adt_to_be_created: ADT
@@ -81,17 +78,22 @@ func emphasize_error_on_current_selected_variable():
 	if adt_mediator:
 		adt_mediator.emphasize_error_on_current_selected_variable()
 
-
-# Create a new variable, considering it in the
-# ADT Shower and in the Debug Block
-func add_variable(var_name, data):
+# We don't want to add the whole node, but its representation
+# as an ADT, so we feed with this to the ADTMediator
+func _transform_data_from_nodes_and_edges(data):
 	if data.get_class() == "KinematicBody2D":
 		data = data.get_adt()
+	# The same with edges
 	elif data.get_class() == "GraphEdge":
 		var parent_edge = data
 		data = data.get_adt().new(parent_edge)
+	return data
+	
+# Create a new variable, considering it in the
+# ADT Shower and in the Debug Block
+func add_variable(var_name, data):
+	data = _transform_data_from_nodes_and_edges(data)
 	adt_mediator.add_or_update_variable(var_name, data)
-
 
 func has_variable(variable_name: String) -> bool:
 	return adt_mediator.has_variable(variable_name)
@@ -104,6 +106,9 @@ func erase_variable(var_name: String) -> void:
 
 func add_node_to_adt(object_name: String, incoming_node: Object) -> void:
 	adt_mediator.add_node_to_adt(object_name, incoming_node)
+
+func update_views() -> void:
+	adt_mediator.update()
 
 func get_data_type_of_variable(var_name: String):
 	# Case there is no data type for that variable
@@ -128,11 +133,7 @@ func reset_data():
 	self.edges = []
 
 	self.debug_block = null
-	self.json_matrix = []
-	self.json = {
-		"n": 3,
-		"matrix": [],
-	}
+	self.matrix = []
 	self.dragging_adt = false
 	self.dragged_adt = null
 	self.selected_edge = null
