@@ -55,17 +55,15 @@ func get_representation():
 
 	return self.representation
 
-func init_radial_position(total_nodes: int):
+
+func init_radial_position(total_nodes: int, node_container_position: Vector2):
 	var angle = 2 * PI / (total_nodes + 1) * (self.index + 1)
 	# GODOT is not updating this position immediately, it takes a whole cycle
-	aux_position = Vector2(cos(angle) * radius + 550, sin(angle) * radius + 350)
+	var x_offset = node_container_position.x
+	var y_offset = node_container_position.y
+	aux_position = Vector2(cos(angle) * radius + x_offset, sin(angle) * radius + y_offset)
 	self.position = aux_position
 
-func init_random_position(left, right, down, up):
-	self.position = Vector2(
-		rand_range(left, right), rand_range(down, up)
-	)
-	return self.position
 
 func set_index(_index: int):
 	self.index = _index
@@ -136,9 +134,12 @@ func _input(event):
 
 		hide_popup_menu()
 
+
+const GOOD_LOOKING_OFFSET = Vector2(350.0, -0.0)
+
 # Show hover menu
 func _on_Area2D_mouse_entered() -> void:
-	popup_menu.set_position(self.position + Vector2(25.0, -15.0))
+	popup_menu.set_position(position + GOOD_LOOKING_OFFSET)
 	self.mouse_status = MOUSE_STATUS.INSIDE
 	popup_menu.popup()
 

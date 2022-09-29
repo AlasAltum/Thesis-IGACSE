@@ -71,8 +71,13 @@ func create_nodes_with_weights(num_nodes: int, max_weight: int):
 func instance_nodes():
 	for _i in range(StoredData.matrix.size()):
 		var curr_node = circle.instance()  # curr_node: AGraphNode
-		self.add_child(curr_node)
+		$CanvasLayer/NodeContainer.add_child(curr_node)
 		_on_node_instanced(curr_node)
+
+
+func _get_center_position_of_node_container() -> Vector2:
+	var cont = $CanvasLayer/NodeContainer
+	return cont.rect_size * 0.5 
 
 
 # node: AGraphNode
@@ -80,7 +85,8 @@ func _on_node_instanced(node):
 	# Set index and edges for node
 	node.set_index(StoredData.nodes.size())  # This array will change after each instantation
 	node.set_edges(StoredData.matrix[node.index])
-	node.init_radial_position(StoredData.number_of_nodes)
+	var node_container_position = _get_center_position_of_node_container()
+	node.init_radial_position(StoredData.number_of_nodes, node_container_position)
 	# Connect signals
 	node.connect("node_add_to_object_request", NotificationManager, "_on_node_add_to_object")
 	StoredData.nodes.append(node)
@@ -98,7 +104,7 @@ func instance_edge_between_nodes(node_idx1: int, node_idx2: int, label_with_weig
 	var curr_edge = edge.instance()
 	curr_edge.set_name("Edge_%s_to_%s" % [str(node_idx1), str(node_idx2)])
 	StoredData.edges.append(curr_edge)
-	self.add_child(curr_edge)
+	$CanvasLayer/NodeContainer.add_child(curr_edge)
 	curr_edge.set_label_and_positions_with_nodes(
 		StoredData.nodes[node_idx1],  # pos node_idx1,
 		StoredData.nodes[node_idx2],  # pos node_idx2,
