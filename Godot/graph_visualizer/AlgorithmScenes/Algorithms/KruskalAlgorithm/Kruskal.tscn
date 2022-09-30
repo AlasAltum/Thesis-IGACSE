@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Screen/LeftPanel.tscn" type="PackedScene" id=1]
-[ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/KruskalCode.tscn" type="PackedScene" id=2]
+[ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/KruskalCode_old.tscn" type="PackedScene" id=2]
 [ext_resource path="res://AlgorithmScenes/Code/ADTs/ADTMediator.tscn" type="PackedScene" id=4]
 [ext_resource path="res://AlgorithmScenes/Screen/popup_for_object_creation.gd" type="Script" id=19]
 [ext_resource path="res://AlgorithmScenes/Screen/graph_screen.gd" type="Script" id=21]
@@ -135,7 +135,7 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="LinesContainer" parent="CanvasLayer/CodeBlock" instance=ExtResource( 2 )]
+[node name="KruskalCode" parent="CanvasLayer/CodeBlock" instance=ExtResource( 2 )]
 
 [node name="TextHintContainer" type="CenterContainer" parent="CanvasLayer"]
 anchor_left = 0.230514
@@ -502,5 +502,3 @@ __meta__ = {
 [connection signal="pressed" from="AddNodePopup/EnterButton" to="AddNodePopup" method="_on_EnterButton_pressed"]
 [connection signal="pressed" from="BFSFinishedPopup/ResetButton" to="." method="_on_ResetButton_pressed"]
 [connection signal="pressed" from="BFSFinishedPopup/MenuButton" to="." method="_on_MenuButton_pressed"]
-
-[editable path="CanvasLayer/CodeBlock/LinesContainer"]

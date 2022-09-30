@@ -30,6 +30,7 @@ func execute_side_effect() -> void:
 	StoredData.add_variable("V", v)
 
 
+
 func get_next_line() -> int:
 	self.execute_side_effect()
 	return .get_next_line()  # super.get_next_line()

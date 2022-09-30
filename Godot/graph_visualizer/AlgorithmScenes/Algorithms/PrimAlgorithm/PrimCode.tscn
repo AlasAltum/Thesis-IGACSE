@@ -208,7 +208,7 @@ margin_top = 363.0
 margin_right = 392.0
 margin_bottom = 396.0
 theme = SubResource( 1 )
-line_index = 10
+line_index = 11
 code_text = "       V = {graph.vertices} - T"
 effect_check = ExtResource( 17 )
 hint_text = "Select the [color=#00FF00] u [/color] node with a left click"
@@ -223,7 +223,7 @@ margin_top = 396.0
 margin_right = 392.0
 margin_bottom = 429.0
 theme = SubResource( 1 )
-line_index = 11
+line_index = 12
 jump_index = 6
 code_text = "        end while;"
 effect_check = ExtResource( 15 )
@@ -239,7 +239,7 @@ margin_top = 429.0
 margin_right = 392.0
 margin_bottom = 462.0
 theme = SubResource( 1 )
-line_index = 12
+line_index = 13
 jump_index = 4
 code_text = "end Prim;"
 effect_check = ExtResource( 7 )

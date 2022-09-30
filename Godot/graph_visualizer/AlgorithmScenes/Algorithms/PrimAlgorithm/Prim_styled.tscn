@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Code/DebugBlock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://AlgorithmScenes/Screen/ADTSelectionPanel.tscn" type="PackedScene" id=2]
@@ -7,12 +7,8 @@
 [ext_resource path="res://AlgorithmScenes/Screen/GameplayMenuPopup.tscn" type="PackedScene" id=5]
 [ext_resource path="res://AlgorithmScenes/Screen/PopUpForObjectCreation.tscn" type="PackedScene" id=13]
 [ext_resource path="res://AlgorithmScenes/Screen/graph_screen.gd" type="Script" id=15]
-[ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/LengthCIsOnePopup.tscn" type="PackedScene" id=16]
-[ext_resource path="res://AlgorithmScenes/Screen/AddNodePopup.tscn" type="PackedScene" id=21]
 [ext_resource path="res://AlgorithmScenes/Screen/GUI/ADTsShower.tscn" type="PackedScene" id=28]
 [ext_resource path="res://AlgorithmScenes/Code/ADTs/ADTMediator.tscn" type="PackedScene" id=34]
-[ext_resource path="res://AlgorithmScenes/Screen/ADTIsNotEmptyPopup.tscn" type="PackedScene" id=36]
-[ext_resource path="res://AlgorithmScenes/Screen/UNodeIsExploredPopup.tscn" type="PackedScene" id=37]
 [ext_resource path="res://AlgorithmScenes/Screen/FinishedPopup.tscn" type="PackedScene" id=38]
 
 [node name="Main" type="Node2D"]
@@ -26,20 +22,10 @@ allow_selected_edges = true
 [node name="PopUpForObjectCreation" parent="." instance=ExtResource( 13 )]
 visible = false
 
-[node name="UNodeIsExploredPopup" parent="." instance=ExtResource( 37 )]
-visible = false
-
-[node name="ADTIsNotEmptyPopup" parent="." instance=ExtResource( 36 )]
-visible = false
-
-[node name="AddNodePopup" parent="." instance=ExtResource( 21 )]
-
 [node name="FinishedPopup" parent="." instance=ExtResource( 38 )]
 visible = false
 
 [node name="GameplayMenuPopup" parent="." instance=ExtResource( 5 )]
-
-[node name="LengthCIsOnePopup" parent="." instance=ExtResource( 16 )]
 
 [node name="ADTMediator" parent="." instance=ExtResource( 34 )]
 visible = false
