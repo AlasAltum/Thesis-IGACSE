@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Code/focused_line_code_style.tres" type="StyleBox" id=1]
+[ext_resource path="res://AlgorithmScenes/Code/code_block.gd" type="Script" id=2]
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/5_v_s_top.gd" type="Script" id=3]
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/9_s_add_u.gd" type="Script" id=4]
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/8_u_mark_as_explored.gd" type="Script" id=5]
@@ -19,19 +20,23 @@
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 10 )
 
-[node name="LinesContainer" type="VBoxContainer"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 396.0
-margin_bottom = 400.0
+[node name="KruskalCode" type="ScrollContainer"]
+margin_top = 396.0
+margin_right = 392.0
+margin_bottom = 396.0
+script = ExtResource( 2 )
+
+[node name="LinesContainer" type="VBoxContainer" parent="."]
+margin_right = 380.0
+margin_bottom = 396.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 custom_constants/separation = 0
 
-[node name="PanelContainer0" parent="." instance=ExtResource( 11 )]
+[node name="PanelContainer0" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 392.0
+margin_right = 380.0
 margin_bottom = 33.0
 theme = SubResource( 1 )
 custom_styles/panel = ExtResource( 1 )
@@ -40,11 +45,11 @@ code_text = "Kruskal():"
 effect_check = ExtResource( 9 )
 hint_text = "Press [color=#ff00ff]ENTER[/color]"
 
-[node name="PanelContainer1" parent="." instance=ExtResource( 11 )]
+[node name="PanelContainer1" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 33.0
-margin_right = 392.0
+margin_right = 380.0
 margin_bottom = 66.0
 theme = SubResource( 1 )
 line_index = 1
@@ -52,11 +57,11 @@ code_text = "    sort_edges();"
 effect_check = ExtResource( 15 )
 hint_text = "Press [color=#ff00ff]ENTER[/color] [color=]LEFT CLICK[/b] on edges by [b]ascending[/b] order"
 
-[node name="PanelContainer2" parent="." instance=ExtResource( 11 )]
+[node name="PanelContainer2" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 66.0
-margin_right = 392.0
+margin_right = 380.0
 margin_bottom = 99.0
 theme = SubResource( 1 )
 line_index = 2
@@ -64,11 +69,11 @@ code_text = "    C = [[v] for v in graph.vertices];"
 effect_check = ExtResource( 12 )
 hint_text = "Go to Data Structures, click the Slot \"Stack\", bring it to Variables and then press [b]ENTER[/b]"
 
-[node name="PanelContainer3" parent="." instance=ExtResource( 11 )]
+[node name="PanelContainer3" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 99.0
-margin_right = 392.0
+margin_right = 380.0
 margin_bottom = 132.0
 theme = SubResource( 1 )
 line_index = 3
@@ -76,11 +81,11 @@ code_text = "    MST = []"
 effect_check = ExtResource( 14 )
 hint_text = "[b]RIGHT CLICK[/b] on Node [color=#00FF00] t [/color], then add it to the Queue [color=#00FF00] q [/color]"
 
-[node name="PanelContainer4" parent="." instance=ExtResource( 11 )]
+[node name="PanelContainer4" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 132.0
-margin_right = 392.0
+margin_right = 380.0
 margin_bottom = 165.0
 theme = SubResource( 1 )
 line_index = 4
@@ -89,11 +94,11 @@ code_text = "    for Edge e in graph.edges:"
 effect_check = ExtResource( 13 )
 hint_text = "Answer if the queue is empty"
 
-[node name="PanelContainer5" parent="." instance=ExtResource( 11 )]
+[node name="PanelContainer5" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 165.0
-margin_right = 392.0
+margin_right = 380.0
 margin_bottom = 198.0
 theme = SubResource( 1 )
 line_index = 5
@@ -101,11 +106,11 @@ code_text = "        if (len(C) == 1):    break;"
 effect_check = ExtResource( 3 )
 hint_text = "See the variables after you press [b]ENTER[/b]!"
 
-[node name="PanelContainer6" parent="." instance=ExtResource( 11 )]
+[node name="PanelContainer6" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 198.0
-margin_right = 392.0
+margin_right = 380.0
 margin_bottom = 231.0
 theme = SubResource( 1 )
 line_index = 6
@@ -114,11 +119,11 @@ code_text = "        (v, w) = e"
 effect_check = ExtResource( 17 )
 hint_text = "Check the U variable after you press [b]ENTER[/b]!"
 
-[node name="PanelContainer7" parent="." instance=ExtResource( 11 )]
+[node name="PanelContainer7" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 231.0
-margin_right = 392.0
+margin_right = 380.0
 margin_bottom = 264.0
 theme = SubResource( 1 )
 line_index = 7
@@ -127,11 +132,11 @@ code_text = "        if Find(v) != Find(w):"
 effect_check = ExtResource( 6 )
 hint_text = "Answer: is the [color=#00FF00] u [/color] node explored?"
 
-[node name="PanelContainer8" parent="." instance=ExtResource( 11 )]
+[node name="PanelContainer8" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 264.0
-margin_right = 392.0
+margin_right = 380.0
 margin_bottom = 297.0
 theme = SubResource( 1 )
 line_index = 8
@@ -139,11 +144,11 @@ code_text = "            T.append(e)"
 effect_check = ExtResource( 5 )
 hint_text = "Select the [color=#00FF00] u [/color] node with a left click"
 
-[node name="PanelContainer9" parent="." instance=ExtResource( 11 )]
+[node name="PanelContainer9" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 297.0
-margin_right = 392.0
+margin_right = 380.0
 margin_bottom = 330.0
 theme = SubResource( 1 )
 line_index = 9
@@ -151,11 +156,11 @@ code_text = "                s.add(u)"
 effect_check = ExtResource( 4 )
 hint_text = "Add the Node [color=#00FF00] u [/color] to the queue by right clicking on it"
 
-[node name="PanelContainer10" parent="." instance=ExtResource( 11 )]
+[node name="PanelContainer10" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 330.0
-margin_right = 392.0
+margin_right = 380.0
 margin_bottom = 363.0
 theme = SubResource( 1 )
 line_index = 10
@@ -164,11 +169,11 @@ code_text = "        end for;"
 effect_check = ExtResource( 16 )
 hint_text = "Press [b]ENTER[/b]"
 
-[node name="PanelContainer13" parent="." instance=ExtResource( 11 )]
+[node name="PanelContainer13" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 363.0
-margin_right = 392.0
+margin_right = 380.0
 margin_bottom = 396.0
 theme = SubResource( 1 )
 line_index = 13

@@ -1,5 +1,5 @@
 extends EffectCheck
-# e = min_edge_connecting(A, T)
+# e = min_edge_connecting(V, T)
 
 const MAX_WEIGHT: float = 9999999.9
 var e_min_weight_edge: float = MAX_WEIGHT  # Simulating a high float
@@ -27,7 +27,7 @@ func effect_check_on_focused():
 
 func get_min_weight_edge_between_sets_A_and_T():
 	# get_edge_between_sets_A_and_T
-	var nodes_in_a = self.get_nodes_in_ADT("A")  # TODO: A is not using an adt, it is seting a GraphNode
+	var nodes_in_a = self.get_nodes_in_ADT("V")  # TODO: A is not using an adt, it is seting a GraphNode
 	var nodes_in_t = self.get_nodes_in_ADT("T")
 
 	for _edge in StoredData.edges:

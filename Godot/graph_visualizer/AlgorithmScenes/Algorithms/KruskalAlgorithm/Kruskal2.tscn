@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://c_sharp_src/OneToggleButtonVBoxContaner.cs" type="Script" id=1]
 [ext_resource path="res://AlgorithmScenes/Code/ADTs/queue_adt.gd" type="Script" id=2]
@@ -19,19 +19,10 @@
 [ext_resource path="res://AlgorithmScenes/Screen/Slot.tscn" type="PackedScene" id=17]
 [ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/KruskalCode.tscn" type="PackedScene" id=18]
 [ext_resource path="res://AlgorithmScenes/Code/ADTs/ADTMediator.tscn" type="PackedScene" id=19]
-[ext_resource path="res://AlgorithmScenes/Screen/length_c_is_one_popup.gd" type="Script" id=20]
+[ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/LengthCIsOnePopup.tscn" type="PackedScene" id=20]
 [ext_resource path="res://AlgorithmScenes/Screen/PopUpForObjectCreation.tscn" type="PackedScene" id=21]
 [ext_resource path="res://AlgorithmScenes/Screen/GUI/ADTsShower.tscn" type="PackedScene" id=22]
-[ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/9_union_find_v_find_w.gd" type="Script" id=23]
-[ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/2_create_sets_for_v_in_graph_vertices.gd" type="Script" id=24]
-[ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/3_create_mst.gd" type="Script" id=25]
-[ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/4_for_e_in_graph_edges.gd" type="Script" id=26]
 [ext_resource path="res://AlgorithmScenes/Code/ADTs/array_adt.gd" type="Script" id=27]
-[ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/6_v_w_vertices_e.gd" type="Script" id=28]
-[ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/7_if_find_v_unequal_find_w.gd" type="Script" id=29]
-[ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/5_if_len_c_equals_1_break.gd" type="Script" id=30]
-[ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/8_mst_append_e.gd" type="Script" id=31]
-[ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/13_kruskal_code_finished.gd" type="Script" id=32]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 4.0
@@ -83,33 +74,6 @@ font_data = ExtResource( 5 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 170.095, 152.984 )
 
-[sub_resource type="Animation" id=7]
-length = 3.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.201 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, true ]
-}
-
 [node name="Main" type="Node2D"]
 position = Vector2( 1, 0 )
 script = ExtResource( 9 )
@@ -143,141 +107,49 @@ __meta__ = {
 }
 
 [node name="LinesContainer" parent="CanvasLayer/CodeBlock" instance=ExtResource( 18 )]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 16.0
+margin_bottom = 16.0
 
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0" index="0"]
-margin_right = 392.0
+[node name="LinesContainer" parent="CanvasLayer/CodeBlock/LinesContainer" index="0"]
+margin_right = 123.0
 
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0/HBoxContainer" index="2"]
-margin_right = 105.0
-text = "Kruskal():"
+[node name="PanelContainer0" parent="CanvasLayer/CodeBlock/LinesContainer/LinesContainer" index="0"]
+margin_right = 123.0
 
-[node name="PanelContainer1" parent="CanvasLayer/CodeBlock/LinesContainer" index="1"]
-code_text = "    graph_edges = sort_edges();"
-hint_text = "[color=#ff00ff] LEFT CLICK [/color] on edges by ascending order considering their weights"
+[node name="PanelContainer1" parent="CanvasLayer/CodeBlock/LinesContainer/LinesContainer" index="1"]
+margin_right = 123.0
 
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1" index="0"]
-margin_right = 392.0
+[node name="PanelContainer2" parent="CanvasLayer/CodeBlock/LinesContainer/LinesContainer" index="2"]
+margin_right = 123.0
 
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1/HBoxContainer" index="2"]
-margin_right = 280.0
-text = "    graph_edges = sort_edges();"
+[node name="PanelContainer3" parent="CanvasLayer/CodeBlock/LinesContainer/LinesContainer" index="3"]
+margin_right = 123.0
 
-[node name="PanelContainer2" parent="CanvasLayer/CodeBlock/LinesContainer" index="2"]
-effect_check = ExtResource( 24 )
-hint_text = "Press [color=#ff00ff]ENTER[/color]"
+[node name="PanelContainer4" parent="CanvasLayer/CodeBlock/LinesContainer/LinesContainer" index="4"]
+margin_right = 123.0
 
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2" index="0"]
-margin_right = 392.0
+[node name="PanelContainer5" parent="CanvasLayer/CodeBlock/LinesContainer/LinesContainer" index="5"]
+margin_right = 123.0
 
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2/HBoxContainer" index="2"]
-margin_right = 304.0
-text = "    C = [[v] for v in graph.vertices];"
+[node name="PanelContainer6" parent="CanvasLayer/CodeBlock/LinesContainer/LinesContainer" index="6"]
+margin_right = 123.0
 
-[node name="PanelContainer3" parent="CanvasLayer/CodeBlock/LinesContainer" index="3"]
-effect_check = ExtResource( 25 )
-hint_text = "Create an array with the name MST with [b] LEFT CLICK [/b] on =#00FF00] t [/color], then add it to the Queue [color=#00FF00] the array slot in data structures"
+[node name="PanelContainer7" parent="CanvasLayer/CodeBlock/LinesContainer/LinesContainer" index="7"]
+margin_right = 123.0
 
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3" index="0"]
-margin_right = 392.0
+[node name="PanelContainer8" parent="CanvasLayer/CodeBlock/LinesContainer/LinesContainer" index="8"]
+margin_right = 123.0
 
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3/HBoxContainer" index="2"]
-margin_right = 114.0
-text = "    MST = []"
+[node name="PanelContainer9" parent="CanvasLayer/CodeBlock/LinesContainer/LinesContainer" index="9"]
+margin_right = 123.0
 
-[node name="PanelContainer4" parent="CanvasLayer/CodeBlock/LinesContainer" index="4"]
-jump_index = 11
-code_text = "    for (Edge e in graph.edges):"
-effect_check = ExtResource( 26 )
-hint_text = "Press [color=#ff00ff]ENTER[/color] and see the new variable [color=#ff00ff]e[/color]"
+[node name="PanelContainer10" parent="CanvasLayer/CodeBlock/LinesContainer/LinesContainer" index="10"]
+margin_right = 123.0
 
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4/HBoxContainer" index="2"]
-margin_right = 278.0
-text = "    for (Edge e in graph.edges):"
-
-[node name="PanelContainer5" parent="CanvasLayer/CodeBlock/LinesContainer" index="5"]
-jump_index = 11
-effect_check = ExtResource( 30 )
-hint_text = "Answer the question. Does the array of arrays [color=#ff00ff]C[/color] contain only one element?"
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5/HBoxContainer" index="2"]
-margin_right = 261.0
-text = "        if (len(C) == 1):    break;"
-
-[node name="PanelContainer6" parent="CanvasLayer/CodeBlock/LinesContainer" index="6"]
-jump_index = 0
-effect_check = ExtResource( 28 )
-hint_text = "Select the nodes connecting the edge [color=#ff00ff]e[/color]"
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6/HBoxContainer" index="2"]
-margin_right = 141.0
-text = "        (v, w) = e"
-
-[node name="PanelContainer7" parent="CanvasLayer/CodeBlock/LinesContainer" index="7"]
-effect_check = ExtResource( 29 )
-hint_text = "Are the nodes [color=#ff00ff]v[/color] and [color=#ff00ff]w[/color] in the same set?"
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7/HBoxContainer" index="2"]
-margin_right = 234.0
-text = "        if Find(v) != Find(w):"
-
-[node name="PanelContainer8" parent="CanvasLayer/CodeBlock/LinesContainer" index="8"]
-code_text = "            MST.append(e)"
-effect_check = ExtResource( 31 )
-hint_text = "Press [color=#ff00ff]ENTER[/color]"
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8/HBoxContainer" index="2"]
-margin_right = 212.0
-text = "            MST.append(e)"
-
-[node name="PanelContainer9" parent="CanvasLayer/CodeBlock/LinesContainer" index="9"]
-code_text = "            C.Union(Find(v), Find(w))"
-effect_check = ExtResource( 23 )
-hint_text = "Press [color=#ff00ff]ENTER[/color]"
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer9" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer9/HBoxContainer" index="2"]
-margin_right = 295.0
-text = "            C.Union(Find(v), Find(w))"
-
-[node name="PanelContainer10" parent="CanvasLayer/CodeBlock/LinesContainer" index="10"]
-jump_index = 4
-hint_text = "Press [color=#ff00ff]ENTER[/color]"
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10/HBoxContainer" index="2"]
-margin_right = 130.0
-text = "        end for;"
-
-[node name="PanelContainer13" parent="CanvasLayer/CodeBlock/LinesContainer" index="11"]
-line_index = 11
-effect_check = ExtResource( 32 )
-hint_text = ""
-
-[node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13" index="0"]
-margin_right = 392.0
-
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13/HBoxContainer" index="2"]
-margin_right = 130.0
-text = "end Kruskal;"
+[node name="PanelContainer13" parent="CanvasLayer/CodeBlock/LinesContainer/LinesContainer" index="11"]
+margin_right = 123.0
 
 [node name="LeftPanel" type="VBoxContainer" parent="CanvasLayer"]
 anchor_bottom = 1.0
@@ -500,76 +372,11 @@ __meta__ = {
 [node name="PopUpForObjectCreation" parent="." instance=ExtResource( 21 )]
 visible = false
 
-[node name="LengthCIsOnePopup" type="WindowDialog" parent="."]
-margin_left = 524.122
-margin_top = 233.47
-margin_right = 1036.12
-margin_bottom = 392.47
-popup_exclusive = true
-window_title = "Confirmation"
-script = ExtResource( 20 )
-
-[node name="Explanation" type="Label" parent="LengthCIsOnePopup"]
-margin_left = 5.0
-margin_top = 13.0
-margin_right = 506.0
-margin_bottom = 39.0
-rect_pivot_offset = Vector2( 265.108, 0 )
-size_flags_horizontal = 3
-text = "Is the length of the Array C equal to 1?"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ErrorNotification" type="Label" parent="LengthCIsOnePopup"]
-visible = false
-margin_left = 2.05951
-margin_top = 112.692
-margin_right = 503.06
-margin_bottom = 138.692
-rect_pivot_offset = Vector2( 265.108, 0 )
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0.878431, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_as_outline = 2
-text = "Error: Wrong answer"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="LengthCIsOnePopup/ErrorNotification"]
-anims/message_modulation = SubResource( 7 )
-
-[node name="YesButton" type="Button" parent="LengthCIsOnePopup"]
-modulate = Color( 0.121569, 0.913725, 0, 1 )
-margin_left = 115.407
-margin_top = 63.2947
-margin_right = 209.407
-margin_bottom = 89.2947
-text = "Yes"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NoButton" type="Button" parent="LengthCIsOnePopup"]
-modulate = Color( 0.980392, 0.156863, 0.156863, 1 )
-margin_left = 317.165
-margin_top = 64.6618
-margin_right = 411.165
-margin_bottom = 90.6618
-text = "No"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="LengthCIsOnePopup" parent="." instance=ExtResource( 20 )]
 
 [node name="AddNodePopup" parent="." instance=ExtResource( 16 )]
 
 [node name="FinishedPopup" type="WindowDialog" parent="."]
-visible = true
 margin_left = 525.1
 margin_top = 232.627
 margin_right = 1037.1
@@ -621,21 +428,7 @@ __meta__ = {
 [connection signal="pressed" from="CanvasLayer/LeftPanel/ModeSelector/PanelContainer/OneToggleButtonVBoxContainer/AllowGraphMovementButton" to="." method="_on_AllowGraphMovementButton_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/LeftPanel/DebugBlock/Area2D" to="CanvasLayer/LeftPanel/DebugBlock" method="_on_Area2D_mouse_exited"]
-[connection signal="pressed" from="LengthCIsOnePopup/YesButton" to="LengthCIsOnePopup" method="_on_YesButton_pressed"]
-[connection signal="pressed" from="LengthCIsOnePopup/NoButton" to="LengthCIsOnePopup" method="_on_NoButton_pressed"]
 
 [editable path="CanvasLayer/CodeBlock/LinesContainer"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer9"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10"]
-[editable path="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13"]
 [editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot2"]
 [editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot3"]

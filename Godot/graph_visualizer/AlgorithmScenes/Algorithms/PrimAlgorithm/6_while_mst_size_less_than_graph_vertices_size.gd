@@ -1,5 +1,5 @@
 extends EffectCheck
-#  while (MST.size() < graph.vertices.size()):
+#  while (T.size() < graph.vertices.size()):
 
 func get_max_iteration_index() -> int:
 	return StoredData.edges.size()
