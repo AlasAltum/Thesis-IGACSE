@@ -5,6 +5,7 @@
 class_name ADT
 extends Resource
 
+export (bool) var is_new = false
 var representation: ADTRepresentation
 var representation_path: String
 export (Array) var data = [] setget set_data, get_data # Array of NodeADT

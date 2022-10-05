@@ -135,7 +135,7 @@ func _input(event):
 		hide_popup_menu()
 
 
-const GOOD_LOOKING_OFFSET = Vector2(350.0, -0.0)
+const GOOD_LOOKING_OFFSET = Vector2(430.0, -0.0)
 
 # Show hover menu
 func _on_Area2D_mouse_entered() -> void:

@@ -7,11 +7,10 @@ public class AlgorithmSelectionMenu : Node2D
 
    [Export]
    private bool playerHasFinishedBFSAndDFS = false;
-   private const String BFS_SCENE = "res://AlgorithmScenes/Algorithms/BFSAlgorithm/BFS.tscn";
-   private const String DFS_SCENE = "res://AlgorithmScenes/Algorithms/DFSAlgorithm/DFS.tscn";
-   private const String PRIM_SCENE = "res://AlgorithmScenes/Algorithms/KruskalAlgorithm/Kruskal2.tscn";
-   private const String KRUSKAL_SCENE = "res://AlgorithmScenes/Algorithms/PrimAlgorithm/Prim2.tscn";
-
+   private const String BFS_SCENE = "res://AlgorithmScenes/Algorithms/BFSAlgorithm/BFS_styled.tscn";
+   private const String DFS_SCENE = "res://AlgorithmScenes/Algorithms/DFSAlgorithm/DFS_styled.tscn";
+   private const String PRIM_SCENE = "res://AlgorithmScenes/Algorithms/PrimAlgorithm/Prim_styled.tscn";
+   private const String KRUSKAL_SCENE = "res://AlgorithmScenes/Algorithms/KruskalAlgorithm/Kruskal_styled.tscn";
     private Button BFSButton;
     private Button DFSButton;
     private Button PrimButton;

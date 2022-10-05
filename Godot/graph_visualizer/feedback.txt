@@ -1,0 +1,30 @@
+3 cosas de una, el ratio esta bien raro si no esta maximizado, los menos laterales absolutamente pegados al borde no se ven muy bien
+
+
+image.png
+me quede pegado aqui, la instruccion dice "bring it to variables" pero no puedo arrastrarlo, solo al hacerle click me aparece una ventana
+
+recien cache que con las flechas se puede seleccionar entre las estructuras, eso esta 0 intuitivo
+
+llene el queue y no lo puedo vaciar => Ahora, si por error apretaste una vez W, y te lo agregó muchas veces, eso sí debo considerarlo, voy a ponerle un cooldown a los inputs
+
+esta bien que se pueda equivocar, pero con lo poco intuitivo que se ve por ahora, ni siquiera sabia si estaba bien o mal, solo que no sabia que hacer
+
+also, esto esta mal escrito, skip es que no se ejecuta, seria mas bien advance
+
+also, ahora entendi por que estaba tan poco intuitivo esto, lo que quieres que se haga es que el usuario cree la queue, esa instruccion dice todo menos eso xd
+
+por salirme de pantalla completa se perdio la respuesta a esto y no puedo avanzar (POPUP)
+
+Si bien lo logré, no se entendió mucho lo de los nodos explorados y no explorados
+
+A veces los nodos se ponían naranjo oscuro y no sé por qué
+
+si bien entiendo que el naranjo oscuro se refiere a explorado, codificar por color ese texto ayudaria bastante
+
+que en el texto aparezca del mismo color para que se entienda que corresponde a eso
+
+diria que lo que mas me "molesta" es que la instruccion de arriba es poco clara
+
+
+

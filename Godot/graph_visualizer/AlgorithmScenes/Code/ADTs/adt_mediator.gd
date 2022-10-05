@@ -40,7 +40,7 @@ func get_variable(var_name: String) -> ADT:
 			return adt_vector.get_data()
 	return null
 
-func add_or_update_variable(var_name: String, _data: ADT) -> void:
+func add_or_update_variable(var_name: String, _data) -> void:
 	if not has_variable(var_name):
 		var new_row: ADTVector = ADTVector.new(_data, self.data.size(), var_name)
 		self.data.append(new_row)
@@ -92,7 +92,7 @@ func take_top_from_adt(object_name: String):
 
 # if the variable was correctly created from the ADT Grid
 func _on_correct_variable_creation(variable_name: String):
-	var generated_object: ADT = StoredData.adt_to_be_created
+	var generated_object = StoredData.adt_to_be_created
 	add_or_update_variable(variable_name, generated_object)
 	StoredData.adt_to_be_created = null
 

@@ -18,6 +18,7 @@ export_presets.cfg
 # Mono-specific ignores
 .mono/
 data_*/
+*.json
 
 ### MonoDevelop ###
 #User Specific

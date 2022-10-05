@@ -43,7 +43,9 @@ func _add_variable(var_name: String, var_data: ADT):
 	var new_label : Label = self.label_template.instance() as Label
 	_set_data_to_label(new_label, var_name, var_data)
 	lines_container.add_child(new_label)
-
+	if not var_data.is_new:
+		call_deferred("_play_anim", new_label, "emphasize_modification") #_play_anim(new_label, "emphasize_modification")
+		var_data.is_new = true
 
 func _set_data_to_label(label: Label, var_name: String, var_data):
 	label.text = str(var_name + " : " + str(var_data.as_string()))
@@ -75,15 +77,15 @@ func _focus_current_label():
 		curr_label.add_stylebox_override("normal", focused_style)
 		curr_label.material = focused_material
 
-func _play_anim(anim_name: String) -> void:
-	if curr_label:
-		var anim: AnimationPlayer = curr_label.get_node("./AnimationPlayer")
+func _play_anim(input_label: Label, anim_name: String) -> void:
+	if input_label:
+		var anim: AnimationPlayer = input_label.get_node("./AnimationPlayer")
 		anim.stop(true)
 		anim.play(anim_name)
 
 # To emphasize that a recent action has happened on selected variable
 func emphasize_current_selected_variable():
-	_play_anim("emphasize_modification")
+	_play_anim(curr_label, "emphasize_modification")
 
 func emphasize_error_on_current_selected_variable():
-	_play_anim("emphasize_error")
+	_play_anim(curr_label, "emphasize_error")
