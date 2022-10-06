@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://GameFlow/MainMenu.cs" type="Script" id=1]
 [ext_resource path="res://GameFlow/AlgorithmSelectionMenu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/MenuTheme.tres" type="Theme" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "ShowLevels"
@@ -95,6 +96,7 @@ margin_left = 715.0
 margin_top = 368.0
 margin_right = 1253.0
 margin_bottom = 569.0
+theme = ExtResource( 3 )
 custom_constants/separation = 30
 
 [node name="StartGame" type="Button" parent="VBoxContainer"]
@@ -119,6 +121,7 @@ __meta__ = {
 }
 
 [node name="Volume" type="HSlider" parent="."]
+visible = false
 margin_right = 176.0
 margin_bottom = 62.0
 
@@ -129,5 +132,11 @@ anims/ShowMenu = SubResource( 2 )
 [node name="AlgorithmSelectionMenu" parent="." instance=ExtResource( 2 )]
 visible = false
 modulate = Color( 1, 1, 1, 0 )
+
+[node name="GridContainer" parent="AlgorithmSelectionMenu" index="0"]
+theme = ExtResource( 3 )
+
+[node name="BackButton" parent="AlgorithmSelectionMenu" index="1"]
+theme = ExtResource( 3 )
 
 [editable path="AlgorithmSelectionMenu"]

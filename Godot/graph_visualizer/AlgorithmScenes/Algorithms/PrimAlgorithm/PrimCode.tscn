@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Code/focused_line_code_style.tres" type="StyleBox" id=1]
 [ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/2_v_w.gd" type="Script" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/1_e_min_weight.gd" type="Script" id=6]
 [ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/13_prim_code_finished.gd" type="Script" id=7]
 [ext_resource path="res://AlgorithmScenes/Code/null_effect.gd" type="Script" id=8]
-[ext_resource path="res://AlgorithmScenes/Code/code_font.tres" type="DynamicFont" id=9]
 [ext_resource path="res://AlgorithmScenes/Code/CodeLine.tscn" type="PackedScene" id=10]
 [ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/3_mst_e.gd" type="Script" id=11]
 [ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/6_while_mst_size_less_than_graph_vertices_size.gd" type="Script" id=12]
@@ -18,19 +17,18 @@
 [ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/8_v_w_vertices_e.gd" type="Script" id=16]
 [ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/11_v_graph_vertices_A.gd" type="Script" id=17]
 [ext_resource path="res://AlgorithmScenes/Code/code_block.gd" type="Script" id=18]
-
-[sub_resource type="Theme" id=1]
-default_font = ExtResource( 9 )
+[ext_resource path="res://Assets/CodeBlockTheme.tres" type="Theme" id=19]
 
 [node name="PrimCode" type="ScrollContainer"]
 margin_top = -1.0
 margin_right = 392.0
 margin_bottom = 462.0
+theme = ExtResource( 19 )
 script = ExtResource( 18 )
 
 [node name="LinesContainer" type="VBoxContainer" parent="."]
 margin_right = 392.0
-margin_bottom = 462.0
+margin_bottom = 364.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 custom_constants/separation = 0
@@ -39,8 +37,7 @@ custom_constants/separation = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 392.0
-margin_bottom = 33.0
-theme = SubResource( 1 )
+margin_bottom = 26.0
 custom_styles/panel = ExtResource( 1 )
 focused = true
 code_text = "Prim():"
@@ -49,14 +46,23 @@ hint_text = "Press [b]ENTER[/b]"
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer0" index="0"]
 margin_right = 392.0
+margin_bottom = 26.0
+
+[node name="Tab" parent="LinesContainer/PanelContainer0/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 26.0
+
+[node name="CodeText" parent="LinesContainer/PanelContainer0/HBoxContainer" index="2"]
+margin_left = 24.0
+margin_right = 123.0
+margin_bottom = 26.0
 
 [node name="PanelContainer1" parent="LinesContainer" instance=ExtResource( 10 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 33.0
+margin_top = 26.0
 margin_right = 392.0
-margin_bottom = 66.0
-theme = SubResource( 1 )
+margin_bottom = 52.0
 line_index = 1
 code_text = "   Edge e = min(graph.edge_weights)"
 effect_check = ExtResource( 6 )
@@ -64,14 +70,23 @@ hint_text = "[color=#00FF00]LEFT CLICK[/color] on the edge with the [color=#ff00
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer1" index="0"]
 margin_right = 392.0
+margin_bottom = 26.0
+
+[node name="Tab" parent="LinesContainer/PanelContainer1/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 26.0
+
+[node name="CodeText" parent="LinesContainer/PanelContainer1/HBoxContainer" index="2"]
+margin_left = 24.0
+margin_right = 123.0
+margin_bottom = 26.0
 
 [node name="PanelContainer2" parent="LinesContainer" instance=ExtResource( 10 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 66.0
+margin_top = 52.0
 margin_right = 392.0
-margin_bottom = 99.0
-theme = SubResource( 1 )
+margin_bottom = 78.0
 line_index = 2
 code_text = "   (v,w) = vertices(graph.edges)"
 effect_check = ExtResource( 2 )
@@ -79,14 +94,23 @@ hint_text = "Go to Data Structures, click the Slot \"Stack\", bring it to Variab
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer2" index="0"]
 margin_right = 392.0
+margin_bottom = 26.0
+
+[node name="Tab" parent="LinesContainer/PanelContainer2/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 26.0
+
+[node name="CodeText" parent="LinesContainer/PanelContainer2/HBoxContainer" index="2"]
+margin_left = 24.0
+margin_right = 123.0
+margin_bottom = 26.0
 
 [node name="PanelContainer3" parent="LinesContainer" instance=ExtResource( 10 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 99.0
+margin_top = 78.0
 margin_right = 392.0
-margin_bottom = 132.0
-theme = SubResource( 1 )
+margin_bottom = 104.0
 line_index = 3
 code_text = "   MST = [e]"
 effect_check = ExtResource( 11 )
@@ -94,14 +118,23 @@ hint_text = "[b]RIGHT CLICK[/b] on Node [color=#00FF00] t [/color], then add it 
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer3" index="0"]
 margin_right = 392.0
+margin_bottom = 26.0
+
+[node name="Tab" parent="LinesContainer/PanelContainer3/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 26.0
+
+[node name="CodeText" parent="LinesContainer/PanelContainer3/HBoxContainer" index="2"]
+margin_left = 24.0
+margin_right = 123.0
+margin_bottom = 26.0
 
 [node name="PanelContainer4" parent="LinesContainer" instance=ExtResource( 10 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 132.0
+margin_top = 104.0
 margin_right = 392.0
-margin_bottom = 165.0
-theme = SubResource( 1 )
+margin_bottom = 130.0
 line_index = 4
 code_text = "   Set T = {v, w}"
 effect_check = ExtResource( 14 )
@@ -109,14 +142,23 @@ hint_text = "[b]RIGHT CLICK[/b] on Node [color=#00FF00] t [/color], then add it 
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer4" index="0"]
 margin_right = 392.0
+margin_bottom = 26.0
+
+[node name="Tab" parent="LinesContainer/PanelContainer4/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 26.0
+
+[node name="CodeText" parent="LinesContainer/PanelContainer4/HBoxContainer" index="2"]
+margin_left = 24.0
+margin_right = 123.0
+margin_bottom = 26.0
 
 [node name="PanelContainer5" parent="LinesContainer" instance=ExtResource( 10 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 165.0
+margin_top = 130.0
 margin_right = 392.0
-margin_bottom = 198.0
-theme = SubResource( 1 )
+margin_bottom = 156.0
 line_index = 5
 code_text = "   Set V = {graph.vertices} - T"
 effect_check = ExtResource( 13 )
@@ -124,14 +166,23 @@ hint_text = "[b]RIGHT CLICK[/b] on Node [color=#00FF00] t [/color], then add it 
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer5" index="0"]
 margin_right = 392.0
+margin_bottom = 26.0
+
+[node name="Tab" parent="LinesContainer/PanelContainer5/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 26.0
+
+[node name="CodeText" parent="LinesContainer/PanelContainer5/HBoxContainer" index="2"]
+margin_left = 24.0
+margin_right = 123.0
+margin_bottom = 26.0
 
 [node name="PanelContainer6" parent="LinesContainer" instance=ExtResource( 10 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 198.0
+margin_top = 156.0
 margin_right = 392.0
-margin_bottom = 231.0
-theme = SubResource( 1 )
+margin_bottom = 182.0
 line_index = 6
 jump_index = 13
 code_text = "   while (T.size() < graph.vertices.size()):"
@@ -140,14 +191,23 @@ hint_text = "Answer if the queue is empty"
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer6" index="0"]
 margin_right = 392.0
+margin_bottom = 26.0
+
+[node name="Tab" parent="LinesContainer/PanelContainer6/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 26.0
+
+[node name="CodeText" parent="LinesContainer/PanelContainer6/HBoxContainer" index="2"]
+margin_left = 24.0
+margin_right = 123.0
+margin_bottom = 26.0
 
 [node name="PanelContainer7" parent="LinesContainer" instance=ExtResource( 10 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 231.0
+margin_top = 182.0
 margin_right = 392.0
-margin_bottom = 264.0
-theme = SubResource( 1 )
+margin_bottom = 208.0
 line_index = 7
 code_text = "        e = min_edge_connecting(V, V-T)"
 effect_check = ExtResource( 3 )
@@ -155,14 +215,23 @@ hint_text = "See the variables after you press [b]ENTER[/b]!"
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer7" index="0"]
 margin_right = 392.0
+margin_bottom = 26.0
+
+[node name="Tab" parent="LinesContainer/PanelContainer7/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 26.0
+
+[node name="CodeText" parent="LinesContainer/PanelContainer7/HBoxContainer" index="2"]
+margin_left = 24.0
+margin_right = 123.0
+margin_bottom = 26.0
 
 [node name="PanelContainer8" parent="LinesContainer" instance=ExtResource( 10 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 264.0
+margin_top = 208.0
 margin_right = 392.0
-margin_bottom = 297.0
-theme = SubResource( 1 )
+margin_bottom = 234.0
 line_index = 8
 code_text = "       (v,w) = vertices(e)"
 effect_check = ExtResource( 16 )
@@ -170,14 +239,23 @@ hint_text = "Check the U variable after you press [b]ENTER[/b]!"
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer8" index="0"]
 margin_right = 392.0
+margin_bottom = 26.0
+
+[node name="Tab" parent="LinesContainer/PanelContainer8/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 26.0
+
+[node name="CodeText" parent="LinesContainer/PanelContainer8/HBoxContainer" index="2"]
+margin_left = 24.0
+margin_right = 123.0
+margin_bottom = 26.0
 
 [node name="PanelContainer9" parent="LinesContainer" instance=ExtResource( 10 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 297.0
+margin_top = 234.0
 margin_right = 392.0
-margin_bottom = 330.0
-theme = SubResource( 1 )
+margin_bottom = 260.0
 line_index = 9
 code_text = "       MST.append(e)"
 effect_check = ExtResource( 4 )
@@ -185,14 +263,23 @@ hint_text = "Answer: is the [color=#00FF00] u [/color] node explored?"
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer9" index="0"]
 margin_right = 392.0
+margin_bottom = 26.0
+
+[node name="Tab" parent="LinesContainer/PanelContainer9/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 26.0
+
+[node name="CodeText" parent="LinesContainer/PanelContainer9/HBoxContainer" index="2"]
+margin_left = 24.0
+margin_right = 123.0
+margin_bottom = 26.0
 
 [node name="PanelContainer10" parent="LinesContainer" instance=ExtResource( 10 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 330.0
+margin_top = 260.0
 margin_right = 392.0
-margin_bottom = 363.0
-theme = SubResource( 1 )
+margin_bottom = 286.0
 line_index = 10
 code_text = "       T.append(v, w)"
 effect_check = ExtResource( 5 )
@@ -200,14 +287,23 @@ hint_text = "Select the [color=#00FF00] u [/color] node with a left click"
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer10" index="0"]
 margin_right = 392.0
+margin_bottom = 26.0
+
+[node name="Tab" parent="LinesContainer/PanelContainer10/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 26.0
+
+[node name="CodeText" parent="LinesContainer/PanelContainer10/HBoxContainer" index="2"]
+margin_left = 24.0
+margin_right = 123.0
+margin_bottom = 26.0
 
 [node name="PanelContainer11" parent="LinesContainer" instance=ExtResource( 10 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 363.0
+margin_top = 286.0
 margin_right = 392.0
-margin_bottom = 396.0
-theme = SubResource( 1 )
+margin_bottom = 312.0
 line_index = 11
 code_text = "       V = {graph.vertices} - T"
 effect_check = ExtResource( 17 )
@@ -215,14 +311,23 @@ hint_text = "Select the [color=#00FF00] u [/color] node with a left click"
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer11" index="0"]
 margin_right = 392.0
+margin_bottom = 26.0
+
+[node name="Tab" parent="LinesContainer/PanelContainer11/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 26.0
+
+[node name="CodeText" parent="LinesContainer/PanelContainer11/HBoxContainer" index="2"]
+margin_left = 24.0
+margin_right = 123.0
+margin_bottom = 26.0
 
 [node name="PanelContainer12" parent="LinesContainer" instance=ExtResource( 10 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 396.0
+margin_top = 312.0
 margin_right = 392.0
-margin_bottom = 429.0
-theme = SubResource( 1 )
+margin_bottom = 338.0
 line_index = 12
 jump_index = 6
 code_text = "        end while;"
@@ -231,14 +336,23 @@ hint_text = "Press [b]ENTER[/b]"
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer12" index="0"]
 margin_right = 392.0
+margin_bottom = 26.0
+
+[node name="Tab" parent="LinesContainer/PanelContainer12/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 26.0
+
+[node name="CodeText" parent="LinesContainer/PanelContainer12/HBoxContainer" index="2"]
+margin_left = 24.0
+margin_right = 123.0
+margin_bottom = 26.0
 
 [node name="PanelContainer13" parent="LinesContainer" instance=ExtResource( 10 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 429.0
+margin_top = 338.0
 margin_right = 392.0
-margin_bottom = 462.0
-theme = SubResource( 1 )
+margin_bottom = 364.0
 line_index = 13
 jump_index = 4
 code_text = "end Prim;"
@@ -247,6 +361,16 @@ hint_text = "Press [b]ENTER[/b]"
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer13" index="0"]
 margin_right = 392.0
+margin_bottom = 26.0
+
+[node name="Tab" parent="LinesContainer/PanelContainer13/HBoxContainer" index="1"]
+margin_right = 20.0
+margin_bottom = 26.0
+
+[node name="CodeText" parent="LinesContainer/PanelContainer13/HBoxContainer" index="2"]
+margin_left = 24.0
+margin_right = 123.0
+margin_bottom = 26.0
 
 [editable path="LinesContainer/PanelContainer0"]
 [editable path="LinesContainer/PanelContainer1"]
