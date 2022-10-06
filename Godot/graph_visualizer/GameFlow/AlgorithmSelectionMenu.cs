@@ -7,6 +7,8 @@ public class AlgorithmSelectionMenu : Node2D
 
    [Export]
    private bool playerHasFinishedBFSAndDFS = false;
+    private bool playerHasFinishedBFS = false;
+
    private const String BFS_SCENE = "res://AlgorithmScenes/Algorithms/BFSAlgorithm/BFS_styled.tscn";
    private const String DFS_SCENE = "res://AlgorithmScenes/Algorithms/DFSAlgorithm/DFS_styled.tscn";
    private const String PRIM_SCENE = "res://AlgorithmScenes/Algorithms/PrimAlgorithm/Prim_styled.tscn";
@@ -35,6 +37,7 @@ public class AlgorithmSelectionMenu : Node2D
             
             if (finishedLevels != null)
             {
+                playerHasFinishedBFS = (bool) finishedLevels["BFS"];
                 playerHasFinishedBFSAndDFS = (bool) finishedLevels["BFS"] && (bool) finishedLevels["DFS"];
             }
         }
@@ -48,6 +51,7 @@ public class AlgorithmSelectionMenu : Node2D
         KruskalButton = GetNode<Button>("GridContainer/Kruskal");
         BackButton = GetNode<Button>("BackButton");
 
+        DFSButton.Disabled = true;
         PrimButton.Disabled = true;
         KruskalButton.Disabled = true;
 
@@ -64,6 +68,10 @@ public class AlgorithmSelectionMenu : Node2D
     {
         base._Process(delta);
         ComputePlayerHasFinishedBFSAndDFS();
+        if (playerHasFinishedBFS)
+        {
+            DFSButton.Disabled = false;
+        }
         if (playerHasFinishedBFSAndDFS)
         {
             PrimButton.Disabled = false;
