@@ -94,11 +94,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Code/ADTs/edge_adt.gd"
 }, {
-"base": "Resource",
-"class": "EdgeCrossingsMinimization",
-"language": "GDScript",
-"path": "res://AlgorithmScenes/Screen/utils/edge_crossing_minimization.gd"
-}, {
 "base": "ADTRepresentation",
 "class": "EdgeRepresentation",
 "language": "GDScript",
@@ -227,7 +222,6 @@ _global_script_class_icons={
 "DataServer": "",
 "DebugBlock": "",
 "EdgeADT": "",
-"EdgeCrossingsMinimization": "",
 "EdgeRepresentation": "",
 "EffectCheck": "",
 "FinishCodeEffect": "",

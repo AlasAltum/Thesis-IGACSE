@@ -71,10 +71,10 @@ __meta__ = {
 }
 
 [node name="Area2D" type="Area2D" parent="SlotTexture"]
+monitorable = false
 gravity = 0.0
 linear_damp = 0.0
 angular_damp = 0.0
-monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlotTexture/Area2D"]
 position = Vector2( 40, 40 )

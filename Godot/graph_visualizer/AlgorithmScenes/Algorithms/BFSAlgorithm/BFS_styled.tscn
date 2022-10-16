@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Code/DebugBlock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://AlgorithmScenes/Screen/ADTSelectionPanel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/BFSCodeBlock.tscn" type="PackedScene" id=3]
 [ext_resource path="res://AlgorithmScenes/Screen/TextHintContainer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://AlgorithmScenes/Screen/GameplayMenuPopup.tscn" type="PackedScene" id=5]
+[ext_resource path="res://AlgorithmScenes/Screen/set_image.png" type="Texture" id=6]
 [ext_resource path="res://AlgorithmScenes/Screen/PopUpForObjectCreation.tscn" type="PackedScene" id=13]
 [ext_resource path="res://AlgorithmScenes/Screen/graph_screen.gd" type="Script" id=15]
 [ext_resource path="res://AlgorithmScenes/Screen/AddNodePopup.tscn" type="PackedScene" id=21]
@@ -19,22 +20,6 @@ position = Vector2( -1, 0 )
 script = ExtResource( 15 )
 graph_density = 0.169
 
-[node name="PopUpForObjectCreation" parent="." instance=ExtResource( 13 )]
-visible = false
-
-[node name="UNodeIsExploredPopup" parent="." instance=ExtResource( 37 )]
-visible = false
-
-[node name="ADTIsNotEmptyPopup" parent="." instance=ExtResource( 36 )]
-visible = false
-
-[node name="AddNodePopup" parent="." instance=ExtResource( 21 )]
-
-[node name="FinishedPopup" parent="." instance=ExtResource( 38 )]
-visible = false
-
-[node name="GameplayMenuPopup" parent="." instance=ExtResource( 5 )]
-
 [node name="ADTMediator" parent="." instance=ExtResource( 34 )]
 visible = false
 position = Vector2( 1, 0 )
@@ -43,7 +28,7 @@ position = Vector2( 1, 0 )
 layer = -1
 
 [node name="LeftPanel" type="VBoxContainer" parent="CanvasLayer"]
-margin_right = 384.0
+margin_right = 400.0
 margin_bottom = 1080.0
 mouse_filter = 2
 
@@ -52,13 +37,49 @@ anchor_left = 0.0
 anchor_right = 0.0
 margin_left = 0.0
 margin_top = 0.0
-margin_right = 384.0
+margin_right = 400.0
 margin_bottom = 776.0
+
+[node name="CenterContainer" parent="CanvasLayer/LeftPanel/BFSCodeBlock" index="0"]
+margin_bottom = 776.0
+
+[node name="LinesContainer" parent="CanvasLayer/LeftPanel/BFSCodeBlock/CenterContainer" index="0"]
+margin_top = 157.0
+margin_bottom = 619.0
+
+[node name="CodeText" parent="CanvasLayer/LeftPanel/BFSCodeBlock/CenterContainer/LinesContainer/PanelContainer8/HBoxContainer" index="2"]
+size_flags_horizontal = 3
 
 [node name="ADTSelectionPanel" parent="CanvasLayer/LeftPanel" instance=ExtResource( 2 )]
 margin_top = 780.0
-margin_right = 384.0
+margin_right = 400.0
 margin_bottom = 1080.0
+
+[node name="PanelContainer" parent="CanvasLayer/LeftPanel/ADTSelectionPanel" index="0"]
+margin_right = 400.0
+
+[node name="VBoxContainer" parent="CanvasLayer/LeftPanel/ADTSelectionPanel" index="1"]
+margin_right = 400.0
+
+[node name="DebuggerTitle" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer" index="0"]
+margin_right = 400.0
+
+[node name="GridContainer" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer" index="1"]
+margin_right = 400.0
+margin_bottom = 145.0
+size_flags_vertical = 1
+
+[node name="Slot4" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" index="3"]
+slot_texture = ExtResource( 6 )
+
+[node name="ADTTexture" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot4/SlotTexture" index="0"]
+margin_left = 8.0
+margin_top = 9.0
+margin_right = 72.0
+margin_bottom = 73.0
+rect_min_size = Vector2( 60, 60 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="BottomPanel" type="HBoxContainer" parent="CanvasLayer"]
 anchor_top = 1.0
@@ -87,25 +108,95 @@ margin_bottom = 300.0
 size_flags_vertical = 1
 
 [node name="NodeContainer" type="AspectRatioContainer" parent="CanvasLayer"]
-anchor_left = 0.579
-anchor_top = 0.333
-anchor_right = 0.579
-anchor_bottom = 0.333
-margin_left = -711.68
-margin_top = -343.64
-margin_right = 800.32
-margin_bottom = 408.36
+anchor_left = 0.996
+anchor_top = -0.00781481
+anchor_right = 1.00017
+anchor_bottom = 0.0144074
+margin_left = -1464.32
+margin_top = 8.44
+margin_right = -0.320068
+margin_bottom = 760.44
 rect_clip_content = true
 mouse_filter = 2
 stretch_mode = 0
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="TextHintContainer" parent="CanvasLayer" instance=ExtResource( 4 )]
 anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 1.0
-anchor_bottom = 0.0
 margin_left = 408.0
 margin_top = 0.0
 margin_right = 0.0
 margin_bottom = 150.0
 mouse_filter = 2
+
+[node name="PopUpForObjectCreation" parent="CanvasLayer" instance=ExtResource( 13 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -151.999
+margin_top = -260.0
+margin_right = 359.999
+margin_bottom = -101.0
+
+[node name="UNodeIsExploredPopup" parent="CanvasLayer" instance=ExtResource( 37 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -151.999
+margin_top = -260.0
+margin_right = 359.999
+margin_bottom = -101.0
+
+[node name="ADTIsNotEmptyPopup" parent="CanvasLayer" instance=ExtResource( 36 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -151.999
+margin_top = -260.0
+margin_right = 359.999
+margin_bottom = -101.0
+
+[node name="AddNodePopup" parent="CanvasLayer" instance=ExtResource( 21 )]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -151.998
+margin_top = -260.0
+margin_right = 359.998
+margin_bottom = -101.0
+
+[node name="FinishedPopup" parent="CanvasLayer" instance=ExtResource( 38 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -152.0
+margin_top = -260.0
+margin_right = 360.0
+margin_bottom = -101.0
+
+[node name="GameplayMenuPopup" parent="CanvasLayer" instance=ExtResource( 5 )]
+visible = true
+margin_left = -152.0
+margin_top = -239.5
+margin_right = 360.0
+margin_bottom = -121.5
+
+[editable path="CanvasLayer/LeftPanel/BFSCodeBlock"]
+[editable path="CanvasLayer/LeftPanel/ADTSelectionPanel"]
+[editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot"]
+[editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot2"]
+[editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot3"]
+[editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot4"]
+[editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot5"]
+[editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot6"]
+[editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot7"]
+[editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot8"]

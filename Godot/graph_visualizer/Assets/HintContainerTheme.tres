@@ -1,10 +1,29 @@
-[gd_resource type="Theme" load_steps=3 format=2]
+[gd_resource type="Theme" load_steps=9 format=2]
 
 [ext_resource path="res://Assets/bainsley/Bainsley_Roman.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/bainsley/Bainsley_Bold_Italic.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/bainsley/Bainsley_Italic.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/bainsley/Bainsley_Bold.otf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+outline_size = 1
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
 font_data = ExtResource( 1 )
 
 [resource]
+RichTextLabel/fonts/bold_font = SubResource( 2 )
+RichTextLabel/fonts/bold_italics_font = SubResource( 3 )
+RichTextLabel/fonts/italics_font = SubResource( 4 )
 RichTextLabel/fonts/normal_font = SubResource( 1 )
