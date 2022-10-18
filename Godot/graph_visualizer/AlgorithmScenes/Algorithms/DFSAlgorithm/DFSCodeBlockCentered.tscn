@@ -19,12 +19,8 @@
 [ext_resource path="res://Assets/CodeBlockTheme.tres" type="Theme" id=23]
 
 [node name="DFSCodeBlock" type="ScrollContainer"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -409.0
-margin_top = 11.0
-margin_right = -9.0
-margin_bottom = 482.0
+margin_right = 400.0
+margin_bottom = 471.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 23 )
@@ -34,177 +30,172 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-margin_right = 388.0
-margin_bottom = 658.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="LinesContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 119.0
-margin_right = 269.0
-margin_bottom = 658.0
+[node name="LinesContainer" type="VBoxContainer" parent="."]
+margin_right = 400.0
+margin_bottom = 471.0
 rect_clip_content = true
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 0
+alignment = 1
 
-[node name="PanelContainer0" parent="CenterContainer/LinesContainer" instance=ExtResource( 20 )]
+[node name="PanelContainer0" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 150.0
-margin_bottom = 47.0
+margin_top = 4.0
+margin_right = 400.0
+margin_bottom = 37.0
 focused = true
 code_text = "DFS(starting_node=0):"
 effect_check = ExtResource( 15 )
 hint_text = "Press [b]ENTER[/b]"
 
-[node name="PanelContainer1" parent="CenterContainer/LinesContainer" instance=ExtResource( 20 )]
+[node name="PanelContainer1" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 47.0
-margin_right = 150.0
-margin_bottom = 94.0
+margin_top = 37.0
+margin_right = 400.0
+margin_bottom = 70.0
 line_index = 1
 code_text = "    t = starting_node;"
 effect_check = ExtResource( 16 )
 hint_text = "[b]LEFT CLICK[/b] Node 0 and then [b]ENTER[/b]"
 
-[node name="PanelContainer2" parent="CenterContainer/LinesContainer" instance=ExtResource( 20 )]
+[node name="PanelContainer2" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 94.0
-margin_right = 150.0
-margin_bottom = 141.0
+margin_top = 70.0
+margin_right = 400.0
+margin_bottom = 103.0
 line_index = 2
 code_text = "    s = Stack();"
 effect_check = ExtResource( 6 )
 hint_text = "Go to Data Structures, click the Slot \"Stack\", bring it to Variables and then press [b]ENTER[/b]"
 
-[node name="PanelContainer3" parent="CenterContainer/LinesContainer" instance=ExtResource( 20 )]
+[node name="PanelContainer3" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 141.0
-margin_right = 150.0
-margin_bottom = 188.0
+margin_top = 103.0
+margin_right = 400.0
+margin_bottom = 136.0
 line_index = 3
 code_text = "    s.add(t);"
 effect_check = ExtResource( 7 )
 hint_text = "[b]RIGHT CLICK[/b] on Node [color=#00FF00] t [/color], then add it to the Queue [color=#00FF00] q [/color]"
 
-[node name="PanelContainer4" parent="CenterContainer/LinesContainer" instance=ExtResource( 20 )]
+[node name="PanelContainer4" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 188.0
-margin_right = 150.0
-margin_bottom = 235.0
+margin_top = 136.0
+margin_right = 400.0
+margin_bottom = 169.0
 line_index = 4
 jump_index = 13
 code_text = "    while s.is_not_empty():"
 effect_check = ExtResource( 8 )
 hint_text = "Answer if the queue is empty"
 
-[node name="PanelContainer5" parent="CenterContainer/LinesContainer" instance=ExtResource( 20 )]
+[node name="PanelContainer5" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 235.0
-margin_right = 150.0
-margin_bottom = 282.0
+margin_top = 169.0
+margin_right = 400.0
+margin_bottom = 202.0
 line_index = 5
 code_text = "        v = s.top(); s.pop();"
 effect_check = ExtResource( 9 )
 hint_text = "See the variables after you press [b]ENTER[/b]!"
 
-[node name="PanelContainer6" parent="CenterContainer/LinesContainer" instance=ExtResource( 20 )]
+[node name="PanelContainer6" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 282.0
-margin_right = 150.0
-margin_bottom = 329.0
+margin_top = 202.0
+margin_right = 400.0
+margin_bottom = 235.0
 line_index = 6
 jump_index = 11
 code_text = "        for (Edge u in v.edges()):"
 effect_check = ExtResource( 10 )
 hint_text = "Check the U variable after you press [b]ENTER[/b]!"
 
-[node name="PanelContainer7" parent="CenterContainer/LinesContainer" instance=ExtResource( 20 )]
+[node name="PanelContainer7" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 329.0
-margin_right = 150.0
-margin_bottom = 376.0
+margin_top = 235.0
+margin_right = 400.0
+margin_bottom = 268.0
 line_index = 7
 jump_index = 10
 code_text = "            if u.is_not_explored():"
 effect_check = ExtResource( 11 )
 hint_text = "Answer: is the [color=#00FF00] u [/color] node explored?"
 
-[node name="PanelContainer8" parent="CenterContainer/LinesContainer" instance=ExtResource( 20 )]
+[node name="PanelContainer8" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 376.0
-margin_right = 150.0
-margin_bottom = 423.0
+margin_top = 268.0
+margin_right = 400.0
+margin_bottom = 301.0
 line_index = 8
 jump_index = 8
 code_text = "                u.mark_as_explored();"
 effect_check = ExtResource( 12 )
 hint_text = "Select the [color=#00FF00] u [/color] node with a left click"
 
-[node name="PanelContainer9" parent="CenterContainer/LinesContainer" instance=ExtResource( 20 )]
+[node name="PanelContainer9" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 423.0
-margin_right = 150.0
-margin_bottom = 470.0
+margin_top = 301.0
+margin_right = 400.0
+margin_bottom = 334.0
 line_index = 9
 jump_index = 9
 code_text = "                s.add(u)"
 effect_check = ExtResource( 14 )
 hint_text = "Add the Node [color=#00FF00] u [/color] to the queue by right clicking on it"
 
-[node name="PanelContainer11" parent="CenterContainer/LinesContainer" instance=ExtResource( 20 )]
+[node name="PanelContainer11" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 470.0
-margin_right = 150.0
-margin_bottom = 517.0
+margin_top = 334.0
+margin_right = 400.0
+margin_bottom = 367.0
 line_index = 10
 jump_index = 6
 code_text = "        end for;"
 effect_check = ExtResource( 4 )
 hint_text = "Press [b]ENTER[/b]"
 
-[node name="PanelContainer10" parent="CenterContainer/LinesContainer" instance=ExtResource( 20 )]
+[node name="PanelContainer10" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 517.0
-margin_right = 150.0
-margin_bottom = 564.0
+margin_top = 367.0
+margin_right = 400.0
+margin_bottom = 400.0
 line_index = 11
 code_text = "        v.mark_as_iterated();"
 effect_check = ExtResource( 1 )
 hint_text = "Press [b]ENTER[/b]"
 
-[node name="PanelContainer12" parent="CenterContainer/LinesContainer" instance=ExtResource( 20 )]
+[node name="PanelContainer12" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 564.0
-margin_right = 150.0
-margin_bottom = 611.0
+margin_top = 400.0
+margin_right = 400.0
+margin_bottom = 433.0
 line_index = 12
 jump_index = 4
 code_text = "    end while;"
 effect_check = ExtResource( 5 )
 hint_text = "Press [b]ENTER[/b]"
 
-[node name="PanelContainer13" parent="CenterContainer/LinesContainer" instance=ExtResource( 20 )]
+[node name="PanelContainer13" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 611.0
-margin_right = 150.0
-margin_bottom = 658.0
+margin_top = 433.0
+margin_right = 400.0
+margin_bottom = 466.0
 line_index = 13
 jump_index = 4
 code_text = "end DFS;"

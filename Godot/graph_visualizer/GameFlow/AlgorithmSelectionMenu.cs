@@ -3,21 +3,21 @@ using System;
 
 public class AlgorithmSelectionMenu : Node2D
 {
-   public Node CurrentScene { get; set; }
+    public Node CurrentScene { get; set; }
 
-   [Export]
-   private bool playerHasFinishedBFSAndDFS = false;
+    [Export]
+    private bool playerHasFinishedBFSAndDFS = false;
     private bool playerHasFinishedBFS = false;
 
-   private const String BFS_SCENE = "res://AlgorithmScenes/Algorithms/BFSAlgorithm/BFS_styled.tscn";
-   private const String DFS_SCENE = "res://AlgorithmScenes/Algorithms/DFSAlgorithm/DFS_styled.tscn";
-   private const String PRIM_SCENE = "res://AlgorithmScenes/Algorithms/PrimAlgorithm/Prim_styled.tscn";
-   private const String KRUSKAL_SCENE = "res://AlgorithmScenes/Algorithms/KruskalAlgorithm/Kruskal_styled.tscn";
+    private const String BFS_SCENE = "res://AlgorithmScenes/Algorithms/BFSAlgorithm/BFS_styled.tscn";
+    private const String DFS_SCENE = "res://AlgorithmScenes/Algorithms/DFSAlgorithm/DFS_styled.tscn";
+    private const String PRIM_SCENE = "res://AlgorithmScenes/Algorithms/PrimAlgorithm/Prim_styled.tscn";
+    private const String KRUSKAL_SCENE = "res://AlgorithmScenes/Algorithms/KruskalAlgorithm/Kruskal_styled.tscn";
     private Button BFSButton;
     private Button DFSButton;
     private Button PrimButton;
     private Button KruskalButton;
-    private Button BackButton;
+    public Button BackButton;
 
     [Signal]
     delegate void OnSelectionMenuExitSignal();
@@ -61,7 +61,13 @@ public class AlgorithmSelectionMenu : Node2D
         KruskalButton.Connect("pressed", this, nameof(OnKruskalButtonPressed));
         BackButton.Connect("pressed", this, nameof(OnBackButtonPressed));
         
-        CurrentScene = this;
+
+        CurrentScene = GetTree().Root.GetNode("MainMenu");
+        if (CurrentScene.Name == "MainMenu")
+        {
+            CurrentScene = this;
+        }
+
     }
 
     public override void _Process(float delta)
@@ -116,6 +122,7 @@ public class AlgorithmSelectionMenu : Node2D
     private void DeferredGotoScene(string path)
     {
         CurrentScene.QueueFree();
+        this.QueueFree();
         EmitSignal("OnSelectionMenuExitSignal");
         var nextScene = (PackedScene) GD.Load(path);
         CurrentScene = nextScene.Instance();

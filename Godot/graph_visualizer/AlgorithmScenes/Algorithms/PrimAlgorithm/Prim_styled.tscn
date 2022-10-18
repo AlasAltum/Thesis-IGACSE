@@ -49,7 +49,6 @@ size_flags_vertical = 3
 
 [node name="ADTSelectionPanel" parent="CanvasLayer/LeftPanel" instance=ExtResource( 2 )]
 margin_top = 780.0
-margin_right = 384.0
 margin_bottom = 1080.0
 
 [node name="BottomPanel" type="HBoxContainer" parent="CanvasLayer"]

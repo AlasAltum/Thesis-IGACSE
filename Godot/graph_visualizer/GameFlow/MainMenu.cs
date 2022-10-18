@@ -8,7 +8,7 @@ public class MainMenu : Node2D
     private Button exitGame;
     private AnimationPlayer animPlayer;
 
-    private Node2D algorithmSelectionMenu;
+    private AlgorithmSelectionMenu algorithmSelectionMenu;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -16,13 +16,14 @@ public class MainMenu : Node2D
         startGame = GetNode<Button>("VBoxContainer/StartGame");
         exitGame = GetNode<Button>("VBoxContainer/ExitGame");
         animPlayer = GetNode<AnimationPlayer>("FadeAnimation");
-        algorithmSelectionMenu = GetNode<Node2D>("AlgorithmSelectionMenu");
+        algorithmSelectionMenu = GetNode<AlgorithmSelectionMenu>("AlgorithmSelectionMenu");
 
         startGame.Connect("pressed", this, "OnStartGame");
         exitGame.Connect("pressed", this, "OnExitGame");    
         algorithmSelectionMenu.Connect("OnSelectionMenuExitSignal", this, nameof(OnSelectionMenuExit));
         algorithmSelectionMenu.Connect("OnBackButtonPressedSignal", this, nameof(OnBackButtonPressed));
 
+        animPlayer.Connect("animation_finished", this, nameof(onAnimationFinished));
         CurrentScene = this;
     }
 
@@ -38,14 +39,26 @@ public class MainMenu : Node2D
 
     public void OnBackButtonPressed()
     {
-        animPlayer.Stop();
+        algorithmSelectionMenu.BackButton.Disabled = true;
         animPlayer.Play("ShowMenu");
     }
 
     public void OnStartGame()
     {
-        animPlayer.Stop();
+        startGame.Disabled = true;
         animPlayer.Play("ShowLevels");
+    }
+
+    public void onAnimationFinished(String animName)
+    {
+        if (animName == "ShowLevels")
+        {
+            startGame.Disabled = false;
+        }
+        if (animName == "ShowMenu")
+        {
+            algorithmSelectionMenu.BackButton.Disabled = false;
+        }
     }
 
     public void OnExitGame()

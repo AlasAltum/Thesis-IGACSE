@@ -1,7 +1,7 @@
 extends ScrollContainer
 class_name CodeContainer
 
-onready var lines_container = $CenterContainer/LinesContainer
+onready var lines_container = $LinesContainer
 var code_lines: Array = []
 var curr_line_index : int = 0
 var current_line: CodeLine

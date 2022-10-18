@@ -22,6 +22,3 @@ custom_styles/normal = SubResource( 1 )
 text = "0"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}

@@ -3,7 +3,7 @@ class_name GraphManager
 
 export (String) var level_name = "BFS" # DFS, Kruskal, Prim...
 
-## Graph related variables
+## Graph related variables ##
 var screen_size : Vector2
 var left: int
 var right: int
@@ -11,7 +11,9 @@ var up: int
 var down: int
 var circle = preload("res://Node/Node.tscn")
 var edge = preload("res://Node/Edge.tscn")
+var gameplay_menu_popup: GameplayMenuPopup
 
+## Configurable elements ## 
 export (float) var graph_density = 0.1
 export (int) var graph_size = 5
 export (float) var edge_max_weight = 5.0
@@ -180,7 +182,5 @@ func _is_graph_connected() -> bool:
 # It is not in a singleton like Notificationmanager because we want it
 # to be available only during gameplay
 func _input(event):
-	if event.is_action_pressed("Menu"):
-		var gameplay_menu_popup = $GameplayMenuPopup
-		if gameplay_menu_popup:
-			$GameplayMenuPopup.show()
+	if event.is_action_pressed("Menu") && gameplay_menu_popup:
+		gameplay_menu_popup.show()
