@@ -6,6 +6,9 @@ public class AlgorithmSelectionMenu : Node2D
     public Node CurrentScene { get; set; }
 
     [Export]
+    private bool EDITOR_ONLY_HackLevels = true; // Unblock all levels automatically
+
+    [Export]
     private bool playerHasFinishedBFSAndDFS = false;
     private bool playerHasFinishedBFS = false;
 
@@ -24,26 +27,22 @@ public class AlgorithmSelectionMenu : Node2D
 
     [Signal]
     delegate void OnBackButtonPressedSignal();
-    /// <summary>
-    /// Check in the StoredData singleton the variable finished_levels, which is a dictionary of type <Str, bool>
-    /// Indicating the names of each level and whether the player has finished it. If BFS and DFS are finished,
-    /// unblock next levels, Prim and Kruskal
-    /// </summary>
-    private void ComputePlayerHasFinishedBFSAndDFS()
-    {
-        Node2D StoredData = GetTree().Root.GetNode<Node2D>("/root/StoredData");
-        if (StoredData != null){
-            Godot.Collections.Dictionary finishedLevels = (Godot.Collections.Dictionary) StoredData.Get("finished_levels");
-            
-            if (finishedLevels != null)
-            {
-                playerHasFinishedBFS = (bool) finishedLevels["BFS"];
-                playerHasFinishedBFSAndDFS = (bool) finishedLevels["BFS"] && (bool) finishedLevels["DFS"];
-            }
-        }
-    }
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
+    {
+        SetButtonsAndConnectTheirSignals();
+
+        CurrentScene = GetTree().Root.GetNode("MainMenu");
+        if (CurrentScene.Name != "MainMenu")
+        {
+            CurrentScene = this;
+        }
+    
+        SetLevelsBlockedAndUnblocked();
+    }
+
+    private void SetButtonsAndConnectTheirSignals()
     {
         BFSButton = GetNode<Button>("GridContainer/BFS");
         DFSButton = GetNode<Button>("GridContainer/DFS");
@@ -51,23 +50,34 @@ public class AlgorithmSelectionMenu : Node2D
         KruskalButton = GetNode<Button>("GridContainer/Kruskal");
         BackButton = GetNode<Button>("BackButton");
 
-        DFSButton.Disabled = true;
-        PrimButton.Disabled = true;
-        KruskalButton.Disabled = true;
-
         BFSButton.Connect("pressed", this, nameof(OnBFSButtonPressed));
         DFSButton.Connect("pressed", this, nameof(OnDFSButtonPressed));
         PrimButton.Connect("pressed", this, nameof(OnPrimButtonPressed));
         KruskalButton.Connect("pressed", this, nameof(OnKruskalButtonPressed));
         BackButton.Connect("pressed", this, nameof(OnBackButtonPressed));
-        
+    }
 
-        CurrentScene = GetTree().Root.GetNode("MainMenu");
-        if (CurrentScene.Name == "MainMenu")
+
+    private void SetLevelsBlockedAndUnblocked()
+    {
+        DFSButton.Disabled = true;
+        PrimButton.Disabled = true;
+        KruskalButton.Disabled = true;
+        if (!EDITOR_ONLY_HackLevels)
         {
-            CurrentScene = this;
-        }
+            Node2D StoredData = GetTree().Root.GetNode<Node2D>("/root/StoredData");
+            if (StoredData == null)
+                return;
 
+            Godot.Collections.Dictionary finishedLevels = (Godot.Collections.Dictionary) StoredData.Get("finished_levels");
+            
+            if (finishedLevels != null)
+            {
+                finishedLevels["BFS"] = true;
+                finishedLevels["DFS"] = true;
+            }
+
+        }
     }
 
     public override void _Process(float delta)
@@ -85,6 +95,26 @@ public class AlgorithmSelectionMenu : Node2D
             CallDeferred("SetProcess" , false);
         }
     }
+
+        /// <summary>
+    /// Check in the StoredData singleton the variable finished_levels, which is a dictionary of type <Str, bool>
+    /// Indicating the names of each level and whether the player has finished it. If BFS and DFS are finished,
+    /// unblock next levels, Prim and Kruskal
+    /// </summary>
+    private void ComputePlayerHasFinishedBFSAndDFS()
+    {
+        Node2D StoredData = GetTree().Root.GetNode<Node2D>("/root/StoredData");
+        if (StoredData != null){
+            Godot.Collections.Dictionary finishedLevels = (Godot.Collections.Dictionary) StoredData.Get("finished_levels");
+            
+            if (finishedLevels != null)
+            {
+                playerHasFinishedBFS = (bool) finishedLevels["BFS"];
+                playerHasFinishedBFSAndDFS = (bool) finishedLevels["BFS"] && (bool) finishedLevels["DFS"];
+            }
+        }
+    }
+
 
     public void OnBFSButtonPressed()
     {

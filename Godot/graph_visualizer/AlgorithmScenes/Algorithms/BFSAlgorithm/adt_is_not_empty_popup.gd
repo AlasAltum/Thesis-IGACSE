@@ -5,7 +5,8 @@ extends WindowDialog
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	NotificationManager.adt_is_empty_popup = self
-
+	var close_button : TextureButton = get_close_button()
+	close_button.visible = false
 
 func _on_adt_is_empty_YesButton_pressed() -> void:
 	NotificationManager._on_adt_is_empty_YesButton_pressed()

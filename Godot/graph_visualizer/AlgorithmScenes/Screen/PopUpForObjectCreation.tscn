@@ -30,7 +30,6 @@ tracks/1/keys = {
 }
 
 [node name="PopUpForObjectCreation" type="WindowDialog"]
-visible = true
 margin_left = 524.122
 margin_top = 233.47
 margin_right = 1036.12
@@ -52,9 +51,6 @@ size_flags_horizontal = 3
 text = "You are about to create a Queue, please, specify its name"
 align = 1
 autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ErrorNotification" type="Label" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )

@@ -10,6 +10,9 @@ func _ready() -> void:
 	$ResetButton.connect("pressed", self, "_on_ResetButton_pressed")
 	$MenuButton.connect("pressed", self, "_on_MenuButton_pressed")
 	$Explanation.text = explanation_in_label
+	var close_button : TextureButton = get_close_button()
+	close_button.visible = false
+
 
 func _on_ResetButton_pressed() -> void:
 	NotificationManager.reset_game()
