@@ -25,13 +25,14 @@ func _ready():
 		hover_label.text = self.hover_text	
 		hover_animation_instance = on_hover_animation.instance()
 		hover_panel.get_node("ColorRect").add_child(hover_animation_instance)
+		# We have a placeholder with different positions, use this position and then
+		# erase this variable
 		hover_animation_instance.position = $HoverPanel/ColorRect/AnimationPlaceholder.position
 		$HoverPanel/ColorRect/AnimationPlaceholder.queue_free()
 		ADT_name.text = hover_text
 
 	if slot_texture:
 		texture.texture = slot_texture
-
 
 func _on_Area2D_mouse_entered():
 	if hover_animation_instance:
@@ -48,4 +49,4 @@ func _on_Area2D_mouse_exited():
 func _on_Area2D_input_event(_viewport, event, _shape_idx):
 	if (event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed):
 		StoredData.adt_to_be_created = generated_adt.new()
-		NotificationManager._on_variable_creation_popup()
+		NotificationManager._on_variable_creation_popup(ADT_name.text)

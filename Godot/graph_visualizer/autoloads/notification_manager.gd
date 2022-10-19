@@ -15,7 +15,9 @@ var adt_is_empty: bool = false
 var length_c_is_1: bool = false
 var hint_label
 
-func _on_variable_creation_popup():
+
+func _on_variable_creation_popup(ADT_name: String):
+	object_creation_popup.set_next_adt_name(ADT_name)
 	object_creation_popup.popup()
 
 

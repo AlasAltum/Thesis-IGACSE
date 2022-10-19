@@ -6,12 +6,19 @@ var valid_name_regex = RegEx.new()
 onready var name_assign: LineEdit = $NameAssign
 onready var error_label: Label = $ErrorNotification
 onready var error_anim: AnimationPlayer = $ErrorNotification/AnimationPlayer
+onready var explanation_label: Label = $Explanation
 
 
 func _ready():
 	NotificationManager.object_creation_popup = self
 	valid_name_regex.compile("^[a-zA-Z_$][a-zA-Z_$0-9]*$")
 	error_label.visible = false
+
+func set_next_adt_name(ADT_name: String):
+	if explanation_label:
+		var msg = "You are about to create a {ADT_name}, please, specify its name"
+		msg = msg.format({"ADT_name": ADT_name})
+		explanation_label.text = msg
 
 
 func variable_has_valid_name(variable: String):
