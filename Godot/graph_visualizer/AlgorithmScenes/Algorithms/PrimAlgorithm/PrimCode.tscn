@@ -17,7 +17,7 @@
 [ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/8_v_w_vertices_e.gd" type="Script" id=16]
 [ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/11_v_graph_vertices_A.gd" type="Script" id=17]
 [ext_resource path="res://AlgorithmScenes/Code/code_block.gd" type="Script" id=18]
-[ext_resource path="res://Assets/CodeBlockTheme.tres" type="Theme" id=19]
+[ext_resource path="res://Assets/themes/CodeBlockTheme.tres" type="Theme" id=19]
 
 [node name="PrimCode" type="ScrollContainer"]
 margin_top = -1.0

@@ -20,37 +20,30 @@ graph_density = 0.169
 is_weighted_graph = true
 allow_selected_edges = true
 
-[node name="PopUpForObjectCreation" parent="." instance=ExtResource( 13 )]
-visible = false
-
-[node name="FinishedPopup" parent="." instance=ExtResource( 38 )]
-visible = false
-
-[node name="GameplayMenuPopup" parent="." instance=ExtResource( 5 )]
-
-[node name="LengthCIsOnePopup" parent="." instance=ExtResource( 16 )]
-
 [node name="ADTMediator" parent="." instance=ExtResource( 34 )]
 visible = false
 position = Vector2( 1, 0 )
 
-[node name="TextHintContainer" parent="." instance=ExtResource( 4 )]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="LeftPanel" type="VBoxContainer" parent="CanvasLayer"]
-margin_right = 384.0
-margin_bottom = 1080.0
-mouse_filter = 2
-
-[node name="KruskalCode" parent="CanvasLayer/LeftPanel" instance=ExtResource( 3 )]
-margin_left = 0.0
+[node name="TextHintContainer" parent="CanvasLayer" instance=ExtResource( 4 )]
+anchor_left = 0.208
+anchor_right = 1.0
+margin_left = 0.639984
 margin_top = 0.0
+margin_right = -24.0
+margin_bottom = 160.0
+
+[node name="LeftPanel" type="VBoxContainer" parent="CanvasLayer"]
+anchor_bottom = 1.0
+margin_right = 384.0
+mouse_filter = 2
+size_flags_vertical = 3
+
+[node name="KruskalCodeBlock" parent="CanvasLayer/LeftPanel" instance=ExtResource( 3 )]
 margin_right = 384.0
 margin_bottom = 776.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="ADTSelectionPanel" parent="CanvasLayer/LeftPanel" instance=ExtResource( 2 )]
 margin_top = 780.0
@@ -94,3 +87,22 @@ margin_bottom = 408.36
 rect_clip_content = true
 mouse_filter = 2
 stretch_mode = 0
+
+[node name="PopUpForObjectCreation" parent="CanvasLayer" instance=ExtResource( 13 )]
+margin_left = 523.122
+margin_right = 1035.12
+
+[node name="FinishedPopup" parent="CanvasLayer" instance=ExtResource( 38 )]
+visible = false
+margin_left = 524.1
+margin_right = 1036.1
+
+[node name="GameplayMenuPopup" parent="CanvasLayer" instance=ExtResource( 5 )]
+margin_left = -1217.0
+margin_top = -599.0
+margin_right = -705.0
+margin_bottom = -481.0
+
+[node name="LengthCIsOnePopup" parent="CanvasLayer" instance=ExtResource( 16 )]
+margin_left = 523.122
+margin_right = 1035.12

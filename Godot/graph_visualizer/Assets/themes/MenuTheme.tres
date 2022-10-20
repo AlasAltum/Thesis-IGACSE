@@ -1,9 +1,9 @@
 [gd_resource type="Theme" load_steps=3 format=2]
 
-[ext_resource path="res://Assets/bainsley/Bainsley_Roman.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/fonts/bainsley/Bainsley_Roman.otf" type="DynamicFontData" id=1]
 
 [sub_resource type="DynamicFont" id=3]
-size = 20
+size = 35
 font_data = ExtResource( 1 )
 
 [resource]

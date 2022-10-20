@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Node/white-circle.png" type="Texture" id=1]
 [ext_resource path="res://Node/node_representation.gd" type="Script" id=2]
-[ext_resource path="res://Assets/NodeTheme.tres" type="Theme" id=3]
+[ext_resource path="res://Assets/themes/NodeTheme.tres" type="Theme" id=3]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 1

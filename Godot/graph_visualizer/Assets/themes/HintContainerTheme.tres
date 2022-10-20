@@ -1,9 +1,9 @@
 [gd_resource type="Theme" load_steps=9 format=2]
 
-[ext_resource path="res://Assets/bainsley/Bainsley_Roman.otf" type="DynamicFontData" id=1]
-[ext_resource path="res://Assets/bainsley/Bainsley_Bold_Italic.otf" type="DynamicFontData" id=2]
-[ext_resource path="res://Assets/bainsley/Bainsley_Italic.otf" type="DynamicFontData" id=3]
-[ext_resource path="res://Assets/bainsley/Bainsley_Bold.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/fonts/bainsley/Bainsley_Roman.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/fonts/bainsley/Bainsley_Bold_Italic.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/fonts/bainsley/Bainsley_Italic.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/fonts/bainsley/Bainsley_Bold.otf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=2]
 size = 24

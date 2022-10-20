@@ -21,7 +21,7 @@
 [ext_resource path="res://AlgorithmScenes/Code/CodeLine.tscn" type="PackedScene" id=20]
 [ext_resource path="res://AlgorithmScenes/Code/InstructionPointer.tscn" type="PackedScene" id=21]
 [ext_resource path="res://AlgorithmScenes/Screen/Assets/InstructionPointer.svg" type="Texture" id=22]
-[ext_resource path="res://Assets/CodeBlockTheme.tres" type="Theme" id=23]
+[ext_resource path="res://Assets/themes/CodeBlockTheme.tres" type="Theme" id=23]
 
 [sub_resource type="Theme" id=2]
 
