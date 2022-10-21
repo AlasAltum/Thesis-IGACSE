@@ -80,29 +80,52 @@ anchor_left = 0.579
 anchor_top = 0.333
 anchor_right = 0.579
 anchor_bottom = 0.333
-margin_left = -711.68
+margin_left = -687.68
 margin_top = -343.64
-margin_right = 800.32
+margin_right = 824.32
 margin_bottom = 408.36
 rect_clip_content = true
 mouse_filter = 2
 stretch_mode = 0
 
 [node name="PopUpForObjectCreation" parent="CanvasLayer" instance=ExtResource( 13 )]
-margin_left = 523.122
-margin_right = 1035.12
+anchor_left = 0.575
+anchor_top = 0.296
+anchor_right = 0.575
+anchor_bottom = 0.296
+margin_left = -256.0
+margin_top = -71.68
+margin_right = 255.998
+margin_bottom = 87.32
 
 [node name="FinishedPopup" parent="CanvasLayer" instance=ExtResource( 38 )]
 visible = false
-margin_left = 524.1
-margin_right = 1036.1
+anchor_left = 0.567
+anchor_top = 0.296
+anchor_right = 0.567
+anchor_bottom = 0.296
+margin_left = -248.64
+margin_top = -79.68
+margin_right = 263.36
+margin_bottom = 79.32
+explanation_in_label = "Congratulations! You have successfully finished the Kruskal Algorithm!"
 
 [node name="GameplayMenuPopup" parent="CanvasLayer" instance=ExtResource( 5 )]
-margin_left = -1217.0
-margin_top = -599.0
-margin_right = -705.0
-margin_bottom = -481.0
+anchor_left = 0.567
+anchor_top = 0.306
+anchor_right = 0.567
+anchor_bottom = 0.306
+margin_left = -240.64
+margin_top = -58.48
+margin_right = 271.36
+margin_bottom = 59.52
 
 [node name="LengthCIsOnePopup" parent="CanvasLayer" instance=ExtResource( 16 )]
-margin_left = 523.122
-margin_right = 1035.12
+anchor_left = 0.579
+anchor_top = 0.296
+anchor_right = 0.579
+anchor_bottom = 0.296
+margin_left = -247.68
+margin_top = -71.68
+margin_right = 264.318
+margin_bottom = 87.32

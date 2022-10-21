@@ -19,22 +19,22 @@ graph_density = 0.169
 is_weighted_graph = true
 allow_selected_edges = true
 
-[node name="PopUpForObjectCreation" parent="." instance=ExtResource( 13 )]
-visible = false
-
-[node name="FinishedPopup" parent="." instance=ExtResource( 38 )]
-visible = false
-
-[node name="GameplayMenuPopup" parent="." instance=ExtResource( 5 )]
-
 [node name="ADTMediator" parent="." instance=ExtResource( 34 )]
 visible = false
 position = Vector2( 1, 0 )
 
-[node name="TextHintContainer" parent="." instance=ExtResource( 4 )]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
+
+[node name="TextHintContainer" parent="CanvasLayer" instance=ExtResource( 4 )]
+visible = false
+anchor_left = 0.209
+anchor_right = 1.0
+anchor_bottom = 0.17
+margin_left = 0.720001
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.399994
 
 [node name="LeftPanel" type="VBoxContainer" parent="CanvasLayer"]
 margin_right = 384.0
@@ -42,10 +42,10 @@ margin_bottom = 1080.0
 mouse_filter = 2
 
 [node name="PrimCode" parent="CanvasLayer/LeftPanel" instance=ExtResource( 3 )]
+margin_left = 0.0
 margin_top = 0.0
 margin_right = 384.0
 margin_bottom = 776.0
-size_flags_vertical = 3
 
 [node name="ADTSelectionPanel" parent="CanvasLayer/LeftPanel" instance=ExtResource( 2 )]
 margin_top = 780.0
@@ -61,12 +61,13 @@ mouse_filter = 2
 
 [node name="DebugBlock" parent="CanvasLayer/BottomPanel" instance=ExtResource( 1 )]
 margin_top = 0.0
-margin_right = 1290.0
+margin_right = 1528.0
 margin_bottom = 300.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ADTShower" parent="CanvasLayer/BottomPanel" instance=ExtResource( 28 )]
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -89,3 +90,36 @@ margin_bottom = 408.36
 rect_clip_content = true
 mouse_filter = 2
 stretch_mode = 0
+
+[node name="PopUpForObjectCreation" parent="CanvasLayer" instance=ExtResource( 13 )]
+visible = true
+anchor_left = 0.587
+anchor_top = 0.323
+anchor_right = 0.587
+anchor_bottom = 0.323
+margin_left = -256.04
+margin_top = -79.84
+margin_right = 255.958
+margin_bottom = 79.16
+
+[node name="FinishedPopup" parent="CanvasLayer" instance=ExtResource( 38 )]
+anchor_left = 0.586
+anchor_top = 0.325
+anchor_right = 0.586
+anchor_bottom = 0.325
+margin_left = -255.12
+margin_top = -79.0
+margin_right = 256.88
+margin_bottom = 80.0
+explanation_in_label = "Congratulations! You have successfully finished the Prim Algorithm!"
+
+[node name="GameplayMenuPopup" parent="CanvasLayer" instance=ExtResource( 5 )]
+visible = true
+anchor_left = 0.586
+anchor_top = 0.327
+anchor_right = 0.586
+anchor_bottom = 0.327
+margin_left = -255.12
+margin_top = -59.16
+margin_right = 256.88
+margin_bottom = 58.84

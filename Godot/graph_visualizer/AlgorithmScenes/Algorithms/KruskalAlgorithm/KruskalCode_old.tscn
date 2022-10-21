@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/themes/CodeBlockTheme.tres" type="Theme" id=1]
-[ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/10_v_mark_as_iterated.gd" type="Script" id=4]
+[ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/11_end_for.gd" type="Script" id=2]
 [ext_resource path="res://AlgorithmScenes/Code/finish_code.gd" type="Script" id=5]
 [ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/1_sort_edges.gd" type="Script" id=6]
 [ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/2_create_sets_for_v_in_graph_vertices.gd" type="Script" id=7]
@@ -59,7 +59,7 @@ margin_top = 70.0
 margin_right = 400.0
 margin_bottom = 103.0
 line_index = 1
-code_text = "    sort_edges();"
+code_text = "    graph.edges = sort_edges();"
 effect_check = ExtResource( 6 )
 hint_text = "Press [color=#ff00ff]ENTER[/color] [color=]LEFT CLICK[/b] on the edges by [b]ascending[/b] order"
 
@@ -105,8 +105,8 @@ margin_top = 169.0
 margin_right = 400.0
 margin_bottom = 202.0
 line_index = 4
-jump_index = 13
-code_text = "    for Edge e in graph.edges:"
+jump_index = 11
+code_text = "    for (Edge e in graph.edges):"
 effect_check = ExtResource( 15 )
 hint_text = "Press [b]ENTER[/b]!"
 
@@ -153,7 +153,7 @@ margin_top = 301.0
 margin_right = 400.0
 margin_bottom = 334.0
 line_index = 8
-code_text = "            T.append(e)"
+code_text = "            MST.append(e)"
 effect_check = ExtResource( 12 )
 hint_text = "Select the [color=#00FF00] u [/color] node with a left click"
 
@@ -164,7 +164,7 @@ margin_top = 334.0
 margin_right = 400.0
 margin_bottom = 367.0
 line_index = 9
-code_text = "            s.add(u)"
+code_text = "            Union( Find(v), Find(w))"
 effect_check = ExtResource( 13 )
 hint_text = "Add the Node [color=#00FF00] u [/color] to the queue by right clicking on it"
 
@@ -175,9 +175,9 @@ margin_top = 367.0
 margin_right = 400.0
 margin_bottom = 400.0
 line_index = 10
-jump_index = 6
+jump_index = 4
 code_text = "        end for;"
-effect_check = ExtResource( 4 )
+effect_check = ExtResource( 2 )
 hint_text = "Press [b]ENTER[/b]"
 
 [node name="PanelContainer11" parent="LinesContainer" instance=ExtResource( 11 )]

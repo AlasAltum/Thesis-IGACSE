@@ -9,12 +9,12 @@
 [ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/2_create_sets_for_v_in_graph_vertices.gd" type="Script" id=7]
 [ext_resource path="res://AlgorithmScenes/Code/finish_code.gd" type="Script" id=8]
 [ext_resource path="res://AlgorithmScenes/Code/null_effect.gd" type="Script" id=9]
+[ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/11_end_for.gd" type="Script" id=10]
 [ext_resource path="res://AlgorithmScenes/Code/CodeLine.tscn" type="PackedScene" id=11]
 [ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/3_create_mst.gd" type="Script" id=12]
 [ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/4_for_e_in_graph_edges.gd" type="Script" id=13]
 [ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/6_v_w_vertices_e.gd" type="Script" id=14]
 [ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/1_sort_edges.gd" type="Script" id=15]
-[ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/10_v_mark_as_iterated.gd" type="Script" id=16]
 [ext_resource path="res://Assets/themes/CodeBlockTheme.tres" type="Theme" id=17]
 
 [node name="KruskalCode" type="ScrollContainer"]
@@ -142,7 +142,7 @@ margin_top = 297.0
 margin_right = 392.0
 margin_bottom = 330.0
 line_index = 9
-code_text = "            s.add(u)"
+code_text = "            Union(Find(v), Find(w))"
 effect_check = ExtResource( 4 )
 hint_text = "Add the Node [color=#00FF00] u [/color] to the queue by right clicking on it"
 
@@ -155,7 +155,7 @@ margin_bottom = 363.0
 line_index = 10
 jump_index = 6
 code_text = "        end for;"
-effect_check = ExtResource( 16 )
+effect_check = ExtResource( 10 )
 hint_text = "Press [b]ENTER[/b]"
 
 [node name="PanelContainer13" parent="LinesContainer" instance=ExtResource( 11 )]
