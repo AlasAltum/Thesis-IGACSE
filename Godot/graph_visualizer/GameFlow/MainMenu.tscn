@@ -159,7 +159,6 @@ anims/ShowLevels = SubResource( 1 )
 anims/ShowMenu = SubResource( 2 )
 
 [node name="AlgorithmSelectionMenu" parent="." instance=ExtResource( 2 )]
-modulate = Color( 1, 1, 1, 0.875 )
 playerHasFinishedBFSAndDFS = false
 
 [editable path="AlgorithmSelectionMenu"]

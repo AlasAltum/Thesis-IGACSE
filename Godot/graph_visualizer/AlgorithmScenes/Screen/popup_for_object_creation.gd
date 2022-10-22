@@ -33,12 +33,8 @@ func _on_EnterButton_pressed():
 
 
 # ADT Creation flow:
-# When the slot is pressed: StoredData.dragged_adt = draggable_adt by 
-# calling the function Slot._on_Area2D_input_event(_viewport, event, _shape_idx)
-# Then, when the object is dragged to the variables:
-# popup_for_object_creation._on_NameAssign_text_entered(var_name)
-# StoredData._on_correct_variable_creation(var_name)
-# adt_mediator.add_variable(var_name, StoredData.adt_to_be_created)
+# User clicks the slot to create an ADT, this sets the variable
+# StoredData.adt_to_be_created, which will be used by the ADT Mediator
 func _on_NameAssign_text_entered(variable: String):
 	if variable_has_valid_name(variable):
 		self.visible = false

@@ -15,7 +15,6 @@ onready var hover_panel : Node2D = $HoverPanel
 onready var hover_label : Label = $HoverPanel/ColorRect/HoverText
 onready var ADT_name : Label = $SlotTexture/BelowADTName
 
-var following_mouse_texture : PackedScene = preload("res://AlgorithmScenes/Screen/GUI/FollowingMouseTexture.tscn")
 var hover_animation_instance: Node2D
 
 

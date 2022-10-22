@@ -25,7 +25,6 @@ var debug_block: ScrollContainer  # : DebugBlock
 var number_of_nodes: int = 3
 var matrix: Array = []
 var dragging_adt : bool = false
-var dragged_adt : FollowingMouseTexture
 var selected_edge
 var adt_hovering : bool = false
 var assign_name_popup : WindowDialog
@@ -135,7 +134,6 @@ func reset_data():
 	self.number_of_nodes = 3
 	self.matrix = []
 	self.dragging_adt = false
-	self.dragged_adt = null
 	self.selected_edge = null
 	self.adt_hovering = false
 	self.assign_name_popup = null

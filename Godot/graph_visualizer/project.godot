@@ -119,11 +119,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Screen/finished_code_popup.gd"
 }, {
-"base": "Node2D",
-"class": "FollowingMouseTexture",
-"language": "GDScript",
-"path": "res://AlgorithmScenes/Screen/GUI/following_mouse_texture.gd"
-}, {
 "base": "WindowDialog",
 "class": "GameplayMenuPopup",
 "language": "GDScript",
@@ -232,7 +227,6 @@ _global_script_class_icons={
 "FindWUnequalFindVPopup": "",
 "FinishCodeEffect": "",
 "FinishedPopup": "",
-"FollowingMouseTexture": "",
 "GameplayMenuPopup": "",
 "GraphManager": "",
 "LengthCIsOnePopup": "",
