@@ -3,16 +3,18 @@ extends Node2D
 
 ## Code execution popups ##
 var finished_popup : WindowDialog; 
-var u_is_explored_popup : WindowDialog # = $UNodeIsExploredPopup
-var adt_is_empty_popup : WindowDialog # = $QIsNotEmptyPopup
+var u_is_explored_popup : WindowDialog  # : $UNodeIsExploredPopup
+var adt_is_empty_popup : WindowDialog  # : $QIsNotEmptyPopup
 var add_node_popup : AddNodePopup 
-var object_creation_popup: WindowDialog # PopupForObjectCreation
-var length_c_is_1_popup: WindowDialog # = LengthCIsOnePopup
-
+var object_creation_popup: WindowDialog  # PopupForObjectCreation
+var length_c_is_1_popup: WindowDialog  # : LengthCIsOnePopup
+var _find_w_unequal_find_v_popup: WindowDialog  # : FindWUnequalFindVPopup
 ## Continue conditions ##
 var u_is_explored: bool = false
 var adt_is_empty: bool = false
 var length_c_is_1: bool = false
+var find_w_unequal_find_v: bool = false
+
 var hint_label
 
 
@@ -138,7 +140,8 @@ func ask_user_if_lenth_c_is_1(_length_c_is_1: bool) -> void:
 	if length_c_is_1_popup:
 		length_c_is_1_popup.show()
 		self.length_c_is_1 = _length_c_is_1
-
+	else:
+		printerr("Notification Manager Error: length c is 1 popup not detected")
 
 func _on_YesButton_length_c_is_1_popup_pressed():
 	if self.length_c_is_1:  # Right!
@@ -161,6 +164,39 @@ func notify_length_c_is_one_wrong_answer():
 	# TODO: Visual effect
 	if length_c_is_1_popup:
 		length_c_is_1_popup.play_wrong_animation()
+## Length C is 1 popup signals ##
+
+## if _find_w_unequal_find_v popup signals ##
+func ask_user_if_find_w_unequal_find_v(_find_w_unequal_find_v: bool) -> void:
+	if _find_w_unequal_find_v_popup:
+		_find_w_unequal_find_v_popup.show()
+		self.find_w_unequal_find_v = _find_w_unequal_find_v
+	else:
+		printerr("Notification Manager Error: Find w unequal find v")
+
+func _on_YesButton_find_w_unequal_find_v_pressed():
+	if self.find_w_unequal_find_v:  # Right!
+		self.notify_find_w_unequal_find_v_correct_answer()
+	else:  # Wrong!
+		self.notify_find_w_unequal_find_v_wrong_answer()
+
+func _on_NoButton_find_w_unequal_find_v_pressed():
+	if self.find_w_unequal_find_v:  # Wrong
+		self.notify_find_w_unequal_find_v_wrong_answer()
+	else:  # Right
+		self.notify_find_w_unequal_find_v_correct_answer()
+		
+func notify_find_w_unequal_find_v_correct_answer():
+	StoredData.find_w_unequal_find_v_correct_answer = true
+	if _find_w_unequal_find_v_popup:
+		_find_w_unequal_find_v_popup.hide()
+
+func notify_find_w_unequal_find_v_wrong_answer():
+	# TODO: Visual effect
+	if _find_w_unequal_find_v_popup:
+		_find_w_unequal_find_v_popup.play_wrong_animation()
+## if _find_w_unequal_find_v popup signals ##
+
 
 func reset_data():
 	self.finished_popup = null
@@ -173,4 +209,5 @@ func reset_data():
 	self.u_is_explored = false
 	self.adt_is_empty = false
 	self.length_c_is_1 = false
+	self.find_w_unequal_find_v = false
 	self.hint_label = null

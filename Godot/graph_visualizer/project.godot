@@ -104,6 +104,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Code/effect_check.gd"
 }, {
+"base": "WindowDialog",
+"class": "FindWUnequalFindVPopup",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/Algorithms/KruskalAlgorithm/popups/find_v_unequal_find_w_popup.gd"
+}, {
 "base": "EffectCheck",
 "class": "FinishCodeEffect",
 "language": "GDScript",
@@ -224,6 +229,7 @@ _global_script_class_icons={
 "EdgeADT": "",
 "EdgeRepresentation": "",
 "EffectCheck": "",
+"FindWUnequalFindVPopup": "",
 "FinishCodeEffect": "",
 "FinishedPopup": "",
 "FollowingMouseTexture": "",

@@ -10,7 +10,7 @@
 [ext_resource path="res://AlgorithmScenes/Code/null_effect.gd" type="Script" id=8]
 [ext_resource path="res://AlgorithmScenes/Code/CodeLine.tscn" type="PackedScene" id=10]
 [ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/3_mst_e.gd" type="Script" id=11]
-[ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/6_while_mst_size_less_than_graph_vertices_size.gd" type="Script" id=12]
+[ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/6_while_T_size_less_than_graph_vertices_size.gd" type="Script" id=12]
 [ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/5_v_graph_vertices_A.gd" type="Script" id=13]
 [ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/4_set_a_vw.gd" type="Script" id=14]
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/11_end_for.gd" type="Script" id=15]
@@ -94,9 +94,9 @@ margin_top = 148.0
 margin_right = 393.0
 margin_bottom = 181.0
 line_index = 2
-code_text = "   (v,w) = vertices(graph.edges)"
+code_text = "   (v,w) = get_connecting_vertices(e)"
 effect_check = ExtResource( 2 )
-hint_text = "Go to Data Structures, click the Slot \"Stack\", bring it to Variables and then press [b]ENTER[/b]"
+hint_text = "Select the nodes that conenct the edge [color=#00FF00]e[/color] "
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer2" index="0"]
 margin_right = 393.0
@@ -120,7 +120,7 @@ margin_bottom = 214.0
 line_index = 3
 code_text = "   MST = [e]"
 effect_check = ExtResource( 11 )
-hint_text = "[b]RIGHT CLICK[/b] on Node [color=#00FF00] t [/color], then add it to the Queue [color=#00FF00] q [/color]"
+hint_text = "Create an array with the name [b]MST[/b]"
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer3" index="0"]
 margin_right = 393.0
@@ -144,7 +144,7 @@ margin_bottom = 247.0
 line_index = 4
 code_text = "   Set T = {v, w}"
 effect_check = ExtResource( 14 )
-hint_text = "[b]RIGHT CLICK[/b] on Node [color=#00FF00] t [/color], then add it to the Queue [color=#00FF00] q [/color]"
+hint_text = "Just press [b]ENTER[/b]"
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer4" index="0"]
 margin_right = 393.0
@@ -168,7 +168,7 @@ margin_bottom = 280.0
 line_index = 5
 code_text = "   Set V = {graph.vertices} - T"
 effect_check = ExtResource( 13 )
-hint_text = "[b]RIGHT CLICK[/b] on Node [color=#00FF00] t [/color], then add it to the Queue [color=#00FF00] q [/color]"
+hint_text = "Just press [b]ENTER[/b]"
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer5" index="0"]
 margin_right = 393.0
@@ -193,7 +193,7 @@ line_index = 6
 jump_index = 13
 code_text = "   while (T.size() < graph.vertices.size()):"
 effect_check = ExtResource( 12 )
-hint_text = "Answer if the queue is empty"
+hint_text = "What is the right answer: Is the T array smaller than the graph vertices array?"
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer6" index="0"]
 margin_right = 393.0
@@ -217,7 +217,7 @@ margin_bottom = 346.0
 line_index = 7
 code_text = "        e = min_edge_connecting(V, V-T)"
 effect_check = ExtResource( 3 )
-hint_text = "See the variables after you press [b]ENTER[/b]!"
+hint_text = "Select the edge with min weight connecting the sets [b]V[/b] and [b]V - T[/b]"
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer7" index="0"]
 margin_right = 393.0
@@ -239,9 +239,9 @@ margin_top = 346.0
 margin_right = 393.0
 margin_bottom = 379.0
 line_index = 8
-code_text = "       (v,w) = vertices(e)"
+code_text = "       (v,w) = get_vertices(e)"
 effect_check = ExtResource( 16 )
-hint_text = "Check the U variable after you press [b]ENTER[/b]!"
+hint_text = "[b]LEFT CLICK[/b] on the vertices that connect the edge [b]e[/b]"
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer8" index="0"]
 margin_right = 393.0
@@ -265,7 +265,7 @@ margin_bottom = 412.0
 line_index = 9
 code_text = "       MST.append(e)"
 effect_check = ExtResource( 4 )
-hint_text = "Answer: is the [color=#00FF00] u [/color] node explored?"
+hint_text = "Press [b]ENTER[/b]"
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer9" index="0"]
 margin_right = 393.0
@@ -289,7 +289,7 @@ margin_bottom = 445.0
 line_index = 10
 code_text = "       T.append(v, w)"
 effect_check = ExtResource( 5 )
-hint_text = "Select the [color=#00FF00] u [/color] node with a left click"
+hint_text = "Press [b]ENTER[/b]"
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer10" index="0"]
 margin_right = 393.0
@@ -313,7 +313,7 @@ margin_bottom = 478.0
 line_index = 11
 code_text = "       V = {graph.vertices} - T"
 effect_check = ExtResource( 17 )
-hint_text = "Select the [color=#00FF00] u [/color] node with a left click"
+hint_text = "Press [b]ENTER[/b]"
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer11" index="0"]
 margin_right = 393.0

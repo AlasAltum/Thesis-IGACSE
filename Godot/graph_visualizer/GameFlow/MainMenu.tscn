@@ -160,6 +160,6 @@ anims/ShowMenu = SubResource( 2 )
 
 [node name="AlgorithmSelectionMenu" parent="." instance=ExtResource( 2 )]
 modulate = Color( 1, 1, 1, 0.875 )
-EDITOR_ONLY_HackLevels = false
+playerHasFinishedBFSAndDFS = false
 
 [editable path="AlgorithmSelectionMenu"]

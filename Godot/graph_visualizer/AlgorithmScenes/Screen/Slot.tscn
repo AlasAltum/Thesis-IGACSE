@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Screen/slot.gd" type="Script" id=1]
-[ext_resource path="res://AlgorithmScenes/Screen/structure_slot_background.png" type="Texture" id=2]
+[ext_resource path="res://Assets/textures/structure_slot_background.png" type="Texture" id=2]
 
 [sub_resource type="StyleBoxTexture" id=1]
 region_rect = Rect2( 0, 0, 18, 18 )

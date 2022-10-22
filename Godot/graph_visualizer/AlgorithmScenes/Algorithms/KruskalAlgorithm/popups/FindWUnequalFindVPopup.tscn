@@ -1,0 +1,96 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/popups/find_v_unequal_find_w_popup.gd" type="Script" id=1]
+
+[sub_resource type="Animation" id=7]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.201 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true ]
+}
+
+[node name="FindWUnequalFindVPopup" type="WindowDialog"]
+margin_left = 524.122
+margin_top = 233.47
+margin_right = 1036.12
+margin_bottom = 392.47
+popup_exclusive = true
+window_title = "Confirmation"
+script = ExtResource( 1 )
+
+[node name="Explanation" type="Label" parent="."]
+margin_left = 5.0
+margin_top = 13.0
+margin_right = 506.0
+margin_bottom = 39.0
+rect_pivot_offset = Vector2( 265.108, 0 )
+size_flags_horizontal = 3
+text = "Is  Find(v)  != Find(w)? Are their sets disjoint? (See lists in Array C)"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ErrorNotification" type="Label" parent="."]
+visible = false
+margin_left = 2.05951
+margin_top = 112.692
+margin_right = 503.06
+margin_bottom = 138.692
+rect_pivot_offset = Vector2( 265.108, 0 )
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.878431, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 2
+text = "Error: Wrong answer"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ErrorNotification"]
+anims/message_modulation = SubResource( 7 )
+
+[node name="YesButton" type="Button" parent="."]
+modulate = Color( 0.121569, 0.913725, 0, 1 )
+margin_left = 115.407
+margin_top = 63.2947
+margin_right = 209.407
+margin_bottom = 89.2947
+text = "Yes"
+
+[node name="NoButton" type="Button" parent="."]
+modulate = Color( 0.980392, 0.156863, 0.156863, 1 )
+margin_left = 317.165
+margin_top = 64.6618
+margin_right = 411.165
+margin_bottom = 90.6618
+text = "No"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="YesButton" to="." method="_on_YesButton_pressed"]
+[connection signal="pressed" from="NoButton" to="." method="_on_NoButton_pressed"]

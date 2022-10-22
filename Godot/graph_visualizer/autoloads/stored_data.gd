@@ -17,8 +17,6 @@ var allow_select_edges = false
 var status : int = mov_status.SELECT;
 var nodes : Array = []  # PoolAGraphNodeArray
 var edges : Array = []
-
-
 var debug_block: ScrollContainer  # : DebugBlock
 var number_of_nodes: int = 3
 var matrix: Array = []
@@ -37,11 +35,13 @@ var selected_edges = []
 var iterated_nodes = []
 
 ## Code continue conditions
-var u_is_explored_right_answer : bool = false
-var adt_is_empty_right_answer : bool = false
+# These are popups that ask the user about a condition in the code execution
+# If the answer is right, the user may pass to the next line
+var u_is_explored_right_answer : bool = false  # BFS & DFS
+var adt_is_empty_right_answer : bool = false  # BFS & DFS
+var length_c_is_one_correct_answer: bool = false  # Kruskal1
+var find_w_unequal_find_v_correct_answer: bool = false  # Kruskal2
 
-# Kruskal El de la esquina es wom
-var length_c_is_one_correct_answer: bool = false
 
 ## ADT selection
 var adt_shower # ADTShower
