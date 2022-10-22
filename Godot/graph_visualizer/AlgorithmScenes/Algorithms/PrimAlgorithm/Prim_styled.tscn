@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Code/DebugBlock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://AlgorithmScenes/Screen/ADTSelectionPanel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/PrimCode.tscn" type="PackedScene" id=3]
 [ext_resource path="res://AlgorithmScenes/Screen/TextHintContainer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://AlgorithmScenes/Screen/GameplayMenuPopup.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/textures/Background.tscn" type="PackedScene" id=6]
 [ext_resource path="res://AlgorithmScenes/Screen/PopUpForObjectCreation.tscn" type="PackedScene" id=13]
 [ext_resource path="res://AlgorithmScenes/Screen/graph_screen.gd" type="Script" id=15]
 [ext_resource path="res://AlgorithmScenes/Screen/GUI/ADTsShower.tscn" type="PackedScene" id=28]
@@ -18,6 +19,8 @@ level_name = "Prim"
 graph_density = 0.169
 is_weighted_graph = true
 allow_selected_edges = true
+
+[node name="Background" parent="." instance=ExtResource( 6 )]
 
 [node name="ADTMediator" parent="." instance=ExtResource( 34 )]
 visible = false
@@ -78,6 +81,7 @@ margin_bottom = 300.0
 size_flags_vertical = 1
 
 [node name="NodeContainer" type="AspectRatioContainer" parent="CanvasLayer"]
+visible = false
 anchor_left = 0.579
 anchor_top = 0.333
 anchor_right = 0.579
@@ -91,7 +95,6 @@ mouse_filter = 2
 stretch_mode = 0
 
 [node name="PopUpForObjectCreation" parent="CanvasLayer" instance=ExtResource( 13 )]
-visible = true
 anchor_left = 0.587
 anchor_top = 0.323
 anchor_right = 0.587
@@ -113,7 +116,6 @@ margin_bottom = 80.0
 explanation_in_label = "Congratulations! You have successfully finished the Prim Algorithm!"
 
 [node name="GameplayMenuPopup" parent="CanvasLayer" instance=ExtResource( 5 )]
-visible = true
 anchor_left = 0.586
 anchor_top = 0.327
 anchor_right = 0.586

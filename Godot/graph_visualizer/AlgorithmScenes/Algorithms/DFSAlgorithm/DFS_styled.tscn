@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Code/DebugBlock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://AlgorithmScenes/Screen/ADTSelectionPanel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/DFSCodeBlockCentered.tscn" type="PackedScene" id=3]
 [ext_resource path="res://AlgorithmScenes/Screen/TextHintContainer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://AlgorithmScenes/Screen/GameplayMenuPopup.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/textures/Background.tscn" type="PackedScene" id=6]
 [ext_resource path="res://AlgorithmScenes/Screen/PopUpForObjectCreation.tscn" type="PackedScene" id=13]
 [ext_resource path="res://AlgorithmScenes/Screen/graph_screen.gd" type="Script" id=15]
 [ext_resource path="res://AlgorithmScenes/Screen/GUI/ADTsShower.tscn" type="PackedScene" id=28]
@@ -90,7 +91,6 @@ margin_right = 312.999
 margin_bottom = -74.0
 
 [node name="UNodeIsExploredPopup" parent="CanvasLayer" instance=ExtResource( 37 )]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -112,7 +112,6 @@ margin_bottom = -74.0
 ADT_type_and_var_name = "Stack s"
 
 [node name="FinishedPopup" parent="CanvasLayer" instance=ExtResource( 38 )]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -127,6 +126,7 @@ explanation_in_label = "Congratulations! You have successfully finished the DFS 
 text = "Congratulations! You have successfully finished the DFS Algorithm!"
 
 [node name="GameplayMenuPopup" parent="CanvasLayer" instance=ExtResource( 5 )]
+visible = false
 margin_left = -199.0
 margin_top = -212.5
 margin_right = 313.0
@@ -140,5 +140,7 @@ margin_left = 408.0
 margin_top = 0.0
 margin_right = 0.0
 margin_bottom = 150.0
+
+[node name="Background" parent="." instance=ExtResource( 6 )]
 
 [editable path="CanvasLayer/FinishedPopup"]

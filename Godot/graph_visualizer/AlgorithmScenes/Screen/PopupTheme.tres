@@ -1,0 +1,29 @@
+[gd_resource type="Theme" load_steps=8 format=2]
+
+[ext_resource path="res://Assets/fonts/createland/Createland.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/fonts/bainsley/Bainsley_Roman.otf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=7]
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 2 )
+
+[resource]
+default_font = SubResource( 6 )
+Button/fonts/font = SubResource( 7 )
+Label/fonts/font = SubResource( 4 )
+LineEdit/fonts/font = SubResource( 5 )
+WindowDialog/fonts/title_font = SubResource( 2 )

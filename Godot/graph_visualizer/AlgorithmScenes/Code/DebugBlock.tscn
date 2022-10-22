@@ -17,15 +17,15 @@ __meta__ = {
 }
 
 [node name="LinesContainer" type="VBoxContainer" parent="."]
-margin_left = 3.0
-margin_top = 3.0
-margin_right = 231.0
-margin_bottom = 29.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 229.0
+margin_bottom = 31.0
 mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="DebuggerTitle" type="Label" parent="LinesContainer"]
-margin_right = 228.0
+margin_right = 224.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
