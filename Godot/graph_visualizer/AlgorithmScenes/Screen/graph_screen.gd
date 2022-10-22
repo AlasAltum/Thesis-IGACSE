@@ -12,6 +12,7 @@ var down: int
 var circle = preload("res://Node/Node.tscn")
 var edge = preload("res://Node/Edge.tscn")
 var gameplay_menu_popup: GameplayMenuPopup
+var node_container_key_properties: Array
 
 ## Configurable elements ## 
 export (float) var graph_density = 0.1
@@ -34,6 +35,7 @@ func _ready():
 	up = + int(self.screen_size.y)
 	down = 100
 	randomize()
+	node_container_key_properties = _init_node_container_key_properties()
 	create_nodes_with_weights(graph_size, edge_max_weight)
 	instance_nodes()
 #	instance_edges()  # Make edges randomly
@@ -53,6 +55,18 @@ func _ready():
 #		}
 #	)
 
+# We do not use 0.5 since that would make the node to be on the limit or frontier
+# of our container, but we want to be completly inside of it
+const RADIUS_THAT_FULLY_CONTAINS_TEXTURE_IN_CONTAINER = 0.45
+
+# Return an array of positions, representing the four positions of the square
+func _init_node_container_key_properties() -> Array:  # Array[Vector2]
+	var node_container: AspectRatioContainer = $CanvasLayer/NodeContainer
+	# The container begins at the top left
+	var upper_left = node_container.rect_global_position
+	var center_position = upper_left + node_container.rect_size * 0.5
+	var rect_size = node_container.rect_size * 0.45
+	return [center_position, rect_size]
 
 func _init_graph_matrix(num_nodes: int) -> void:
 	StoredData.number_of_nodes = num_nodes
@@ -87,8 +101,7 @@ func _on_node_instanced(node):
 	# Set index and edges for node
 	node.set_index(StoredData.nodes.size())  # This array will change after each instantation
 	node.set_edges(StoredData.matrix[node.index])
-	var node_container_position = _get_center_position_of_node_container()
-	node.init_radial_position(StoredData.number_of_nodes, node_container_position)
+	node.init_position_regarding_container(StoredData.number_of_nodes, node_container_key_properties)
 	# Connect signals
 	node.connect("node_add_to_object_request", NotificationManager, "_on_node_add_to_object")
 	StoredData.nodes.append(node)

@@ -12,6 +12,10 @@ var finished_levels = {
 }
 
 enum mov_status {SELECT = 0, DRAG = 1}
+const status_map = {
+	"DRAG": mov_status.DRAG,
+	"SELECT": mov_status.SELECT
+}
 
 var allow_select_edges = false
 var status : int = mov_status.SELECT;
@@ -26,10 +30,6 @@ var selected_edge
 var adt_hovering : bool = false
 var assign_name_popup : WindowDialog
 var world_node: Node2D  # : GraphManager
-const status_map = {
-	"DRAG": mov_status.DRAG,
-	"SELECT": mov_status.SELECT
-}
 var selectable_nodes = []
 var selected_edges = []
 var iterated_nodes = []
@@ -131,8 +131,8 @@ func reset_data():
 	self.status = mov_status.SELECT;
 	self.nodes = []  # PoolAGraphNodeArray
 	self.edges = []
-
 	self.debug_block = null
+	self.number_of_nodes = 3
 	self.matrix = []
 	self.dragging_adt = false
 	self.dragged_adt = null
@@ -144,9 +144,13 @@ func reset_data():
 	self.selected_edges = []
 	self.iterated_nodes = []
 
+	## Code continue conditions
 	self.u_is_explored_right_answer = false
 	self.adt_is_empty_right_answer = false
 	self.length_c_is_one_correct_answer = false
+	self.find_w_unequal_find_v_correct_answer = false
+
+	## ADT selection
 	self.adt_shower = null
 	self.adt_mediator = null
 	self.selected_variable_index = 0

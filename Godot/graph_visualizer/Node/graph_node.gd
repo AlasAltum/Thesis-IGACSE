@@ -56,6 +56,26 @@ func get_representation():
 	return self.representation
 
 
+
+const FACTOR_TO_KEEP_NODES_IN_CONTAINER = 0.9
+# Initializes the position of a node inside the node container considering its dimensions
+# So nodes are better spacially distributed in the container
+# node_container_positions contains: [center_position, container_size]
+func init_position_regarding_container(total_nodes: int, node_container_key_properties: Array):
+	var angle = 2 * PI / (total_nodes + 1) * (self.index + 1)
+	var radius_x = node_container_key_properties[1].x  # X size
+	var radius_y = node_container_key_properties[1].y  # Y size
+	aux_position = node_container_key_properties[0]  # Start at center position
+	# We add this 0.9 so nodes are not out of the container
+	aux_position += Vector2(
+		cos(angle) * radius_x * FACTOR_TO_KEEP_NODES_IN_CONTAINER,
+		sin(angle) * radius_y * FACTOR_TO_KEEP_NODES_IN_CONTAINER
+	)
+
+	self.position = to_local(aux_position)
+	aux_position = to_local(aux_position)
+
+# We use radial positions, since the edges and nodes will look better
 func init_radial_position(total_nodes: int, node_container_position: Vector2):
 	var angle = 2 * PI / (total_nodes + 1) * (self.index + 1)
 	# GODOT is not updating this position immediately, it takes a whole cycle

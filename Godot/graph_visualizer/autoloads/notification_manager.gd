@@ -205,9 +205,11 @@ func reset_data():
 	self.add_node_popup = null
 	self.object_creation_popup = null
 	self.length_c_is_1_popup = null
-	## Continue conditions ## = null
+	self._find_w_unequal_find_v_popup = null
+	## Continue conditions ##
 	self.u_is_explored = false
 	self.adt_is_empty = false
 	self.length_c_is_1 = false
 	self.find_w_unequal_find_v = false
+
 	self.hint_label = null

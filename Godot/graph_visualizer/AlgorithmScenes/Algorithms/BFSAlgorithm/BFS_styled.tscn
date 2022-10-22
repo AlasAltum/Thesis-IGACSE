@@ -17,7 +17,6 @@
 [node name="Main" type="Node2D"]
 position = Vector2( -1, 0 )
 script = ExtResource( 15 )
-graph_density = 0.169
 graph_size = 11
 edge_max_weight = 8.0
 
@@ -99,17 +98,19 @@ margin_bottom = 300.0
 size_flags_vertical = 1
 
 [node name="NodeContainer" type="AspectRatioContainer" parent="CanvasLayer"]
-anchor_left = 0.233
-anchor_top = -0.00781481
-anchor_right = 1.00017
-anchor_bottom = 0.719
-margin_left = 0.639984
-margin_top = 8.44
-margin_right = -0.320068
-margin_bottom = -0.52002
+anchor_left = 0.223
+anchor_top = 0.02
+anchor_right = 0.994313
+anchor_bottom = 0.695
+margin_left = 0.839996
+margin_top = 0.399998
+margin_right = 0.919922
+margin_bottom = 0.399963
 rect_clip_content = true
 mouse_filter = 2
 stretch_mode = 0
+alignment_horizontal = 0
+alignment_vertical = 0
 __meta__ = {
 "_edit_use_anchors_": true
 }
