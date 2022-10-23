@@ -56,7 +56,6 @@ func get_representation():
 	return self.representation
 
 
-
 const FACTOR_TO_KEEP_NODES_IN_CONTAINER = 0.9
 # Initializes the position of a node inside the node container considering its dimensions
 # So nodes are better spacially distributed in the container
@@ -74,15 +73,6 @@ func init_position_regarding_container(total_nodes: int, node_container_key_prop
 
 	self.position = to_local(aux_position)
 	aux_position = to_local(aux_position)
-
-# We use radial positions, since the edges and nodes will look better
-func init_radial_position(total_nodes: int, node_container_position: Vector2):
-	var angle = 2 * PI / (total_nodes + 1) * (self.index + 1)
-	# GODOT is not updating this position immediately, it takes a whole cycle
-	var x_offset = node_container_position.x
-	var y_offset = node_container_position.y
-	aux_position = Vector2(cos(angle) * radius + x_offset, sin(angle) * radius + y_offset)
-	self.position = aux_position
 
 
 func set_index(_index: int):
@@ -110,11 +100,13 @@ func mark_as_iterated():
 func as_string() -> String:
 	return "(" + str(self.index) + ")"
 
-# with right click menu, choose the option to select or unselect
+# When using the hover menu and pressing Q, or when clicking the node
+# To  toggle select/unselect a node
 func _on_Select_UnselectButton_pressed():
 	# Unselect
 	if self.selected:
-		self.unselect_node()
+		pass
+		#self.unselect_node()
 	else:
 		self.select_node()
 	self.hide_popup_menu()
@@ -128,10 +120,14 @@ func unselect_node():
 	popup_menu.visible = false
 
 func select_node():
-	self.selected = true
-	self.modulate = SELECTED_COLOR
-	node_name.modulate = SELECTED_LABEL_COLOR
-	representation.set_selected()
+	if self.index in StoredData.selectable_nodes:
+		self.selected = true
+		self.modulate = SELECTED_COLOR
+		node_name.modulate = SELECTED_LABEL_COLOR
+		representation.set_selected()
+	else:
+		# TODO: Add animation: Error, not selectable node!
+		print("Not selectable Node")
 
 
 func _on_AddToObjectButton_pressed():
@@ -155,8 +151,6 @@ func _input(event):
 		hide_popup_menu()
 
 
-const GOOD_LOOKING_OFFSET = Vector2(40.0, -0.0)
-
 # Show hover menu
 func _on_Area2D_mouse_entered() -> void:
 	popup_menu.set_position(get_global_mouse_position())
@@ -168,15 +162,16 @@ func _on_Area2D_mouse_exited() -> void:
 	self.hide_popup_menu()
 	self.mouse_status = MOUSE_STATUS.OUTSIDE
 
+# Click on the node = Press select/unselect node
+func _on_Area2D_input_event(_viewport, event, _shape_idx):
+	if _event_is_left_click(event):
+		_on_Select_UnselectButton_pressed()
+
 func _event_is_left_click(event):
 	return (event is InputEventMouseButton and
 		event.button_index == BUTTON_LEFT and
 		event.pressed)
 
-# Click on the node = Press select/unselect node
-func _on_Area2D_input_event(_viewport, event, _shape_idx):
-	if _event_is_left_click(event):
-		_on_Select_UnselectButton_pressed()
 
 # This method must be repeated, because a click can be considered as a mouse exited from the area2D.
 func hide_popup_menu():

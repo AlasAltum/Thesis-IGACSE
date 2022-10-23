@@ -116,7 +116,6 @@ tracks/3/keys = {
 script = ExtResource( 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -159,6 +158,8 @@ anims/ShowLevels = SubResource( 1 )
 anims/ShowMenu = SubResource( 2 )
 
 [node name="AlgorithmSelectionMenu" parent="." instance=ExtResource( 2 )]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
 playerHasFinishedBFSAndDFS = false
 
 [editable path="AlgorithmSelectionMenu"]

@@ -36,7 +36,7 @@ var iterated_nodes = []
 ## Code continue conditions
 # These are popups that ask the user about a condition in the code execution
 # If the answer is right, the user may pass to the next line
-var u_is_explored_right_answer : bool = false  # BFS & DFS
+var v_is_explored_right_answer : bool = false  # BFS & DFS
 var adt_is_empty_right_answer : bool = false  # BFS & DFS
 var length_c_is_one_correct_answer: bool = false  # Kruskal1
 var find_w_unequal_find_v_correct_answer: bool = false  # Kruskal2
@@ -143,7 +143,7 @@ func reset_data():
 	self.iterated_nodes = []
 
 	## Code continue conditions
-	self.u_is_explored_right_answer = false
+	self.v_is_explored_right_answer = false
 	self.adt_is_empty_right_answer = false
 	self.length_c_is_one_correct_answer = false
 	self.find_w_unequal_find_v_correct_answer = false

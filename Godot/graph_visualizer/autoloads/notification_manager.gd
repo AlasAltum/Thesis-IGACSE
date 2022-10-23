@@ -81,7 +81,7 @@ func ask_user_if_graph_node_is_explored(u, condition_value: bool):
 	self.u_is_explored = condition_value
 
 func notify_u_is_explored_correct_answer():
-	StoredData.u_is_explored_right_answer = true
+	StoredData.v_is_explored_right_answer = true
 	u_is_explored_popup.hide()
 	# TODO: Add sound effect
 	# TODO: Add visual effect
