@@ -31,6 +31,7 @@ tracks/1/keys = {
 }
 
 [node name="AddNodePopup" type="WindowDialog"]
+visible = true
 margin_left = 521.565
 margin_top = 234.041
 margin_right = 1033.56

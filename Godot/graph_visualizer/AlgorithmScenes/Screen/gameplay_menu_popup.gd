@@ -7,9 +7,7 @@ func _ready() -> void:
 	$ResetButton.connect("pressed", self, "_on_ResetButton_pressed")
 	$MenuButton.connect("pressed", self, "_on_MenuButton_pressed")
 	var main_node = get_tree().get_root().get_node("Main")
-	main_node.gameplay_menu_popup = self 
-	var close_button : TextureButton = get_close_button()
-	close_button.visible = false
+	main_node.gameplay_menu_popup = self
 
 
 func _on_ResetButton_pressed() -> void:

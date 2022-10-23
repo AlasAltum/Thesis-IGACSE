@@ -13,8 +13,8 @@ func _ready():
 	NotificationManager.object_creation_popup = self
 	valid_name_regex.compile("^[a-zA-Z_$][a-zA-Z_$0-9]*$")
 	error_label.visible = false
-	var close_button : TextureButton = get_close_button()
-	close_button.visible = false
+#	var close_button : TextureButton = get_close_button()
+#	close_button.visible = false
 
 func set_next_adt_name(ADT_name: String):
 	if explanation_label:

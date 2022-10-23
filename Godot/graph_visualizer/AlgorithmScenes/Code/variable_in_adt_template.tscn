@@ -5,9 +5,6 @@
 [node name="HBoxContainer" type="HBoxContainer"]
 margin_right = 40.0
 margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Variable" type="Label" parent="."]
 margin_right = 107.0
