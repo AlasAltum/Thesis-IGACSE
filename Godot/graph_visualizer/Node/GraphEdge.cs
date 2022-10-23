@@ -91,6 +91,7 @@ public class GraphEdge : PinJoint2D
 		return rotation;
 	}
 
+	/// This is called from godot, therefore, it uses snake_case
 	public void set_label_and_positions_with_nodes(Node2D node1, Node2D node2, String label_text){
 		Vector2[] line_vertices = {node1.Position, node2.Position}; 
 		line.Points = line_vertices;
@@ -105,7 +106,7 @@ public class GraphEdge : PinJoint2D
 			rotation = normalizeRotation(rotation);
 			curr_label.SetRotation(rotation);
 		}
-		// Since this allows easier rounding
+		// This is requested when we allow graph movement
 		this.SetProcess(true);
 		joint_end1 = node1;
 		joint_end2 = node2;

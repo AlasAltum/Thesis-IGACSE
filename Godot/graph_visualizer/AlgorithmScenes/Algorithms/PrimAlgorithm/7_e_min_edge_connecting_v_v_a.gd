@@ -2,12 +2,14 @@ extends EffectCheck
 # e = min_edge_connecting(V, T)
 
 const MAX_WEIGHT: float = 9999999.9
-var e_min_weight_edge: float = MAX_WEIGHT  # Simulating a high float
+var e_min_weight: float = MAX_WEIGHT  # Simulating a high float
+var e_min_weight_edge = null
+
 var selected_edge
 
 
 func reset() -> void:
-	self.e_min_weight_edge = 9999999.9  # Simulating a high float
+	self.e_min_weight = 9999999.9  # Simulating a high float
 	get_min_weight_edge_between_sets_A_and_T()
 
 # Get the list of node objects from a SetADT
@@ -44,10 +46,10 @@ func edge_is_connecting_a_node_between_sets(_edge, nodes_array_1: Array, nodes_a
 	return possibility_1 or possibility_2
 
 func consider_edge_for_minimum_weight(current_edge):
-	if not current_edge in StoredData.selected_edges:
-		if current_edge.weight <= self.e_min_weight_edge:
-			self.e_min_weight_edge = current_edge.weight
-			return true
+	if not current_edge in StoredData.selected_edges and current_edge.weight <= self.e_min_weight:
+		self.e_min_weight = current_edge.weight
+		self.e_min_weight_edge = current_edge
+		return true
 	return false
 
 # User needs to click the edge with minimum weight connecting V and T
@@ -55,7 +57,7 @@ func check_actions_correct() -> bool:
 	# TODO: Now we have to get the minimum weight that connects the two sets
 	get_min_weight_edge_between_sets_A_and_T()
 	selected_edge = StoredData.get_selected_edge()
-	if selected_edge and selected_edge.weight == self.e_min_weight_edge:
+	if selected_edge and selected_edge.weight == self.e_min_weight and e_min_weight_edge == selected_edge:
 		# TODO: selected edge is not changing in variables block, it needs update
 		StoredData.add_variable("e", selected_edge)
 		selected_edge.set_selected()

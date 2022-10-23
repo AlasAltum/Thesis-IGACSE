@@ -15,7 +15,9 @@
 [node name="Main" type="Node2D"]
 script = ExtResource( 15 )
 level_name = "Prim"
+graph_density = 0.35
 graph_size = 8
+edge_max_weight = 9.0
 is_weighted_graph = true
 allow_selected_edges = true
 
@@ -35,7 +37,7 @@ anchor_bottom = 0.17
 margin_left = 0.720001
 margin_top = 0.0
 margin_right = 0.0
-margin_bottom = 0.399994
+margin_bottom = -23.6
 
 [node name="LeftPanel" type="VBoxContainer" parent="CanvasLayer"]
 margin_right = 384.0
@@ -85,7 +87,7 @@ anchor_top = 0.333
 anchor_right = 0.579
 anchor_bottom = 0.333
 margin_left = -711.68
-margin_top = -343.64
+margin_top = -287.64
 margin_right = 800.32
 margin_bottom = 408.36
 rect_clip_content = true
