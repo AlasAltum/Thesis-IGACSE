@@ -72,7 +72,7 @@ margin_bottom = 136.0
 line_index = 2
 code_text = "    C = [[v] for v in graph.vertices];"
 effect_check = ExtResource( 7 )
-hint_text = "Press [b]ENTER[/b] and see what happens!"
+hint_text = "Press [b]SPACE[/b] and see what happens!"
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer2" index="0"]
 margin_right = 400.0
@@ -108,7 +108,7 @@ line_index = 4
 jump_index = 11
 code_text = "    for (Edge e in graph.edges):"
 effect_check = ExtResource( 15 )
-hint_text = "Press [b]ENTER[/b]!"
+hint_text = "Press [b]SPACE[/b]!"
 
 [node name="PanelContainer5" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
@@ -132,7 +132,7 @@ line_index = 6
 jump_index = 11
 code_text = "        (v, w) = connecting_vertices(e)"
 effect_check = ExtResource( 10 )
-hint_text = "Check the [b]v[/b] and [b]w[/b] variables after you press [b]ENTER[/b]!"
+hint_text = "Check the [b]v[/b] and [b]w[/b] variables after you press [b]SPACE[/b]!"
 
 [node name="PanelContainer7" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
@@ -166,7 +166,7 @@ margin_bottom = 367.0
 line_index = 9
 code_text = "            C.Union( Find(v), Find(w))"
 effect_check = ExtResource( 13 )
-hint_text = "Add the Node [color=#00FF00] u [/color] to the queue by right Press [b]ENTER[/b] while looking at the C array!"
+hint_text = "Add the Node [color=#00FF00] u [/color] to the queue by right Press [b]SPACE[/b] while looking at the C array!"
 
 [node name="PanelContainer10" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
@@ -178,7 +178,7 @@ line_index = 10
 jump_index = 4
 code_text = "        end for;"
 effect_check = ExtResource( 2 )
-hint_text = "Press [b]ENTER[/b]"
+hint_text = "Press [b]SPACE[/b]"
 
 [node name="PanelContainer11" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
@@ -190,6 +190,6 @@ line_index = 11
 jump_index = 4
 code_text = "end Kruskal;"
 effect_check = ExtResource( 5 )
-hint_text = "Press [b]ENTER[/b]"
+hint_text = "Press [b]SPACE[/b]"
 
 [editable path="LinesContainer/PanelContainer2"]

@@ -27,6 +27,7 @@ var matrix: Array = []
 var dragging_adt : bool = false
 var selected_edge
 var adt_hovering : bool = false
+var popup_captures_input : bool = false
 var assign_name_popup : WindowDialog
 var world_node: Node2D  # : GraphManager
 var selectable_nodes = []
@@ -136,6 +137,7 @@ func reset_data():
 	self.dragging_adt = false
 	self.selected_edge = null
 	self.adt_hovering = false
+	self.popup_captures_input = false
 	self.assign_name_popup = null
 	self.world_node = null
 	self.selectable_nodes = []

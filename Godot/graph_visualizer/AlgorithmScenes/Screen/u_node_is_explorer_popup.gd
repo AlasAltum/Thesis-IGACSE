@@ -9,6 +9,16 @@ func _ready() -> void:
 	close_button.visible = false
 
 
+func _on_UNodeIsExploredPopup_about_to_show():
+	StoredData.popup_captures_input = true
+	$YesButton.grab_focus()
+	$YesButton.grab_click_focus()
+
+
+func _on_UNodeIsExploredPopup_popup_hide():
+	StoredData.popup_captures_input = false
+
+
 func _on_YesButton_pressed() -> void:
 	NotificationManager._on_YesButton_pressed()
 
@@ -21,5 +31,3 @@ func notify_u_is_explored_wrong_answer():
 	$ErrorNotification/AnimationPlayer.stop()
 	$ErrorNotification/AnimationPlayer.play("message_modulation")
 	# TODO: Add sound effect
-
-	

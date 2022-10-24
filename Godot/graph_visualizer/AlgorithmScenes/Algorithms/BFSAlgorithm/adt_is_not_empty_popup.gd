@@ -27,3 +27,11 @@ func _on_adt_is_empty_NoButton_pressed() -> void:
 func play_wrong_animation():
 	$ErrorNotification/AnimationPlayer.stop()
 	$ErrorNotification/AnimationPlayer.play('message_modulation')
+
+func _on_ADTIsNotEmptyPopup_about_to_show():
+	StoredData.popup_captures_input = true
+	$YesButton.grab_focus()
+	$YesButton.grab_click_focus()
+
+func _on_ADTIsNotEmptyPopup_popup_hide():
+	StoredData.popup_captures_input = false

@@ -27,3 +27,13 @@ func _deferred_goto_scene(path):
 	var current_scene = s.instance()
 	StoredData.get_tree().root.add_child(current_scene)
 	StoredData.get_tree().current_scene = current_scene
+
+
+func _on_FinishedPopup_about_to_show():
+	StoredData.popup_captures_input = true
+	$MenuButton.grab_focus()
+	$MenuButtons.grab_click_focus()
+
+
+func _on_FinishedPopup_popup_hide():
+	StoredData.popup_captures_input = false

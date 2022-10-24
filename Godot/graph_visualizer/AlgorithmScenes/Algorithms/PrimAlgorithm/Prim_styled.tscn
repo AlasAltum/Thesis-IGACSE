@@ -115,7 +115,6 @@ margin_bottom = 80.0
 explanation_in_label = "Congratulations! You have successfully finished the Prim Algorithm!"
 
 [node name="GameplayMenuPopup" parent="CanvasLayer" instance=ExtResource( 5 )]
-visible = false
 anchor_left = 0.586
 anchor_top = 0.327
 anchor_right = 0.586

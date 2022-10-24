@@ -133,7 +133,7 @@ custom_styles/panel = ExtResource( 12 )
 focused = true
 code_text = "BFS(starting_node=0):"
 effect_check = SubResource( 2 )
-hint_text = "Press [b]ENTER[/b]"
+hint_text = "Press [b]SPACE[/b]"
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0" index="0"]
 margin_right = 392.0
@@ -152,7 +152,7 @@ size_flags_horizontal = 1
 line_index = 1
 code_text = "    t = starting_node;"
 effect_check = SubResource( 3 )
-hint_text = "[b]LEFT CLICK[/b] Node 0 and then [b]ENTER[/b]"
+hint_text = "[b]LEFT CLICK[/b] Node 0 and then [b]SPACE[/b]"
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1" index="0"]
 margin_right = 392.0
@@ -171,7 +171,7 @@ size_flags_horizontal = 1
 line_index = 2
 code_text = "    q = Queue();"
 effect_check = SubResource( 4 )
-hint_text = "Go to Data Structures, click the Slot \"Queue\", bring it to Variables and then press [b]ENTER[/b]"
+hint_text = "Go to Data Structures, click the Slot \"Queue\", bring it to Variables and then press [b]SPACE[/b]"
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2" index="0"]
 margin_right = 392.0
@@ -229,7 +229,7 @@ size_flags_horizontal = 1
 line_index = 5
 code_text = "        v = q.top(); q.pop();"
 effect_check = SubResource( 7 )
-hint_text = "See the variables after you press [b]ENTER[/b]!"
+hint_text = "See the variables after you press [b]SPACE[/b]!"
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5" index="0"]
 margin_right = 392.0
@@ -249,7 +249,7 @@ line_index = 6
 jump_index = 11
 code_text = "        for (Edge u in v.edges()):"
 effect_check = SubResource( 8 )
-hint_text = "Check the U variable after you press [b]ENTER[/b]!"
+hint_text = "Check the U variable after you press [b]SPACE[/b]!"
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6" index="0"]
 margin_right = 392.0
@@ -327,7 +327,7 @@ line_index = 10
 jump_index = 6
 code_text = "        end for;"
 effect_check = SubResource( 12 )
-hint_text = "Press [b]ENTER[/b]"
+hint_text = "Press [b]SPACE[/b]"
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10" index="0"]
 margin_right = 392.0
@@ -346,7 +346,7 @@ size_flags_horizontal = 1
 line_index = 11
 code_text = "        v.mark_as_iterated();"
 effect_check = SubResource( 13 )
-hint_text = "Press [b]ENTER[/b]"
+hint_text = "Press [b]SPACE[/b]"
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer11" index="0"]
 margin_right = 392.0
@@ -366,7 +366,7 @@ line_index = 12
 jump_index = 4
 code_text = "    end while;"
 effect_check = SubResource( 14 )
-hint_text = "Press [b]ENTER[/b]"
+hint_text = "Press [b]SPACE[/b]"
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer12" index="0"]
 margin_right = 392.0
@@ -386,7 +386,7 @@ line_index = 13
 jump_index = 4
 code_text = "end BFS;"
 effect_check = SubResource( 15 )
-hint_text = "Press [b]ENTER[/b]"
+hint_text = "Press [b]SPACE[/b]"
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13" index="0"]
 margin_right = 392.0

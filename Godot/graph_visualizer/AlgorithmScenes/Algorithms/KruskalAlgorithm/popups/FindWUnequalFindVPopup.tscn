@@ -31,7 +31,6 @@ tracks/1/keys = {
 }
 
 [node name="FindWUnequalFindVPopup" type="WindowDialog"]
-visible = true
 margin_left = 524.122
 margin_top = 233.47
 margin_right = 1036.12
@@ -95,5 +94,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="about_to_show" from="." to="." method="_on_FindWUnequalFindVPopup_about_to_show"]
+[connection signal="popup_hide" from="." to="." method="_on_FindWUnequalFindVPopup_popup_hide"]
 [connection signal="pressed" from="YesButton" to="." method="_on_YesButton_pressed"]
 [connection signal="pressed" from="NoButton" to="." method="_on_NoButton_pressed"]

@@ -57,7 +57,7 @@ custom_styles/panel = ExtResource( 2 )
 focused = true
 code_text = "BFS(starting_node=0):"
 effect_check = ExtResource( 15 )
-hint_text = "Press [b]ENTER[/b]"
+hint_text = "Press [b]SPACE[/b]"
 
 [node name="PanelContainer1" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
@@ -69,7 +69,7 @@ theme = SubResource( 2 )
 line_index = 1
 code_text = "    t = starting_node;"
 effect_check = ExtResource( 6 )
-hint_text = "[b]LEFT CLICK[/b] Node 0 and then [b]ENTER[/b]"
+hint_text = "[b]LEFT CLICK[/b] Node 0 and then [b]SPACE[/b]"
 
 [node name="PanelContainer2" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
@@ -118,7 +118,7 @@ theme = SubResource( 2 )
 line_index = 5
 code_text = "        v = q.top(); q.pop();"
 effect_check = ExtResource( 9 )
-hint_text = "See the variables after you press [b]ENTER[/b]!"
+hint_text = "See the variables after you press [b]SPACE[/b]!"
 
 [node name="PanelContainer6" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
@@ -181,7 +181,7 @@ line_index = 10
 jump_index = 6
 code_text = "        end for;"
 effect_check = ExtResource( 17 )
-hint_text = "Press [b]ENTER[/b]"
+hint_text = "Press [b]SPACE[/b]"
 
 [node name="PanelContainer11" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
@@ -193,7 +193,7 @@ theme = SubResource( 2 )
 line_index = 11
 code_text = "        v.mark_as_iterated(color=orange);"
 effect_check = ExtResource( 5 )
-hint_text = "Press [b]ENTER[/b]"
+hint_text = "Press [b]SPACE[/b]"
 
 [node name="PanelContainer12" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
@@ -206,7 +206,7 @@ line_index = 12
 jump_index = 4
 code_text = "    end while;"
 effect_check = ExtResource( 19 )
-hint_text = "Press [b]ENTER[/b]"
+hint_text = "Press [b]SPACE[/b]"
 
 [node name="PanelContainer13" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
@@ -219,4 +219,4 @@ line_index = 13
 jump_index = 4
 code_text = "end BFS;"
 effect_check = ExtResource( 16 )
-hint_text = "Press [b]ENTER[/b]"
+hint_text = "Press [b]SPACE[/b]"

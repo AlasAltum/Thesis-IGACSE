@@ -24,25 +24,22 @@ tracks/1/loop_wrap = false
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( -0.1, 0.2, 3 ),
+"times": PoolRealArray( 0, 0.2, 3 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false ]
 }
 
 [node name="PopUpForObjectCreation" type="WindowDialog"]
-visible = true
 margin_left = 524.122
 margin_top = 233.47
 margin_right = 1036.12
 margin_bottom = 392.47
+focus_mode = 2
 theme = ExtResource( 2 )
 popup_exclusive = true
 window_title = "Assign name to Data Structure"
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Explanation" type="Label" parent="."]
 margin_left = 5.544
@@ -56,7 +53,7 @@ align = 1
 autowrap = true
 
 [node name="ErrorNotification" type="Label" parent="."]
-self_modulate = Color( 1, 1, 1, 0 )
+visible = false
 margin_left = 5.52972
 margin_top = 87.6922
 margin_right = 506.53
@@ -81,11 +78,11 @@ margin_left = 66.0
 margin_top = 44.0
 margin_right = 441.0
 margin_bottom = 84.0
+focus_neighbour_bottom = NodePath("../EnterButton")
+input_pass_on_modal_close_click = false
 align = 1
 placeholder_text = "Variable/Object name..."
-__meta__ = {
-"_edit_use_anchors_": false
-}
+caret_blink = true
 
 [node name="EnterButton" type="Button" parent="."]
 modulate = Color( 0.121569, 0.913725, 0, 1 )
@@ -93,13 +90,11 @@ margin_left = 195.42
 margin_top = 117.366
 margin_right = 289.42
 margin_bottom = 143.366
+focus_neighbour_top = NodePath("../NameAssign")
 text = "Enter"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Timer" type="Timer" parent="."]
-
+[connection signal="about_to_show" from="." to="." method="_on_PopUpForObjectCreation_about_to_show"]
+[connection signal="popup_hide" from="." to="." method="_on_PopUpForObjectCreation_popup_hide"]
 [connection signal="animation_finished" from="ErrorNotification/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="text_entered" from="NameAssign" to="." method="_on_NameAssign_text_entered"]
 [connection signal="pressed" from="EnterButton" to="." method="_on_EnterButton_pressed"]

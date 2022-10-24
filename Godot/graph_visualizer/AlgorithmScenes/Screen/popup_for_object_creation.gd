@@ -13,14 +13,29 @@ func _ready():
 	NotificationManager.object_creation_popup = self
 	valid_name_regex.compile("^[a-zA-Z_$][a-zA-Z_$0-9]*$")
 	error_label.visible = false
-#	var close_button : TextureButton = get_close_button()
-#	close_button.visible = false
+
+func _on_PopUpForObjectCreation_about_to_show():
+	StoredData.popup_captures_input = true
+	$EnterButton.grab_focus()
+	$EnterButton.grab_click_focus()
+
+
+func _on_PopUpForObjectCreation_popup_hide():
+	StoredData.popup_captures_input = false
+
+func _input(event):
+	if StoredData.popup_captures_input:
+		if event.is_action_pressed("Enter"):
+			_on_EnterButton_pressed()
+		elif event.is_action_pressed("ui_cancel"):
+			 _close_popup()
 
 func set_next_adt_name(ADT_name: String):
 	if explanation_label:
-		var msg = "You are about to create a {ADT_name}, please, specify its name"
+		var msg = "You are about to create a {ADT_name}. Please, specify its name"
 		msg = msg.format({"ADT_name": ADT_name})
 		explanation_label.text = msg
+
 
 
 func variable_has_valid_name(variable: String):
@@ -39,10 +54,10 @@ func _on_NameAssign_text_entered(variable: String):
 	if variable_has_valid_name(variable):
 		self.visible = false
 		StoredData.adt_mediator._on_correct_variable_creation(variable)
-
 	else:
 		show_error()
 		return
+
 
 func show_error():
 	error_label.visible = true
@@ -53,9 +68,9 @@ func show_error():
 func _on_AnimationPlayer_animation_finished(_anim_name: String) -> void:
 	_close_popup()
 
+
 func _popup():
 	self.popup()
-	name_assign.grab_focus()
 
 
 func _close_popup():

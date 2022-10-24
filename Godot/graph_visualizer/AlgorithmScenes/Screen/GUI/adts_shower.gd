@@ -20,10 +20,11 @@ func _ready() -> void:
 	self.connect("_on_variable_index_down", StoredData.adt_mediator, "_on_variable_index_down")
 
 func _input(event):
-	if event.is_action_pressed("KEY_up"):
-		_on_UpButton_pressed()
-	elif event.is_action_pressed("KEY_down"):
-		_on_DownButton_pressed()
+	if not StoredData.popup_captures_input:
+		if event.is_action_pressed("KEY_up"):
+			_on_UpButton_pressed()
+		elif event.is_action_pressed("KEY_down"):
+			_on_DownButton_pressed()
 
 func _on_UpButton_pressed() -> void:
 	emit_signal("_on_variable_index_up")

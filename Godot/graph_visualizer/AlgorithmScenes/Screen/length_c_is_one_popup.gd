@@ -28,3 +28,9 @@ func play_wrong_animation():
 	$ErrorNotification/AnimationPlayer.stop()
 	$ErrorNotification/AnimationPlayer.play("message_modulation")
 	# TODO: Add sound effect
+
+
+func _on_LengthCIsOnePopup_about_to_show():
+	$YesButton.grab_focus()
+	$YesButton.grab_click_focus()
+

@@ -101,5 +101,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="about_to_show" from="." to="." method="_on_UNodeIsExploredPopup_about_to_show"]
+[connection signal="popup_hide" from="." to="." method="_on_UNodeIsExploredPopup_popup_hide"]
 [connection signal="pressed" from="YesButton" to="." method="_on_YesButton_pressed"]
 [connection signal="pressed" from="NoButton" to="." method="_on_NoButton_pressed"]

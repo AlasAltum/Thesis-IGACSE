@@ -18,7 +18,7 @@
 position = Vector2( -1, 0 )
 script = ExtResource( 15 )
 level_name = "Kruskal"
-graph_density = 0.169
+graph_density = 0.6
 is_weighted_graph = true
 allow_selected_edges = true
 
@@ -113,7 +113,6 @@ margin_bottom = 79.32
 explanation_in_label = "Congratulations! You have successfully finished the Kruskal Algorithm!"
 
 [node name="GameplayMenuPopup" parent="CanvasLayer" instance=ExtResource( 5 )]
-visible = false
 anchor_left = 0.567
 anchor_top = 0.306
 anchor_right = 0.567
