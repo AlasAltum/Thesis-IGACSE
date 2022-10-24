@@ -20,3 +20,4 @@ margin_top = 100.0
 margin_right = 741.0
 margin_bottom = 200.0
 mouse_filter = 2
+text = "Press [b]SPACE[/b] to advance to the next instruction"

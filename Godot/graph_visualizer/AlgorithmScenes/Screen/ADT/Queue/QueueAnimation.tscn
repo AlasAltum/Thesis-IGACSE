@@ -215,6 +215,7 @@ offset = 122.421
 rotate = false
 
 [node name="PathOut" type="Path2D" parent="."]
+self_modulate = Color( 0.501961, 0.6, 1, 0 )
 position = Vector2( 2.30949, 5.17839 )
 curve = SubResource( 6 )
 

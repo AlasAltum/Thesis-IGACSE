@@ -141,11 +141,11 @@ func get_added_to_focused_object_in_variables():
 func _input(event):
 	# Menu must be open to allow these options
 	if event is InputEventKey and self.mouse_status == MOUSE_STATUS.INSIDE:
-		# Q action corresponds to add select the node
-		if Input.is_key_pressed(KEY_Q):
+		# E action corresponds to add select the node
+		if Input.is_action_just_pressed("NodeSelect"):
 			_on_Select_UnselectButton_pressed()
-		# W Action 
-		elif Input.is_key_pressed(KEY_W):
+		# R Action 
+		elif Input.is_action_just_pressed("NodeAddToObject"):
 			get_added_to_focused_object_in_variables()
 
 		hide_popup_menu()

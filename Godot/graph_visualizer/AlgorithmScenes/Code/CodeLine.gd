@@ -15,6 +15,7 @@ export (Resource) var effect_check;  # : EffectCheck
 export (String) var hint_text = "Press Enter";
 
 var on_focus_effect_triggered : bool = false
+var was_completed_correctly: bool = false
 
 onready var code_label = $HBoxContainer/CodeText
 onready var instruction_pointer : Sprite = $HBoxContainer/InstructionPointer
@@ -39,6 +40,10 @@ func _process(delta: float) -> void:
 		var action_completed = self.effect_check.check_actions_correct()
 		if action_completed:
 			add_stylebox_override("panel", completed_style)
+			self.was_completed_correctly = true
+		if self.was_completed_correctly and not action_completed:
+				add_stylebox_override("panel", focused_style)
+		
 
 func focus():
 	_on_focused()

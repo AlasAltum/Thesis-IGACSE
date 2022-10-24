@@ -13,6 +13,7 @@ func effect_check_on_focused():
 func ask_user() -> void:
 	# Show a popup that asks the user whether u is explored or not
 	# condition is true if not explored, 
+	# Popup class: UNodeIsExploredPopup
 	var u = StoredData.get_variable("u").get_node()
 	var u_is_explored = not if_condition_is_true(u);
 	NotificationManager.ask_user_if_graph_node_is_explored(u, u_is_explored)

@@ -93,7 +93,7 @@ theme = SubResource( 2 )
 line_index = 3
 code_text = "    q.add(t);"
 effect_check = ExtResource( 7 )
-hint_text = "Hover mouse on node [b]t[/b] and press [color=#00FF00]W  [/color]. Do NOT forget to select [color=#00FF00] q [/color] by pressing [b] UP [/b] and [b] DOWN [/b] arrows."
+hint_text = "Hover mouse on node [b]t[/b] and press [color=#00FF00]R[/color]. Do NOT forget to select [color=#00FF00] q [/color] by pressing [b]W[/b] and [b]S[/b]."
 
 [node name="PanelContainer4" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
@@ -168,7 +168,7 @@ theme = SubResource( 2 )
 line_index = 9
 code_text = "                q.add(u)"
 effect_check = ExtResource( 14 )
-hint_text = "Add the Node [color=#00FF00] u [/color] to the queue by hovering the mouse on it and pressing [color=#00FF00] W [/color] with the queue as selected variable"
+hint_text = "Add the Node [color=#00FF00] u [/color] to the queue by hovering the mouse on it and pressing [color=#00FF00]R[/color] with the queue as selected variable"
 
 [node name="PanelContainer10" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
