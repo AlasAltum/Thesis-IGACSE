@@ -6,7 +6,7 @@ public class AlgorithmSelectionMenu : Node2D
     public Node CurrentScene { get; set; }
 
     [Export]
-    private bool EDITOR_ONLY_HackLevels = true; // Unblock all levels automatically
+    private bool cheatLevels = false; // Unblock all levels automatically
 
     [Export]
     private bool playerHasFinishedBFSAndDFS = false;
@@ -63,7 +63,7 @@ public class AlgorithmSelectionMenu : Node2D
         DFSButton.Disabled = true;
         PrimButton.Disabled = true;
         KruskalButton.Disabled = true;
-        if (!EDITOR_ONLY_HackLevels)
+        if (cheatLevels)
         {
             Node2D StoredData = GetTree().Root.GetNode<Node2D>("/root/StoredData");
             if (StoredData == null)
@@ -92,7 +92,6 @@ public class AlgorithmSelectionMenu : Node2D
         {
             PrimButton.Disabled = false;
             KruskalButton.Disabled = false;
-            CallDeferred("SetProcess" , false);
         }
     }
 
@@ -160,5 +159,13 @@ public class AlgorithmSelectionMenu : Node2D
         GetTree().CurrentScene = CurrentScene;
     }
 
+    public override void _Input(InputEvent @event)
+    {
+        if (@event.IsActionPressed("CheatForMenu") )
+        {
+            cheatLevels = true;
+            SetLevelsBlockedAndUnblocked();
+        }
+    }
 
 }
