@@ -35,6 +35,8 @@ margin_left = 524.122
 margin_top = 233.47
 margin_right = 1036.12
 margin_bottom = 392.47
+focus_mode = 2
+input_pass_on_modal_close_click = false
 theme = ExtResource( 2 )
 popup_exclusive = true
 window_title = "Confirmation"
@@ -59,7 +61,6 @@ __meta__ = {
 
 [node name="ErrorNotification" type="Label" parent="."]
 visible = false
-self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 2.05951
 margin_top = 112.692
 margin_right = 503.06
@@ -98,7 +99,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="about_to_show" from="." to="." method="_on_ADTIsNotEmptyPopup_about_to_show"]
 [connection signal="popup_hide" from="." to="." method="_on_ADTIsNotEmptyPopup_popup_hide"]
 [connection signal="pressed" from="YesButton" to="." method="_on_adt_is_empty_YesButton_pressed"]
 [connection signal="pressed" from="NoButton" to="." method="_on_adt_is_empty_NoButton_pressed"]

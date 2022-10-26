@@ -31,10 +31,16 @@ tracks/1/keys = {
 }
 
 [node name="LengthCIsOnePopup" type="WindowDialog"]
+visible = true
 margin_left = 524.122
 margin_top = 233.47
 margin_right = 1036.12
 margin_bottom = 392.47
+focus_neighbour_left = NodePath("YesButton")
+focus_neighbour_right = NodePath("NoButton")
+focus_neighbour_bottom = NodePath("YesButton")
+focus_next = NodePath("YesButton")
+focus_previous = NodePath("NoButton")
 theme = ExtResource( 2 )
 popup_exclusive = true
 window_title = "Confirmation"
@@ -81,6 +87,11 @@ margin_left = 115.407
 margin_top = 63.2947
 margin_right = 209.407
 margin_bottom = 89.2947
+focus_neighbour_top = NodePath("..")
+focus_neighbour_right = NodePath("../NoButton")
+focus_neighbour_bottom = NodePath("..")
+focus_next = NodePath("../NoButton")
+focus_previous = NodePath("..")
 text = "Yes"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -97,6 +108,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="about_to_show" from="." to="." method="_on_LengthCIsOnePopup_about_to_show"]
 [connection signal="pressed" from="YesButton" to="." method="_on_YesButton_pressed"]
 [connection signal="pressed" from="NoButton" to="." method="_on_NoButton_pressed"]

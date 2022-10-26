@@ -30,6 +30,20 @@ func _input(event):
 		elif event.is_action_pressed("ui_cancel"):
 			 _close_popup()
 
+func _popup():
+	self.popup()
+
+func _close_popup():
+	self.hide()
+		
+func _notification(what):
+	if what == NOTIFICATION_POST_POPUP:
+		StoredData.popup_captures_input = true
+		$NameAssign.grab_focus()
+	elif what == NOTIFICATION_POPUP_HIDE:
+		StoredData.popup_captures_input = false
+
+
 func set_next_adt_name(ADT_name: String):
 	if explanation_label:
 		var msg = "You are about to create a {ADT_name}. Please, specify its name"
@@ -67,11 +81,3 @@ func show_error():
 
 func _on_AnimationPlayer_animation_finished(_anim_name: String) -> void:
 	_close_popup()
-
-
-func _popup():
-	self.popup()
-
-
-func _close_popup():
-	self.hide()

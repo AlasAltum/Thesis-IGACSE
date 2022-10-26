@@ -191,9 +191,3 @@ func _is_graph_connected() -> bool:
 			return false
 	return true
 
-# To show the menu during gameplay
-# It is not in a singleton like Notificationmanager because we want it
-# to be available only during gameplay
-func _input(event):
-	if event.is_action_pressed("Menu") && gameplay_menu_popup:
-		gameplay_menu_popup.show()

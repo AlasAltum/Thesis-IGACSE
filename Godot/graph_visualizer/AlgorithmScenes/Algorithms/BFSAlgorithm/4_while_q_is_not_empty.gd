@@ -28,11 +28,13 @@ func get_next_line() -> int:
 func effect_check_on_focused():
 	ask_user()
 
+
 func ask_user() -> void:
 	# Show a popup that asks the user whether q is empty or not
 	# While condition is true when Q is NOT empty, therefore
 	# We put a not before, so it is easier to think of
 	var q_is_empty : bool = self.while_condition_is_true()
+	# Shows a popup of the class ADTIsEmptyPopup 
 	NotificationManager.ask_user_if_adt_is_empty(q_is_empty)
 
 # Set the variable to false so the user may not skip this instruction	

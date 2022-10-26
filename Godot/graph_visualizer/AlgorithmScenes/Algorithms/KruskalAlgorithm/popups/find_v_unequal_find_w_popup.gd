@@ -23,12 +23,10 @@ func play_wrong_animation():
 	$ErrorNotification/AnimationPlayer.play("message_modulation")
 	# TODO: Add sound effect
 
+func _notification(what):
+	if what == NOTIFICATION_POST_POPUP:
+		StoredData.popup_captures_input = true
+		$YesButton.grab_focus()
+	elif what == NOTIFICATION_POPUP_HIDE:
+		StoredData.popup_captures_input = false
 
-func _on_FindWUnequalFindVPopup_about_to_show():
-	StoredData.popup_captures_input = true
-	$YesButton.grab_focus()
-	$YesButton.grab_click_focus()
-
-
-func _on_FindWUnequalFindVPopup_popup_hide():
-	StoredData.popup_captures_input = false

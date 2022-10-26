@@ -112,6 +112,7 @@ margin_left = -255.12
 margin_top = -79.0
 margin_right = 256.88
 margin_bottom = 80.0
+input_pass_on_modal_close_click = false
 explanation_in_label = "Congratulations! You have successfully finished the Prim Algorithm!"
 
 [node name="GameplayMenuPopup" parent="CanvasLayer" instance=ExtResource( 5 )]

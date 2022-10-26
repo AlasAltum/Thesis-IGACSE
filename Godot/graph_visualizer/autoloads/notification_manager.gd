@@ -4,7 +4,7 @@ extends Node2D
 ## Code execution popups ##
 var finished_popup : WindowDialog; 
 var u_is_explored_popup : WindowDialog  # : $UNodeIsExploredPopup
-var adt_is_empty_popup : WindowDialog  # : $QIsNotEmptyPopup
+var adt_is_empty_popup : WindowDialog  # : $ADTIsEmptyPopup
 var add_node_popup : AddNodePopup 
 var object_creation_popup: WindowDialog  # PopupForObjectCreation
 var length_c_is_1_popup: WindowDialog  # : LengthCIsOnePopup
@@ -106,7 +106,7 @@ func _on_NoButton_pressed() -> void:
 
 ## adt.is_not_empty() popup signals ##
 func ask_user_if_adt_is_empty(is_adt_empty: bool):
-	adt_is_empty_popup.show()
+	adt_is_empty_popup.popup()  # ADTIsEmptyPopup.popup()
 	 # This stablishes whether yes or no should be pressed
 	self.adt_is_empty = is_adt_empty
 

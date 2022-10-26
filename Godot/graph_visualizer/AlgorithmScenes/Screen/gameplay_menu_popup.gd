@@ -10,9 +10,12 @@ func _ready() -> void:
 	main_node.gameplay_menu_popup = self
 
 func _input(event):
-	if event.is_action_pressed("Menu") and self.visible:
-		call_deferred("hide")
-
+	# If there is no other popup capturing input
+	if event.is_action_pressed("Menu") and not StoredData.popup_captures_input:
+		if self.visible:
+			call_deferred("hide")
+		else:
+			self.show()
 
 func _on_ResetButton_pressed() -> void:
 	NotificationManager.reset_game()
