@@ -31,7 +31,6 @@ tracks/1/keys = {
 }
 
 [node name="UNodeIsExploredPopup" type="WindowDialog"]
-visible = true
 margin_left = 524.122
 margin_top = 233.47
 margin_right = 1036.12
@@ -40,9 +39,6 @@ theme = ExtResource( 2 )
 popup_exclusive = true
 window_title = "Confirmation"
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Explanation" type="Label" parent="."]
 margin_left = 5.0
@@ -85,6 +81,9 @@ margin_left = 115.407
 margin_top = 63.2947
 margin_right = 209.407
 margin_bottom = 89.2947
+focus_neighbour_right = NodePath("../NoButton")
+focus_next = NodePath("../NoButton")
+focus_previous = NodePath("..")
 text = "Yes"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -96,12 +95,13 @@ margin_left = 317.165
 margin_top = 64.6618
 margin_right = 411.165
 margin_bottom = 90.6618
+focus_neighbour_left = NodePath(".")
+focus_next = NodePath("..")
+focus_previous = NodePath("../YesButton")
 text = "No"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="about_to_show" from="." to="." method="_on_UNodeIsExploredPopup_about_to_show"]
-[connection signal="popup_hide" from="." to="." method="_on_UNodeIsExploredPopup_popup_hide"]
 [connection signal="pressed" from="YesButton" to="." method="_on_YesButton_pressed"]
 [connection signal="pressed" from="NoButton" to="." method="_on_NoButton_pressed"]

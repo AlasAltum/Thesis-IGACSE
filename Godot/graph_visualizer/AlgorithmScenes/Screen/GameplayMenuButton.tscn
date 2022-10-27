@@ -9,7 +9,7 @@ margin_bottom = 52.0
 rect_min_size = Vector2( 0, 40 )
 size_flags_horizontal = 3
 theme = ExtResource( 2 )
-text = "Menu (F1/Space)"
+text = "Menu (P or M)"
 script = ExtResource( 1 )
 
 [connection signal="pressed" from="." to="." method="_on_Button_pressed"]

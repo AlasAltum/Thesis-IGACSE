@@ -57,6 +57,20 @@ tracks/3/keys = {
 "method": "onAnimationFinished"
 } ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath("AlgorithmSelectionMenu/GridContainer/BFS")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "grab_focus"
+} ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "ShowMenu"
@@ -111,6 +125,20 @@ tracks/3/keys = {
 "method": "onAnimationFinished"
 } ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath("VBoxContainer/StartGame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "grab_focus"
+} ]
+}
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 1 )
@@ -130,6 +158,8 @@ custom_constants/separation = 30
 [node name="StartGame" type="Button" parent="VBoxContainer"]
 margin_right = 538.0
 margin_bottom = 85.0
+focus_neighbour_bottom = NodePath("../ExitGame")
+focus_next = NodePath("../ExitGame")
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Start Game"
@@ -141,6 +171,8 @@ __meta__ = {
 margin_top = 115.0
 margin_right = 538.0
 margin_bottom = 201.0
+focus_neighbour_top = NodePath("../StartGame")
+focus_next = NodePath("../StartGame")
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Exit Game"
@@ -161,5 +193,14 @@ anims/ShowMenu = SubResource( 2 )
 visible = false
 modulate = Color( 1, 1, 1, 0 )
 playerHasFinishedBFSAndDFS = false
+
+[node name="Prim" parent="AlgorithmSelectionMenu/GridContainer" index="2"]
+focus_neighbour_bottom = NodePath("../../BackButton")
+
+[node name="Kruskal" parent="AlgorithmSelectionMenu/GridContainer" index="3"]
+focus_neighbour_bottom = NodePath("../../BackButton")
+
+[node name="BackButton" parent="AlgorithmSelectionMenu" index="1"]
+focus_neighbour_top = NodePath("../GridContainer/Prim")
 
 [editable path="AlgorithmSelectionMenu"]

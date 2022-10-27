@@ -38,6 +38,10 @@ margin_top = 76.986
 margin_right = 294.759
 margin_bottom = 102.986
 rect_pivot_offset = Vector2( 72.8572, 10.7062 )
+focus_neighbour_top = NodePath("..")
+focus_neighbour_bottom = NodePath("../MenuButton")
+focus_next = NodePath("../MenuButton")
+focus_previous = NodePath("..")
 text = "Reset"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -50,6 +54,10 @@ margin_top = 113.927
 margin_right = 295.293
 margin_bottom = 139.927
 rect_pivot_offset = Vector2( 72.8572, 10.7062 )
+focus_neighbour_top = NodePath("../ResetButton")
+focus_neighbour_bottom = NodePath("..")
+focus_next = NodePath("..")
+focus_previous = NodePath("../ResetButton")
 text = "Menu"
 __meta__ = {
 "_edit_use_anchors_": false

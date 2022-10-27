@@ -13,6 +13,12 @@ func _ready() -> void:
 	var close_button : TextureButton = get_close_button()
 	close_button.visible = false
 
+func _notification(what):
+	if what == NOTIFICATION_POST_POPUP:
+		StoredData.popup_captures_input = true
+		$MenuButton.grab_focus()
+	elif what == NOTIFICATION_POPUP_HIDE:
+		StoredData.popup_captures_input = false
 
 func _on_ResetButton_pressed() -> void:
 	NotificationManager.reset_game()

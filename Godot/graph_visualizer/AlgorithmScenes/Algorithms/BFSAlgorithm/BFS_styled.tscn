@@ -43,8 +43,7 @@ margin_right = -34.36
 margin_bottom = -23.7601
 mouse_filter = 2
 
-[node name="Button" parent="CanvasLayer/LeftPanel" instance=ExtResource( 7 )]
-text = "Menu (P or M)"
+[node name="GameplayMenuButton" parent="CanvasLayer/LeftPanel" instance=ExtResource( 7 )]
 
 [node name="BFSCodeBlock" parent="CanvasLayer/LeftPanel" instance=ExtResource( 3 )]
 anchor_left = 0.0
@@ -138,7 +137,7 @@ margin_right = 359.999
 margin_bottom = -101.0
 
 [node name="UNodeIsExploredPopup" parent="CanvasLayer" instance=ExtResource( 37 )]
-visible = false
+visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -149,6 +148,7 @@ margin_right = 359.999
 margin_bottom = -101.0
 
 [node name="ADTIsNotEmptyPopup" parent="CanvasLayer" instance=ExtResource( 36 )]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

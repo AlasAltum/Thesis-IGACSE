@@ -31,10 +31,15 @@ tracks/1/keys = {
 }
 
 [node name="ADTIsNotEmptyPopup" type="WindowDialog"]
+visible = true
 margin_left = 524.122
 margin_top = 233.47
 margin_right = 1036.12
 margin_bottom = 392.47
+focus_neighbour_left = NodePath("YesButton")
+focus_neighbour_right = NodePath("NoButton")
+focus_next = NodePath("YesButton")
+focus_previous = NodePath("NoButton")
 focus_mode = 2
 input_pass_on_modal_close_click = false
 theme = ExtResource( 2 )
@@ -83,6 +88,10 @@ margin_left = 115.407
 margin_top = 63.2947
 margin_right = 209.407
 margin_bottom = 89.2947
+focus_neighbour_top = NodePath("..")
+focus_neighbour_right = NodePath("../NoButton")
+focus_next = NodePath("../NoButton")
+focus_previous = NodePath("..")
 text = "Yes"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -94,6 +103,10 @@ margin_left = 317.165
 margin_top = 64.6618
 margin_right = 411.165
 margin_bottom = 90.6618
+focus_neighbour_left = NodePath("../YesButton")
+focus_neighbour_top = NodePath("..")
+focus_next = NodePath("../YesButton")
+focus_previous = NodePath("../YesButton")
 text = "No"
 __meta__ = {
 "_edit_use_anchors_": false

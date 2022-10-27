@@ -18,6 +18,7 @@ public class MainMenu : Node2D
         animPlayer = GetNode<AnimationPlayer>("FadeAnimation");
         algorithmSelectionMenu = GetNode<AlgorithmSelectionMenu>("AlgorithmSelectionMenu");
 
+        startGame.GrabFocus();
         startGame.Connect("pressed", this, "OnStartGame");
         exitGame.Connect("pressed", this, "OnExitGame");    
         algorithmSelectionMenu.Connect("OnSelectionMenuExitSignal", this, nameof(OnSelectionMenuExit));

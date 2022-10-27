@@ -23,7 +23,8 @@ func _notification(what):
 		StoredData.popup_captures_input = true
 		$YesButton.grab_focus()
 		$YesButton.grab_click_focus()
-
+	elif what == NOTIFICATION_POPUP_HIDE:
+		StoredData.popup_captures_input = false
 
 func _on_adt_is_empty_YesButton_pressed() -> void:
 	NotificationManager._on_adt_is_empty_YesButton_pressed()

@@ -73,7 +73,7 @@ func reset_game():
 ## U.is_explored() popup signals ##
 # Show popup 
 func ask_user_if_graph_node_is_explored(u, condition_value: bool):
-	u_is_explored_popup.show()
+	u_is_explored_popup.popup()
 	u_is_explored_popup.get_node("Explanation").text = (
 		"Is the U node (" + str(u.index) + ") explored?"
 	)
