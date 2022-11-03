@@ -21,7 +21,8 @@ func play_wrong_animation():
 	# Visual effect
 	$ErrorNotification/AnimationPlayer.stop()
 	$ErrorNotification/AnimationPlayer.play("message_modulation")
-	# TODO: Add sound effect
+	NotificationManager.play_error_audio()
+
 
 func _notification(what):
 	if what == NOTIFICATION_POST_POPUP:

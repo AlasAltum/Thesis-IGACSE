@@ -58,7 +58,6 @@ focused = true
 code_text = "BFS(starting_node=0):"
 effect_check = ExtResource( 15 )
 hint_text = "Press [b]SPACE[/b]"
-plays_confirmation_audio = false
 
 [node name="PanelContainer1" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
@@ -133,7 +132,6 @@ jump_index = 11
 code_text = "        for (Edge u in v.edges()):"
 effect_check = ExtResource( 10 )
 hint_text = "Press [b]SPACE[/b] and see the variables!"
-plays_confirmation_audio = false
 
 [node name="PanelContainer7" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
@@ -184,7 +182,6 @@ jump_index = 6
 code_text = "        end for"
 effect_check = ExtResource( 17 )
 hint_text = "Press [b]SPACE[/b]"
-plays_confirmation_audio = false
 
 [node name="PanelContainer11" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
@@ -197,7 +194,6 @@ line_index = 11
 code_text = "        v.mark_as_iterated(color=orange)"
 effect_check = ExtResource( 5 )
 hint_text = "Press [b]SPACE[/b]"
-plays_confirmation_audio = false
 
 [node name="PanelContainer12" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
@@ -211,7 +207,6 @@ jump_index = 4
 code_text = "    end while"
 effect_check = ExtResource( 19 )
 hint_text = "Press [b]SPACE[/b]"
-plays_confirmation_audio = false
 
 [node name="PanelContainer13" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
@@ -225,4 +220,3 @@ jump_index = 4
 code_text = "end BFS"
 effect_check = ExtResource( 16 )
 hint_text = "Press [b]SPACE[/b]"
-plays_confirmation_audio = false

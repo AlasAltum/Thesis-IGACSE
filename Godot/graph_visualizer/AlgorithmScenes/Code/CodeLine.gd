@@ -16,6 +16,7 @@ export (String) var hint_text = "Press Enter";
 
 var on_focus_effect_triggered : bool = false
 var was_completed_correctly: bool = false
+var executed_correct_effects_once: bool = false
 
 onready var code_label = $HBoxContainer/CodeText
 onready var instruction_pointer : Sprite = $HBoxContainer/InstructionPointer
@@ -28,6 +29,11 @@ const focused_style: StyleBox = preload("res://AlgorithmScenes/Code/focused_line
 const completed_style: StyleBox = preload("res://AlgorithmScenes/Code/completed_line_code_style.tres")
 
 
+# Change this variable for a given line if it should not play a confirmation audio
+export (bool) var plays_confirmation_audio = true 
+
+
+
 func _ready():
 	code_label.text = code_text
 	self.set_process(false)
@@ -35,20 +41,33 @@ func _ready():
 		self.effect_check = self.effect_check.new()
 		self.effect_check.code_line = self
 
-func _process(delta: float) -> void:
+
+func _process(_delta: float) -> void:
 	if self.effect_check:
 		var action_completed = self.effect_check.check_actions_correct()
 		if action_completed:
-			add_stylebox_override("panel", completed_style)
-			self.was_completed_correctly = true
+			execute_correct_effects_once()
+
+		# If the player was correct, but then made a mistake
 		if self.was_completed_correctly and not action_completed:
-				add_stylebox_override("panel", focused_style)
-		
+			add_stylebox_override("panel", focused_style)
+			self.executed_correct_effects_once = false
+
+
+func execute_correct_effects_once():
+	if !self.executed_correct_effects_once:
+		add_stylebox_override("panel", completed_style)
+		self.was_completed_correctly = true
+		self.executed_correct_effects_once = true
+		if self.effect_check and self.should_play_confirmation_audio():
+			NotificationManager.play_confirmation_audio()
+
 
 func focus():
 	_on_focused()
 	if self.effect_check:
 		self.set_process(true)
+
 
 func _on_focused():
 	focused = true
@@ -61,10 +80,12 @@ func _on_focused():
 			instruction_pointer.visible = true
 		add_stylebox_override("panel", focused_style)
 
+
 func unfocus():
 	_on_unfocus()
 	if self.effect_check:
 		self.set_process(false)
+
 
 func _on_unfocus():
 	focused = false
@@ -73,7 +94,7 @@ func _on_unfocus():
 	# Visual effects, change color and add InsPointer
 	if instruction_pointer:
 		instruction_pointer.visible = false
-
+	self.was_completed_correctly = false
 	add_stylebox_override("panel", unfocused_style)
 
 # Reset side effect 
@@ -82,9 +103,11 @@ func reset_effect_check():
 	if self.effect_check:
 		self.effect_check.reset()
 
+
 func effect_actions_are_correct():
 	if effect_check:
 		return effect_check.check_actions_correct()
+
 
 # Given the EffectCheck for this code line,
 # Get the next line that should be included
@@ -103,3 +126,10 @@ func get_class():
 
 func get_line_jump() -> int:
 	return jump_index
+
+
+# Whether this code line should play a confirmation audio
+# when the action was completed correctly (as stated in CodeLine)
+# Override this and make it return false if the line should not 
+func should_play_confirmation_audio() -> bool:
+	return self.plays_confirmation_audio

@@ -16,6 +16,9 @@ var length_c_is_1: bool = false
 var find_w_unequal_find_v: bool = false
 
 var hint_label
+onready var confirm_audio: AudioStreamPlayer = $ConfirmationAudioPlayer
+onready var error_audio: AudioStreamPlayer = $ErrorAudioPlayer
+
 
 
 func _on_variable_creation_popup(ADT_name: String):
@@ -62,6 +65,14 @@ func show_code_finished_popup(_msg: String) -> void:
 	else:
 		printerr("Notification Manager: No finished pop up found!")
 
+## Audios
+func play_confirmation_audio():
+	confirm_audio.play()
+
+func play_error_audio():
+	error_audio.play()
+
+
 # Called from finished code popup, when finishing an algorithm
 func reset_game():
 	StoredData.reset_data()
@@ -83,7 +94,7 @@ func ask_user_if_graph_node_is_explored(u, condition_value: bool):
 func notify_u_is_explored_correct_answer():
 	StoredData.v_is_explored_right_answer = true
 	u_is_explored_popup.hide()
-	# TODO: Add sound effect
+	NotificationManager.play_error_audio()
 	# TODO: Add visual effect
 
 func notify_u_is_explored_wrong_answer():
@@ -131,7 +142,7 @@ func notify_adt_is_empty_wrong_answer():
 	# TODO: Visual effect
 	adt_is_empty_popup.play_wrong_animation()
 #	$ADTIsNotEmptyPopup/ErrorNotification/AnimationPlayer.play("message_modulation")
-	# TODO: Add sound effect
+	NotificationManager.play_error_audio()
 
 ## adt.is_not_empty() popup signals ##
 
