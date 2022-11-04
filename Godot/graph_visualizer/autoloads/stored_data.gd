@@ -48,7 +48,7 @@ var adt_shower # ADTShower
 var adt_mediator # ADTMediator class
 var selected_variable_index : int = 0  # Used to emphasize the current variable
 var adt_to_be_created: ADT
-
+var animation_player: AnimationPlayer
 
 func get_status():
 	return status

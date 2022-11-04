@@ -1,0 +1,11 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform float AMPLITUDE = 3.0;
+void vertex()
+{
+	VERTEX.x += 0.5 + AMPLITUDE * sin(100.0 * TIME);
+	VERTEX.y += 0.5 + AMPLITUDE * sin(100.0 * TIME);
+}"

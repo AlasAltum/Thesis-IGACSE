@@ -15,6 +15,8 @@ var adt_is_empty: bool = false
 var length_c_is_1: bool = false
 var find_w_unequal_find_v: bool = false
 
+## 
+
 var hint_label
 onready var confirm_audio: AudioStreamPlayer = $ConfirmationAudioPlayer
 onready var error_audio: AudioStreamPlayer = $ErrorAudioPlayer
