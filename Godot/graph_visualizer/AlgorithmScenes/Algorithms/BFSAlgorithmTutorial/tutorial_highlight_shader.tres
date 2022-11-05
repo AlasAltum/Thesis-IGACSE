@@ -3,9 +3,11 @@
 [resource]
 code = "shader_type canvas_item;
 
-uniform float AMPLITUDE = 3.0;
+uniform float AMPLITUDE = 0.1;
+uniform float FREQ = 10.0;
+
 void vertex()
 {
-	VERTEX.x += 0.5 + AMPLITUDE * sin(100.0 * TIME);
-	VERTEX.y += 0.5 + AMPLITUDE * sin(100.0 * TIME);
+	VERTEX.x *= (1.0 + AMPLITUDE * 0.01 * sin(FREQ * TIME));
+	VERTEX.y *= (1.0 + AMPLITUDE * 0.01 * sin(FREQ * TIME));
 }"

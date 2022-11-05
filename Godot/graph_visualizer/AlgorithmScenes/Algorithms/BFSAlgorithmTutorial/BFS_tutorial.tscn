@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Code/DebugBlock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/textures/structure_queue_icon.png" type="Texture" id=2]
@@ -58,6 +58,7 @@ tracks/1/keys = {
 [sub_resource type="ShaderMaterial" id=9]
 shader = ExtResource( 23 )
 shader_param/AMPLITUDE = 3.0
+shader_param/FREQ = 10.0
 
 [sub_resource type="Animation" id=3]
 resource_name = "ShowVariablesPanel"
@@ -99,6 +100,21 @@ tracks/2/keys = {
 "values": [ SubResource( 9 ), null ]
 }
 
+[sub_resource type="Animation" id=10]
+resource_name = "StopQueueHighlight"
+tracks/0/type = "value"
+tracks/0/path = NodePath("LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot/SlotTexture:material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ SubResource( 9 ), null ]
+}
+
 [sub_resource type="StyleBoxFlat" id=6]
 content_margin_left = 10.0
 content_margin_right = 10.0
@@ -113,6 +129,7 @@ anti_aliasing = false
 [sub_resource type="ShaderMaterial" id=8]
 shader = ExtResource( 23 )
 shader_param/AMPLITUDE = 3.0
+shader_param/FREQ = 10.0
 
 [sub_resource type="Theme" id=7]
 
@@ -126,6 +143,7 @@ edge_max_weight = 8.0
 root_node = NodePath("../CanvasLayer")
 anims/ShowCode = SubResource( 2 )
 anims/ShowVariablesPanel = SubResource( 3 )
+anims/StopQueueHighlight = SubResource( 10 )
 script = ExtResource( 8 )
 
 [node name="ADTMediator" parent="." instance=ExtResource( 34 )]
@@ -207,10 +225,6 @@ columns = 4
 material = SubResource( 8 )
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -3.82389
-margin_top = -3.82389
-margin_right = -3.82389
-margin_bottom = -3.82389
 hover_text = "Queue"
 slot_texture = ExtResource( 17 )
 generated_adt = ExtResource( 14 )
@@ -219,6 +233,9 @@ on_hover_animation = ExtResource( 10 )
 [node name="SlotTexture" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot" index="0"]
 material = SubResource( 9 )
 theme = SubResource( 7 )
+
+[node name="ADTTexture" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot/SlotTexture" index="0"]
+use_parent_material = true
 
 [node name="Slot2" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 22 )]
 anchor_right = 0.0

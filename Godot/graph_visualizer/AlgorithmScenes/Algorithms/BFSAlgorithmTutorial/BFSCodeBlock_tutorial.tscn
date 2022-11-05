@@ -3,6 +3,7 @@
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/1_take_node_0_tutorial.gd" type="Script" id=1]
 [ext_resource path="res://AlgorithmScenes/Code/focused_line_code_style.tres" type="StyleBox" id=2]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/0_BFS.gd" type="Script" id=3]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/2_queue_tutorial.gd" type="Script" id=4]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/11_v_mark_as_iterated.gd" type="Script" id=5]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/3_add_to_queue.gd" type="Script" id=7]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/4_while_q_is_not_empty.gd" type="Script" id=8]
@@ -14,7 +15,6 @@
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/9_q_add_u.gd" type="Script" id=14]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/13_bfs_code_finished.gd" type="Script" id=16]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/10_end_for.gd" type="Script" id=17]
-[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/2_queue.gd" type="Script" id=18]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/12_end_while.gd" type="Script" id=19]
 [ext_resource path="res://AlgorithmScenes/Code/CodeLine.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Assets/themes/CodeBlockTheme.tres" type="Theme" id=23]
@@ -80,7 +80,7 @@ margin_bottom = 103.0
 theme = SubResource( 2 )
 line_index = 2
 code_text = "    q = Queue()"
-effect_check = ExtResource( 18 )
+effect_check = ExtResource( 4 )
 hint_text = "[b]LEFT CLICK[/b] on Queue in the Data Structures panel, assign it the name [color=#00FF00]q[/color]"
 
 [node name="PanelContainer3" parent="LinesContainer" instance=ExtResource( 20 )]
@@ -119,6 +119,7 @@ line_index = 5
 code_text = "        v = q.pop()"
 effect_check = ExtResource( 9 )
 hint_text = "See the variables after you press [b]SPACE[/b]!"
+plays_confirmation_audio = false
 
 [node name="PanelContainer6" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
@@ -132,6 +133,7 @@ jump_index = 11
 code_text = "        for (Edge u in v.edges()):"
 effect_check = ExtResource( 10 )
 hint_text = "Press [b]SPACE[/b] and see the variables!"
+plays_confirmation_audio = false
 
 [node name="PanelContainer7" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
@@ -182,6 +184,7 @@ jump_index = 6
 code_text = "        end for"
 effect_check = ExtResource( 17 )
 hint_text = "Press [b]SPACE[/b]"
+plays_confirmation_audio = false
 
 [node name="PanelContainer11" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
@@ -194,6 +197,7 @@ line_index = 11
 code_text = "        v.mark_as_iterated(color=orange)"
 effect_check = ExtResource( 5 )
 hint_text = "Press [b]SPACE[/b]"
+plays_confirmation_audio = false
 
 [node name="PanelContainer12" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
@@ -207,6 +211,7 @@ jump_index = 4
 code_text = "    end while"
 effect_check = ExtResource( 19 )
 hint_text = "Press [b]SPACE[/b]"
+plays_confirmation_audio = false
 
 [node name="PanelContainer13" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
@@ -220,3 +225,4 @@ jump_index = 4
 code_text = "end BFS"
 effect_check = ExtResource( 16 )
 hint_text = "Press [b]SPACE[/b]"
+plays_confirmation_audio = false

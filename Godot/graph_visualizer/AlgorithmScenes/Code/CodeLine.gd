@@ -55,7 +55,7 @@ func _process(_delta: float) -> void:
 
 
 func execute_correct_effects_once():
-	if !self.executed_correct_effects_once:
+	if not self.executed_correct_effects_once:
 		add_stylebox_override("panel", completed_style)
 		self.was_completed_correctly = true
 		self.executed_correct_effects_once = true
@@ -95,6 +95,7 @@ func _on_unfocus():
 	if instruction_pointer:
 		instruction_pointer.visible = false
 	self.was_completed_correctly = false
+	self.executed_correct_effects_once = false
 	add_stylebox_override("panel", unfocused_style)
 
 # Reset side effect 

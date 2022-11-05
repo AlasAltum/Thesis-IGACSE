@@ -96,11 +96,11 @@ func ask_user_if_graph_node_is_explored(u, condition_value: bool):
 func notify_u_is_explored_correct_answer():
 	StoredData.v_is_explored_right_answer = true
 	u_is_explored_popup.hide()
-	NotificationManager.play_error_audio()
 	# TODO: Add visual effect
 
 func notify_u_is_explored_wrong_answer():
 	u_is_explored_popup.notify_u_is_explored_wrong_answer()
+	NotificationManager.play_error_audio()
 
 func _on_YesButton_pressed() -> void:
 	if self.u_is_explored:  # Expected answer

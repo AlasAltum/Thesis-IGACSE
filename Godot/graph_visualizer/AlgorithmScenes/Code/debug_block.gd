@@ -25,7 +25,8 @@ func _ready():
 
 func _reset_data():
 	for line in lines_container.get_children():
-		line.queue_free()
+		if line.name != "DebuggerTitle":
+			line.queue_free()
 	names_to_label.clear()
 	map_int_to_name.clear()
 	curr_label = null
