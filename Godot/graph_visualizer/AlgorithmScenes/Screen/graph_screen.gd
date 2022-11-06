@@ -9,8 +9,8 @@ var left: int
 var right: int
 var up: int
 var down: int
-var circle = preload("res://Node/Node.tscn")
-var edge = preload("res://Node/Edge.tscn")
+const circle = preload("res://Node/Node.tscn")
+const edge = preload("res://Node/Edge.tscn")
 var gameplay_menu_popup: GameplayMenuPopup
 var node_container_key_properties: Array
 

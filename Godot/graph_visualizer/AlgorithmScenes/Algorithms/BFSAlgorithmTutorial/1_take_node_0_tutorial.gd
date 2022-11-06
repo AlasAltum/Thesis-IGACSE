@@ -15,6 +15,6 @@ func effect_check_on_focused():
 # tutorial version
 func _trigger_on_next_line_side_effect() -> void:
 	if StoredData.animation_player:
-		StoredData.animation_player.play("ShowVariablesPanel")
+		StoredData.animation_player.queue("ShowVariablesPanel")
 		StoredData.animation_player.show_variables_panel()
 

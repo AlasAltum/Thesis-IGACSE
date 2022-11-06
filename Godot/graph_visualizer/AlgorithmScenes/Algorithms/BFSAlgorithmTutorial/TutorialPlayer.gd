@@ -26,4 +26,4 @@ func show_variables_panel():
 		variables_popup.popup()
 
 func stop_queue_highlight():
-	play("StopQueueHighlight")
+	queue("StopQueueHighlight")

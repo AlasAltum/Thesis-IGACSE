@@ -1,14 +1,14 @@
 [gd_resource type="Theme" load_steps=9 format=2]
 
-[ext_resource path="res://Assets/fonts/bainsley/Bainsley_Roman.otf" type="DynamicFontData" id=1]
-[ext_resource path="res://Assets/fonts/bainsley/Bainsley_Bold_Italic.otf" type="DynamicFontData" id=2]
-[ext_resource path="res://Assets/fonts/bainsley/Bainsley_Italic.otf" type="DynamicFontData" id=3]
-[ext_resource path="res://Assets/fonts/bainsley/Bainsley_Bold.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/fonts/Arima_Madurai/ArimaMadurai-ExtraBold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/fonts/Balsamiq_Sans/BalsamiqSans-BoldItalic.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/fonts/Balsamiq_Sans/BalsamiqSans-Italic.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/fonts/Arima_Madurai/ArimaMadurai-Regular.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=2]
 size = 24
 outline_size = 1
-font_data = ExtResource( 4 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 24
@@ -20,7 +20,7 @@ font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
-font_data = ExtResource( 1 )
+font_data = ExtResource( 4 )
 
 [resource]
 RichTextLabel/fonts/bold_font = SubResource( 2 )

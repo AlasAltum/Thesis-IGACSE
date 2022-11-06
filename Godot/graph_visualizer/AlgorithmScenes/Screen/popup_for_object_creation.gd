@@ -76,7 +76,7 @@ func _on_NameAssign_text_entered(variable: String):
 func show_error():
 	error_label.visible = true
 	error_anim.stop()
-	error_anim.play("message_modulation")
+	error_anim.queue("message_modulation")
 
 
 func _on_AnimationPlayer_animation_finished(_anim_name: String) -> void:

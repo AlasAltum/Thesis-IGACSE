@@ -176,7 +176,7 @@ margin_right = 400.0
 margin_bottom = 400.0
 line_index = 10
 jump_index = 4
-code_text = "        end for;"
+code_text = "    end for;"
 effect_check = ExtResource( 2 )
 hint_text = "Press [b]SPACE[/b]"
 
