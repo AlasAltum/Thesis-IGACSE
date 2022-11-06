@@ -8,18 +8,6 @@ public class OneToggleButtonVBoxContaner : VBoxContainer
 
 	private Godot.Collections.Array<Button> toggle_buttons;
 
-	[Export]
-	private Godot.Collections.Array<String> available_modes;
-	public String mode;
-
-	public void set_mode(int index){
-		this.mode = available_modes[index];
-	}
-
-	public String get_mode(){
-		return this.mode;
-	}
-
 	private void ToggleButton(Button incoming_button)
 	{
 		foreach (Button child_button in toggle_buttons){
@@ -31,7 +19,7 @@ public class OneToggleButtonVBoxContaner : VBoxContainer
 				child_button.Pressed = false;
 			}
 		}
-		this.set_mode(toggle_buttons.IndexOf(incoming_button));
+
 	}
 
 	public override void _Ready()

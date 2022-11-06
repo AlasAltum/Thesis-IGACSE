@@ -24,6 +24,7 @@ graph_size = 8
 edge_max_weight = 9.0
 is_weighted_graph = true
 allow_selected_edges = true
+returns_mst = true
 
 [node name="ADTMediator" parent="." instance=ExtResource( 34 )]
 visible = false

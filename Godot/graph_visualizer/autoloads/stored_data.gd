@@ -16,13 +16,14 @@ const status_map = {
 	"DRAG": mov_status.DRAG,
 	"SELECT": mov_status.SELECT
 }
-
+var has_initialized: bool = false
 var allow_select_edges = false
 var status : int = mov_status.SELECT;
 var nodes : Array = []  # PoolAGraphNodeArray
 var edges : Array = []
 var debug_block: ScrollContainer  # : DebugBlock
 var number_of_nodes: int = 3
+var number_of_edges: int = 0
 var matrix: Array = []
 var dragging_adt : bool = false
 var selected_edge
@@ -133,6 +134,7 @@ func reset_data():
 	self.edges = []
 	self.debug_block = null
 	self.number_of_nodes = 3
+	self.number_of_edges = 0
 	self.matrix = []
 	self.dragging_adt = false
 	self.selected_edge = null
