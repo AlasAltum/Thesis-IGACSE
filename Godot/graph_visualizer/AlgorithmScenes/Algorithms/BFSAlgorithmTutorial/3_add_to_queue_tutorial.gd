@@ -9,3 +9,6 @@ func check_actions_correct() -> bool:
 		if StoredData.get_variable("q").as_string() == "Queue((0))":
 			return true
 	return false
+
+func _trigger_on_next_line_side_effect() -> void:
+	StoredData.animation_player.play("ShowCurrentVariable")

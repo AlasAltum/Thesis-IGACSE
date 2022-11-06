@@ -5,7 +5,7 @@
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/0_BFS.gd" type="Script" id=3]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/2_queue_tutorial.gd" type="Script" id=4]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/11_v_mark_as_iterated.gd" type="Script" id=5]
-[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/3_add_to_queue.gd" type="Script" id=7]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/3_add_to_queue_tutorial.gd" type="Script" id=6]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/4_while_q_is_not_empty.gd" type="Script" id=8]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/5_v_q_top.gd" type="Script" id=9]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/6_for_u_in_v_edges.gd" type="Script" id=10]
@@ -92,7 +92,7 @@ margin_bottom = 136.0
 theme = SubResource( 2 )
 line_index = 3
 code_text = "    q.add(t)"
-effect_check = ExtResource( 7 )
+effect_check = ExtResource( 6 )
 hint_text = "Leave [color=#00FF00]q[/color] as current variable (see bottom right corner) by pressing [b]W[/b] and [b]S[/b]. Hover mouse on node [color=#00FF00]t=0[/color] and press [color=#00FF00]R[/color]. "
 
 [node name="PanelContainer4" parent="LinesContainer" instance=ExtResource( 20 )]
