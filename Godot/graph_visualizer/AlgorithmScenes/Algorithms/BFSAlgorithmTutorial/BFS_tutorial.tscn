@@ -225,6 +225,7 @@ mouse_filter = 2
 [node name="GameplayMenuButton" parent="CanvasLayer/LeftPanel" instance=ExtResource( 7 )]
 
 [node name="BFSCodeBlock" parent="CanvasLayer/LeftPanel" instance=ExtResource( 3 )]
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_right = 0.0
 margin_left = 0.0
@@ -233,7 +234,7 @@ margin_right = 365.0
 margin_bottom = 775.0
 
 [node name="ADTSelectionPanel" type="MarginContainer" parent="CanvasLayer/LeftPanel"]
-modulate = Color( 1, 1, 1, 0.0357143 )
+modulate = Color( 1, 1, 1, 0.5 )
 margin_top = 779.0
 margin_right = 365.0
 margin_bottom = 1079.0
@@ -407,7 +408,6 @@ margin_top = -300.0
 mouse_filter = 2
 
 [node name="DebugBlock" parent="CanvasLayer/BottomPanel" instance=ExtResource( 1 )]
-modulate = Color( 1, 1, 1, 0 )
 margin_top = 0.0
 margin_right = 1215.0
 margin_bottom = 300.0
