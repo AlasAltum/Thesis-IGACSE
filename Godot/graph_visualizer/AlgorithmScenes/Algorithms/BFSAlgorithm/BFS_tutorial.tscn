@@ -24,7 +24,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
+"times": PoolRealArray( 0.1, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -49,7 +49,6 @@ graph_size = 8
 edge_max_weight = 8.0
 
 [node name="ADTMediator" parent="." instance=ExtResource( 34 )]
-visible = false
 position = Vector2( 1, 0 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -64,8 +63,6 @@ margin_right = 0.0
 margin_bottom = 145.0
 
 [node name="LeftPanel" type="VBoxContainer" parent="CanvasLayer"]
-visible = false
-modulate = Color( 1, 1, 1, 0 )
 anchor_right = 0.208
 anchor_bottom = 1.022
 margin_right = -34.36

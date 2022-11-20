@@ -118,7 +118,7 @@ theme = SubResource( 2 )
 line_index = 5
 code_text = "        v = q.pop()"
 effect_check = ExtResource( 9 )
-hint_text = "See the variables after you press [b]SPACE[/b]!"
+hint_text = "Look at the variables after you press [b]SPACE[/b]!"
 
 [node name="PanelContainer6" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
@@ -131,7 +131,7 @@ line_index = 6
 jump_index = 11
 code_text = "        for (Edge u in v.edges()):"
 effect_check = ExtResource( 10 )
-hint_text = "Press [b]SPACE[/b] and see the variables!"
+hint_text = "Press [b]SPACE[/b] and Look at the variables!"
 
 [node name="PanelContainer7" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0

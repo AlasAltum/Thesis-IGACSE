@@ -229,7 +229,7 @@ size_flags_horizontal = 1
 line_index = 5
 code_text = "        v = q.top(); q.pop();"
 effect_check = SubResource( 7 )
-hint_text = "See the variables after you press [b]SPACE[/b]!"
+hint_text = "Look at the variables after you press [b]SPACE[/b]!"
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5" index="0"]
 margin_right = 392.0

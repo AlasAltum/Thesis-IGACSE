@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Screen/ADT/Queue/QueueAnimation.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/textures/queue.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://AlgorithmScenes/Screen/ADT/Stack/StackAnimation.tscn" type="PackedScene" id=9]
 [ext_resource path="res://AlgorithmScenes/Code/ADTs/array_adt.gd" type="Script" id=10]
 [ext_resource path="res://AlgorithmScenes/Code/ADTs/set_adt.gd" type="Script" id=11]
+[ext_resource path="res://Assets/fonts/bainsley/Bainsley_Roman.otf" type="DynamicFontData" id=12]
 [ext_resource path="res://AlgorithmScenes/Code/data_structures_theme.tres" type="Theme" id=13]
 
 [sub_resource type="StyleBoxFlat" id=2]
@@ -23,6 +24,12 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 anti_aliasing = false
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 12 )
 
 [sub_resource type="Theme" id=3]
 
@@ -51,13 +58,14 @@ mouse_filter = 2
 
 [node name="DebuggerTitle" type="Label" parent="VBoxContainer"]
 margin_right = 384.0
-margin_bottom = 21.0
+margin_bottom = 26.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
+custom_fonts/font = SubResource( 4 )
 text = "  Data Structures"
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
-margin_top = 25.0
+margin_top = 30.0
 margin_right = 384.0
 margin_bottom = 300.0
 rect_min_size = Vector2( 40, 40 )
@@ -129,67 +137,7 @@ valign = 1
 [node name="HoverText" parent="VBoxContainer/GridContainer/Slot4/HoverPanel/ColorRect" index="0"]
 text = "Set"
 
-[node name="Slot5" parent="VBoxContainer/GridContainer" instance=ExtResource( 8 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 120.0
-margin_bottom = 120.0
-hover_text = "?"
-
-[node name="Slot6" parent="VBoxContainer/GridContainer" instance=ExtResource( 8 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 90.0
-margin_top = 120.0
-margin_right = 90.0
-margin_bottom = 120.0
-hover_text = "?"
-
-[node name="BelowADTName" parent="VBoxContainer/GridContainer/Slot6/SlotTexture" index="2"]
-text = "Stack"
-align = 1
-valign = 1
-
-[node name="Slot7" parent="VBoxContainer/GridContainer" instance=ExtResource( 8 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 180.0
-margin_top = 120.0
-margin_right = 180.0
-margin_bottom = 120.0
-hover_text = "?"
-
-[node name="BelowADTName" parent="VBoxContainer/GridContainer/Slot7/SlotTexture" index="2"]
-text = "Array"
-align = 1
-valign = 1
-
-[node name="HoverText" parent="VBoxContainer/GridContainer/Slot7/HoverPanel/ColorRect" index="0"]
-text = "Array
-"
-
-[node name="Slot8" parent="VBoxContainer/GridContainer" instance=ExtResource( 8 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 270.0
-margin_top = 120.0
-margin_right = 270.0
-margin_bottom = 120.0
-hover_text = "?"
-
-[node name="BelowADTName" parent="VBoxContainer/GridContainer/Slot8/SlotTexture" index="2"]
-text = "Set"
-align = 1
-valign = 1
-
-[node name="HoverText" parent="VBoxContainer/GridContainer/Slot8/HoverPanel/ColorRect" index="0"]
-text = "Set"
-
 [editable path="VBoxContainer/GridContainer/Slot"]
 [editable path="VBoxContainer/GridContainer/Slot2"]
 [editable path="VBoxContainer/GridContainer/Slot3"]
 [editable path="VBoxContainer/GridContainer/Slot4"]
-[editable path="VBoxContainer/GridContainer/Slot5"]
-[editable path="VBoxContainer/GridContainer/Slot6"]
-[editable path="VBoxContainer/GridContainer/Slot7"]
-[editable path="VBoxContainer/GridContainer/Slot8"]

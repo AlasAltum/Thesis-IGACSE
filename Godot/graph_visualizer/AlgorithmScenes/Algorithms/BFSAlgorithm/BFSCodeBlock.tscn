@@ -60,6 +60,19 @@ effect_check = ExtResource( 15 )
 hint_text = "Press [b]SPACE[/b]"
 plays_confirmation_audio = false
 
+[node name="HBoxContainer" parent="LinesContainer/PanelContainer0" index="0"]
+margin_right = 400.0
+margin_bottom = 33.0
+
+[node name="Tab" parent="LinesContainer/PanelContainer0/HBoxContainer" index="1"]
+margin_right = 24.0
+margin_bottom = 33.0
+
+[node name="CodeText" parent="LinesContainer/PanelContainer0/HBoxContainer" index="2"]
+margin_left = 28.0
+margin_right = 400.0
+margin_bottom = 33.0
+
 [node name="PanelContainer1" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -119,7 +132,7 @@ theme = SubResource( 2 )
 line_index = 5
 code_text = "        v = q.pop()"
 effect_check = ExtResource( 9 )
-hint_text = "See the variables after you press [b]SPACE[/b]!"
+hint_text = "Look at the variables after you press [b]SPACE[/b]!"
 
 [node name="PanelContainer6" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
@@ -132,7 +145,7 @@ line_index = 6
 jump_index = 11
 code_text = "        for (Edge u in v.edges()):"
 effect_check = ExtResource( 10 )
-hint_text = "Press [b]SPACE[/b] and see the variables!"
+hint_text = "Press [b]SPACE[/b] and Look at the variables!"
 plays_confirmation_audio = false
 
 [node name="PanelContainer7" parent="LinesContainer" instance=ExtResource( 20 )]
@@ -226,3 +239,5 @@ code_text = "end BFS"
 effect_check = ExtResource( 16 )
 hint_text = "Press [b]SPACE[/b]"
 plays_confirmation_audio = false
+
+[editable path="LinesContainer/PanelContainer0"]

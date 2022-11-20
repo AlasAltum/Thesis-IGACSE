@@ -20,6 +20,7 @@ var executed_correct_effects_once: bool = false
 
 onready var code_label = $HBoxContainer/CodeText
 onready var instruction_pointer : Sprite = $HBoxContainer/InstructionPointer
+onready var arrow_hightlight_enter: Node2D = $HBoxContainer/ArrowHightlightEnter
 
 const NOT_SELECTED_COLOR: Color = Color(0.24, 0.24, 0.24, 1.0);
 const SELECTED_COLOR: Color = Color(0.6, 0.6, 0.24, 1.0);
@@ -59,8 +60,15 @@ func execute_correct_effects_once():
 		add_stylebox_override("panel", completed_style)
 		self.was_completed_correctly = true
 		self.executed_correct_effects_once = true
+		self._show_hightlight_enter()
 		if self.effect_check and self.should_play_confirmation_audio():
 			NotificationManager.play_confirmation_audio()
+
+func _show_hightlight_enter():
+	arrow_hightlight_enter.visible = true
+
+func _hide_hightlight_enter():
+	arrow_hightlight_enter.visible = false
 
 
 func focus():
@@ -90,6 +98,7 @@ func unfocus():
 func _on_unfocus():
 	focused = false
 	# RESET variables
+	_hide_hightlight_enter()
 	reset_effect_check()
 	# Visual effects, change color and add InsPointer
 	if instruction_pointer:

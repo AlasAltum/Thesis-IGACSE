@@ -105,7 +105,7 @@ margin_bottom = 202.0
 line_index = 5
 code_text = "        v = s.pop()"
 effect_check = ExtResource( 9 )
-hint_text = "See the variables after you press [b]SPACE[/b]!"
+hint_text = "Look at the variables after you press [b]SPACE[/b]!"
 
 [node name="PanelContainer6" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0

@@ -28,6 +28,7 @@ margin_left = -409.0
 margin_top = 11.0
 margin_right = -9.0
 margin_bottom = 482.0
+rect_clip_content = false
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 23 )
@@ -40,7 +41,6 @@ __meta__ = {
 [node name="LinesContainer" type="VBoxContainer" parent="."]
 margin_right = 400.0
 margin_bottom = 471.0
-rect_clip_content = true
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -118,7 +118,7 @@ theme = SubResource( 2 )
 line_index = 5
 code_text = "        v = q.pop()"
 effect_check = ExtResource( 9 )
-hint_text = "See the variables after you press [b]SPACE[/b]!"
+hint_text = "Look at the variables after you press [b]SPACE[/b]!"
 plays_confirmation_audio = false
 
 [node name="PanelContainer6" parent="LinesContainer" instance=ExtResource( 20 )]
@@ -132,7 +132,7 @@ line_index = 6
 jump_index = 11
 code_text = "        for (Edge u in v.edges()):"
 effect_check = ExtResource( 10 )
-hint_text = "Press [b]SPACE[/b] and see the variables!"
+hint_text = "Press [b]SPACE[/b] and Look at the variables!"
 plays_confirmation_audio = false
 
 [node name="PanelContainer7" parent="LinesContainer" instance=ExtResource( 20 )]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Code/CodeLine.gd" type="Script" id=1]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/ArrowHighlightEnter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://AlgorithmScenes/Code/InstructionPointer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://AlgorithmScenes/Code/default_line_code_style.tres" type="StyleBox" id=4]
-[ext_resource path="res://AlgorithmScenes/Screen/Assets/InstructionPointer.svg" type="Texture" id=5]
 
 [node name="PanelContainer" type="PanelContainer"]
 anchor_right = 1.0
@@ -28,7 +28,6 @@ size_flags_vertical = 0
 visible = false
 position = Vector2( 15, 22 )
 scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 5 )
 
 [node name="Tab" type="Label" parent="HBoxContainer"]
 margin_right = 16.0
@@ -41,3 +40,7 @@ margin_right = 1920.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
 text = "code_here()"
+
+[node name="ArrowHightlightEnter" parent="HBoxContainer" instance=ExtResource( 2 )]
+position = Vector2( 450, 20 )
+scale = Vector2( 0.7, 0.7 )

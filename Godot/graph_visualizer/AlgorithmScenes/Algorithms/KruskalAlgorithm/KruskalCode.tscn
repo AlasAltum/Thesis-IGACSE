@@ -98,7 +98,7 @@ margin_bottom = 198.0
 line_index = 5
 code_text = "        if (len(C) == 1):    break;"
 effect_check = ExtResource( 3 )
-hint_text = "See the variables after you press [b]SPACE[/b]!"
+hint_text = "Look at the variables after you press [b]SPACE[/b]!"
 
 [node name="PanelContainer6" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
