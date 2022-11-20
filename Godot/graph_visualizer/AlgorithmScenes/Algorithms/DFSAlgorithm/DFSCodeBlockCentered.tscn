@@ -153,7 +153,7 @@ line_index = 9
 jump_index = 9
 code_text = "                s.add(u)"
 effect_check = ExtResource( 14 )
-hint_text = "Add the Node [color=#00FF00]u[/color] to the stack by hovering the mouse on it and pressing [b]W[/b]!"
+hint_text = "Add the Node [color=#00FF00]u[/color] to the stack by hovering the mouse on it and pressing [b]R[/b]!"
 
 [node name="PanelContainer10" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0

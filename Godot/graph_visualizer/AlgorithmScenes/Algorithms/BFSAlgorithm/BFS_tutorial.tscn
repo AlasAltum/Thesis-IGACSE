@@ -63,7 +63,6 @@ margin_right = 0.0
 margin_bottom = 145.0
 
 [node name="LeftPanel" type="VBoxContainer" parent="CanvasLayer"]
-modulate = Color( 1, 1, 1, 0 )
 anchor_right = 0.208
 anchor_bottom = 1.022
 margin_right = -34.36
@@ -87,7 +86,6 @@ margin_right = 365.0
 margin_bottom = 1079.0
 
 [node name="BottomPanel" type="HBoxContainer" parent="CanvasLayer"]
-visible = false
 anchor_left = 0.243
 anchor_top = 1.0
 anchor_right = 1.0
