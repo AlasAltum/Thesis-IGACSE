@@ -78,6 +78,11 @@ func _focus_current_label():
 		curr_label.add_stylebox_override("normal", focused_style)
 		curr_label.material = focused_material
 
+func highlight_variable(var_name: String) -> void:
+	var corresponding_label: Label = names_to_label[var_name]
+	_play_anim(corresponding_label, "emphasize_modification")
+
+
 func _play_anim(input_label: Label, anim_name: String) -> void:
 	if input_label:
 		var anim: AnimationPlayer = input_label.get_node("./AnimationPlayer")

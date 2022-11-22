@@ -14,6 +14,7 @@ func execute_side_effect() -> void:
 		var top_node_in_queue : AGraphNode = queue.top()
 		if top_node_in_queue:
 			StoredData.add_variable("v", top_node_in_queue.get_adt())
+			StoredData.highlight_variable("v")
 			_play_pop_sound()
 
 func _play_pop_sound():

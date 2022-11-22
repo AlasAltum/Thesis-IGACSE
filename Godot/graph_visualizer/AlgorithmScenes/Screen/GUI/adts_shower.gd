@@ -53,8 +53,9 @@ func update_views(selected_index: int) -> void:
 	# Show a new representation
 	current_adt = stored_adt_reps[selected_index]
 	if current_adt:
-		# TODO: BUG with selected variable index after u is created
+
 		current_adt.visible = true  # make the previous adt invisible
+
 
 func _remove_child(adt_representation):
 	rep_container.remove_child(adt_representation)

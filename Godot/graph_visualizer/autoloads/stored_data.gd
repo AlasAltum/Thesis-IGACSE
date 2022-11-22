@@ -79,6 +79,9 @@ func emphasize_error_on_current_selected_variable():
 	if adt_mediator:
 		adt_mediator.emphasize_error_on_current_selected_variable()
 
+func highlight_variable(var_name: String) -> void:
+	adt_mediator.highlight_variable(var_name)
+
 # We don't want to add the whole node, but its representation
 # as an ADT, so we feed with this to the ADTMediator
 func _transform_data_from_nodes_and_edges(data):
@@ -95,6 +98,7 @@ func _transform_data_from_nodes_and_edges(data):
 func add_variable(var_name, data):
 	data = _transform_data_from_nodes_and_edges(data)
 	adt_mediator.add_or_update_variable(var_name, data)
+	highlight_variable(var_name)
 
 func has_variable(variable_name: String) -> bool:
 	return adt_mediator.has_variable(variable_name)

@@ -9,6 +9,7 @@ var iteration_index : int = 0
 func execute_side_effect() -> void:
 	var e = StoredData.edges[iteration_index]
 	StoredData.add_variable("e", e)
+	StoredData.highlight_variable("e")
 	iteration_index += 1
 
 

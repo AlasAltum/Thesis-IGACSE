@@ -13,7 +13,6 @@ func execute_side_effect() -> void:
 	iteration_index += 1
 	StoredData.add_variable("u", u)
 
-
 func get_max_iteration_index(v: AGraphNode) -> int:
 	return v.edges.size()
 

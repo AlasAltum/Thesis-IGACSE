@@ -21,6 +21,7 @@ export (float) var edge_max_weight = 5.0
 export (bool) var is_weighted_graph = false
 export (bool) var allow_selected_edges = false
 export (bool) var returns_mst = false  # Kruskal and Prim return MST, this is to make sure the graph has more than n-1 edges
+export (bool) var random_graph = true
 
 ## Hint Label ##
 onready var adt_mediator = $ADTMediator
@@ -36,27 +37,34 @@ func _ready():
 	down = 100
 	randomize()
 	node_container_key_properties = _init_node_container_key_properties()
-	
-	# create nodes and their connecting edges by initializing the matrix
-	create_nodes_with_weights(graph_size)
-	instance_nodes()  # Instances nodes objects as representation
-	create_additional_edges_to_make_graph_connected()
-	if returns_mst:
-		create_additional_edges()
-	instance_edges()  # To make sure the graph is connected
-	StoredData.world_node = self
-	for _edge in StoredData.edges:
-		_edge.set_collision_box()  # TODO: error when reseting
-	StoredData.allow_select_edges = self.allow_selected_edges
 	self.add_to_group("Main")
-	# TODO: ERASE
-#	var dataserver = DataServer.new()
-#	dataserver.send_data(
-#		{
-#			'clicks': [1, 2, 3, 5, 6],
-#			'errors': ['bad click on node', 'bad click on conditional'],
-#		}
-#	)
+	# create nodes and their connecting edges by initializing the matrix
+	if random_graph:
+		create_nodes_with_weights(graph_size)
+		instance_nodes()  # Instances nodes objects as representation
+		create_additional_edges_to_make_graph_connected()
+		if returns_mst:
+			create_additional_edges()
+		instance_edges()  # To make sure the graph is connected
+		StoredData.world_node = self
+		StoredData.allow_select_edges = self.allow_selected_edges
+		if self.allow_selected_edges:
+			for _edge in StoredData.edges:
+				_edge.set_collision_box()  # TODO: error when reseting
+
+	else:
+		pass
+		# TODO: graph.consider_previous_nodes()
+		# TODO: graph.insertEdge(0, 5)
+		# TODO: ERASE
+	#	var dataserver = DataServer.new()
+	#	dataserver.send_data(
+	#		{
+	#			'clicks': [1, 2, 3, 5, 6],
+	#			'errors': ['bad click on node', 'bad click on conditional'],
+	#		}
+	#	)
+
 
 # We do not use 0.5 since that would make the node to be on the limit or frontier
 # of our container, but we want to be completly inside of it

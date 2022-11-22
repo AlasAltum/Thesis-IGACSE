@@ -40,6 +40,13 @@ func get_variable(var_name: String) -> ADT:
 			return adt_vector.get_data()
 	return null
 
+func highlight_variable(var_name: String) -> void:
+	if has_variable(var_name):
+		debug_block.highlight_variable(var_name)
+	else:
+		printerr("Var name {} doesn't exist!", var_name)
+
+
 func add_or_update_variable(var_name: String, _data) -> void:
 	if not has_variable(var_name):
 		var new_row: ADTVector = ADTVector.new(_data, self.data.size(), var_name)

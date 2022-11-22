@@ -25,9 +25,6 @@ func _on_show():
 	accept_ok_timer.start(time_before_close)
 	accept_ok_timer.connect("timeout", self, "_on_ok_timer_timeout")
 
-func _process(_delta):
-	print(accept_ok_timer.time_left)
-
 # Ok can only be pressed after 
 func _on_ok_button_pressed():
 	if not is_waiting_timer:
