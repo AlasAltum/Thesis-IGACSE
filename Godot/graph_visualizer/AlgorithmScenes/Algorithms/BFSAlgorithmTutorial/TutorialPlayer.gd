@@ -7,6 +7,7 @@ var main
 func _ready():
 	StoredData.animation_player = self
 	self.main = get_tree().root.get_node("Main")
+	play("HighlightInstructions")
 
 
 func show_code():

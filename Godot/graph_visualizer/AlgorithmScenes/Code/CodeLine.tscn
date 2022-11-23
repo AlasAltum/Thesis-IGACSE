@@ -62,7 +62,8 @@ size_flags_horizontal = 3
 text = "code_here()"
 
 [node name="ArrowHightlightEnter" parent="HBoxContainer" instance=ExtResource( 2 )]
-position = Vector2( 450, 20 )
+visible = false
+position = Vector2( 450, 35 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

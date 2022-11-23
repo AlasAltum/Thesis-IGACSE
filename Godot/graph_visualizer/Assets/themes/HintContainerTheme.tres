@@ -6,20 +6,21 @@
 [ext_resource path="res://Assets/fonts/Arima_Madurai/ArimaMadurai-Regular.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=2]
-size = 24
+size = 30
 outline_size = 1
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 24
+size = 30
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 24
+size = 30
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=1]
-size = 24
+size = 30
+use_filter = true
 font_data = ExtResource( 4 )
 
 [resource]
