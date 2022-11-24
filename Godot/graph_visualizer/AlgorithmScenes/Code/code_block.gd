@@ -27,7 +27,10 @@ func advance_to_line(next_line: int) -> void:
 # It is important that StoredData.popup_captures_input is not activated
 # This bool is toggled when a popup wants to use the enter button as a shortcut
 func _input(event):
-	if event.is_action_pressed("code_advance") and not StoredData.popup_captures_input:
+	if (event.is_action_pressed("code_advance") and 
+		not StoredData.popup_captures_input and 
+		NotificationManager.allow_code_advance
+	):
 		if current_line.effect_actions_are_correct():
 			advance_to_line(current_line.get_next_line())
 

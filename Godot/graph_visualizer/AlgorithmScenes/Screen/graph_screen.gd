@@ -23,7 +23,7 @@ export (bool) var allow_selected_edges = false
 export (bool) var returns_mst = false  # Kruskal and Prim return MST, this is to make sure the graph has more than n-1 edges
 export (bool) var random_graph = true
 
-## Hint Label ##
+
 onready var adt_mediator = $ADTMediator
 
 func _init():

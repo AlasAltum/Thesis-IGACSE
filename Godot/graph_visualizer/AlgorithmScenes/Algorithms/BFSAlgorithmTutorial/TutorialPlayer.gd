@@ -24,6 +24,7 @@ func show_adt_panel():
 func show_variables_panel():
 	var variables_popup: AcceptDialog = main.get_node("CanvasLayer/TutorialVariablesPopup")
 	if variables_popup:
+		self.queue("ShowVariablesPanel")
 		variables_popup.popup()
 
 func stop_queue_highlight():

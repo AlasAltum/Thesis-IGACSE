@@ -1,5 +1,5 @@
 extends EffectCheck
-
+# BFS
 
 func _trigger_on_next_line_side_effect() -> void:
 	if StoredData.animation_player:

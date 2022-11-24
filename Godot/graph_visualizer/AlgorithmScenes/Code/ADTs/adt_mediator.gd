@@ -29,18 +29,21 @@ func update_views():
 
 
 func has_variable(var_name: String) -> bool:
+	var_name = var_name.to_lower()
 	for adt_vector in data:
 		if adt_vector.name == var_name:
 			return true
 	return false
 
 func get_variable(var_name: String) -> ADT:
+	var_name = var_name.to_lower()
 	for adt_vector in data:
 		if adt_vector.name == var_name:
 			return adt_vector.get_data()
 	return null
 
 func highlight_variable(var_name: String) -> void:
+	var_name = var_name.to_lower()
 	if has_variable(var_name):
 		debug_block.highlight_variable(var_name)
 	else:
@@ -48,6 +51,7 @@ func highlight_variable(var_name: String) -> void:
 
 
 func add_or_update_variable(var_name: String, _data) -> void:
+	var_name = var_name.to_lower()
 	if not has_variable(var_name):
 		var new_row: ADTVector = ADTVector.new(_data, self.data.size(), var_name)
 		self.data.append(new_row)
@@ -58,6 +62,7 @@ func add_or_update_variable(var_name: String, _data) -> void:
 
 
 func _update_variable(var_name: String, _data: ADT, update_on_finish = false) -> void:
+	var_name = var_name.to_lower()
 	for adt_vector in data:
 		if adt_vector.name == var_name:
 			adt_vector.set_data(_data)  # Modify variable stored in data
@@ -67,6 +72,7 @@ func _update_variable(var_name: String, _data: ADT, update_on_finish = false) ->
 
 
 func erase_variable_by_name(var_name: String) -> void:
+	var_name = var_name.to_lower()
 	for adt_vector in data:
 		if adt_vector.name == var_name:
 			# Reset index if selected index is going to be erased
@@ -80,6 +86,7 @@ func erase_variable_by_name(var_name: String) -> void:
 
 
 func add_node_to_adt(object_name: String, incoming_node):
+	object_name = object_name.to_lower()
 	if has_variable(object_name):
 		# Object may be a QueueADT, StackADT...
 		var object = get_variable(object_name)
@@ -87,6 +94,7 @@ func add_node_to_adt(object_name: String, incoming_node):
 		update()
 
 func take_top_from_adt(object_name: String):
+	object_name = object_name.to_lower()
 	if has_variable(object_name):
 		# Object may be a QueueADT, StackADT...
 		var object = get_variable(object_name)
@@ -99,6 +107,7 @@ func take_top_from_adt(object_name: String):
 
 # if the variable was correctly created from the ADT Grid
 func _on_correct_variable_creation(variable_name: String):
+	variable_name = variable_name.to_lower()
 	var generated_object = StoredData.adt_to_be_created
 	add_or_update_variable(variable_name, generated_object)
 	StoredData.adt_to_be_created = null

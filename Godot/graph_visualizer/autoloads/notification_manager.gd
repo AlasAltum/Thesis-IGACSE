@@ -14,7 +14,7 @@ var u_is_explored: bool = false
 var adt_is_empty: bool = false
 var length_c_is_1: bool = false
 var find_w_unequal_find_v: bool = false
-
+var allow_code_advance : bool = true  # Only in tutorial level starts as false
 ## 
 
 var hint_label
@@ -55,7 +55,7 @@ func _on_SelectNodeButton_pressed():
 
 ## Hint related methods ##
 func set_hint_text(new_text: String) -> void:
-	if hint_label and new_text:
+	if self.hint_label and new_text and self.allow_code_advance:
 		hint_label.bbcode_text = new_text
 ## Hint related methods ##
 
@@ -141,7 +141,6 @@ func notify_adt_is_empty_correct_answer():
 	adt_is_empty_popup.hide()
 
 func notify_adt_is_empty_wrong_answer():
-	# TODO: Visual effect
 	adt_is_empty_popup.play_wrong_animation()
 #	$ADTIsNotEmptyPopup/ErrorNotification/AnimationPlayer.play("message_modulation")
 	NotificationManager.play_error_audio()
