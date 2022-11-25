@@ -3,6 +3,7 @@ extends AnimationPlayer
 
 
 var main
+var has_played_stop_queue_hightlight_once = false 
 
 func _ready():
 	StoredData.animation_player = self
@@ -27,5 +28,10 @@ func show_variables_panel():
 		self.queue("ShowVariablesPanel")
 		variables_popup.popup()
 
-func stop_queue_highlight():
-	queue("StopQueueHighlight")
+func play_show_data_structures_panel():
+	self.queue("ShowDataStructuresPanel")
+
+func stop_queue_highlight_once():
+	if not has_played_stop_queue_hightlight_once:
+		queue("StopQueueHighlight")
+		has_played_stop_queue_hightlight_once = true

@@ -8,7 +8,6 @@ bg_color = Color( 0.00392157, 0.513726, 0, 1 )
 border_color = Color( 0, 0, 0, 1 )
 
 [node name="TutorialCodePopup" type="AcceptDialog"]
-visible = true
 margin_left = 264.0
 margin_top = 256.0
 margin_right = 679.0
@@ -26,9 +25,9 @@ script = ExtResource( 2 )
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -199.5
-margin_top = 131.0
+margin_top = 113.0
 margin_right = 199.5
-margin_bottom = 197.0
+margin_bottom = 134.0
 rect_scale = Vector2( 1, 0.1 )
 size_flags_horizontal = 3
 custom_styles/fg = SubResource( 1 )

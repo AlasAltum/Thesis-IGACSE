@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Code/DebugBlock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/textures/structure_queue_icon.png" type="Texture" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://AlgorithmScenes/Screen/Slot.tscn" type="PackedScene" id=22]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/tutorial_highlight_shader.tres" type="Shader" id=23]
 [ext_resource path="res://Assets/fonts/bainsley/Bainsley_Roman.otf" type="DynamicFontData" id=24]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/TutorialVariablesPopup.tscn" type="PackedScene" id=25]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/TutorialCodePopup.tscn" type="PackedScene" id=26]
 [ext_resource path="res://AlgorithmScenes/Screen/GUI/ADTsShower.tscn" type="PackedScene" id=28]
 [ext_resource path="res://AlgorithmScenes/Code/ADTs/ADTMediator.tscn" type="PackedScene" id=34]
@@ -173,9 +174,63 @@ shader = ExtResource( 23 )
 shader_param/AMPLITUDE = 3.0
 shader_param/FREQ = 10.0
 
+[sub_resource type="Animation" id=13]
+resource_name = "ShowDataStructuresPanel"
+tracks/0/type = "value"
+tracks/0/path = NodePath("LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot/SlotTexture:material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ SubResource( 9 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LeftPanel/ADTSelectionPanel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("TutorialADTPopup")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ Rect2( 0, 0, 0, 0 ) ],
+"method": "popup"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("TutorialVariablesPopup")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
 [sub_resource type="Animation" id=3]
 resource_name = "ShowVariablesPanel"
-length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("BottomPanel/DebugBlock:modulate")
 tracks/0/interp = 1
@@ -183,65 +238,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.9 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot/SlotTexture:material")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 3 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ SubResource( 9 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("LeftPanel/ADTSelectionPanel:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 3, 4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/3/type = "method"
-tracks/3/path = NodePath("TutorialADTPopup")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 3 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ Rect2( 0, 0, 0, 0 ) ],
-"method": "popup"
-} ]
-}
-tracks/4/type = "method"
-tracks/4/path = NodePath("TutorialVariablesPopup")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 2.8, 3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "hide"
-}, {
-"args": [  ],
-"method": "queue_free"
-} ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -253,10 +253,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
+"times": PoolRealArray( 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [  ]
+"values": [ SubResource( 9 ), null ]
 }
 
 [sub_resource type="StyleBoxFlat" id=6]
@@ -296,6 +296,7 @@ playback_speed = 0.5
 anims/HighlightInstructions = SubResource( 12 )
 anims/ShowCode = SubResource( 2 )
 anims/ShowCurrentVariable = SubResource( 11 )
+anims/ShowDataStructuresPanel = SubResource( 13 )
 anims/ShowVariablesPanel = SubResource( 3 )
 anims/StopQueueHighlight = SubResource( 10 )
 script = ExtResource( 8 )
@@ -648,36 +649,23 @@ margin_right = 256.32
 margin_bottom = 58.86
 
 [node name="TutorialCodePopup" parent="CanvasLayer" instance=ExtResource( 26 )]
+visible = true
 margin_left = 222.0
 margin_top = 105.0
 margin_right = 727.0
 margin_bottom = 287.0
 dialog_text = "This is the code.
-Complete it to win by following the instructions at the top
+Complete it to win by following the instructions at the top.
 You can advance by pressing SPACE after an instruction
-was completed"
+was completed."
 
-[node name="ProgressBarUntilOk" parent="CanvasLayer/TutorialCodePopup" index="3"]
-visible = false
-margin_left = -244.5
-margin_top = 113.0
-margin_right = 244.5
-margin_bottom = 134.0
+[node name="TutorialVariablesPopup" parent="CanvasLayer" instance=ExtResource( 25 )]
 
-[node name="TutorialVariablesPopup" type="AcceptDialog" parent="CanvasLayer"]
-visible = true
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -296.0
-margin_top = -184.0
-margin_right = 208.0
-margin_bottom = -64.0
-theme = ExtResource( 9 )
-popup_exclusive = true
-window_title = ""
-dialog_text = "These are the current variables, with their names and values."
+[node name="ProgressBarUntilOk" parent="CanvasLayer/TutorialVariablesPopup" index="3"]
+margin_left = -244.0
+margin_top = -28.0
+margin_right = 244.0
+margin_bottom = 12.0
 
 [node name="TutorialCurrentVariable" type="AcceptDialog" parent="CanvasLayer"]
 visible = true
@@ -718,4 +706,4 @@ Left click on Queue!"
 [editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot2"]
 [editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot3"]
 [editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot4"]
-[editable path="CanvasLayer/TutorialCodePopup"]
+[editable path="CanvasLayer/TutorialVariablesPopup"]

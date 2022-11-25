@@ -37,6 +37,3 @@ margin_right = 296.0
 margin_bottom = 95.0
 rect_pivot_offset = Vector2( 72.8572, 10.7062 )
 text = "Menu"
-
-[connection signal="pressed" from="ResetButton" to="." method="_on_ResetButton_pressed"]
-[connection signal="pressed" from="MenuButton" to="." method="_on_MenuButton_pressed"]

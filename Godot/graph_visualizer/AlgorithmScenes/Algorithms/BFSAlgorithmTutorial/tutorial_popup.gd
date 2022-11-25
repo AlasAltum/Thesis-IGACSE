@@ -11,13 +11,12 @@ var accept_ok_timer: Timer
 var is_waiting_timer: bool = true
 var ok_button: Button
 
-func _ready():
+
+func _initialize():
 	accept_ok_timer = Timer.new()
 	self.add_child(accept_ok_timer)
 	ok_button = get_ok()
 	ok_button.disabled = true
-	self.connect("about_to_show", self, "_on_show")
-	self.connect("confirmed", self, "_on_ok_button_pressed")
 	var close_button : TextureButton = get_close_button()
 	close_button.visible = false
 	progress_bar_until_ok = $ProgressBarUntilOk
@@ -26,7 +25,13 @@ func _ready():
 	# So we have to normalize that by the max waiting time
 	# 2.3 => 100
 	# x => y
-	time_to_progress_factor = 100.0 / 2.3
+	time_to_progress_factor = 100.0 / time_before_close
+	self.connect("about_to_show", self, "_on_show")
+	self.connect("confirmed", self, "_on_ok_button_pressed")
+
+
+func _ready():
+	_initialize()
 
 # Flow: First, popup shows, activates _process, with each
 # delta time, ProgressBar fills until its full. Then

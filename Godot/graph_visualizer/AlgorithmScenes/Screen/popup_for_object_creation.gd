@@ -25,7 +25,7 @@ func _on_PopUpForObjectCreation_popup_hide():
 
 func _input(event):
 	if StoredData.popup_captures_input:
-		if event.is_action_pressed("Enter"):
+		if event.is_action_pressed("ui_accept"):
 			_on_EnterButton_pressed()
 		elif event.is_action_pressed("ui_cancel"):
 			 _close_popup()

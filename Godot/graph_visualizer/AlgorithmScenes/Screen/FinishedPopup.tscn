@@ -65,5 +65,3 @@ __meta__ = {
 
 [connection signal="about_to_show" from="." to="." method="_on_FinishedPopup_about_to_show"]
 [connection signal="popup_hide" from="." to="." method="_on_FinishedPopup_popup_hide"]
-[connection signal="pressed" from="ResetButton" to="." method="_on_ResetButton_pressed"]
-[connection signal="pressed" from="MenuButton" to="." method="_on_MenuButton_pressed"]

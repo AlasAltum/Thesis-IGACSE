@@ -60,6 +60,5 @@ func get_jump_line() -> int:
 # This should be called in variables which have some highlighting
 # This highlighting may be overriden
 func _hightlight_code_line() -> void:
-
 	if code_line:
 		code_line.hightlight_code_line()
