@@ -37,8 +37,8 @@ func move_node_with_set_of_max_index_to_the_set_with_min_index(array_of_sets: Ar
 	var set_to_remove: Array = array_of_sets[max_index].data.duplicate(true)
 	# move the nodes in the max index set to the set with min index
 	for _node in set_to_remove:
-		array_of_sets[max_index].erase(_node)
-		array_of_sets[min_index].append(_node)
+		array_of_sets[max_index].erase(_node) # SetADT
+		array_of_sets[min_index].add_data(_node)
 	# Set is now empty, remove it
 	array_of_sets.remove(max_index)
 	return array_of_sets

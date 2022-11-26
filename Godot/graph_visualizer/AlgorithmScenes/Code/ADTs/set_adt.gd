@@ -42,6 +42,9 @@ func add_data(incoming_data):
 	if not incoming_data in self.data:
 		data.append(incoming_data)
 
+func erase(incoming_data):
+	data.erase(incoming_data)
+
 func substract_data(incoming_data):
 	data.erase(incoming_data)
 

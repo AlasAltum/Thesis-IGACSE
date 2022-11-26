@@ -206,10 +206,10 @@ func create_additional_edges() -> void:
 	
 	while StoredData.number_of_edges < StoredData.number_of_nodes:
 		var rng = RandomNumberGenerator.new()
-		var i = rng.randi_range(0, StoredData.number_of_nodes)
-		var j = rng.randi_range(0, StoredData.number_of_nodes)
+		var i = rng.randi_range(0, StoredData.number_of_nodes - 1)
+		var j = rng.randi_range(0, StoredData.number_of_nodes - 1)
 		while i == j and there_is_edge_an_between_nodes(i, j):
-			j = rng.randi_range(0, StoredData.number_of_nodes)
+			j = rng.randi_range(0, StoredData.number_of_nodes - 1)
 		_create_edge_between_nodes_with_max_weight(i, j)
 
 

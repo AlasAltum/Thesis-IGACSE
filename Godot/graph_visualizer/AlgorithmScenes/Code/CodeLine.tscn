@@ -46,7 +46,7 @@ size_flags_vertical = 0
 
 [node name="InstructionPointer" parent="HBoxContainer" instance=ExtResource( 3 )]
 visible = false
-position = Vector2( 15, 22 )
+position = Vector2( 15, 16 )
 scale = Vector2( 0.1, 0.1 )
 
 [node name="Tab" type="Label" parent="HBoxContainer"]
