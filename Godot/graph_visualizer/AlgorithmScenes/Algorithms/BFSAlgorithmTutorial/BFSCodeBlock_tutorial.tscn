@@ -93,7 +93,7 @@ theme = SubResource( 2 )
 line_index = 3
 code_text = "    q.add(t)"
 effect_check = ExtResource( 6 )
-hint_text = "Leave [color=#00FF00]q[/color] as current variable (see bottom right corner) by pressing [b]W[/b] and [b]S[/b]. Hover mouse on node [color=#00FF00]t=0[/color] and press [color=#00FF00]R[/color]. "
+hint_text = "Mark [color=#00FF00]q[/color] as current variable (see bottom) by pressing [b]W[/b] OR [b]S[/b]. Hover mouse on node [color=#00FF00]t=0[/color] and press [color=#00FF00]R[/color]. "
 
 [node name="PanelContainer4" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
@@ -132,7 +132,7 @@ line_index = 6
 jump_index = 11
 code_text = "        for (Node u in v.edges()):"
 effect_check = ExtResource( 10 )
-hint_text = "Press [b]SPACE[/b] and Look at the variables!"
+hint_text = "Press [b]SPACE[/b] and look at the variable [color=#00FF00]u[/color]!"
 plays_confirmation_audio = false
 
 [node name="PanelContainer7" parent="LinesContainer" instance=ExtResource( 20 )]

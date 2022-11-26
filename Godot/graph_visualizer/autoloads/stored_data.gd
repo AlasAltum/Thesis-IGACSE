@@ -79,6 +79,7 @@ func emphasize_current_selected_variable():
 func emphasize_error_on_current_selected_variable():
 	if adt_mediator:
 		adt_mediator.emphasize_error_on_current_selected_variable()
+		NotificationManager.play_error_audio()
 
 func highlight_variable(var_name: String) -> void:
 	adt_mediator.highlight_variable(var_name)
