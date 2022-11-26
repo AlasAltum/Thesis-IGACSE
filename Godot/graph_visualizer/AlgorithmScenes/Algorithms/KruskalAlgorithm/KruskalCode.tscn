@@ -122,7 +122,7 @@ line_index = 7
 jump_index = 10
 code_text = "        if Find(v) != Find(w):"
 effect_check = ExtResource( 6 )
-hint_text = "Answer: is the [color=#00FF00] u [/color] node explored?"
+hint_text = "Answer: is the [color=#00FF00] u [/color] node explored or iterated?"
 
 [node name="PanelContainer8" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0

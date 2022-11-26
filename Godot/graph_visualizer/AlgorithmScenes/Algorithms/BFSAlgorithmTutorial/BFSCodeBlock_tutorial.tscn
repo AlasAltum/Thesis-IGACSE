@@ -146,7 +146,7 @@ line_index = 7
 jump_index = 10
 code_text = "            if u.is_not_explored():"
 effect_check = ExtResource( 11 )
-hint_text = "Answer: is the node [color=#00FF00]u[/color] explored?"
+hint_text = "Answer: is the node [color=#00FF00]u[/color] explored or iterated?"
 
 [node name="PanelContainer8" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0

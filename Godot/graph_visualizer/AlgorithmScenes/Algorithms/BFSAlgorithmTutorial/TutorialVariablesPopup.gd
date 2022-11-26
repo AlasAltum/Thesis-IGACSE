@@ -8,8 +8,6 @@ func _ready():
 	ok_button.material = highlight_material  # our ok button should be highlighted
 
 	self.connect("confirmed", self, "_on_TutorialVariablesPopup_confirmed")
-	self.connect("about_to_show", self, "_on_show")
-	self.connect("confirmed", self, "_on_ok_button_pressed")
 
 
 # Once the user presses ok, the data structures panel is shown

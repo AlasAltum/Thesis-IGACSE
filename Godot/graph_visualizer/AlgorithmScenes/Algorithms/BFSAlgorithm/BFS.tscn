@@ -269,7 +269,7 @@ line_index = 7
 jump_index = 10
 code_text = "            if u.is_not_explored():"
 effect_check = SubResource( 9 )
-hint_text = "Answer: is the [color=#00FF00] u [/color] node explored?"
+hint_text = "Answer: is the [color=#00FF00] u [/color] node explored or iterated?"
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7" index="0"]
 margin_right = 392.0

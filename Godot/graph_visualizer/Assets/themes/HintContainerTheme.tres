@@ -1,8 +1,8 @@
 [gd_resource type="Theme" load_steps=9 format=2]
 
 [ext_resource path="res://Assets/fonts/Arima_Madurai/ArimaMadurai-ExtraBold.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Assets/fonts/Balsamiq_Sans/BalsamiqSans-BoldItalic.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Assets/fonts/Balsamiq_Sans/BalsamiqSans-Italic.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/fonts/Arima_Madurai/ArimaMadurai-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/fonts/Arima_Madurai/ArimaMadurai-Light.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/fonts/Arima_Madurai/ArimaMadurai-Regular.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=2]
