@@ -106,7 +106,7 @@ func _on_Select_UnselectButton_pressed():
 	# Unselect
 	if self.selected:
 		pass
-		#self.unselect_node()
+		#self.unselect_node() # A node may not be unselected
 	else:
 		self.select_node()
 	self.hide_popup_menu()

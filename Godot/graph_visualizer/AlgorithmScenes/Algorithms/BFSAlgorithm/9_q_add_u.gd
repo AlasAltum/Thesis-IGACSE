@@ -1,6 +1,11 @@
 extends EffectCheck
 
 
+func effect_check_on_focused():
+	var u = StoredData.get_variable("u").get_node()
+	StoredData.add_node_to_nodes_that_should_be_added_to_adt(u)
+
+
 func check_actions_correct() -> bool:
 	if StoredData.has_variable("q") and StoredData.has_variable("u"):
 		var u: AGraphNode = StoredData.get_variable("u").get_node()

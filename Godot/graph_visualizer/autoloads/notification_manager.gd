@@ -37,9 +37,11 @@ func _on_node_add_to_object(node):
 		# TODO: Show popup with error message
 		print("There is no selected variable in the variables stack!")
 
-	if StoredData.selected_variable_allows_object_adition():
+	# Add variable to object
+	if StoredData.selected_variable_allows_object_adition(node):
 		StoredData.add_node_to_adt(StoredData.get_selected_variable_name(), node)
 		StoredData.emphasize_current_selected_variable()
+		StoredData.remove_node_from_nodes_that_should_be_added_to_adt(node)
 
 	else:
 		# TODO: show popup with error message

@@ -5,7 +5,7 @@ public class MainMenu : Node2D
 {
 	public Node CurrentScene { get; set; }
 	private Button startGame;
-	private Button exitGame;
+//	private Button exitGame;
 	private AnimationPlayer animPlayer;
 
 	private AlgorithmSelectionMenu algorithmSelectionMenu;
@@ -14,13 +14,13 @@ public class MainMenu : Node2D
 	public override void _Ready()
 	{
 		startGame = GetNode<Button>("VBoxContainer/StartGame");
-		exitGame = GetNode<Button>("VBoxContainer/ExitGame");
+//		exitGame = GetNode<Button>("VBoxContainer/ExitGame");
 		animPlayer = GetNode<AnimationPlayer>("FadeAnimation");
 		algorithmSelectionMenu = GetNode<AlgorithmSelectionMenu>("AlgorithmSelectionMenu");
 
 		startGame.GrabFocus();
 		startGame.Connect("pressed", this, "OnStartGame");
-		exitGame.Connect("pressed", this, "OnExitGame");    
+//		exitGame.Connect("pressed", this, "OnExitGame");    
 		algorithmSelectionMenu.Connect("OnSelectionMenuExitSignal", this, nameof(OnSelectionMenuExit));
 		algorithmSelectionMenu.Connect("OnBackButtonPressedSignal", this, nameof(OnBackButtonPressed));
 

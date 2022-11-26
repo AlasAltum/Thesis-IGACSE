@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/tutorial_highlight_shader.tres" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/AMPLITUDE = 3.0
+shader_param/FREQ = 10.0

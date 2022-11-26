@@ -43,6 +43,7 @@ var adt_is_empty_right_answer : bool = false  # BFS & DFS
 var length_c_is_one_correct_answer: bool = false  # Kruskal1
 var find_w_unequal_find_v_correct_answer: bool = false  # Kruskal2
 
+var nodes_that_should_be_added_to_adt = []
 
 ## ADT selection
 var adt_shower # ADTShower
@@ -124,11 +125,27 @@ func get_data_type_of_variable(var_name: String):
 func get_selected_edge():
 	return selected_edge
 
-func selected_variable_allows_object_adition() -> bool:
-	return adt_mediator.selected_variable_allows_object_adition()
+func selected_variable_allows_object_adition(node) -> bool:
+	var uno = StoredData.node_may_be_added_to_adt(node)
+	var dos = adt_mediator.selected_variable_allows_object_adition()
+	return uno && dos
 
 func get_selected_variable_name() -> String:
 	return adt_mediator.get_selected_variable_name()
+
+
+## These functions are to avoid user from adding multiple times the same
+## node or the wrong node to an ADT, avoiding to make the user feel frustrated
+func add_node_to_nodes_that_should_be_added_to_adt(node):
+	self.nodes_that_should_be_added_to_adt.append(node)
+
+
+func remove_node_from_nodes_that_should_be_added_to_adt(node):
+	self.nodes_that_should_be_added_to_adt.erase(node)
+
+func node_may_be_added_to_adt(node) -> bool:
+	return node in self.nodes_that_should_be_added_to_adt
+
 
 # When game gets reset, reset data excepting finished_levels 
 func reset_data():
@@ -149,6 +166,7 @@ func reset_data():
 	self.selectable_nodes = []
 	self.selected_edges = []
 	self.iterated_nodes = []
+	self.nodes_that_should_be_added_to_adt = []
 
 	## Code continue conditions
 	self.v_is_explored_right_answer = false
@@ -161,4 +179,5 @@ func reset_data():
 	self.adt_mediator = null
 	self.selected_variable_index = 0
 	self.adt_to_be_created = null
+	
 
