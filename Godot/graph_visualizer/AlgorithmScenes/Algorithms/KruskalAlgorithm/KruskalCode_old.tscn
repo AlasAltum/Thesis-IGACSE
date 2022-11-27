@@ -70,7 +70,7 @@ margin_top = 103.0
 margin_right = 400.0
 margin_bottom = 136.0
 line_index = 2
-code_text = "    C = [[v] for v in graph.vertices];"
+code_text = "    C = [{v} for v in graph.vertices];"
 effect_check = ExtResource( 7 )
 hint_text = "Press [b]SPACE[/b] and see what happens!"
 

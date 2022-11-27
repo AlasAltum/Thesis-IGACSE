@@ -6,9 +6,9 @@
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/2_queue_tutorial.gd" type="Script" id=4]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/11_v_mark_as_iterated.gd" type="Script" id=5]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/3_add_to_queue_tutorial.gd" type="Script" id=6]
+[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/6_for_u_in_v_edges_tutorial.gd" type="Script" id=7]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/4_while_q_is_not_empty.gd" type="Script" id=8]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/5_v_q_top.gd" type="Script" id=9]
-[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/6_for_u_in_v_edges.gd" type="Script" id=10]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/7_if_u_is_not_explored.gd" type="Script" id=11]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/8_u_mark_as_explored.gd" type="Script" id=12]
 [ext_resource path="res://AlgorithmScenes/Code/code_block.gd" type="Script" id=13]
@@ -131,7 +131,7 @@ theme = SubResource( 2 )
 line_index = 6
 jump_index = 11
 code_text = "        for (Node u in v.edges()):"
-effect_check = ExtResource( 10 )
+effect_check = ExtResource( 7 )
 hint_text = "Press [b]SPACE[/b] and look at the variable [color=#00FF00]u[/color]!"
 plays_confirmation_audio = false
 

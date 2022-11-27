@@ -94,6 +94,7 @@ margin_left = -198.999
 margin_top = -233.0
 margin_right = 312.999
 margin_bottom = -74.0
+expected_adt_names = [ "s" ]
 
 [node name="UNodeIsExploredPopup" parent="CanvasLayer" instance=ExtResource( 37 )]
 anchor_left = 0.5

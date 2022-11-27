@@ -18,6 +18,9 @@ public class GraphEdge : PinJoint2D
 	private CollisionShape2D collision_line;
 
 	private static Resource adt = GD.Load("res://AlgorithmScenes/Code/ADTs/edge_adt.gd");
+	
+	private static Material HighlightedMaterial = GD.Load<Material>("res://Assets/custom_shaders/edge_hightlight_material.tres");
+
 	[Export]
 	private RectangleShape2D clickable_area;
 	
@@ -45,7 +48,6 @@ public class GraphEdge : PinJoint2D
 		clickable_area = (RectangleShape2D) collision_line.Shape;
 	}
 
-	//  // Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(float delta)
 	{
 		line.SetPointPosition(0, joint_end1.Position);
@@ -66,6 +68,7 @@ public class GraphEdge : PinJoint2D
 	{
 		return angle * 180 / Mathf.Pi;
 	}
+
 	/// Make sure Labels are not that much rotated so they are always readable
 	// Rotation is coming in radians
 	private float normalizeRotation(float rotation)
@@ -121,7 +124,8 @@ public class GraphEdge : PinJoint2D
 	///	position(x, y) := (node1.position + node2.position) / 2
 	///	rotation(alpha) := arctan( (node2.y - node1.y) / (node2.x - node1.x) )
 	/// </summary>
-	private void set_collision_box(){
+	private void set_collision_box()
+	{
 		// Set extent of the collision box for the line
 		Vector2 pos1 = (Vector2) joint_end1.Get("aux_position");
 		Vector2 pos2 = (Vector2) joint_end2.Get("aux_position");
@@ -132,7 +136,6 @@ public class GraphEdge : PinJoint2D
 		// Set the position of the collision box
 		collision_line.Position = (pos1 + pos2) * 0.5f;
 		collision_line.Rotation = Mathf.Atan2(pos2.y - pos1.y, pos2.x - pos1.x);
-
 	}
 
 	public void _on_Area2D_input_event(Viewport viewport, InputEvent @event, int shape_idx) { 
@@ -162,7 +165,6 @@ public class GraphEdge : PinJoint2D
 		return "GraphEdge";
 	}
 
-
 	public String as_string(){
 		return "Edge (" + joint_end1.Get("index") + "-" + joint_end2.Get("index") + ")";
 	}
@@ -184,4 +186,17 @@ public class GraphEdge : PinJoint2D
 	{
 		return !this.is_selected;
 	}
+
+	public void set_is_highlighted(bool set_is_highlighted)
+	{
+		if (set_is_highlighted)
+		{
+			this.Material = HighlightedMaterial;
+		}
+		else 
+		{
+			this.Material = null;
+		}
+	}
+
 }

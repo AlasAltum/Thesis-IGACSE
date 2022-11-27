@@ -106,8 +106,9 @@ anchor_right = 0.575
 anchor_bottom = 0.296
 margin_left = -256.0
 margin_top = -71.68
-margin_right = 255.998
-margin_bottom = 87.32
+margin_right = 256.0
+margin_bottom = 144.32
+expected_adt_names = [ "c" ]
 
 [node name="FinishedPopup" parent="CanvasLayer" instance=ExtResource( 38 )]
 anchor_left = 0.567

@@ -6,8 +6,8 @@ extends EffectCheck
 # this effect check is focused
 func effect_check_on_focused() -> void:
 	if StoredData.has_variable("t"):
-		var t = StoredData.get_variable("t")
-		StoredData.add_node_to_nodes_that_should_be_added_to_adt(t.get_node())
+		var t = StoredData.get_variable("t").get_node()
+		StoredData.add_node_to_nodes_that_should_be_added_to_adt(t)
 
 
 # Make sure that user has created a queue with name q and it has the node(0). 

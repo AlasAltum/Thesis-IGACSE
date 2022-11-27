@@ -14,3 +14,7 @@ func check_actions_correct() -> bool:
 		if u_as_string in StoredData.get_variable("q").as_string():
 			return true
 	return false
+
+func _trigger_on_next_line_side_effect():
+	StoredData.highlighted_edge.set_is_highlighted(false)
+	StoredData.set_highlighted_edge(null)

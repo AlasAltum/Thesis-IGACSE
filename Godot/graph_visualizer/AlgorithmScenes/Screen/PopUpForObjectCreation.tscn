@@ -31,10 +31,10 @@ tracks/1/keys = {
 }
 
 [node name="PopUpForObjectCreation" type="WindowDialog"]
-margin_left = 524.122
-margin_top = 233.47
-margin_right = 1036.12
-margin_bottom = 392.47
+margin_left = 524.0
+margin_top = 233.0
+margin_right = 1036.0
+margin_bottom = 440.0
 focus_neighbour_top = NodePath("EnterButton")
 focus_neighbour_bottom = NodePath("NameAssign")
 focus_next = NodePath("NameAssign")
@@ -58,10 +58,10 @@ autowrap = true
 
 [node name="ErrorNotification" type="Label" parent="."]
 visible = false
-margin_left = 5.52972
-margin_top = 87.6922
-margin_right = 506.53
-margin_bottom = 113.692
+margin_left = 4.0
+margin_top = 111.0
+margin_right = 505.0
+margin_bottom = 137.0
 rect_pivot_offset = Vector2( 265.108, 0 )
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0.878431, 0, 0, 1 )
@@ -70,9 +70,6 @@ custom_constants/shadow_as_outline = 2
 text = "Invalid name for variable"
 align = 1
 autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ErrorNotification"]
 anims/message_modulation = SubResource( 1 )
@@ -93,18 +90,16 @@ caret_blink = true
 
 [node name="EnterButton" type="Button" parent="."]
 modulate = Color( 0.121569, 0.913725, 0, 1 )
-margin_left = 195.42
-margin_top = 117.366
-margin_right = 289.42
-margin_bottom = 143.366
+margin_left = 196.0
+margin_top = 167.0
+margin_right = 290.0
+margin_bottom = 199.0
 focus_neighbour_top = NodePath("../NameAssign")
 focus_neighbour_bottom = NodePath("..")
 focus_next = NodePath("..")
 focus_previous = NodePath("../NameAssign")
 text = "Enter"
 
-[connection signal="about_to_show" from="." to="." method="_on_PopUpForObjectCreation_about_to_show"]
-[connection signal="popup_hide" from="." to="." method="_on_PopUpForObjectCreation_popup_hide"]
 [connection signal="animation_finished" from="ErrorNotification/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="text_entered" from="NameAssign" to="." method="_on_NameAssign_text_entered"]
 [connection signal="pressed" from="EnterButton" to="." method="_on_EnterButton_pressed"]

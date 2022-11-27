@@ -44,6 +44,7 @@ var length_c_is_one_correct_answer: bool = false  # Kruskal1
 var find_w_unequal_find_v_correct_answer: bool = false  # Kruskal2
 
 var nodes_that_should_be_added_to_adt = []
+var highlighted_edge = null
 
 ## ADT selection
 var adt_shower # ADTShower
@@ -147,6 +148,9 @@ func remove_node_from_nodes_that_should_be_added_to_adt(node):
 func node_may_be_added_to_adt(node) -> bool:
 	return node in self.nodes_that_should_be_added_to_adt
 
+func set_highlighted_edge(_edge):
+	self.highlighted_edge = _edge
+	_edge.set_is_highlighted(true)
 
 # When game gets reset, reset data excepting finished_levels 
 func reset_data():
@@ -168,7 +172,7 @@ func reset_data():
 	self.selected_edges = []
 	self.iterated_nodes = []
 	self.nodes_that_should_be_added_to_adt = []
-
+	self.highlighted_edge = null
 	## Code continue conditions
 	self.v_is_explored_right_answer = false
 	self.adt_is_empty_right_answer = false

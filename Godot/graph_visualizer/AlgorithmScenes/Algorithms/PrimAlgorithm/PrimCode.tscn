@@ -166,7 +166,7 @@ margin_top = 247.0
 margin_right = 393.0
 margin_bottom = 280.0
 line_index = 5
-code_text = "   Set V = {graph.vertices} - T"
+code_text = "   Set A = {graph.vertices} - T"
 effect_check = ExtResource( 13 )
 hint_text = "Just press [b]SPACE[/b]"
 
@@ -215,7 +215,7 @@ margin_top = 313.0
 margin_right = 393.0
 margin_bottom = 346.0
 line_index = 7
-code_text = "        e = min_edge_connecting(V, T)"
+code_text = "        e = min_edge_connecting(A, T)"
 effect_check = ExtResource( 3 )
 hint_text = "Select the edge with the [color=#ff00ff]lowest[/color] weight connecting sets [color=#00FF00]V[/color] and [color=#00FF00]T[/color]"
 
@@ -311,7 +311,7 @@ margin_top = 445.0
 margin_right = 393.0
 margin_bottom = 478.0
 line_index = 11
-code_text = "       V = {graph.vertices} - T"
+code_text = "       A = {graph.vertices} - T"
 effect_check = ExtResource( 17 )
 hint_text = "Press [b]SPACE[/b]"
 

@@ -1,5 +1,5 @@
 extends EffectCheck
-# e = min_edge_connecting(V, T)
+# e = min_edge_connecting(A, T)
 
 const MAX_WEIGHT: float = 9999999.9
 var e_min_weight: float = MAX_WEIGHT  # Simulating a high float
@@ -9,8 +9,9 @@ var selected_edge
 
 
 func reset() -> void:
-	self.e_min_weight = 9999999.9  # Simulating a high float
-	get_min_weight_edge_between_sets_A_and_T()
+	self.e_min_weight = MAX_WEIGHT  # Simulating a high float
+	var e_min_weight_edge = null
+	var selected_edge = null
 
 # Get the list of node objects from a SetADT
 func get_nodes_in_ADT(ADT_name: String) -> Array:
@@ -29,7 +30,7 @@ func effect_check_on_focused():
 
 func get_min_weight_edge_between_sets_A_and_T():
 	# get_edge_between_sets_A_and_T
-	var nodes_in_a = self.get_nodes_in_ADT("V")  # TODO: A is not using an adt, it is seting a GraphNode
+	var nodes_in_a = self.get_nodes_in_ADT("A")
 	var nodes_in_t = self.get_nodes_in_ADT("T")
 
 	for _edge in StoredData.edges:
@@ -46,7 +47,7 @@ func edge_is_connecting_a_node_between_sets(_edge, nodes_array_1: Array, nodes_a
 	return possibility_1 or possibility_2
 
 func consider_edge_for_minimum_weight(current_edge):
-	if not current_edge in StoredData.selected_edges and current_edge.weight <= self.e_min_weight:
+	if not current_edge in StoredData.selected_edges and current_edge.weight <= self.e_min_weight:  # BUG: e_min_weight
 		self.e_min_weight = current_edge.weight
 		self.e_min_weight_edge = current_edge
 		return true
@@ -65,7 +66,7 @@ func check_actions_correct() -> bool:
 	return false
 
 func _trigger_on_next_line_side_effect():
-	self.reset()
 	selected_edge.set_selected()
 	StoredData.selected_edges.append(selected_edge)
+	self.reset()
 

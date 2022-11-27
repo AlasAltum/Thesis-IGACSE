@@ -16,7 +16,7 @@
 [node name="Main" type="Node2D"]
 script = ExtResource( 15 )
 level_name = "Prim"
-graph_density = 0.4
+graph_density = 0.45
 graph_size = 8
 edge_max_weight = 9.0
 is_weighted_graph = true
@@ -105,8 +105,9 @@ anchor_right = 0.587
 anchor_bottom = 0.323
 margin_left = -256.04
 margin_top = -79.84
-margin_right = 255.958
-margin_bottom = 79.16
+margin_right = 255.96
+margin_bottom = 131.16
+expected_adt_names = [ "mst" ]
 
 [node name="FinishedPopup" parent="CanvasLayer" instance=ExtResource( 38 )]
 anchor_left = 0.586

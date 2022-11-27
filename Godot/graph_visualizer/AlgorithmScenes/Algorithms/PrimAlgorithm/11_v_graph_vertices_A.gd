@@ -1,5 +1,5 @@
 extends EffectCheck
-# V = {graph.vertices} - A
+# A = {graph.vertices} - T
 
 
 # Get the list of node objects from an ArrayADT
@@ -18,16 +18,16 @@ func execute_side_effect() -> void:
 	var all_nodes = StoredData.nodes
 	var nodes_in_t = self.get_nodes_objects_from_array_adt("T")
 	# Create set A: all nodes excepting the ones in A
-	var v = SetADT.new()
+	var a = SetADT.new()
 	for node in all_nodes:
-		v.add_data(node)
-	for node_in_a in nodes_in_t:
-		v.substract_data(node_in_a)
+		a.add_data(node)
+	for node_in_t in nodes_in_t:
+		a.substract_data(node_in_t)
 	# Until now, all nodes are of the type AGraphNode
 	# We need to get their respective NodeADT
-	for graph_node_index in range(v.data.size()):
-		v.data[graph_node_index] = v.data[graph_node_index].adt
-	StoredData.add_variable("V", v)
+	for graph_node_index in range(a.data.size()):
+		a.data[graph_node_index] = a.data[graph_node_index].adt
+	StoredData.add_variable("a", a)
 
 
 

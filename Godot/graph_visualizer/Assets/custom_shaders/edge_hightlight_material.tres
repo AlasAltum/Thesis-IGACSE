@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
+
+uniform vec4 WHITE = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float FREQ = 4.0;
+
+void vertex()
+{
+	float t = sin(TIME * FREQ);
+	vec4 in_color = COLOR;
+	COLOR = mix(in_color, WHITE, t * t);
+}"
+
+[resource]
+shader = SubResource( 3 )
+shader_param/WHITE = Plane( 1, 1, 1, 1 )
+shader_param/FREQ = 4.0
