@@ -13,16 +13,16 @@ public class AlgorithmSelectionMenu : Node2D
 	private bool playerHasFinishedBFS = false;
 
 	[Export]
-	private const String BFS_SCENE = "res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/BFS_tutorial.tscn";
+	private String BFS_SCENE = "res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/BFS_tutorial.tscn";
 
 	[Export]
-	private const String DFS_SCENE = "res://AlgorithmScenes/Algorithms/DFSAlgorithm/DFS_styled.tscn";
+	private String DFS_SCENE = "res://AlgorithmScenes/Algorithms/DFSAlgorithm/DFS_styled.tscn";
 
 	[Export]
-	private const String PRIM_SCENE = "res://AlgorithmScenes/Algorithms/PrimAlgorithm/Prim_styled.tscn";
+	private String PRIM_SCENE = "res://AlgorithmScenes/Algorithms/PrimAlgorithm/Prim_styled.tscn";
 
 	[Export]
-	private const String KRUSKAL_SCENE = "res://AlgorithmScenes/Algorithms/KruskalAlgorithm/Kruskal_styled.tscn";
+	private String KRUSKAL_SCENE = "res://AlgorithmScenes/Algorithms/KruskalAlgorithm/Kruskal_styled.tscn";
 	private Button BFSButton;
 	private Button DFSButton;
 	private Button PrimButton;

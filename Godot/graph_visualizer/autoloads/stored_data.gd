@@ -83,6 +83,7 @@ func emphasize_error_on_current_selected_variable():
 		NotificationManager.play_error_audio()
 
 func highlight_variable(var_name: String) -> void:
+	var_name = var_name.to_lower()
 	adt_mediator.highlight_variable(var_name)
 
 # We don't want to add the whole node, but its representation
@@ -148,9 +149,22 @@ func remove_node_from_nodes_that_should_be_added_to_adt(node):
 func node_may_be_added_to_adt(node) -> bool:
 	return node in self.nodes_that_should_be_added_to_adt
 
+
+func get_edge_between_nodes(node1, node2):
+	for edge in StoredData.edges:
+		if (
+			(edge.joint_end1 == node1 and edge.joint_end2 == node2) or 
+			(edge.joint_end1 == node2 and edge.joint_end2 == node1)
+		):
+			return edge
+
+
 func set_highlighted_edge(_edge):
-	self.highlighted_edge = _edge
-	_edge.set_is_highlighted(true)
+	if self.highlighted_edge:
+		self.highlighted_edge.set_is_highlighted(false)
+	if _edge:
+		_edge.set_is_highlighted(true)
+		self.highlighted_edge = _edge
 
 # When game gets reset, reset data excepting finished_levels 
 func reset_data():

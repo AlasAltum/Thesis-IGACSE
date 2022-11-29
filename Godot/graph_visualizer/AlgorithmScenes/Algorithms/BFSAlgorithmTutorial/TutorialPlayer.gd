@@ -28,10 +28,18 @@ func show_variables_panel():
 		self.queue("ShowVariablesPanel")
 		variables_popup.popup()
 
+
+func show_current_variable_popup():
+	queue("ShowCurrentVariable")
+
+# The player may not understand what the current variable is
+# So we will display a popup explaining what the current variable is
+# func show_current_variable():
+
 func play_show_data_structures_panel():
 	self.queue("ShowDataStructuresPanel")
 
 func stop_queue_highlight_once():
 	if not has_played_stop_queue_hightlight_once:
-		play("StopQueueHighlight")
+		queue("StopQueueHighlight")
 		has_played_stop_queue_hightlight_once = true

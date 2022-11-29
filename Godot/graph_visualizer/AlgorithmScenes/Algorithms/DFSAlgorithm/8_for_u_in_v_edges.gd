@@ -12,6 +12,11 @@ func execute_side_effect() -> void:
 	var u : AGraphNode = StoredData.nodes[u_index]
 	iteration_index += 1
 	StoredData.add_variable("u", u)
+	# Get Edge between nodes v and u
+	# HIGHLIGHT IT
+	var _edge = StoredData.get_edge_between_nodes(u, v)
+	
+
 
 func get_max_iteration_index(v: AGraphNode) -> int:
 	return v.edges.size()

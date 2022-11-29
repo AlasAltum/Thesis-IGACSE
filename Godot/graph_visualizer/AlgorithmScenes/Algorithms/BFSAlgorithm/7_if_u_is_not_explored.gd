@@ -21,7 +21,7 @@ func ask_user() -> void:
 	
 # If u.is_not_explored()
 func if_condition_is_true(u) -> bool:
-	if (u in StoredData.iterated_nodes):
+	if (u in StoredData.iterated_nodes or u.selected):
 		return false
 
 	return true

@@ -31,10 +31,10 @@ tracks/1/keys = {
 }
 
 [node name="PopUpForObjectCreation" type="WindowDialog"]
-margin_left = 524.0
-margin_top = 233.0
-margin_right = 1036.0
-margin_bottom = 440.0
+margin_left = 512.0
+margin_top = 232.0
+margin_right = 1024.0
+margin_bottom = 423.0
 focus_neighbour_top = NodePath("EnterButton")
 focus_neighbour_bottom = NodePath("NameAssign")
 focus_next = NodePath("NameAssign")
@@ -58,10 +58,10 @@ autowrap = true
 
 [node name="ErrorNotification" type="Label" parent="."]
 visible = false
-margin_left = 4.0
-margin_top = 111.0
-margin_right = 505.0
-margin_bottom = 137.0
+margin_left = 8.0
+margin_top = 104.0
+margin_right = 509.0
+margin_bottom = 144.0
 rect_pivot_offset = Vector2( 265.108, 0 )
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0.878431, 0, 0, 1 )
@@ -90,10 +90,10 @@ caret_blink = true
 
 [node name="EnterButton" type="Button" parent="."]
 modulate = Color( 0.121569, 0.913725, 0, 1 )
-margin_left = 196.0
-margin_top = 167.0
-margin_right = 290.0
-margin_bottom = 199.0
+margin_left = 192.0
+margin_top = 152.0
+margin_right = 318.0
+margin_bottom = 184.0
 focus_neighbour_top = NodePath("../NameAssign")
 focus_neighbour_bottom = NodePath("..")
 focus_next = NodePath("..")

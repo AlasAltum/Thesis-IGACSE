@@ -15,6 +15,7 @@ func _ready():
 	valid_name_regex.compile("^[a-zA-Z_$][a-zA-Z_$0-9]*$")
 	error_label.visible = false
 
+
 func _input(event):
 	if StoredData.popup_captures_input:
 		if event.is_action_pressed("ui_accept"):
@@ -22,12 +23,15 @@ func _input(event):
 		elif event.is_action_pressed("ui_cancel"):
 			 _close_popup()
 
+
 func _popup():
 	self.popup()
 
+
 func _close_popup():
 	self.hide()
-		
+
+
 func _notification(what):
 	# On Popup
 	if what == NOTIFICATION_POST_POPUP:
@@ -44,8 +48,10 @@ func set_next_adt_name(ADT_name: String):
 		msg = msg.format({"ADT_name": ADT_name})
 		explanation_label.text = msg
 
+
 func _on_EnterButton_pressed():
 	_on_NameAssign_text_entered(name_assign.text)
+
 
 # ADT Creation flow:
 # User clicks the slot to create an ADT, this sets the variable
@@ -56,24 +62,28 @@ func _on_NameAssign_text_entered(variable: String):
 		return
 	if not variable in expected_adt_names:
 		show_not_expected_variable_name()
-		return 
-	
+		return
 	self.visible = false
 	StoredData.adt_mediator._on_correct_variable_creation(variable)
 
+
 func _variable_has_valid_name(variable: String):
+	variable = variable.to_lower()
 	if valid_name_regex.search(variable):
 		return true
 	return false
+
 
 func _play_error_label_animation():
 	error_label.visible = true
 	error_anim.stop()
 	error_anim.queue("message_modulation")
-	
+
+
 func show_not_valid_name_error():
 	error_label.text = "Invalid name for variable."
 	_play_error_label_animation()
+
 
 func show_not_expected_variable_name():
 	error_label.text = "This is a name not expected in this algorithm. Look at the instructions"

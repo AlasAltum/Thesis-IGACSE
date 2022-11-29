@@ -1,7 +1,7 @@
 extends EffectCheck
 # for (Node u: v.edges()):
-var iteration_index : int = 0
 
+var iteration_index : int = 0
 
 # set u as node
 func execute_side_effect() -> void:
@@ -9,19 +9,12 @@ func execute_side_effect() -> void:
 	# v.edges[iteration_index] is a pair [node_index, weight]
 	var u_index : int = v.edges[iteration_index][0]
 	var u : AGraphNode = StoredData.nodes[u_index]
-	# Get edge between node v and u. This works because our graph
+	# Get edge between node v and u and highlight it. This works because our graph
 	# is not a multigraph, it allows only one edge between two nodes
-	for edge in StoredData.edges:
-		if (
-			(edge.joint_end1 == v and edge.joint_end2 == u) or 
-			(edge.joint_end1 == u and edge.joint_end2 == v)
-		):
-			StoredData.set_highlighted_edge(edge)
-
-
-
-	iteration_index += 1
+	var edge_between_u_and_v = StoredData.get_edge_between_nodes(u, v)
+	StoredData.set_highlighted_edge(edge_between_u_and_v)
 	StoredData.add_variable("u", u.get_adt())
+	iteration_index += 1
 
 
 func get_max_iteration_index(v: AGraphNode) -> int:

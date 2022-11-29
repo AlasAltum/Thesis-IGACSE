@@ -19,7 +19,7 @@
 position = Vector2( -1, 0 )
 script = ExtResource( 15 )
 level_name = "Kruskal"
-graph_density = 0.4
+graph_density = 0.5
 graph_size = 4
 edge_max_weight = 9.0
 is_weighted_graph = true
@@ -27,7 +27,6 @@ allow_selected_edges = true
 returns_mst = true
 
 [node name="ADTMediator" parent="." instance=ExtResource( 34 )]
-visible = false
 position = Vector2( 1, 0 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -50,6 +49,7 @@ size_flags_vertical = 3
 
 [node name="GameplayMenuButton" parent="CanvasLayer/LeftPanel" instance=ExtResource( 8 )]
 margin_right = 384.0
+text = "Menu"
 
 [node name="KruskalCodeBlock" parent="CanvasLayer/LeftPanel" instance=ExtResource( 3 )]
 margin_top = 56.0
@@ -108,7 +108,7 @@ margin_left = -256.0
 margin_top = -71.68
 margin_right = 256.0
 margin_bottom = 144.32
-expected_adt_names = [ "c" ]
+expected_adt_names = [ "mst" ]
 
 [node name="FinishedPopup" parent="CanvasLayer" instance=ExtResource( 38 )]
 anchor_left = 0.567

@@ -28,6 +28,7 @@ func execute_side_effect() -> void:
 	for graph_node_index in range(a.data.size()):
 		a.data[graph_node_index] = a.data[graph_node_index].adt
 	StoredData.add_variable("a", a)
+	StoredData.highlight_variable("a")
 
 
 

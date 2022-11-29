@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Code/DebugBlock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/textures/structure_queue_icon.png" type="Texture" id=2]
@@ -81,8 +81,8 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 2.5, 4.6 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ "These are the [b]instructions[/b]. 
-[b]Follow[/b] them to [b]win[/b]", "These are the [b]nodes[/b] and [b]edges[/b] of the [b]graph[/b]", "[wave] Press [b]SPACE[/b] to continue" ]
+"values": [ "            These are the [b]instructions[/b] 
+            [b]Follow[/b] them to [b]win[/b]", "[center]These are the [b]nodes[/b] and [b]edges[/b] of the [b]graph[/b]", "[center][wave] Press [b]SPACE[/b] to continue" ]
 }
 tracks/4/type = "method"
 tracks/4/path = NodePath("TextHintContainer/HintLabel")
@@ -112,6 +112,21 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("TutorialCurrentVariable:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1408, 832 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -161,12 +176,24 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ Rect2( 0, 0, 0, 0 ) ],
 "method": "popup"
 } ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TutorialCurrentVariable:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 750, 460 ), Vector2( 750, 830 ) ]
 }
 
 [sub_resource type="Animation" id=13]
@@ -285,6 +312,7 @@ edge_max_weight = 8.0
 root_node = NodePath("../CanvasLayer")
 playback_speed = 0.5
 anims/HighlightInstructions = SubResource( 12 )
+anims/RESET = SubResource( 14 )
 anims/ShowCode = SubResource( 2 )
 anims/ShowCurrentVariable = SubResource( 11 )
 anims/ShowDataStructuresPanel = SubResource( 13 )
@@ -299,30 +327,27 @@ position = Vector2( 1, 0 )
 layer = -1
 
 [node name="TextHintContainer" parent="CanvasLayer" instance=ExtResource( 4 )]
-anchor_left = 0.217
-anchor_right = 1.0
+anchor_left = 0.193
 anchor_bottom = 0.133
-margin_left = -8.64001
+margin_left = 0.440002
 margin_top = -5.0
-margin_right = 0.0
+margin_right = -16.0
 margin_bottom = 1.36
 mouse_default_cursor_shape = 8
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="HintLabel" parent="CanvasLayer/TextHintContainer" index="0"]
-margin_left = 356.0
+margin_left = 366.0
 margin_top = 24.0
-margin_right = 1156.0
+margin_right = 1166.0
 margin_bottom = 126.0
 rect_min_size = Vector2( 800, 100 )
 rect_clip_content = false
 size_flags_horizontal = 0
 size_flags_vertical = 0
-bbcode_text = "These are the [b]instructions[/b]. 
-[b]Follow[/b] them to [b]win[/b]"
-text = "These are the instructions. 
-Follow them to win"
+bbcode_text = "            These are the [b]instructions[/b] 
+            [b]Follow[/b] them to [b]win[/b]"
+text = "            These are the instructions 
+            Follow them to win"
 
 [node name="LeftPanel" type="VBoxContainer" parent="CanvasLayer"]
 anchor_right = 0.208
@@ -551,12 +576,13 @@ mouse_filter = 2
 [node name="DebugBlock" parent="CanvasLayer/BottomPanel" instance=ExtResource( 1 )]
 modulate = Color( 1, 1, 1, 0 )
 margin_top = 0.0
-margin_right = 1215.0
+margin_right = 1453.0
 margin_bottom = 300.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ADTShower" parent="CanvasLayer/BottomPanel" instance=ExtResource( 28 )]
+visible = false
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -588,7 +614,6 @@ __meta__ = {
 }
 
 [node name="PopUpForObjectCreation" parent="CanvasLayer" instance=ExtResource( 13 )]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -662,19 +687,20 @@ margin_bottom = 12.0
 
 [node name="TutorialCurrentVariable" type="AcceptDialog" parent="CanvasLayer"]
 visible = true
-anchor_left = 1.0
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -512.0
-margin_top = -248.0
-margin_right = -24.0
-margin_bottom = -128.0
+margin_left = 1408.0
+margin_top = 832.0
+margin_right = 2075.0
+margin_bottom = 966.0
 theme = ExtResource( 9 )
 popup_exclusive = true
 window_title = ""
-dialog_text = "This is the current variable. 
-You can see how the nodes are added to your queue!"
+dialog_text = "These are your variables. You can change the current variable by pressing W or S.
+You can only move it while there are no popups on screen.
+Variables are going to be highlighted when updated or added."
 
 [node name="TutorialADTPopup" type="AcceptDialog" parent="CanvasLayer"]
 visible = true

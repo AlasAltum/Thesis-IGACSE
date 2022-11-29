@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float FREQ = 10.0;
+
+void vertex()
+{
+	VERTEX.x += sin(TIME * FREQ);
+	VERTEX.y += cos(TIME * FREQ);
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/FREQ = 10.0

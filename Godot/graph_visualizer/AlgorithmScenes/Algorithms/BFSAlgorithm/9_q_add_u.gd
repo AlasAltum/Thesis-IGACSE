@@ -1,5 +1,5 @@
 extends EffectCheck
-
+# q.add(u)
 
 func effect_check_on_focused():
 	var u = StoredData.get_variable("u").get_node()

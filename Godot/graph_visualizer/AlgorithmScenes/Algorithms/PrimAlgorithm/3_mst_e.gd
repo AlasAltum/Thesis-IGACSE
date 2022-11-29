@@ -15,3 +15,4 @@ func _trigger_on_next_line_side_effect() -> void:
 	var mst = StoredData.get_variable("MST")
 	mst.add_data(e)
 	StoredData.adt_mediator.update()
+	StoredData.highlight_variable("MST")

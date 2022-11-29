@@ -26,13 +26,12 @@ public class MainMenu : Node2D
 
 		animPlayer.Connect("animation_finished", this, nameof(onAnimationFinished));
 		CurrentScene = this;
-		
+
 		Node2D StoredData = GetTree().Root.GetNode<Node2D>("/root/StoredData");
 		if ( (bool) StoredData.Get("has_initialized"))
 		{
 			animPlayer.Queue("ShowLevelsInstant");
 		}
-	
 	}
 
 
