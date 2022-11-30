@@ -41,7 +41,7 @@ custom_styles/panel = ExtResource( 1 )
 focused = true
 code_text = "Kruskal():"
 effect_check = ExtResource( 9 )
-hint_text = "Press [color=#ff00ff]SPACE[/color]"
+hint_text = "Press [b]SPACE[/b]"
 
 [node name="PanelContainer1" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
@@ -52,7 +52,7 @@ margin_bottom = 66.0
 line_index = 1
 code_text = "    sort_edges();"
 effect_check = ExtResource( 15 )
-hint_text = "Press [color=#ff00ff]SPACE[/color] [color=]LEFT CLICK[/b] on edges by [b]ascending[/b] order"
+hint_text = "Press [b]LEFT CLICK[/b] on the edges by [b]ascending[/b] weight"
 
 [node name="PanelContainer2" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
@@ -64,7 +64,8 @@ size_flags_vertical = 3
 line_index = 2
 code_text = "    C = [[v] for v in graph.vertices];"
 effect_check = ExtResource( 7 )
-hint_text = "Go to Data Structures, click the Slot \"Stack\", bring it to Variables and then press [b]SPACE[/b]"
+hint_text = "Press [b]SPACE[/b] and look at the [color=#00FF00]C[/color] variable!"
+plays_confirmation_audio = false
 
 [node name="PanelContainer3" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
@@ -73,9 +74,9 @@ margin_top = 99.0
 margin_right = 392.0
 margin_bottom = 132.0
 line_index = 3
-code_text = "    MST = []"
+code_text = "    Array MST = []"
 effect_check = ExtResource( 12 )
-hint_text = "[b]RIGHT CLICK[/b] on Node [color=#00FF00] t [/color], then add it to the Queue [color=#00FF00] q [/color]"
+hint_text = "Go to Data Structures and create an Array with name [color=#00FF00]MST[/color]"
 
 [node name="PanelContainer4" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
@@ -87,7 +88,8 @@ line_index = 4
 jump_index = 13
 code_text = "    for Edge e in graph.edges:"
 effect_check = ExtResource( 13 )
-hint_text = "Answer if the queue is empty"
+hint_text = "Press [b]SPACE[/b] and look at the new [color=#00FF00]e[/color] variable"
+plays_confirmation_audio = false
 
 [node name="PanelContainer5" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
@@ -96,9 +98,9 @@ margin_top = 165.0
 margin_right = 392.0
 margin_bottom = 198.0
 line_index = 5
-code_text = "        if (len(C) == 1):    break;"
+code_text = "        if (len(C) == 1):    break"
 effect_check = ExtResource( 3 )
-hint_text = "Look at the variables after you press [b]SPACE[/b]!"
+hint_text = "Answer the question correctly. Does the [color=#00FF00]C[/color] array have only one element?"
 
 [node name="PanelContainer6" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
@@ -110,7 +112,7 @@ line_index = 6
 jump_index = 11
 code_text = "        (v, w) = e"
 effect_check = ExtResource( 14 )
-hint_text = "Check the U variable after you press [b]SPACE[/b]!"
+hint_text = "Look at the variables after pressing [b]SPACE[/b]!"
 
 [node name="PanelContainer7" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
@@ -122,7 +124,7 @@ line_index = 7
 jump_index = 10
 code_text = "        if Find(v) != Find(w):"
 effect_check = ExtResource( 6 )
-hint_text = "Answer: is the [color=#00FF00] u [/color] node explored or iterated?"
+hint_text = "Answer: are the nodes [color=#00FF00]v[/color] and [color=#00FF00]w[/color] in the same set within C?"
 
 [node name="PanelContainer8" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
@@ -133,7 +135,8 @@ margin_bottom = 297.0
 line_index = 8
 code_text = "            T.append(e)"
 effect_check = ExtResource( 5 )
-hint_text = "Select the [color=#00FF00] u [/color] node with a left click"
+hint_text = "Look at the array [color=#00FF00]MST[/color] after pressing [b]SPACE[/b]!"
+plays_confirmation_audio = false
 
 [node name="PanelContainer9" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
@@ -142,9 +145,9 @@ margin_top = 297.0
 margin_right = 392.0
 margin_bottom = 330.0
 line_index = 9
-code_text = "            Union(Find(v), Find(w))"
+code_text = "            C.Union( Find(v), Find(w))"
 effect_check = ExtResource( 4 )
-hint_text = "Add the Node [color=#00FF00] u [/color] to the queue by right clicking on it"
+hint_text = "Look at the array [color=#00FF00]MST[/color] after pressing [b]SPACE[/b]!"
 
 [node name="PanelContainer10" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0

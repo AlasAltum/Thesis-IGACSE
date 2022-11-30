@@ -43,8 +43,9 @@ func _ready():
 		create_nodes_with_weights(graph_size)
 		instance_nodes()  # Instances nodes objects as representation
 		create_additional_edges_to_make_graph_connected()
-		if returns_mst:
-			create_additional_edges()
+		# This function may generate very large loops
+#		if returns_mst:
+#			create_additional_edges()
 		instance_edges()  # To make sure the graph is connected
 		StoredData.world_node = self
 
@@ -199,18 +200,20 @@ func _get_index_of_random_node_absent_in_array(connected_node_indexes: Array) ->
 
 
 func create_additional_edges() -> void:
+	pass
 	# According to the Handshaking lemma, the minimal number of edges is N-1 for a graph of size N
 	# and for an undirected graph, the max number of edges is N*(N-1)/2.
 	# We want our graph to have a number of edges between these two limits
 	# The second one is guaranteed by our matrix data structure.
 	
-	while StoredData.number_of_edges < StoredData.number_of_nodes:
-		var rng = RandomNumberGenerator.new()
-		var i = rng.randi_range(0, StoredData.number_of_nodes - 1)
-		var j = rng.randi_range(0, StoredData.number_of_nodes - 1)
-		while i == j and there_is_edge_an_between_nodes(i, j):
-			j = rng.randi_range(0, StoredData.number_of_nodes - 1)
-		_create_edge_between_nodes_with_max_weight(i, j)
+#	while StoredData.number_of_edges < StoredData.number_of_nodes:
+#		var rng = RandomNumberGenerator.new()
+#		var i = rng.randi_range(0, StoredData.number_of_nodes - 1)
+#		var j = rng.randi_range(0, StoredData.number_of_nodes - 1)
+#		while i == j and there_is_edge_an_between_nodes(i, j):
+#			j = rng.randi_range(0, StoredData.number_of_nodes - 1)
+#		if not there_is_edge_an_between_nodes(i, j):
+#			_create_edge_between_nodes_with_max_weight(i, j)
 
 
 func there_is_edge_an_between_nodes(i: int, j: int) -> bool:

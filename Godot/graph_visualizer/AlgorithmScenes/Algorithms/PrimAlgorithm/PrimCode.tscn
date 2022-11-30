@@ -145,6 +145,7 @@ line_index = 4
 code_text = "   Set T = {v, w}"
 effect_check = ExtResource( 14 )
 hint_text = "Just press [b]SPACE[/b]"
+plays_confirmation_audio = false
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer4" index="0"]
 margin_right = 393.0
@@ -169,6 +170,7 @@ line_index = 5
 code_text = "   Set A = {graph.vertices} - T"
 effect_check = ExtResource( 13 )
 hint_text = "Just press [b]SPACE[/b]"
+plays_confirmation_audio = false
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer5" index="0"]
 margin_right = 393.0
@@ -290,6 +292,7 @@ line_index = 10
 code_text = "       T.append(v, w)"
 effect_check = ExtResource( 5 )
 hint_text = "Press [b]SPACE[/b]"
+plays_confirmation_audio = false
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer10" index="0"]
 margin_right = 393.0
@@ -314,6 +317,7 @@ line_index = 11
 code_text = "       A = {graph.vertices} - T"
 effect_check = ExtResource( 17 )
 hint_text = "Press [b]SPACE[/b]"
+plays_confirmation_audio = false
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer11" index="0"]
 margin_right = 393.0
@@ -339,6 +343,7 @@ jump_index = 6
 code_text = "        end while;"
 effect_check = ExtResource( 15 )
 hint_text = "Press [b]SPACE[/b]"
+plays_confirmation_audio = false
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer12" index="0"]
 margin_right = 393.0
@@ -364,6 +369,7 @@ jump_index = 4
 code_text = "end Prim;"
 effect_check = ExtResource( 7 )
 hint_text = "Press [b]SPACE[/b]"
+plays_confirmation_audio = false
 
 [node name="HBoxContainer" parent="LinesContainer/PanelContainer13" index="0"]
 margin_right = 393.0

@@ -47,7 +47,7 @@ func _trigger_on_next_line_side_effect():
 	# make a union between v and w
 	var v : NodeADT = StoredData.get_variable("v")
 	var w : NodeADT = StoredData.get_variable("w")
-	var c : ArrayADT = StoredData.get_variable("C")
+	var c : ArrayADT = StoredData.get_variable("c")
 	if not (c and v and w):
 		printerr("Error! Variables v, w and C are not in heap")
 		return
