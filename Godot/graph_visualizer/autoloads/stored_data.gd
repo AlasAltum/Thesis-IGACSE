@@ -16,7 +16,7 @@ const status_map = {
 	"DRAG": mov_status.DRAG,
 	"SELECT": mov_status.SELECT
 }
-var has_initialized: bool = false
+var has_initialized: bool = false  # Used in C# in the main menu
 var allow_select_edges = false
 var status : int = mov_status.SELECT;
 var nodes : Array = []  # PoolAGraphNodeArray
@@ -185,18 +185,19 @@ func reset_data():
 	self.selectable_nodes = []
 	self.selected_edges = []
 	self.iterated_nodes = []
-	self.nodes_that_should_be_added_to_adt = []
-	self.highlighted_edge = null
+
 	## Code continue conditions
 	self.v_is_explored_right_answer = false
 	self.adt_is_empty_right_answer = false
 	self.length_c_is_one_correct_answer = false
 	self.find_w_unequal_find_v_correct_answer = false
 
+	self.nodes_that_should_be_added_to_adt = []
+	self.highlighted_edge = null
+
 	## ADT selection
 	self.adt_shower = null
 	self.adt_mediator = null
 	self.selected_variable_index = 0
 	self.adt_to_be_created = null
-	
-
+	self.animation_player = null

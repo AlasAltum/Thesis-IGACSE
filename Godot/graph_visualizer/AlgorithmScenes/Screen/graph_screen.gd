@@ -19,7 +19,7 @@ export (float) var graph_density = 0.1
 export (int) var graph_size = 5
 export (float) var edge_max_weight = 5.0
 export (bool) var is_weighted_graph = false
-export (bool) var allow_selected_edges = false
+export (bool) var allow_edge_selection = false
 export (bool) var returns_mst = false  # Kruskal and Prim return MST, this is to make sure the graph has more than n-1 edges
 export (bool) var random_graph = true
 
@@ -47,8 +47,8 @@ func _ready():
 			create_additional_edges()
 		instance_edges()  # To make sure the graph is connected
 		StoredData.world_node = self
-		StoredData.allow_select_edges = self.allow_selected_edges
-		if self.allow_selected_edges:
+
+		if self.allow_edge_selection:
 			for _edge in StoredData.edges:
 				_edge.set_collision_box()  # TODO: error when reseting
 

@@ -96,6 +96,9 @@ func mark_as_iterated():
 	if not self in StoredData.iterated_nodes: 
 		StoredData.iterated_nodes.append(self)
 
+func is_iterated_or_explored():
+	return self in StoredData.iterated_nodes or self.selected
+
 ## Right click menu related methods ##
 func as_string() -> String:
 	return "(" + str(self.index) + ")"

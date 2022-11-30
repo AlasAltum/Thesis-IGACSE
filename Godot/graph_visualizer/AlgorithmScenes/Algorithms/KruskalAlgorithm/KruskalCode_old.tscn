@@ -120,7 +120,7 @@ line_index = 5
 jump_index = 11
 code_text = "        if (len(C) == 1):    break;"
 effect_check = ExtResource( 9 )
-hint_text = "Answer the question correctly. Does the [b]C[/b] array have only one big element?"
+hint_text = "Answer the question correctly. Does the [color=#00FF00]C[/color] array have only one big element?"
 
 [node name="PanelContainer6" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
@@ -132,7 +132,7 @@ line_index = 6
 jump_index = 11
 code_text = "        (v, w) = connecting_vertices(e)"
 effect_check = ExtResource( 10 )
-hint_text = "Check the [b]v[/b] and [b]w[/b] variables after you press [b]SPACE[/b]!"
+hint_text = "[b]CLICK[b] on [color=#00FF00]v[/color] and [color=#00FF00]w[/color] nodes"
 
 [node name="PanelContainer7" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
@@ -144,7 +144,7 @@ line_index = 7
 jump_index = 10
 code_text = "        if ( Find(v) != Find(w) ):"
 effect_check = ExtResource( 16 )
-hint_text = "Answer: are the [b]v[/b] and [b]w[/b] nodes in the same set in the C array?"
+hint_text = "Answer: are the [color=#00FF00]v[/color] and [color=#00FF00]w[/color] nodes in the same set in the C array?"
 
 [node name="PanelContainer8" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
@@ -155,7 +155,7 @@ margin_bottom = 334.0
 line_index = 8
 code_text = "            MST.append(e)"
 effect_check = ExtResource( 12 )
-hint_text = "Select the [color=#00FF00] u [/color] node with a left click"
+hint_text = "Press [b]ENTER[/b]"
 
 [node name="PanelContainer9" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
@@ -166,7 +166,7 @@ margin_bottom = 367.0
 line_index = 9
 code_text = "            C.Union( Find(v), Find(w))"
 effect_check = ExtResource( 13 )
-hint_text = "Add the Node [color=#00FF00] u [/color] to the queue by right Press [b]SPACE[/b] while looking at the C array!"
+hint_text = "Add the Node [color=#00FF00]u [/color] to the queue by right Press [b]SPACE[/b] while looking at the C array!"
 
 [node name="PanelContainer10" parent="LinesContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0

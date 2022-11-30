@@ -142,7 +142,7 @@ public class GraphEdge : PinJoint2D
 		if (@event is InputEventMouseButton btn && 
 			btn.ButtonIndex == (int) ButtonList.Left && @event.IsPressed()) 
 		{
-			bool are_nodes_clickable = (bool) GetNode("/root/StoredData").Get("allow_select_edges");
+			bool are_nodes_clickable = (bool) GetNode("/root/Main").Get("allow_edge_selection");
 			if (are_nodes_clickable) {
 				_on_edge_click();
 			}

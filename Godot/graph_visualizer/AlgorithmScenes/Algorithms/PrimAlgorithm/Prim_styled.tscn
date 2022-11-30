@@ -20,7 +20,7 @@ graph_density = 0.45
 graph_size = 7
 edge_max_weight = 9.0
 is_weighted_graph = true
-allow_selected_edges = true
+allow_edge_selection = true
 returns_mst = true
 
 [node name="Background" parent="." instance=ExtResource( 6 )]

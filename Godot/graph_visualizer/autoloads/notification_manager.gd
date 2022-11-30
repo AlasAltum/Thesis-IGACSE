@@ -15,6 +15,7 @@ var adt_is_empty: bool = false
 var length_c_is_1: bool = false
 var find_w_unequal_find_v: bool = false
 var allow_code_advance : bool = true  # Only in tutorial level starts as false
+# And this action is performed by the tutorial animation player
 ## 
 
 var hint_label
@@ -226,5 +227,5 @@ func reset_data():
 	self.adt_is_empty = false
 	self.length_c_is_1 = false
 	self.find_w_unequal_find_v = false
-
+	self.allow_code_advance = true
 	self.hint_label = null

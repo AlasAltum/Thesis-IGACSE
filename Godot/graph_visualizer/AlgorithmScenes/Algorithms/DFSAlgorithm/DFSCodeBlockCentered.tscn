@@ -139,7 +139,7 @@ margin_right = 400.0
 margin_bottom = 301.0
 line_index = 8
 jump_index = 11
-code_text = "            for (Edge u in v.edges()):"
+code_text = "            for (Node u in v.edges()):"
 effect_check = ExtResource( 10 )
 hint_text = "Press [b]SPACE[/b]!"
 
