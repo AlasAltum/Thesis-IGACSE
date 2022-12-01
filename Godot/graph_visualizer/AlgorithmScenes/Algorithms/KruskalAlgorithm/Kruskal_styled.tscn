@@ -19,8 +19,8 @@
 position = Vector2( -1, 0 )
 script = ExtResource( 15 )
 level_name = "Kruskal"
-graph_density = 0.5
-graph_size = 4
+graph_density = 0.45
+graph_size = 8
 edge_max_weight = 9.0
 is_weighted_graph = true
 allow_edge_selection = true
@@ -69,12 +69,13 @@ mouse_filter = 2
 
 [node name="DebugBlock" parent="CanvasLayer/BottomPanel" instance=ExtResource( 1 )]
 margin_top = 0.0
-margin_right = 1290.0
+margin_right = 1528.0
 margin_bottom = 300.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ADTShower" parent="CanvasLayer/BottomPanel" instance=ExtResource( 28 )]
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
