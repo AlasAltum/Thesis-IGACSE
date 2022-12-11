@@ -1,14 +1,17 @@
 # Graph Visualizer
 
 An educative application to learn graph-related algorithms such as BFS, DFS, Kruskal and Prim.
-This application was made in Godot using mainly GDScript. C# was used in the beggining, but it does not allow to export games to HTML5, so it is not being used anymore.
+This application was made in Godot using mainly GDScript. C# is used in critical processing scripts.
 The purpose of this job is to analyze if this interactive application help new CS students to learn new algorithms and data structures.
 
 Renderer: GLES 3
 
 ## Screenshots
 
-![Screenshot](screenshots/circle.png)
+BFS algorithm
+
+![Screenshot](screenshots/BFS_screenshot_1.png)
+![Screenshot](screenshots/BFS_screenshot_2.png)
 
 
 
@@ -22,4 +25,9 @@ Renderer: GLES 3
 
 * Adding more algorithms with the same idea and pattern. Maybe not for graphs, like array sorting, searching algorithms and others...
 
-* 
+* Adding more actions to the game, like dragging structures, adding sounds, visual effects...
+
+* Adding a story
+
+* Adding a test, to check whether the player understood the algorithms well enough
+
