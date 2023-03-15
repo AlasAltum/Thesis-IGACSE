@@ -31,3 +31,9 @@ Propuesta/*.out
 
 
 AWS_Lambda_golang/
+# Godot specific files
+Godot/graph_visualizer/.vscode/*
+Godot/graph_visualizer/.vs/*
+Godot/graph_visualizer/.import/
+Godot/graph_visualizer/export.cfg
+Godot/graph_visualizer/export_presets.cfg
