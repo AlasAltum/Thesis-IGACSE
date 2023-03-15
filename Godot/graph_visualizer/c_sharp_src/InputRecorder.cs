@@ -8,7 +8,11 @@ public class InputRecorder : Node
 	private string DeviceID;
 	private const float TIME_BETWEEN_MOUSE_POS_RECORDINGS = 1.5f;
 	private float time_since_last_record = 0.0f;
-	private const string REQUEST_URL = ""; // Enter here your API
+	private const string REQUEST_URL = "https://igasce.dcc.uchile.cl/godotevent"; // Enter here your API's url
+
+
+	private HTTPClient RequestHandler;
+	private HTTPRequest HTTPRequester;
 
 	private const string KEY_EVENT_ID = "eventid";
 	private const string KEY_TIMESTAMP = "timestamp";
@@ -23,7 +27,9 @@ public class InputRecorder : Node
 	public override void _Ready()
 	{
 		DeviceID = OS.GetUniqueId();
+		HTTPRequester = GetNode<HTTPRequest>("HTTPRequestNode");
 	}
+
 	public override void _Process(float delta)
 	{
 		time_since_last_record += delta;
@@ -34,27 +40,30 @@ public class InputRecorder : Node
 		return Records;
 	}
 
+	public Error SendRequest(Dictionary Record)
+	{
+		string sent_data = JSON.Print(Record);
+		string data_length_as_string = sent_data.Length.ToString();
+		string[] headers = {
+			"Content-Type: application/json",
+			"Content-Length: " + data_length_as_string
+		};
+		return HTTPRequester.Request(
+			url: REQUEST_URL,
+			customHeaders: headers,
+			sslValidateDomain: false,
+			method: HTTPClient.Method.Post,
+			requestData: sent_data
+		);
+	}
+
 	// Call from GDScript
 	public void send_requests_with_records()
 	{
-		HTTPRequest RequestManager = new HTTPRequest();
-		// TODO: Send all of these records in just one big record
 		foreach (Dictionary Record in Records)
 		{
-			string sent_data = JSON.Print(Record);
-			RequestManager.Request(
-				url: REQUEST_URL,
-				customHeaders: null,
-				sslValidateDomain: false,
-				method: HTTPClient.Method.Post, 
-				requestData: sent_data
-			);
+			SendRequest(Record);
 		}
-		//         //   customHeaders:
-		// //     If the parameter is null, then the default value is Array.Empty<string>()
-		// [GodotMethodAttribute("request")]
-		// public Error Request(string url, string[] customHeaders = null, bool sslValidateDomain = true, HTTPClient.Method method = HTTPClient.Method.Get, string requestData = "");
-		// //
 	}
 
 	private Godot.Collections.Dictionary GenerateRecord()
@@ -101,6 +110,21 @@ public class InputRecorder : Node
 
 			Records.Add(Record);
 		}
+	}
+
+
+	/// This method will tell the database when the player started a new level
+	public Error send_new_level_record_as_request(String new_level)
+	{
+		Godot.Collections.Dictionary Record = new Godot.Collections.Dictionary();
+		Record[KEY_EVENT_ID] = (OS.GetDatetime().ToString() + DeviceID)?.ToString().SHA256Text();
+		Record[KEY_TIMESTAMP] = OS.GetDatetime();
+		Record[KEY_DEVICE_ID] = DeviceID;
+		Record[KEY_MOUSE_POS] = "";
+		Record[KEY_KEYBOARD_POS] = "";
+		Record[KEY_IN_TYPE] = new_level;
+		// Send this record, telling the server the player initialized a new level
+		return SendRequest(Record);
 	}
 
 

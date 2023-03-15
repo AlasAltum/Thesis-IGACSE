@@ -44,6 +44,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Node/graph_node.gd"
 }, {
+"base": "Node",
+"class": "AbstractTestScript",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/TestScenes/TestScripts/abstract_test_script.gd"
+}, {
 "base": "WindowDialog",
 "class": "AddNodePopup",
 "language": "GDScript",
@@ -58,6 +63,11 @@ _global_script_classes=[ {
 "class": "ArrayRepresentation",
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Screen/ADT/Array/array_representation.gd"
+}, {
+"base": "AbstractTestScript",
+"class": "BFSTest",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/TestScenes/TestScripts/bfs_test.gd"
 }, {
 "base": "ScrollContainer",
 "class": "CodeContainer",
@@ -78,6 +88,11 @@ _global_script_classes=[ {
 "class": "ColorMap",
 "language": "GDScript",
 "path": "res://ResourceClasses/color_map.gd"
+}, {
+"base": "AbstractTestScript",
+"class": "DFSTest",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/TestScenes/TestScripts/dfs_test.gd"
 }, {
 "base": "Resource",
 "class": "DataServer",
@@ -133,6 +148,11 @@ _global_script_classes=[ {
 "class": "LengthCIsOnePopup",
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Screen/length_c_is_one_popup.gd"
+}, {
+"base": "AbstractTestScript",
+"class": "MSTTest",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/TestScenes/TestScripts/mst_test.gd"
 }, {
 "base": "ADT",
 "class": "NodeADT",
@@ -199,6 +219,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Screen/ADT/Stack/stack_representation.gd"
 }, {
+"base": "GraphManager",
+"class": "TestManager",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/TestScenes/test_manager.gd"
+}, {
 "base": "AnimationPlayer",
 "class": "TutorialPlayer",
 "language": "GDScript",
@@ -222,13 +247,16 @@ _global_script_class_icons={
 "ADTShower": "",
 "ADTVector": "",
 "AGraphNode": "",
+"AbstractTestScript": "",
 "AddNodePopup": "",
 "ArrayADT": "",
 "ArrayRepresentation": "",
+"BFSTest": "",
 "CodeContainer": "",
 "CodeLine": "",
 "ColorInterpolator": "",
 "ColorMap": "",
+"DFSTest": "",
 "DataServer": "",
 "DebugBlock": "",
 "EdgeADT": "",
@@ -240,6 +268,7 @@ _global_script_class_icons={
 "GameplayMenuPopup": "",
 "GraphManager": "",
 "LengthCIsOnePopup": "",
+"MSTTest": "",
 "NodeADT": "",
 "NodeRepresentation": "",
 "NullADT": "",
@@ -253,6 +282,7 @@ _global_script_class_icons={
 "Stack": "",
 "StackADT": "",
 "StackRepresentation": "",
+"TestManager": "",
 "TutorialPlayer": "",
 "TutorialPopup": "",
 "UNodeIsExploredPopup": ""
@@ -271,7 +301,7 @@ config/icon="res://Node/white-circle.png"
 
 StoredData="*res://autoloads/stored_data.gd"
 NotificationManager="*res://autoloads/NotificationManager.tscn"
-InputRecorder="*res://c_sharp_src/InputRecorder.cs"
+InputRecorder="*res://c_sharp_src/InputRecorderScene.tscn"
 
 [display]
 

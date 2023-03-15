@@ -23,8 +23,7 @@ export (bool) var allow_edge_selection = false
 export (bool) var returns_mst = false  # Kruskal and Prim return MST, this is to make sure the graph has more than n-1 edges
 export (bool) var random_graph = true
 
-
-onready var adt_mediator = $ADTMediator
+var adt_mediator
 
 func _init():
 	StoredData.reset_data()
@@ -36,35 +35,34 @@ func _ready():
 	up = + int(self.screen_size.y)
 	down = 100
 	randomize()
+	self.adt_mediator = $ADTMediator
 	node_container_key_properties = _init_node_container_key_properties()
 	self.add_to_group("Main")
+	## Create Graph ##
 	# create nodes and their connecting edges by initializing the matrix
-	if random_graph:
-		create_nodes_with_weights(graph_size)
-		instance_nodes()  # Instances nodes objects as representation
-		create_additional_edges_to_make_graph_connected()
-		# This function may generate very large loops
+	create_nodes_with_weights(graph_size)
+
+	instance_nodes()  # Instances nodes objects as representation
+	create_additional_edges_to_make_graph_connected()
+	# This function may generate very large loops
 #		if returns_mst:
 #			create_additional_edges()
-		instance_edges()  # To make sure the graph is connected
-		StoredData.world_node = self
+	instance_edges()  # To make sure the graph is connected
+	StoredData.world_node = self
 
-		if self.allow_edge_selection:
-			for _edge in StoredData.edges:
-				_edge.set_collision_box()  # TODO: error when reseting
+	if self.allow_edge_selection:
+		for _edge in StoredData.edges:
+			_edge.set_collision_box()  # TODO: error when reseting
 
-	else:
-		pass
-		# TODO: graph.consider_previous_nodes()
-		# TODO: graph.insertEdge(0, 5)
-		# TODO: ERASE
-	#	var dataserver = DataServer.new()
-	#	dataserver.send_data(
-	#		{
-	#			'clicks': [1, 2, 3, 5, 6],
-	#			'errors': ['bad click on node', 'bad click on conditional'],
-	#		}
-	#	)
+	# send information to server
+	send_data_level_transition()
+
+func send_data_level_transition():
+	var data_to_send = {"eventid": "", "deviceid": "", "intype": "", "mousepos": "", "keyboardpos": "", "timestamp": ""}
+	data_to_send["eventid"] = str('Subscription: ') + str(OS.get_unique_id())
+	data_to_send["deviceid"] = str(OS.get_unique_id())
+	data_to_send["intype"] = "New level: " + level_name
+	var ret = InputRecorder.SendRequest(data_to_send)
 
 
 # We do not use 0.5 since that would make the node to be on the limit or frontier
@@ -145,7 +143,7 @@ func _create_random_partition_from_range(to: int, from: int) -> Array:
 		result.append(i)
 	result.shuffle()
 	return result
-	
+
 # For each node V_i, check if the graph is connected from that node.
 # If not, find a node V_j whose index is not in the connected component of V_i
 # If we make an edge between (V_i, V_j), then we make another connected component

@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://AlgorithmScenes/TestScenes/test_manager.gd" type="Script" id=1]
+[ext_resource path="res://AlgorithmScenes/Screen/TextHintContainer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://AlgorithmScenes/Screen/GameplayMenuPopup.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/textures/Background.tscn" type="PackedScene" id=6]
+[ext_resource path="res://AlgorithmScenes/Screen/GameplayMenuButton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://AlgorithmScenes/Screen/FinishedPopup.tscn" type="PackedScene" id=38]
+
+[node name="Main" type="Node2D"]
+position = Vector2( -1, 0 )
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="NodeContainer" type="AspectRatioContainer" parent="CanvasLayer"]
+anchor_left = 0.502
+anchor_top = 0.527
+anchor_right = 0.502
+anchor_bottom = 0.527
+margin_left = -924.84
+margin_top = -479.16
+margin_right = 925.16
+margin_bottom = 478.84
+rect_clip_content = true
+mouse_filter = 2
+stretch_mode = 0
+
+[node name="FinishedPopup" parent="CanvasLayer" instance=ExtResource( 38 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -199.0
+margin_top = -233.0
+margin_right = 313.0
+margin_bottom = -74.0
+explanation_in_label = "Congratulations! You have successfully finished the DFS Algorithm! Go back to menu and try new levels!"
+
+[node name="Explanation" parent="CanvasLayer/FinishedPopup" index="1"]
+text = "Congratulations! You have successfully finished the DFS Algorithm!"
+
+[node name="GameplayMenuPopup" parent="CanvasLayer" instance=ExtResource( 5 )]
+margin_left = -199.0
+margin_top = -212.5
+margin_right = 313.0
+margin_bottom = -94.5
+
+[node name="TextHintContainer" parent="CanvasLayer" instance=ExtResource( 4 )]
+margin_left = 408.0
+margin_bottom = 150.0
+
+[node name="GameplayMenuButton" parent="CanvasLayer" instance=ExtResource( 7 )]
+margin_right = 384.0
+text = "Menu"
+
+[node name="Background" parent="." instance=ExtResource( 6 )]
+
+[editable path="CanvasLayer/FinishedPopup"]

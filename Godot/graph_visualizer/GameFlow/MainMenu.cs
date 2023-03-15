@@ -5,8 +5,12 @@ public class MainMenu : Node2D
 {
 	public Node CurrentScene { get; set; }
 	private Button startGame;
+	private Button TutorialButton;
 //	private Button exitGame;
 	private AnimationPlayer animPlayer;
+
+	[Export]
+	private Godot.Collections.Array<string> TutorialLevelsPaths = new Godot.Collections.Array<string>();
 
 	private AlgorithmSelectionMenu algorithmSelectionMenu;
 
@@ -14,13 +18,15 @@ public class MainMenu : Node2D
 	public override void _Ready()
 	{
 		startGame = GetNode<Button>("VBoxContainer/StartGame");
-//		exitGame = GetNode<Button>("VBoxContainer/ExitGame");
+		TutorialButton = GetNode<Button>("VBoxContainer/TestButton");
+		// The exitGame button is not necessary in the HTML version
+		//		exitGame = GetNode<Button>("VBoxContainer/ExitGame");
 		animPlayer = GetNode<AnimationPlayer>("FadeAnimation");
 		algorithmSelectionMenu = GetNode<AlgorithmSelectionMenu>("AlgorithmSelectionMenu");
 
 		startGame.GrabFocus();
 		startGame.Connect("pressed", this, "OnStartGame");
-//		exitGame.Connect("pressed", this, "OnExitGame");    
+		//		exitGame.Connect("pressed", this, "OnExitGame");    
 		algorithmSelectionMenu.Connect("OnSelectionMenuExitSignal", this, nameof(OnSelectionMenuExit));
 		algorithmSelectionMenu.Connect("OnBackButtonPressedSignal", this, nameof(OnBackButtonPressed));
 
@@ -56,6 +62,17 @@ public class MainMenu : Node2D
 		animPlayer.Play("ShowLevels");
 	}
 
+	public void OnTutorialButtonPressed()
+	{
+		// TODO: Add levels here
+		// TutorialLevelsPaths.Add("");
+		// TutorialLevelsPaths.Add("");
+		// TutorialLevelsPaths.Add("");
+		// TutorialLevelsPaths.Add("");
+		TutorialLevelsPaths.Shuffle();
+		GotoScene(TutorialLevelsPaths[0]);
+	}
+
 	public void onAnimationFinished(String animName)
 	{
 		if (animName == "ShowLevels")
@@ -72,5 +89,24 @@ public class MainMenu : Node2D
 	{
 		GetTree().Quit();
 	}
+
+
+	private void GotoScene(string path)
+	{
+		Node2D StoredData = GetTree().Root.GetNode<Node2D>("/root/StoredData");
+		StoredData.Set("has_initialized", true);
+		CallDeferred(nameof(DeferredGotoScene), path);
+	}
+
+	private void DeferredGotoScene(string path)
+	{
+		CurrentScene.QueueFree();
+		this.QueueFree();
+		var nextScene = (PackedScene) GD.Load(path);
+		CurrentScene = nextScene.Instance();
+		GetTree().Root.AddChild(CurrentScene);
+		GetTree().CurrentScene = CurrentScene;
+	}
+
 
 }

@@ -129,9 +129,11 @@ func get_selected_edge():
 	return selected_edge
 
 func selected_variable_allows_object_adition(node) -> bool:
-	var uno = StoredData.node_may_be_added_to_adt(node)
-	var dos = adt_mediator.selected_variable_allows_object_adition()
-	return uno && dos
+	if adt_mediator && adt_mediator.has_method("selected_variable_allows_object_adition"):
+		var node_may_be_added_to_adt = StoredData.node_may_be_added_to_adt(node)
+		var selected_variable_allows_object_adition = adt_mediator.selected_variable_allows_object_adition()
+		return node_may_be_added_to_adt && selected_variable_allows_object_adition
+	return false
 
 func get_selected_variable_name() -> String:
 	return adt_mediator.get_selected_variable_name()

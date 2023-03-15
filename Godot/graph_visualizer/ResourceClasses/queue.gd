@@ -14,7 +14,10 @@ func push(value: Object) -> void:
 	self._container.append(value)
 
 func get_front():
-	self._container[0]
+	return self._container[0]
+
+func get_last():
+	return self._container[self.size() - 1]
 
 func pop() -> Object:
 	assert( self.size() > 0, "ERROR: Queue cannot be popped. It has no objects");

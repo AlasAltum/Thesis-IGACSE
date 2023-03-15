@@ -29,11 +29,8 @@ position = Vector2( 1, 0 )
 layer = -1
 
 [node name="TextHintContainer" parent="CanvasLayer" instance=ExtResource( 4 )]
-anchor_left = 0.0
-anchor_right = 1.0
 margin_left = 408.0
 margin_top = -5.0
-margin_right = 0.0
 margin_bottom = 145.0
 
 [node name="LeftPanel" type="VBoxContainer" parent="CanvasLayer"]

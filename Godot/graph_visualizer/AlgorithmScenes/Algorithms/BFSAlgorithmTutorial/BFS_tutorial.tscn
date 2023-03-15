@@ -691,10 +691,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 1408.0
-margin_top = 832.0
-margin_right = 2075.0
-margin_bottom = 966.0
+margin_left = 448.0
+margin_top = -248.0
+margin_right = 1115.0
+margin_bottom = -114.0
 theme = ExtResource( 9 )
 popup_exclusive = true
 window_title = ""
@@ -717,6 +717,8 @@ data like nodes and edges.
 Left click on Queue!"
 
 [node name="Background" parent="." instance=ExtResource( 6 )]
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [editable path="CanvasLayer/TextHintContainer"]
 [editable path="CanvasLayer/LeftPanel/BFSCodeBlock"]

@@ -35,6 +35,7 @@ const SELECTED_COLOR = Color(1.0, 1.0, 0.0, 0.8)
 const SELECTED_LABEL_COLOR = Color(0.0, 1.0, 0.0, 1.0)
 
 signal node_add_to_object_request(node)
+signal node_selected(node)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -128,6 +129,8 @@ func select_node():
 		self.modulate = SELECTED_COLOR
 		node_name.modulate = SELECTED_LABEL_COLOR
 		representation.set_selected()
+		emit_signal("node_selected", self)
+
 	else:
 		# TODO: Add animation: Error, not selectable node!
 		print("Not selectable Node")

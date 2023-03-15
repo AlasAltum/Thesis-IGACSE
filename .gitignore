@@ -28,3 +28,6 @@ Propuesta/*.synctex.gz
 Propuesta/*.log
 Propuesta/*.bbl
 Propuesta/*.out
+
+
+AWS_Lambda_golang/

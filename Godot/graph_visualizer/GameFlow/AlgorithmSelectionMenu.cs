@@ -35,6 +35,9 @@ public class AlgorithmSelectionMenu : Node2D
 	[Signal]
 	delegate void OnBackButtonPressedSignal();
 
+	[Signal]
+	delegate void OnTutorialButtonPressedSignal();
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{

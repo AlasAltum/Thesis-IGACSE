@@ -224,7 +224,18 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[node name="TestButton" type="Button" parent="VBoxContainer"]
+margin_right = 538.0
+margin_bottom = 85.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Test your Graph knowledge!"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="StartGame" type="Button" parent="VBoxContainer"]
+margin_top = 115.0
 margin_right = 538.0
 margin_bottom = 201.0
 size_flags_horizontal = 3
