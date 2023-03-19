@@ -19,6 +19,7 @@ function build_and_deploy_aws_lambda_in_go_lang {
 case $1 in 
     "-a")
         build_and_deploy_aws_lambda_in_go_lang
+        echo "> End zip: AWS lambda in go lang"
         ;;
 esac
 

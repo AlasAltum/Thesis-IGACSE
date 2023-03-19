@@ -139,7 +139,7 @@ hint_text = "Press [b]SPACE[/b]"
 margin_right = 392.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0/HBoxContainer" index="2"]
-margin_right = 157.0
+margin_right = 392.0
 text = "BFS(starting_node=0):"
 
 [node name="PanelContainer1" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -158,7 +158,7 @@ hint_text = "[b]LEFT CLICK[/b] Node 0 and then [b]SPACE[/b]"
 margin_right = 392.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1/HBoxContainer" index="2"]
-margin_right = 147.0
+margin_right = 392.0
 text = "    t = starting_node;"
 
 [node name="PanelContainer2" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -177,7 +177,7 @@ hint_text = "Go to Data Structures, click the Slot \"Queue\", bring it to Variab
 margin_right = 392.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2/HBoxContainer" index="2"]
-margin_right = 115.0
+margin_right = 392.0
 text = "    q = Queue();"
 
 [node name="PanelContainer3" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -196,7 +196,7 @@ hint_text = "[b]RIGHT CLICK[/b] on Node [color=#00FF00] t [/color], then add it 
 margin_right = 392.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3/HBoxContainer" index="2"]
-margin_right = 88.0
+margin_right = 392.0
 text = "    q.add(t);"
 
 [node name="PanelContainer4" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -216,7 +216,7 @@ hint_text = "Answer if the queue is empty"
 margin_right = 392.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4/HBoxContainer" index="2"]
-margin_right = 183.0
+margin_right = 392.0
 text = "    while q.is_not_empty():"
 
 [node name="PanelContainer5" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -235,7 +235,7 @@ hint_text = "Look at the variables after you press [b]SPACE[/b]!"
 margin_right = 392.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5/HBoxContainer" index="2"]
-margin_right = 172.0
+margin_right = 392.0
 text = "        v = q.top(); q.pop();"
 
 [node name="PanelContainer6" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -255,7 +255,7 @@ hint_text = "Check the U variable after you press [b]SPACE[/b]!"
 margin_right = 392.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6/HBoxContainer" index="2"]
-margin_right = 204.0
+margin_right = 392.0
 text = "        for (Edge u in v.edges()):"
 
 [node name="PanelContainer7" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -275,7 +275,7 @@ hint_text = "Answer: is the [color=#00FF00] u [/color] node explored or iterated
 margin_right = 392.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7/HBoxContainer" index="2"]
-margin_right = 204.0
+margin_right = 392.0
 text = "            if u.is_not_explored():"
 
 [node name="PanelContainer8" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -294,7 +294,7 @@ hint_text = "Select the [color=#00FF00] u [/color] node with a left click"
 margin_right = 392.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8/HBoxContainer" index="2"]
-margin_right = 222.0
+margin_right = 392.0
 text = "                u.mark_as_explored();"
 
 [node name="PanelContainer9" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -313,7 +313,7 @@ hint_text = "Add the Node [color=#00FF00] u [/color] to the queue by right click
 margin_right = 392.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer9/HBoxContainer" index="2"]
-margin_right = 135.0
+margin_right = 392.0
 text = "                q.add(u)"
 
 [node name="PanelContainer10" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -333,7 +333,7 @@ hint_text = "Press [b]SPACE[/b]"
 margin_right = 392.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10/HBoxContainer" index="2"]
-margin_right = 101.0
+margin_right = 392.0
 text = "        end for;"
 
 [node name="PanelContainer11" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -352,7 +352,7 @@ hint_text = "Press [b]SPACE[/b]"
 margin_right = 392.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer11/HBoxContainer" index="2"]
-margin_right = 183.0
+margin_right = 392.0
 text = "        v.mark_as_iterated();"
 
 [node name="PanelContainer12" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -372,7 +372,7 @@ hint_text = "Press [b]SPACE[/b]"
 margin_right = 392.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer12/HBoxContainer" index="2"]
-margin_right = 102.0
+margin_right = 392.0
 text = "    end while;"
 
 [node name="PanelContainer13" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
@@ -392,7 +392,7 @@ hint_text = "Press [b]SPACE[/b]"
 margin_right = 392.0
 
 [node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13/HBoxContainer" index="2"]
-margin_right = 75.0
+margin_right = 392.0
 text = "end BFS;"
 
 [node name="TextHintContainer" type="CenterContainer" parent="CanvasLayer"]
@@ -413,10 +413,8 @@ __meta__ = {
 visible = true
 
 [node name="PopUpForObjectCreation" parent="." instance=ExtResource( 13 )]
-visible = false
 
 [node name="UNodeIsExploredPopup" parent="." instance=ExtResource( 37 )]
-visible = false
 
 [node name="ADTIsNotEmptyPopup" parent="." instance=ExtResource( 36 )]
 

@@ -24,22 +24,23 @@ var (
 )
 
 // Example of request body for testing:
+// https://6v2wcfuvrh.execute-api.us-east-1.amazonaws.com/staging
 // {
-// 	"EventID": "123"
-// "DeviceID": "123",
-// "type": "123",
-// "MousePos": "123",
-// "KeyboardPos": "123",
-// "Timestamp": "123"
+// 	"eventid": "123"
+// "deviceid": "123",
+// "intype": "123",
+// "keyboardpos": "123",
+// "mousepos": "123",
+// "timestamp": "123"
 // }
 
 type GodotEvent struct {
-	EventID     string `json:"EventID"`
-	DeviceID    string `json:"DeviceID"`
-	Type        string `json:"type"`
-	MousePos    string `json:"MousePos"`
-	KeyboardPos string `json:"KeyboardPos"`
-	Timestamp   string `json:"Timestamp"`
+	eventid     string `json:"eventid"`
+	deviceid    string `json:"deviceid"`
+	intype        string `json:"intype"`
+	keyboardpos string `json:"keyboardpos"`
+	mousepos    string `json:"mousepos"`
+	timestamp   string `json:"timestamp"`
 }
 
 func CreateEvent(request events.APIGatewayProxyRequest, tableName string, dynaClient dynamodbiface.DynamoDBAPI) (

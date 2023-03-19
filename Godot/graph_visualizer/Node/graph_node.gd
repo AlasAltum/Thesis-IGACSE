@@ -22,7 +22,7 @@ var adt_type = load("res://AlgorithmScenes/Code/ADTs/node_adt.gd")
 enum MOUSE_STATUS {INSIDE, OUTSIDE}
 
 var mouse_status = MOUSE_STATUS.OUTSIDE
-var representation 
+var representation #: NodeRepresentation
 var adt  #: NodeADT
 
 

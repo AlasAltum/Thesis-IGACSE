@@ -53,7 +53,6 @@ func update_views(selected_index: int) -> void:
 	# Show a new representation
 	current_adt = stored_adt_reps[selected_index]
 	if current_adt:
-
 		current_adt.visible = true  # make the previous adt invisible
 
 
