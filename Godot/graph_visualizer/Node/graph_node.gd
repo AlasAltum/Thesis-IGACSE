@@ -91,6 +91,30 @@ func set_edges(_edges: Array) -> void:
 func get_edges() -> Array:
 	return edges
 
+# Get all node neighbors of this node
+func get_neighbors() -> Array:
+	var neighbors = []
+	# Edge is a pair<node_index <int>, weight <float>>
+	for _edge in edges:
+		var neighbor_index: int = _edge[0]
+		var neighbor = StoredData.nodes[neighbor_index]
+		neighbors.append(neighbor)
+
+	return neighbors
+
+func get_non_selected_neighbors() -> Array:
+	var neighbors = []
+	# Edge is a pair<node_index <int>, weight <float>>
+	for _edge in edges:
+		var neighbor_index: int = _edge[0]
+		var neighbor = StoredData.nodes[neighbor_index]
+		if not neighbor.selected:
+			neighbors.append(neighbor)
+
+	return neighbors
+
+
+
 func mark_as_iterated():
 	self.select_node()
 	self.modulate = ITERATED_COLOR
@@ -123,13 +147,14 @@ func unselect_node():
 	popup_menu.hide()
 	popup_menu.visible = false
 
-func select_node():
+func select_node(emit_signal=true):
 	if self.index in StoredData.selectable_nodes:
 		self.selected = true
 		self.modulate = SELECTED_COLOR
 		node_name.modulate = SELECTED_LABEL_COLOR
 		representation.set_selected()
-		emit_signal("node_selected", self)
+		if emit_signal:
+			emit_signal("node_selected", self)
 
 	else:
 		# TODO: Add animation: Error, not selectable node!

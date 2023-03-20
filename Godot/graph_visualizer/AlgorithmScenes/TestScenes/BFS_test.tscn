@@ -10,6 +10,8 @@
 [node name="Main" type="Node2D"]
 position = Vector2( -1, 0 )
 script = ExtResource( 1 )
+graph_density = 0.3
+graph_size = 10
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1

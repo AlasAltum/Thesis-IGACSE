@@ -44,25 +44,21 @@ func size() -> int:
 	return self._container.size()
 
 func last_is_multilevel() -> bool:
-	var last_element = get_last()
+	var last_element = get_last_level()
 	if last_element is Array:
 		return true
 	return false
 
 func first_is_multilevel() -> bool:
-	var first_element = get_front()
+	var first_element = get_front_level()
 	if first_element is Array:
 		return true
 	return false
 
-
 func node_is_in_last_level(node) -> bool:
 	if self.is_not_empty():
-		# If it is a multilevel, it 
-		if self.last_is_multilevel():
-			return node in self.get_last()
-		else:
-			return node == self.get_last()
+		return node in get_last_level()
+
 	# If the queue is empty, the node may not be in the last level
 	return false
 
@@ -71,23 +67,33 @@ func node_is_in_last_level(node) -> bool:
 func push_level(values: Array):
 	self._container.append(values)
 
-func push(value: Object) -> void:
-	self._container.append(value)
-
-func get_front():
+func get_front_level():
 	return self._container[0]
 
-func get_last():
+func get_last_level():
 	return self._container[self.size() - 1]
 
-func pop() -> Object:
-	assert( self.size() > 0, "ERROR: Queue cannot be popped. It has no objects");
-	var ret = self._container[0]
-	self._container =  self._container.slice(1, self._container.size() - 1, 1)
-	return ret
+func pop_element_from_all_levels(node):
+	var new_container = []
+	for _level in self._container:
+		if node in _level or node.selected:
+			_level.erase(node)
+			# We do not want to erase levels while iterating in the container
+			# So we just filter these levels in a new container and then reassign it
+		if _level.size() > 0:
+			new_container.append(_level)
+
+	self._container = new_container
+
+func pop_element_from_first_level(node):
+	# if the first level of the queue is multilevel, just remove the node from the multilevel
+	# elsewise, if the first level is a single node, just remove it
+	self.get_front_level().erase(node)
+	if self.get_front_level().size() == 0:
+		self._container = self._container.slice(1, self._container.size() - 1, 1)
 
 func is_empty() -> bool:
-	return self.size() == 0
+	return self.size() == 0 or (self.size() == 1 and self._container[0].size() == 0)
 
 func is_not_empty() -> bool:
 	return not is_empty()
@@ -98,7 +104,4 @@ func is_not_empty() -> bool:
 # nodes are in the present level. If all nodes in that level
 # are pressed, then the node should be in the next level 
 func node_is_in_corresponding_level(node) -> bool:
-	if first_is_multilevel():
-		return node in get_front()
-	else:
-		return node == get_front()
+	return node in get_front_level()
