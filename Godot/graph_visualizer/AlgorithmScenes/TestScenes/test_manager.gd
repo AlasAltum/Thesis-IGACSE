@@ -6,7 +6,7 @@ extends GraphManager
 # in a valid BFS order 
 
 export (Array) var events = []
-export (Dictionary) var map_name_to_test_script = {
+var map_name_to_test_script = {
 	"BFS": BFSTest.new(),
 	"DFS": DFSTest.new(),
 	"MST": load("res://AlgorithmScenes/TestScenes/TestScripts/mst_test.gd"),
@@ -20,6 +20,7 @@ func _ready():
 	_initialize_test_game_mode()
 	test_script = map_name_to_test_script[self.level_name]
 	add_child(test_script)
+	test_script.connect("all_nodes_pressed", self, "on_all_nodes_pressed")
 	# test_script will have the logic to check if an action was correct
 
 
@@ -34,7 +35,6 @@ func _initialize_test_game_mode():
 func _store_node_selected_event(node):
 	selected_nodes_in_order.append(node)
 	test_script.on_node_click(node)
-
 	var new_entry: Dictionary = {
 		"eventid": "NodePress",
 		"timestamp": OS.get_datetime(),
@@ -43,3 +43,11 @@ func _store_node_selected_event(node):
 	}
 	events.append(new_entry)
 
+func on_all_nodes_pressed():
+	var finished_popup: WindowDialog = $CanvasLayer/FinishedPopup
+
+	var errors = test_script.get_errors()
+	var correct = test_script.get_correct_answers()
+	var total_time = test_script.get_time_between_first_and_last_click()
+
+	finished_popup.popup()

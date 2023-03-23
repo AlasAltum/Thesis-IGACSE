@@ -38,7 +38,7 @@ func _deferred_goto_scene(path):
 func _on_FinishedPopup_about_to_show():
 	StoredData.popup_captures_input = true
 	$MenuButton.grab_focus()
-	$MenuButtons.grab_click_focus()
+	$MenuButton.grab_click_focus()
 
 
 func _on_FinishedPopup_popup_hide():

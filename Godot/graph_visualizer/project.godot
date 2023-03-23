@@ -184,10 +184,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Code/ADTs/queue_adt.gd"
 }, {
-"base": "Object",
+"base": "Reference",
 "class": "QueueForTesting",
 "language": "GDScript",
-"path": "res://AlgorithmScenes/TestScenes/TestScripts/queue_for_testing.gd"
+"path": "res://AlgorithmScenes/TestScenes/TestScripts/stack_for_testing.gd"
 }, {
 "base": "ADTRepresentation",
 "class": "QueueRepresentation",
@@ -218,6 +218,11 @@ _global_script_classes=[ {
 "class": "StackADT",
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Code/ADTs/stack_adt.gd"
+}, {
+"base": "Object",
+"class": "StackForTesting",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/TestScenes/TestScripts/queue_for_testing.gd"
 }, {
 "base": "ADTRepresentation",
 "class": "StackRepresentation",
@@ -287,6 +292,7 @@ _global_script_class_icons={
 "Slot": "",
 "Stack": "",
 "StackADT": "",
+"StackForTesting": "",
 "StackRepresentation": "",
 "TestManager": "",
 "TutorialPlayer": "",

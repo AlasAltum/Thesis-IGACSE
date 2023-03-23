@@ -3,14 +3,15 @@ extends AbstractTestScript
 
 var queue # : QueueForTesting
 var nodes_that_must_be_pressed_next: Array = []
-var num_right_actions = 0
-var num_incorrect_actions = 0
+
 var first_node = null
+
+signal all_nodes_pressed
 
 func _ready():
 	queue = QueueForTesting.new()
-#	for _node in StoredData.nodes:
-#		_node.connect("node_selected", self, "on_node_click")
+	self.connect("all_nodes_pressed", self, "on_all_nodes_pressed")
+
 	# Get first node and add it to the queue
 	for _node in StoredData.nodes:
 		if _node.index == 0:
@@ -18,46 +19,25 @@ func _ready():
 			first_node = _node
 			break
 
-
-func incoming_node_is_neighbor_of_last_press(incoming_node: AGraphNode) -> bool:
-	var last_node_index = queue.get_last().index
-	var edges = incoming_node.get_edges()
-	# pairs<node_index <int>, weight <float>>:
-	for _edge in edges:
-		var neighbor_index = _edge[0]
-		if neighbor_index == last_node_index:
-			return true
-	return false
-
-func is_first_node_process_it(node):
-	if node == first_node:
-		queue.pop_element_from_all_levels(node)
-		_add_non_selected_neighbors_of_node_to_queue(node)
-		return true
-	return false
-
 # @param node: AGraphNode
 func on_node_click(node):
-	print('node ' + str(node.index) + ' was pressed')
+	.on_node_click(node)
 	if was_node_clicked_action_correct(node):
-		queue.pop_element_from_all_levels(node) # Maybe from the whole queue
+		queue.pop_element_from_all_levels(node)
 		# Add the neighbors of the node which have not been selected yet to the queue
 		_add_non_selected_neighbors_of_node_to_queue(node)
 		num_right_actions += 1
 		_debug_print_nodes_indexes_in_queue()
+		# We make a deferred notification because we want to end this method first
+		# Since this method itself is triggered by a signal
+		if StoredData.get_selected_nodes().size() == StoredData.number_of_nodes:
+			call_deferred("notify_all_nodes_pressed")
 		return
 
 	# If the user clicked on a node that was not correct
 	num_incorrect_actions += 1
 	node.unselect_node()
 	# TODO: show error to user
-
-func _add_non_selected_neighbors_of_node_to_queue(node):
-	var neighbors: Array = node.get_non_selected_neighbors()
-	if neighbors.size() > 0:
-		queue.push_level(neighbors)
-
-
 
 func was_node_clicked_action_correct(node) -> bool:
 	# If node is a valid selectable node during a BFS algorithm
@@ -69,6 +49,18 @@ func was_node_clicked_action_correct(node) -> bool:
 		return true
 
 	return false
+
+func is_first_node_process_it(node):
+	if node == first_node:
+		queue.pop_element_from_all_levels(node)
+		_add_non_selected_neighbors_of_node_to_queue(node)
+		return true
+	return false
+
+func _add_non_selected_neighbors_of_node_to_queue(node):
+	var neighbors: Array = node.get_non_selected_neighbors()
+	if neighbors.size() > 0:
+		queue.push_level(neighbors)
 
 func _debug_print_nodes_indexes_in_queue():
 	print("======================")
@@ -82,4 +74,7 @@ func _debug_print_nodes_indexes_in_queue():
 		else:
 			print(_level.index)
 	print("======================")
+
+func notify_all_nodes_pressed():
+	emit_signal("all_nodes_pressed")
 
