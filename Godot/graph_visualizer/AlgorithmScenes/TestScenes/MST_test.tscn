@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://AlgorithmScenes/TestScenes/test_manager.gd" type="Script" id=1]
 [ext_resource path="res://AlgorithmScenes/Screen/finished_code_popup.gd" type="Script" id=2]
 [ext_resource path="res://AlgorithmScenes/Screen/PopupTheme.tres" type="Theme" id=3]
+[ext_resource path="res://AlgorithmScenes/Screen/TextHintContainer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://AlgorithmScenes/Screen/GameplayMenuPopup.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/textures/Background.tscn" type="PackedScene" id=6]
 [ext_resource path="res://AlgorithmScenes/Screen/GameplayMenuButton.tscn" type="PackedScene" id=7]
@@ -96,6 +97,10 @@ margin_left = -199.0
 margin_top = -212.5
 margin_right = 313.0
 margin_bottom = -94.5
+
+[node name="TextHintContainer" parent="CanvasLayer" instance=ExtResource( 4 )]
+margin_left = 408.0
+margin_bottom = 150.0
 
 [node name="GameplayMenuButton" parent="CanvasLayer" instance=ExtResource( 7 )]
 visible = false

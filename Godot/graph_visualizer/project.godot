@@ -184,7 +184,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Code/ADTs/queue_adt.gd"
 }, {
-"base": "Reference",
+"base": "Object",
 "class": "QueueForTesting",
 "language": "GDScript",
 "path": "res://AlgorithmScenes/TestScenes/TestScripts/stack_for_testing.gd"

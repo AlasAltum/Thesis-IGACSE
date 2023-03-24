@@ -10,6 +10,9 @@ public class MainMenu : Node2D
 	private AnimationPlayer animPlayer;
 
 	[Export]
+	private Godot.Collections.Array<string> TestLevelsPaths = new Godot.Collections.Array<string>();
+
+	[Export]
 	private Godot.Collections.Array<string> TutorialLevelsPaths = new Godot.Collections.Array<string>();
 
 	private AlgorithmSelectionMenu algorithmSelectionMenu;
@@ -108,5 +111,11 @@ public class MainMenu : Node2D
 		GetTree().CurrentScene = CurrentScene;
 	}
 
+	private void _on_TestButton_pressed()
+	{
+		// We are assuming that TestLevelsPaths contains the test levels in the editor
+		TestLevelsPaths.Shuffle();
+		GotoScene(TutorialLevelsPaths[0]);
+	}
 
 }
