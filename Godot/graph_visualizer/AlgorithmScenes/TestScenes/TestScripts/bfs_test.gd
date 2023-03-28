@@ -11,13 +11,15 @@ signal all_nodes_pressed
 func _ready():
 	queue = QueueForTesting.new()
 	self.connect("all_nodes_pressed", self, "on_all_nodes_pressed")
+	_add_first_node_to_stack()
 
-	# Get first node and add it to the queue
+func _add_first_node_to_stack():
+	# Get first node and add it to the stack
 	for _node in StoredData.nodes:
 		if _node.index == 0:
 			queue.push_level([_node])
 			first_node = _node
-			break
+			return
 
 # @param node: AGraphNode
 func on_node_click(node):

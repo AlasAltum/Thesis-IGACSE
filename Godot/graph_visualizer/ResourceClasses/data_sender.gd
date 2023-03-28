@@ -14,7 +14,6 @@ func set_http_request(_http_request):
 
 
 func send_data(data: Dictionary):
-	http_request
 	pass
 
 

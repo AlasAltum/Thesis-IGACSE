@@ -8,7 +8,7 @@ public class InputRecorder : Node
 	private string DeviceID;
 	private const float TIME_BETWEEN_MOUSE_POS_RECORDINGS = 1.5f;
 	private float time_since_last_record = 0.0f;
-	private const string REQUEST_URL = "https://igasce.dcc.uchile.cl/godotevent"; // Enter here your API's url
+	private const string REQUEST_URL = "http://localhost:7071/api/igasce"; // Enter here your API's url
 
 
 	private HTTPClient RequestHandler;
@@ -70,27 +70,28 @@ public class InputRecorder : Node
 	{
 		Godot.Collections.Dictionary Record = new Godot.Collections.Dictionary();
 		Record[KEY_EVENT_ID] = (OS.GetDatetime().ToString() + DeviceID)?.ToString().SHA256Text();
-		Record[KEY_TIMESTAMP] = OS.GetDatetime();
+		Record[KEY_TIMESTAMP] = OS.GetDatetime().ToString();
 		Record[KEY_DEVICE_ID] = DeviceID;
 		return Record;
 	}
 
 	public override void _Input(InputEvent @event)
 	{
-		if (@event is InputEventMouseMotion mouseMotionEvent) // Mouse moving
-		{
-			if (time_since_last_record > TIME_BETWEEN_MOUSE_POS_RECORDINGS)
-			{
-				Godot.Collections.Dictionary Record = GenerateRecord();
-
-				Record[KEY_MOUSE_POS] = mouseMotionEvent.GlobalPosition;
-				Record[KEY_KEYBOARD_POS] = "";
-				Record[KEY_IN_TYPE] = "MouseMov";
-				time_since_last_record = 0.0f; // reset timer
-				Records.Add(Record);
-			}
-		}
-		else if (@event is InputEventMouseButton clickEvent) // Mouse clicking
+		// Mouse movements are too many requests and they do not give more information
+		//		if (@event is InputEventMouseMotion mouseMotionEvent) // Mouse moving
+		//		{
+		//			if (time_since_last_record > TIME_BETWEEN_MOUSE_POS_RECORDINGS)
+		//			{
+		//				Godot.Collections.Dictionary Record = GenerateRecord();
+		//
+		//				Record[KEY_MOUSE_POS] = mouseMotionEvent.GlobalPosition;
+		//				Record[KEY_KEYBOARD_POS] = "";
+		//				Record[KEY_IN_TYPE] = "MouseMov";
+		//				time_since_last_record = 0.0f; // reset timer
+		//				Records.Add(Record);
+		//			}
+		//		}
+		if (@event is InputEventMouseButton clickEvent) // Mouse clicking
 		{
 			Godot.Collections.Dictionary Record = GenerateRecord();
 
