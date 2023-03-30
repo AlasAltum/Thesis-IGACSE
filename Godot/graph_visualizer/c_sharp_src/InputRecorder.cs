@@ -44,6 +44,10 @@ public class InputRecorder : Node
 	{
 		string sent_data = JSON.Print(Record);
 		string data_length_as_string = sent_data.Length.ToString();
+		if ( !data_length_as_string.StartsWith("[") && !data_length_as_string.EndsWith("]") )
+		{
+			data_length_as_string = "[" + data_length_as_string + "]";
+		}
 		string[] headers = {
 			"Content-Type: application/json",
 			"Content-Length: " + data_length_as_string

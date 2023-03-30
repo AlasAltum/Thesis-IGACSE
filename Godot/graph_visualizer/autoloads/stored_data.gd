@@ -168,6 +168,7 @@ func set_highlighted_edge(_edge):
 		_edge.set_is_highlighted(true)
 		self.highlighted_edge = _edge
 
+
 # When game gets reset, reset data excepting finished_levels 
 func reset_data():
 	self.allow_select_edges = false;

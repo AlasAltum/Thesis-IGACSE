@@ -21,6 +21,7 @@ func _add_first_node_to_stack():
 			first_node = _node
 			return
 
+# Activated by the signal node_seleced from the TestManager
 # @param node: AGraphNode
 func on_node_click(node):
 	.on_node_click(node)
@@ -34,11 +35,12 @@ func on_node_click(node):
 		# Since this method itself is triggered by a signal
 		if StoredData.get_selected_nodes().size() == StoredData.number_of_nodes:
 			call_deferred("notify_all_nodes_pressed")
-		return
+		return "correct"
 
 	# If the user clicked on a node that was not correct
 	num_incorrect_actions += 1
 	node.unselect_node()
+	return "wrong"
 	# TODO: show error to user
 
 func was_node_clicked_action_correct(node) -> bool:

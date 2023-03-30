@@ -23,6 +23,8 @@ export (bool) var allow_edge_selection = false
 export (bool) var returns_mst = false  # Kruskal and Prim return MST, this is to make sure the graph has more than n-1 edges
 export (bool) var random_graph = true
 
+var start_os_datetime = {}
+var start_time: int
 var adt_mediator
 
 func _init():

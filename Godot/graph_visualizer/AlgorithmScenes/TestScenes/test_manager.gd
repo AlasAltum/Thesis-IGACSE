@@ -25,26 +25,33 @@ func _ready():
 	test_script.connect("all_nodes_pressed", self, "on_all_nodes_pressed")
 	# test_script will have the logic to check if an action was correct
 	self.unique_id = str(OS.get_unique_id())
+	self.start_time = OS.get_ticks_msec()
+	self.start_os_datetime = OS.get_datetime()
+
+func _get_current_time() -> String:
+	return str(OS.get_ticks_msec() - self.start_time)
 
 # In this mode, all nodes may be selected since the beginning
 # The user must press the nodes in a valid order 
 func _initialize_test_game_mode():
 	# Make all nodes selectable
+	# node type: AGraphNode
 	for node in StoredData.nodes:
 		StoredData.selectable_nodes.append(node.index)
 		node.connect("node_selected", self, "_store_node_selected_event")
 
 func _store_node_selected_event(node):
 	selected_nodes_in_order.append(node)
-	test_script.on_node_click(node)
+	var correct_or_wrong : String = test_script.on_node_click(node)
 	var datetime_unique_id_str: String = str(OS.get_ticks_msec())
 	var new_entry: Dictionary = {
-		"eventid": datetime_unique_id_str,
+		"eventid": correct_or_wrong,
 		"timestamp": datetime_unique_id_str,
 		"deviceid": unique_id,
 		"intype": "NodePress",
 	}
 	events.append(new_entry)
+
 
 func on_all_nodes_pressed():
 	var finished_popup: WindowDialog = $CanvasLayer/FinishedPopup
@@ -55,12 +62,13 @@ func on_all_nodes_pressed():
 	var in_type_data = {
 		"errors": errors,
 		"correct answers": correct,
-		"total_time": total_time
+		"total_time": total_time,
+		"datetime": self.start_os_datetime,
 	}
 	var event_id_str : String = (self.level_name + " Finished").sha256_text()
 	var new_entry: Dictionary = {
 		"eventid": event_id_str,
-		"timestamp": OS.get_datetime(),
+		"timestamp": str(OS.get_date()),
 		"deviceid": unique_id,
 		"intype": JSON.print(in_type_data),
 	}
@@ -76,6 +84,12 @@ func send_http_request(request_data: String):
 	self.add_child(http_request)
 	http_request.connect("request_completed", self, "_http_request_completed")
 	# Perform a POST request. The URL below returns JSON as of writing.
+	
+	if not request_data.begins_with("["):
+		request_data = "[" + request_data
+	if not request_data.ends_with("]"):
+		request_data = request_data + "]"
+
 	var error = http_request.request(StoredData.API_URL, [], true, HTTPClient.METHOD_POST, request_data)
 	if error != OK:
 		push_error("An error occurred in the HTTP request.")

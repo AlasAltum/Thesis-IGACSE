@@ -19,7 +19,7 @@ func on_node_click(node):
 		first_click_time = OS.get_ticks_msec()
 		first_click = false
 	last_click_time = OS.get_ticks_msec()
-
+	return "THIS SHOULD NOT BE RETURNED"
 
 func was_node_clicked_action_correct(node) -> bool:
 	return false
