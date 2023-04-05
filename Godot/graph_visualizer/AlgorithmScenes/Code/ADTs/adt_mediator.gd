@@ -125,8 +125,8 @@ func _on_variable_index_up():
 	if data.size() > 0:
 		# Force circular behaviour
 		if selected_index == 0:
-			set_selected_index(data.size() - 1)
-
+			#set_selected_index(data.size() - 1)
+			pass
 		else:
 			set_selected_index(selected_index - 1)
 		update_views()
@@ -136,7 +136,8 @@ func _on_variable_index_down():
 	if data.size() > 0:
 		# Force circular behaviour
 		if selected_index == data.size() - 1:
-			set_selected_index(0)
+			pass
+			#set_selected_index(0)
 		else:
 			set_selected_index(selected_index + 1)
 		update_views()

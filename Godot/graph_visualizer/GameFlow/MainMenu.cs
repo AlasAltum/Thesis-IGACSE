@@ -6,14 +6,14 @@ public class MainMenu : Node2D
 	public Node CurrentScene { get; set; }
 	private Button startGame;
 	private Button TutorialButton;
-//	private Button exitGame;
+
 	private AnimationPlayer animPlayer;
 
 	[Export]
-	private Godot.Collections.Array<string> TestLevelsPaths = new Godot.Collections.Array<string>();
-
-	[Export]
 	private Godot.Collections.Array<string> TutorialLevelsPaths = new Godot.Collections.Array<string>();
+
+	private String BFS_TEST = "res://AlgorithmScenes/TestScenes/BFS_test.tscn";
+	private String DFS_TEST = "res://AlgorithmScenes/TestScenes/DFS_test.tscn";
 
 	private AlgorithmSelectionMenu algorithmSelectionMenu;
 
@@ -65,15 +65,28 @@ public class MainMenu : Node2D
 		animPlayer.Play("ShowLevels");
 	}
 
-	public void OnTutorialButtonPressed()
+//	public void OnTutorialButtonPressed()
+//	{
+//		// TODO: Add levels here
+//		GD.Print("OnTutorialButtonPressed");
+//		TutorialLevelsPaths.Shuffle();
+//		GotoScene(TutorialLevelsPaths[0]);
+//	}
+	private void _on_TestButton_pressed()
 	{
-		// TODO: Add levels here
-		// TutorialLevelsPaths.Add("");
-		// TutorialLevelsPaths.Add("");
-		// TutorialLevelsPaths.Add("");
-		// TutorialLevelsPaths.Add("");
-		TutorialLevelsPaths.Shuffle();
-		GotoScene(TutorialLevelsPaths[0]);
+		// We are assuming that TutorialLevelsPaths contains the test levels in the editor
+		GD.Print("OnTutorialButtonPressed");
+		// Generate random number, with 50% probability, choose BFS or DFS
+		Random rand = new Random();
+		int randNum = rand.Next(0, 2);
+		if (randNum == 0)
+		{
+			GotoScene(DFS_TEST);
+		}
+		else if (randNum == 1)
+		{
+			GotoScene(BFS_TEST);
+		}
 	}
 
 	public void onAnimationFinished(String animName)
@@ -111,11 +124,6 @@ public class MainMenu : Node2D
 		GetTree().CurrentScene = CurrentScene;
 	}
 
-	private void _on_TestButton_pressed()
-	{
-		// We are assuming that TestLevelsPaths contains the test levels in the editor
-		TestLevelsPaths.Shuffle();
-		GotoScene(TutorialLevelsPaths[0]);
-	}
 
 }
+

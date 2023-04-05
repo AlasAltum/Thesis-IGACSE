@@ -215,3 +215,10 @@ func set_color(in_color: Color) -> void:
 
 func get_color() -> Color:
 	return  $Sprite.material.get_shader_param("assigned_color")
+
+func highlight_node():
+	$Sprite.material.set_shader_param("highlight", 1.0)
+
+func stop_highlight_node():
+	$Sprite.material.set_shader_param("highlight", 0.0)
+	

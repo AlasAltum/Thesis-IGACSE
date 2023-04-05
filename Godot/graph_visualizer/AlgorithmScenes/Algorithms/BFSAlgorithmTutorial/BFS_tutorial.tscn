@@ -81,8 +81,8 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 2.5, 4.6 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ "            These are the [b]instructions[/b] 
-            [b]Follow[/b] them to [b]win[/b]", "[center]These are the [b]nodes[/b] and [b]edges[/b] of the [b]graph[/b]", "[center][wave] Press [b]SPACE[/b] to continue" ]
+"values": [ "These are the [b]instructions[/b] 
+[b]Follow[/b] them to [b]win[/b]", "These are the [b]nodes[/b] and [b]edges[/b] of the [b]graph[/b]", "[wave] Press [b]SPACE[/b] to continue" ]
 }
 tracks/4/type = "method"
 tracks/4/path = NodePath("TextHintContainer/HintLabel")
@@ -157,6 +157,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=11]
 resource_name = "ShowCurrentVariable"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("BottomPanel/ADTShower:modulate")
 tracks/0/interp = 1
@@ -164,7 +165,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
@@ -190,7 +191,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 750, 460 ), Vector2( 750, 830 ) ]
@@ -327,27 +328,23 @@ position = Vector2( 1, 0 )
 layer = -1
 
 [node name="TextHintContainer" parent="CanvasLayer" instance=ExtResource( 4 )]
-anchor_left = 0.193
-anchor_bottom = 0.133
-margin_left = 0.440002
-margin_top = -5.0
-margin_right = -16.0
-margin_bottom = 1.36
+anchor_left = 0.002
+anchor_top = 0.6
+anchor_bottom = 0.739
+margin_left = 358.16
+margin_right = -10.0
+margin_bottom = -0.119995
 mouse_default_cursor_shape = 8
 
 [node name="HintLabel" parent="CanvasLayer/TextHintContainer" index="0"]
-margin_left = 366.0
-margin_top = 24.0
-margin_right = 1166.0
-margin_bottom = 126.0
+margin_left = 374.0
+margin_right = 1174.0
 rect_min_size = Vector2( 800, 100 )
 rect_clip_content = false
 size_flags_horizontal = 0
 size_flags_vertical = 0
-bbcode_text = "            These are the [b]instructions[/b] 
-            [b]Follow[/b] them to [b]win[/b]"
-text = "            These are the instructions 
-            Follow them to win"
+bbcode_text = "[wave] Press [b]SPACE[/b] to continue"
+text = " Press SPACE to continue"
 
 [node name="LeftPanel" type="VBoxContainer" parent="CanvasLayer"]
 anchor_right = 0.208
@@ -576,13 +573,12 @@ mouse_filter = 2
 [node name="DebugBlock" parent="CanvasLayer/BottomPanel" instance=ExtResource( 1 )]
 modulate = Color( 1, 1, 1, 0 )
 margin_top = 0.0
-margin_right = 1453.0
+margin_right = 1215.0
 margin_bottom = 300.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ADTShower" parent="CanvasLayer/BottomPanel" instance=ExtResource( 28 )]
-visible = false
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -595,15 +591,9 @@ margin_bottom = 300.0
 size_flags_vertical = 1
 
 [node name="NodeContainer" type="AspectRatioContainer" parent="CanvasLayer"]
-modulate = Color( 1, 1, 1, 0 )
-anchor_left = 0.223
-anchor_top = 0.0885185
-anchor_right = 0.972438
-anchor_bottom = 0.695
-margin_left = 0.839996
-margin_top = 0.399998
-margin_right = 0.919922
-margin_bottom = 0.399963
+anchor_left = 0.190104
+anchor_right = 1.0
+anchor_bottom = 0.616667
 rect_clip_content = true
 mouse_filter = 2
 stretch_mode = 0
@@ -679,12 +669,6 @@ time_before_close = 3.5
 
 [node name="TutorialVariablesPopup" parent="CanvasLayer" instance=ExtResource( 25 )]
 
-[node name="ProgressBarUntilOk" parent="CanvasLayer/TutorialVariablesPopup" index="3"]
-margin_left = -244.0
-margin_top = -28.0
-margin_right = 244.0
-margin_bottom = 12.0
-
 [node name="TutorialCurrentVariable" type="AcceptDialog" parent="CanvasLayer"]
 visible = true
 anchor_left = 0.5
@@ -694,12 +678,11 @@ anchor_bottom = 1.0
 margin_left = 448.0
 margin_top = -248.0
 margin_right = 1115.0
-margin_bottom = -114.0
+margin_bottom = -111.0
 theme = ExtResource( 9 )
 popup_exclusive = true
 window_title = ""
 dialog_text = "These are your variables. You can change the current variable by pressing W or S.
-You can only move it while there are no popups on screen.
 Variables are going to be highlighted when updated or added."
 
 [node name="TutorialADTPopup" type="AcceptDialog" parent="CanvasLayer"]

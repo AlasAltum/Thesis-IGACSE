@@ -8,7 +8,7 @@ public class InputRecorder : Node
 	private string DeviceID;
 	private const float TIME_BETWEEN_MOUSE_POS_RECORDINGS = 1.5f;
 	private float time_since_last_record = 0.0f;
-	private const string REQUEST_URL = "http://localhost:7071/api/igasce"; // Enter here your API's url
+	private const string REQUEST_URL = "https://igasce.azurewebsites.net/api/igasce?code=7x0mMQ-QgCsURHIl_KEPF0sl2MjsH3R4CKttXIsfF8IiAzFuApnNvA=="; // Enter here your API's url
 
 
 	private HTTPClient RequestHandler;

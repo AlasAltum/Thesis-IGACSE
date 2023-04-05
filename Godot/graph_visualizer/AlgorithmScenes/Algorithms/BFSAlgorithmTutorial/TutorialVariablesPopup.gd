@@ -1,11 +1,11 @@
 extends TutorialPopup
 
-const highlight_material = preload("res://Assets/custom_shaders/highlight_tutorial.tres")
+#const highlight_material = preload("res://Assets/custom_shaders/highlight_tutorial.tres")
 
 
 func _ready():
 	._initialize() # Super._initialize()
-	ok_button.material = highlight_material  # our ok button should be highlighted
+#	ok_button.material = highlight_material  # our ok button should be highlighted
 
 	self.connect("confirmed", self, "_on_TutorialVariablesPopup_confirmed")
 

@@ -10,7 +10,7 @@ var finished_levels = {
 	"Prim": false,
 	"Kruskal": false,
 }
-var API_URL = "http://localhost:7071/api/igasce"
+var API_URL = "https://igasce.azurewebsites.net/api/igasce?code=7x0mMQ-QgCsURHIl_KEPF0sl2MjsH3R4CKttXIsfF8IiAzFuApnNvA==" # "http://localhost:7071/api/igasce"
 enum mov_status {SELECT = 0, DRAG = 1}
 const status_map = {
 	"DRAG": mov_status.DRAG,

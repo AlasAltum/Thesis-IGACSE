@@ -24,9 +24,13 @@ func _ready():
 	add_child(test_script)
 	test_script.connect("all_nodes_pressed", self, "on_all_nodes_pressed")
 	# test_script will have the logic to check if an action was correct
-	self.unique_id = str(OS.get_unique_id())
+	self.unique_id = str( OS.get_unique_id() )
 	self.start_time = OS.get_ticks_msec()
-	self.start_os_datetime = OS.get_datetime()
+	self.start_os_datetime = str( OS.get_datetime() )
+	# Erase from string the starting and ending characters
+	if start_os_datetime.begins_with("{") and start_os_datetime.ends_with("}"):
+		start_os_datetime = start_os_datetime.substr(1, start_os_datetime.length() - 2)
+
 
 func _get_current_time() -> String:
 	return str(OS.get_ticks_msec() - self.start_time)
@@ -59,19 +63,18 @@ func on_all_nodes_pressed():
 	var errors = test_script.get_errors()
 	var correct = test_script.get_correct_answers()
 	var total_time = test_script.get_time_between_first_and_last_click()
-	var in_type_data = {
-		"errors": errors,
-		"correct answers": correct,
-		"total_time": total_time,
-		"datetime": self.start_os_datetime,
-	}
-	var event_id_str : String = (self.level_name + " Finished").sha256_text()
+
+	# Send summary
+	var event_id_str : String = self.level_name + " Finished"
+	var timestamp = str(OS.get_unix_time())
+	var in_type_data = "errors: {errors}, correct answers: {correct}, total_time: {total_time}, datetime: {datetime}".format({"errors": errors, "correct": correct, "total_time": total_time, "datetime": start_os_datetime})
 	var new_entry: Dictionary = {
 		"eventid": event_id_str,
-		"timestamp": str(OS.get_date()),
+		"timestamp": timestamp,
 		"deviceid": unique_id,
-		"intype": JSON.print(in_type_data),
+		"intype": in_type_data,
 	}
+	print(new_entry)
 	events.append(new_entry)
 	finished_popup.popup()
 	# Convert the dictionary to JSON String
@@ -84,12 +87,11 @@ func send_http_request(request_data: String):
 	self.add_child(http_request)
 	http_request.connect("request_completed", self, "_http_request_completed")
 	# Perform a POST request. The URL below returns JSON as of writing.
-	
-	if not request_data.begins_with("["):
-		request_data = "[" + request_data
-	if not request_data.ends_with("]"):
-		request_data = request_data + "]"
 
+	if not request_data.begins_with("[") and not request_data.ends_with("]"):
+		request_data = "[" + request_data + "]"
+
+	print("About to send the following request: " + request_data)
 	var error = http_request.request(StoredData.API_URL, [], true, HTTPClient.METHOD_POST, request_data)
 	if error != OK:
 		push_error("An error occurred in the HTTP request.")

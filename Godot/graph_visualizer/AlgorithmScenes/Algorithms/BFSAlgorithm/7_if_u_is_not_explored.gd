@@ -9,6 +9,15 @@ func check_actions_correct() -> bool:
 # Override from EffectCheck
 func effect_check_on_focused():
 	ask_user()
+	highlight_node()
+
+func highlight_node():
+	var u = StoredData.get_variable("u").get_node()
+	u.highlight_node()
+
+func stop_node_highlight():
+	var u = StoredData.get_variable("u").get_node()
+	u.stop_highlight_node()
 
 func ask_user() -> void:
 	# Show a popup that asks the user whether u is explored or not
@@ -32,8 +41,10 @@ func get_next_line() -> int:
 	if StoredData.v_is_explored_right_answer:
 		var u = StoredData.get_variable("u").get_node()
 		if self.if_condition_is_true(u):
+			stop_node_highlight()
 			return .get_next_line()  # super.get_next_line()
 
+		stop_node_highlight()
 		return .get_jump_line()
 	# Else: Do not move
 	return self.code_line.line_index
