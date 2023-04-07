@@ -57,13 +57,12 @@ mouse_filter = 2
 
 [node name="DebugBlock" parent="CanvasLayer/BottomPanel" instance=ExtResource( 1 )]
 margin_top = 0.0
-margin_right = 1528.0
+margin_right = 1290.0
 margin_bottom = 300.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ADTShower" parent="CanvasLayer/BottomPanel" instance=ExtResource( 28 )]
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -79,10 +78,10 @@ anchor_left = 0.579
 anchor_top = 0.333
 anchor_right = 0.579
 anchor_bottom = 0.333
-margin_left = -703.68
-margin_top = -271.64
-margin_right = 774.32
-margin_bottom = 398.36
+margin_left = -718.68
+margin_top = -358.64
+margin_right = 808.32
+margin_bottom = 293.36
 rect_clip_content = true
 mouse_filter = 2
 stretch_mode = 0
@@ -141,8 +140,10 @@ margin_right = 313.0
 margin_bottom = -94.5
 
 [node name="TextHintContainer" parent="CanvasLayer" instance=ExtResource( 4 )]
-margin_left = 408.0
-margin_bottom = 150.0
+margin_left = 394.0
+margin_top = 629.0
+margin_right = -2.0
+margin_bottom = 779.0
 
 [node name="Background" parent="." instance=ExtResource( 6 )]
 

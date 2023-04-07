@@ -28,11 +28,13 @@ func if_condition_is_true(v) -> bool:
 # If user presses enter
 # Ask the user whether this is true or false
 func get_next_line() -> int:
+	var v = StoredData.get_variable("v").get_node()
 	if StoredData.v_is_explored_right_answer:
-		var v = StoredData.get_variable("v").get_node()
 		if self.if_condition_is_true(v):
 			return .get_next_line()  # super.get_next_line()
 
+		# Add this to stop highlighting node v
+		# v.stop_highlight_node()
 		return .get_jump_line()
 	# Else: Do not move
 	return self.code_line.line_index

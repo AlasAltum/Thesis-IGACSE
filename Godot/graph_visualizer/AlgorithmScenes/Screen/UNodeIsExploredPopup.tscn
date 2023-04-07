@@ -4,7 +4,7 @@
 [ext_resource path="res://AlgorithmScenes/Screen/PopupTheme.tres" type="Theme" id=2]
 
 [sub_resource type="Animation" id=1]
-length = 3.0
+length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 2
@@ -12,10 +12,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 3 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:visible")
@@ -30,7 +30,7 @@ tracks/1/keys = {
 "values": [ false, true, true ]
 }
 
-[node name="UNodeIsExploredPopup" type="WindowDialog"]
+[node name="VNodeIsExploredPopup" type="WindowDialog"]
 margin_left = 524.122
 margin_top = 233.47
 margin_right = 1036.12
@@ -47,7 +47,7 @@ margin_right = 506.0
 margin_bottom = 39.0
 rect_pivot_offset = Vector2( 265.108, 0 )
 size_flags_horizontal = 3
-text = "Is the U node (index) explored or iterated?"
+text = "Is the V node (index) explored or iterated?"
 align = 1
 autowrap = true
 __meta__ = {
@@ -85,9 +85,6 @@ focus_neighbour_right = NodePath("../NoButton")
 focus_next = NodePath("../NoButton")
 focus_previous = NodePath("..")
 text = "Yes"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="NoButton" type="Button" parent="."]
 modulate = Color( 0.980392, 0.156863, 0.156863, 1 )

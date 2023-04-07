@@ -16,6 +16,9 @@ func execute_side_effect() -> void:
 		var top_node_in_stack : AGraphNode = stack.top()
 		StoredData.add_variable("v", top_node_in_stack)
 		_play_pop_sound()
+		# Add this to highlight node v in some way
+		# var v = StoredData.get_variable("v").get_node()
+		# v.highlight_node()
 
 func _play_pop_sound():
 	audio = AudioStreamPlayer.new()
