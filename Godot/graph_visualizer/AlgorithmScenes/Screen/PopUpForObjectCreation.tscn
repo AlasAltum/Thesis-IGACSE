@@ -31,6 +31,7 @@ tracks/1/keys = {
 }
 
 [node name="PopUpForObjectCreation" type="WindowDialog"]
+visible = true
 margin_left = 512.0
 margin_top = 232.0
 margin_right = 1024.0
@@ -57,11 +58,10 @@ align = 1
 autowrap = true
 
 [node name="ErrorNotification" type="Label" parent="."]
-visible = false
 margin_left = 8.0
-margin_top = 104.0
+margin_top = 112.0
 margin_right = 509.0
-margin_bottom = 144.0
+margin_bottom = 152.0
 rect_pivot_offset = Vector2( 265.108, 0 )
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0.878431, 0, 0, 1 )
@@ -75,10 +75,10 @@ autowrap = true
 anims/message_modulation = SubResource( 1 )
 
 [node name="NameAssign" type="LineEdit" parent="."]
-margin_left = 59.878
-margin_top = 54.53
-margin_right = 434.878
-margin_bottom = 94.53
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 456.0
+margin_bottom = 96.0
 focus_neighbour_right = NodePath("..")
 focus_neighbour_bottom = NodePath("../EnterButton")
 focus_next = NodePath("../EnterButton")

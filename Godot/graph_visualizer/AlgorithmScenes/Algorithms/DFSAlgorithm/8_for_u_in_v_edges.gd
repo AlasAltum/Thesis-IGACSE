@@ -36,6 +36,7 @@ func get_next_u_node() -> AGraphNode:
 		if not u.is_iterated_or_explored():
 			break
 
+	# When already visited all neighbors of v
 	if loop_broken:
 		return first_u 
 	return u
@@ -50,10 +51,10 @@ func execute_side_effect() -> void:
 	# process, but it is boring for the user, so we will obscurely avoid it
 	var u:  AGraphNode = get_next_u_node()
 	StoredData.add_variable("u", u)
-	# Get Edge between nodes v and u
-	# HIGHLIGHT IT
+	# Get Edge between nodes v and u and highlight the edge and u
 	var edge_between_u_and_v = StoredData.get_edge_between_nodes(u, v)
 	StoredData.set_highlighted_edge(edge_between_u_and_v)
+	u.highlight_node()
 
 
 func get_max_iteration_index(v: AGraphNode) -> int:

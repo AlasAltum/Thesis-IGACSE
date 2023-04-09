@@ -26,7 +26,7 @@ corner_radius_bottom_left = 8
 anti_aliasing = false
 
 [sub_resource type="DynamicFont" id=4]
-size = 20
+size = 24
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 12 )
@@ -58,14 +58,14 @@ mouse_filter = 2
 
 [node name="DebuggerTitle" type="Label" parent="VBoxContainer"]
 margin_right = 384.0
-margin_bottom = 26.0
+margin_bottom = 31.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 custom_fonts/font = SubResource( 4 )
 text = "  Data Structures"
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
-margin_top = 30.0
+margin_top = 35.0
 margin_right = 384.0
 margin_bottom = 300.0
 rect_min_size = Vector2( 40, 40 )
@@ -87,6 +87,12 @@ on_hover_animation = ExtResource( 1 )
 [node name="SlotTexture" parent="VBoxContainer/GridContainer/Slot" index="0"]
 theme = SubResource( 3 )
 
+[node name="BelowADTName" parent="VBoxContainer/GridContainer/Slot/SlotTexture" index="2"]
+margin_left = 6.3297
+margin_top = 78.699
+margin_right = 67.3297
+margin_bottom = 107.699
+
 [node name="Slot2" parent="VBoxContainer/GridContainer" instance=ExtResource( 8 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -98,6 +104,9 @@ generated_adt = ExtResource( 4 )
 on_hover_animation = ExtResource( 9 )
 
 [node name="BelowADTName" parent="VBoxContainer/GridContainer/Slot2/SlotTexture" index="2"]
+margin_left = 13.602
+margin_right = 66.602
+margin_bottom = 109.0
 text = "Stack"
 align = 1
 valign = 1
@@ -112,6 +121,9 @@ slot_texture = ExtResource( 6 )
 generated_adt = ExtResource( 10 )
 
 [node name="BelowADTName" parent="VBoxContainer/GridContainer/Slot3/SlotTexture" index="2"]
+margin_left = 14.602
+margin_right = 69.602
+margin_bottom = 109.0
 text = "Array"
 align = 1
 valign = 1

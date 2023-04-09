@@ -92,7 +92,7 @@ func reset_game():
 func ask_user_if_graph_node_is_explored(u, condition_value: bool):
 	u_is_explored_popup.popup()
 	u_is_explored_popup.get_node("Explanation").text = (
-		"Has the U node (" + str(u.index) + ") been marked as explored or iterated?"
+		"Has the V node (" + str(u.index) + ") been marked as explored or iterated?"
 	)
 	 # This stablishes whether yes or no should be pressed
 	self.u_is_explored = condition_value

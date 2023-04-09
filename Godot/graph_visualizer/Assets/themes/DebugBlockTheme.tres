@@ -3,7 +3,7 @@
 [ext_resource path="res://Assets/fonts/bainsley/Bainsley_Roman.otf" type="DynamicFontData" id=1]
 
 [sub_resource type="DynamicFont" id=8]
-size = 20
+size = 22
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
