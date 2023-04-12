@@ -11,7 +11,8 @@
 position = Vector2( -1, 0 )
 script = ExtResource( 2 )
 level_name = "DFS"
-graph_size = 4
+graph_density = 0.25
+graph_size = 6
 allow_edge_selection = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

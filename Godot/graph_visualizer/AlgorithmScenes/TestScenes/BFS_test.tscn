@@ -12,7 +12,7 @@
 position = Vector2( -1, 0 )
 script = ExtResource( 1 )
 graph_density = 0.3
-graph_size = 4
+graph_size = 6
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -127,7 +127,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 bbcode_enabled = true
 bbcode_text = "[center]Make a valid [b]BFS[/b] path "
-text = "Make a valid BFS path by left clicking the nodes in order. Start at 0."
+text = "Make a valid BFS path "
 fit_content_height = true
 scroll_active = false
 
