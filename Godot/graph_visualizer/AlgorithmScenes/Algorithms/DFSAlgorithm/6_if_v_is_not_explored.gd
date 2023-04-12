@@ -15,7 +15,7 @@ func ask_user() -> void:
 	# condition is true if not explored, 
 	var v = StoredData.get_variable("v").get_node()
 	var explored = not if_condition_is_true(v);
-	NotificationManager.ask_user_if_graph_node_is_explored(v, explored)
+	NotificationManager.ask_user_if_graph_node_is_explored_dfs(v, explored)
 	# This sets the StoredData.v_is_explored_right_answer variable
 	
 # If v.is_not_explored()

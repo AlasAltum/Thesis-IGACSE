@@ -338,13 +338,17 @@ mouse_default_cursor_shape = 8
 
 [node name="HintLabel" parent="CanvasLayer/TextHintContainer" index="0"]
 margin_left = 343.0
+margin_top = 24.0
 margin_right = 1143.0
+margin_bottom = 126.0
 rect_min_size = Vector2( 800, 100 )
 rect_clip_content = false
 size_flags_horizontal = 0
 size_flags_vertical = 0
-bbcode_text = "[wave] Press [b]SPACE[/b] to continue"
-text = " Press SPACE to continue"
+bbcode_text = "These are the [b]instructions[/b] 
+[b]Follow[/b] them to [b]win[/b]"
+text = "These are the instructions 
+Follow them to win"
 
 [node name="LeftPanel" type="VBoxContainer" parent="CanvasLayer"]
 anchor_right = 0.208
@@ -358,6 +362,7 @@ margin_right = 459.0
 text = "Menu"
 
 [node name="BFSCodeBlock" parent="CanvasLayer/LeftPanel" instance=ExtResource( 3 )]
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_right = 0.0
 margin_left = 0.0
@@ -453,6 +458,7 @@ margin_right = 459.0
 margin_bottom = 605.0
 
 [node name="ADTSelectionPanel" type="MarginContainer" parent="CanvasLayer/LeftPanel"]
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 780.0
 margin_right = 459.0
 margin_bottom = 1080.0
@@ -570,6 +576,7 @@ margin_top = -300.0
 mouse_filter = 2
 
 [node name="DebugBlock" parent="CanvasLayer/BottomPanel" instance=ExtResource( 1 )]
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 0.0
 margin_right = 1204.0
 margin_bottom = 300.0
@@ -577,6 +584,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ADTShower" parent="CanvasLayer/BottomPanel" instance=ExtResource( 28 )]
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -588,6 +596,7 @@ margin_bottom = 300.0
 size_flags_vertical = 1
 
 [node name="NodeContainer" type="AspectRatioContainer" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.242708
 anchor_right = 1.0
 anchor_bottom = 0.616667

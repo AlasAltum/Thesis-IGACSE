@@ -25,7 +25,7 @@ func ask_user() -> void:
 	# Popup class: UNodeIsExploredPopup
 	var u = StoredData.get_variable("u").get_node()
 	var u_is_explored = not if_condition_is_true(u);
-	NotificationManager.ask_user_if_graph_node_is_explored(u, u_is_explored)
+	NotificationManager.ask_user_if_graph_node_is_explored_bfs(u, u_is_explored)
 	# This sets the StoredData.v_is_explored_right_answer variable
 	
 # If u.is_not_explored()
