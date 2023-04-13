@@ -53,6 +53,8 @@ var selected_variable_index : int = 0  # Used to emphasize the current variable
 var adt_to_be_created: ADT
 var animation_player: AnimationPlayer
 
+var allow_sending_request: bool = false
+
 func get_status():
 	return status
 

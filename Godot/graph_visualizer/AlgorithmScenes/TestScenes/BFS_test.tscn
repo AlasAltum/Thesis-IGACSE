@@ -126,8 +126,8 @@ mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 bbcode_enabled = true
-bbcode_text = "[center]Make a valid [b]BFS[/b] path "
-text = "Make a valid BFS path "
+bbcode_text = "[center]Make a valid [b]BFS[/b] path by [b]left clicking[/b] the nodes in the expected order starting at node [b]0[/b]"
+text = "Make a valid BFS path by left clicking the nodes in the expected order starting at node 0"
 fit_content_height = true
 scroll_active = false
 

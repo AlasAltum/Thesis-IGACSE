@@ -42,6 +42,11 @@ public class InputRecorder : Node
 
 	public Error SendRequest(Dictionary Record)
 	{
+		Node2D StoredData = GetTree().Root.GetNode<Node2D>("/root/StoredData");
+		if (StoredData == null || (bool) StoredData.Get("allow_sending_request"))
+		{
+			return Error.Failed;
+		}
 		string sent_data = JSON.Print(Record);
 		string data_length_as_string = sent_data.Length.ToString();
 		if ( !data_length_as_string.StartsWith("[") && !data_length_as_string.EndsWith("]") )

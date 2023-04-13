@@ -78,8 +78,9 @@ func on_all_nodes_pressed():
 	events.append(new_entry)
 	finished_popup.popup()
 	# Convert the dictionary to JSON String
-	var request_data: String = JSON.print(events) 
-	send_http_request(request_data)
+	var request_data: String = JSON.print(events)
+	if StoredData.allow_sending_request:
+		send_http_request(request_data)
 
 
 func send_http_request(request_data: String):
