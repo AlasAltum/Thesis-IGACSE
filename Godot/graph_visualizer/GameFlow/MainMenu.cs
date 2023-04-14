@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class MainMenu : Node2D
+public class MainMenu : CanvasLayer
 {
 	public Node CurrentScene { get; set; }
 	private Button startGame;
@@ -15,7 +15,7 @@ public class MainMenu : Node2D
 	private String BFS_TEST = "res://AlgorithmScenes/TestScenes/BFS_test.tscn";
 	private String DFS_TEST = "res://AlgorithmScenes/TestScenes/DFS_test.tscn";
 
-	private AlgorithmSelectionMenu algorithmSelectionMenu;
+	// private AlgorithmSelectionMenu algorithmSelectionMenu;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -23,24 +23,13 @@ public class MainMenu : Node2D
 		startGame = GetNode<Button>("VBoxContainer/StartGame");
 		TutorialButton = GetNode<Button>("VBoxContainer/TestButton");
 		// The exitGame button is not necessary in the HTML version
-		//		exitGame = GetNode<Button>("VBoxContainer/ExitGame");
-		animPlayer = GetNode<AnimationPlayer>("FadeAnimation");
-		algorithmSelectionMenu = GetNode<AlgorithmSelectionMenu>("AlgorithmSelectionMenu");
-
+		//	exitGame = GetNode<Button>("VBoxContainer/ExitGame");
 		startGame.GrabFocus();
 		startGame.Connect("pressed", this, "OnStartGame");
-		//		exitGame.Connect("pressed", this, "OnExitGame");    
-		algorithmSelectionMenu.Connect("OnSelectionMenuExitSignal", this, nameof(OnSelectionMenuExit));
-		algorithmSelectionMenu.Connect("OnBackButtonPressedSignal", this, nameof(OnBackButtonPressed));
 
-		animPlayer.Connect("animation_finished", this, nameof(onAnimationFinished));
 		CurrentScene = this;
 
 		Node2D StoredData = GetTree().Root.GetNode<Node2D>("/root/StoredData");
-		if ( (bool) StoredData.Get("has_initialized"))
-		{
-			animPlayer.Queue("ShowLevelsInstant");
-		}
 	}
 
 
@@ -55,23 +44,17 @@ public class MainMenu : Node2D
 
 	public void OnBackButtonPressed()
 	{
-		algorithmSelectionMenu.BackButton.Disabled = true;
-		animPlayer.Play("ShowMenu");
+		// algorithmSelectionMenu.BackButton.Disabled = true;
+		// animPlayer.Play("ShowMenu");
 	}
 
 	public void OnStartGame()
 	{
 		startGame.Disabled = true;
-		animPlayer.Play("ShowLevels");
+		GotoScene("res://GameFlow/AlgorithmSelectionMenu.tscn");
 	}
 
-//	public void OnTutorialButtonPressed()
-//	{
-//		// TODO: Add levels here
-//		GD.Print("OnTutorialButtonPressed");
-//		TutorialLevelsPaths.Shuffle();
-//		GotoScene(TutorialLevelsPaths[0]);
-//	}
+
 	private void _on_TestButton_pressed()
 	{
 		// We are assuming that TutorialLevelsPaths contains the test levels in the editor
@@ -94,10 +77,6 @@ public class MainMenu : Node2D
 		if (animName == "ShowLevels")
 		{
 			startGame.Disabled = false;
-		}
-		if (animName == "ShowMenu")
-		{
-			algorithmSelectionMenu.BackButton.Disabled = false;
 		}
 	}
 

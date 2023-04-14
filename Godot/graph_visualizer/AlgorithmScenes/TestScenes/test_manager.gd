@@ -100,3 +100,7 @@ func send_http_request(request_data: String):
 func _http_request_completed():
 	print("Request sent")
 
+
+
+func _on_TestPlayer_ready():
+	$CanvasLayer/TestPlayer.play("ShowInstructionsAndThenNoes")
