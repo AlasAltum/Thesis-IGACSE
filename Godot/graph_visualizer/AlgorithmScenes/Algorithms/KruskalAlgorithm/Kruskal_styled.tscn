@@ -101,6 +101,7 @@ mouse_filter = 2
 stretch_mode = 0
 
 [node name="PopUpForObjectCreation" parent="CanvasLayer" instance=ExtResource( 13 )]
+visible = false
 anchor_left = 0.575
 anchor_top = 0.296
 anchor_right = 0.575
@@ -123,6 +124,7 @@ margin_bottom = 79.32
 explanation_in_label = "Congratulations! You have successfully finished the Kruskal Algorithm!"
 
 [node name="GameplayMenuPopup" parent="CanvasLayer" instance=ExtResource( 5 )]
+visible = false
 anchor_left = 0.567
 anchor_top = 0.306
 anchor_right = 0.567
@@ -133,7 +135,6 @@ margin_right = 271.36
 margin_bottom = 59.52
 
 [node name="LengthCIsOnePopup" parent="CanvasLayer" instance=ExtResource( 16 )]
-visible = false
 anchor_left = 0.579
 anchor_top = 0.296
 anchor_right = 0.579

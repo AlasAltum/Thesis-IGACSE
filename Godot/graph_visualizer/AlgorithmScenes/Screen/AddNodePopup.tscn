@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Screen/popup_for_node_add_to_object.gd" type="Script" id=1]
 [ext_resource path="res://AlgorithmScenes/Screen/PopupTheme.tres" type="Theme" id=2]
+[ext_resource path="res://AlgorithmScenes/Screen/ErrorInPopupTheme.tres" type="Theme" id=3]
 
 [sub_resource type="Animation" id=1]
 length = 3.0
@@ -12,10 +13,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 3 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:visible")
@@ -24,7 +25,7 @@ tracks/1/loop_wrap = false
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3 ),
+"times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -58,22 +59,16 @@ __meta__ = {
 }
 
 [node name="ErrorNotification" type="Label" parent="."]
-self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 5.52972
 margin_top = 87.6922
 margin_right = 506.53
 margin_bottom = 113.692
 rect_pivot_offset = Vector2( 265.108, 0 )
 size_flags_horizontal = 3
-custom_colors/font_color = Color( 0.878431, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_as_outline = 2
+theme = ExtResource( 3 )
 text = "Object is not listed in variables"
 align = 1
 autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ErrorNotification"]
 anims/message_modulation = SubResource( 1 )
