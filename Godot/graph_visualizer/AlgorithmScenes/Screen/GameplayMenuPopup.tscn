@@ -8,7 +8,7 @@ visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 0.537963
 margin_left = -256.0
 margin_top = -59.0
 margin_right = 256.0
@@ -22,23 +22,23 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 168.0
+margin_left = 128.0
 margin_top = 23.0
-margin_right = 336.0
-margin_bottom = 105.0
+margin_right = 384.0
+margin_bottom = 135.0
 custom_constants/separation = 12
 
 [node name="ResetButton" type="Button" parent="VBoxContainer"]
 modulate = Color( 0.121569, 0.913725, 0, 1 )
-margin_right = 168.0
-margin_bottom = 35.0
+margin_right = 256.0
+margin_bottom = 46.0
 rect_pivot_offset = Vector2( 72.8572, 10.7062 )
 text = "     Reset Level    "
 
 [node name="MenuButton" type="Button" parent="VBoxContainer"]
 modulate = Color( 0.827451, 0.717647, 0.117647, 1 )
-margin_top = 47.0
-margin_right = 168.0
-margin_bottom = 82.0
+margin_top = 58.0
+margin_right = 256.0
+margin_bottom = 104.0
 rect_pivot_offset = Vector2( 72.8572, 10.7062 )
 text = "  Return to Menu  "

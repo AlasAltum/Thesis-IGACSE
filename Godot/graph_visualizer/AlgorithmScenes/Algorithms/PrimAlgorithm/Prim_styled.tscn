@@ -35,8 +35,10 @@ layer = -1
 [node name="TextHintContainer" parent="CanvasLayer" instance=ExtResource( 4 )]
 anchor_left = 0.209
 anchor_bottom = 0.17
-margin_left = 0.720001
-margin_bottom = -23.6
+margin_left = -1.28
+margin_top = 680.0
+margin_right = -2.0
+margin_bottom = 656.4
 
 [node name="LeftPanel" type="VBoxContainer" parent="CanvasLayer"]
 margin_right = 384.0

@@ -4,10 +4,10 @@
 [ext_resource path="res://AlgorithmScenes/Screen/PopupTheme.tres" type="Theme" id=2]
 
 [node name="FinishedPopup" type="WindowDialog"]
-margin_left = 525.1
-margin_top = 232.627
-margin_right = 1037.1
-margin_bottom = 391.627
+margin_left = 525.0
+margin_top = 233.0
+margin_right = 1037.0
+margin_bottom = 434.0
 theme = ExtResource( 2 )
 popup_exclusive = true
 window_title = "Algorithm Finished!"
@@ -24,20 +24,21 @@ text = "Congratulations! You have successfully finished the BFS Algorithm!"
 align = 1
 valign = 1
 autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 225.9
-margin_top = 76.373
-margin_right = 281.9
-margin_bottom = 150.373
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -76.0
+margin_top = -11.5
+margin_right = 95.0
+margin_bottom = 84.5
 
 [node name="ResetButton" type="Button" parent="VBoxContainer"]
 modulate = Color( 0.121569, 0.913725, 0, 1 )
-margin_right = 84.0
-margin_bottom = 35.0
+margin_right = 171.0
+margin_bottom = 46.0
 rect_pivot_offset = Vector2( 72.8572, 10.7062 )
 focus_neighbour_top = NodePath("../..")
 focus_neighbour_bottom = NodePath("../MenuButton")
@@ -50,9 +51,9 @@ __meta__ = {
 
 [node name="MenuButton" type="Button" parent="VBoxContainer"]
 modulate = Color( 0.827451, 0.717647, 0.117647, 1 )
-margin_top = 39.0
-margin_right = 84.0
-margin_bottom = 74.0
+margin_top = 50.0
+margin_right = 171.0
+margin_bottom = 96.0
 rect_pivot_offset = Vector2( 72.8572, 10.7062 )
 focus_neighbour_top = NodePath("../ResetButton")
 focus_neighbour_bottom = NodePath("../..")

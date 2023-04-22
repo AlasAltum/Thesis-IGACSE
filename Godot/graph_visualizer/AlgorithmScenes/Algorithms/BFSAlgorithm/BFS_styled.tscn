@@ -18,7 +18,7 @@
 [node name="Main" type="Node2D"]
 position = Vector2( -1, 0 )
 script = ExtResource( 15 )
-graph_size = 8
+graph_size = 6
 edge_max_weight = 8.0
 
 [node name="ADTMediator" parent="." instance=ExtResource( 34 )]
@@ -135,6 +135,7 @@ margin_right = 359.999
 margin_bottom = -101.0
 
 [node name="UNodeIsExploredPopup" parent="CanvasLayer" instance=ExtResource( 37 )]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -156,6 +157,7 @@ margin_right = 359.999
 margin_bottom = -101.0
 
 [node name="FinishedPopup" parent="CanvasLayer" instance=ExtResource( 38 )]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -163,18 +165,17 @@ anchor_bottom = 0.5
 margin_left = -152.0
 margin_top = -260.0
 margin_right = 360.0
-margin_bottom = -101.0
+margin_bottom = -52.0
 
 [node name="GameplayMenuPopup" parent="CanvasLayer" instance=ExtResource( 5 )]
-visible = false
 anchor_left = 0.554
-anchor_top = 0.333
+anchor_top = 0.333463
 anchor_right = 0.554
-anchor_bottom = 0.333
+anchor_bottom = 0.361241
 margin_left = -255.68
-margin_top = -59.14
+margin_top = -56.14
 margin_right = 256.32
-margin_bottom = 58.86
+margin_bottom = 61.86
 
 [node name="Background" parent="." instance=ExtResource( 6 )]
 

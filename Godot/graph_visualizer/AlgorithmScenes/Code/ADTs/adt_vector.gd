@@ -37,4 +37,5 @@ func set_representation(_rep):
 	representation = _rep
 
 func get_representation():
-	return adt.get_representation()
+	if adt:
+		return adt.get_representation()

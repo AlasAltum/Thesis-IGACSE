@@ -32,7 +32,6 @@ tracks/1/keys = {
 }
 
 [node name="PopUpForObjectCreation" type="WindowDialog"]
-visible = true
 margin_left = 512.0
 margin_top = 232.0
 margin_right = 1024.0
@@ -92,9 +91,9 @@ caret_blink = true
 [node name="EnterButton" type="Button" parent="."]
 modulate = Color( 0.121569, 0.913725, 0, 1 )
 margin_left = 192.0
-margin_top = 168.0
+margin_top = 152.0
 margin_right = 318.0
-margin_bottom = 203.0
+margin_bottom = 198.0
 focus_neighbour_top = NodePath("../NameAssign")
 focus_neighbour_bottom = NodePath("..")
 focus_next = NodePath("..")
