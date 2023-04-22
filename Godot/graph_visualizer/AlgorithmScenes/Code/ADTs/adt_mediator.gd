@@ -123,23 +123,21 @@ func get_selected_index() -> int:
 # Change focus of variable in debug block and change representation
 func _on_variable_index_up():
 	if data.size() > 0:
+		# We erased circular behavior because some users did not like it
 		# Force circular behaviour
-		if selected_index == 0:
-			#set_selected_index(data.size() - 1)
-			pass
-		else:
+		# else: set_selected_index(data.size() - 1)
+		if selected_index > 0:
 			set_selected_index(selected_index - 1)
 		update_views()
 
 # Change focus of variable in debug block and change representation
 func _on_variable_index_down():
 	if data.size() > 0:
-		# Force circular behaviour
-		if selected_index == data.size() - 1:
-			pass
-			#set_selected_index(0)
-		else:
+		if selected_index < data.size() - 1:
 			set_selected_index(selected_index + 1)
+
+		# We erased circular behavior because some users did not like it
+		# else: set_selected_index(0)
 		update_views()
 
 
@@ -176,3 +174,15 @@ func selected_variable_allows_object_adition() -> bool:
 			return selected_adt_vector.get_data().call("allows_object_adition")
 	# TODO: Add a popup message telling the user has made a mistake
 	return false
+
+func connect_variable_clicked_signal(variable_in_heap):
+	variable_in_heap.connect("variable_clicked", self, "_on_variable_clicked")
+
+func _on_variable_clicked(variable_in_heap_pressed):
+	# we know that variable in heap is a child of debug_block
+	# allow selecting indexes not only by pressing up or down, but also by clicking
+	var variables_labels = debug_block.get_labels()
+	var index_of_variable = variables_labels.find(variable_in_heap_pressed)
+	if index_of_variable != -1:
+		set_selected_index(index_of_variable)
+		update_views()

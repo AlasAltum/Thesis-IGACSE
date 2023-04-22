@@ -95,3 +95,10 @@ func emphasize_current_selected_variable():
 
 func emphasize_error_on_current_selected_variable():
 	_play_anim(curr_label, "emphasize_error")
+
+func get_labels() -> Array:
+	var return_array = []
+	for variable_label in lines_container.get_children():
+		if variable_label.name != "DebuggerTitle":
+			return_array.append(variable_label)
+	return return_array

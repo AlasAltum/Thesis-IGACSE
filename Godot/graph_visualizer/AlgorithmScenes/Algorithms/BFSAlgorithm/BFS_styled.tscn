@@ -124,7 +124,6 @@ __meta__ = {
 }
 
 [node name="PopUpForObjectCreation" parent="CanvasLayer" instance=ExtResource( 13 )]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -135,7 +134,6 @@ margin_right = 359.999
 margin_bottom = -101.0
 
 [node name="UNodeIsExploredPopup" parent="CanvasLayer" instance=ExtResource( 37 )]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -157,7 +155,6 @@ margin_right = 359.999
 margin_bottom = -101.0
 
 [node name="FinishedPopup" parent="CanvasLayer" instance=ExtResource( 38 )]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

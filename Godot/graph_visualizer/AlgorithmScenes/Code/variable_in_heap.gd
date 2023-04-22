@@ -12,6 +12,9 @@ func _ready():
 	collision_shape = collision_object.shape
 	$Area2D.connect("input_event", self, "_on_Area2D_input_event")
 	adjust_collision_shape()
+	if StoredData.adt_mediator:
+		StoredData.adt_mediator.connect_variable_clicked_signal(self)
+
 
 func _on_Variable_resized():
 	adjust_collision_shape()
@@ -25,4 +28,4 @@ func adjust_collision_shape():
 
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed:
-		emit_signal("variable_clicked")
+		emit_signal("variable_clicked", self)
