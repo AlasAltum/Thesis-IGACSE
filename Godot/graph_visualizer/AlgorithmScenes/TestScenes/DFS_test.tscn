@@ -69,13 +69,14 @@ anchor_bottom = 0.5
 margin_left = -199.0
 margin_top = -233.0
 margin_right = 313.0
-margin_bottom = -74.0
+margin_bottom = -36.0
 explanation_in_label = "Congratulations! You have successfully finished the DFS Algorithm! Go back to menu and try new levels!"
 
 [node name="Explanation" parent="CanvasLayer/FinishedPopup" index="1"]
 text = "Congratulations! You have successfully finished the DFS Algorithm!"
 
 [node name="GameplayMenuPopup" parent="CanvasLayer" instance=ExtResource( 3 )]
+visible = false
 margin_left = -199.0
 margin_top = -212.5
 margin_right = 313.0

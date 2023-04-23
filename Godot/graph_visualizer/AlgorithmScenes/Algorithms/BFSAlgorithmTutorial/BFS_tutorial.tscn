@@ -610,6 +610,7 @@ __meta__ = {
 }
 
 [node name="PopUpForObjectCreation" parent="CanvasLayer" instance=ExtResource( 13 )]
+visible = false
 anchor_left = 0.554
 anchor_top = 0.372
 anchor_right = 0.554

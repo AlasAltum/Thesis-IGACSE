@@ -26,12 +26,12 @@ func _on_show():
 	set_process(true)
 
 
-func _process(_delta: float):
-	progress_bar_until_ok.value = 100.0 - accept_ok_timer.get_time_left() * time_to_progress_factor
+#func _process(_delta: float):
+#	progress_bar_until_ok.value = 100.0 - accept_ok_timer.get_time_left() * time_to_progress_factor
 
 
 func _on_ok_timer_timeout():
 	is_waiting_timer = false
 	ok_button.disabled = false
 	set_process(false)
-	progress_bar_until_ok.value = 100.0
+#	progress_bar_until_ok.value = 100.0

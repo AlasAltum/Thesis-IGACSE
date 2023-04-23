@@ -53,7 +53,7 @@ func _process(_delta: float) -> void:
 		if self.was_completed_correctly and not action_completed:
 			add_stylebox_override("panel", focused_style)
 			self.executed_correct_effects_once = false
-
+			NotificationManager.set_hint_text(self.hint_text)
 
 func execute_correct_effects_once():
 	if not self.executed_correct_effects_once:
@@ -63,6 +63,8 @@ func execute_correct_effects_once():
 		self._show_hightlight_enter()
 		if self.effect_check and self.should_play_confirmation_audio():
 			NotificationManager.play_confirmation_audio()
+			# erase instructions to make the player focus on the next line
+			NotificationManager.set_hint_text("")
 
 func _show_hightlight_enter():
 	arrow_hightlight_enter.visible = true
