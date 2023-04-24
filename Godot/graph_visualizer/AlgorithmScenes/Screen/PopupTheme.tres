@@ -9,7 +9,7 @@ use_filter = true
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 18
+size = 20
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=5]

@@ -6,7 +6,8 @@ func check_actions_correct() -> bool:
 	return StoredData.adt_is_empty_right_answer  # This is not required
 
 func while_condition_is_true():
-	return "Queue((" in StoredData.get_variable("q").as_string()
+	if StoredData.has_variable("q"):
+		return "Queue((" in StoredData.get_variable("q").as_string()
 
 # Considering that it is a while, it should return
 # the next line if the cicle continues, or jump to the jump line

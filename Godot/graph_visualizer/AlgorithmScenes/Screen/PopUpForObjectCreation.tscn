@@ -60,9 +60,9 @@ autowrap = true
 
 [node name="ErrorNotification" type="Label" parent="."]
 margin_left = 8.0
-margin_top = 112.0
+margin_top = 128.0
 margin_right = 509.0
-margin_bottom = 152.0
+margin_bottom = 168.0
 rect_pivot_offset = Vector2( 265.108, 0 )
 size_flags_horizontal = 3
 theme = ExtResource( 3 )
@@ -76,9 +76,9 @@ anims/message_modulation = SubResource( 1 )
 
 [node name="NameAssign" type="LineEdit" parent="."]
 margin_left = 40.0
-margin_top = 40.0
+margin_top = 56.0
 margin_right = 456.0
-margin_bottom = 96.0
+margin_bottom = 112.0
 focus_neighbour_right = NodePath("..")
 focus_neighbour_bottom = NodePath("../EnterButton")
 focus_next = NodePath("../EnterButton")

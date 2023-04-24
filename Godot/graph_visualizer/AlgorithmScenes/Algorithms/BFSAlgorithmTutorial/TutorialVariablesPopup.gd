@@ -4,7 +4,7 @@ extends TutorialPopup
 
 
 func _ready():
-	._initialize() # Super._initialize()
+	# ._initialize() # Super._initialize()
 #	ok_button.material = highlight_material  # our ok button should be highlighted
 
 	self.connect("confirmed", self, "_on_TutorialVariablesPopup_confirmed")

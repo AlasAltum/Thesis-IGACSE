@@ -44,11 +44,14 @@ func _add_variable(var_name: String, var_data: ADT):
 	var new_label : Label = self.label_template.instance() as Label
 	_set_data_to_label(new_label, var_name, var_data)
 	lines_container.add_child(new_label)
-	if not var_data.is_new:
+	if var_data and not var_data.is_new:
 		call_deferred("_play_anim", new_label, "emphasize_modification") #_play_anim(new_label, "emphasize_modification")
 		var_data.is_new = true
 
 func _set_data_to_label(label: Label, var_name: String, var_data):
+	if !var_name or !var_data:
+		return
+
 	label.text = str(var_name + " : " + str(var_data.as_string()))
 	self.names_to_label[var_name] = label
 	# New variables receive the count of labels as key to keep an order

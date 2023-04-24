@@ -675,10 +675,6 @@ was completed."
 time_before_close = 3.5
 
 [node name="TutorialVariablesPopup" parent="CanvasLayer" instance=ExtResource( 25 )]
-visible = false
-
-[node name="ProgressBarUntilOk" parent="CanvasLayer/TutorialVariablesPopup" index="3"]
-margin_bottom = -2.0
 
 [node name="TutorialCurrentVariable" type="AcceptDialog" parent="CanvasLayer"]
 anchor_left = 0.5
@@ -687,7 +683,7 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = 448.0
 margin_top = -248.0
-margin_right = 1115.0
+margin_right = 1158.0
 margin_bottom = -111.0
 theme = ExtResource( 9 )
 popup_exclusive = true
