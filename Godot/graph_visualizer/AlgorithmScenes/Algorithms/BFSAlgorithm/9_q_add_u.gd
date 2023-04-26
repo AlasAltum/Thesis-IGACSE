@@ -4,6 +4,7 @@ extends EffectCheck
 func effect_check_on_focused():
 	var u = StoredData.get_variable("u").get_node()
 	StoredData.add_node_to_nodes_that_should_be_added_to_adt(u)
+	StoredData.allow_nodes_dragging = true  # To allow also dragging nodes
 
 
 func check_actions_correct() -> bool:
@@ -12,6 +13,7 @@ func check_actions_correct() -> bool:
 		var u_as_string: String = u.as_string()
 		# It will show Queue() if it is empty. The player must add the u node
 		if u_as_string in StoredData.get_variable("q").as_string():
+			StoredData.allow_nodes_dragging = false
 			return true
 	return false
 

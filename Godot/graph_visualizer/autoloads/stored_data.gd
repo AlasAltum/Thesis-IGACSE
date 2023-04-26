@@ -34,6 +34,7 @@ var world_node: Node2D  # : GraphManager
 var selectable_nodes = []
 var selected_edges = []
 var iterated_nodes = []
+var allow_nodes_dragging = false
 
 ## Code continue conditions
 # These are popups that ask the user about a condition in the code execution

@@ -15,9 +15,10 @@ signal _on_variable_index_up  # Signal emitted when pressing up and moving the v
 signal _on_variable_index_down # Signal emitted when pressing down and moving the variable
 
 func _ready() -> void:
-	StoredData.adt_mediator.adt_shower = self
-	self.connect("_on_variable_index_up", StoredData.adt_mediator, "_on_variable_index_up")
-	self.connect("_on_variable_index_down", StoredData.adt_mediator, "_on_variable_index_down")
+	if StoredData.adt_mediator:
+		StoredData.adt_mediator.adt_shower = self
+		self.connect("_on_variable_index_up", StoredData.adt_mediator, "_on_variable_index_up")
+		self.connect("_on_variable_index_down", StoredData.adt_mediator, "_on_variable_index_down")
 
 func _input(event):
 	if not StoredData.popup_captures_input:
@@ -63,3 +64,24 @@ func _remove_child(adt_representation):
 func _add_child(adt_representation):
 	rep_container.add_child(adt_representation)
 
+func _on_Area2D_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+#		if get_rect().has_point(get_global_mouse_position()):
+#			print("mouse dentro")
+		var graph_screen = StoredData.world_node
+		var dragging_node = graph_screen.dragging_node
+		var last_dragged_node_ref = StoredData.world_node.last_dragged_node_reference
+		print("dropping node")
+		if dragging_node and last_dragged_node_ref:
+			if last_dragged_node_ref.get_class() == "AGraphNode":
+				last_dragged_node_ref.get_added_to_focused_object_in_variables()
+				# Free dragging node
+				StoredData.world_node.mouse_has_entered_adt_shower = false
+				StoredData.world_node.free_dragging_node()
+#
+#func _on_Area2D_mouse_entered():
+#	print("entering mouse")
+#	StoredData.world_node.mouse_has_entered_adt_shower = true
+#
+#func _on_Area2D_mouse_exited():
+#	StoredData.world_node.mouse_has_entered_adt_shower = false

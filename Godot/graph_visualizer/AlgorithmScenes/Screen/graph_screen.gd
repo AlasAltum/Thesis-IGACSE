@@ -23,14 +23,24 @@ export (bool) var allow_edge_selection = false
 export (bool) var returns_mst = false  # Kruskal and Prim return MST, this is to make sure the graph has more than n-1 edges
 export (bool) var random_graph = true
 
+# The copy moved by the player when dragging a node
+var dragging_node: Sprite
+var last_dragged_node_reference: KinematicBody2D # AGraphNode
+var mouse_has_entered_adt_shower: bool = false
+
 var start_os_datetime = {}
 var start_time: int
 var adt_mediator
+
+var drop_dragging_node_timer: Timer
+
 
 func _init():
 	StoredData.reset_data()
 
 func _ready():
+
+	Engine.time_scale = 5.0  # TODO: deactivate before deploy
 	self.screen_size = get_viewport().get_visible_rect().size
 	left = 100
 	right = + int(self.screen_size.x)
@@ -58,6 +68,12 @@ func _ready():
 
 	# send information to server
 	send_data_level_transition()
+	drop_dragging_node_timer = Timer.new()
+	drop_dragging_node_timer.autostart = false
+	add_child(drop_dragging_node_timer)
+	drop_dragging_node_timer.connect("timeout", self, "deferred_free_dragging_node")
+	drop_dragging_node_timer.set_wait_time(0.2)
+
 
 func send_data_level_transition():
 	var data_to_send = {"eventid": "", "deviceid": "", "intype": "", "mousepos": "", "keyboardpos": "", "timestamp": ""}
@@ -237,3 +253,31 @@ func _is_graph_connected() -> bool:
 func _get_center_position_of_node_container() -> Vector2:
 	var cont = $CanvasLayer/NodeContainer
 	return cont.rect_size * 0.5 
+
+
+# The incoming sprite should come with a circle node and the label as child
+func set_dragging_node(incoming_sprite: Sprite, real_node_reference: KinematicBody2D):
+	dragging_node = incoming_sprite.duplicate()
+	dragging_node.global_position = get_global_mouse_position()
+	self.last_dragged_node_reference = real_node_reference
+	add_child(dragging_node)
+	drop_dragging_node_timer.stop()
+	print("Setting dragging node")
+
+func start_release_dragging_node():
+	drop_dragging_node_timer.start()
+
+func deferred_free_dragging_node():
+	if not StoredData.world_node.mouse_has_entered_adt_shower:
+		call_deferred("free_dragging_node")
+
+func free_dragging_node():
+	print("free_dragging_node")
+	if dragging_node != null:
+		dragging_node.queue_free()
+		dragging_node = null
+		last_dragged_node_reference = null
+
+func set_dragging_node_global_pos():
+	if dragging_node != null:
+		dragging_node.global_position = get_global_mouse_position()

@@ -32,7 +32,6 @@ tracks/1/keys = {
 }
 
 [node name="ADTIsNotEmptyPopup" type="WindowDialog"]
-visible = true
 margin_left = 524.122
 margin_top = 233.47
 margin_right = 1036.12

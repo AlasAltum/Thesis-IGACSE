@@ -38,6 +38,10 @@ signal node_add_to_object_request(node)
 signal node_selected(node)
 
 
+
+var is_dragging = false
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("Nodes")
@@ -171,15 +175,21 @@ func get_added_to_focused_object_in_variables():
 
 func _input(event):
 	# Menu must be open to allow these options
-	if event is InputEventKey and self.mouse_status == MOUSE_STATUS.INSIDE:
-		# E action corresponds to add select the node
-		if Input.is_action_just_pressed("NodeSelect"):
-			_on_Select_UnselectButton_pressed()
-		# R Action 
-		elif Input.is_action_just_pressed("NodeAddToObject"):
+	if is_dragging and StoredData.world_node.dragging_node and event is InputEventMouseMotion:
+		# User is dragging the sprite
+		StoredData.world_node.set_dragging_node_global_pos()
+
+	elif is_dragging and event is InputEventMouseButton and event.button_index == BUTTON_LEFT and !event.pressed:
+		# if node is dropped on the ADTShower, add it to the variables		
+		if StoredData.adt_shower and StoredData.adt_shower.get_rect().has_point(get_global_mouse_position()):
 			get_added_to_focused_object_in_variables()
 
-		hide_popup_menu()
+		# if node is dropped out of the ADTshower, delete it
+		else:
+			# User has released the mouse button
+			StoredData.world_node.start_release_dragging_node()
+
+		is_dragging = false
 
 
 # Show hover menu
@@ -195,8 +205,23 @@ func _on_Area2D_mouse_exited() -> void:
 
 # Click on the node = Press select/unselect node
 func _on_Area2D_input_event(_viewport, event, _shape_idx):
-	if _event_is_left_click(event):
-		_on_Select_UnselectButton_pressed()
+	if event is InputEventKey:
+		# E action corresponds to add select the node
+		if Input.is_action_just_pressed("NodeSelect"):
+			_on_Select_UnselectButton_pressed()
+		# R Action 
+		elif Input.is_action_just_pressed("NodeAddToObject"):
+			get_added_to_focused_object_in_variables()
+
+		hide_popup_menu()
+
+	if StoredData.allow_nodes_dragging and _event_is_left_click(event):
+		is_dragging = true
+		StoredData.world_node.set_dragging_node($Sprite, self)
+
+	else:
+		if _event_is_left_click(event):
+			_on_Select_UnselectButton_pressed()
 
 func _event_is_left_click(event):
 	return (event is InputEventMouseButton and
@@ -215,6 +240,9 @@ func set_color(in_color: Color) -> void:
 
 func get_color() -> Color:
 	return  $Sprite.material.get_shader_param("assigned_color")
+
+func get_class() -> String:
+	return "AGraphNode"
 
 func highlight_node():
 	$Sprite.material.set_shader_param("highlight", 1.0)
