@@ -15,6 +15,12 @@ onready var node_name: Label = $Sprite/NodeName
 onready var popup_menu: Popup = $Popup
 onready var select_unselect_button: Button = $Popup/PanelContainer/VBoxContainer/SelectUnselectButton
 onready var add_to_object_button: Button = $Popup/PanelContainer/VBoxContainer/AddToObjectButton
+onready var variable_label: Node2D = $Control
+onready var variable_label_internal: Label = $Control/Sprite/VariableHighlight
+var variable_highlighted: bool = false
+var floating_variable_radius: float = 0.0
+var accumulated_angle: float = 0.0
+export var variable_rotation_speed: float = 1.0
 
 const representation_prefab = preload("res://Node/NodeRepresentation.tscn")
 var adt_type = load("res://AlgorithmScenes/Code/ADTs/node_adt.gd")
@@ -249,4 +255,30 @@ func highlight_node():
 
 func stop_highlight_node():
 	$Sprite.material.set_shader_param("highlight", 0.0)
-	
+
+# Show the variable close to this node and let it float towards this node
+# We use a Node2D as parent of the variable label because the label has a rect
+# whose "center" starts at the top left corner of the label, and we want the centerS
+func hightlight_variable(variable_name):
+	if variable_label:
+		variable_highlighted = true
+		variable_label.visible = true
+		variable_label_internal.text = variable_name
+		var difference: Vector2 = variable_label.global_position - self.global_position
+		floating_variable_radius = difference.length()
+
+# Stops the variable from floating around the node and hides it
+func unhighlight_variable():
+	if variable_label:
+		variable_highlighted = false
+		variable_label.visible = false
+
+func _process(delta):
+	if variable_highlighted:
+		accumulated_angle += delta * variable_rotation_speed
+		var new_position = Vector2(
+			floating_variable_radius * cos(accumulated_angle), 
+			floating_variable_radius * sin(accumulated_angle)
+		)
+		variable_label.set_position(new_position)
+

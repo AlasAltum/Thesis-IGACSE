@@ -4,8 +4,7 @@
 
 [resource]
 resource_local_to_scene = true
-size = 32
+size = 140
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
 font_data = ExtResource( 1 )

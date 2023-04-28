@@ -171,6 +171,10 @@ func set_highlighted_edge(_edge):
 		_edge.set_is_highlighted(true)
 		self.highlighted_edge = _edge
 
+func get_node_by_index(input_index):
+	for node in self.nodes:
+		if node.index == input_index:
+			return node
 
 # When game gets reset, reset data excepting finished_levels 
 func reset_data():
