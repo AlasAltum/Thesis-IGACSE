@@ -50,7 +50,7 @@ func execute_side_effect() -> void:
 	# to avoid trying to come back. The if after this for stops that
 	# process, but it is boring for the user, so we will obscurely avoid it
 	var u:  AGraphNode = get_next_u_node()
-	StoredData.add_variable("u", u)
+	StoredData.add_variable("u", u.get_adt())
 	# Get Edge between nodes v and u and highlight the edge and u
 	var edge_between_u_and_v = StoredData.get_edge_between_nodes(u, v)
 	StoredData.set_highlighted_edge(edge_between_u_and_v)

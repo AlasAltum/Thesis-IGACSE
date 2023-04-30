@@ -12,12 +12,10 @@ func effect_check_on_focused():
 	highlight_node()
 
 func highlight_node():
-	var u = StoredData.get_variable("u").get_node()
-	u.highlight_node()
+	StoredData.get_variable("u").get_node().highlight_node()
 
 func stop_node_highlight():
-	var u = StoredData.get_variable("u").get_node()
-	u.stop_highlight_node()
+	StoredData.get_variable("u").get_node().stop_highlight_node()
 
 func ask_user() -> void:
 	# Show a popup that asks the user whether u is explored or not
@@ -25,8 +23,8 @@ func ask_user() -> void:
 	# Popup class: UNodeIsExploredPopup
 	var u = StoredData.get_variable("u").get_node()
 	var u_is_explored = not if_condition_is_true(u);
-	NotificationManager.ask_user_if_graph_node_is_explored_bfs(u, u_is_explored)
 	# This sets the StoredData.v_is_explored_right_answer variable
+	NotificationManager.ask_user_if_graph_node_is_explored_bfs(u, u_is_explored)
 	
 # If u.is_not_explored()
 func if_condition_is_true(u) -> bool:
@@ -41,7 +39,6 @@ func get_next_line() -> int:
 	if StoredData.v_is_explored_right_answer:
 		var u = StoredData.get_variable("u").get_node()
 		if self.if_condition_is_true(u):
-			stop_node_highlight()
 			return .get_next_line()  # super.get_next_line()
 
 		stop_node_highlight()

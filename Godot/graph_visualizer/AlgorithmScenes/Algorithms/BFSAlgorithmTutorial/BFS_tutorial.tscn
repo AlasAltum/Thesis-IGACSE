@@ -596,9 +596,13 @@ size_flags_vertical = 1
 
 [node name="NodeContainer" type="AspectRatioContainer" parent="CanvasLayer"]
 modulate = Color( 1, 1, 1, 0 )
-anchor_left = 0.242708
+anchor_left = 0.201041
 anchor_right = 1.0
-anchor_bottom = 0.616667
+anchor_bottom = 0.614815
+margin_left = -1.99939
+margin_top = 8.0
+margin_right = -1.99939
+margin_bottom = 8.0
 rect_clip_content = true
 mouse_filter = 2
 stretch_mode = 0
@@ -666,8 +670,8 @@ margin_top = 105.0
 margin_right = 727.0
 margin_bottom = 287.0
 dialog_text = "This is the code.
-Complete it to win by following the instructions.
-You can advance by pressing SPACE after an instruction
+Follow the instructions to win.
+Advance by pressing SPACE after an instruction
 was completed."
 time_before_close = 3.5
 
@@ -679,14 +683,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 448.0
-margin_top = -248.0
-margin_right = 1158.0
-margin_bottom = -111.0
+margin_left = 1408.0
+margin_top = 832.0
+margin_right = 2118.0
+margin_bottom = 986.0
 theme = ExtResource( 9 )
 popup_exclusive = true
 window_title = ""
-dialog_text = "These are your variables. You can change the current variable by pressing W or S.
+dialog_text = "These are your variables. Change the current variable by pressing W or S.
+You can also click on them.
 Variables are going to be highlighted when updated or added."
 
 [node name="TutorialADTPopup" type="AcceptDialog" parent="CanvasLayer"]

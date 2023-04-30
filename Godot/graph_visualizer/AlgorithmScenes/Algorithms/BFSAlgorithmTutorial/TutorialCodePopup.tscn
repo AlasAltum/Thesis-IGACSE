@@ -8,6 +8,7 @@ bg_color = Color( 0.00392157, 0.513726, 0, 1 )
 border_color = Color( 0, 0, 0, 1 )
 
 [node name="TutorialCodePopup" type="AcceptDialog"]
+visible = true
 margin_left = 264.0
 margin_top = 256.0
 margin_right = 679.0
@@ -22,7 +23,6 @@ Complete the instructions to win."
 script = ExtResource( 2 )
 
 [node name="ProgressBarUntilOk" type="ProgressBar" parent="."]
-visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -216.5

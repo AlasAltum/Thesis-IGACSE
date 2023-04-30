@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Node/white-circle.png" type="Texture" id=1]
 [ext_resource path="res://Node/graph_node.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/themes/NodeTheme.tres" type="Theme" id=4]
 [ext_resource path="res://Assets/themes/NodePopupTheme.tres" type="Theme" id=5]
 [ext_resource path="res://AlgorithmScenes/Code/debug_font.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Node/CircleNode80.png" type="Texture" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 39.3722
@@ -30,19 +31,20 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 5 )
-scale = Vector2( 0.3, 0.3 )
 z_index = -1
-texture = ExtResource( 1 )
+texture = ExtResource( 7 )
 
 [node name="NodeName" type="Label" parent="Sprite"]
-margin_left = -33.3333
-margin_top = -90.0
-margin_right = 37.6667
-margin_bottom = 96.0
+margin_left = -40.0
+margin_top = -40.0
+margin_right = 40.0
+margin_bottom = 41.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource( 4 )
 text = "5"
+align = 1
+valign = 1
 
 [node name="Popup" type="Popup" parent="."]
 visible = true

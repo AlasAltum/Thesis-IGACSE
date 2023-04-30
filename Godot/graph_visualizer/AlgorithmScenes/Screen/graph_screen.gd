@@ -40,7 +40,7 @@ func _init():
 
 func _ready():
 
-#	Engine.time_scale = 5.0  # TODO: deactivate before deploy
+	Engine.time_scale = 5.0  # TODO: deactivate before deploy
 	self.screen_size = get_viewport().get_visible_rect().size
 	left = 100
 	right = + int(self.screen_size.x)
@@ -268,7 +268,7 @@ func start_release_dragging_node():
 	drop_dragging_node_timer.start()
 
 func deferred_free_dragging_node():
-	if not StoredData.world_node.mouse_has_entered_adt_shower:
+	if StoredData.world_node and not StoredData.world_node.mouse_has_entered_adt_shower:
 		call_deferred("free_dragging_node")
 
 func free_dragging_node():

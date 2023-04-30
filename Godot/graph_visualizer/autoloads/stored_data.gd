@@ -16,6 +16,7 @@ const status_map = {
 	"DRAG": mov_status.DRAG,
 	"SELECT": mov_status.SELECT
 }
+var types_with_adt: Array = ["KinematicBody2D", "GraphEdge", "AGraphNode"]
 var has_initialized: bool = false  # Used in C# in the main menu
 var allow_select_edges = false
 var status : int = mov_status.SELECT;
@@ -103,6 +104,9 @@ func _transform_data_from_nodes_and_edges(data):
 # Create a new variable, considering it in the
 # ADT Shower and in the Debug Block
 func add_variable(var_name, data):
+	# if the data is a node, we want to add its ADT 
+	if types_with_adt.has(data.get_class()):
+		data = data.get_adt()
 	data = _transform_data_from_nodes_and_edges(data)
 	adt_mediator.add_or_update_variable(var_name, data)
 	highlight_variable(var_name)

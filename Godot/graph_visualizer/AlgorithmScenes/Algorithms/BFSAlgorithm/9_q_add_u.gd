@@ -14,6 +14,7 @@ func check_actions_correct() -> bool:
 		# It will show Queue() if it is empty. The player must add the u node
 		if u_as_string in StoredData.get_variable("q").as_string():
 			StoredData.allow_nodes_dragging = false
+			u.stop_highlight_node()
 			return true
 	return false
 

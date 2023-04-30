@@ -5,14 +5,13 @@ extends KinematicBody2D
 var selected : bool = false
 export var index : int = 0
 var edges : Array setget set_edges, get_edges
-var radius: int = 200
 var pressed: bool = false
 var aux_position: Vector2
 var clickable = false
 var node_color: Color setget set_color, get_color
 
 onready var node_name: Label = $Sprite/NodeName
-onready var popup_menu: Popup = $Popup
+onready var node_action_menu: Popup = $Popup
 onready var select_unselect_button: Button = $Popup/PanelContainer/VBoxContainer/SelectUnselectButton
 onready var add_to_object_button: Button = $Popup/PanelContainer/VBoxContainer/AddToObjectButton
 onready var variable_label: Node2D = $Control
@@ -25,15 +24,13 @@ export var variable_rotation_speed: float = 1.0
 const representation_prefab = preload("res://Node/NodeRepresentation.tscn")
 var adt_type = load("res://AlgorithmScenes/Code/ADTs/node_adt.gd")
 
-enum MOUSE_STATUS {INSIDE, OUTSIDE}
-
-var mouse_status = MOUSE_STATUS.OUTSIDE
 var representation #: NodeRepresentation
 var adt  #: NodeADT
 
 
 var can_grab: bool = false
 var grabbed_offset: Vector2 = Vector2()
+var radius_distance: float = 0.0
 
 const NORMAL_COLOR = Color(1.0, 1.0, 1.0, 1.0)
 const ITERATED_COLOR = Color(0.7, 0.4, 0.2)
@@ -53,6 +50,7 @@ func _ready():
 	add_to_group("Nodes")
 	self.representation = self.get_representation()
 	self.adt = adt_type.new(self)
+	self.radius_distance = $Sprite.get_rect().size.x / 2
 	randomize()
 
 func get_adt():
@@ -81,7 +79,6 @@ func init_position_regarding_container(total_nodes: int, node_container_key_prop
 		cos(angle) * radius_x * FACTOR_TO_KEEP_NODES_IN_CONTAINER,
 		sin(angle) * radius_y * FACTOR_TO_KEEP_NODES_IN_CONTAINER
 	)
-
 	self.position = to_local(aux_position)
 	aux_position = to_local(aux_position)
 
@@ -147,15 +144,15 @@ func _on_Select_UnselectButton_pressed():
 		# self.unselect_node() # A node may not be unselected
 	else:
 		self.select_node()
-	self.hide_popup_menu()
+	self.hide_node_action_menu()
 
 func unselect_node():
 	self.selected = false
 	self.modulate = NORMAL_COLOR
 	node_name.modulate = NORMAL_COLOR
 	representation.set_unselected()
-	popup_menu.hide()
-	popup_menu.visible = false
+	node_action_menu.hide()
+	node_action_menu.visible = false
 
 func select_node(emit_signal=true):
 	if self.index in StoredData.selectable_nodes:
@@ -173,7 +170,7 @@ func select_node(emit_signal=true):
 
 func _on_AddToObjectButton_pressed():
 	get_added_to_focused_object_in_variables()
-	popup_menu.visible = false
+	node_action_menu.visible = false
 
 func get_added_to_focused_object_in_variables():
 	emit_signal("node_add_to_object_request", self)
@@ -181,52 +178,54 @@ func get_added_to_focused_object_in_variables():
 
 func _input(event):
 	# Menu must be open to allow these options
-	if is_dragging and StoredData.world_node.dragging_node and event is InputEventMouseMotion:
-		# User is dragging the sprite
-		StoredData.world_node.set_dragging_node_global_pos()
+	if is_dragging:
+		if StoredData.world_node.dragging_node and event is InputEventMouseMotion:
+			# User is dragging the sprite
+			StoredData.world_node.set_dragging_node_global_pos()
 
-	elif is_dragging and event is InputEventMouseButton and event.button_index == BUTTON_LEFT and !event.pressed:
-		# if node is dropped on the ADTShower, add it to the variables		
-		if StoredData.adt_shower and StoredData.adt_shower.get_rect().has_point(get_global_mouse_position()):
-			get_added_to_focused_object_in_variables()
+		elif event is InputEventMouseButton and event.button_index == BUTTON_LEFT and !event.pressed:
+			# if node is dropped on the ADTShower, add it to the variables		
+			if StoredData.adt_shower and StoredData.adt_shower.get_rect().has_point(get_global_mouse_position()):
+				get_added_to_focused_object_in_variables()
 
-		# if node is dropped out of the ADTshower, delete it
-		else:
-			# User has released the mouse button
-			StoredData.world_node.start_release_dragging_node()
+			# if node is dropped out of the ADTshower, delete it
+			else:
+				# User has released the mouse button
+				StoredData.world_node.start_release_dragging_node()
 
-		is_dragging = false
+			is_dragging = false
 
+	else:
+		# Case click on the node, no dragging. check with radial distance
+		if event is InputEventKey and is_mouse_inside_node():
+			# E action corresponds to add select the node
+			if Input.is_action_just_pressed("NodeSelect"):
+				_on_Select_UnselectButton_pressed()
+			# R Action 
+			elif Input.is_action_just_pressed("NodeAddToObject"):
+				get_added_to_focused_object_in_variables()
+
+
+func is_mouse_inside_node() -> bool:
+	return get_global_mouse_position().distance_to(self.global_position) < self.radius_distance
 
 # Show hover menu
 func _on_Area2D_mouse_entered() -> void:
-	popup_menu.set_position(get_global_mouse_position())
-	self.mouse_status = MOUSE_STATUS.INSIDE
-	popup_menu.popup()
+	node_action_menu.set_position(get_global_mouse_position())
+	node_action_menu.popup()
 
 # Hide hover menu
 func _on_Area2D_mouse_exited() -> void:
-	self.hide_popup_menu()
-	self.mouse_status = MOUSE_STATUS.OUTSIDE
+	self.hide_node_action_menu()
 
 # Click on the node = Press select/unselect node
 func _on_Area2D_input_event(_viewport, event, _shape_idx):
-	if event is InputEventKey:
-		# E action corresponds to add select the node
-		if Input.is_action_just_pressed("NodeSelect"):
-			_on_Select_UnselectButton_pressed()
-		# R Action 
-		elif Input.is_action_just_pressed("NodeAddToObject"):
-			get_added_to_focused_object_in_variables()
+	if _event_is_left_click(event):
+		if StoredData.allow_nodes_dragging:
+			is_dragging = true
+			StoredData.world_node.set_dragging_node($Sprite, self)
 
-		hide_popup_menu()
-
-	if StoredData.allow_nodes_dragging and _event_is_left_click(event):
-		is_dragging = true
-		StoredData.world_node.set_dragging_node($Sprite, self)
-
-	else:
-		if _event_is_left_click(event):
+		else:
 			_on_Select_UnselectButton_pressed()
 
 func _event_is_left_click(event):
@@ -236,8 +235,8 @@ func _event_is_left_click(event):
 
 
 # This method must be repeated, because a click can be considered as a mouse exited from the area2D.
-func hide_popup_menu():
-	popup_menu.hide()
+func hide_node_action_menu():
+	node_action_menu.hide()
 	self.clickable = false
 
 func set_color(in_color: Color) -> void:
@@ -273,12 +272,12 @@ func unhighlight_variable():
 		variable_highlighted = false
 		variable_label.visible = false
 
-func _process(delta):
-	if variable_highlighted:
-		accumulated_angle += delta * variable_rotation_speed
-		var new_position = Vector2(
-			floating_variable_radius * cos(accumulated_angle), 
-			floating_variable_radius * sin(accumulated_angle)
-		)
-		variable_label.set_position(new_position)
-
+#func _process(delta):
+#	if variable_highlighted:
+#		accumulated_angle += delta * variable_rotation_speed
+#		var new_position = Vector2(
+#			floating_variable_radius * cos(accumulated_angle), 
+#			floating_variable_radius * sin(accumulated_angle)
+#		)
+#		variable_label.set_position(new_position)
+#
