@@ -39,3 +39,6 @@ func clear():
 	for child in nodes_vbox.get_children():
 		child.queue_free()
 
+
+func get_class() -> String:
+	return "QueueRepresentation"

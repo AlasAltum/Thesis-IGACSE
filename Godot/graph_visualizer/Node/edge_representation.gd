@@ -12,3 +12,6 @@ func _ready():
 		edge.joint_end1.position,
 	])
 
+
+func get_class() -> String:
+	return "EdgeRepresentation"

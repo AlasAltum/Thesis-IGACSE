@@ -20,3 +20,6 @@ func set_properties() -> void:
 
 func get_initial_position() -> Vector2:
 	return Vector2(50.0, 10.0)
+
+func get_class() -> String:
+	return "ADTRepresentation"

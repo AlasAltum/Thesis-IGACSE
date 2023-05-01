@@ -23,3 +23,7 @@ func get_representation(): # -> ADTRepresentation:
 
 func get_node():
 	return parent_node
+
+func get_class() -> String:
+	return "NodeADT"
+

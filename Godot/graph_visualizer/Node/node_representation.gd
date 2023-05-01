@@ -26,4 +26,7 @@ func get_initial_position() -> Vector2:
 
 func set_properties() -> void:
 	self.visible = false
+
+func get_class() -> String:
+	return "NodeRepresentation"
 	

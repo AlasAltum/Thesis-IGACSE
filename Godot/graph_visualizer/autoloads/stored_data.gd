@@ -11,15 +11,9 @@ var finished_levels = {
 	"Kruskal": false,
 }
 var API_URL = "https://igasce.azurewebsites.net/api/igasce?code=7x0mMQ-QgCsURHIl_KEPF0sl2MjsH3R4CKttXIsfF8IiAzFuApnNvA==" # "http://localhost:7071/api/igasce"
-enum mov_status {SELECT = 0, DRAG = 1}
-const status_map = {
-	"DRAG": mov_status.DRAG,
-	"SELECT": mov_status.SELECT
-}
 var types_with_adt: Array = ["KinematicBody2D", "GraphEdge", "AGraphNode"]
 var has_initialized: bool = false  # Used in C# in the main menu
 var allow_select_edges = false
-var status : int = mov_status.SELECT;
 var nodes : Array = []  # PoolAGraphNodeArray
 var edges : Array = []
 var debug_block: ScrollContainer  # : DebugBlock
@@ -57,12 +51,6 @@ var animation_player: AnimationPlayer
 
 var allow_sending_request: bool = false
 
-func get_status():
-	return status
-
-func set_status(incoming_state: String):
-	self.status = status_map[incoming_state]
-
 func set_adt_mediator(_adt_mediator):
 	adt_mediator = _adt_mediator
 
@@ -93,7 +81,7 @@ func highlight_variable(var_name: String) -> void:
 # We don't want to add the whole node, but its representation
 # as an ADT, so we feed with this to the ADTMediator
 func _transform_data_from_nodes_and_edges(data):
-	if data.get_class() == "KinematicBody2D":
+	if types_with_adt.has(data.get_class()):
 		data = data.get_adt()
 	# The same with edges
 	elif data.get_class() == "GraphEdge":
@@ -104,10 +92,14 @@ func _transform_data_from_nodes_and_edges(data):
 # Create a new variable, considering it in the
 # ADT Shower and in the Debug Block
 func add_variable(var_name, data):
-	# if the data is a node, we want to add its ADT 
-	if types_with_adt.has(data.get_class()):
-		data = data.get_adt()
+	# If the data is a raw node or edge, we want to get its ADT
+	
 	data = _transform_data_from_nodes_and_edges(data)
+
+	# If we are setting the name of a node, set its name
+	if data.get_class() == "NodeADT":
+		data.get_node().highlight_variable(var_name)
+
 	adt_mediator.add_or_update_variable(var_name, data)
 	highlight_variable(var_name)
 
@@ -183,7 +175,6 @@ func get_node_by_index(input_index):
 # When game gets reset, reset data excepting finished_levels 
 func reset_data():
 	self.allow_select_edges = false;
-	self.status = mov_status.SELECT;
 	self.nodes = []  # PoolAGraphNodeArray
 	self.edges = []
 	self.debug_block = null

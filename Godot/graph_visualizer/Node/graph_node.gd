@@ -258,26 +258,21 @@ func stop_highlight_node():
 # Show the variable close to this node and let it float towards this node
 # We use a Node2D as parent of the variable label because the label has a rect
 # whose "center" starts at the top left corner of the label, and we want the centerS
-func hightlight_variable(variable_name):
+func highlight_variable(variable_name):
 	if variable_label:
 		variable_highlighted = true
 		variable_label.visible = true
+		variable_label.material.set_shader_param("frequency", 0.0)
 		variable_label_internal.text = variable_name
 		var difference: Vector2 = variable_label.global_position - self.global_position
 		floating_variable_radius = difference.length()
+
+
+const GOOD_LOOKING_FREQUENCY_FOR_HIGHLIGHT_LABEL: float = 10.0
 
 # Stops the variable from floating around the node and hides it
 func unhighlight_variable():
 	if variable_label:
 		variable_highlighted = false
 		variable_label.visible = false
-
-#func _process(delta):
-#	if variable_highlighted:
-#		accumulated_angle += delta * variable_rotation_speed
-#		var new_position = Vector2(
-#			floating_variable_radius * cos(accumulated_angle), 
-#			floating_variable_radius * sin(accumulated_angle)
-#		)
-#		variable_label.set_position(new_position)
-#
+		variable_label.material.set_shader_param("frequency", GOOD_LOOKING_FREQUENCY_FOR_HIGHLIGHT_LABEL)
