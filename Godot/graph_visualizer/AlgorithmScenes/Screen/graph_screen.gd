@@ -59,20 +59,22 @@ func _ready():
 	# This function may generate very large loops
 #		if returns_mst:
 #			create_additional_edges()
-	instance_edges()  # To make sure the graph is connected
-	StoredData.world_node = self
 
+	drop_dragging_node_timer = Timer.new()
+	drop_dragging_node_timer.autostart = false
+	add_child(drop_dragging_node_timer)
+	drop_dragging_node_timer.connect("timeout", self, "deferred_free_dragging_node")
+	drop_dragging_node_timer.set_wait_time(0.2)
+	StoredData.world_node = self
+	
+	instance_edges()  # To make sure the graph is connected
 	if self.allow_edge_selection:
 		for _edge in StoredData.edges:
 			_edge.set_collision_box()  # TODO: error when reseting
 
 	# send information to server
 	send_data_level_transition()
-	drop_dragging_node_timer = Timer.new()
-	drop_dragging_node_timer.autostart = false
-	add_child(drop_dragging_node_timer)
-	drop_dragging_node_timer.connect("timeout", self, "deferred_free_dragging_node")
-	drop_dragging_node_timer.set_wait_time(0.2)
+
 
 
 func send_data_level_transition():

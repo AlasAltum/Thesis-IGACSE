@@ -46,7 +46,10 @@ public class GraphEdge : PinJoint2D
 		//edge_collision = GetNode<CollisionShape2D>("Area2D/LineCollision");
 		collision_line = GetNode<CollisionShape2D>("Area2D/LineCollision");
 		clickable_area = (RectangleShape2D) collision_line.Shape;
+		AddToGroup("Edges");
 	}
+
+	public void set_process_false() => SetProcess(false);
 
 	public override void _Process(float delta)
 	{
@@ -57,6 +60,10 @@ public class GraphEdge : PinJoint2D
 			(joint_end1.Position + joint_end2.Position) / 2
 		);
 		set_collision_box();
+		if (joint_end1.Position != joint_end2.Position && joint_end1.Position.x != 0.0f)
+		{
+			SetProcess(false);
+		}
 	}
 
 	private bool valueIsCloseTo(float value1, float value2, float tolerance)
@@ -110,12 +117,12 @@ public class GraphEdge : PinJoint2D
 			curr_label.SetRotation(rotation);
 		}
 		// This is requested when we allow graph movement
-		this.SetProcess(true);
+		// First, get the autoload StoredData that is using GDScript
 		joint_end1 = node1;
 		joint_end2 = node2;
 		this.NodeA = node1.GetPath();
 		this.NodeB = node2.GetPath();
-
+		this.SetProcess(true);
 	}
 
 	/// <summary>
