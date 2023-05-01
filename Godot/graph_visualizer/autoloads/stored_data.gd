@@ -74,10 +74,6 @@ func emphasize_error_on_current_selected_variable():
 		adt_mediator.emphasize_error_on_current_selected_variable()
 		NotificationManager.play_error_audio()
 
-func highlight_variable(var_name: String) -> void:
-	var_name = var_name.to_lower()
-	adt_mediator.highlight_variable(var_name)
-
 # We don't want to add the whole node, but its representation
 # as an ADT, so we feed with this to the ADTMediator
 func _transform_data_from_nodes_and_edges(data):
@@ -93,7 +89,6 @@ func _transform_data_from_nodes_and_edges(data):
 # ADT Shower and in the Debug Block
 func add_variable(var_name, data):
 	# If the data is a raw node or edge, we want to get its ADT
-	
 	data = _transform_data_from_nodes_and_edges(data)
 
 	# If we are setting the name of a node, set its name
@@ -102,6 +97,10 @@ func add_variable(var_name, data):
 
 	adt_mediator.add_or_update_variable(var_name, data)
 	highlight_variable(var_name)
+
+func highlight_variable(var_name: String) -> void:
+	var_name = var_name.to_lower()
+	adt_mediator.highlight_variable(var_name)
 
 func has_variable(variable_name: String) -> bool:
 	return adt_mediator.has_variable(variable_name)

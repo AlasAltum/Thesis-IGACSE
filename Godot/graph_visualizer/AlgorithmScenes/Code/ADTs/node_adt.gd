@@ -27,3 +27,8 @@ func get_node():
 func get_class() -> String:
 	return "NodeADT"
 
+# Nodes when considered in the debug block have a little circle around them
+# showing the variable they are bound to currently.
+# if this variable is freed from the debug block, it should be unhighlighted
+func _on_debug_block_free() -> void:
+	get_node().unhighlight_variable()

@@ -37,3 +37,7 @@ func get_representation() -> ADTRepresentation:
 
 func allows_object_adition() -> bool:
 	return false
+
+# This function should be overriden
+func _on_debug_block_free() -> void:
+	pass

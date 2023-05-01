@@ -42,24 +42,26 @@ func get_variable(var_name: String) -> ADT:
 			return adt_vector.get_data()
 	return null
 
+
+func add_or_update_variable(var_name: String, _data) -> void:
+	var_name = var_name.to_lower()
+	if has_variable(var_name):
+		var previous_data = get_variable(var_name)
+		previous_data._on_debug_block_free()
+		_update_variable(var_name, _data)
+	else:
+		var new_row: ADTVector = ADTVector.new(_data, self.data.size(), var_name)
+		self.data.append(new_row)
+
+	update()
+
+
 func highlight_variable(var_name: String) -> void:
 	var_name = var_name.to_lower()
 	if has_variable(var_name):
 		debug_block.highlight_variable(var_name)
 	else:
 		printerr("Var name {} doesn't exist!", var_name)
-
-
-func add_or_update_variable(var_name: String, _data) -> void:
-	var_name = var_name.to_lower()
-	if not has_variable(var_name):
-		var new_row: ADTVector = ADTVector.new(_data, self.data.size(), var_name)
-		self.data.append(new_row)
-	else:
-		_update_variable(var_name, _data)
-
-	update()
-
 
 func _update_variable(var_name: String, _data: ADT, update_on_finish = false) -> void:
 	var_name = var_name.to_lower()
@@ -78,7 +80,8 @@ func erase_variable_by_name(var_name: String) -> void:
 			# Reset index if selected index is going to be erased
 			if data.find(adt_vector, 0) == selected_index:
 				self.selected_index = 0
-
+			# Unhiglight or perform other action if necessary
+			adt_vector.get_data()._on_debug_block_free()
 			data.erase(adt_vector)
 			break
 
