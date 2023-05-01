@@ -22,7 +22,6 @@ func advance_to_line(next_line: int) -> void:
 		current_line = code_lines[curr_line_index]
 	else:
 		_on_code_finished()
-		# TODO: Add notification msg that ended
 
 # It is important that StoredData.popup_captures_input is not activated
 # This bool is toggled when a popup wants to use the enter button as a shortcut

@@ -12,7 +12,6 @@ func _ready():
 
 
 func show_code():
-	# TODO: Show popup that shows the code
 	var code_popup: AcceptDialog = main.get_node("CanvasLayer/TutorialCodePopup")
 	if code_popup:
 		code_popup.popup()

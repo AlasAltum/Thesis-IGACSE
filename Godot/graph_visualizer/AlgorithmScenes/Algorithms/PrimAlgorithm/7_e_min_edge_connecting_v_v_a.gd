@@ -59,7 +59,6 @@ func check_actions_correct() -> bool:
 	get_min_weight_edge_between_sets_A_and_T()
 	selected_edge = StoredData.get_selected_edge()
 	if selected_edge and selected_edge.weight == self.e_min_weight and e_min_weight_edge == selected_edge:
-		# TODO: selected edge is not changing in variables block, it needs update
 		StoredData.add_variable("e", selected_edge)
 		selected_edge.set_selected()
 		return true

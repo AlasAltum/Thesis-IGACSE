@@ -16,7 +16,6 @@ func _check_level_finished():
 	var main_node: GraphManager = StoredData.get_tree().root.get_node("./Main")
 	StoredData.finished_levels[main_node.level_name] = true
 
-# TODO: Add notification
 func effect_check_on_focused() -> void:
 	NotificationManager.show_code_finished_popup(self._generate_message())
 	_check_level_finished()

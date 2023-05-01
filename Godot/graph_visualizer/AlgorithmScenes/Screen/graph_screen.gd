@@ -40,7 +40,7 @@ func _init():
 
 func _ready():
 
-	Engine.time_scale = 5.0  # TODO: deactivate before deploy
+	# Engine.time_scale = 5.0  # TODO: deactivate before deploy
 	self.screen_size = get_viewport().get_visible_rect().size
 	left = 100
 	right = + int(self.screen_size.x)
