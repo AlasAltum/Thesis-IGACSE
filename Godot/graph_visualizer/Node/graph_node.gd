@@ -80,7 +80,7 @@ func init_position_regarding_container(total_nodes: int, node_container_key_prop
 		sin(angle) * radius_y * FACTOR_TO_KEEP_NODES_IN_CONTAINER
 	)
 	self.position = to_local(aux_position)
-	aux_position = to_local(aux_position)
+	aux_position = to_global(aux_position)
 
 
 func set_index(_index: int):

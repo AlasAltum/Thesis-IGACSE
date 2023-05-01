@@ -43,13 +43,9 @@ public class GraphEdge : PinJoint2D
 		SetProcess(false);
 		curr_label = GetNode<Label>("Label");
 		line = GetNode<Line2D>("Line2D");
-		//edge_collision = GetNode<CollisionShape2D>("Area2D/LineCollision");
 		collision_line = GetNode<CollisionShape2D>("Area2D/LineCollision");
 		clickable_area = (RectangleShape2D) collision_line.Shape;
-		AddToGroup("Edges");
 	}
-
-	public void set_process_false() => SetProcess(false);
 
 	public override void _Process(float delta)
 	{
@@ -60,10 +56,6 @@ public class GraphEdge : PinJoint2D
 			(joint_end1.Position + joint_end2.Position) / 2
 		);
 		set_collision_box();
-		if (joint_end1.Position != joint_end2.Position && joint_end1.Position.x != 0.0f)
-		{
-			SetProcess(false);
-		}
 	}
 
 	private bool valueIsCloseTo(float value1, float value2, float tolerance)
@@ -117,12 +109,13 @@ public class GraphEdge : PinJoint2D
 			curr_label.SetRotation(rotation);
 		}
 		// This is requested when we allow graph movement
-		// First, get the autoload StoredData that is using GDScript
+		this.SetProcess(true);
 		joint_end1 = node1;
 		joint_end2 = node2;
 		this.NodeA = node1.GetPath();
 		this.NodeB = node2.GetPath();
-		this.SetProcess(true);
+		set_collision_box();
+
 	}
 
 	/// <summary>
@@ -134,14 +127,15 @@ public class GraphEdge : PinJoint2D
 	private void set_collision_box()
 	{
 		// Set extent of the collision box for the line
-		Vector2 pos1 = (Vector2) joint_end1.Get("aux_position");
-		Vector2 pos2 = (Vector2) joint_end2.Get("aux_position");
+		Vector2 pos1 = (Vector2) joint_end1.GetGlobalPosition();
+		Vector2 pos2 = (Vector2) joint_end2.GetGlobalPosition();
+
 		float distance = Mathf.Sqrt(
 			(pos2.y - pos1.y) * (pos2.y - pos1.y) + (pos2.x - pos1.x) * (pos2.x - pos1.x)
 		) - 60.0f;
 		clickable_area.Extents = new Vector2(distance * 0.5f, 8.0f);
 		// Set the position of the collision box
-		collision_line.Position = (pos1 + pos2) * 0.5f;
+		collision_line.GlobalPosition = (pos1 + pos2) * 0.5f;
 		collision_line.Rotation = Mathf.Atan2(pos2.y - pos1.y, pos2.x - pos1.x);
 	}
 
