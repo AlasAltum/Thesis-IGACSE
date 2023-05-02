@@ -86,7 +86,7 @@ __meta__ = {
 position = Vector2( 1154, 344 )
 scale = Vector2( 1.85347, 1.3 )
 frames = SubResource( 4 )
-frame = 2
+frame = 3
 speed_scale = 0.8
 playing = true
 offset = Vector2( -216.395, -129.089 )
@@ -95,7 +95,7 @@ offset = Vector2( -216.395, -129.089 )
 position = Vector2( 1168, 176 )
 scale = Vector2( 0.701, 0.449 )
 frames = SubResource( 5 )
-frame = 10
+frame = 4
 speed_scale = 0.7
 playing = true
 

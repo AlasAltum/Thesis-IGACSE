@@ -3,6 +3,10 @@ class_name GraphManager
 
 export (String) var level_name = "BFS" # DFS, Kruskal, Prim...
 
+const level_to_idx: Dictionary = {
+	"BFS": 0, "DFS": 1, "Kruskal": 2, "Prim": 3
+}
+
 ## Graph related variables ##
 var screen_size : Vector2
 var left: int
@@ -39,7 +43,6 @@ func _init():
 	StoredData.reset_data()
 
 func _ready():
-
 	# Engine.time_scale = 5.0  # TODO: deactivate before deploy
 	self.screen_size = get_viewport().get_visible_rect().size
 	left = 100
@@ -74,6 +77,10 @@ func _ready():
 
 	# send information to server
 	send_data_level_transition()
+
+	AudioPlayer.play_background_by_index(
+		level_to_idx[level_name]
+	)
 
 
 
