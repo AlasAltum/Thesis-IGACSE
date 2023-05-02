@@ -8,3 +8,4 @@ func _ready():
 func _on_Button_pressed():
 	if gameplay_menu_popup:
 			gameplay_menu_popup.show()
+			AudioPlayer.play_button_sound()

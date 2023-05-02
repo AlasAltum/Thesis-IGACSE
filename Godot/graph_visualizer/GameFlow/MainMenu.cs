@@ -4,7 +4,7 @@ using System;
 public class MainMenu : CanvasLayer
 {
 	public Node CurrentScene { get; set; }
-	private Button startGame;
+	private Button startGameButton;
 	private Button TutorialButton;
 
 	private AnimationPlayer animPlayer;
@@ -20,12 +20,12 @@ public class MainMenu : CanvasLayer
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		startGame = GetNode<Button>("VBoxContainer/StartGame");
+		startGameButton = GetNode<Button>("VBoxContainer/StartGame");
 		TutorialButton = GetNode<Button>("VBoxContainer/TestButton");
 		// The exitGame button is not necessary in the HTML version
 		//	exitGame = GetNode<Button>("VBoxContainer/ExitGame");
-		startGame.GrabFocus();
-		startGame.Connect("pressed", this, "OnStartGame");
+		startGameButton.GrabFocus();
+		startGameButton.Connect("pressed", this, nameof(OnStartGameButtonPressed));
 
 		CurrentScene = this;
 
@@ -42,23 +42,29 @@ public class MainMenu : CanvasLayer
 		CurrentScene.QueueFree();
 	}
 
+	private void PlayButtonSound() => GetNode<Node>("/root/AudioPlayer").Call("play_button_sound");
+
 	public void OnBackButtonPressed()
 	{
+		PlayButtonSound();
+		Node AudioPlayer = GetNode<Node>("/root/AudioPlayer");
+		AudioPlayer.Call("play_button_sound");
 		// algorithmSelectionMenu.BackButton.Disabled = true;
 		// animPlayer.Play("ShowMenu");
 	}
 
-	public void OnStartGame()
+	public void OnStartGameButtonPressed()
 	{
-		startGame.Disabled = true;
+		PlayButtonSound();
+		startGameButton.Disabled = true;
 		GotoScene("res://GameFlow/AlgorithmSelectionMenu.tscn");
 	}
 
 
 	private void _on_TestButton_pressed()
 	{
-		// We are assuming that TutorialLevelsPaths contains the test levels in the editor
-		GD.Print("OnTutorialButtonPressed");
+		PlayButtonSound();
+
 		// Generate random number, with 50% probability, choose BFS or DFS
 		Random rand = new Random();
 		int randNum = rand.Next(0, 2);
@@ -76,7 +82,7 @@ public class MainMenu : CanvasLayer
 	{
 		if (animName == "ShowLevels")
 		{
-			startGame.Disabled = false;
+			startGameButton.Disabled = false;
 		}
 	}
 

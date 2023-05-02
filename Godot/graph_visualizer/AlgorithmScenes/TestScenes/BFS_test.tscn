@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://AlgorithmScenes/TestScenes/test_manager.gd" type="Script" id=1]
-[ext_resource path="res://AlgorithmScenes/Screen/finished_code_popup.gd" type="Script" id=2]
-[ext_resource path="res://AlgorithmScenes/Screen/PopupTheme.tres" type="Theme" id=3]
+[ext_resource path="res://AlgorithmScenes/Screen/FinishedPopup.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/themes/HintContainerTheme.tres" type="Theme" id=4]
 [ext_resource path="res://AlgorithmScenes/Screen/GameplayMenuPopup.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/textures/Background.tscn" type="PackedScene" id=6]
@@ -71,75 +70,23 @@ rect_clip_content = true
 mouse_filter = 2
 stretch_mode = 0
 
-[node name="FinishedPopup" type="WindowDialog" parent="CanvasLayer"]
+[node name="GameplayMenuPopup" parent="CanvasLayer" instance=ExtResource( 5 )]
+visible = false
+margin_left = -199.0
+margin_top = -212.5
+margin_right = 313.0
+margin_bottom = -94.5
+
+[node name="FinishedPopup" parent="CanvasLayer" instance=ExtResource( 2 )]
 visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -199.0
-margin_top = -233.0
-margin_right = 313.0
-margin_bottom = -74.0
-theme = ExtResource( 3 )
-popup_exclusive = true
-window_title = "Algorithm Finished!"
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-explanation_in_label = "Congratulations! You have successfully finished the BFS Algorithm! Go back to menu"
-
-[node name="Explanation" type="Label" parent="CanvasLayer/FinishedPopup"]
-margin_left = 5.0
-margin_top = 13.0
-margin_right = 506.0
-margin_bottom = 74.0
-rect_pivot_offset = Vector2( 265.108, 0 )
-size_flags_horizontal = 3
-text = "Congratulations! You have successfully finished the DFS Algorithm!"
-align = 1
-valign = 1
-autowrap = true
-
-[node name="ResetButton" type="Button" parent="CanvasLayer/FinishedPopup"]
-modulate = Color( 0.121569, 0.913725, 0, 1 )
-margin_left = 200.759
-margin_top = 76.986
-margin_right = 294.759
-margin_bottom = 102.986
-rect_pivot_offset = Vector2( 72.8572, 10.7062 )
-focus_neighbour_top = NodePath("..")
-focus_neighbour_bottom = NodePath("../MenuButton")
-focus_next = NodePath("../MenuButton")
-focus_previous = NodePath("..")
-text = "Reset"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MenuButton" type="Button" parent="CanvasLayer/FinishedPopup"]
-modulate = Color( 0.827451, 0.717647, 0.117647, 1 )
-margin_left = 201.293
-margin_top = 113.927
-margin_right = 295.293
-margin_bottom = 139.927
-rect_pivot_offset = Vector2( 72.8572, 10.7062 )
-focus_neighbour_top = NodePath("../ResetButton")
-focus_neighbour_bottom = NodePath("..")
-focus_next = NodePath("..")
-focus_previous = NodePath("../ResetButton")
-text = "Menu"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GameplayMenuPopup" parent="CanvasLayer" instance=ExtResource( 5 )]
-visible = true
-margin_left = -199.0
-margin_top = -212.5
-margin_right = 313.0
-margin_bottom = -94.5
+margin_left = -256.0
+margin_top = -100.5
+margin_right = 256.0
+margin_bottom = 100.5
 
 [node name="GameplayMenuButton" parent="CanvasLayer" instance=ExtResource( 7 )]
 margin_right = 384.0
@@ -177,6 +124,4 @@ anims/ShowInstructionsAndThenNoes = SubResource( 1 )
 
 [node name="Background" parent="." instance=ExtResource( 6 )]
 
-[connection signal="about_to_show" from="CanvasLayer/FinishedPopup" to="CanvasLayer/FinishedPopup" method="_on_FinishedPopup_about_to_show"]
-[connection signal="popup_hide" from="CanvasLayer/FinishedPopup" to="CanvasLayer/FinishedPopup" method="_on_FinishedPopup_popup_hide"]
 [connection signal="ready" from="CanvasLayer/TestPlayer" to="." method="_on_TestPlayer_ready"]

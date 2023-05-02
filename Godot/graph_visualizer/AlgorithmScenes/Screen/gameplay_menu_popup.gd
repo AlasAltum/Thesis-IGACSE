@@ -18,9 +18,11 @@ func _input(event):
 			self.show()
 
 func _on_ResetButton_pressed() -> void:
+	AudioPlayer.play_button_sound()
 	NotificationManager.reset_game()
 
 func _on_MenuButton_pressed():
+	AudioPlayer.play_button_sound()
 	var main_node = StoredData.get_tree().root.get_node("./Main")
 	main_node.queue_free()
 	call_deferred("_deferred_goto_scene", "res://GameFlow/MainMenu.tscn")
