@@ -11,13 +11,13 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 39.3722
 
-[sub_resource type="ShaderMaterial" id=5]
-resource_local_to_scene = true
+[sub_resource type="ShaderMaterial" id=9]
 shader = ExtResource( 3 )
 shader_param/assigned_color = Plane( 1, 1, 1, 1 )
 shader_param/WHITE = Plane( 1, 1, 1, 0.2 )
-shader_param/FREQ = 2.0
-shader_param/highlight = 0.0
+shader_param/FREQ = 3.0
+shader_param/highlight = 1.0
+shader_param/amplitude = 0.1
 
 [sub_resource type="Shader" id=6]
 code = "shader_type canvas_item;
@@ -53,25 +53,28 @@ script = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Node2D" parent="."]
+material = SubResource( 9 )
 
 [node name="SpriteTexture" type="Sprite" parent="Sprite"]
-material = SubResource( 5 )
+use_parent_material = true
 z_index = -1
 texture = ExtResource( 7 )
 region_rect = Rect2( 0, 0, 80, 80 )
 
 [node name="StationSimple" type="Sprite" parent="Sprite"]
-visible = false
+use_parent_material = true
 position = Vector2( 0, -1.43051e-06 )
 scale = Vector2( 0.479042, 0.479042 )
 texture = ExtResource( 6 )
 
 [node name="Node2D" type="Node2D" parent="Sprite"]
-position = Vector2( -40, -40 )
 
 [node name="NodeName" type="Label" parent="Sprite/Node2D"]
-margin_right = 80.0
-margin_bottom = 81.0
+use_parent_material = true
+margin_left = -40.0
+margin_top = -40.0
+margin_right = 40.0
+margin_bottom = 41.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource( 4 )

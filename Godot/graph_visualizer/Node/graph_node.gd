@@ -257,19 +257,19 @@ func hide_node_action_menu():
 
 func set_color(in_color: Color) -> void:
 	node_color = in_color
-	$Sprite/SpriteTexture.material.set_shader_param("assigned_color", in_color)
+	$Sprite.material.set_shader_param("assigned_color", in_color)
 
 func get_color() -> Color:
-	return $Sprite/SpriteTexture.material.get_shader_param("assigned_color")
+	return $Sprite.material.get_shader_param("assigned_color")
 
 func get_class() -> String:
 	return "AGraphNode"
 
 func highlight_node():
-	$Sprite/SpriteTexture.material.set_shader_param("highlight", 1.0)
+	$Sprite.material.set_shader_param("highlight", 1.0)
 
 func stop_highlight_node():
-	$Sprite/SpriteTexture.material.set_shader_param("highlight", 0.0)
+	$Sprite.material.set_shader_param("highlight", 0.0)
 
 # Show the variable close to this node and let it float towards this node
 # We use a Node2D as parent of the variable label because the label has a rect
