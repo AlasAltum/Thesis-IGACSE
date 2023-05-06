@@ -10,6 +10,7 @@ var finished_levels = {
 	"Prim": false,
 	"Kruskal": false,
 }
+
 var API_URL = "https://igasce.azurewebsites.net/api/igasce?code=7x0mMQ-QgCsURHIl_KEPF0sl2MjsH3R4CKttXIsfF8IiAzFuApnNvA==" # "http://localhost:7071/api/igasce"
 var types_with_adt: Array = ["KinematicBody2D", "GraphEdge", "AGraphNode"]
 var has_initialized: bool = false  # Used in C# in the main menu

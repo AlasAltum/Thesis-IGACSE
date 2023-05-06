@@ -8,7 +8,7 @@ var bg4_audio = preload("res://AlgorithmScenes/Audio/music/bg4.mp3")
 
 onready var button_sound_player : AudioStreamPlayer = $ButtonSoundPlayer
 onready var music_player : AudioStreamPlayer = $MusicPlayer
-
+onready var element_selected : AudioStreamPlayer = $ElementSelectedPlayer
 
 
 func _ready():
@@ -17,6 +17,9 @@ func _ready():
 
 func play_button_sound():
 	button_sound_player.play()
+
+func play_element_selected():
+	element_selected.play()
 
 func play_background_by_index(index: int):
 	match index:

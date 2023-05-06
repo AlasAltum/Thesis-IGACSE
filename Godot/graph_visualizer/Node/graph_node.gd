@@ -10,12 +10,14 @@ var aux_position: Vector2
 var clickable = false
 var node_color: Color setget set_color, get_color
 
-onready var node_name: Label = $Sprite/NodeName
+onready var node_name: Label = $Sprite/Node2D/NodeName
 onready var node_action_menu: Popup = $Popup
 onready var select_unselect_button: Button = $Popup/PanelContainer/VBoxContainer/SelectUnselectButton
 onready var add_to_object_button: Button = $Popup/PanelContainer/VBoxContainer/AddToObjectButton
 onready var variable_label: Node2D = $Control
 onready var variable_label_internal: Label = $Control/Sprite/VariableHighlight
+onready var sprite_texture : Sprite = $Sprite/SpriteTexture
+
 var variable_highlighted: bool = false
 var floating_variable_radius: float = 0.0
 var accumulated_angle: float = 0.0
@@ -37,6 +39,8 @@ const ITERATED_COLOR = Color(0.7, 0.4, 0.2)
 const SELECTED_COLOR = Color(1.0, 1.0, 0.0, 0.8)
 const SELECTED_LABEL_COLOR = Color(0.0, 1.0, 0.0, 1.0)
 
+
+
 signal node_add_to_object_request(node)
 signal node_selected(node)
 
@@ -50,8 +54,19 @@ func _ready():
 	add_to_group("Nodes")
 	self.representation = self.get_representation()
 	self.adt = adt_type.new(self)
-	self.radius_distance = $Sprite.get_rect().size.x / 2
+	self.radius_distance = $Sprite/SpriteTexture.get_rect().size.x / 2
 	randomize()
+	call_deferred("set_texture_randomly")
+
+func set_texture_randomly():
+	if StoredData.world_node:
+		sprite_texture.texture = StoredData.world_node.planets_textures[randi() % len(StoredData.world_node.planets_textures)]
+		StoredData.world_node.planets_textures.erase(sprite_texture.texture)
+		var desired_size = Vector2(80,80)
+		var size = sprite_texture.texture.get_size()
+		var scale_factor = desired_size/size
+		sprite_texture.scale = scale_factor
+
 
 func get_adt():
 	return self.adt
@@ -124,7 +139,8 @@ func get_non_selected_neighbors() -> Array:
 
 func mark_as_iterated():
 	self.select_node()
-	self.modulate = ITERATED_COLOR
+	$Sprite/StationSimple.visible = true
+	$Sprite/StationSimple.texture = StoredData.world_node.station_iterated_texture
 	if not self in StoredData.iterated_nodes: 
 		StoredData.iterated_nodes.append(self)
 
@@ -148,8 +164,6 @@ func _on_Select_UnselectButton_pressed():
 
 func unselect_node():
 	self.selected = false
-	self.modulate = NORMAL_COLOR
-	node_name.modulate = NORMAL_COLOR
 	representation.set_unselected()
 	node_action_menu.hide()
 	node_action_menu.visible = false
@@ -157,8 +171,10 @@ func unselect_node():
 func select_node(emit_signal=true):
 	if self.index in StoredData.selectable_nodes:
 		self.selected = true
-		self.modulate = SELECTED_COLOR
-		node_name.modulate = SELECTED_LABEL_COLOR
+		AudioPlayer.play_element_selected()
+		# IMPROVEMENT: Add transition animation
+		$Sprite/StationSimple.visible = true
+		$Sprite/StationSimple.texture = StoredData.world_node.station_explored_texture
 		representation.set_selected()
 		if emit_signal:
 			emit_signal("node_selected", self)
@@ -223,7 +239,7 @@ func _on_Area2D_input_event(_viewport, event, _shape_idx):
 	if _event_is_left_click(event):
 		if StoredData.allow_nodes_dragging:
 			is_dragging = true
-			StoredData.world_node.set_dragging_node($Sprite, self)
+			StoredData.world_node.set_dragging_node($Sprite/SpriteTexture, self)
 
 		else:
 			_on_Select_UnselectButton_pressed()
@@ -241,19 +257,19 @@ func hide_node_action_menu():
 
 func set_color(in_color: Color) -> void:
 	node_color = in_color
-	$Sprite.material.set_shader_param("assigned_color", in_color)
+	$Sprite/SpriteTexture.material.set_shader_param("assigned_color", in_color)
 
 func get_color() -> Color:
-	return  $Sprite.material.get_shader_param("assigned_color")
+	return $Sprite/SpriteTexture.material.get_shader_param("assigned_color")
 
 func get_class() -> String:
 	return "AGraphNode"
 
 func highlight_node():
-	$Sprite.material.set_shader_param("highlight", 1.0)
+	$Sprite/SpriteTexture.material.set_shader_param("highlight", 1.0)
 
 func stop_highlight_node():
-	$Sprite.material.set_shader_param("highlight", 0.0)
+	$Sprite/SpriteTexture.material.set_shader_param("highlight", 0.0)
 
 # Show the variable close to this node and let it float towards this node
 # We use a Node2D as parent of the variable label because the label has a rect

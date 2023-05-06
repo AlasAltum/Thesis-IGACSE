@@ -6,6 +6,18 @@ export (String) var level_name = "BFS" # DFS, Kruskal, Prim...
 const level_to_idx: Dictionary = {
 	"BFS": 0, "DFS": 1, "Kruskal": 2, "Prim": 3
 }
+const planets_textures = [
+	preload("res://Assets/textures/OrbsWithoutOutline_0000_Circle.png"),
+	preload("res://Assets/textures/OrbsWithoutOutline_0001_Circle.png"),
+	preload("res://Assets/textures/OrbsWithoutOutline_0002_Circle.png"),
+	preload("res://Assets/textures/OrbsWithoutOutline_0003_Circle.png"),
+	preload("res://Assets/textures/OrbsWithoutOutline_0004_Circle.png"),
+	preload("res://Assets/textures/OrbsWithoutOutline_0005_Circle.png"),
+	preload("res://Assets/textures/OrbsWithoutOutline_0006_Circle.png"),
+	preload("res://Assets/textures/OrbsWithoutOutline_0007_Circle.png"),
+]
+const station_explored_texture = preload("res://Assets/textures/station_explored.png")
+const station_iterated_texture = preload("res://Assets/textures/station_complex.png")
 
 ## Graph related variables ##
 var screen_size : Vector2
@@ -43,7 +55,7 @@ func _init():
 	StoredData.reset_data()
 
 func _ready():
-	# Engine.time_scale = 5.0  # TODO: deactivate before deploy
+	Engine.time_scale = 5.0  # TODO: deactivate before deploy
 	self.screen_size = get_viewport().get_visible_rect().size
 	left = 100
 	right = + int(self.screen_size.x)

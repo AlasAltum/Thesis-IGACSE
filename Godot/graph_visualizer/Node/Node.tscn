@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Node/graph_node.gd" type="Script" id=2]
 [ext_resource path="res://Node/node_shader.gdshader" type="Shader" id=3]
 [ext_resource path="res://Assets/themes/NodeTheme.tres" type="Theme" id=4]
 [ext_resource path="res://Assets/themes/NodePopupTheme.tres" type="Theme" id=5]
+[ext_resource path="res://Assets/textures/station_explored.png" type="Texture" id=6]
 [ext_resource path="res://Node/CircleNode80.png" type="Texture" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -51,19 +52,32 @@ script = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="Node2D" parent="."]
+
+[node name="SpriteTexture" type="Sprite" parent="Sprite"]
 material = SubResource( 5 )
 z_index = -1
 texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 80, 80 )
 
-[node name="NodeName" type="Label" parent="Sprite"]
-margin_left = -40.0
-margin_top = -40.0
-margin_right = 40.0
-margin_bottom = 41.0
+[node name="StationSimple" type="Sprite" parent="Sprite"]
+visible = false
+position = Vector2( 0, -1.43051e-06 )
+scale = Vector2( 0.479042, 0.479042 )
+texture = ExtResource( 6 )
+
+[node name="Node2D" type="Node2D" parent="Sprite"]
+position = Vector2( -40, -40 )
+
+[node name="NodeName" type="Label" parent="Sprite/Node2D"]
+margin_right = 80.0
+margin_bottom = 81.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 4
 text = "5"
 align = 1
 valign = 1

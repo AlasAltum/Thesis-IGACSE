@@ -118,6 +118,16 @@ public class GraphEdge : PinJoint2D
 
 	}
 
+	public Node2D getJointEnd1()
+	{
+		return joint_end1;
+	}
+
+	public Node2D getJointEnd2()
+	{
+		return joint_end2;
+	}
+
 	/// <summary>
 	/// To set this quad, we will set the extent of the rectangle like the following
 	/// extent(x, y) := y will be its margin, x will be its distance
@@ -200,4 +210,10 @@ public class GraphEdge : PinJoint2D
 		}
 	}
 
+	/// Used to set the edge as explored. An edge is considered explored when its two connecting nodes
+	/// have been explored
+	public void set_edge_transparency_as_explored()
+	{
+		this.Modulate = new Color(1.0f, 1.0f, 1.0f, 100/255f);
+	}
 }
