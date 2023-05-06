@@ -48,7 +48,6 @@ var adt_shower # ADTShower
 var adt_mediator # ADTMediator class
 var selected_variable_index : int = 0  # Used to emphasize the current variable
 var adt_to_be_created: ADT
-var animation_player: AnimationPlayer
 
 var allow_sending_request: bool = true
 
@@ -205,4 +204,4 @@ func reset_data():
 	self.adt_mediator = null
 	self.selected_variable_index = 0
 	self.adt_to_be_created = null
-	self.animation_player = null
+

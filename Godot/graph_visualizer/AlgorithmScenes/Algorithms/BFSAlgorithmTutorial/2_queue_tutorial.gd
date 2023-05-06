@@ -10,7 +10,7 @@ func check_actions_correct() -> bool:
 
 func _trigger_on_next_line_side_effect() -> void:
 	# Stop highlighting the queue slot in Data Structures
-	StoredData.animation_player.stop_queue_highlight_once()
+	NotificationManager.animation_player.stop_queue_highlight_once()
 	# Show the popup explaining what the current variable is
 	# Because in the next instruction the user has to manipulate it
-	StoredData.animation_player.show_current_variable_popup()
+	NotificationManager.animation_player.show_current_variable_popup()

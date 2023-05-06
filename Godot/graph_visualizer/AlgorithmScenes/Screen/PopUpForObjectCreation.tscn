@@ -59,6 +59,8 @@ align = 1
 autowrap = true
 
 [node name="ErrorNotification" type="Label" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 8.0
 margin_top = 128.0
 margin_right = 509.0
@@ -100,6 +102,5 @@ focus_next = NodePath("..")
 focus_previous = NodePath("../NameAssign")
 text = "Enter"
 
-[connection signal="animation_finished" from="ErrorNotification/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="text_entered" from="NameAssign" to="." method="_on_NameAssign_text_entered"]
 [connection signal="pressed" from="EnterButton" to="." method="_on_EnterButton_pressed"]

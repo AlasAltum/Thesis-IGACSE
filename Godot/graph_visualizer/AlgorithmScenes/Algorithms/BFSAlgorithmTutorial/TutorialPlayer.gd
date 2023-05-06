@@ -6,7 +6,7 @@ var main
 var has_played_stop_queue_hightlight_once = false 
 
 func _ready():
-	StoredData.animation_player = self
+	NotificationManager.animation_player = self
 	self.main = get_tree().root.get_node("Main")
 	play("HighlightInstructions")
 

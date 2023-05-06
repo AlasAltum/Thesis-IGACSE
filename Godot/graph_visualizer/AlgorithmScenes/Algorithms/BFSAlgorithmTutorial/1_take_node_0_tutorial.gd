@@ -18,5 +18,5 @@ func effect_check_on_focused():
 
 ## In tutorial version, play animations that display elements one by one
 func _trigger_on_next_line_side_effect() -> void:
-	if StoredData.animation_player:
-		StoredData.animation_player.show_variables_panel()
+	if NotificationManager.animation_player:
+		NotificationManager.animation_player.show_variables_panel()

@@ -303,6 +303,7 @@ font_data = ExtResource( 24 )
 [sub_resource type="Theme" id=7]
 
 [node name="Main" type="Node2D"]
+position = Vector2( 0, 1 )
 script = ExtResource( 15 )
 graph_density = 0.4
 graph_size = 8
@@ -336,11 +337,12 @@ margin_bottom = -0.119995
 mouse_default_cursor_shape = 8
 
 [node name="HintLabel" parent="CanvasLayer/TextHintContainer" index="0"]
-margin_left = 343.0
-margin_top = 24.0
-margin_right = 1143.0
-margin_bottom = 126.0
+margin_left = 200.0
+margin_top = 200.0
+margin_right = 1000.0
+margin_bottom = 302.0
 rect_min_size = Vector2( 800, 100 )
+rect_scale = Vector2( 3, 3 )
 rect_clip_content = false
 size_flags_horizontal = 0
 size_flags_vertical = 0

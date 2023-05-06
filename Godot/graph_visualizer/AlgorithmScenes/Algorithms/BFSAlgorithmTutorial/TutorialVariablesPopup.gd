@@ -12,7 +12,7 @@ func _ready():
 
 # Once the user presses ok, the data structures panel is shown
 func _on_TutorialVariablesPopup_confirmed():
-	StoredData.animation_player.play_show_data_structures_panel()
+	NotificationManager.animation_player.play_show_data_structures_panel()
 
 # Flow: First, popup shows, activates _process, with each
 # delta time, ProgressBar fills until its full. Then

@@ -78,7 +78,7 @@ func _play_error_label_animation():
 	error_label.visible = true
 	error_anim.stop()
 	error_anim.queue("message_modulation")
-
+	NotificationManager.play_error_audio()
 
 func show_not_valid_name_error():
 	error_label.text = "Invalid name for variable."
@@ -86,9 +86,6 @@ func show_not_valid_name_error():
 
 
 func show_not_expected_variable_name():
-	error_label.text = "This is a name not expected in this algorithm. Look at the instructions"
+	error_label.text = "Name not expected by the algorithm"
 	_play_error_label_animation()
 
-
-func _on_AnimationPlayer_animation_finished(_anim_name: String) -> void:
-	_close_popup()

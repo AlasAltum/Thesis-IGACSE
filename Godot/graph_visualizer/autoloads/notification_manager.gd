@@ -16,7 +16,8 @@ var length_c_is_1: bool = false
 var find_w_unequal_find_v: bool = false
 var allow_code_advance : bool = true  # Only in tutorial level starts as false
 # And this action is performed by the tutorial animation player
-## 
+var animation_player: AnimationPlayer
+
 
 var hint_label
 onready var confirm_audio: AudioStreamPlayer = $ConfirmationAudioPlayer
@@ -77,7 +78,6 @@ func play_confirmation_audio():
 
 func play_error_audio():
 	error_audio.play()
-
 
 # Called from finished code popup, when finishing an algorithm
 func reset_game():
@@ -237,3 +237,4 @@ func reset_data():
 	self.find_w_unequal_find_v = false
 	self.allow_code_advance = true
 	self.hint_label = null
+	self.animation_player = null

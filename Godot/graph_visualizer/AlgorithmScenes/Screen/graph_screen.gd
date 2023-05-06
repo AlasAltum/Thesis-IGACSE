@@ -1,12 +1,13 @@
-extends Node2D
 class_name GraphManager
+extends Node2D
 
 export (String) var level_name = "BFS" # DFS, Kruskal, Prim...
 
 const level_to_idx: Dictionary = {
 	"BFS": 0, "DFS": 1, "Kruskal": 2, "Prim": 3
 }
-const planets_textures = [
+
+const __planets_textures_original = [
 	preload("res://Assets/textures/OrbsWithoutOutline_0000_Circle.png"),
 	preload("res://Assets/textures/OrbsWithoutOutline_0001_Circle.png"),
 	preload("res://Assets/textures/OrbsWithoutOutline_0002_Circle.png"),
@@ -16,6 +17,8 @@ const planets_textures = [
 	preload("res://Assets/textures/OrbsWithoutOutline_0006_Circle.png"),
 	preload("res://Assets/textures/OrbsWithoutOutline_0007_Circle.png"),
 ]
+
+var planets_textures = []
 const station_explored_texture = preload("res://Assets/textures/station_explored.png")
 const station_iterated_texture = preload("res://Assets/textures/station_complex.png")
 
@@ -56,6 +59,11 @@ func _init():
 
 func _ready():
 	Engine.time_scale = 5.0  # TODO: deactivate before deploy
+	StoredData.world_node = self
+	# Planets textures array is being modified each level when nodes are created
+	# So by triggering this function at the beginning, we make sure that these textures
+	# are available again so they can be used by the nodes
+	reset_planets_textures()
 	self.screen_size = get_viewport().get_visible_rect().size
 	left = 100
 	right = + int(self.screen_size.x)
@@ -80,7 +88,7 @@ func _ready():
 	add_child(drop_dragging_node_timer)
 	drop_dragging_node_timer.connect("timeout", self, "deferred_free_dragging_node")
 	drop_dragging_node_timer.set_wait_time(0.2)
-	StoredData.world_node = self
+
 	
 	instance_edges()  # To make sure the graph is connected
 	if self.allow_edge_selection:
@@ -302,3 +310,6 @@ func free_dragging_node():
 func set_dragging_node_global_pos():
 	if dragging_node != null:
 		dragging_node.global_position = get_global_mouse_position()
+
+func reset_planets_textures():
+	self.planets_textures = __planets_textures_original.duplicate(true)
