@@ -34,14 +34,13 @@ func _ready():
 		texture.texture = slot_texture
 
 func _on_Area2D_mouse_entered():
+	hover_panel.visible = true
 	if hover_animation_instance:
-		hover_panel.visible = true
 		hover_animation_instance.play_animation()
 
-
 func _on_Area2D_mouse_exited():
+	hover_panel.visible = false
 	if hover_animation_instance:
-		hover_panel.visible = false
 		hover_animation_instance.stop_animation()
 
 # When an ADT is left clicked on the menu, create an internal resource

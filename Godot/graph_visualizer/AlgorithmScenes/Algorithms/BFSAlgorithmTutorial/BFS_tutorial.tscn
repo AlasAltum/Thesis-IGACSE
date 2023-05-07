@@ -337,12 +337,11 @@ margin_bottom = -0.119995
 mouse_default_cursor_shape = 8
 
 [node name="HintLabel" parent="CanvasLayer/TextHintContainer" index="0"]
-margin_left = 200.0
-margin_top = 200.0
-margin_right = 1000.0
-margin_bottom = 302.0
+margin_left = 343.0
+margin_top = 24.0
+margin_right = 1143.0
+margin_bottom = 126.0
 rect_min_size = Vector2( 800, 100 )
-rect_scale = Vector2( 3, 3 )
 rect_clip_content = false
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -356,10 +355,11 @@ anchor_right = 0.208
 anchor_bottom = 1.022
 margin_right = 59.64
 margin_bottom = -23.76
-mouse_filter = 2
 
 [node name="GameplayMenuButton" parent="CanvasLayer/LeftPanel" instance=ExtResource( 7 )]
 margin_right = 459.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
 text = "Menu"
 
 [node name="BFSCodeBlock" parent="CanvasLayer/LeftPanel" instance=ExtResource( 3 )]
@@ -370,6 +370,7 @@ margin_left = 0.0
 margin_top = 56.0
 margin_right = 459.0
 margin_bottom = 776.0
+mouse_filter = 2
 
 [node name="LinesContainer" parent="CanvasLayer/LeftPanel/BFSCodeBlock" index="0"]
 margin_right = 459.0
@@ -505,6 +506,7 @@ columns = 4
 [node name="Slot" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 22 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
+mouse_default_cursor_shape = 2
 hover_text = "Queue"
 slot_texture = ExtResource( 17 )
 generated_adt = ExtResource( 14 )
@@ -512,20 +514,31 @@ on_hover_animation = ExtResource( 10 )
 
 [node name="SlotTexture" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot" index="0"]
 material = ExtResource( 23 )
+mouse_default_cursor_shape = 2
 theme = SubResource( 7 )
 
 [node name="ADTTexture" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot/SlotTexture" index="0"]
 use_parent_material = true
+mouse_default_cursor_shape = 2
+
+[node name="Area2D" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot/SlotTexture" index="1"]
+monitorable = true
 
 [node name="Slot2" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 22 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 90.0
 margin_right = 90.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
 hover_text = "Stack"
 slot_texture = ExtResource( 21 )
 generated_adt = ExtResource( 12 )
 on_hover_animation = ExtResource( 19 )
+
+[node name="SlotTexture" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot2" index="0"]
+mouse_filter = 0
+mouse_default_cursor_shape = 2
 
 [node name="BelowADTName" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot2/SlotTexture" index="2"]
 text = "Stack"
@@ -537,9 +550,15 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 180.0
 margin_right = 180.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
 hover_text = "Array"
 slot_texture = ExtResource( 2 )
 generated_adt = ExtResource( 11 )
+
+[node name="SlotTexture" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot3" index="0"]
+mouse_filter = 0
+mouse_default_cursor_shape = 2
 
 [node name="BelowADTName" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot3/SlotTexture" index="2"]
 text = "Array"
@@ -555,9 +574,15 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 270.0
 margin_right = 270.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
 hover_text = "Set"
 slot_texture = ExtResource( 18 )
 generated_adt = ExtResource( 16 )
+
+[node name="SlotTexture" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot4" index="0"]
+mouse_filter = 0
+mouse_default_cursor_shape = 2
 
 [node name="BelowADTName" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot4/SlotTexture" index="2"]
 text = "Set"
@@ -594,6 +619,7 @@ margin_left = 1208.0
 margin_top = 0.0
 margin_right = 1442.0
 margin_bottom = 300.0
+mouse_default_cursor_shape = 7
 size_flags_vertical = 1
 
 [node name="NodeContainer" type="AspectRatioContainer" parent="CanvasLayer"]
@@ -615,6 +641,7 @@ __meta__ = {
 }
 
 [node name="PopUpForObjectCreation" parent="CanvasLayer" instance=ExtResource( 13 )]
+visible = false
 anchor_left = 0.554
 anchor_top = 0.372
 anchor_right = 0.554
@@ -626,6 +653,7 @@ margin_bottom = 134.24
 expected_adt_names = [ "q" ]
 
 [node name="UNodeIsExploredPopup" parent="CanvasLayer" instance=ExtResource( 37 )]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -636,6 +664,7 @@ margin_right = 359.999
 margin_bottom = -101.0
 
 [node name="ADTIsNotEmptyPopup" parent="CanvasLayer" instance=ExtResource( 36 )]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -646,6 +675,7 @@ margin_right = 359.999
 margin_bottom = -101.0
 
 [node name="FinishedPopup" parent="CanvasLayer" instance=ExtResource( 38 )]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -667,6 +697,7 @@ margin_right = 256.32
 margin_bottom = 58.86
 
 [node name="TutorialCodePopup" parent="CanvasLayer" instance=ExtResource( 26 )]
+visible = false
 margin_left = 222.0
 margin_top = 105.0
 margin_right = 727.0
@@ -678,17 +709,16 @@ was completed."
 time_before_close = 3.5
 
 [node name="TutorialVariablesPopup" parent="CanvasLayer" instance=ExtResource( 25 )]
-visible = true
 
 [node name="TutorialCurrentVariable" type="AcceptDialog" parent="CanvasLayer"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 448.0
-margin_top = -248.0
-margin_right = 1158.0
-margin_bottom = -94.0
+margin_left = 1408.0
+margin_top = 832.0
+margin_right = 2118.0
+margin_bottom = 986.0
 theme = ExtResource( 9 )
 popup_exclusive = true
 window_title = ""

@@ -32,6 +32,7 @@ tracks/1/keys = {
 }
 
 [node name="VNodeIsExploredPopup" type="WindowDialog"]
+visible = true
 margin_left = 524.122
 margin_top = 233.47
 margin_right = 1036.12
@@ -83,6 +84,7 @@ margin_bottom = 89.2947
 focus_neighbour_right = NodePath("../NoButton")
 focus_next = NodePath("../NoButton")
 focus_previous = NodePath("..")
+mouse_default_cursor_shape = 2
 text = "Yes"
 
 [node name="NoButton" type="Button" parent="."]
@@ -94,6 +96,7 @@ margin_bottom = 90.6618
 focus_neighbour_left = NodePath(".")
 focus_next = NodePath("..")
 focus_previous = NodePath("../YesButton")
+mouse_default_cursor_shape = 2
 text = "No"
 __meta__ = {
 "_edit_use_anchors_": false

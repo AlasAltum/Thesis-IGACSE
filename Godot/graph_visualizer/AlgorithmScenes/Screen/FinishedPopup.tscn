@@ -44,6 +44,7 @@ focus_neighbour_top = NodePath("../..")
 focus_neighbour_bottom = NodePath("../MenuButton")
 focus_next = NodePath("../MenuButton")
 focus_previous = NodePath("../..")
+mouse_default_cursor_shape = 2
 text = "  Reset  "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -59,6 +60,7 @@ focus_neighbour_top = NodePath("../ResetButton")
 focus_neighbour_bottom = NodePath("../..")
 focus_next = NodePath("../..")
 focus_previous = NodePath("../ResetButton")
+mouse_default_cursor_shape = 2
 text = "  Menu  "
 __meta__ = {
 "_edit_use_anchors_": false

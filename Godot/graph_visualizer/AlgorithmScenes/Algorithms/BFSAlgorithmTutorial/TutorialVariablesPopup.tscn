@@ -12,6 +12,7 @@ margin_left = -296.0
 margin_top = -184.0
 margin_right = 208.0
 margin_bottom = -64.0
+mouse_default_cursor_shape = 2
 theme = ExtResource( 2 )
 popup_exclusive = true
 window_title = ""

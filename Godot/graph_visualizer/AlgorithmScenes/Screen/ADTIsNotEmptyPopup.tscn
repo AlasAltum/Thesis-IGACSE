@@ -90,6 +90,7 @@ focus_neighbour_top = NodePath("..")
 focus_neighbour_right = NodePath("../NoButton")
 focus_next = NodePath("../NoButton")
 focus_previous = NodePath("..")
+mouse_default_cursor_shape = 2
 text = "Yes"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -105,6 +106,7 @@ focus_neighbour_left = NodePath("../YesButton")
 focus_neighbour_top = NodePath("..")
 focus_next = NodePath("../YesButton")
 focus_previous = NodePath("../YesButton")
+mouse_default_cursor_shape = 2
 text = "No"
 __meta__ = {
 "_edit_use_anchors_": false

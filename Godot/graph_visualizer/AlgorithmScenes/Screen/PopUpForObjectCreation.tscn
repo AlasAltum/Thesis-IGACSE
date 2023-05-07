@@ -100,6 +100,7 @@ focus_neighbour_top = NodePath("../NameAssign")
 focus_neighbour_bottom = NodePath("..")
 focus_next = NodePath("..")
 focus_previous = NodePath("../NameAssign")
+mouse_default_cursor_shape = 2
 text = "Enter"
 
 [connection signal="text_entered" from="NameAssign" to="." method="_on_NameAssign_text_entered"]
