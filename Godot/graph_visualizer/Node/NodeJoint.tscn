@@ -30,6 +30,5 @@ position = Vector2( 55, 74 )
 position = Vector2( 643, 402 )
 
 [node name="Edge" parent="." instance=ExtResource( 2 )]
-position = Vector2( 537, 84 )
 node_a = NodePath("../NodeA")
 node_b = NodePath("../NodeB")

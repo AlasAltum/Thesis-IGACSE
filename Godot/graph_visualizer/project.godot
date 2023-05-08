@@ -204,7 +204,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Code/ADTs/set_adt.gd"
 }, {
-"base": "Panel",
+"base": "Area2D",
 "class": "Slot",
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Screen/slot.gd"
@@ -333,6 +333,7 @@ singletons=[  ]
 
 port=false
 localhost=true
+cursor=false
 
 [input]
 

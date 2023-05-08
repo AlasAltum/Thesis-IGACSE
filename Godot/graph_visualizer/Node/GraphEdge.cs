@@ -21,6 +21,16 @@ public class GraphEdge : PinJoint2D
 	
 	private static Material HighlightedMaterial = GD.Load<Material>("res://Assets/custom_shaders/edge_hightlight_material.tres");
 
+	// The path the ship will follow, the curve is what interests us
+	// Set the curve positions at nodeA and nodeB
+	private Path2D shipPath;
+
+ 	// The points in which the ship is going to move, here we manipulat ethe offset
+	// through the shipAnimation
+	private PathFollow2D shipPathFollow;
+
+	private AnimationPlayer shipAnimationPlayer;
+
 	[Export]
 	private RectangleShape2D clickable_area;
 	
@@ -45,6 +55,9 @@ public class GraphEdge : PinJoint2D
 		line = GetNode<Line2D>("Line2D");
 		collision_line = GetNode<CollisionShape2D>("Area2D/LineCollision");
 		clickable_area = (RectangleShape2D) collision_line.Shape;
+		shipPath = GetNode<Path2D>("ShipPath");
+		shipPathFollow = GetNode<PathFollow2D>("ShipPathFollow");
+		shipAnimationPlayer = GetNode<AnimationPlayer>("ShipAnimationPlayer");
 	}
 
 	public override void _Process(float delta)
@@ -216,4 +229,23 @@ public class GraphEdge : PinJoint2D
 	{
 		this.Modulate = new Color(1.0f, 1.0f, 1.0f, 100/255f);
 	}
+
+	public void send_ship_from_nodeA_to_nodeB(Node2D nodeA, Node2D nodeB)
+	{
+		// turn on animation to send the ship from nodeA to nodeB
+		shipPathFollow.Offset = 0;
+		shipPathFollow.UnitOffset = 0;
+
+		Curve2D path = shipPath.Curve;
+		path.ClearPoints();
+		path.AddPoint(nodeA.GlobalPosition);
+		path.AddPoint(nodeB.GlobalPosition);
+
+		shipAnimationPlayer.Play("ShipTravel");
+
+		Animation shipTravelAnimation = shipAnimationPlayer.GetAnimation("ShipTravel");
+		shipTravelAnimation.Loop = false;
+	}
+
+
 }

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Node/GraphEdge.cs" type="Script" id=1]
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/textures/dotted_texture.png" type="Texture" id=3]
+[ext_resource path="res://Assets/textures/NightmareB.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -12,6 +13,46 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="RectangleShape2D" id=2]
 resource_local_to_scene = true
+
+[sub_resource type="Animation" id=3]
+resource_name = "ShipTravel"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("ShipPath/ShipPathFollow:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ShipPath/ShipPathFollow/Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ShipPath/ShipPathFollow/Sprite:visible")
+tracks/2/interp = 0
+tracks/2/loop_wrap = false
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
 
 [node name="Edge" type="PinJoint2D"]
 self_modulate = Color( 1, 1, 1, 0.784314 )
@@ -41,5 +82,18 @@ text = "1"
 
 [node name="LineCollision" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 2 )
+
+[node name="ShipPath" type="Path2D" parent="."]
+
+[node name="ShipPathFollow" type="PathFollow2D" parent="ShipPath"]
+
+[node name="Sprite" type="Sprite" parent="ShipPath/ShipPathFollow"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 4 )
+
+[node name="ShipAnimationPlayer" type="AnimationPlayer" parent="ShipPath"]
+root_node = NodePath("../..")
+anims/ShipTravel = SubResource( 3 )
 
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]

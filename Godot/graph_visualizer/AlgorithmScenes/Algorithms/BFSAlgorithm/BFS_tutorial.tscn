@@ -60,6 +60,7 @@ margin_top = -5.0
 margin_bottom = 145.0
 
 [node name="LeftPanel" type="VBoxContainer" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 0.208
 anchor_bottom = 1.022
 margin_right = -34.36
@@ -139,7 +140,6 @@ margin_right = 359.999
 margin_bottom = -101.0
 
 [node name="UNodeIsExploredPopup" parent="CanvasLayer" instance=ExtResource( 37 )]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -160,6 +160,7 @@ margin_right = 359.999
 margin_bottom = -101.0
 
 [node name="FinishedPopup" parent="CanvasLayer" instance=ExtResource( 38 )]
+visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

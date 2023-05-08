@@ -1,13 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Screen/slot.gd" type="Script" id=1]
 [ext_resource path="res://Assets/textures/structure_slot_background.png" type="Texture" id=2]
-
-[sub_resource type="StyleBoxTexture" id=1]
-region_rect = Rect2( 0, 0, 18, 18 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 40, 40 )
 
 [sub_resource type="StyleBoxFlat" id=3]
 content_margin_left = 10.0
@@ -27,58 +21,24 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 shadow_size = 2
 
-[node name="Slot" type="Panel"]
-anchor_right = 0.0416667
-anchor_bottom = 0.0740741
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-custom_styles/panel = SubResource( 1 )
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 38.5, 38 )
+
+[node name="Slot" type="Area2D"]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="SlotTexture" type="TextureRect" parent="."]
-margin_left = 9.6703
-margin_top = 10.301
-margin_right = 89.6703
-margin_bottom = 90.301
-grow_horizontal = 2
-grow_vertical = 2
-rect_pivot_offset = Vector2( 49.1249, 11.359 )
-mouse_filter = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 2 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ADTTexture" type="TextureRect" parent="SlotTexture"]
 margin_right = 80.0
 margin_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 80, 80 )
+rect_pivot_offset = Vector2( 49.1249, 11.359 )
 mouse_filter = 2
+mouse_default_cursor_shape = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+texture = ExtResource( 2 )
 expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Area2D" type="Area2D" parent="SlotTexture"]
-monitorable = false
-gravity = 0.0
-linear_damp = 0.0
-angular_damp = 0.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SlotTexture/Area2D"]
-position = Vector2( 40, 40 )
-shape = SubResource( 2 )
 
 [node name="BelowADTName" type="Label" parent="SlotTexture"]
 margin_left = 20.602
@@ -86,9 +46,6 @@ margin_top = 80.0
 margin_right = 60.602
 margin_bottom = 94.0
 text = "Queue"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="HoverPanel" type="Node2D" parent="."]
 visible = false
@@ -126,6 +83,21 @@ __meta__ = {
 [node name="AnimationPlaceholder" type="Node2D" parent="HoverPanel/ColorRect"]
 position = Vector2( 40, 30 )
 
-[connection signal="input_event" from="SlotTexture/Area2D" to="." method="_on_Area2D_input_event"]
-[connection signal="mouse_entered" from="SlotTexture/Area2D" to="." method="_on_Area2D_mouse_entered"]
-[connection signal="mouse_exited" from="SlotTexture/Area2D" to="." method="_on_Area2D_mouse_exited"]
+[node name="ADTTexture" type="TextureRect" parent="."]
+margin_right = 80.0
+margin_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 80, 80 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 40.5, 40 )
+shape = SubResource( 4 )
+
+[connection signal="input_event" from="." to="." method="_on_Slot_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_Slot_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_Slot_mouse_exited"]
