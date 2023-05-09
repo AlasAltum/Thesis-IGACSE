@@ -204,7 +204,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Code/ADTs/set_adt.gd"
 }, {
-"base": "Area2D",
+"base": "Container",
 "class": "Slot",
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Screen/slot.gd"

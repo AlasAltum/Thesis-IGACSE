@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Node/GraphEdge.cs" type="Script" id=1]
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Regular.ttf" type="DynamicFontData" id=2]
@@ -13,6 +13,11 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="RectangleShape2D" id=2]
 resource_local_to_scene = true
+
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array(  )
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "ShipTravel"
@@ -84,6 +89,7 @@ text = "1"
 shape = SubResource( 2 )
 
 [node name="ShipPath" type="Path2D" parent="."]
+curve = SubResource( 4 )
 
 [node name="ShipPathFollow" type="PathFollow2D" parent="ShipPath"]
 
