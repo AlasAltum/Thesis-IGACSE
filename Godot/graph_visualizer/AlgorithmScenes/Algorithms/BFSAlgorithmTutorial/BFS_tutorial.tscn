@@ -616,6 +616,10 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[node name="EdgeContainer" type="Control" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+
 [node name="PopUpForObjectCreation" parent="CanvasLayer" instance=ExtResource( 13 )]
 anchor_left = 0.554
 anchor_top = 0.372

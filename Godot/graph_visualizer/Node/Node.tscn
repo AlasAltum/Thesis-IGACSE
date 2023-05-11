@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Node/graph_node.gd" type="Script" id=2]
-[ext_resource path="res://Node/node_shader.gdshader" type="Shader" id=3]
+[ext_resource path="res://Node/hightlight_node_with_frequency_and_bool.gdshader" type="Shader" id=3]
 [ext_resource path="res://Assets/themes/NodeTheme.tres" type="Theme" id=4]
 [ext_resource path="res://Assets/themes/NodePopupTheme.tres" type="Theme" id=5]
 [ext_resource path="res://Assets/textures/station_explored.png" type="Texture" id=6]
@@ -11,12 +11,13 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 39.3722
 
-[sub_resource type="ShaderMaterial" id=9]
+[sub_resource type="ShaderMaterial" id=11]
+resource_local_to_scene = true
 shader = ExtResource( 3 )
 shader_param/assigned_color = Plane( 1, 1, 1, 1 )
 shader_param/WHITE = Plane( 1, 1, 1, 0.2 )
 shader_param/FREQ = 3.0
-shader_param/highlight = 1.0
+shader_param/highlight = 0.0
 shader_param/amplitude = 0.1
 
 [sub_resource type="Shader" id=6]
@@ -43,6 +44,34 @@ outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
+[sub_resource type="Animation" id=12]
+resource_name = "NodeBeingSelected"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite/StationSimple:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/StationSimple:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
 [node name="GraphNode" type="KinematicBody2D"]
 input_pickable = true
 script = ExtResource( 2 )
@@ -53,7 +82,7 @@ script = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Node2D" parent="."]
-material = SubResource( 9 )
+material = SubResource( 11 )
 
 [node name="SpriteTexture" type="Sprite" parent="Sprite"]
 use_parent_material = true
@@ -63,6 +92,7 @@ region_rect = Rect2( 0, 0, 80, 80 )
 
 [node name="StationSimple" type="Sprite" parent="Sprite"]
 visible = false
+self_modulate = Color( 1, 1, 1, 0 )
 use_parent_material = true
 position = Vector2( 0, -1.43051e-06 )
 scale = Vector2( 0.479042, 0.479042 )
@@ -153,6 +183,9 @@ custom_colors/font_color = Color( 0.0588235, 1, 0, 1 )
 custom_fonts/font = SubResource( 8 )
 align = 1
 valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/NodeBeingSelected = SubResource( 12 )
 
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]

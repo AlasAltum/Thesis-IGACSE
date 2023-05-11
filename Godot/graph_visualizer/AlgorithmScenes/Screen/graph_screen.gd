@@ -58,7 +58,7 @@ func _init():
 	StoredData.reset_data()
 
 func _ready():
-	Engine.time_scale = 5.0  # TODO: deactivate before deploy
+	# Engine.time_scale = 5.0  # TODO: deactivate before deploy
 	StoredData.world_node = self
 	# Planets textures array is being modified each level when nodes are created
 	# So by triggering this function at the beginning, we make sure that these textures
@@ -176,7 +176,7 @@ func instance_edge_between_nodes(node_idx1: int, node_idx2: int, label_with_weig
 	# Set a name like Edge_0_to_2 to represent an edge connecting nodes 0 and 2
 	curr_edge.set_name("Edge_%s_to_%s" % [str(node_idx1), str(node_idx2)])
 	StoredData.edges.append(curr_edge)
-	$CanvasLayer/NodeContainer.add_child(curr_edge)
+	$CanvasLayer/EdgeContainer.add_child(curr_edge)
 	curr_edge.set_label_and_positions_with_nodes(
 		StoredData.nodes[node_idx1],  # pos node_idx1,
 		StoredData.nodes[node_idx2],  # pos node_idx2,
@@ -291,7 +291,6 @@ func set_dragging_node(incoming_sprite: Sprite, real_node_reference: KinematicBo
 	self.last_dragged_node_reference = real_node_reference
 	add_child(dragging_node)
 	drop_dragging_node_timer.stop()
-	print("Setting dragging node")
 
 func start_release_dragging_node():
 	drop_dragging_node_timer.start()
@@ -301,7 +300,6 @@ func deferred_free_dragging_node():
 		call_deferred("free_dragging_node")
 
 func free_dragging_node():
-	print("free_dragging_node")
 	if dragging_node != null:
 		dragging_node.queue_free()
 		dragging_node = null

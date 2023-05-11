@@ -7,6 +7,7 @@ class_name EffectCheck
 
 var code_line: CodeLine
 
+
 func _ready():
 	pass
 

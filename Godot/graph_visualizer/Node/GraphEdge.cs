@@ -43,7 +43,10 @@ public class GraphEdge : PinJoint2D
 	private Node2D joint_end1;
 	[Export]
 	private Node2D joint_end2;
-	
+
+	[Export]
+	private Sprite shipSprite;
+
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -56,19 +59,21 @@ public class GraphEdge : PinJoint2D
 		collision_line = GetNode<CollisionShape2D>("Area2D/LineCollision");
 		clickable_area = (RectangleShape2D) collision_line.Shape;
 		shipPath = GetNode<Path2D>("ShipPath");
-		shipPathFollow = GetNode<PathFollow2D>("ShipPathFollow");
-		shipAnimationPlayer = GetNode<AnimationPlayer>("ShipAnimationPlayer");
+		shipPathFollow = GetNode<PathFollow2D>("ShipPath/ShipPathFollow");
+		shipAnimationPlayer = GetNode<AnimationPlayer>("ShipPath/ShipAnimationPlayer");
+		shipSprite = GetNode<Sprite>("ShipPath/ShipPathFollow/Sprite");
 	}
 
 	public override void _Process(float delta)
 	{
-		line.SetPointPosition(0, joint_end1.Position);
-		line.SetPointPosition(1, joint_end2.Position);
+		line.SetPointPosition(0, joint_end1.GlobalPosition);
+		line.SetPointPosition(1, joint_end2.GlobalPosition);
 
 		curr_label.SetPosition(
-			(joint_end1.Position + joint_end2.Position) / 2
+			(joint_end1.GlobalPosition + joint_end2.GlobalPosition) / 2
 		);
 		set_collision_box();
+
 	}
 
 	private bool valueIsCloseTo(float value1, float value2, float tolerance)
@@ -108,7 +113,7 @@ public class GraphEdge : PinJoint2D
 
 	/// This is called from godot, therefore, it uses snake_case
 	public void set_label_and_positions_with_nodes(Node2D node1, Node2D node2, String label_text){
-		Vector2[] line_vertices = {node1.Position, node2.Position}; 
+		Vector2[] line_vertices = {node1.GlobalPosition, node2.GlobalPosition}; 
 		line.Points = line_vertices;
 		if (label_text != "") 
 		{
@@ -150,8 +155,8 @@ public class GraphEdge : PinJoint2D
 	private void set_collision_box()
 	{
 		// Set extent of the collision box for the line
-		Vector2 pos1 = (Vector2) joint_end1.GetGlobalPosition();
-		Vector2 pos2 = (Vector2) joint_end2.GetGlobalPosition();
+		Vector2 pos1 = (Vector2) joint_end1.GlobalPosition;
+		Vector2 pos2 = (Vector2) joint_end2.GlobalPosition;
 
 		float distance = Mathf.Sqrt(
 			(pos2.y - pos1.y) * (pos2.y - pos1.y) + (pos2.x - pos1.x) * (pos2.x - pos1.x)
@@ -206,10 +211,7 @@ public class GraphEdge : PinJoint2D
 		curr_label.Visible = visible_weight;
 	}
 
-	public bool is_not_selected()
-	{
-		return !this.is_selected;
-	}
+	public bool is_not_selected() => !this.is_selected;
 
 	public void set_is_highlighted(bool set_is_highlighted)
 	{
@@ -227,24 +229,23 @@ public class GraphEdge : PinJoint2D
 	/// have been explored
 	public void set_edge_transparency_as_explored()
 	{
-		this.Modulate = new Color(1.0f, 1.0f, 1.0f, 100/255f);
+		this.SelfModulate = new Color(1.0f, 1.0f, 1.0f, 100/255f);
 	}
 
 	public void send_ship_from_nodeA_to_nodeB(Node2D nodeA, Node2D nodeB)
 	{
 		// turn on animation to send the ship from nodeA to nodeB
-		shipPathFollow.Offset = 0;
 		shipPathFollow.UnitOffset = 0;
 
 		Curve2D path = shipPath.Curve;
 		path.ClearPoints();
 		path.AddPoint(nodeA.GlobalPosition);
 		path.AddPoint(nodeB.GlobalPosition);
-
-		shipAnimationPlayer.Play("ShipTravel");
-
+	
 		Animation shipTravelAnimation = shipAnimationPlayer.GetAnimation("ShipTravel");
 		shipTravelAnimation.Loop = false;
+
+		shipAnimationPlayer.Play("ShipTravel");
 	}
 
 

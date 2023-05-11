@@ -16,12 +16,12 @@ resource_local_to_scene = true
 
 [sub_resource type="Curve2D" id=4]
 _data = {
-"points": PoolVector2Array(  )
+"points": PoolVector2Array( 0, 0, 0, 0, 371, 25, 0, 0, 0, 0, -299, -61 )
 }
 
 [sub_resource type="Animation" id=3]
 resource_name = "ShipTravel"
-length = 1.1
+length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("ShipPath/ShipPathFollow:unit_offset")
 tracks/0/interp = 1
@@ -29,7 +29,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.1, 1 ),
+"times": PoolRealArray( 0.1, 2.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0 ]
@@ -41,7 +41,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3, 1, 1.1 ),
+"times": PoolRealArray( 0, 0.2, 2.3, 2.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -53,10 +53,22 @@ tracks/2/loop_wrap = false
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1, 1.1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 2.4, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false, true, false ]
+"values": [ false, true, true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ShipPath/ShipPathFollow/Sprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 2.3, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0.5, 0.5 ), Vector2( 0.3, 0.3 ), Vector2( 0, 0 ) ]
 }
 
 [node name="Edge" type="PinJoint2D"]
@@ -92,10 +104,14 @@ shape = SubResource( 2 )
 curve = SubResource( 4 )
 
 [node name="ShipPathFollow" type="PathFollow2D" parent="ShipPath"]
+position = Vector2( 371, 25 )
+rotation = -3.01393
 
 [node name="Sprite" type="Sprite" parent="ShipPath/ShipPathFollow"]
 visible = false
 modulate = Color( 1, 1, 1, 0 )
+rotation = -1.5708
+scale = Vector2( 1e-05, 1e-05 )
 texture = ExtResource( 4 )
 
 [node name="ShipAnimationPlayer" type="AnimationPlayer" parent="ShipPath"]

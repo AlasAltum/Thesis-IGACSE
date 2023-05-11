@@ -17,18 +17,18 @@ onready var add_to_object_button: Button = $Popup/PanelContainer/VBoxContainer/A
 onready var variable_label: Node2D = $Control
 onready var variable_label_internal: Label = $Control/Sprite/VariableHighlight
 onready var sprite_texture : Sprite = $Sprite/SpriteTexture
+onready var station_texture: Sprite = $Sprite/StationSimple
 
 var variable_highlighted: bool = false
 var floating_variable_radius: float = 0.0
 var accumulated_angle: float = 0.0
-export var variable_rotation_speed: float = 1.0
+onready var animation_player : AnimationPlayer = $AnimationPlayer
 
 const representation_prefab = preload("res://Node/NodeRepresentation.tscn")
 var adt_type = load("res://AlgorithmScenes/Code/ADTs/node_adt.gd")
 
 var representation #: NodeRepresentation
 var adt  #: NodeADT
-
 
 var can_grab: bool = false
 var grabbed_offset: Vector2 = Vector2()
@@ -57,6 +57,7 @@ func _ready():
 	self.radius_distance = $Sprite/SpriteTexture.get_rect().size.x / 2
 	randomize()
 	call_deferred("set_texture_randomly")
+
 
 func set_texture_randomly():
 	if StoredData.world_node:
@@ -139,8 +140,7 @@ func get_non_selected_neighbors() -> Array:
 
 func mark_as_iterated():
 	self.select_node()
-	$Sprite/StationSimple.visible = true
-	$Sprite/StationSimple.texture = StoredData.world_node.station_iterated_texture
+	station_texture.texture = StoredData.world_node.station_iterated_texture
 	if not self in StoredData.iterated_nodes: 
 		StoredData.iterated_nodes.append(self)
 
@@ -172,12 +172,12 @@ func select_node(emit_signal=true):
 	if self.index in StoredData.selectable_nodes:
 		self.selected = true
 		AudioPlayer.play_element_selected()
-		# IMPROVEMENT: Add transition animation
-		$Sprite/StationSimple.visible = true
-		$Sprite/StationSimple.texture = StoredData.world_node.station_explored_texture
+		self.animation_player.play("NodeBeingSelected")
 		representation.set_selected()
+		# TODO: play animation of the station appearing
 		if emit_signal:
 			emit_signal("node_selected", self)
+		return
 
 	else:
 		# TODO: Add animation: Error, not selectable node!
@@ -198,12 +198,14 @@ func _input(event):
 		if StoredData.world_node.dragging_node and event is InputEventMouseMotion:
 			# User is dragging the sprite
 			StoredData.world_node.set_dragging_node_global_pos()
-
+		# Relase event
 		elif event is InputEventMouseButton and event.button_index == BUTTON_LEFT and !event.pressed:
 			# if node is dropped on the ADTShower, add it to the variables		
 			if StoredData.adt_shower and StoredData.adt_shower.get_rect().has_point(get_global_mouse_position()):
 				get_added_to_focused_object_in_variables()
-
+				StoredData.world_node.dragging_node.call_deferred("queue_free")
+				StoredData.world_node.start_release_dragging_node()
+			
 			# if node is dropped out of the ADTshower, delete it
 			else:
 				# User has released the mouse button

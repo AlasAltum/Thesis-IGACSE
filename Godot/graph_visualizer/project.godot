@@ -334,6 +334,7 @@ singletons=[  ]
 port=false
 localhost=true
 cursor=false
+audio=false
 
 [input]
 
