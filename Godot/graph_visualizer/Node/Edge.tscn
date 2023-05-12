@@ -3,7 +3,7 @@
 [ext_resource path="res://Node/GraphEdge.cs" type="Script" id=1]
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/textures/dotted_texture.png" type="Texture" id=3]
-[ext_resource path="res://Assets/textures/NightmareB.png" type="Texture" id=4]
+[ext_resource path="res://Assets/textures/ShipSprite.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -122,12 +122,7 @@ position = Vector2( -299, -61 )
 rotation = -2.9866
 offset = 674.846
 
-[node name="Sprite" type="Sprite" parent="ShipPath/ShipPathFollow"]
-visible = false
-modulate = Color( 1, 1, 1, 0 )
-rotation = -1.5708
-scale = Vector2( 1e-05, 1e-05 )
-texture = ExtResource( 4 )
+[node name="Sprite" parent="ShipPath/ShipPathFollow" instance=ExtResource( 4 )]
 
 [node name="ShipAnimationPlayer" type="AnimationPlayer" parent="ShipPath"]
 root_node = NodePath("../..")

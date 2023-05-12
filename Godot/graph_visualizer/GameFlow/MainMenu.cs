@@ -6,6 +6,8 @@ public class MainMenu : CanvasLayer
 	public Node CurrentScene { get; set; }
 	private Button startGameButton;
 	private Button TutorialButton;
+	private Button selectLevelButton;
+
 
 	private AnimationPlayer animPlayer;
 
@@ -22,10 +24,14 @@ public class MainMenu : CanvasLayer
 	{
 		startGameButton = GetNode<Button>("VBoxContainer/StartGame");
 		TutorialButton = GetNode<Button>("VBoxContainer/TestButton");
+		selectLevelButton = GetNode<Button>("VBoxContainer/SelectLevelButton");
+
 		// The exitGame button is not necessary in the HTML version
 		//	exitGame = GetNode<Button>("VBoxContainer/ExitGame");
 		startGameButton.GrabFocus();
-		startGameButton.Connect("pressed", this, nameof(OnStartGameButtonPressed));
+
+		selectLevelButton.Connect("pressed", this, nameof(OnStartGameButtonPressed));
+		selectLevelButton.Connect("pressed", this, nameof(OnSelectLevelButtonPressed));
 
 		CurrentScene = this;
 
@@ -54,6 +60,13 @@ public class MainMenu : CanvasLayer
 	}
 
 	public void OnStartGameButtonPressed()
+	{
+		PlayButtonSound();
+		startGameButton.Disabled = true;
+		GotoScene("res://GameFlow/StoryModeChapterOne.tscn");
+	}
+
+	public void OnSelectLevelButtonPressed()
 	{
 		PlayButtonSound();
 		startGameButton.Disabled = true;

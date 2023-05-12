@@ -17,9 +17,14 @@ https://www.dafont.com/createland.font
 fresh_lychee: Khurasan
 https://www.dafont.com/fresh-lychee.font
 
+ubuntu_title: Volvoguy
+https://www.dafont.com/es/ubuntu-title.font
+
+
 Textures:
 Circle Node
 Noemí Zúñiga
+
 
 
 Engine: Godot Engine
