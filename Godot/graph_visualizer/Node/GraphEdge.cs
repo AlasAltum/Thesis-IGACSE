@@ -30,6 +30,8 @@ public class GraphEdge : PinJoint2D
 	private PathFollow2D shipPathFollow;
 
 	private AnimationPlayer shipAnimationPlayer;
+	private Node2D destinationNode;
+
 
 	[Export]
 	private RectangleShape2D clickable_area;
@@ -43,7 +45,6 @@ public class GraphEdge : PinJoint2D
 	private Node2D joint_end1;
 	[Export]
 	private Node2D joint_end2;
-
 	[Export]
 	private Sprite shipSprite;
 
@@ -229,24 +230,29 @@ public class GraphEdge : PinJoint2D
 	/// have been explored
 	public void set_edge_transparency_as_explored()
 	{
-		this.SelfModulate = new Color(1.0f, 1.0f, 1.0f, 100/255f);
+		this.SelfModulate = new Color(1.0f, 1.0f, 1.0f, 70/255f);
 	}
 
 	public void send_ship_from_nodeA_to_nodeB(Node2D nodeA, Node2D nodeB)
 	{
 		// turn on animation to send the ship from nodeA to nodeB
-		shipPathFollow.UnitOffset = 0;
+ 		shipPathFollow.UnitOffset = 0;
 
 		Curve2D path = shipPath.Curve;
 		path.ClearPoints();
 		path.AddPoint(nodeA.GlobalPosition);
 		path.AddPoint(nodeB.GlobalPosition);
-	
+		destinationNode = nodeB;
 		Animation shipTravelAnimation = shipAnimationPlayer.GetAnimation("ShipTravel");
 		shipTravelAnimation.Loop = false;
 
 		shipAnimationPlayer.Play("ShipTravel");
 	}
 
+	public void NotifiyNodeBToPlayStationAnimation()
+	{
+		if (destinationNode != null)
+			destinationNode.Call("NodeBeingSelected");
+	}
 
 }

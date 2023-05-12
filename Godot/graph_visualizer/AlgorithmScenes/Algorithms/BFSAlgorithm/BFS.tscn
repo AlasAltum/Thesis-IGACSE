@@ -210,7 +210,7 @@ line_index = 4
 jump_index = 13
 code_text = "    while q.is_not_empty():"
 effect_check = SubResource( 6 )
-hint_text = "Answer if the queue is empty"
+hint_text = ""
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4" index="0"]
 margin_right = 392.0

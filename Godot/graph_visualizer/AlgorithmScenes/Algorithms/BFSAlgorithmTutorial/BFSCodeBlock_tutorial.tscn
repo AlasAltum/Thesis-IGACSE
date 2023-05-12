@@ -105,7 +105,7 @@ line_index = 4
 jump_index = 13
 code_text = "    while q.is_not_empty():"
 effect_check = ExtResource( 8 )
-hint_text = "Answer if the queue [color=#00FF00]q[/color] is empty"
+hint_text = ""
 
 [node name="PanelContainer5" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
@@ -145,7 +145,7 @@ line_index = 7
 jump_index = 10
 code_text = "            if u.is_not_explored():"
 effect_check = ExtResource( 11 )
-hint_text = "Answer: is the node [color=#00FF00]u[/color] explored (yellow) or iterated (orange)?"
+hint_text = ""
 
 [node name="PanelContainer8" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
@@ -157,7 +157,7 @@ theme = SubResource( 2 )
 line_index = 8
 code_text = "                u.mark_as_explored()"
 effect_check = ExtResource( 12 )
-hint_text = "Select the [color=#00FF00]u[/color] node with a [b]LEFT CLICK[/b]"
+hint_text = "[b]LEFT CLICK[/b] on node [color=#00FF00]u[/color]"
 
 [node name="PanelContainer9" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
@@ -182,7 +182,7 @@ line_index = 10
 jump_index = 6
 code_text = "        end for"
 effect_check = ExtResource( 17 )
-hint_text = "Press [b]SPACE[/b]"
+hint_text = ""
 plays_confirmation_audio = false
 
 [node name="PanelContainer11" parent="LinesContainer" instance=ExtResource( 20 )]
@@ -195,7 +195,7 @@ theme = SubResource( 2 )
 line_index = 11
 code_text = "        v.mark_as_iterated()"
 effect_check = ExtResource( 5 )
-hint_text = "Press [b]SPACE[/b]"
+hint_text = ""
 plays_confirmation_audio = false
 
 [node name="PanelContainer12" parent="LinesContainer" instance=ExtResource( 20 )]
@@ -209,7 +209,7 @@ line_index = 12
 jump_index = 4
 code_text = "    end while"
 effect_check = ExtResource( 19 )
-hint_text = "Press [b]SPACE[/b]"
+hint_text = ""
 plays_confirmation_audio = false
 
 [node name="PanelContainer13" parent="LinesContainer" instance=ExtResource( 20 )]
@@ -223,5 +223,5 @@ line_index = 13
 jump_index = 4
 code_text = "end BFS"
 effect_check = ExtResource( 16 )
-hint_text = "Press [b]SPACE[/b]"
+hint_text = ""
 plays_confirmation_audio = false

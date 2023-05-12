@@ -16,7 +16,7 @@ resource_local_to_scene = true
 
 [sub_resource type="Curve2D" id=4]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 371, 25, 0, 0, 0, 0, -299, -61 )
+"points": PoolVector2Array(  )
 }
 
 [sub_resource type="Animation" id=3]
@@ -70,9 +70,23 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0.5, 0.5 ), Vector2( 0.3, 0.3 ), Vector2( 0, 0 ) ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 2.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "NotifiyNodeBToPlayStationAnimation"
+} ]
+}
 
 [node name="Edge" type="PinJoint2D"]
-self_modulate = Color( 1, 1, 1, 0.784314 )
+self_modulate = Color( 1, 1, 1, 0.470588 )
 z_index = -100
 z_as_relative = false
 script = ExtResource( 1 )
@@ -104,8 +118,9 @@ shape = SubResource( 2 )
 curve = SubResource( 4 )
 
 [node name="ShipPathFollow" type="PathFollow2D" parent="ShipPath"]
-position = Vector2( 371, 25 )
-rotation = -3.01393
+position = Vector2( -299, -61 )
+rotation = -2.9866
+offset = 674.846
 
 [node name="Sprite" type="Sprite" parent="ShipPath/ShipPathFollow"]
 visible = false

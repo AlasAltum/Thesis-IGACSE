@@ -92,7 +92,7 @@ line_index = 4
 jump_index = 13
 code_text = "    while s.is_not_empty():"
 effect_check = ExtResource( 8 )
-hint_text = "Answer: Is the stack [color=#00FF00]s[/color] empty?"
+hint_text = ""
 
 [node name="PanelContainer5" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
@@ -116,7 +116,7 @@ line_index = 6
 jump_index = 12
 code_text = "        if v.is_not_explored():"
 effect_check = ExtResource( 11 )
-hint_text = "Answer: is the [color=#00FF00]v[/color] node explored or iterated?"
+hint_text = ""
 
 [node name="PanelContainer7" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0

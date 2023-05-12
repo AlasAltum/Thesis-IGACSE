@@ -40,10 +40,8 @@ const SELECTED_COLOR = Color(1.0, 1.0, 0.0, 0.8)
 const SELECTED_LABEL_COLOR = Color(0.0, 1.0, 0.0, 1.0)
 
 
-
 signal node_add_to_object_request(node)
 signal node_selected(node)
-
 
 
 var is_dragging = false
@@ -205,7 +203,7 @@ func _input(event):
 				get_added_to_focused_object_in_variables()
 				StoredData.world_node.dragging_node.call_deferred("queue_free")
 				StoredData.world_node.start_release_dragging_node()
-			
+
 			# if node is dropped out of the ADTshower, delete it
 			else:
 				# User has released the mouse button
@@ -219,10 +217,9 @@ func _input(event):
 			# E action corresponds to add select the node
 			if Input.is_action_just_pressed("NodeSelect"):
 				_on_Select_UnselectButton_pressed()
-			# R Action 
+			# R Action
 			elif Input.is_action_just_pressed("NodeAddToObject"):
 				get_added_to_focused_object_in_variables()
-
 
 func is_mouse_inside_node() -> bool:
 	return get_global_mouse_position().distance_to(self.global_position) < self.radius_distance

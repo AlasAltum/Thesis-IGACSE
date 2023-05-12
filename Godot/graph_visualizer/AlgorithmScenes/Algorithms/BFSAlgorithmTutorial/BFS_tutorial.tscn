@@ -113,6 +113,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("EdgeContainer:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 2.9, 3.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=14]
 length = 0.001
@@ -617,6 +629,7 @@ __meta__ = {
 }
 
 [node name="EdgeContainer" type="Control" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0 )
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -691,10 +704,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 448.0
-margin_top = -248.0
-margin_right = 1158.0
-margin_bottom = -94.0
+margin_left = 1408.0
+margin_top = 832.0
+margin_right = 2118.0
+margin_bottom = 986.0
 theme = ExtResource( 9 )
 popup_exclusive = true
 window_title = ""

@@ -119,7 +119,7 @@ line_index = 4
 jump_index = 13
 code_text = "    while q.is_not_empty():"
 effect_check = ExtResource( 8 )
-hint_text = "Answer if the queue [color=#00FF00]q[/color] is empty"
+hint_text = ""
 
 [node name="PanelContainer5" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
