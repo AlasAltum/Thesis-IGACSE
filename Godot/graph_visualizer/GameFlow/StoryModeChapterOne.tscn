@@ -27,8 +27,9 @@ ship_movement_speed = 0.03
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Background/Part1Background/Path2D"]
-position = Vector2( -343, 268 )
-rotation = 0.0034474
+position = Vector2( 965.937, 269.552 )
+rotation = 0.00117508
+offset = 1322.66
 
 [node name="ShipSprite" type="Sprite" parent="Background/Part1Background/Path2D/PathFollow2D"]
 rotation = -1.5708
