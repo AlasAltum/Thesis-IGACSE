@@ -89,6 +89,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ResourceClasses/color_map.gd"
 }, {
+"base": "Resource",
+"class": "CommandMethod",
+"language": "GDScript",
+"path": "res://GameFlow/command_methods_scripts/command_method_script.gd"
+}, {
 "base": "AbstractTestScript",
 "class": "DFSTest",
 "language": "GDScript",
@@ -271,6 +276,7 @@ _global_script_class_icons={
 "CodeLine": "",
 "ColorInterpolator": "",
 "ColorMap": "",
+"CommandMethod": "",
 "DFSTest": "",
 "DataServer": "",
 "DebugBlock": "",

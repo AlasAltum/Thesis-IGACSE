@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/textures/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GameFlow/DialogueScenesContent/bg_infinite_relaxed.mp3" type="AudioStream" id=2]
 [ext_resource path="res://GameFlow/DialogueDisplayer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/textures/NightmareB.png" type="Texture" id=4]
 [ext_resource path="res://GameFlow/DialogueScenesContent/ship_movement_background.gd" type="Script" id=5]
+[ext_resource path="res://GameFlow/command_methods_scripts/intro_dialogue.gd" type="Script" id=6]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -27,9 +28,9 @@ ship_movement_speed = 0.03
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Background/Part1Background/Path2D"]
-position = Vector2( 965.937, 269.552 )
-rotation = 0.00117508
-offset = 1322.66
+position = Vector2( 932.898, 1143.23 )
+rotation = 1.57003
+offset = 5298.63
 
 [node name="ShipSprite" type="Sprite" parent="Background/Part1Background/Path2D/PathFollow2D"]
 rotation = -1.5708
@@ -43,10 +44,20 @@ margin_bottom = 368.0
 
 [node name="BackgroundSoundtrack" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
-volume_db = -10.0
+volume_db = -15.0
 autoplay = true
 bus = "Music"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="DialogueShower" parent="CanvasLayer" instance=ExtResource( 3 )]
+dialogues_to_show = [ "Ship: Hello? DCC Station... Can you hear me? Copy... 
+We have not found any red pandas yet... {print_owo}", "Station: Yes, we can barely hear you...
+Just keep searching. 
+We suspect there is a red panda in the following galaxy.", "Ship: There is a problem though... 
+Our fuel levels are almost zero.
+We cannot explore further.", "Station: Proceed to deactivate the AI copilot.
+It wastes too much energy. Just use BF Search algorithm.", "Ship: BF... what?", "Station: I will send you the instructions. Just follow them. Ok? The red pandas need us, this is serious.", "Ship: That's why I am here... Okay, let's go." ]
+command_methods_script = ExtResource( 6 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

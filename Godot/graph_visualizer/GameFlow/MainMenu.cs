@@ -30,7 +30,7 @@ public class MainMenu : CanvasLayer
 		//	exitGame = GetNode<Button>("VBoxContainer/ExitGame");
 		startGameButton.GrabFocus();
 
-		selectLevelButton.Connect("pressed", this, nameof(OnStartGameButtonPressed));
+		startGameButton .Connect("pressed", this, nameof(OnStartGameButtonPressed));
 		selectLevelButton.Connect("pressed", this, nameof(OnSelectLevelButtonPressed));
 
 		CurrentScene = this;

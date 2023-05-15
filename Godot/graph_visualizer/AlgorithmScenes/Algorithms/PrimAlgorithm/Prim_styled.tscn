@@ -99,6 +99,19 @@ rect_clip_content = true
 mouse_filter = 2
 stretch_mode = 0
 
+[node name="EdgeContainer" type="AspectRatioContainer" parent="CanvasLayer"]
+anchor_left = 0.579
+anchor_top = 0.333
+anchor_right = 0.579
+anchor_bottom = 0.333
+margin_left = -711.68
+margin_top = -287.64
+margin_right = 800.32
+margin_bottom = 408.36
+rect_clip_content = true
+mouse_filter = 2
+stretch_mode = 0
+
 [node name="PopUpForObjectCreation" parent="CanvasLayer" instance=ExtResource( 13 )]
 anchor_left = 0.587
 anchor_top = 0.323

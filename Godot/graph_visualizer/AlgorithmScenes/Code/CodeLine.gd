@@ -11,7 +11,7 @@ export (int) var line_index = 0
 export (int) var jump_index = 0
 export (bool) var focused = false
 export (String) var code_text = 'BFS():'
-export (Resource) var effect_check;  # : EffectCheck
+	export (Resource) var effect_check;  # : EffectCheck
 export (String) var hint_text = "Press Enter";
 
 var on_focus_effect_triggered : bool = false

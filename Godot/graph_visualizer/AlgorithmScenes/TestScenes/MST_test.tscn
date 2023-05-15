@@ -30,6 +30,19 @@ rect_clip_content = true
 mouse_filter = 2
 stretch_mode = 0
 
+[node name="EdgeContainer" type="AspectRatioContainer" parent="CanvasLayer"]
+anchor_left = 0.502
+anchor_top = 0.527
+anchor_right = 0.502
+anchor_bottom = 0.527
+margin_left = -924.84
+margin_top = -479.16
+margin_right = 925.16
+margin_bottom = 478.84
+rect_clip_content = true
+mouse_filter = 2
+stretch_mode = 0
+
 [node name="FinishedPopup" type="WindowDialog" parent="CanvasLayer"]
 anchor_left = 0.5
 anchor_top = 0.5
