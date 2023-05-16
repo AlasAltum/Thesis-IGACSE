@@ -28,13 +28,12 @@ func _ready():
 	next_button.connect("pressed", self, "_on_NextButton_pressed")
 	skip_button.connect("pressed", self, "_on_SkipButton_pressed")
 	text_shower_animation.playback_speed = dialogue_speed
-
+	dialogue_text.text = ""
 	# Create instance of command script
 	if command_methods_script:
 		command_methods_script = command_methods_script.new()
 		command_methods_script.parent_dialogue = self
 
-	show_first_dialogue()
 
 func show_first_dialogue():
 	# Show an animation of the dialogue player being displayed
@@ -101,8 +100,8 @@ func execute_command_methods_in_dialogue(input_text: String) -> void:
 	# Execute all command methods in text
 	for command_method in command_methods:
 		command_methods_script.call(command_method)
-		
 
+# 
 func _on_dialogue_finished():
 	emit_signal("dialogue_finished")
 	self.visible = false

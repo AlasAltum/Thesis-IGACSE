@@ -179,6 +179,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ResourceClasses/null_adt.gd"
 }, {
+"base": "Control",
+"class": "Part1Background",
+"language": "GDScript",
+"path": "res://GameFlow/DialogueScenesContent/ship_movement_background.gd"
+}, {
 "base": "WindowDialog",
 "class": "PopupForObjectCreation",
 "language": "GDScript",
@@ -294,6 +299,7 @@ _global_script_class_icons={
 "NodeADT": "",
 "NodeRepresentation": "",
 "NullADT": "",
+"Part1Background": "",
 "PopupForObjectCreation": "",
 "Queue": "",
 "QueueADT": "",

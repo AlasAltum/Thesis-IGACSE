@@ -9,4 +9,5 @@ extends Resource
 var parent_dialogue = null #: DialogueDisplayer
 
 func _ready():
-	pass # Replace with function body.
+	if parent_dialogue:
+		var world_node = parent_dialogue.get_parent_control()

@@ -67,7 +67,7 @@ script = ExtResource( 2 )
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 1553.0
-margin_bottom = 373.0
+margin_bottom = 368.0
 custom_constants/margin_right = 20
 custom_constants/margin_top = 15
 custom_constants/margin_left = 20
@@ -77,25 +77,25 @@ custom_constants/margin_bottom = 15
 margin_left = 20.0
 margin_top = 15.0
 margin_right = 1523.0
-margin_bottom = 348.0
-custom_constants/separation = 180
+margin_bottom = 343.0
 
 [node name="DialogueText" type="Label" parent="MarginContainer/VBoxContainer"]
 margin_right = 1503.0
-margin_bottom = 103.0
+margin_bottom = 274.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
 custom_colors/font_color = Color( 0, 1, 0.0862745, 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "Hello? DCC Station... Can you hear me? Copy...
 we have not found any red pandas yet..."
 autowrap = true
-percent_visible = 0.0
+percent_visible = -0.0140845
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 283.0
+margin_top = 278.0
 margin_right = 1503.0
-margin_bottom = 333.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+margin_bottom = 328.0
+size_flags_vertical = 0
 custom_constants/separation = 70
 
 [node name="SkipButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]

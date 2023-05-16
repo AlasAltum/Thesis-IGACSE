@@ -26,7 +26,7 @@ var selected_edge
 var adt_hovering : bool = false
 var popup_captures_input : bool = false
 var assign_name_popup : WindowDialog
-var world_node: Node2D  # : GraphManager
+var world_node: Node  # : GraphManager
 var selectable_nodes = []
 var selected_edges = []
 var iterated_nodes = []
