@@ -80,7 +80,7 @@ curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Background/Part1Background/Path2D"]
 position = Vector2( -141.3, 607.733 )
-rotation = -2.58243
+rotation = -2.58244
 offset = 6704.28
 
 [node name="ShipSprite" type="Sprite" parent="Background/Part1Background/Path2D/PathFollow2D"]

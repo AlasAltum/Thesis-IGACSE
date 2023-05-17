@@ -24,11 +24,15 @@ func _on_FadeInOut_animation_finished(anim_name):
 		var dialogue_shower: DialogueDisplayer = $CanvasLayer/DialogueShower
 		if dialogue_shower:
 			dialogue_shower.visible = false
-			load_next_scene()
+			go_to_scene("res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/BFS_tutorial.tscn")
 
-func load_next_scene():
-	pass
-	# load scene res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/BFS_tutorial.tscn
+func go_to_scene(scene_path: String):
+	call_deferred("deferred_goto_scene", scene_path)
+
+func deferred_goto_scene(scene_path: String):
+	self.queue_free()
+	var next_scene = load(scene_path)
+	get_tree().get_root().add_child(next_scene) 
 
 func _on_DialogueShower_dialogue_finished():
 	$LaunchingSound.play()
