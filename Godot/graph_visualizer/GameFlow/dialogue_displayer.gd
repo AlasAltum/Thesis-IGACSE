@@ -40,6 +40,10 @@ func show_first_dialogue():
 	# then show the first dialogue
 	_on_next_dialogue()
 
+func _input(event):
+	if event is InputEventKey and event.is_action_pressed("NextDialogue"):
+		_on_next_dialogue()
+
 # This function will be called when the player clicks on the next dialogue button.
 # It will show the next dialogue in the list.
 func _on_next_dialogue():
@@ -101,7 +105,7 @@ func execute_command_methods_in_dialogue(input_text: String) -> void:
 	for command_method in command_methods:
 		command_methods_script.call(command_method)
 
-# 
+#
 func _on_dialogue_finished():
 	emit_signal("dialogue_finished")
 	self.visible = false

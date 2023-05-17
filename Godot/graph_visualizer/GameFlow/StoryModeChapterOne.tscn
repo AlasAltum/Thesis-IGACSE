@@ -100,10 +100,10 @@ dialogue_speed = 0.7
 dialogues_to_show = [ "Ship: Hello? DCC Station... Can you hear me? Copy... 
 We have not found any red pandas yet...", "Station: Yes, we can barely hear you...
 Just keep searching. 
-We suspect there is a red panda in the following galaxy.", "Ship: There is a problem though... 
-Our fuel levels are almost zero.
-We cannot explore further.", "Station: Proceed to deactivate the AI copilot.
-It wastes too much energy. Just use BF Search algorithm.", "Ship: BF... what?", "Station: I will send you the instructions. Just follow them. Ok? The red pandas need us, this is serious.", "Ship: That's why I am here... Okay, let's go!" ]
+We suspect there is a red panda in the next galaxy.", "Ship: There is a problem though... 
+Our fuel levels are nearly depleted.
+We are unable to proceed with our rescue task.", "Station: Proceed to deactivate the AI copilot.
+It wastes too much energy. Just use a  Breadth First Search algorithm.", "Ship: Breadth First ... what?", "Station: I will send you the instructions. Just follow them. Ok? The red pandas need us, this is serious.", "Ship: That's why I am here... Okay, let's go!" ]
 command_methods_script = ExtResource( 6 )
 
 [node name="LaunchingSound" type="AudioStreamPlayer" parent="."]

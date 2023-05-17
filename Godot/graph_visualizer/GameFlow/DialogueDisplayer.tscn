@@ -89,7 +89,6 @@ custom_fonts/font = ExtResource( 1 )
 text = "Hello? DCC Station... Can you hear me? Copy...
 we have not found any red pandas yet..."
 autowrap = true
-percent_visible = -0.0140845
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 278.0
