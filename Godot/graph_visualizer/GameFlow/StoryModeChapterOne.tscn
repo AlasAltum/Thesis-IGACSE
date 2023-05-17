@@ -122,7 +122,7 @@ layer = 4
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-color = Color( 0, 0, 0, 0 )
+color = Color( 0, 0, 0, 1 )
 
 [connection signal="dialogue_finished" from="CanvasLayer/DialogueShower" to="." method="_on_DialogueShower_dialogue_finished"]
 [connection signal="animation_finished" from="FadeInOut" to="." method="_on_FadeInOut_animation_finished"]
