@@ -21,10 +21,12 @@ func _notification(what):
 		StoredData.popup_captures_input = false
 
 func _on_ResetButton_pressed() -> void:
+	AudioPlayer.stop_playing_music()
 	NotificationManager.reset_game()
 
 func _on_MenuButton_pressed():
 	AudioPlayer.play_button_sound()
+	AudioPlayer.stop_playing_music()
 	var main_node = StoredData.get_tree().root.get_node("./Main")
 	main_node.queue_free()
 	call_deferred("_deferred_goto_scene", "res://GameFlow/MainMenu.tscn")

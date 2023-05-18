@@ -4,7 +4,6 @@
 [ext_resource path="res://AlgorithmScenes/Screen/PopupTheme.tres" type="Theme" id=2]
 
 [node name="FinishedPopup" type="WindowDialog"]
-visible = true
 margin_left = 525.0
 margin_top = 233.0
 margin_right = 1037.0

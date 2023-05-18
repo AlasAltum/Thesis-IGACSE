@@ -31,7 +31,9 @@ func play_background_by_index(index: int):
 			play_bg3()
 		_:
 			play_bg4()
+
 	music_player.play()
+
 
 func play_bg1():
 	music_player.set_stream(bg1_audio)
@@ -44,3 +46,6 @@ func play_bg3():
 
 func play_bg4():
 	music_player.set_stream(bg4_audio)
+
+func stop_playing_music():
+	music_player.stop()
