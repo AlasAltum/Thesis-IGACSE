@@ -46,6 +46,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("EdgeContainer:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="Main" type="Node2D"]
 position = Vector2( -1, 0 )
@@ -54,10 +66,9 @@ graph_density = 0.3
 graph_size = 6
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
+layer = 3
 
 [node name="NodeContainer" type="AspectRatioContainer" parent="CanvasLayer"]
-modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.502
 anchor_top = 0.527
 anchor_right = 0.502
@@ -71,15 +82,9 @@ mouse_filter = 2
 stretch_mode = 0
 
 [node name="EdgeContainer" type="AspectRatioContainer" parent="CanvasLayer"]
-modulate = Color( 1, 1, 1, 0 )
-anchor_left = 0.502
-anchor_top = 0.527
-anchor_right = 0.502
-anchor_bottom = 0.527
-margin_left = -947.84
-margin_top = -569.16
-margin_right = 940.16
-margin_bottom = 374.84
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -112.0
 rect_clip_content = true
 mouse_filter = 2
 stretch_mode = 0
@@ -92,7 +97,6 @@ margin_right = 313.0
 margin_bottom = -94.5
 
 [node name="FinishedPopup" parent="CanvasLayer" instance=ExtResource( 2 )]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -101,6 +105,7 @@ margin_left = -256.0
 margin_top = -100.5
 margin_right = 256.0
 margin_bottom = 100.5
+explanation_in_label = "Congratulations! You have successfully finished the BFS test!"
 
 [node name="GameplayMenuButton" parent="CanvasLayer" instance=ExtResource( 7 )]
 margin_right = 384.0
@@ -110,8 +115,8 @@ text = "Menu"
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -680.0
-margin_bottom = -530.0
+margin_top = -144.0
+margin_bottom = 6.00183
 rect_min_size = Vector2( 400, 150 )
 mouse_filter = 2
 size_flags_horizontal = 3
@@ -137,5 +142,6 @@ scroll_active = false
 anims/ShowInstructionsAndThenNoes = SubResource( 1 )
 
 [node name="Background" parent="." instance=ExtResource( 6 )]
+layer = -50
 
 [connection signal="ready" from="CanvasLayer/TestPlayer" to="." method="_on_TestPlayer_ready"]

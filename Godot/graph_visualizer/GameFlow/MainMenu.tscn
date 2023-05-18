@@ -1,45 +1,7 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://GameFlow/MainMenu.cs" type="Script" id=1]
 [ext_resource path="res://Assets/themes/MenuTheme.tres" type="Theme" id=3]
-[ext_resource path="res://GameFlow/AlgorithmSelectionMenuFrames/BFSAnimation/frame_02_delay-1s.png" type="Texture" id=4]
-[ext_resource path="res://GameFlow/AlgorithmSelectionMenuFrames/BFSAnimation/frame_04_delay-1s.png" type="Texture" id=5]
-[ext_resource path="res://GameFlow/AlgorithmSelectionMenuFrames/BFSAnimation/frame_06_delay-1s.png" type="Texture" id=6]
-[ext_resource path="res://GameFlow/AlgorithmSelectionMenuFrames/BFSAnimation/frame_00_delay-1s.png" type="Texture" id=7]
-[ext_resource path="res://GameFlow/AlgorithmSelectionMenuFrames/BFSAnimation/frame_09_delay-1s.png" type="Texture" id=8]
-[ext_resource path="res://GameFlow/AlgorithmSelectionMenuFrames/BFSAnimation/frame_08_delay-1s.png" type="Texture" id=9]
-[ext_resource path="res://GameFlow/AlgorithmSelectionMenuFrames/BFSAnimation/frame_05_delay-1s.png" type="Texture" id=10]
-[ext_resource path="res://GameFlow/AlgorithmSelectionMenuFrames/BFSAnimation/frame_07_delay-1s.png" type="Texture" id=11]
-[ext_resource path="res://GameFlow/AlgorithmSelectionMenuFrames/BFSAnimation/frame_03_delay-1s.png" type="Texture" id=12]
-[ext_resource path="res://GameFlow/AlgorithmSelectionMenuFrames/BFSAnimation/frame_01_delay-1s.png" type="Texture" id=13]
-[ext_resource path="res://Assets/themes/CodeBlockTheme.tres" type="Theme" id=14]
-[ext_resource path="res://GameFlow/AlgorithmSelectionMenuFrames/DFSAnimation/frame_09_delay-0.5s.png" type="Texture" id=15]
-[ext_resource path="res://GameFlow/AlgorithmSelectionMenuFrames/DFSAnimation/frame_01_delay-0.5s.png" type="Texture" id=16]
-[ext_resource path="res://GameFlow/AlgorithmSelectionMenuFrames/DFSAnimation/frame_07_delay-0.5s.png" type="Texture" id=17]
-[ext_resource path="res://GameFlow/AlgorithmSelectionMenuFrames/DFSAnimation/frame_08_delay-0.5s.png" type="Texture" id=18]
-[ext_resource path="res://GameFlow/AlgorithmSelectionMenuFrames/DFSAnimation/frame_04_delay-0.5s.png" type="Texture" id=19]
-[ext_resource path="res://GameFlow/AlgorithmSelectionMenuFrames/DFSAnimation/frame_02_delay-0.5s.png" type="Texture" id=20]
-[ext_resource path="res://GameFlow/AlgorithmSelectionMenuFrames/DFSAnimation/frame_00_delay-1s.png" type="Texture" id=21]
-[ext_resource path="res://GameFlow/AlgorithmSelectionMenuFrames/DFSAnimation/frame_03_delay-0.5s.png" type="Texture" id=22]
-[ext_resource path="res://GameFlow/AlgorithmSelectionMenuFrames/DFSAnimation/frame_10_delay-2s.png" type="Texture" id=23]
-[ext_resource path="res://GameFlow/AlgorithmSelectionMenuFrames/DFSAnimation/frame_06_delay-0.5s.png" type="Texture" id=24]
-[ext_resource path="res://GameFlow/AlgorithmSelectionMenuFrames/DFSAnimation/frame_05_delay-0.5s.png" type="Texture" id=25]
-
-[sub_resource type="SpriteFrames" id=4]
-animations = [ {
-"frames": [ ExtResource( 7 ), ExtResource( 13 ), ExtResource( 4 ), ExtResource( 12 ), ExtResource( 5 ), ExtResource( 10 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="SpriteFrames" id=5]
-animations = [ {
-"frames": [ ExtResource( 21 ), ExtResource( 16 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 15 ), ExtResource( 23 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -94,48 +56,5 @@ text = "Select Level"
 __meta__ = {
 "_edit_use_anchors_": true
 }
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="BFSAnimation" type="AnimatedSprite" parent="CanvasLayer"]
-position = Vector2( 1154, 344 )
-scale = Vector2( 1.85347, 1.3 )
-frames = SubResource( 4 )
-frame = 1
-speed_scale = 0.8
-playing = true
-offset = Vector2( -216.395, -129.089 )
-
-[node name="DFSAnimation" type="AnimatedSprite" parent="CanvasLayer"]
-position = Vector2( 1168, 176 )
-scale = Vector2( 0.701, 0.449 )
-frames = SubResource( 5 )
-frame = 8
-speed_scale = 0.7
-playing = true
-
-[node name="DFSLabel" type="Label" parent="CanvasLayer"]
-margin_left = 970.0
-margin_top = 64.0
-margin_right = 1114.0
-margin_bottom = 136.0
-rect_pivot_offset = Vector2( 79.4921, 25.3567 )
-theme = ExtResource( 14 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_as_outline = 22
-text = "DFS"
-align = 1
-
-[node name="BFSLabel" type="Label" parent="CanvasLayer"]
-margin_left = 552.0
-margin_top = 62.4343
-margin_right = 696.0
-margin_bottom = 134.434
-rect_pivot_offset = Vector2( 79.4921, 25.3567 )
-theme = ExtResource( 14 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_as_outline = 22
-text = "BFS"
-align = 1
 
 [connection signal="pressed" from="VBoxContainer/TestButton" to="." method="_on_TestButton_pressed"]
