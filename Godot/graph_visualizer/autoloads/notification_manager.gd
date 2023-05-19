@@ -221,6 +221,9 @@ func notify_find_w_unequal_find_v_wrong_answer():
 		_find_w_unequal_find_v_popup.play_wrong_animation()
 ## if _find_w_unequal_find_v popup signals ##
 
+func show_skip_to_next_level_popup():
+	$SkipToNextLevelPopup.show()
+	THIS IS AN ERROR FOR THE NEXT COMMIT
 
 func reset_data():
 	self.finished_popup = null
