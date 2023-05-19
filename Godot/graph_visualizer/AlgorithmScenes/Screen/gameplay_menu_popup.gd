@@ -15,7 +15,7 @@ func _input(event):
 		if self.visible:
 			call_deferred("hide")
 		else:
-			self.show()
+			self.popup()
 
 func _on_ResetButton_pressed() -> void:
 	AudioPlayer.play_button_sound()

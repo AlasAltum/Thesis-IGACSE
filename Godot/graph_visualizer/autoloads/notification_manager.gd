@@ -2,7 +2,7 @@
 extends Node2D
 
 ## Code execution popups ##
-var finished_popup : WindowDialog
+var finished_popup : WindowDialog # : FinishedPopup
 var u_is_explored_popup : WindowDialog  # : $UNodeIsExploredPopup
 var adt_is_empty_popup : WindowDialog  # : $ADTIsEmptyPopup
 var add_node_popup : AddNodePopup
@@ -163,7 +163,7 @@ func notify_adt_is_empty_wrong_answer():
 ## Length C is 1 popup signals ##
 func ask_user_if_lenth_c_is_1(_length_c_is_1: bool) -> void:
 	if length_c_is_1_popup:
-		length_c_is_1_popup.show()
+		length_c_is_1_popup.popup()
 		self.length_c_is_1 = _length_c_is_1
 	else:
 		printerr("Notification Manager Error: length c is 1 popup not detected")
@@ -194,7 +194,7 @@ func notify_length_c_is_one_wrong_answer():
 ## if _find_w_unequal_find_v popup signals ##
 func ask_user_if_find_w_unequal_find_v(_find_w_unequal_find_v: bool) -> void:
 	if _find_w_unequal_find_v_popup:
-		_find_w_unequal_find_v_popup.show()
+		_find_w_unequal_find_v_popup.popup()
 		self.find_w_unequal_find_v = _find_w_unequal_find_v
 	else:
 		printerr("Notification Manager Error: Find w unequal find v")
@@ -224,7 +224,7 @@ func notify_find_w_unequal_find_v_wrong_answer():
 
 func show_skip_to_next_level_popup():
 	if skip_to_next_level_popup:
-		skip_to_next_level_popup.show()
+		skip_to_next_level_popup.popup()
 
 func reset_data():
 	self.finished_popup = null
