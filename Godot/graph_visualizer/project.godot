@@ -219,6 +219,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Code/ADTs/set_adt.gd"
 }, {
+"base": "WindowDialog",
+"class": "ShowSkipToNextLevelPopup",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/Screen/skip_to_next_level_popup.gd"
+}, {
 "base": "Container",
 "class": "Slot",
 "language": "GDScript",
@@ -307,6 +312,7 @@ _global_script_class_icons={
 "QueueRepresentation": "",
 "Set": "",
 "SetADT": "",
+"ShowSkipToNextLevelPopup": "",
 "Slot": "",
 "Stack": "",
 "StackADT": "",

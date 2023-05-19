@@ -14,8 +14,8 @@ onready var node_name: Label = $Sprite/Node2D/NodeName
 onready var node_action_menu: Popup = $Popup
 onready var select_unselect_button: Button = $Popup/PanelContainer/VBoxContainer/SelectUnselectButton
 onready var add_to_object_button: Button = $Popup/PanelContainer/VBoxContainer/AddToObjectButton
-onready var variable_label: Node2D = $Control
-onready var variable_label_internal: Label = $Control/Sprite/VariableHighlight
+onready var variable_label: Node2D = $Variable
+onready var variable_label_internal: Label = $Variable/Sprite/VariableHighlight
 onready var sprite_texture : Sprite = $Sprite/SpriteTexture
 onready var station_texture: Sprite = $Sprite/StationSimple
 
@@ -291,3 +291,10 @@ func unhighlight_variable():
 		variable_highlighted = false
 		variable_label.visible = false
 		variable_label.material.set_shader_param("frequency", GOOD_LOOKING_FREQUENCY_FOR_HIGHLIGHT_LABEL)
+
+func _deferred_goto_scene(path):
+	var s = ResourceLoader.load(path)
+	var current_scene = s.instance()
+	StoredData.get_tree().root.add_child(current_scene)
+	StoredData.get_tree().current_scene = current_scene
+	

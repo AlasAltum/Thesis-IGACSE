@@ -311,3 +311,18 @@ func set_dragging_node_global_pos():
 
 func reset_planets_textures():
 	self.planets_textures = __planets_textures_original.duplicate(true)
+
+func go_to_random_level():
+	var keys = Array(StoredData.remaining_levels_to_finish.keys())
+	if keys.size() > 0:
+		var random_index = randi() % keys.size()
+		var random_level = keys[random_index]
+		var random_level_scene = StoredData.remaining_levels_to_finish[random_level]
+		StoredData.remaining_levels_to_finish.erase(random_level)
+
+
+func go_back_to_menu():
+	AudioPlayer.stop_playing_music() # Whatever the music soundtrack playing, stop it when coming back to the menu
+	self.call_deferred("queue_free")
+	call_deferred("_deferred_goto_scene", "res://GameFlow/MainMenu.tscn")
+

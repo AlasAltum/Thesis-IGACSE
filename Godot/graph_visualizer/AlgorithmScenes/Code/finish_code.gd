@@ -12,17 +12,15 @@ func _reset_data():
 	StoredData.reset_data()
 	NotificationManager.reset_data()
 
-func _check_level_finished():
-	var main_node: GraphManager = StoredData.get_tree().root.get_node("./Main")
-	StoredData.finished_levels[main_node.level_name] = true
+func _mark_level_as_finished():
+	StoredData.finished_levels[StoredData.world_node.level_name] = true
+	# Remove the level from the remaining levels to finish, so we cannot get into it the next time
+	StoredData.remaining_levels_to_finish.remove(StoredData.world_node.level_name)
 
 func effect_check_on_focused() -> void:
 	NotificationManager.show_code_finished_popup(self._generate_message())
-	_check_level_finished()
-	self._reset_data()  # Mark level as finished
-#	var main_node: GraphManager = StoredData.get_tree().root.get_node("./Main")
-#	main_node.queue_free()
-#	goto_scene("res://GameFlow/AlgorithmSelectionMenu.tscn")
+	_mark_level_as_finished()
+	self._reset_data()
 
 func goto_scene(path):
 	call_deferred("_deferred_goto_scene", path)
