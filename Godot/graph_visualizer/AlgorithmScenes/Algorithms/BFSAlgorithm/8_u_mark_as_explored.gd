@@ -19,6 +19,19 @@ func _edge_connects_nodes_u_and_v(_edge, u, v):
 		return true
 	return false
 
+# We try to make this level shorter by checking if all nodes were already explored. Then we allow the user to skip the level.
+# We want to allow the user to skip the level once all nodes were explored
+func _check_for_skip_level():
+	var explored_nodes = []
+	for node in StoredData.nodes:
+		if node.is_iterated_or_explored():
+			explored_nodes.append(node)
+
+	if StoredData.nodes.size() == explored_nodes.size():
+		# Allow the user to skip level by showing a popup
+		NotificationManager.show_skip_to_next_level_popup()
+
+
 # We want to see the ship moving from node v to node u as soon as the
 # correct node u is pressed
 func on_action_correct_execute_once(u: Node2D):
@@ -29,6 +42,7 @@ func on_action_correct_execute_once(u: Node2D):
 				_edge.send_ship_from_nodeA_to_nodeB(v, u)
 				executed_on_correct_effect_once = true
 
+		_check_for_skip_level()
 
 func check_actions_correct() -> bool:
 	var u : AGraphNode = StoredData.get_variable("u").get_node()

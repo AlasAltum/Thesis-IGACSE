@@ -23,10 +23,7 @@ func _on_ResetButton_pressed() -> void:
 
 func _on_MenuButton_pressed():
 	AudioPlayer.play_button_sound()
-	AudioPlayer.stop_playing_music()
-	var main_node = StoredData.get_tree().root.get_node("./Main")
-	main_node.queue_free()
-	call_deferred("_deferred_goto_scene", "res://GameFlow/MainMenu.tscn")
+	StoredData.world_node.go_back_to_menu()
 	
 func _deferred_goto_scene(path):
 	var s = ResourceLoader.load(path)

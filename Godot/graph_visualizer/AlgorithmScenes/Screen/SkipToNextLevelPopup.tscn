@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://AlgorithmScenes/Screen/skip_to_next_level_popup.gd" type="Script" id=1]
+[ext_resource path="res://AlgorithmScenes/Screen/PopupTheme.tres" type="Theme" id=2]
+
+[node name="SkipToNextLevelPopup" type="WindowDialog"]
+anchor_left = 0.5
+anchor_top = 0.444
+anchor_right = 0.5
+anchor_bottom = 0.681
+margin_left = -256.0
+margin_top = 1.47995
+margin_right = 256.0
+margin_bottom = 0.519958
+theme = ExtResource( 2 )
+popup_exclusive = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 128.0
+margin_top = 23.0
+margin_right = 384.0
+margin_bottom = 135.0
+custom_constants/separation = 12
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+margin_right = 256.0
+margin_bottom = 90.0
+rect_pivot_offset = Vector2( 520, 144 )
+bbcode_enabled = true
+bbcode_text = "[center]You have found a red panda!
+Skip to the next level?"
+text = "You have found a red panda!
+Skip to the next level?"
+fit_content_height = true
+
+[node name="NextLevelButton" type="Button" parent="VBoxContainer"]
+modulate = Color( 0.121569, 0.913725, 0, 1 )
+margin_top = 102.0
+margin_right = 256.0
+margin_bottom = 148.0
+rect_pivot_offset = Vector2( 72.8572, 10.7062 )
+text = "     Next Level    "
+
+[node name="MenuButton" type="Button" parent="VBoxContainer"]
+modulate = Color( 0.827451, 0.717647, 0.117647, 1 )
+margin_top = 160.0
+margin_right = 256.0
+margin_bottom = 206.0
+rect_pivot_offset = Vector2( 72.8572, 10.7062 )
+text = "  Return to Menu  "
+
+[connection signal="pressed" from="VBoxContainer/NextLevelButton" to="." method="_on_NextLevelButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/MenuButton" to="." method="_on_MenuButton_pressed"]

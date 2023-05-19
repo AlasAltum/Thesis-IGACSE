@@ -2,13 +2,14 @@
 extends Node2D
 
 ## Code execution popups ##
-var finished_popup : WindowDialog; 
+var finished_popup : WindowDialog
 var u_is_explored_popup : WindowDialog  # : $UNodeIsExploredPopup
 var adt_is_empty_popup : WindowDialog  # : $ADTIsEmptyPopup
-var add_node_popup : AddNodePopup 
+var add_node_popup : AddNodePopup
 var object_creation_popup: WindowDialog  # PopupForObjectCreation
 var length_c_is_1_popup: WindowDialog  # : LengthCIsOnePopup
 var _find_w_unequal_find_v_popup: WindowDialog  # : FindWUnequalFindVPopup
+var skip_to_next_level_popup: WindowDialog # : ShowSkipToNextLevelPopup
 ## Continue conditions ##
 var u_is_explored: bool = false
 var adt_is_empty: bool = false
@@ -222,8 +223,8 @@ func notify_find_w_unequal_find_v_wrong_answer():
 ## if _find_w_unequal_find_v popup signals ##
 
 func show_skip_to_next_level_popup():
-	$SkipToNextLevelPopup.show()
-	THIS IS AN ERROR FOR THE NEXT COMMIT
+	if skip_to_next_level_popup:
+		skip_to_next_level_popup.show()
 
 func reset_data():
 	self.finished_popup = null

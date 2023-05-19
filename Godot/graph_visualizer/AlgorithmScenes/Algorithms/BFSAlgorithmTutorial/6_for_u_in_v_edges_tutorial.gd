@@ -32,16 +32,6 @@ func for_condition_is_true() -> bool:
 
 func get_next_line() -> int:
 	if self.for_condition_is_true():
-		# We try to make this level shorter by checking if all nodes were already explored. Then we allow the user to skip the level.
-		var explored_nodes = []
-		for node in StoredData.nodes:
-			if node.get_adt().is_explored():
-				explored_nodes.append(node)
-
-		if StoredData.nodes.size() == StoredData.explored_nodes.size():
-			# Allow the user to skip level by showing a popup
-			NotificationManager.show_skip_to_next_level_popup()
-
 		execute_side_effect()
 		return .get_next_line()  # super.get_next_line()
 
