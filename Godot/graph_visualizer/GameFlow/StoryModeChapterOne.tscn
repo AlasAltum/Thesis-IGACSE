@@ -116,7 +116,7 @@ anims/FadeIn = SubResource( 2 )
 anims/FadeOut = SubResource( 3 )
 
 [node name="InFrontOfEverything" type="CanvasLayer" parent="."]
-layer = 4
+layer = 10
 
 [node name="ColorRect" type="ColorRect" parent="InFrontOfEverything"]
 anchor_right = 1.0

@@ -339,6 +339,7 @@ StoredData="*res://autoloads/stored_data.gd"
 NotificationManager="*res://autoloads/NotificationManager.tscn"
 InputRecorder="*res://c_sharp_src/InputRecorderScene.tscn"
 AudioPlayer="*res://autoloads/AudioPlayer.tscn"
+VolumeSlider="*res://AlgorithmScenes/Screen/VolumeSlider.tscn"
 
 [display]
 

@@ -3,20 +3,25 @@
 [ext_resource path="res://AlgorithmScenes/Screen/volume_slider.gd" type="Script" id=1]
 [ext_resource path="res://Assets/textures/GUI_audio.png" type="Texture" id=2]
 
-[node name="Control" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="VolumeSliderLayer" type="CanvasLayer"]
+layer = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="Control" type="Control" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 margin_right = 128.0
 margin_bottom = 38.0
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer"]
 margin_right = 41.0
 margin_bottom = 38.0
 texture = ExtResource( 2 )
 
-[node name="HSlider" type="HSlider" parent="HBoxContainer"]
+[node name="HSlider" type="HSlider" parent="Control/HBoxContainer"]
 margin_left = 45.0
 margin_right = 128.0
 margin_bottom = 38.0
@@ -26,4 +31,4 @@ max_value = 1.0
 step = 0.05
 script = ExtResource( 1 )
 
-[connection signal="value_changed" from="HBoxContainer/HSlider" to="HBoxContainer/HSlider" method="_on_HSlider_value_changed"]
+[connection signal="value_changed" from="Control/HBoxContainer/HSlider" to="Control/HBoxContainer/HSlider" method="_on_HSlider_value_changed"]
