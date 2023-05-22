@@ -24,6 +24,7 @@ allow_edge_selection = true
 returns_mst = true
 
 [node name="Background" parent="." instance=ExtResource( 6 )]
+layer = -5
 
 [node name="ADTMediator" parent="." instance=ExtResource( 34 )]
 visible = false

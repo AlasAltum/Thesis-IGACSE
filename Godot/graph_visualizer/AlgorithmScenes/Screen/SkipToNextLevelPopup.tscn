@@ -20,15 +20,15 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 128.0
+margin_left = 104.0
 margin_top = 23.0
-margin_right = 384.0
-margin_bottom = 135.0
+margin_right = 408.0
+margin_bottom = 199.0
 custom_constants/separation = 12
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
-margin_right = 256.0
-margin_bottom = 90.0
+margin_right = 304.0
+margin_bottom = 60.0
 rect_pivot_offset = Vector2( 520, 144 )
 bbcode_enabled = true
 bbcode_text = "[center]You have found a red panda!
@@ -39,17 +39,17 @@ fit_content_height = true
 
 [node name="NextLevelButton" type="Button" parent="VBoxContainer"]
 modulate = Color( 0.121569, 0.913725, 0, 1 )
-margin_top = 102.0
-margin_right = 256.0
-margin_bottom = 148.0
+margin_top = 72.0
+margin_right = 304.0
+margin_bottom = 118.0
 rect_pivot_offset = Vector2( 72.8572, 10.7062 )
 text = "     Next Level    "
 
 [node name="MenuButton" type="Button" parent="VBoxContainer"]
 modulate = Color( 0.827451, 0.717647, 0.117647, 1 )
-margin_top = 160.0
-margin_right = 256.0
-margin_bottom = 206.0
+margin_top = 130.0
+margin_right = 304.0
+margin_bottom = 176.0
 rect_pivot_offset = Vector2( 72.8572, 10.7062 )
 text = "  Return to Menu  "
 
