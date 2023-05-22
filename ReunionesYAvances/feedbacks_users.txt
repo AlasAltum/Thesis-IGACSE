@@ -1,0 +1,96 @@
+=== Sunday 21th May ===
+User: m___o#02__  (Mantener anonimato)
+Time: 2 hrs
+
+Con respecto al tutorial, los textos que aparecen y las popups: 
+usuario debe apretar un botón y sigue al siguiente texto.
+Apreta SPACE para continuar. Siempre.
+Por ejemplo: Si estás apretas A/Espacio, haz que el texto se apuea o se escribe completo. Pero mejor evitar el texto
+Avanzar al siguiente texto cuando se aprete espacio.
+
+<Se inicia el juego, ya apretó espacio y se mostró el código y el viewport principal con el grafo>
+Clickearia el 1, qué pasa?
+
+<Clickea 1> 
+mmm, nada. Falta feedback ahí.
+
+En el texto igual tienes que poner el planeta. (???)
+
+Es importante que el usuario sepa lo que es un nodo?
+Por ejemplo, en un juego siempre hay que tener clara la condición de ganar.
+Cuál es el objetivo para ganar? La misión es siempre la misma? Anda subdividiendo la misión.
+La misión a hacer, lo que tiene que lograr. 
+(Más adelante en el feedback se le ocurre hacer un tutorial por partes, cada uno con una misión y sus premios.)
+
+Ojalá no mostrar ninguna popup. es como la técnica del triciclo. Después los dejas en la bicicleta solos.
+
+<Me pide ejecutar input, hago click en el nodo 0>
+Estoy viendo cómo juegas y no entiendo qué pasa.
+Creo que el código debería salir de a poco.
+¿Cómo uso estas instrucciones en lo que tengo?
+
+Este if sirve para esto, este while sirve para esto. 
+Podría proponerlo: Te enseñaré la mecánica de qué puedes hacer con el if, qué puedes hacer con el while.
+
+(Por ejemplo, en un tutorial:)
+if not_is_explored, podría ser una parte este código debería ser lo más mínimo posible. Así le enseñamos al usuario.
+Pónele 2 planetas, con las líneas un planeta base de la línea 1 al planeta 2, explora el planeta 2.
+Pones el código y solo tiene que poner el número en el planeta (??? Aquí todavía se definía la idea)
+Podría ser por ejemplo que uno es el planeta, y te hace un if, if vas al sol, te quemas.
+Tu objetivo es que no muera Laika (Lo redefinimos al panda rojo posteriormente)
+El planeta es el sol.
+Si puedes eliminar el texto, la hiciste!
+
+
+(Salen ideas de que en el código se puedan modificar las variables dándoles cierto énfasis)
+(Imagen:)
+var condition = true; // true en rojo
+if (condition){
+    ...
+}
+Lo que está en rojo le puedes hacer click y se puede editar. 
+Que esté bien destacado como un texto que puedes modificar.
+También podrías intentar poner las variables al inicio, como la cola y el nodo t.
+
+
+(Se descarta esa idea porque no va con la idea de simular un debugger, además que permitiría introducir muchos bugs,
+requeriría mucho más control de lógica y errores por parte del usuario.)
+
+Se siente que la variable de al lado está demás. Esa current variable. Quizás mostrarla más adelante, 
+cuando le metes algo a la cola.
+
+
+(Respecto al texto de abajo) 
+Quizas ponerle visor o locals a variables.
+
+(Respecto a agregar nodos a la cola)
+
+Si pones la variable arriba: 
+Si agrego la variable arriba, que pueda agregarlo a la variable que está arriba
+
+<Arrastramos el nodo a la cola>
+Al arrastrar se tiene que ver por encima del panel.
+Altiro no se me ocurre arrastrar... 5 (?) segundos después (de llegar a la instrucción)
+que salga una manito en loop de arrastrar el planeta
+
+(Respecto a la variable seleccionada/destacada)
+Lo que tenga destacado en el visor de variables, se vea en el viewport principal.
+
+Quizás que la acción con click dependa de qué variable está seleccionada. 
+(Le menciono que otros usuarios mencionar algo similar en otras ocasiones)
+
+(respecto a la current variable, no parecieran clickeables)
+No estoy representando que es clickeable, debería usar un skin de botón.
+
+<Avanzamos hasta la primera parte con un if>
+La fuente del Yes y No está re mala. PArece muy poco real.
+Cuando me equivoque en el sí y no, que me highlightee el booleano del botón correcto.
+
+<Se ve la nave volando hacia los planetas>
+Sería bueno que la nave esté girando alrededor del planeta mientras espera la siguiente acción.
+
+
+(Respecto al panel de estructuras de datos)
+Si no lo necesitas, no lo muestres.
+
+

@@ -1,0 +1,51 @@
+Opciones de metodología:
+
+Primero debería hacerse una validación de la aplicación, para asegurarnos que los usuarios puedan utilizarla correctamente. Si la aplicación no está validada,
+los beneficios que pueda entregar la aplicación se pueden ver afectados.
+
+
+
+=== Validación de la usabilidad aplicación === 
+
+Mencionar que desde un inicio se trabajó de manera informal, con una metodología de thinking aloud.
+Se le pedía a los usuarios tratar de avanzar en los niveles sin entregar mayor contexto. 
+Se permitía resolver dudas, pero los usuarios preferían no seguir con el experimento cuando no sabían resolver algo
+o se quedaban pegados. De esta manera, podían volver a validarlo en el futuro. Con la consideración de que solo se
+aceptarían comentarios abiertos, puesto que al tener ya una idea previa, no es un experimento repetible.
+El trabajo se le presentaba principalmente a gente que tenga experiencia con videojuegos o incluso game designers.
+Se guardó un documento con feedback por cada game designer, donde se anotó qué elementos debían modificarse a su 
+parecer para que la aplicación fuera más intuitiva. Además, el facilitador anotaba observaciones sobre las acciones de los jugadores.
+La aplicación también guardaba telemetría de los clicks de los usuarios.
+
+
+
+=== Validación de los resultados entregados por la aplicación ===
+
+Primero necesitamos establecer exactamente qué queremos medir.
+Es difícil medir la performance, cómo medir aprendizajes en la educación?
+Necesitamos un grupo homogéneo. Ojalá demostrar que es homogéneo.
+Lo ideal es hacer A/B testing.
+Considerar efectos como el sesgo de novedad o novelty factor.
+
+
+
+=== Trabajo futuro ===
+
+* Mostrarle la aplicación a profesores que enseñen materias relacionadas a computación o que requieran herramientas que usen programación. Realizar 
+una encuesta para preguntarles si le ven potencial a esta aplicación para enseñar sus propios algoritmos.
+
+* Realizar el trabajo con gente que haya aprendido programación recientemente y que no necesariamente se dedicará al área de la informática.
+
+* Realizar el trabajo con gente que esté dando el ramo de algoritmos y estructuras de datos DURANTE la clase de grafos. Aquí solo podríamos medir motivación.
+Medir resultados es complejo en este escenario debido a que hay muchos factores afectando las observaciones.
+
+* Gamificar mucho más la aplicación, transformándola más en un juego. Agregar elementos como multiplayer, puntaje.
+
+* Apoyar el A/B testing con telemetría más inteligente. Guardar más datos en la API y segmentarlos, clusterizarlos para formar grupos de usuarios.
+
+* Intentar usar la aplicación para enseñar principios básicos de programación, para introducir a la programación a gente que todavía no lo ha hecho.
+
+
+
+ 
+

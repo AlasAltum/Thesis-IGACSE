@@ -1,4 +1,4 @@
-Sounds and assets: GameSupplyGuy
+Sounds, assets, textures: GameSupplyGuy
 https://gamesupply.itch.io/ultimate-space-game-mega-asset-package
 
 Audios: https://godotassetlibrary.com/asset/kfcg17/kenney-interface-sounds
@@ -11,7 +11,7 @@ Copyright (c) 2010, ParaType Ltd. (http://www.paratype.com/public),
 bainsley: Paul Miller
 https://www.fontsquirrel.com/fonts/bainsley
 
-createland: Awansenja Type 
+createland: Awansenja Type
 https://www.dafont.com/createland.font
 
 fresh_lychee: Khurasan
@@ -24,7 +24,6 @@ https://www.dafont.com/es/ubuntu-title.font
 Textures:
 Circle Node
 Noemí Zúñiga
-
 
 
 Engine: Godot Engine
