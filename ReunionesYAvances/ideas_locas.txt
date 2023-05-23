@@ -45,6 +45,7 @@ Medir resultados es complejo en este escenario debido a que hay muchos factores 
 
 * Intentar usar la aplicación para enseñar principios básicos de programación, para introducir a la programación a gente que todavía no lo ha hecho.
 
+* Generar otro A/B testing donde testiemos dos versiones de la misma aplicación. Una con historia y otra sin historia. Podrían tener 2 UI distintas.
 
 
  

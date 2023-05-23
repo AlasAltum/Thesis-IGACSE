@@ -1,0 +1,67 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://AlgorithmScenes/Code/ADTs/set_adt.gd" type="Script" id=1]
+[ext_resource path="res://AlgorithmScenes/Screen/ADT/Queue/QueueAnimation.tscn" type="PackedScene" id=2]
+[ext_resource path="res://AlgorithmScenes/Screen/ADT/Stack/StackAnimation.tscn" type="PackedScene" id=3]
+[ext_resource path="res://AlgorithmScenes/Code/ADTs/array_adt.gd" type="Script" id=4]
+[ext_resource path="res://AlgorithmScenes/Code/ADTs/queue_adt.gd" type="Script" id=5]
+[ext_resource path="res://AlgorithmScenes/Code/ADTs/stack_adt.gd" type="Script" id=6]
+[ext_resource path="res://AlgorithmScenes/Screen/slot.gd" type="Script" id=7]
+[ext_resource path="res://Assets/textures/structure_queue_icon.png" type="Texture" id=8]
+[ext_resource path="res://Assets/textures/stack.png" type="Texture" id=9]
+[ext_resource path="res://Assets/textures/set_image.png" type="Texture" id=10]
+[ext_resource path="res://Assets/queue.png" type="Texture" id=11]
+[ext_resource path="res://AlgorithmScenes/Screen/Slot.tscn" type="PackedScene" id=12]
+
+[node name="GridContainer" type="GridContainer"]
+margin_top = 30.0
+margin_right = 459.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 40, 40 )
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 120
+custom_constants/hseparation = 90
+columns = 4
+
+[node name="Slot" type="Container" parent="." instance=ExtResource( 12 )]
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+script = ExtResource( 7 )
+hover_text = "Queue"
+slot_texture = ExtResource( 11 )
+generated_adt = ExtResource( 5 )
+on_hover_animation = ExtResource( 2 )
+
+[node name="Slot2" type="Container" parent="." instance=ExtResource( 12 )]
+margin_left = 90.0
+margin_right = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource( 7 )
+hover_text = "Stack"
+slot_texture = ExtResource( 9 )
+generated_adt = ExtResource( 6 )
+on_hover_animation = ExtResource( 3 )
+
+[node name="Slot3" type="Container" parent="." instance=ExtResource( 12 )]
+margin_left = 180.0
+margin_right = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource( 7 )
+hover_text = "Array"
+slot_texture = ExtResource( 8 )
+generated_adt = ExtResource( 4 )
+
+[node name="Slot4" type="Container" parent="." instance=ExtResource( 12 )]
+margin_left = 270.0
+margin_right = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource( 7 )
+hover_text = "Set"
+slot_texture = ExtResource( 10 )
+generated_adt = ExtResource( 1 )

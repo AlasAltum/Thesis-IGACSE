@@ -20,7 +20,7 @@
 
 [node name="DFSCodeBlock" type="ScrollContainer"]
 margin_right = 400.0
-margin_bottom = 471.0
+margin_bottom = 687.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 23 )
@@ -31,8 +31,7 @@ __meta__ = {
 }
 
 [node name="LinesContainer" type="VBoxContainer" parent="."]
-margin_right = 388.0
-margin_bottom = 490.0
+margin_right = 400.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -42,7 +41,7 @@ alignment = 1
 [node name="PanelContainer0" parent="LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 388.0
+margin_right = 400.0
 margin_bottom = 35.0
 focused = true
 code_text = "DFS(starting_node=0):"
@@ -53,7 +52,7 @@ hint_text = "Press [b]SPACE[/b]"
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 35.0
-margin_right = 388.0
+margin_right = 400.0
 margin_bottom = 70.0
 line_index = 1
 code_text = "    t = starting_node"
@@ -64,7 +63,7 @@ hint_text = "[b]LEFT CLICK[/b] Node [color=#00FF00]t=0[/color] and then [b]SPACE
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 70.0
-margin_right = 388.0
+margin_right = 400.0
 margin_bottom = 105.0
 line_index = 2
 code_text = "    s = Stack()"
@@ -75,7 +74,7 @@ hint_text = "Go to Data Structures, click the Slot [b]Stack[/b] and name it [col
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 105.0
-margin_right = 388.0
+margin_right = 400.0
 margin_bottom = 140.0
 line_index = 3
 code_text = "    s.add(t)"
@@ -86,7 +85,7 @@ hint_text = "[b]Hover mouse[/b] on Node [color=#00FF00]t[/color], then add it to
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 140.0
-margin_right = 388.0
+margin_right = 400.0
 margin_bottom = 175.0
 line_index = 4
 jump_index = 13
@@ -98,7 +97,7 @@ hint_text = ""
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 175.0
-margin_right = 388.0
+margin_right = 400.0
 margin_bottom = 210.0
 line_index = 5
 code_text = "        v = s.pop()"
@@ -110,7 +109,7 @@ plays_confirmation_audio = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 210.0
-margin_right = 388.0
+margin_right = 400.0
 margin_bottom = 245.0
 line_index = 6
 jump_index = 12
@@ -122,7 +121,7 @@ hint_text = ""
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 245.0
-margin_right = 388.0
+margin_right = 400.0
 margin_bottom = 280.0
 line_index = 7
 jump_index = 8
@@ -134,7 +133,7 @@ hint_text = "Select the [color=#00FF00]v[/color] node with a [b]LEFT CLICK[/b]"
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 280.0
-margin_right = 388.0
+margin_right = 400.0
 margin_bottom = 315.0
 line_index = 8
 jump_index = 11
@@ -147,7 +146,7 @@ plays_confirmation_audio = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 315.0
-margin_right = 388.0
+margin_right = 400.0
 margin_bottom = 350.0
 line_index = 9
 jump_index = 9
@@ -159,7 +158,7 @@ hint_text = "Add the Node [color=#00FF00]u[/color] to the stack by hovering the 
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 350.0
-margin_right = 388.0
+margin_right = 400.0
 margin_bottom = 385.0
 line_index = 10
 jump_index = 8
@@ -172,7 +171,7 @@ plays_confirmation_audio = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 385.0
-margin_right = 388.0
+margin_right = 400.0
 margin_bottom = 420.0
 line_index = 11
 code_text = "        v.mark_as_iterated()"
@@ -183,7 +182,7 @@ hint_text = "Press [b]SPACE[/b]"
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 420.0
-margin_right = 388.0
+margin_right = 400.0
 margin_bottom = 455.0
 line_index = 12
 jump_index = 4
@@ -196,7 +195,7 @@ plays_confirmation_audio = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 455.0
-margin_right = 388.0
+margin_right = 400.0
 margin_bottom = 490.0
 line_index = 13
 jump_index = 4

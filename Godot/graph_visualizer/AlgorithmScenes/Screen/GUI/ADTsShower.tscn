@@ -13,17 +13,11 @@ font_data = ExtResource( 1 )
 Label/fonts/font = SubResource( 1 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 117, 117 )
+extents = Vector2( 110, 147 )
 
 [node name="ADTShower" type="PanelContainer"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -960.0
-margin_top = -540.0
-margin_right = -726.0
-margin_bottom = -340.0
+margin_right = 264.0
+margin_bottom = 256.0
 rect_min_size = Vector2( 234, 200 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -33,13 +27,13 @@ script = ExtResource( 2 )
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 227.0
-margin_bottom = 227.0
+margin_right = 257.0
+margin_bottom = 249.0
 rect_min_size = Vector2( 0, 220 )
 custom_constants/separation = 20
 
 [node name="VarNameLabel" type="Label" parent="VBoxContainer"]
-margin_right = 220.0
+margin_right = 250.0
 margin_bottom = 26.0
 rect_min_size = Vector2( 220, 0 )
 text = "Current variable:"
@@ -49,8 +43,8 @@ __meta__ = {
 
 [node name="Container" type="Container" parent="VBoxContainer"]
 margin_top = 46.0
-margin_right = 220.0
-margin_bottom = 220.0
+margin_right = 250.0
+margin_bottom = 242.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -59,7 +53,7 @@ monitorable = false
 priority = 128.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 115, 115 )
+position = Vector2( 132, 128 )
 shape = SubResource( 3 )
 
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]

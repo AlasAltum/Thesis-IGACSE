@@ -1,7 +1,6 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Code/DebugBlock.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/textures/structure_queue_icon.png" type="Texture" id=2]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/BFSCodeBlock_tutorial.tscn" type="PackedScene" id=3]
 [ext_resource path="res://AlgorithmScenes/Screen/TextHintContainer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://AlgorithmScenes/Screen/GameplayMenuPopup.tscn" type="PackedScene" id=5]
@@ -9,20 +8,9 @@
 [ext_resource path="res://AlgorithmScenes/Screen/GameplayMenuButton.tscn" type="PackedScene" id=7]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/TutorialPlayer.gd" type="Script" id=8]
 [ext_resource path="res://AlgorithmScenes/Screen/PopupTheme.tres" type="Theme" id=9]
-[ext_resource path="res://AlgorithmScenes/Screen/ADT/Queue/QueueAnimation.tscn" type="PackedScene" id=10]
-[ext_resource path="res://AlgorithmScenes/Code/ADTs/array_adt.gd" type="Script" id=11]
-[ext_resource path="res://AlgorithmScenes/Code/ADTs/stack_adt.gd" type="Script" id=12]
 [ext_resource path="res://AlgorithmScenes/Screen/PopUpForObjectCreation.tscn" type="PackedScene" id=13]
-[ext_resource path="res://AlgorithmScenes/Code/ADTs/queue_adt.gd" type="Script" id=14]
 [ext_resource path="res://AlgorithmScenes/Screen/graph_screen.gd" type="Script" id=15]
-[ext_resource path="res://AlgorithmScenes/Code/ADTs/set_adt.gd" type="Script" id=16]
-[ext_resource path="res://Assets/queue.png" type="Texture" id=17]
-[ext_resource path="res://Assets/textures/set_image.png" type="Texture" id=18]
-[ext_resource path="res://AlgorithmScenes/Screen/ADT/Stack/StackAnimation.tscn" type="PackedScene" id=19]
 [ext_resource path="res://AlgorithmScenes/Code/data_structures_theme.tres" type="Theme" id=20]
-[ext_resource path="res://Assets/textures/stack.png" type="Texture" id=21]
-[ext_resource path="res://AlgorithmScenes/Screen/Slot.tscn" type="PackedScene" id=22]
-[ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/queue_highlighting_animation_shader.tres" type="Material" id=23]
 [ext_resource path="res://Assets/fonts/bainsley/Bainsley_Roman.otf" type="DynamicFontData" id=24]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/TutorialVariablesPopup.tscn" type="PackedScene" id=25]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/TutorialCodePopup.tscn" type="PackedScene" id=26]
@@ -214,36 +202,24 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=13]
 resource_name = "ShowDataStructuresPanel"
 tracks/0/type = "value"
-tracks/0/path = NodePath("LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot/SlotTexture:material")
+tracks/0/path = NodePath("LeftPanel/ADTSelectionPanel:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ ExtResource( 23 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("LeftPanel/ADTSelectionPanel:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
-tracks/2/type = "method"
-tracks/2/path = NodePath("TutorialADTPopup")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
+tracks/1/type = "method"
+tracks/1/path = NodePath("TutorialADTPopup")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -251,13 +227,13 @@ tracks/2/keys = {
 "method": "popup"
 } ]
 }
-tracks/3/type = "method"
-tracks/3/path = NodePath("TutorialVariablesPopup")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
+tracks/2/type = "method"
+tracks/2/path = NodePath("TutorialVariablesPopup")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -284,18 +260,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=10]
 resource_name = "StopQueueHighlight"
 length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot/SlotTexture:material")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ ExtResource( 23 ), null ]
-}
 
 [sub_resource type="StyleBoxFlat" id=6]
 content_margin_left = 10.0
@@ -313,8 +277,6 @@ size = 20
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 24 )
-
-[sub_resource type="Theme" id=7]
 
 [node name="Main" type="Node2D"]
 position = Vector2( 0, 1 )
@@ -503,86 +465,6 @@ size_flags_vertical = 5
 custom_fonts/font = SubResource( 4 )
 text = "  Data Structures"
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer"]
-margin_top = 30.0
-margin_right = 459.0
-margin_bottom = 300.0
-rect_min_size = Vector2( 40, 40 )
-mouse_filter = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/vseparation = 120
-custom_constants/hseparation = 90
-columns = 4
-
-[node name="Slot" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 22 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-mouse_default_cursor_shape = 2
-hover_text = "Queue"
-slot_texture = ExtResource( 17 )
-generated_adt = ExtResource( 14 )
-on_hover_animation = ExtResource( 10 )
-
-[node name="SlotTexture" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot" index="0"]
-material = ExtResource( 23 )
-mouse_default_cursor_shape = 2
-theme = SubResource( 7 )
-
-[node name="ADTTexture" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot/SlotTexture" index="0"]
-use_parent_material = true
-mouse_default_cursor_shape = 2
-
-[node name="Slot2" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 22 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 90.0
-margin_right = 90.0
-hover_text = "Stack"
-slot_texture = ExtResource( 21 )
-generated_adt = ExtResource( 12 )
-on_hover_animation = ExtResource( 19 )
-
-[node name="BelowADTName" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot2/SlotTexture" index="2"]
-text = "Stack"
-align = 1
-valign = 1
-
-[node name="Slot3" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 22 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 180.0
-margin_right = 180.0
-hover_text = "Array"
-slot_texture = ExtResource( 2 )
-generated_adt = ExtResource( 11 )
-
-[node name="BelowADTName" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot3/SlotTexture" index="2"]
-text = "Array"
-align = 1
-valign = 1
-
-[node name="HoverText" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot3/HoverPanel/ColorRect" index="0"]
-text = "Array
-"
-
-[node name="Slot4" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer" instance=ExtResource( 22 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 270.0
-margin_right = 270.0
-hover_text = "Set"
-slot_texture = ExtResource( 18 )
-generated_adt = ExtResource( 16 )
-
-[node name="BelowADTName" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot4/SlotTexture" index="2"]
-text = "Set"
-align = 1
-valign = 1
-
-[node name="HoverText" parent="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot4/HoverPanel/ColorRect" index="0"]
-text = "Set"
-
 [node name="BottomPanel" type="HBoxContainer" parent="CanvasLayer"]
 anchor_left = 0.243
 anchor_top = 1.0
@@ -715,10 +597,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 448.0
-margin_top = -248.0
-margin_right = 1158.0
-margin_bottom = -94.0
+margin_left = 1408.0
+margin_top = 832.0
+margin_right = 2118.0
+margin_bottom = 986.0
 theme = ExtResource( 9 )
 popup_exclusive = true
 window_title = ""
@@ -745,16 +627,8 @@ layer = -1
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="Control" parent="." instance=ExtResource( 29 )]
-margin_left = 2.0
-margin_top = 1015.0
-margin_right = 2.0
-margin_bottom = 1015.0
 
 [editable path="CanvasLayer/TextHintContainer"]
 [editable path="CanvasLayer/LeftPanel/BFSCodeBlock"]
 [editable path="CanvasLayer/LeftPanel/BFSCodeBlock/LinesContainer/PanelContainer1"]
-[editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot"]
-[editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot2"]
-[editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot3"]
-[editable path="CanvasLayer/LeftPanel/ADTSelectionPanel/VBoxContainer/GridContainer/Slot4"]
 [editable path="CanvasLayer/TutorialVariablesPopup"]

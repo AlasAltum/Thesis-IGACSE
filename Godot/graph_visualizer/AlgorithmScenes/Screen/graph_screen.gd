@@ -58,7 +58,7 @@ func _init():
 	StoredData.reset_data()
 
 func _ready():
-	# Engine.time_scale = 5.0  # TODO: deactivate before deploy
+	Engine.time_scale = 5.0  # TODO: deactivate before deploy
 	StoredData.world_node = self
 	# Planets textures array is being modified each level when nodes are created
 	# So by triggering this function at the beginning, we make sure that these textures
@@ -89,7 +89,6 @@ func _ready():
 	drop_dragging_node_timer.connect("timeout", self, "deferred_free_dragging_node")
 	drop_dragging_node_timer.set_wait_time(0.2)
 
-	
 	instance_edges()  # To make sure the graph is connected
 	if self.allow_edge_selection:
 		for _edge in StoredData.edges:
