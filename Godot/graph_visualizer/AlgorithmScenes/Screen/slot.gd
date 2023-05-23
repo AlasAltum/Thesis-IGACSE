@@ -1,4 +1,4 @@
-class_name Slot
+class_name ADTSlot
 extends Container
 
 # A slot contains a Data Structure.

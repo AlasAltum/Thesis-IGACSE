@@ -1,6 +1,14 @@
 extends EffectCheck
 # for (Node u: v.edges()):
 var iteration_index : int = 0
+var computed_max_iteration_index : int = 0
+
+func effect_check_on_focused():
+	var v : AGraphNode = StoredData.get_variable("v").get_node()
+	var non_explored_edges = v.edges
+	for _edge in non_explored_edges:
+		if _edge.is_selected():
+			non_explored_edges.remove(_edge)
 
 
 func get_next_u_node() -> AGraphNode:
@@ -58,7 +66,7 @@ func execute_side_effect() -> void:
 
 
 func get_max_iteration_index(v: AGraphNode) -> int:
-	return v.edges.size()
+	return computed_max_iteration_index
 
 # In this case, for is for an i < length(v.edges())
 func for_condition_is_true() -> bool:

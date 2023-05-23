@@ -1,8 +1,13 @@
 extends EffectCheck
 
+# q = Queue()
+
 
 func check_actions_correct() -> bool:
-	if StoredData.has_variable("q"):
-		if "Queue" in StoredData.get_data_type_of_variable("q"):
-			return true
-	return false
+	return true
+
+
+func _trigger_on_next_line_side_effect():
+	var queue = QueueADT.new()
+	StoredData.add_variable("q", queue)
+	StoredData.adt_to_be_created = null

@@ -15,7 +15,7 @@ func _reset_data():
 func _mark_level_as_finished():
 	StoredData.finished_levels[StoredData.world_node.level_name] = true
 	# Remove the level from the remaining levels to finish, so we cannot get into it the next time
-	StoredData.remaining_levels_to_finish.remove(StoredData.world_node.level_name)
+	StoredData.remaining_levels_to_finish.erase(StoredData.world_node.level_name)
 
 func effect_check_on_focused() -> void:
 	NotificationManager.show_code_finished_popup(self._generate_message())
