@@ -21,13 +21,13 @@ vectors_for_images.pptx
 ~$vectors_for_images.pptx
 
 # Latex related files
-Propuesta/*.aux
-Propuesta/*.fdb_latexmk
-Propuesta/*.log
-Propuesta/*.synctex.gz
-Propuesta/*.log
-Propuesta/*.bbl
-Propuesta/*.out
+*.aux
+*.fdb_latexmk
+*.log
+*.synctex.gz
+*.log
+*.bbl
+*.out
 
 
 AWS_Lambda_golang/
@@ -40,3 +40,5 @@ Godot/graph_visualizer/export_presets.cfg
 
 AzureFunction/*
 
+# Personal meeting files
+*.meeting
