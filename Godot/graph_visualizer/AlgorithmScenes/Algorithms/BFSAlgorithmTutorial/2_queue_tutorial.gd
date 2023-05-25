@@ -2,13 +2,14 @@ extends EffectCheck
 # q = Queue()
 
 func check_actions_correct() -> bool:
-	if StoredData.has_variable("q"):
-		if "Queue" in StoredData.get_data_type_of_variable("q"):
-			return true
-	return false
+#	if StoredData.has_variable("q"):
+#		if "Queue" in StoredData.get_data_type_of_variable("q"):
+	return true
 
 
 func _trigger_on_next_line_side_effect() -> void:
+	var generated_adt = QueueADT.new()
+	StoredData.add_variable("q", generated_adt)
 	# Stop highlighting the queue slot in Data Structures
 	NotificationManager.animation_player.stop_queue_highlight_once()
 	# Show the popup explaining what the current variable is

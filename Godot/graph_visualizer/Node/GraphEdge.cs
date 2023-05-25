@@ -212,9 +212,7 @@ public class GraphEdge : PinJoint2D
 		curr_label.Visible = visible_weight;
 	}
 
-	public bool is_selected() => this.is_selected;
-
-	public bool is_not_selected() => !is_selected();
+	public bool is_not_selected() => !this.is_selected;
 
 	public void set_is_highlighted(bool set_is_highlighted)
 	{

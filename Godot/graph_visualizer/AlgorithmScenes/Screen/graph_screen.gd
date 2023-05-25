@@ -58,7 +58,7 @@ func _init():
 	StoredData.reset_data()
 
 func _ready():
-	Engine.time_scale = 5.0  # TODO: deactivate before deploy
+#	Engine.time_scale = 5.0  # TODO: deactivate before deploy
 	StoredData.world_node = self
 	# Planets textures array is being modified each level when nodes are created
 	# So by triggering this function at the beginning, we make sure that these textures
