@@ -20,6 +20,17 @@ https://www.dafont.com/fresh-lychee.font
 ubuntu_title: Volvoguy
 https://www.dafont.com/es/ubuntu-title.font
 
+m5x7: 
+https://managore.itch.io/m5x7
+
+pixel-keys-x16
+https://joshuajennerdev.itch.io/pixel-keys-x16/
+
+
+Some GUI elements: (I am not using them, but are inspiration)
+https://free-game-assets.itch.io/free-space-shooter-game-user-interface
+
+
 
 Textures:
 Circle Node
