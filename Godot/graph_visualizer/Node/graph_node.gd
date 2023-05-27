@@ -18,6 +18,7 @@ onready var variable_label: Node2D = $Variable
 onready var variable_label_internal: Label = $Variable/Sprite/VariableHighlight
 onready var sprite_texture : Sprite = $Sprite/SpriteTexture
 onready var station_texture: Sprite = $Sprite/StationSimple
+onready var mouse_button_left_animation: Sprite = $MouseButtonLeft
 
 var variable_highlighted: bool = false
 var floating_variable_radius: float = 0.0
@@ -298,3 +299,6 @@ func _deferred_goto_scene(path):
 	StoredData.get_tree().root.add_child(current_scene)
 	StoredData.get_tree().current_scene = current_scene
 	
+func show_animation_of_clicking_mouse():
+	mouse_button_left_animation.visible = true
+	animation_player.play("ClickNode")

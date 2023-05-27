@@ -30,6 +30,8 @@ https://joshuajennerdev.itch.io/pixel-keys-x16/
 Some GUI elements: (I am not using them, but are inspiration)
 https://free-game-assets.itch.io/free-space-shooter-game-user-interface
 
+LeftMouse
+https://greenpixels.itch.io/pixel-art-asset-3
 
 
 Textures:
