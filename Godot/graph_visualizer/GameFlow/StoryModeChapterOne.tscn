@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/textures/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GameFlow/DialogueScenesContent/bg_infinite_relaxed.mp3" type="AudioStream" id=2]
-[ext_resource path="res://GameFlow/DialogueDisplayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GameFlow/DialogueCanvasLayer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/textures/NightmareB.png" type="Texture" id=4]
 [ext_resource path="res://GameFlow/DialogueScenesContent/ship_movement_background.gd" type="Script" id=5]
-[ext_resource path="res://GameFlow/command_methods_scripts/intro_dialogue.gd" type="Script" id=6]
 [ext_resource path="res://GameFlow/story_mode_scene.gd" type="Script" id=7]
 [ext_resource path="res://Assets/sound/launch.wav" type="AudioStream" id=8]
 
@@ -93,18 +92,7 @@ volume_db = -15.0
 autoplay = true
 bus = "Music"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="DialogueShower" parent="CanvasLayer" instance=ExtResource( 3 )]
-dialogue_speed = 0.7
-dialogues_to_show = [ "Ship: Hello? DCC Station... Can you hear me? Copy... 
-We have not found any red pandas yet...", "Station: Yes, we can barely hear you...
-Just keep searching. 
-We suspect there is a red panda in the next galaxy.", "Ship: There is a problem though... 
-Our fuel levels are nearly depleted.
-We are unable to proceed with our rescue task.", "Station: Proceed to deactivate the AI copilot.
-It wastes too much energy. Just use a  Breadth First Search algorithm.", "Ship: Breadth First ... what?", "Station: I will send you the instructions. Just follow them. Ok? The red pandas need us, this is serious.", "Ship: That's why I am here... Okay, let's go!" ]
-command_methods_script = ExtResource( 6 )
+[node name="CanvasLayer" parent="." instance=ExtResource( 3 )]
 
 [node name="LaunchingSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
@@ -124,5 +112,6 @@ anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
-[connection signal="dialogue_finished" from="CanvasLayer/DialogueShower" to="." method="_on_DialogueShower_dialogue_finished"]
 [connection signal="animation_finished" from="FadeInOut" to="." method="_on_FadeInOut_animation_finished"]
+
+[editable path="CanvasLayer"]

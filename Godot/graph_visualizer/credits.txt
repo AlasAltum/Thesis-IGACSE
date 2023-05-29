@@ -33,6 +33,8 @@ https://free-game-assets.itch.io/free-space-shooter-game-user-interface
 LeftMouse
 https://greenpixels.itch.io/pixel-art-asset-3
 
+Planets generated using:
+https://deep-fold.itch.io/pixel-planet-generator
 
 Textures:
 Circle Node

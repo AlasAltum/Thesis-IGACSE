@@ -11,6 +11,8 @@ func reset():
 # Once we are in this line, node u may be added
 func effect_check_on_focused():
 	var u : AGraphNode = StoredData.get_variable("u").get_node()
+	u.show_animation_of_clicking_mouse()
+	u.highlight_node()
 	StoredData.selectable_nodes.append(u.index)
 
 func _edge_connects_nodes_u_and_v(_edge, u, v):
@@ -45,10 +47,12 @@ func on_action_correct_execute_once(u: Node2D):
 		_check_for_skip_level()
 
 func check_actions_correct() -> bool:
-	var u : AGraphNode = StoredData.get_variable("u").get_node()
-	if u in StoredData.get_selected_nodes():
-		on_action_correct_execute_once(u)
-		return true  # This is not required
+	var u_var  = StoredData.get_variable("u")
+	if u_var:
+		var u : AGraphNode = u_var.get_node()
+		if u in StoredData.get_selected_nodes():
+			on_action_correct_execute_once(u)
+			return true  # This is not required
 
 	return false
 

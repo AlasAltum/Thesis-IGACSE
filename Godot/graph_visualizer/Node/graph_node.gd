@@ -18,7 +18,7 @@ onready var variable_label: Node2D = $Variable
 onready var variable_label_internal: Label = $Variable/Sprite/VariableHighlight
 onready var sprite_texture : Sprite = $Sprite/SpriteTexture
 onready var station_texture: Sprite = $Sprite/StationSimple
-onready var mouse_button_left_animation: Sprite = $MouseButtonLeft
+onready var mouse_button_left_animation: AnimatedSprite = $MouseButtonLeft
 
 var variable_highlighted: bool = false
 var floating_variable_radius: float = 0.0
@@ -26,6 +26,10 @@ var accumulated_angle: float = 0.0
 onready var animation_player : AnimationPlayer = $AnimationPlayer
 
 const representation_prefab = preload("res://Node/NodeRepresentation.tscn")
+
+var ship_flying_around_node: Node2D = null  # Used to highlight this node when  
+const ship_flying_around_scene = preload("res://Assets/animations/ShipFlyingAround.tscn")
+
 var adt_type = load("res://AlgorithmScenes/Code/ADTs/node_adt.gd")
 
 var representation #: NodeRepresentation
@@ -173,6 +177,7 @@ func select_node(emit_signal=true):
 		AudioPlayer.play_element_selected()
 		self.animation_player.play("NodeBeingSelected")
 		representation.set_selected()
+		mouse_button_left_animation.visible = false
 		# TODO: play animation of the station appearing
 		if emit_signal:
 			emit_signal("node_selected", self)
@@ -283,6 +288,13 @@ func highlight_variable(variable_name):
 		var difference: Vector2 = variable_label.global_position - self.global_position
 		floating_variable_radius = difference.length()
 
+func show_ship_flying_around():
+	self.ship_flying_around_node = ship_flying_around_scene.instance()
+	self.add_child(self.ship_flying_around_node)
+
+func make_ship_flying_around_dissapear():
+	self.ship_flying_around_node.queue_free()
+	self.ship_flying_around_node = null
 
 const GOOD_LOOKING_FREQUENCY_FOR_HIGHLIGHT_LABEL: float = 10.0
 
@@ -302,3 +314,4 @@ func _deferred_goto_scene(path):
 func show_animation_of_clicking_mouse():
 	mouse_button_left_animation.visible = true
 	animation_player.play("ClickNode")
+

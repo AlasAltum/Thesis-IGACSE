@@ -15,6 +15,9 @@ func effect_check_on_focused():
 	var node_t = StoredData.get_node_by_index(0) # AGraphNode
 	if node_t:
 		node_t.highlight_variable("t")
+		node_t.show_animation_of_clicking_mouse()
+		node_t.highlight_node()
+		node_t.show_ship_flying_around()
 
 ## In tutorial version, play animations that display elements one by one
 func _trigger_on_next_line_side_effect() -> void:
