@@ -175,7 +175,6 @@ func select_node(emit_signal=true):
 	if self.index in StoredData.selectable_nodes:
 		self.selected = true
 		AudioPlayer.play_element_selected()
-		self.animation_player.play("NodeBeingSelected")
 		representation.set_selected()
 		mouse_button_left_animation.visible = false
 		# TODO: play animation of the station appearing
@@ -187,6 +186,10 @@ func select_node(emit_signal=true):
 		# TODO: Add animation: Error, not selectable node!
 		print("Not selectable Node")
 
+
+func on_ship_arrived():
+	self.animation_player.play("NodeBeingSelected")
+	show_ship_flying_around()
 
 func _on_AddToObjectButton_pressed():
 	get_added_to_focused_object_in_variables()

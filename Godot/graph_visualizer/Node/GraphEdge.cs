@@ -249,10 +249,21 @@ public class GraphEdge : PinJoint2D
 		shipAnimationPlayer.Play("ShipTravel");
 	}
 
+	private void _on_ShipAnimationPlayer_animation_finished(String anim_name)
+	{
+		NotifiyNodeBToPlayStationAnimation();
+	}
+
+	// Once the ship arrives at node B, we want to notify the node to play its animation
+	// of the station being built and the ship being flying around it
 	public void NotifiyNodeBToPlayStationAnimation()
 	{
 		if (destinationNode != null)
-			destinationNode.Call("NodeBeingSelected");
+			destinationNode.Call("on_ship_arrived");
 	}
-
 }
+
+
+
+
+
