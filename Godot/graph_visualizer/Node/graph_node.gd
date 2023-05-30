@@ -183,7 +183,8 @@ func select_node(emit_signal=true):
 		return
 
 	else:
-		# TODO: Add animation: Error, not selectable node!
+		# Adding user feedback when a node is not selectable and is clicked
+		self.animation_player.play("ErrorSelectingNode")
 		print("Not selectable Node")
 
 
