@@ -1,0 +1,132 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Node/GraphEdgeHardcoded.cs" type="Script" id=1]
+[ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/textures/dotted_texture.png" type="Texture" id=3]
+[ext_resource path="res://Assets/textures/ShipSprite.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="RectangleShape2D" id=2]
+resource_local_to_scene = true
+
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array(  )
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "ShipTravel"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("ShipPath/ShipPathFollow:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ShipPath/ShipPathFollow/Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 2.3, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ShipPath/ShipPathFollow/Sprite:visible")
+tracks/2/interp = 0
+tracks/2/loop_wrap = false
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 2.4, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ShipPath/ShipPathFollow/Sprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 2.3, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0.5, 0.5 ), Vector2( 0.3, 0.3 ), Vector2( 0, 0 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 2.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "NotifiyNodeBToPlayStationAnimation"
+} ]
+}
+
+[node name="Edge" type="PinJoint2D"]
+self_modulate = Color( 1, 1, 1, 0.470588 )
+z_index = -100
+z_as_relative = false
+script = ExtResource( 1 )
+
+[node name="Line2D" type="Line2D" parent="."]
+self_modulate = Color( 1, 1, 1, 0.784314 )
+use_parent_material = true
+z_index = -100
+z_as_relative = false
+points = PoolVector2Array( 121, -32 )
+width = 6.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 3 )
+texture_mode = 1
+
+[node name="Label" type="Label" parent="."]
+margin_left = 1.0
+margin_right = 15.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 1 )
+text = "1"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="LineCollision" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
+
+[node name="ShipPath" type="Path2D" parent="."]
+curve = SubResource( 4 )
+
+[node name="ShipPathFollow" type="PathFollow2D" parent="ShipPath"]
+position = Vector2( -299, -61 )
+rotation = -2.9866
+offset = 674.846
+
+[node name="Sprite" parent="ShipPath/ShipPathFollow" instance=ExtResource( 4 )]
+
+[node name="ShipAnimationPlayer" type="AnimationPlayer" parent="ShipPath"]
+root_node = NodePath("../..")
+anims/ShipTravel = SubResource( 3 )
+
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
+[connection signal="animation_finished" from="ShipPath/ShipAnimationPlayer" to="." method="_on_ShipAnimationPlayer_animation_finished"]

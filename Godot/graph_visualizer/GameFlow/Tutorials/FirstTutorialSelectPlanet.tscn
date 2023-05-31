@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Assets/textures/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/sound/menu_button_click _trimmed.mp3" type="AudioStream" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Assets/textures/planets/DarkRedClick.png" type="Texture" id=13]
 [ext_resource path="res://Assets/textures/planets/RedLeftClick.png" type="Texture" id=14]
 [ext_resource path="res://Assets/animations/ShipFlyingAround.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Node/EdgeHardcoded.tscn" type="PackedScene" id=16]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )
@@ -412,7 +413,7 @@ speed_scale = 0.5
 playing = true
 
 [node name="GraphNode3" type="KinematicBody2D" parent="ColorRect"]
-position = Vector2( 872, 424 )
+position = Vector2( 800, 420 )
 input_pickable = true
 script = ExtResource( 6 )
 
@@ -440,9 +441,9 @@ scale = Vector2( 0.479042, 0.479042 )
 texture = ExtResource( 11 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect/GraphNode3"]
-anims/ClickNode = SubResource( 22 )
-anims/NodeBeingSelected = SubResource( 23 )
-anims/RESET = SubResource( 24 )
+anims/ClickNode = SubResource( 30 )
+anims/NodeBeingSelected = SubResource( 31 )
+anims/RESET = SubResource( 32 )
 
 [node name="MouseButtonLeft" type="AnimatedSprite" parent="ColorRect/GraphNode3"]
 visible = false
@@ -450,50 +451,21 @@ position = Vector2( 48, 72 )
 frames = SubResource( 26 )
 speed_scale = 0.5
 
-[node name="GraphNode4" type="KinematicBody2D" parent="ColorRect"]
-position = Vector2( 1224, 416 )
-input_pickable = true
-script = ExtResource( 6 )
-
-[node name="Area2D" type="Area2D" parent="ColorRect/GraphNode4"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/GraphNode4/Area2D"]
-shape = SubResource( 19 )
-
-[node name="Sprite" type="Node2D" parent="ColorRect/GraphNode4"]
-material = SubResource( 29 )
-
-[node name="SpriteTexture" type="Sprite" parent="ColorRect/GraphNode4/Sprite"]
-use_parent_material = true
-z_index = -1
-texture = ExtResource( 9 )
-hframes = 4
-region_rect = Rect2( 0, 0, 80, 80 )
-
-[node name="StationSimple" type="Sprite" parent="ColorRect/GraphNode4/Sprite"]
-visible = false
-self_modulate = Color( 1, 1, 1, 0 )
-use_parent_material = true
-position = Vector2( 0, -1.43051e-06 )
-scale = Vector2( 0.479042, 0.479042 )
-texture = ExtResource( 11 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect/GraphNode4"]
-anims/ClickNode = SubResource( 30 )
-anims/NodeBeingSelected = SubResource( 31 )
-anims/RESET = SubResource( 32 )
-
-[node name="MouseButtonLeft" type="AnimatedSprite" parent="ColorRect/GraphNode4"]
-visible = false
-position = Vector2( 48, 72 )
-frames = SubResource( 26 )
-speed_scale = 0.5
-
-[node name="ShipFlyingAroundCenter" parent="ColorRect/GraphNode4" instance=ExtResource( 15 )]
+[node name="ShipFlyingAroundCenter" parent="ColorRect/GraphNode3" instance=ExtResource( 15 )]
 scale = Vector2( 0.2, 0.2 )
 radius = 350.0
 angle = 0.0
 rotation_speed_factor = 2.5
+
+[node name="Edge13" parent="ColorRect" instance=ExtResource( 16 )]
+weight = 0.0
+nodeA = NodePath("../GraphNode")
+nodeB = NodePath("../GraphNode3")
+
+[node name="Edge14" parent="ColorRect" instance=ExtResource( 16 )]
+weight = 0.0
+nodeA = NodePath("../GraphNode2")
+nodeB = NodePath("../GraphNode3")
 
 [connection signal="button_up" from="CanvasLayer/DialogueShower/MarginContainer/VBoxContainer/HBoxContainer/SkipButton" to="CanvasLayer/DialogueShower" method="_on_SkipButton_button_up"]
 [connection signal="button_up" from="CanvasLayer/DialogueShower/MarginContainer/VBoxContainer/HBoxContainer/NextButton" to="CanvasLayer/DialogueShower" method="_on_NextButton_button_up"]
@@ -506,6 +478,3 @@ rotation_speed_factor = 2.5
 [connection signal="input_event" from="ColorRect/GraphNode3/Area2D" to="ColorRect/GraphNode3" method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="ColorRect/GraphNode3/Area2D" to="ColorRect/GraphNode3" method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="ColorRect/GraphNode3/Area2D" to="ColorRect/GraphNode3" method="_on_Area2D_mouse_exited"]
-[connection signal="input_event" from="ColorRect/GraphNode4/Area2D" to="ColorRect/GraphNode4" method="_on_Area2D_input_event"]
-[connection signal="mouse_entered" from="ColorRect/GraphNode4/Area2D" to="ColorRect/GraphNode4" method="_on_Area2D_mouse_entered"]
-[connection signal="mouse_exited" from="ColorRect/GraphNode4/Area2D" to="ColorRect/GraphNode4" method="_on_Area2D_mouse_exited"]

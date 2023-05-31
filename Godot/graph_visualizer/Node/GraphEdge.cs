@@ -13,40 +13,40 @@ GraphEdge keeps the nodes together and moves the lines when nodes are moved
 public class GraphEdge : PinJoint2D
 {
 
-	private Label curr_label;
-	private Line2D line;
-	private CollisionShape2D collision_line;
+	protected Label curr_label;
+	protected Line2D line;
+	protected CollisionShape2D collision_line;
 
-	private static Resource adt = GD.Load("res://AlgorithmScenes/Code/ADTs/edge_adt.gd");
+	protected static Resource adt = GD.Load("res://AlgorithmScenes/Code/ADTs/edge_adt.gd");
 	
-	private static Material HighlightedMaterial = GD.Load<Material>("res://Assets/custom_shaders/edge_hightlight_material.tres");
+	protected static Material HighlightedMaterial = GD.Load<Material>("res://Assets/custom_shaders/edge_hightlight_material.tres");
 
 	// The path the ship will follow, the curve is what interests us
 	// Set the curve positions at nodeA and nodeB
-	private Path2D shipPath;
+	protected Path2D shipPath;
 
  	// The points in which the ship is going to move, here we manipulat ethe offset
 	// through the shipAnimation
-	private PathFollow2D shipPathFollow;
+	protected PathFollow2D shipPathFollow;
 
-	private AnimationPlayer shipAnimationPlayer;
-	private Node2D destinationNode;
+	protected AnimationPlayer shipAnimationPlayer;
+	protected Node2D destinationNode;
 
 
 	[Export]
-	private RectangleShape2D clickable_area;
+	protected RectangleShape2D clickable_area;
 	
 	[Export]
-	private float weight = 1.0f;
+	protected float weight = 1.0f;
 	
 	[Export]
-	private bool is_selected = false;
+	protected bool is_selected = false;
 	[Export]
-	private Node2D joint_end1;
+	protected Node2D joint_end1;
 	[Export]
-	private Node2D joint_end2;
+	protected Node2D joint_end2;
 	[Export]
-	private Sprite shipSprite;
+	protected Sprite shipSprite;
 
 
 	// Called when the node enters the scene tree for the first time.
@@ -77,19 +77,19 @@ public class GraphEdge : PinJoint2D
 
 	}
 
-	private bool valueIsCloseTo(float value1, float value2, float tolerance)
+	protected bool valueIsCloseTo(float value1, float value2, float tolerance)
 	{
 		return Godot.Mathf.Abs(value1 - value2) < tolerance;
 	}
 
-	private float RadiansToDegrees(float angle)
+	protected float RadiansToDegrees(float angle)
 	{
 		return angle * 180 / Mathf.Pi;
 	}
 
 	/// Make sure Labels are not that much rotated so they are always readable
 	// Rotation is coming in radians
-	private float normalizeRotation(float rotation)
+	protected float normalizeRotation(float rotation)
 	{
 		// Make 90° labels vertical by not rotating them 
 		if ( valueIsCloseTo(rotation, Mathf.Pi/2, 0.05f) || valueIsCloseTo(rotation, -Mathf.Pi/2, 0.05f) || valueIsCloseTo(rotation, Mathf.Pi, 0.05f) )
@@ -153,7 +153,7 @@ public class GraphEdge : PinJoint2D
 	///	position(x, y) := (node1.position + node2.position) / 2
 	///	rotation(alpha) := arctan( (node2.y - node1.y) / (node2.x - node1.x) )
 	/// </summary>
-	private void set_collision_box()
+	protected void set_collision_box()
 	{
 		// Set extent of the collision box for the line
 		Vector2 pos1 = (Vector2) joint_end1.GlobalPosition;
@@ -182,7 +182,7 @@ public class GraphEdge : PinJoint2D
 	/// <summary>
 	/// Intended to be used for Kruskal and Prim, to order edges
 	/// </summary>
-	private void _on_edge_click() {
+	protected void _on_edge_click() {
 		Node StoredData = GetNode("/root/StoredData");
 		StoredData.Set("selected_edge", this);
 	}
@@ -249,7 +249,7 @@ public class GraphEdge : PinJoint2D
 		shipAnimationPlayer.Play("ShipTravel");
 	}
 
-	private void _on_ShipAnimationPlayer_animation_finished(String anim_name)
+	protected void _on_ShipAnimationPlayer_animation_finished(String anim_name)
 	{
 		NotifiyNodeBToPlayStationAnimation();
 	}
