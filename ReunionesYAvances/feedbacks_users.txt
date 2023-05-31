@@ -121,7 +121,7 @@ User: SC
 # Qué tanto texto debo poner. Si las animaciones pueden ser más llamativas, etc
 
 
-# La instrucción de abajo, hazle click y después pareta espacio
+# La instrucción de abajo, hazle click y después apreta espacio
 # Son dos instrucciones en una. Una vez hiciste click, desapareció el espacio
 # Por lo que el usuario pierde el espacio.
 

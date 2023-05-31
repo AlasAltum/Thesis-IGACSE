@@ -29,10 +29,8 @@ public class GraphEdgeHardcoded : GraphEdge
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		base._Ready();
 		this.ZIndex = -3;
 		SetProcess(false);
-		curr_label = GetNode<Label>("Label");
 		line = GetNode<Line2D>("Line2D");
 		collision_line = GetNode<CollisionShape2D>("Area2D/LineCollision");
 		clickable_area = (RectangleShape2D) collision_line.Shape;
@@ -45,7 +43,13 @@ public class GraphEdgeHardcoded : GraphEdge
 		// an edge between these nodes 
 		Node2D node1 = GetNode<Node2D>(nodeA);
 		Node2D node2 = GetNode<Node2D>(nodeB);
+		this.SetProcess(false);
 		set_label_and_positions_with_nodes(node1, node2, "");
+	}
+
+	public override void _Process(float delta)
+	{
+		; // Do nothing
 	}
 
 	/// This is called from godot, therefore, it uses snake_case

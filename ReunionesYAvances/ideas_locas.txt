@@ -31,13 +31,14 @@ Considerar efectos como el sesgo de novedad o novelty factor.
 
 === Trabajo futuro ===
 
-* Mostrarle la aplicación a profesores que enseñen materias relacionadas a computación o que requieran herramientas que usen programación. Realizar 
-una encuesta para preguntarles si le ven potencial a esta aplicación para enseñar sus propios algoritmos.
+* Mostrarle la aplicación a profesores que enseñen materias relacionadas a computación o que requieran herramientas que usen programación. 
+Realizar  una encuesta para preguntarles si le ven potencial a esta aplicación para enseñar sus propios algoritmos.
 
-* Realizar el trabajo con gente que haya aprendido programación recientemente y que no necesariamente se dedicará al área de la informática.
+* Realizar el trabajo con gente que haya aprendido programación recientemente y que no necesariamente se dedicará al 
+área de la informática.
 
-* Realizar el trabajo con gente que esté dando el ramo de algoritmos y estructuras de datos DURANTE la clase de grafos. Aquí solo podríamos medir motivación.
-Medir resultados es complejo en este escenario debido a que hay muchos factores afectando las observaciones.
+* Realizar el trabajo con gente que esté dando el ramo de algoritmos y estructuras de datos DURANTE la clase de grafos. 
+Aquí solo podríamos medir motivación. Medir resultados es complejo en este escenario debido a que hay muchos factores afectando las observaciones.
 
 * Gamificar mucho más la aplicación, transformándola más en un juego. Agregar elementos como multiplayer, puntaje.
 

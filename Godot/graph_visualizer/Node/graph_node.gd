@@ -236,8 +236,9 @@ func is_mouse_inside_node() -> bool:
 
 # Show hover menu
 func _on_Area2D_mouse_entered() -> void:
-	node_action_menu.set_position(get_global_mouse_position())
-	node_action_menu.popup()
+	if node_action_menu:
+		node_action_menu.set_position(get_global_mouse_position())
+		node_action_menu.popup()
 
 # Hide hover menu
 func _on_Area2D_mouse_exited() -> void:
@@ -261,8 +262,9 @@ func _event_is_left_click(event):
 
 # This method must be repeated, because a click can be considered as a mouse exited from the area2D.
 func hide_node_action_menu():
-	node_action_menu.hide()
-	self.clickable = false
+	if node_action_menu:
+		node_action_menu.hide()
+		self.clickable = false
 
 func set_color(in_color: Color) -> void:
 	node_color = in_color

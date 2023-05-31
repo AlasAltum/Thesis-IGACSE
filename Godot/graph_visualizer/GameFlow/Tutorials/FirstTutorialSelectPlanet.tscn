@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Assets/textures/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/sound/menu_button_click _trimmed.mp3" type="AudioStream" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Assets/textures/planets/RedLeftClick.png" type="Texture" id=14]
 [ext_resource path="res://Assets/animations/ShipFlyingAround.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Node/EdgeHardcoded.tscn" type="PackedScene" id=16]
+[ext_resource path="res://GameFlow/Tutorials/first_tutorial_select_planet.gd" type="Script" id=17]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )
@@ -234,7 +235,11 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=32]
 length = 0.001
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="Animation" id=33]
+resource_name = "WinAnimation"
+
+[node name="TutorialNode" type="Node2D"]
+script = ExtResource( 17 )
 
 [node name="Background" parent="." instance=ExtResource( 1 )]
 
@@ -329,69 +334,71 @@ volume_db = -10.0
 material = SubResource( 18 )
 margin_right = 1920.0
 margin_bottom = 1080.0
+mouse_filter = 2
 
-[node name="GraphNode" type="KinematicBody2D" parent="ColorRect"]
+[node name="Planet1" type="KinematicBody2D" parent="ColorRect"]
 position = Vector2( 504, 176 )
 input_pickable = true
 script = ExtResource( 6 )
+index = 2
 
-[node name="Area2D" type="Area2D" parent="ColorRect/GraphNode"]
-visible = false
+[node name="Area2D" type="Area2D" parent="ColorRect/Planet1"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/GraphNode/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Planet1/Area2D"]
 shape = SubResource( 19 )
 
-[node name="Sprite" type="Node2D" parent="ColorRect/GraphNode"]
+[node name="Sprite" type="Node2D" parent="ColorRect/Planet1"]
 material = SubResource( 20 )
 
-[node name="SpriteTexture" type="Sprite" parent="ColorRect/GraphNode/Sprite"]
+[node name="StationSimple" type="Sprite" parent="ColorRect/Planet1/Sprite"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0 )
+use_parent_material = true
+position = Vector2( 0, -1.43051e-06 )
+scale = Vector2( 0.479042, 0.479042 )
+z_index = 1
+texture = ExtResource( 11 )
+
+[node name="SpriteTexture" type="Sprite" parent="ColorRect/Planet1/Sprite"]
 use_parent_material = true
 z_index = -1
 texture = ExtResource( 7 )
 hframes = 4
 script = ExtResource( 8 )
 
-[node name="StationSimple" type="Sprite" parent="ColorRect/GraphNode/Sprite"]
-visible = false
-self_modulate = Color( 1, 1, 1, 0 )
-use_parent_material = true
-position = Vector2( 0, -1.43051e-06 )
-scale = Vector2( 0.479042, 0.479042 )
-texture = ExtResource( 11 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect/GraphNode"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect/Planet1"]
 anims/ClickNode = SubResource( 22 )
 anims/NodeBeingSelected = SubResource( 23 )
 anims/RESET = SubResource( 24 )
 
-[node name="MouseButtonLeft" type="AnimatedSprite" parent="ColorRect/GraphNode"]
+[node name="MouseButtonLeft" type="AnimatedSprite" parent="ColorRect/Planet1"]
 visible = false
-position = Vector2( 32, 48 )
+position = Vector2( 48, 72 )
 frames = SubResource( 26 )
 speed_scale = 0.5
-playing = true
 
-[node name="GraphNode2" type="KinematicBody2D" parent="ColorRect"]
+[node name="Planet2" type="KinematicBody2D" parent="ColorRect"]
 position = Vector2( 1144, 168 )
 input_pickable = true
 script = ExtResource( 6 )
+index = 1
 
-[node name="Area2D" type="Area2D" parent="ColorRect/GraphNode2"]
+[node name="Area2D" type="Area2D" parent="ColorRect/Planet2"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/GraphNode2/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Planet2/Area2D"]
 shape = SubResource( 19 )
 
-[node name="Sprite" type="Node2D" parent="ColorRect/GraphNode2"]
+[node name="Sprite" type="Node2D" parent="ColorRect/Planet2"]
 material = SubResource( 27 )
 
-[node name="SpriteTexture" type="Sprite" parent="ColorRect/GraphNode2/Sprite"]
+[node name="SpriteTexture" type="Sprite" parent="ColorRect/Planet2/Sprite"]
 use_parent_material = true
 z_index = -1
 texture = ExtResource( 12 )
 hframes = 4
 region_rect = Rect2( 0, 0, 80, 80 )
 
-[node name="StationSimple" type="Sprite" parent="ColorRect/GraphNode2/Sprite"]
+[node name="StationSimple" type="Sprite" parent="ColorRect/Planet2/Sprite"]
 visible = false
 self_modulate = Color( 1, 1, 1, 0 )
 use_parent_material = true
@@ -399,82 +406,84 @@ position = Vector2( 0, -1.43051e-06 )
 scale = Vector2( 0.479042, 0.479042 )
 texture = ExtResource( 11 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect/GraphNode2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect/Planet2"]
 anims/ClickNode = SubResource( 22 )
 anims/NodeBeingSelected = SubResource( 23 )
 anims/RESET = SubResource( 24 )
 
-[node name="MouseButtonLeft" type="AnimatedSprite" parent="ColorRect/GraphNode2"]
+[node name="MouseButtonLeft" type="AnimatedSprite" parent="ColorRect/Planet2"]
 visible = false
 position = Vector2( 32, 48 )
 frames = SubResource( 26 )
-frame = 1
 speed_scale = 0.5
 playing = true
 
-[node name="GraphNode3" type="KinematicBody2D" parent="ColorRect"]
+[node name="StartingNode" type="KinematicBody2D" parent="ColorRect"]
 position = Vector2( 800, 420 )
 input_pickable = true
 script = ExtResource( 6 )
 
-[node name="Area2D" type="Area2D" parent="ColorRect/GraphNode3"]
+[node name="Area2D" type="Area2D" parent="ColorRect/StartingNode"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/GraphNode3/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/StartingNode/Area2D"]
 shape = SubResource( 19 )
 
-[node name="Sprite" type="Node2D" parent="ColorRect/GraphNode3"]
+[node name="Sprite" type="Node2D" parent="ColorRect/StartingNode"]
 material = SubResource( 29 )
 
-[node name="SpriteTexture" type="Sprite" parent="ColorRect/GraphNode3/Sprite"]
+[node name="StationSimple" type="Sprite" parent="ColorRect/StartingNode/Sprite"]
 use_parent_material = true
+position = Vector2( 0, -1.43051e-06 )
+scale = Vector2( 0.479042, 0.479042 )
+z_index = 1
+texture = ExtResource( 11 )
+
+[node name="SpriteTexture" type="Sprite" parent="ColorRect/StartingNode/Sprite"]
+use_parent_material = true
+position = Vector2( 0, -4 )
 z_index = -1
 texture = ExtResource( 9 )
 hframes = 4
 region_rect = Rect2( 0, 0, 80, 80 )
 
-[node name="StationSimple" type="Sprite" parent="ColorRect/GraphNode3/Sprite"]
-visible = false
-self_modulate = Color( 1, 1, 1, 0 )
-use_parent_material = true
-position = Vector2( 0, -1.43051e-06 )
-scale = Vector2( 0.479042, 0.479042 )
-texture = ExtResource( 11 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect/GraphNode3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect/StartingNode"]
 anims/ClickNode = SubResource( 30 )
 anims/NodeBeingSelected = SubResource( 31 )
 anims/RESET = SubResource( 32 )
 
-[node name="MouseButtonLeft" type="AnimatedSprite" parent="ColorRect/GraphNode3"]
+[node name="MouseButtonLeft" type="AnimatedSprite" parent="ColorRect/StartingNode"]
 visible = false
 position = Vector2( 48, 72 )
 frames = SubResource( 26 )
 speed_scale = 0.5
 
-[node name="ShipFlyingAroundCenter" parent="ColorRect/GraphNode3" instance=ExtResource( 15 )]
+[node name="ShipFlyingAroundCenter" parent="ColorRect/StartingNode" instance=ExtResource( 15 )]
 scale = Vector2( 0.2, 0.2 )
 radius = 350.0
 angle = 0.0
 rotation_speed_factor = 2.5
 
-[node name="Edge13" parent="ColorRect" instance=ExtResource( 16 )]
+[node name="Edge1S" parent="ColorRect" instance=ExtResource( 16 )]
 weight = 0.0
-nodeA = NodePath("../GraphNode")
-nodeB = NodePath("../GraphNode3")
+nodeA = NodePath("../Planet1")
+nodeB = NodePath("../StartingNode")
 
-[node name="Edge14" parent="ColorRect" instance=ExtResource( 16 )]
+[node name="Edge2S" parent="ColorRect" instance=ExtResource( 16 )]
 weight = 0.0
-nodeA = NodePath("../GraphNode2")
-nodeB = NodePath("../GraphNode3")
+nodeA = NodePath("../Planet2")
+nodeB = NodePath("../StartingNode")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/WinAnimation = SubResource( 33 )
 
 [connection signal="button_up" from="CanvasLayer/DialogueShower/MarginContainer/VBoxContainer/HBoxContainer/SkipButton" to="CanvasLayer/DialogueShower" method="_on_SkipButton_button_up"]
 [connection signal="button_up" from="CanvasLayer/DialogueShower/MarginContainer/VBoxContainer/HBoxContainer/NextButton" to="CanvasLayer/DialogueShower" method="_on_NextButton_button_up"]
-[connection signal="input_event" from="ColorRect/GraphNode/Area2D" to="ColorRect/GraphNode" method="_on_Area2D_input_event"]
-[connection signal="mouse_entered" from="ColorRect/GraphNode/Area2D" to="ColorRect/GraphNode" method="_on_Area2D_mouse_entered"]
-[connection signal="mouse_exited" from="ColorRect/GraphNode/Area2D" to="ColorRect/GraphNode" method="_on_Area2D_mouse_exited"]
-[connection signal="input_event" from="ColorRect/GraphNode2/Area2D" to="ColorRect/GraphNode2" method="_on_Area2D_input_event"]
-[connection signal="mouse_entered" from="ColorRect/GraphNode2/Area2D" to="ColorRect/GraphNode2" method="_on_Area2D_mouse_entered"]
-[connection signal="mouse_exited" from="ColorRect/GraphNode2/Area2D" to="ColorRect/GraphNode2" method="_on_Area2D_mouse_exited"]
-[connection signal="input_event" from="ColorRect/GraphNode3/Area2D" to="ColorRect/GraphNode3" method="_on_Area2D_input_event"]
-[connection signal="mouse_entered" from="ColorRect/GraphNode3/Area2D" to="ColorRect/GraphNode3" method="_on_Area2D_mouse_entered"]
-[connection signal="mouse_exited" from="ColorRect/GraphNode3/Area2D" to="ColorRect/GraphNode3" method="_on_Area2D_mouse_exited"]
+[connection signal="input_event" from="ColorRect/Planet1/Area2D" to="ColorRect/Planet1" method="_on_Area2D_input_event"]
+[connection signal="mouse_entered" from="ColorRect/Planet1/Area2D" to="ColorRect/Planet1" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="ColorRect/Planet1/Area2D" to="ColorRect/Planet1" method="_on_Area2D_mouse_exited"]
+[connection signal="input_event" from="ColorRect/Planet2/Area2D" to="ColorRect/Planet2" method="_on_Area2D_input_event"]
+[connection signal="mouse_entered" from="ColorRect/Planet2/Area2D" to="ColorRect/Planet2" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="ColorRect/Planet2/Area2D" to="ColorRect/Planet2" method="_on_Area2D_mouse_exited"]
+[connection signal="input_event" from="ColorRect/StartingNode/Area2D" to="ColorRect/StartingNode" method="_on_Area2D_input_event"]
+[connection signal="mouse_entered" from="ColorRect/StartingNode/Area2D" to="ColorRect/StartingNode" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="ColorRect/StartingNode/Area2D" to="ColorRect/StartingNode" method="_on_Area2D_mouse_exited"]
