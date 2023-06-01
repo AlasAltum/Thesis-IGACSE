@@ -49,3 +49,8 @@ func play_bg4():
 
 func stop_playing_music():
 	music_player.stop()
+
+# The notification manager notifies about the error because
+# There can be other added effects, and this object should only care about sound
+func play_error():
+	NotificationManager.play_error_audio()

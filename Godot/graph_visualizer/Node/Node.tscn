@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Node/graph_node.gd" type="Script" id=2]
@@ -72,6 +72,36 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, true ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "ErrorSelectingNode"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.0705882, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "on_error_audio"
+} ]
 }
 
 [sub_resource type="Animation" id=12]
@@ -228,6 +258,7 @@ valign = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/ClickNode = SubResource( 13 )
+anims/ErrorSelectingNode = SubResource( 17 )
 anims/NodeBeingSelected = SubResource( 12 )
 anims/RESET = SubResource( 14 )
 
@@ -239,10 +270,10 @@ texture = SubResource( 15 )
 
 [node name="MouseButtonLeft" type="AnimatedSprite" parent="."]
 visible = false
-position = Vector2( 32, 48 )
+position = Vector2( 48, 72 )
 frames = SubResource( 16 )
+frame = 1
 speed_scale = 0.5
-playing = true
 
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]

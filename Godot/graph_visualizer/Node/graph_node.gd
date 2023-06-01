@@ -187,6 +187,8 @@ func select_node(emit_signal=true):
 		self.animation_player.play("ErrorSelectingNode")
 		print("Not selectable Node")
 
+func on_error_audio():
+	AudioPlayer.play_error()
 
 func on_ship_arrived():
 	self.animation_player.play("NodeBeingSelected")
