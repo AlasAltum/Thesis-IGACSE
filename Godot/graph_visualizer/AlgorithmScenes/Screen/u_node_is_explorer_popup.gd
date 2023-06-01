@@ -26,4 +26,4 @@ func notify_u_is_explored_wrong_answer():
 	# Visual effect
 	$ErrorNotification/AnimationPlayer.stop()
 	$ErrorNotification/AnimationPlayer.play("message_modulation")
-	NotificationManager.play_error_audio()
+	AudioPlayer.play_error_audio()

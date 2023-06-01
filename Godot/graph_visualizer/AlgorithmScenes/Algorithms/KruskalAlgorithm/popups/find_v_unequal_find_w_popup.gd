@@ -21,7 +21,7 @@ func play_wrong_animation():
 	# Visual effect
 	$ErrorNotification/AnimationPlayer.stop()
 	$ErrorNotification/AnimationPlayer.play("message_modulation")
-	NotificationManager.play_error_audio()
+	AudioPlayer.play_error_audio()
 
 
 func _notification(what):

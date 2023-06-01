@@ -78,7 +78,7 @@ func _play_error_label_animation():
 	error_label.visible = true
 	error_anim.stop()
 	error_anim.queue("message_modulation")
-	NotificationManager.play_error_audio()
+	AudioPlayer.play_error_audio()
 
 func show_not_valid_name_error():
 	error_label.text = "Invalid name for variable."

@@ -22,7 +22,7 @@ var animation_player: AnimationPlayer
 
 var hint_label
 onready var confirm_audio: AudioStreamPlayer = $ConfirmationAudioPlayer
-onready var error_audio: AudioStreamPlayer = $ErrorAudioPlayer
+
 
 
 
@@ -77,9 +77,6 @@ func show_code_finished_popup(_msg: String) -> void:
 func play_confirmation_audio():
 	confirm_audio.play()
 
-func play_error_audio():
-	error_audio.play()
-
 # Called from finished code popup, when finishing an algorithm
 func reset_game():
 	StoredData.reset_data()
@@ -113,7 +110,7 @@ func notify_u_is_explored_correct_answer():
 
 func notify_u_is_explored_wrong_answer():
 	u_is_explored_popup.notify_u_is_explored_wrong_answer()
-	NotificationManager.play_error_audio()
+	AudioPlayer.play_error_audio()
 
 func _on_YesButton_pressed() -> void:
 	if self.u_is_explored:  # Expected answer
@@ -156,7 +153,7 @@ func notify_adt_is_empty_correct_answer():
 func notify_adt_is_empty_wrong_answer():
 	adt_is_empty_popup.play_wrong_animation()
 #	$ADTIsNotEmptyPopup/ErrorNotification/AnimationPlayer.play("message_modulation")
-	NotificationManager.play_error_audio()
+	AudioPlayer.play_error_audio()
 
 ## adt.is_not_empty() popup signals ##
 

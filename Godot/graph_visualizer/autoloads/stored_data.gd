@@ -85,7 +85,7 @@ func emphasize_current_selected_variable():
 func emphasize_error_on_current_selected_variable():
 	if adt_mediator:
 		adt_mediator.emphasize_error_on_current_selected_variable()
-		NotificationManager.play_error_audio()
+		AudioPlayer.play_error_audio()
 
 # We don't want to add the whole node, but its representation
 # as an ADT, so we feed with this to the ADTMediator

@@ -9,7 +9,7 @@ var bg4_audio = preload("res://AlgorithmScenes/Audio/music/bg4.mp3")
 onready var button_sound_player : AudioStreamPlayer = $ButtonSoundPlayer
 onready var music_player : AudioStreamPlayer = $MusicPlayer
 onready var element_selected : AudioStreamPlayer = $ElementSelectedPlayer
-
+onready var error_audio: AudioStreamPlayer = $ErrorAudioPlayer
 
 func _ready():
 	pass
@@ -52,5 +52,5 @@ func stop_playing_music():
 
 # The notification manager notifies about the error because
 # There can be other added effects, and this object should only care about sound
-func play_error():
-	NotificationManager.play_error_audio()
+func play_error_audio():
+	error_audio.play()
