@@ -30,7 +30,7 @@ var up: int
 var down: int
 const circle = preload("res://Node/Node.tscn")
 const edge = preload("res://Node/Edge.tscn")
-var gameplay_menu_popup: GameplayMenuPopup
+var gameplay_menu_popup # : GameplayMenuPopup
 var node_container_key_properties: Array
 
 ## Configurable elements ## 
@@ -286,9 +286,13 @@ func _get_center_position_of_node_container() -> Vector2:
 # The incoming sprite should come with a circle node and the label as child
 func set_dragging_node(incoming_sprite: Sprite, real_node_reference: KinematicBody2D):
 	dragging_node = incoming_sprite.duplicate()
+	dragging_node.z_index = 5
+	dragging_node.z_as_relative = false
 	dragging_node.global_position = get_global_mouse_position()
 	self.last_dragged_node_reference = real_node_reference
-	add_child(dragging_node)
+	# we use the control Canvas Layer to make sure the node is displayed
+	# in front of the UI
+	$Control.add_child(dragging_node)
 	drop_dragging_node_timer.stop()
 
 func start_release_dragging_node():

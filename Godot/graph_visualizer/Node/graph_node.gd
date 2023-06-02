@@ -202,6 +202,8 @@ func get_added_to_focused_object_in_variables():
 	emit_signal("node_add_to_object_request", self)
 
 
+# Note: part of the input can also be found at the function
+# _on_Area2D_input_event
 func _input(event):
 	# Menu must be open to allow these options
 	if is_dragging:
@@ -209,22 +211,22 @@ func _input(event):
 			# User is dragging the sprite
 			StoredData.world_node.set_dragging_node_global_pos()
 		# Relase event
+		# if node is dropped on the ADTShower, add it to the variables		
 		elif event is InputEventMouseButton and event.button_index == BUTTON_LEFT and !event.pressed:
-			# if node is dropped on the ADTShower, add it to the variables		
 			if StoredData.adt_shower and StoredData.adt_shower.get_rect().has_point(get_global_mouse_position()):
 				get_added_to_focused_object_in_variables()
 				StoredData.world_node.dragging_node.call_deferred("queue_free")
 				StoredData.world_node.start_release_dragging_node()
 
+			# User has released the mouse button
 			# if node is dropped out of the ADTshower, delete it
 			else:
-				# User has released the mouse button
 				StoredData.world_node.start_release_dragging_node()
 
 			is_dragging = false
 
 	else:
-		# Case click on the node, no dragging. check with radial distance
+		# Case click on the node, no dragging
 		if event is InputEventKey and is_mouse_inside_node():
 			# E action corresponds to add select the node
 			if Input.is_action_just_pressed("NodeSelect"):

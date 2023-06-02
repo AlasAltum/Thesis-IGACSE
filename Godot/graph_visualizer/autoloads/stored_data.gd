@@ -139,9 +139,14 @@ func get_data_type_of_variable(var_name: String):
 func get_selected_edge():
 	return selected_edge
 
+
+func node_may_be_added_to_adt(node) -> bool:
+	return node in self.nodes_that_should_be_added_to_adt
+
+
 func selected_variable_allows_object_adition(node) -> bool:
 	if adt_mediator && adt_mediator.has_method("selected_variable_allows_object_adition"):
-		var node_may_be_added_to_adt = StoredData.node_may_be_added_to_adt(node)
+		var node_may_be_added_to_adt = node_may_be_added_to_adt(node)
 		var selected_variable_allows_object_adition = adt_mediator.selected_variable_allows_object_adition()
 		return node_may_be_added_to_adt && selected_variable_allows_object_adition
 	return false
@@ -159,12 +164,9 @@ func add_node_to_nodes_that_should_be_added_to_adt(node):
 func remove_node_from_nodes_that_should_be_added_to_adt(node):
 	self.nodes_that_should_be_added_to_adt.erase(node)
 
-func node_may_be_added_to_adt(node) -> bool:
-	return node in self.nodes_that_should_be_added_to_adt
-
 
 func get_edge_between_nodes(node1, node2):
-	for edge in StoredData.edges:
+	for edge in self.edges:
 		if (
 			(edge.joint_end1 == node1 and edge.joint_end2 == node2) or 
 			(edge.joint_end1 == node2 and edge.joint_end2 == node1)
