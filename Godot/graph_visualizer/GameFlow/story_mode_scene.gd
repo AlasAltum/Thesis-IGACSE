@@ -10,7 +10,7 @@ var animation_node : AnimationPlayer
 func _ready():
 	animation_node = $FadeInOut
 	animation_node.play("FadeIn")
-	StoredData.world_node = self
+
 
 func _on_FadeInOut_animation_finished(anim_name):
 	if anim_name == "FadeIn":

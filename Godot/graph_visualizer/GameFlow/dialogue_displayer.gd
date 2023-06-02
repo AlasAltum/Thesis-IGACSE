@@ -121,6 +121,7 @@ func _on_NextButton_pressed():
 	_on_next_dialogue()
 	confirm_action_audio.play()
 
+
 func _on_SkipButton_button_up():
 	skip_button.set_focus_mode(0)
 

@@ -1,4 +1,4 @@
-# class_name StoredData
+#class_name StoredData
 extends Node2D
 # This object creates the graph and also communicates with the rest
 # of the nodes in the world. It works as a bridge between
