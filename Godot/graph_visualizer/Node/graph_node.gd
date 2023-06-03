@@ -139,8 +139,6 @@ func get_non_selected_neighbors() -> Array:
 
 	return neighbors
 
-
-
 func mark_as_iterated():
 	self.select_node()
 	station_texture.texture = StoredData.world_node.station_iterated_texture
@@ -188,7 +186,7 @@ func select_node(emit_signal=true):
 		print("Not selectable Node")
 
 func on_error_audio():
-	AudioPlayer.play_error()
+	AudioPlayer.play_error_audio()
 
 func on_ship_arrived():
 	self.animation_player.play("NodeBeingSelected")

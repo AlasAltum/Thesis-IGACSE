@@ -256,7 +256,7 @@ margin_right = 781.5
 margin_bottom = -108.0
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
-dialogues_to_show = [ "Here are some red pandas expecting to be rescued.", "Visit each planet to rescue the red pandas in those planets", "The instructions I sent you mention stuff like Graphs, Nodes and Edges. The machine was programmed to interpret planets as nodes and routes as edges. The graph is a planetary system made of nodes and edges." ]
+dialogues_to_show = [ "Here are some red pandas expecting to be rescued.", "Visit each planet to rescue the red pandas in those planets" ]
 command_methods_script = ExtResource( 4 )
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/DialogueShower"]
@@ -415,6 +415,7 @@ anims/RESET = SubResource( 24 )
 visible = false
 position = Vector2( 32, 48 )
 frames = SubResource( 26 )
+frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -476,6 +477,7 @@ nodeB = NodePath("../StartingNode")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/WinAnimation = SubResource( 33 )
 
+[connection signal="dialogue_finished" from="CanvasLayer/DialogueShower" to="." method="_on_DialogueShower_dialogue_finished"]
 [connection signal="button_up" from="CanvasLayer/DialogueShower/MarginContainer/VBoxContainer/HBoxContainer/SkipButton" to="CanvasLayer/DialogueShower" method="_on_SkipButton_button_up"]
 [connection signal="button_up" from="CanvasLayer/DialogueShower/MarginContainer/VBoxContainer/HBoxContainer/NextButton" to="CanvasLayer/DialogueShower" method="_on_NextButton_button_up"]
 [connection signal="input_event" from="ColorRect/Planet1/Area2D" to="ColorRect/Planet1" method="_on_Area2D_input_event"]

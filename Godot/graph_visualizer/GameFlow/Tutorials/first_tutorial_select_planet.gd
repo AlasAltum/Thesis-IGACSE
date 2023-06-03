@@ -31,3 +31,10 @@ func send_ship_to_node(end_planet: AGraphNode):
 	if planet1.selected and planet2.selected:
 		$AnimationPlayer.play("WinAnimation")
 
+
+# Show the click suggestion on each planet, since the dialogue finished
+# with the instruction to visit (click on) the planets
+func _on_DialogueShower_dialogue_finished():
+	planet1.show_animation_of_clicking_mouse()
+	planet2.show_animation_of_clicking_mouse()
+
