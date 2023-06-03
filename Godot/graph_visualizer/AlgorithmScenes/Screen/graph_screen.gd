@@ -1,12 +1,19 @@
 class_name GraphManager
 extends Node2D
 
+# Initializes the whole graph and keeps track of certain values important for the rendering,
+# such as the edges positions, the weights of each edge, the nodes positions, etc.
+
 export (String) var level_name = "BFS" # DFS, Kruskal, Prim...
 
 const level_to_idx: Dictionary = {
 	"BFS": 0, "DFS": 1, "Kruskal": 2, "Prim": 3
 }
 
+# We store the original textures in a separate array so we can reset the textures
+# of the nodes when the level is restarted.
+# We keep the textures in this class since there will be only a single instance of it
+# Since textures use a lot of memory, we do not want to have multiple copies of them
 const __planets_textures_original = [
 	preload("res://Assets/textures/OrbsWithoutOutline_0000_Circle.png"),
 	preload("res://Assets/textures/OrbsWithoutOutline_0001_Circle.png"),
@@ -298,6 +305,8 @@ func set_dragging_node(incoming_sprite: Sprite, real_node_reference: KinematicBo
 func start_release_dragging_node():
 	drop_dragging_node_timer.start()
 
+# We need to wait a bit before dropping the node
+# Because it can cause a null pointer exception
 func deferred_free_dragging_node():
 	if StoredData.world_node and not StoredData.world_node.mouse_has_entered_adt_shower:
 		call_deferred("free_dragging_node")

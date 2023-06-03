@@ -19,6 +19,10 @@ corner_detail = 16
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="DialogueShower" parent="." instance=ExtResource( 3 )]
+margin_left = -900.0
+margin_top = -320.0
+margin_right = 900.0
+margin_bottom = -60.0
 custom_styles/panel = SubResource( 1 )
 dialogue_speed = 0.7
 dialogues_to_show = [ "Ship: Hello? DCC Station... Can you hear me? Copy... 

@@ -49,7 +49,7 @@ signal node_add_to_object_request(node)
 signal node_selected(node)
 
 
-var is_dragging = false
+var node_is_being_dragged = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -206,7 +206,7 @@ func get_added_to_focused_object_in_variables():
 # _on_Area2D_input_event
 func _input(event):
 	# Menu must be open to allow these options
-	if is_dragging:
+	if node_is_being_dragged:
 		if StoredData.world_node.dragging_node and event is InputEventMouseMotion:
 			# User is dragging the sprite
 			StoredData.world_node.set_dragging_node_global_pos()
@@ -223,7 +223,7 @@ func _input(event):
 			else:
 				StoredData.world_node.start_release_dragging_node()
 
-			is_dragging = false
+			node_is_being_dragged = false
 
 	else:
 		# Case click on the node, no dragging
@@ -252,7 +252,7 @@ func _on_Area2D_mouse_exited() -> void:
 func _on_Area2D_input_event(_viewport, event, _shape_idx):
 	if _event_is_left_click(event):
 		if StoredData.allow_nodes_dragging:
-			is_dragging = true
+			node_is_being_dragged = true
 			StoredData.world_node.set_dragging_node($Sprite/SpriteTexture, self)
 
 		else:

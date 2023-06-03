@@ -351,7 +351,6 @@ VolumeSlider="*res://AlgorithmScenes/Screen/VolumeSlider.tscn"
 
 window/size/width=1920
 window/size/height=1080
-window/size/fullscreen=true
 window/size/always_on_top=true
 window/vsync/use_vsync=false
 window/stretch/mode="2d"
@@ -367,6 +366,7 @@ port=false
 localhost=true
 cursor=false
 audio=false
+resolution=false
 
 [input]
 

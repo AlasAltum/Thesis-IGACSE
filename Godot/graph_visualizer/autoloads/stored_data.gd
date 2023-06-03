@@ -4,6 +4,12 @@ extends Node2D
 # of the nodes in the world. It works as a bridge between
 # the Autoload StoredData and the world nodes.
 
+# The code should be used in conjunction with other classes and scripts to create a graph and 
+# communicate with other nodes in the world. It provides functions to add and remove variables,
+# nodes, and edges to the ADT, update views, get data type of a variable, get selected edge,
+# get node by index, reset data, and more. The code is written in GDScript and should be used 
+# in the Godot game engine.
+
 var finished_levels = {
 	"BFS": false,
 	"DFS": false,
@@ -18,7 +24,7 @@ var remaining_levels_to_finish = {
 	"Kruskal": "res://AlgorithmScenes/Algorithms/PrimAlgorithm/Prim_styled.tscn",
 }
 
-var API_URL = "https://igasce.azurewebsites.net/api/igasce?code=7x0mMQ-QgCsURHIl_KEPF0sl2MjsH3R4CKttXIsfF8IiAzFuApnNvA==" # "http://localhost:7071/api/igasce"
+var API_URL = "http://localhost:7071/api/igasce"
 var types_with_adt: Array = ["KinematicBody2D", "GraphEdge", "AGraphNode"]
 var has_initialized: bool = false  # Used in C# in the main menu
 var allow_select_edges = false

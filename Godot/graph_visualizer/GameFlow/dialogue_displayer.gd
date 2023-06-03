@@ -15,7 +15,7 @@ onready var skip_button: Button = $MarginContainer/VBoxContainer/HBoxContainer/S
 onready var next_button: Button = $MarginContainer/VBoxContainer/HBoxContainer/NextButton
 onready var confirm_action_audio: AudioStreamPlayer = $ConfirmActionAudio
 
-export (float) var dialogue_speed = 0.5
+export (float) var original_dialogue_speed = 0.5
 export (Array, String, MULTILINE) var dialogues_to_show = []
 export (int) var current_dialogue_index = -1
 export (PackedScene) var next_scene = null
@@ -27,13 +27,14 @@ signal dialogue_finished
 func _ready():
 	next_button.connect("pressed", self, "_on_NextButton_pressed")
 	skip_button.connect("pressed", self, "_on_SkipButton_pressed")
-	text_shower_animation.playback_speed = dialogue_speed
+	text_shower_animation.connect("animation_finished", self, "on_dialogue_displayed_to_the_end")
+	text_shower_animation.playback_speed = original_dialogue_speed
 	dialogue_text.text = ""
 	# Create instance of command script
 	if command_methods_script:
 		command_methods_script = command_methods_script.new()
 		command_methods_script.parent_dialogue = self
-
+	show_first_dialogue()
 
 func show_first_dialogue():
 	# Show an animation of the dialogue player being displayed
@@ -42,7 +43,14 @@ func show_first_dialogue():
 
 func _input(event):
 	if event is InputEventKey and event.is_action_pressed("NextDialogue"):
-		_on_next_dialogue()
+		# When the player presses for next dialogue we want to show the text
+		# immediately. So we will stop the animation and set the playback speed
+		# to a very high value, simulating that the animation is finished.
+		if text_shower_animation.current_animation == "ShowText":
+			text_shower_animation.playback_speed = 100
+
+		else:
+			_on_next_dialogue()
 
 # This function will be called when the player clicks on the next dialogue button.
 # It will show the next dialogue in the list.
@@ -111,8 +119,12 @@ func _on_dialogue_finished():
 	self.visible = false
 	# Should start next scene
 
-func _event_is_left_click(event):
-	return event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed
+
+# This function will be called when the animation of the text being displayed
+# is finished. It will set the playback speed of the animation to the original
+# speed. In case the player pressed a button to accelerate the dialogue	
+func on_dialogue_displayed_to_the_end(_animation_name):
+	text_shower_animation.playback_speed = original_dialogue_speed
 
 func _on_NextButton_button_up():
 	next_button.set_focus_mode(0)
