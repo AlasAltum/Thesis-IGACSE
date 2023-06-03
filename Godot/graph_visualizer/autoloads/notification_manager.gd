@@ -19,10 +19,7 @@ var allow_code_advance : bool = true  # Only in tutorial level starts as false
 # And this action is performed by the tutorial animation player
 var animation_player: AnimationPlayer
 
-
 var hint_label
-onready var confirm_audio: AudioStreamPlayer = $ConfirmationAudioPlayer
-
 
 
 
@@ -75,7 +72,7 @@ func show_code_finished_popup(_msg: String) -> void:
 
 ## Audios
 func play_confirmation_audio():
-	confirm_audio.play()
+	AudioPlayer.play_confirmation_audio()
 
 # Called from finished code popup, when finishing an algorithm
 func reset_game():

@@ -10,6 +10,8 @@ onready var button_sound_player : AudioStreamPlayer = $ButtonSoundPlayer
 onready var music_player : AudioStreamPlayer = $MusicPlayer
 onready var element_selected : AudioStreamPlayer = $ElementSelectedPlayer
 onready var error_audio: AudioStreamPlayer = $ErrorAudioPlayer
+onready var confirmation_audio: AudioStreamPlayer = $ConfirmationAudioPlayer
+
 
 func _ready():
 	pass
@@ -54,3 +56,7 @@ func stop_playing_music():
 # There can be other added effects, and this object should only care about sound
 func play_error_audio():
 	error_audio.play()
+
+func play_confirmation_audio():
+	confirmation_audio.play()
+
