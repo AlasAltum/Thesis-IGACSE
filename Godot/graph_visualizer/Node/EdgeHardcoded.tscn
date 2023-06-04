@@ -8,6 +8,7 @@
 resource_local_to_scene = true
 
 [sub_resource type="Curve2D" id=4]
+resource_local_to_scene = true
 _data = {
 "points": PoolVector2Array(  )
 }

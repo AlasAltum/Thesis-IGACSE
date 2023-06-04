@@ -21,6 +21,8 @@ export (int) var current_dialogue_index = -1
 export (PackedScene) var next_scene = null
 export (Resource) var command_methods_script;  # : CommandMethod
 
+var has_finished : bool = false
+
 signal dialogue_finished
 
 
@@ -42,7 +44,7 @@ func show_first_dialogue():
 	_on_next_dialogue()
 
 func _input(event):
-	if event is InputEventKey and event.is_action_pressed("NextDialogue"):
+	if not has_finished and event is InputEventKey and event.is_action_pressed("NextDialogue"):
 		# When the player presses for next dialogue we want to show the text
 		# immediately. So we will stop the animation and set the playback speed
 		# to a very high value, simulating that the animation is finished.
@@ -115,10 +117,11 @@ func execute_command_methods_in_dialogue(input_text: String) -> void:
 
 #
 func _on_dialogue_finished():
-	emit_signal("dialogue_finished")
-	self.visible = false
-	# Should start next scene
-
+	if not has_finished:
+		has_finished = true
+		emit_signal("dialogue_finished")
+		self.visible = false
+		# Should start next scene
 
 # This function will be called when the animation of the text being displayed
 # is finished. It will set the playback speed of the animation to the original
