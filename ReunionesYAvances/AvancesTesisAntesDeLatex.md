@@ -29,7 +29,7 @@ Un nivel con menú es como se indica: [Agregar diagrama]
 Los menúes se basan principalmente en nodos de control, que se usan típicamente para interfaces gráficas. En este caso, los menúes son únicamente botones que ejecutan códigos según su descripción. 
 
 
-Los tutoriales poseen una lógica más compleja y similar a los niveles. Están para aclimatar al usuario a la aplicación y prepararlo para los niveles siguientes, por lo que su estructura es similar. Este tipo de escenas se diferencia de los niveles jugables porque poseen una ventana de diálogo, que busca conectar la historia del videojuego con los elementos interactuables de este. Esto se explica más en el apartado de diseño de la aplicacación. [Agregar diagrama]
+Los tutoriales poseen una lógica más compleja y similar a los niveles. Su rol es aclimatar al usuario a la aplicación y prepararlo para los niveles siguientes, por lo que su estructura es similar a los niveles jugables. Este tipo de escenas se diferencia de las esecenas finales porque poseen una ventana de diálogo, la cual busca conectar la historia del videojuego con los elementos interactuables de este. Esto se explica más en el apartado de diseño de la aplicacación. [Agregar diagrama]
 
 
 
@@ -37,5 +37,35 @@ Los tutoriales poseen una lógica más compleja y similar a los niveles. Están 
 
 En este apartado de justifican las decisiones de diseño que explican por qué se decidió la temática de grafos, cuáles son los elementos interactivos y la ubicación y responsividad de estos. Wiley indica en su libro sobre diseño interactivo [Cita Wiley libro] que es relevante entender primero cuál es el problema que busca resolverse, qué usuarios se ven afectados por esto, qué características poseen y cómo podría solucionarse en base a prototipos.
 
-En un inicio, el problema identificado se basó en una propuesta de tesis, basada en ofrecer visualización de estructuras de datos para el ramo Algoritmos y Estructuras de Datos de la Universidad de Chile [link propuestas de tesis].  
+En un inicio, el problema identificado se basó en una propuesta de tesis, basada en ofrecer visualización de estructuras de datos para el ramo Algoritmos y Estructuras de Datos de la Universidad de Chile [link propuestas de tesis]. Posteriormente, se hicieron algunos análisis bibliográficos para entender cuáles son los problemas que aquejan a los estudiantes de ciencias de la computación cuando se introducen a los algoritmos y estructuras de datos. Por ejemplo, en [https://dl.acm.org/doi/pdf/10.1145/3230977.3231005] se menciona que muchas veces los estudiantes de algoritmos y estructuras de datos creen entender los contenidos, pero que tienen conceptos erróneos sin percatarse de ello.
+
+Por mencionar algunos ejemplos de malos entendidos por parte del estudiantado, se mencionan errores al comprender los heaps, heaps, incluso las formas en que los heaps pueden representarse o construirse [https://dl.acm.org/doi/pdf/10.1145/3230977.3231005, W. Paul and J. Vahrenhold. Hunting high and low: Instruments to detect misconceptions related to algorithms and data structures. In Proceedings of the 44th
+ACM Technical Symposium on Computer Science Education, pages 29–34, 2013, 
+O. Seppälä, L. Malmi, and A. Korhonen. Observations on student misconceptions— a case study of the Build-Heap Algorithm. Computer Science Education, 16(3):241–
+255, 2006]. Por otra parte, se revisaron canales de Youtube educativos como 3Blue1Brown [https://www.youtube.com/@3blue1brown], donde el dueño del canal, Grant Sanderson, quien habla en repetidas ocasiones de cómo las visualizaciones ayudan a entender la abstracción matemática subyacente. 
+
+Se observa que los estudiantes se encuentran con dificultades en la comprensión del contenido abstracto y su lógica subyacente. Es posible incluso resolver un problema de informática correctamente con estos conceptos erróneos. Por estas razones, surge la hipótesis de que una aplicación de visualización, donde se visualicen constantemente los objetos relacionados con un algoritmo y se observe cómo cambian a lo largo del procedimiento, permite derribar conceptos erróneos y aterrizar los contenidos para los estudiantes de algoritmos y estructuras de datos.
+
+El autor del presente trabajo también realizó labores como profesor auxiliar y ayudante en más de 6 ocasiones en la universidad, y piensa que un problema común es que los estudiantes creen haber entendido un algoritmo después de ver el código y ver cómo un profesor resuelve un algoritmo paso a paso frente a la pizarra, pero cuando se les pide recrear los mismos pasos, no son capaces de hacerlo. Es por esto que una visualización no basta y se requiere una forma de aprendizaje activa, donde el estudiante tenga que realizar los pasos para asegurarse de que no solo los comprendió, sino que también los realizó y de que será capaz de replicarlos posteriormente. 
+Con estos antecedentes, se decidió hacer un videojuego educativo, para tener interactividad y asegurarse de que el usuario se vea incentivado a probar la aplicación para así poder replicar los pasos con posterioridad.
+
+Una vez identificados los problemas, los usuarios objetivo y una posible solución, el siguiente paso consistió en buscar inspiración y prototipar. Como se decidió crear un videojuego educativo, la inspiración y los prototipos deben venir de aplicaciones similares. Entre ellas, se encuentran:
+
+Runescape, un juego de rol multijugador en línea. Podemos observar que abajo posee una ventana de chat con mucho texto. A la derecha se encuentra un panel interactivo para elegir qué herramientas se utilizarán en el videojuego. Este panel también entrega información relevante sobre el estado del personaje. [imagen]
+
+Tibia, similar a Runescape. También posee una ventana de chat, y a la derecha posee un panel interactivo. [imagen]
+
+World of Warcraft, similar a los anteriores. A la derecha presenta las misiones por realizar, por lo que le indican al jugador qué debe hacer, pero no es necesario que el usuario esté dando su atención constantemente. Sin embargo, el panel de habilidades se encuentra abajo y este sí requiere de la atención constante del jugador. [https://images.squarespace-cdn.com/content/v1/5b1562924cde7ad879d8107c/1532619754919-YA8MBAPE3JUB2ZP86DQS/default.jpg?format=1500w]
+
+Warcraft III. Se observa que abajo hay un gran panel donde existe mucha información del estado actual de la partida, así como las habilidades del jugador. Se puede dejar el mouse sobre una habilidad para mostrar qué efecto tiene una habilidad. [https://s2editor-guides.readthedocs.io/New_Tutorials/07_Lessons/resources/087_Create_an_Aura_Ability1.png, https://s2editor-guides.readthedocs.io/New_Tutorials/07_Lessons/087_Create_an_Aura_Ability/]
+
+7 Billion Humans [https://images.gog-statics.com/10607b4c491900ffeab0f9967a750864c7027088ac93d75c274b00baee284638_product_card_v2_mobile_slider_639.jpg]
+Un videojuego basado que se trata de resolver puzzles basado en un lenguaje de programación entregado por el juego.
+
+Debugger de VSCode [imagen]
+
+
+CodeCombat. Un videojuego tipo puzzle basado en programación, donde el jugador debe escribir el código que su personaje ejecutará. [CodeCombat, https://www.linuxadictos.com/wp-content/uploads/codecombat.jpg.webp]
+
+
 
