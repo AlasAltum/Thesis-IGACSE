@@ -4,7 +4,7 @@
 
 Antes de explicar la arquitectura del programa en específico, es necesario explicar cómo se estructuran los programas hechos en Godot, pues esto justifica las decisiones de diseño tomadas durante el desarrollo de la aplicación.
 
-## Arquitecutra de Godot:
+## Arquitectura de Godot:
 
 Una aplicación en Godot se construye en base a escenas. Una escena es un conjunto de objetos instanciados al mismo tiempo. Un programa creado en este motor se compone de escenas, que típicamente serán los niveles en un juego. Las escenas tienen un grafo de escena compuesto por uno o más nodos.
 Los nodos en Godot son la unidad básica de construcción del programa. Un nodo puede representar un botón, una textura, un reproductor de sonido, áreas de colisión, entre otros. Para armar un personaje que funciona con varios niveles de lógica, tales como: habilidades, movimiento o colisiones, se deben componer más nodos.
@@ -28,12 +28,11 @@ Un nivel con menú es como se indica: [Agregar diagrama]
 
 Los menúes se basan principalmente en nodos de control, que se usan típicamente para interfaces gráficas. En este caso, los menúes son únicamente botones que ejecutan códigos según su descripción. 
 
-
 Los tutoriales poseen una lógica más compleja y similar a los niveles. Su rol es aclimatar al usuario a la aplicación y prepararlo para los niveles siguientes, por lo que su estructura es similar a los niveles jugables. Este tipo de escenas se diferencia de las esecenas finales porque poseen una ventana de diálogo, la cual busca conectar la historia del videojuego con los elementos interactuables de este. Esto se explica más en el apartado de diseño de la aplicacación. [Agregar diagrama]
 
 
 
-# Diseño de la aplicación
+## Diseño de la aplicación
 
 En este apartado de justifican las decisiones de diseño que explican por qué se decidió la temática de grafos, cuáles son los elementos interactivos y la ubicación y responsividad de estos. Wiley indica en su libro sobre diseño interactivo [Cita Wiley libro] que es relevante entender primero cuál es el problema que busca resolverse, qué usuarios se ven afectados por esto, qué características poseen y cómo podría solucionarse en base a prototipos.
 
@@ -62,10 +61,14 @@ Warcraft III. Se observa que abajo hay un gran panel donde existe mucha informac
 7 Billion Humans [https://images.gog-statics.com/10607b4c491900ffeab0f9967a750864c7027088ac93d75c274b00baee284638_product_card_v2_mobile_slider_639.jpg]
 Un videojuego basado que se trata de resolver puzzles basado en un lenguaje de programación entregado por el juego.
 
-Debugger de VSCode [imagen]
+Debugger de VSCode. No es un videojuego, sino un editor enriquecido de texto para trabajar con código, aunque con extensiones puede funcionar como un IDE (Integrated Development Environment). De aquí se extrajeron las ideas de que se pueden ver en tiempo reales los nombres y valores de las variables, así como se puede ver en tiempo real cuando cambian. Estas modificaciones se observan línea a línea, lo que permite comprender mejor cómo funciona un programa.  [imagen]
 
+CodeCombat. Un videojuego tipo puzzle basado en programación. El jugador debe escribir todo el código que le permitirá superar un nivel. Este código corresponde a las instrucciones que recibe el personaje y que ejecuta cuando inicia el nivel. Si las instrucciones fueron correctas, el personaje superará los obstáculos y podrá pasar al siguiente nivel. [CodeCombat, https://www.linuxadictos.com/wp-content/uploads/codecombat.jpg.webp]
 
-CodeCombat. Un videojuego tipo puzzle basado en programación, donde el jugador debe escribir el código que su personaje ejecutará. [CodeCombat, https://www.linuxadictos.com/wp-content/uploads/codecombat.jpg.webp]
+Considerando los antecedentes anteriores, se decidió crear una visualización animada e interactiva sobre algoritmos y estructuras de datos. Los elementos de gamificación aumentarían la motivación de los estudiantes. Respecto a las temáticas vistas, se observó que muchas estructuras de datos mostradas eran lineales y permitían poca innovación en diseño, por ejemplo, listas enlazadas, diccionarios, arreglos, colas o conjuntos. Resultaba más gamificable y daba más espacio de a la creatividad el trabajar con grafos. Además, se revisó literatura científica al respecto, y se encontraron menos recursos relacionados a grafos.
 
+Se determinó que la aplicación debe mostrar cada paso del algoritmo con retroalimentación visual al usuario, además de mostrar qué sucede con las variables en cada paso. El programa debe requerir que el usuario piense en algunos pasos, de modo de evitar la mecanización y facilitar el entendimiento del algoritmo como una sucesión de pasos. En este caso, la aplicación espera enseñar sobre un contenido ya determinado, por lo que no se espera que el estudiante programe, sino que ejecute las instrucciones de los algoritmos a enseñar. Los objetivos del curso algoritmos y estructuras de datos también se alinean de esa forma, donde se pone más énfasis en entender las estructuras y algoritmos, la programación, en cambio, está en uno solo de los objetivos especificados [Programa del curso CC3001, Algoritmos y Estructuras de Datos Universidad de Chile. https://ucampus.uchile.cl/m/fcfm_catalogo/programa?bajar=1&id=68645].
+
+De esta manera, se decidió por el primer prototipo, hecho completamente en Godot. Es esperable realizar un primer acercamiento en papel, pero Godot es un motor de juegos que permite la experimentación de forma muy concisa. Estos primeros prototipos recibieron retroalimentación principalmente por parte del curso Trabajo de Tesis I (CC7970) [Mostrar imagen del primer prototipo]. Aquí se recibía feedback con conocimiento era experto, pues el curso se componía de gente que estaba en el postgrado de Ciencias de la Computación.
 
 

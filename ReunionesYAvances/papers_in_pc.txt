@@ -41,3 +41,6 @@ increasing level of difficulty).
 * Immersion allows the player to have an experience of deep involvement within the game, creating a challenge with real-world focus, so that they
 forget about the outside world during gameplay
 
+
+Identifying Student Difficulties with Basic Data Structures
+https://dl.acm.org/doi/pdf/10.1145/3230977.3231005
