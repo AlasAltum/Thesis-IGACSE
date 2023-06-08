@@ -1,5 +1,5 @@
-extends ScrollContainer
 class_name CodeContainer
+extends ScrollContainer
 
 onready var lines_container = $LinesContainer
 var code_lines: Array = []
@@ -32,6 +32,9 @@ func _input(event):
 	):
 		if current_line.effect_actions_are_correct():
 			advance_to_line(current_line.get_next_line())
+		else:
+			# TODO: Warn the player that the code has not been completed yet
+			pass
 
 
 func _on_code_finished():

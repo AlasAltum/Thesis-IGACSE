@@ -1,9 +1,10 @@
+class_name EffectCheck
+extends Resource
+
 # Class that checks for the effect of a given code line
 # For each line whose effect must be checked between each
 # step done by the player.
 # This class must be implemented
-extends Resource
-class_name EffectCheck
 
 var code_line: CodeLine
 

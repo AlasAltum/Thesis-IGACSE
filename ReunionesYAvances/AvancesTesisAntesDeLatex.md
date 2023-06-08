@@ -31,6 +31,19 @@ Los menúes se basan principalmente en nodos de control, que se usan típicament
 
 Los tutoriales poseen una lógica más compleja y similar a los niveles. Su rol es aclimatar al usuario a la aplicación y prepararlo para los niveles siguientes, por lo que su estructura es similar a los niveles jugables. Este tipo de escenas se diferencia de las esecenas finales porque poseen una ventana de diálogo, la cual busca conectar la historia del videojuego con los elementos interactuables de este. Esto se explica más en el apartado de diseño de la aplicacación. [Agregar diagrama]
 
+Cada tutorial posee un script específico, que verifica constantemente si el jugador completó los pasos necesarios para pasar al siguiente nivel o tutorial según corresponda. Al inicio de cada tutorial, se despliega el diálogo que conecta la historia del juego con lo que se debe hacer en cada paso. Cuando se cierra el diálogo, se activan las acciones del jugador.
+
+Respecto a los niveles, aquí existen diversos elementos que hay que destacar. Entre estos, se encuentran: El código, las variables, la variable seleccionada y la ventana de juego. El diagrama [PONER REFERENCIA AL DIAGRAMA] presenta cómo se relacionan estos elementos.
+
+Respecto al código, este se comprime en un nodo de la clase CodeContainer. Este objeto se encarga de recibir el input del jugador para avanzar en el código. Si las instrucciones para avanzar en el código son correctas, el usuario pasa a la siguiente instrucción, desbloqueando una acción ejecutable. La clase CodeContainer posee un arreglo de objetos CodeLine llamado code_lines. La clase CodeLine contienen toda la lógica de una única línea de código. Entre sus funciones, se encuentran: darle énfasis a la línea de código actual, darle feedback al usuario cuando la instrucción de la línea se completó correctamente y verificar constantemente si la instrucción de línea se ha completado correctamente.
+
+Cada CodeLine posee un script que se puede indicar desde el editor de Godot. Este script debe heredar de la clase EffectCheck, la cual actúa como interfaz. Cada script que implemente la clase EffectCheck debe definir métodos para cuando: 1) El puntero de instrucción llega a la línea del script. 2) Para verificar que la instrucción actual ha sido realizada correctamente. 3) Si corresponde, efectos colaterales de la instrucción. Esto ocurre en los ciclos for, donde se mueve permanentemente una variable índice utilizada para avanzar por los ciclos. También se utiliza para la creación de variables.
+
+En el panel de abajo se encuentran dos clases: DebugBlock y ADTShower. El primero se encarga de mostrar las variables instanciadas, su nombre y su valor actual. Contiene la lógica para agregar, modificar o eliminar alguna variable.  Cada vez que se pasa por un ciclo for o se declara una variable, este modifica sus variables internas. Respecto al ADTShower, este se encarga de mostrar la variable seleccionada actualmente en el DebugBlock. La idea detrás del DebugBlock es permitir arrastrar nodos a la cola o la pila según el algoritmo que se esté enseñando, BFS o DFS, respectivamente.
+
+Se observa
+
+
 
 
 ## Diseño de la aplicación
