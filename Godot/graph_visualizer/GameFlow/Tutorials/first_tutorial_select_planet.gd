@@ -14,7 +14,7 @@ func _ready():
 	StoredData.selectable_nodes.append_array([planet1.index, planet2.index])
 	planet1.connect("node_selected", self, "send_ship_to_node")
 	planet2.connect("node_selected", self, "send_ship_to_node")
-	
+	$AnimationPlayer.play("OnReady")
 	
 func send_ship_to_node(end_planet: AGraphNode):
 	# Since there is always only one edge, this should work fine
