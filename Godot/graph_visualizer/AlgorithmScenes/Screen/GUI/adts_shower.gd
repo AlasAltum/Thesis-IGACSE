@@ -1,10 +1,9 @@
 class_name ADTShower
 extends PanelContainer
 
-# Displays a Window Dialog that shows a visual representation
-# of each variable in the stack 
-# This class may be a: QueueRepresentation, StackRepresentation
-var current_adt: ADTRepresentation
+# Displays a Window Dialog that shows a visual representation of each variable in the stack 
+
+var current_adt: ADTRepresentation  # QueueRepresentation, StackRepresentation
 var stored_adt_reps: Array = []  # Array<ADTRepresentation>
 var name_to_representation: Dictionary = {}
 
@@ -38,6 +37,7 @@ func clear_current_models():
 		_remove_child(adt_rep)
 	stored_adt_reps.clear()
 
+# Updates the ADT representations based on the data passed in.
 func update_models(data: Array) -> void:
 	clear_current_models()
 	# Data is an array of ADTVector
@@ -48,6 +48,7 @@ func update_models(data: Array) -> void:
 			_add_child(adt_representation)
 			adt_representation.visible = false
 
+# Updates the views based on the selected index.
 func update_views(selected_index: int) -> void:
 	#  make the previous adt representation invisible
 	if current_adt and is_instance_valid(current_adt):

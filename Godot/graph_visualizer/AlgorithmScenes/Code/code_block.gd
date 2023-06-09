@@ -34,7 +34,7 @@ func _input(event):
 			advance_to_line(current_line.get_next_line())
 		else:
 			# TODO: Warn the player that the code has not been completed yet
-			pass
+			AudioPlayer.play_not_doable_action_sound()
 
 
 func _on_code_finished():

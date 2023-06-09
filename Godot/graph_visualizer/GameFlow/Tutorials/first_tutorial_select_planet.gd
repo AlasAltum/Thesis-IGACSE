@@ -38,3 +38,6 @@ func _on_DialogueShower_dialogue_finished():
 	planet1.show_animation_of_clicking_mouse()
 	planet2.show_animation_of_clicking_mouse()
 
+
+func on_win_audio_play():
+	AudioPlayer.play_congratulations_audio()

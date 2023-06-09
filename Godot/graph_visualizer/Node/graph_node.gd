@@ -175,7 +175,6 @@ func select_node(emit_signal=true):
 		AudioPlayer.play_element_selected()
 		representation.set_selected()
 		mouse_button_left_animation.visible = false
-		# TODO: play animation of the station appearing
 		if emit_signal:
 			emit_signal("node_selected", self)
 		return
