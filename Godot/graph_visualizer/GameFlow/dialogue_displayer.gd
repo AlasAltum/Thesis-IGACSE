@@ -57,19 +57,18 @@ func _input(event):
 # This function will be called when the player clicks on the next dialogue button.
 # It will show the next dialogue in the list.
 func _on_next_dialogue():
-	if current_dialogue_index < dialogues_to_show.size() - 1:
-		current_dialogue_index += 1
-		dialogue_text.text = ""
-		text_shower_animation.stop()
-		text_shower_animation.play("ShowText") # Show the text with an animation.
-		var new_text = dialogues_to_show[current_dialogue_index]
-		if _has_command_method(new_text):
-			execute_command_methods_in_dialogue(new_text)
-		dialogue_text.text = _get_clean_text_from_dialogue(new_text)
-
-	else:
+	if current_dialogue_index >= dialogues_to_show.size() - 1:
 		dialogue_text.text = ""
 		_on_dialogue_finished()
+		return
+
+	current_dialogue_index += 1
+	var new_text = dialogues_to_show[current_dialogue_index]
+	dialogue_text.text = _get_clean_text_from_dialogue(new_text)
+	text_shower_animation.stop()
+	text_shower_animation.play("ShowText") # Show the text with an animation.
+	if _has_command_method(new_text):
+		execute_command_methods_in_dialogue(new_text)
 
 ## Clean text is that text that does not contain any command methods.
 # command methods are represented using curly braces {command_method}
@@ -143,4 +142,15 @@ func _on_SkipButton_button_up():
 func _on_SkipButton_pressed():
 	_on_dialogue_finished()
 	confirm_action_audio.play()
+
+# This function will set the dialogues to show and show the first dialogue.
+# It will also reset the current dialogue index.
+# It should be used during tutorials when ending a tutorial.
+func set_and_start_new_dialogues(new_dialogues: Array):
+	dialogues_to_show = new_dialogues
+	current_dialogue_index = -1
+	# a reset must be performed
+	self.visible = true
+	self.has_finished = false
+	show_first_dialogue()
 

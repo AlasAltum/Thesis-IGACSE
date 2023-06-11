@@ -471,7 +471,6 @@ anims/RESET = SubResource( 24 )
 visible = false
 position = Vector2( 32, 48 )
 frames = SubResource( 26 )
-frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -489,22 +488,18 @@ script = ExtResource( 6 )
 shape = SubResource( 19 )
 
 [node name="Sprite" type="Node2D" parent="ColorRect/StartingNode"]
-show_behind_parent = true
 material = SubResource( 29 )
 
 [node name="StationSimple" type="Sprite" parent="ColorRect/StartingNode/Sprite"]
 show_behind_parent = true
-use_parent_material = true
 position = Vector2( 0, -1.43051e-06 )
 scale = Vector2( 0.479042, 0.479042 )
-z_index = 1
 texture = ExtResource( 11 )
 
 [node name="SpriteTexture" type="Sprite" parent="ColorRect/StartingNode/Sprite"]
 show_behind_parent = true
 use_parent_material = true
 position = Vector2( 0, -4 )
-z_index = -1
 texture = ExtResource( 9 )
 hframes = 4
 region_rect = Rect2( 0, 0, 80, 80 )
@@ -547,7 +542,7 @@ anims/WinAnimation = SubResource( 33 )
 layer = 3
 
 [node name="TextureRect" type="TextureRect" parent="WinAnimationCanvas"]
-visible = false
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 269.0
