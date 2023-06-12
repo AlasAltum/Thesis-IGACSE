@@ -1,14 +1,6 @@
 extends EffectCheck
-# for (Node u: v.edges()):
+# for (Node u: v.non_explored_neighbors()):
 var iteration_index : int = 0
-var computed_max_iteration_index : int = 0
-
-func effect_check_on_focused():
-	var v : AGraphNode = StoredData.get_variable("v").get_node()
-	var non_explored_edges = v.edges
-	for _edge in non_explored_edges:
-		if _edge.is_selected():
-			non_explored_edges.remove(_edge)
 
 
 func get_next_u_node() -> AGraphNode:
@@ -17,7 +9,6 @@ func get_next_u_node() -> AGraphNode:
 	var first_u: AGraphNode = null
 	var first_u_already_chosen: bool = false
 	var loop_broken: bool = true
-	var iteration_index_before_start = iteration_index + 1
 	var v : AGraphNode = StoredData.get_variable("v").get_node()
 	# There are basically two cases:
 	# 1) Our u node was not explored or iterated and just return it
@@ -29,16 +20,18 @@ func get_next_u_node() -> AGraphNode:
 			break
 
 		u_index = v.edges[iteration_index][0]
+
 		# Make sure we do not get out of the array
 		if u_index >= StoredData.nodes.size(): 
 			loop_broken = true
 			break
-
+	
 		u = StoredData.nodes[u_index]
 		# If we have a break because all nodes were explored or iterated
 		# return the first u node
 		if not first_u_already_chosen:
 			first_u = u
+
 		iteration_index += 1
 		# This makes sure our u was not explored
 		if not u.is_iterated_or_explored():
@@ -46,7 +39,8 @@ func get_next_u_node() -> AGraphNode:
 
 	# When already visited all neighbors of v
 	if loop_broken:
-		return first_u 
+		return first_u
+
 	return u
 
 # set u as node
@@ -66,7 +60,7 @@ func execute_side_effect() -> void:
 
 
 func get_max_iteration_index(v: AGraphNode) -> int:
-	return computed_max_iteration_index
+	return v.edges.size()
 
 # In this case, for is for an i < length(v.edges())
 func for_condition_is_true() -> bool:
@@ -79,14 +73,14 @@ func for_condition_is_true() -> bool:
 
 
 func get_next_line() -> int:
+	# If we have to keep adding neighbors of the node v
 	if self.for_condition_is_true():
 		execute_side_effect()
 		return .get_next_line()  # super.get_next_line()
 
-	# Jump and erase u node once we get out of the for loop
-	if StoredData.has_variable("u"):
-		StoredData.erase_variable("u")
-		# Reset iteration index to 0
-		iteration_index = 0
-
+	# If we are here, we have already explored all neighbors of v which are not explored
+	# So we erase the variable u, that will be generated the next time this loop is executed
+	# and we reset the iteration index. Also, jump out of the for scope in code.
+	StoredData.erase_variable("u")
+	iteration_index = 0
 	return .get_jump_line()
