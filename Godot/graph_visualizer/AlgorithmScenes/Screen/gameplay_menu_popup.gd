@@ -26,10 +26,7 @@ func _on_MenuButton_pressed():
 	StoredData.world_node.go_back_to_menu()
 
 func _deferred_goto_scene(path):
-	var s = ResourceLoader.load(path)
-	var current_scene = s.instance()
-	StoredData.get_tree().root.add_child(current_scene)
-	StoredData.get_tree().current_scene = current_scene
+	NotificationManager.go_to_scene(path)
 
 
 func _on_ADTIsNotEmptyPopup_about_to_show():

@@ -128,7 +128,11 @@ func get_variable(variable_name: String):
 	return adt_mediator.get_variable(variable_name)
 
 func erase_variable(var_name: String) -> void:
-	adt_mediator.erase_variable_by_name(var_name)
+	if StoredData.has_variable(var_name):
+		adt_mediator.erase_variable_by_name(var_name)
+	else:
+		printerr("The variable " + var_name + " does not exist")
+
 
 func add_node_to_adt(object_name: String, incoming_node: Object) -> void:
 	adt_mediator.add_node_to_adt(object_name, incoming_node)

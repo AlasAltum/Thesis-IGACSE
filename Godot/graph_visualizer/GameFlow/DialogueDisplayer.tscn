@@ -1,7 +1,6 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://GameFlow/DialogueScenesContent/DialogueDis
-playerFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://GameFlow/DialogueScenesContent/DialogueDisplayerFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://GameFlow/dialogue_displayer.gd" type="Script" id=2]
 [ext_resource path="res://Assets/sound/menu_button_click _trimmed.mp3" type="AudioStream" id=3]
 

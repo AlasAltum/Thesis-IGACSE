@@ -220,6 +220,15 @@ func show_skip_to_next_level_popup():
 	if skip_to_next_level_popup:
 		skip_to_next_level_popup.popup()
 
+func go_to_scene(path):
+	call_deferred("_deferred_goto_scene", path)
+
+func _deferred_goto_scene(path):
+	var s = ResourceLoader.load(path)
+	var current_scene = s.instance()
+	StoredData.get_tree().root.add_child(current_scene)
+	StoredData.get_tree().current_scene = current_scene
+	
 func reset_data():
 	self.finished_popup = null
 	self.u_is_explored_popup = null

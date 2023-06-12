@@ -329,9 +329,9 @@ func go_to_random_level():
 	if keys.size() > 0:
 		var random_index = randi() % keys.size()
 		var random_level = keys[random_index]
-		var random_level_scene = StoredData.remaining_levels_to_finish[random_level]
+		var random_level_scene_path: String = StoredData.remaining_levels_to_finish[random_level]
 		StoredData.remaining_levels_to_finish.erase(level_name)
-		call_deferred("_deferred_goto_scene", random_level_scene)
+		NotificationManager.go_to_scene(random_level_scene_path)
 		self.set_name("TempMain")
 		call_deferred("queue_free")
 
@@ -339,13 +339,5 @@ func go_back_to_menu():
 	AudioPlayer.stop_playing_music() # Whatever the music soundtrack playing, stop it when coming back to the menu
 	self.set_name("TempMain")
 	call_deferred("queue_free")
-	call_deferred("_deferred_goto_scene", "res://GameFlow/MainMenu.tscn")
-
-
-func _deferred_goto_scene(path):
-	self.set_name("TempMain")
-	var s = ResourceLoader.load(path)
-	var current_scene = s.instance()
-	StoredData.get_tree().root.add_child(current_scene)
-	StoredData.get_tree().current_scene = current_scene
+	NotificationManager.go_to_scene("res://GameFlow/MainMenu.tscn")
 

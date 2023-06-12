@@ -22,12 +22,13 @@ func effect_check_on_focused() -> void:
 	_mark_level_as_finished()
 	self._reset_data()
 
+# TODO: Erase this once the game has been fully tested
 func goto_scene(path):
-	call_deferred("_deferred_goto_scene", path)
+	NotificationManager.go_to_scene(path)
 
-func _deferred_goto_scene(path):
-	var s = ResourceLoader.load(path)
-	var current_scene = s.instance()
-	StoredData.get_tree().root.add_child(current_scene)
-	StoredData.get_tree().current_scene = current_scene
+# func _deferred_goto_scene(path):
+# 	var s = ResourceLoader.load(path)
+# 	var current_scene = s.instance()
+# 	StoredData.get_tree().root.add_child(current_scene)
+# 	StoredData.get_tree().current_scene = current_scene
 

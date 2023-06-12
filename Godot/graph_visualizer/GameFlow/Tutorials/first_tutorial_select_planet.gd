@@ -29,7 +29,6 @@ func send_ship_to_node(end_planet: AGraphNode):
 		edge = $ColorRect/Edge2S
 	if edge:
 		edge.send_ship_from_nodeA_to_nodeB(starting_node, end_planet)
-
 	# Check if both planets have been pressed. If so,
 	# win and go to the next level after an animation
 	# if planet1.selected and planet2.selected:

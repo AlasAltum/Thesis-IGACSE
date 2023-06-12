@@ -20,6 +20,7 @@ export (Array, String, MULTILINE) var dialogues_to_show = []
 export (int) var current_dialogue_index = -1
 export (PackedScene) var next_scene = null
 export (Resource) var command_methods_script;  # : CommandMethod
+export (bool) var should_transfer_to_next_scene = true
 
 var has_finished : bool = false
 
@@ -27,6 +28,9 @@ signal dialogue_finished
 
 
 func _ready():
+	if next_scene == null:
+		printerr("Dialogue Displayer: next scene is null!")
+
 	next_button.connect("pressed", self, "_on_NextButton_pressed")
 	skip_button.connect("pressed", self, "_on_SkipButton_pressed")
 	text_shower_animation.connect("animation_finished", self, "on_dialogue_displayed_to_the_end")
@@ -70,6 +74,21 @@ func _on_next_dialogue():
 	if _has_command_method(new_text):
 		execute_command_methods_in_dialogue(new_text)
 
+
+func _on_dialogue_finished():
+	# Do not allow this function to be repeated
+	if has_finished:
+		return
+
+	self.visible = false
+	has_finished = true
+	emit_signal("dialogue_finished")
+	# Should start next scene
+	if should_transfer_to_next_scene:
+		var scene_path : String = next_scene.resource_path
+		StoredData.world_node.queue_free()
+		NotificationManager.call_deferred("go_to_scene", scene_path)
+
 ## Clean text is that text that does not contain any command methods.
 # command methods are represented using curly braces {command_method}
 # This function will return the text without the command methods.
@@ -82,7 +101,8 @@ func _get_clean_text_from_dialogue(input_text: String) -> String:
 		clean_text = clean_text.replace(clean_text.substr(start_index, end_index - start_index + 1), "")
 
 	return clean_text
-	
+
+
 # This function will return true if the input text contains a command method
 # and false otherwise
 func _has_command_method(input_text: String) -> bool:
@@ -114,13 +134,6 @@ func execute_command_methods_in_dialogue(input_text: String) -> void:
 	for command_method in command_methods:
 		command_methods_script.call(command_method)
 
-#
-func _on_dialogue_finished():
-	if not has_finished:
-		has_finished = true
-		emit_signal("dialogue_finished")
-		self.visible = false
-		# Should start next scene
 
 # This function will be called when the animation of the text being displayed
 # is finished. It will set the playback speed of the animation to the original
