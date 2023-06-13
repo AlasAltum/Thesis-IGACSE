@@ -14,6 +14,12 @@ public class MainMenu : CanvasLayer
 	[Export]
 	private Godot.Collections.Array<string> TutorialLevelsPaths = new Godot.Collections.Array<string>();
 
+	[Export]
+	private PackedScene storyModeFirstLevelPath; // "res://GameFlow/StoryModeChapterOne.tscn"; 
+
+	[Export]
+	private PackedScene algorithmSelectionMenuScene; // "res://GameFlow/AlgorithmSelectionMenu.tscn";
+
 	private String BFS_TEST = "res://AlgorithmScenes/TestScenes/BFS_test.tscn";
 	private String DFS_TEST = "res://AlgorithmScenes/TestScenes/DFS_test.tscn";
 
@@ -63,14 +69,14 @@ public class MainMenu : CanvasLayer
 	{
 		PlayButtonSound();
 		startGameButton.Disabled = true;
-		GotoScene("res://GameFlow/StoryModeChapterOne.tscn");
+		GotoScene(storyModeFirstLevelPath.ResourcePath);
 	}
 
 	public void OnSelectLevelButtonPressed()
 	{
 		PlayButtonSound();
 		startGameButton.Disabled = true;
-		GotoScene("res://GameFlow/AlgorithmSelectionMenu.tscn");
+		GotoScene(algorithmSelectionMenuScene.ResourcePath);
 	}
 
 
