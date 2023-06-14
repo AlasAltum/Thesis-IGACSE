@@ -79,7 +79,6 @@ func _ready():
 	randomize()
 	self.adt_mediator = $ADTMediator
 	node_container_key_properties = _init_node_container_key_properties()
-	self.add_to_group("Main")
 	## Create Graph ##
 	# create nodes and their connecting edges by initializing the matrix
 	create_nodes_with_weights(graph_size)
@@ -341,3 +340,5 @@ func go_back_to_menu():
 	call_deferred("queue_free")
 	NotificationManager.go_to_scene("res://GameFlow/MainMenu.tscn")
 
+func get_class() -> String:
+	return "GraphScreen"
