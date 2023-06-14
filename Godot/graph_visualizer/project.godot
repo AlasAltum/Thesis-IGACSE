@@ -149,6 +149,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Screen/finished_code_popup.gd"
 }, {
+"base": "Control",
+"class": "FirstStoryModeScene",
+"language": "GDScript",
+"path": "res://GameFlow/story_mode_scene.gd"
+}, {
 "base": "Node2D",
 "class": "FirstTutorial",
 "language": "GDScript",
@@ -254,6 +259,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Screen/ADT/Stack/stack_representation.gd"
 }, {
+"base": "Control",
+"class": "StoryModeScene",
+"language": "GDScript",
+"path": "res://GameFlow/first_story_mode_scene.gd"
+}, {
 "base": "GraphManager",
 "class": "TestManager",
 "language": "GDScript",
@@ -303,6 +313,7 @@ _global_script_class_icons={
 "FindWUnequalFindVPopup": "",
 "FinishCodeEffect": "",
 "FinishedPopup": "",
+"FirstStoryModeScene": "",
 "FirstTutorial": "",
 "GameplayMenuPopup": "",
 "GraphManager": "",
@@ -324,6 +335,7 @@ _global_script_class_icons={
 "StackADT": "",
 "StackForTesting": "",
 "StackRepresentation": "",
+"StoryModeScene": "",
 "TestManager": "",
 "TutorialPlayer": "",
 "TutorialPopup": "",
@@ -362,7 +374,6 @@ singletons=[  ]
 
 [global]
 
-port=false
 localhost=true
 cursor=false
 audio=false

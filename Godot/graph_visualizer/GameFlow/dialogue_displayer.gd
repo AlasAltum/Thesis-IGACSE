@@ -83,13 +83,11 @@ func _on_dialogue_finished():
 	self.visible = false
 	has_finished = true
 	emit_signal("dialogue_finished")
-	# Should start next scene
-	if should_transfer_to_next_scene:
-		var scene_path : String = next_scene.resource_path
-		StoredData.world_node.queue_free()
-		NotificationManager.call_deferred("go_to_scene", scene_path)
+	# Here we could start next scene
+	# But it is better that each world node knows when to end
+	# They can use the dialogue_finished signal anyway
 
-## Clean text is that text that does not contain any command methods.
+# Clean text is the text that does not contain any command methods.
 # command methods are represented using curly braces {command_method}
 # This function will return the text without the command methods.
 func _get_clean_text_from_dialogue(input_text: String) -> String:

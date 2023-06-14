@@ -1,9 +1,9 @@
-class_name FirstStoryModeScene
+class_name StoryModeScene
 extends Control
 
 # Store mode scenes allows control over dialogues and manages signals
 # They should be used during transition scenes in the story mode
-
+export (PackedScene) var on_fade_out_next_scene
 export (NodePath) var animation_node_path
 var animation_node : AnimationPlayer
 
@@ -11,8 +11,8 @@ var animation_node : AnimationPlayer
 func _ready():
 	animation_node = $FadeInOut
 	animation_node.play("FadeIn")
-	StoredData.world_node = self
-
+	StoredData.world_node = self 
+	$CanvasLayer/DialogueShower.connect("dialogue_finished", self, "_on_DialogueShower_dialogue_finished")
 
 func _on_FadeInOut_animation_finished(anim_name):
 	if anim_name == "FadeIn":
@@ -21,13 +21,13 @@ func _on_FadeInOut_animation_finished(anim_name):
 			dialogue_shower.show_first_dialogue()
 
 	if anim_name == "FadeOut":
-		go_to_scene("res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/BFS_tutorial.tscn")
+		go_to_scene(on_fade_out_next_scene.get_path())
 
 func go_to_scene(scene_path: String):
 	call_deferred("deferred_goto_scene", scene_path)
-	self.queue_free()
 
 func deferred_goto_scene(scene_path: String):
+	self.queue_free()
 	var next_scene = load(scene_path)
 	var next_scene_instance = next_scene.instance()
 	get_tree().root.add_child(next_scene_instance) 
@@ -38,7 +38,6 @@ func _on_DialogueShower_dialogue_finished():
 	if animation_node:
 		animation_node.play("FadeOut")
 		$LaunchingSound.play()
-
 
 func get_class() -> String:
 	return "StoryModeChapter"

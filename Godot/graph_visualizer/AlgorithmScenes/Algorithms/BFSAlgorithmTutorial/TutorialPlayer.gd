@@ -2,7 +2,7 @@ class_name TutorialPlayer
 extends AnimationPlayer
 
 
-var main
+var main = null
 var has_played_stop_queue_hightlight_once = false 
 
 func _ready():

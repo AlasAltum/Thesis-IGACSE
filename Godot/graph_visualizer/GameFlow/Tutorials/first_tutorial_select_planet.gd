@@ -4,6 +4,7 @@ extends Node2D
 # Governs the world for the first tutorial level
 var animation_played_once = false
 
+
 onready var starting_node: AGraphNode = $ColorRect/StartingNode
 onready var planet1: AGraphNode = $ColorRect/Planet1
 onready var planet2: AGraphNode = $ColorRect/Planet2
@@ -63,3 +64,5 @@ func on_win_animation_finished(anim_name):
 		]
 		dialogue_displayer.set_and_start_new_dialogues(new_dialogues_to_show)
 
+func get_class() -> String:
+	return "Tutorial"

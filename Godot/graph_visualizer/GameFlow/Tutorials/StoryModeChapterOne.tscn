@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/textures/NightmareB.png" type="Texture" id=4]
 [ext_resource path="res://GameFlow/DialogueScenesContent/ship_movement_background.gd" type="Script" id=5]
 [ext_resource path="res://GameFlow/Tutorials/FirstTutorialSelectPlanet.tscn" type="PackedScene" id=6]
-[ext_resource path="res://GameFlow/story_mode_scene.gd" type="Script" id=7]
+[ext_resource path="res://GameFlow/first_story_mode_scene.gd" type="Script" id=7]
 [ext_resource path="res://Assets/sound/launch.wav" type="AudioStream" id=8]
 
 [sub_resource type="Curve2D" id=1]
@@ -56,13 +56,14 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[node name="StoryTemplate" type="Control"]
+[node name="StoryModeChapterOne" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 7 )
+on_fade_out_next_scene = ExtResource( 6 )
 animation_node_path = NodePath("FadeInOut")
 
 [node name="Background" parent="." instance=ExtResource( 1 )]
@@ -96,7 +97,7 @@ bus = "Music"
 [node name="CanvasLayer" parent="." instance=ExtResource( 3 )]
 
 [node name="DialogueShower" parent="CanvasLayer" index="0"]
-next_scene = ExtResource( 6 )
+should_transfer_to_next_scene = false
 
 [node name="LaunchingSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
@@ -114,7 +115,7 @@ layer = 10
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
+color = Color( 0, 0, 0, 0 )
 
 [connection signal="animation_finished" from="FadeInOut" to="." method="_on_FadeInOut_animation_finished"]
 
