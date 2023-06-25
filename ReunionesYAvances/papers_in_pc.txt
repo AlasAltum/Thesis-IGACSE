@@ -44,3 +44,13 @@ forget about the outside world during gameplay
 
 Identifying Student Difficulties with Basic Data Structures
 https://dl.acm.org/doi/pdf/10.1145/3230977.3231005
+
+
+
+como la narrativa, el estilo gráfico homogéneo y el uso de 
+personajes o avatares con los que el jugador puede identificarse, ayudan a generar 
+una mayor inmersión en el juego y en la actividad por parte del alumno, ya que estos 
+elementos permiten una mayor credibilidad en la fantasía que conforma el mundo del 
+juego (Rollings & Adams, 2003)
+(Wurman, G. 2013)
+https://repositorio.uc.cl/handle/11534/2876
