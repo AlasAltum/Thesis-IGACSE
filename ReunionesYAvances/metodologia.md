@@ -28,3 +28,4 @@ Al tratarse de un trabjao con personas, existen variables que están fuera del c
 
 Por otra parte, los instrumentos utilizados para validar aprendizaje no entregan resultados continuos, sino que discretos.  Los resultados pierden precisión al ignorar niveles de conocimiento que se encuentren entre puntos de medición determinados por los instrumentos, como ocurre al medir milímetros en una regla que solo tiene centímetros. Además, se pueden estar ignorando niveles de aprendizaje como capacidad de ejecución o análisis crítico por usar preguntas con alternativas.
 
+Finalmente, se enfatiza que estas pruebas son un proceso separado de un curso y sin un docente que esté acompañando el proceso. Una prueba más robusta consiste en tener un número signitificativo de cursos y probar variantes del curso, con y sin estas herramientas para determinar si existen diferencias.
