@@ -10,6 +10,12 @@ extends Node2D
 # get node by index, reset data, and more. The code is written in GDScript and should be used 
 # in the Godot game engine.
 
+var story_mode_scenes = [
+	"res://GameFlow/Tutorials/StoryModeChapterOne.tscn",
+	"res://GameFlow/Tutorials/FirstTutorialSelectPlanet.tscn",
+	""
+]
+
 var finished_levels = {
 	"BFS": false,
 	"DFS": false,

@@ -36,10 +36,12 @@ func _ready():
 	text_shower_animation.connect("animation_finished", self, "on_dialogue_displayed_to_the_end")
 	text_shower_animation.playback_speed = original_dialogue_speed
 	dialogue_text.text = ""
+
 	# Create instance of command script
 	if command_methods_script:
 		command_methods_script = command_methods_script.new()
 		command_methods_script.parent_dialogue = self
+
 	show_first_dialogue()
 
 func show_first_dialogue():
@@ -72,7 +74,7 @@ func _on_next_dialogue():
 	text_shower_animation.stop()
 	text_shower_animation.play("ShowText") # Show the text with an animation.
 	if _has_command_method(new_text):
-		execute_command_methods_in_dialogue(new_text)
+		execute_command_methods_in_text(new_text)
 
 
 func _on_dialogue_finished():
@@ -108,8 +110,14 @@ func _has_command_method(input_text: String) -> bool:
 		return true
 	return false
 
+func execute_command_methods_in_dialogue() -> void:
+	# Execute all command methods in the current dialogue, in case the user skips the dialogue
+	for dialogue in dialogues_to_show:
+		if _has_command_method(dialogue):
+			execute_command_methods_in_text(dialogue)
+
 # This function will execute the command methods in the input text.
-func execute_command_methods_in_dialogue(input_text: String) -> void:
+func execute_command_methods_in_text(input_text: String, allow_repetition : bool = false) -> void:
 	# Get every command method in the input text by getting the text between the curly braces
 	var command_methods = []
 	var current_command_method = ""
@@ -123,15 +131,15 @@ func execute_command_methods_in_dialogue(input_text: String) -> void:
 			is_inside_command_method = false
 			command_methods.append(current_command_method)
 			current_command_method = ""
+
 		# add character to current command method if we are inside a command method {x___ 
 		# and haven't reached yet a closing curly brace
-		elif is_inside_command_method:
+		if is_inside_command_method:
 			current_command_method += character
 
 	# Execute all command methods in text
 	for command_method in command_methods:
-		command_methods_script.call(command_method)
-
+		command_methods_script.execute_command(command_method, allow_repetition)
 
 # This function will be called when the animation of the text being displayed
 # is finished. It will set the playback speed of the animation to the original

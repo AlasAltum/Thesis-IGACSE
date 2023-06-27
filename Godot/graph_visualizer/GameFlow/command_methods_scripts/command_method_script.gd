@@ -6,8 +6,13 @@ extends Resource
 # like {foo}, this will trigger the foo method in the command method script
 # that is bound to the dialogue instance in the editor.
 
+var executed_command_methods = [] #: Array
 var parent_dialogue = null #: DialogueDisplayer
 
-func _ready():
-	if parent_dialogue:
-		var world_node = parent_dialogue.get_parent_control()
+
+func execute_command(command: String, allow_repetition = false) -> void:
+	if command in executed_command_methods and not allow_repetition:
+		return
+
+	executed_command_methods.append(command)
+	self.call(command)

@@ -5,7 +5,7 @@ Time: 2 hrs
 Con respecto al tutorial, los textos que aparecen y las popups: 
 usuario debe apretar un botón y sigue al siguiente texto.
 Apreta SPACE para continuar. Siempre.
-Por ejemplo: Si estás apretas A/Espacio, haz que el texto se apuea o se escribe completo. Pero mejor evitar el texto
+Por ejemplo: Si estás apretas A/Espacio, haz que el texto se apure o se escribe completo. Pero mejor evitar el texto
 Avanzar al siguiente texto cuando se aprete espacio.
 
 <Se inicia el juego, ya apretó espacio y se mostró el código y el viewport principal con el grafo>
@@ -29,7 +29,7 @@ Estoy viendo cómo juegas y no entiendo qué pasa.
 Creo que el código debería salir de a poco.
 ¿Cómo uso estas instrucciones en lo que tengo?
 
-Este if sirve para esto, este while sirve para esto. 
+Este if sirve para esto, este while sirve para esto.
 Podría proponerlo: Te enseñaré la mecánica de qué puedes hacer con el if, qué puedes hacer con el while.
 
 (Por ejemplo, en un tutorial:)
@@ -52,13 +52,11 @@ Lo que está en rojo le puedes hacer click y se puede editar.
 Que esté bien destacado como un texto que puedes modificar.
 También podrías intentar poner las variables al inicio, como la cola y el nodo t.
 
-
 (Se descarta esa idea porque no va con la idea de simular un debugger, además que permitiría introducir muchos bugs,
 requeriría mucho más control de lógica y errores por parte del usuario.)
 
 Se siente que la variable de al lado está demás. Esa current variable. Quizás mostrarla más adelante, 
 cuando le metes algo a la cola.
-
 
 (Respecto al texto de abajo) 
 Quizas ponerle visor o locals a variables.
@@ -99,146 +97,146 @@ Si no lo necesitas, no lo muestres.
 User: SC
 
 
-# Una fuente constante de información, si me quedo con una, que sea solo popup o solo el texto del medio
-# aprovecha el movimiento, las cosas qeu se mueven llaman mucho más la atención
-# si quieres que haga click en cierto movimiento.
-# El indicador que se mueva, que tenga algún punto, que esté girando. Generar movimiento
-# llama más la atención que las cosas estáticas.
+Una fuente constante de información, si me quedo con una, que sea solo popup o solo el texto del medio
+aprovecha el movimiento, las cosas qeu se mueven llaman mucho más la atención
+si quieres que haga click en cierto movimiento.
+El indicador que se mueva, que tenga algún punto, que esté girando. Generar movimiento
+llama más la atención que las cosas estáticas.
 
-# Prueba testear conceptos de a poquito
-# Quiero testear este tutorial, qué cosas ven primero, etc etc
-# Depsués, los colores de los planetas, resaltarlos, cómo afecta, etc
-# Probar paso por paso, si lo hago todo de una y después falla
-# Perdí mucho tiempo y no sabré exactamente qué es lo que falló y voy a tener muchas
-# variables que cambié y no sé cuál falló.
-
-
-# También es importante si es parte de un curso, o al aire, no tengo cómo saber a quién le va a llegar
-# No sabes qué tipo de usuario vas a tener, cuál va a ser su interés
-# Si lo haces en un curso obligatorio o un taller, la gente va a tener más interés
-# la gente de dcc tiene más interés.
-# Acotar el contexto del usuario donde se mueve este producto. Eso es bueno para saber
-# Qué tanto texto debo poner. Si las animaciones pueden ser más llamativas, etc
+Prueba testear conceptos de a poquito
+Quiero testear este tutorial, qué cosas ven primero, etc etc
+Depsués, los colores de los planetas, resaltarlos, cómo afecta, etc
+Probar paso por paso, si lo hago todo de una y después falla
+Perdí mucho tiempo y no sabré exactamente qué es lo que falló y voy a tener muchas
+variables que cambié y no sé cuál falló.
 
 
-# La instrucción de abajo, hazle click y después apreta espacio
-# Son dos instrucciones en una. Una vez hiciste click, desapareció el espacio
-# Por lo que el usuario pierde el espacio.
-
-# Quizás el space es mucho darle tanto arcoiris
-# Cambiaste la forma de hacer instrucciones. TIenes este cartel gigante que se mueve
-# HAy que ser lo más consistente posible con la forma de instrucción
-# Que la instrucción esté similar en un formato parecido. SI usarás flechas, que se vean parecidas
-# Que se muevan todas parecidas. Si no hay consistencia, me hace pensar demasiado
-
-# Que diga space y me apunte al mismo tiempo en un lado es extraño lo tengo en mi teclado
-# (porque la flecha indica space hacia la línea)
-#  El botón menú ade arriba parece conectado al código
-# Pensé que el menú es la consola
-
-# Sale popup de data structures y en las instruccione sno dice DATA Structures
-
-# Quizás debería ser, para SELECCIONAR la variable, apretar W o S.
-# Porque si no se piensa que se quiere MODIFICAR la variable
-# mucho texto para explicar cómo moverme en el menú
-
-# Quizás podrían ser unas imágenes (flechitas) que digan W / S.
-# QUe diga como 
-# las 2 rayas confunden. Era un círculo amarillo y 2 rayas ( por la cola)
-# en ningún momento me dijiste qué estamos haciendo. Estoy creando estructuras de datos
-# Estoy siguiendo instrucciones hasta ahora.
-
-# EL NUCLEO DEL JUEGO SE DEBE TRATAR DE QUE ESTAS SIGUEINDO 
-# LAS INSTRUCCIONES DEL JUEGO. LO IDEAL ES NO EXPLICITARLO
-# Y QUE SE DÉ A ENTENDER POR SÍ SOLO
-# si se da como un buen slide que le dice al usuario qué está haciendo
-# bacán.
-
-# Confía en el conocimiento de tu usuario. Gente universitaria que juega
-# juegos. Selecciona este nodo y agrégalo a la variable. Que el usuario
-# descubra a través de la interfaz cómo se hace eso
-# Si la interfaz está bien hecha, el usuario debería encontrar cómo hacerlo.
-
-# Ese space está demasiado llamativo. Hice una acción, apreté la R 
-# y en la pantalla pasaron 3 cosas. Todas requerían mi atención
-# Se agregó un nodo al dibujo, se highlighteó la variable y se destacó algo a la izq
-
-# hay un concepto que se llama la ceguera del cambio.
-# Uno no detecta los cambios en los que no está enfocado
-# Si estoy enfocado en cierta parte de la pantalla, hay una parte que está cambiando
-# y no la voy a ver. Si me pierdo esta información,
-# Enfocar la atención del usuario en un solo lado, que es donde estoy dando la instrucción
-# la instrucciones que se den con una sola forma.
-# Si usas animaciones, que sean específicamente para lo que quiero enfocar
-# Si hago cambios grandes en la interfaz, que sean donde quiero que el usuario vea que estoy cambiando cosas
-# Piensa en la atencińo del usuario, dónde está enfocándose en este momento
-# Apreté el no y no hubo una consecuencia de esa acción
-# Solo me dijo, apreta SPACE.
-# Quizás basta decir que space = next instruction y no tanta parafernalia
-# 
-# Podría simplificar mucho más el primer acercamiento. 
-# Tutirales interactivos de lenguajes de programación
-# Esta es la función print()
-# esto es un if, lo que está dentro, así conectas lo que hiciste en el primer
-# paso con un conocimiento nuevo en el segundo paso
-
-# En este tutorial tienes todo lo posible altiro. se va haciendo
-# más difícil cómo funciona la cosa.
-
-# Un escenario muy sencillo donde tenga un planeta, lo más básico lo que puedo
-# hacer, así le muestro al usuario de a poco, las funcionalidades distintas
-# Si hay un while, muestro una cosa
-# Si es empty, saldrá una ventana que me preguntará a mí si está empty.
-
-# Cada aprendizaje nuevo será un escenario distinto o irse agregando de a poco.
-
-# TODO: Revisar tutoriales de lenguajes. tutorial básico de JS
-# A ver cómo te introducen paso a paso las cosas
-# otro buen ejemplo de juego que son muy complejos y muchos menúes
-# Son los simuladores, Age of Empires, Civilization, Sim City,
-# Kerbal Space Program. Es súper complejo, no te puede mostrar todo
-# de una, te van mostrando pasito a pasito. Esto es todo lo que puedes
-# hacer hasta ahora. Después te lo voy a mostrar.
-# Busca juegos que sean muy complejos y ve cómo resuelven
-# los tutoriales esos juegos.
-
-# Usan popups, animaciones, cómo me indican qué teclas puedo usar.
-# inspírate en cosas que ya existen.
-
-# Algo muy importante en UX/UI es nunca sorprender al usuario
-# Mientras menos tenga que aprender, mejor. Lo ideal es usar
-# Estándares, hay que colgarse de eso. No vale la pena 
-# reinventar la rueda
-
-# Jacob's law: Los usuarios gastan la mayor parte de su tiempo en otros sitios
-# Tu juego representa un porcentaje enano en la vida de los demás usuarios
-# por eso debes colgarte de la vida del usuario. Tienes que hacer una investigación
-# "in situ", jugar otors juegos, buscar otros tutoriales, sitios de aprendizaje, E-learning
-# Etc, cómo resolver este aprendizaje inciial, tutorial.
-
-# Por ejemplo, tenemos estos planetas y no sé qué hacen todavía
-# Podrías entender: esto es un planeta, tengo que conectarlo con otro planeta, bacán
-# siguiente paso, tengo 3 planetas. Muy progresivo.
-
-# Nielsen Norman Group, tienen una organización. Tienen muchos artículos choros
-# https://www.nngroup.com/articles/onboarding-tutorials/
-# ANTI ejemplo: https://userinyerface.com/game.html
-# 
-
-# Primer tutorial: panel, instrucciones
-# Segundo tutorial: variables
-# Dar gratificación, porque completa el nivel más fácil
-# El nivel 1, le pongo una trompetita, para que dé serotonina porque estás avanzando
+También es importante si es parte de un curso, o al aire, no tengo cómo saber a quién le va a llegar
+No sabes qué tipo de usuario vas a tener, cuál va a ser su interés
+Si lo haces en un curso obligatorio o un taller, la gente va a tener más interés
+la gente de dcc tiene más interés.
+Acotar el contexto del usuario donde se mueve este producto. Eso es bueno para saber
+Qué tanto texto debo poner. Si las animaciones pueden ser más llamativas, etc
 
 
-# Duolingo es muy buen ejemplo de UX, pasito a pasito de la gamification brígida
-# Te enseña cosas, pero te las muestras como un juego, y está todo muy bien pensado
-# Te muestra un leaderboard, para que te sientas en competencia. Todas las cosas para UX de juegos
-# duolingo lo incorpora para enseñarte juegos.
-# Duolingo lo usan boomers y adultos mayores. Ese sentido de ganar cositas paso a paso es universla
-# no tiene que ver con la edad. Se afirman de eso para introducir conceptos que uno piensa uqe 
-# son más mileanls como juegos y aplicarlo a públicos más mayores.
-# Ahora hay muchos nuevos features, ahora completas esto y ganas aún más puntos!
-# principios de persuasión de cialdini de marketing.
-# Escasez, presión social, cosas que te hacen hacer cosas. 
+La instrucción de abajo, hazle click y después apreta espacio
+Son dos instrucciones en una. Una vez hiciste click, desapareció el espacio
+Por lo que el usuario pierde el espacio.
+
+Quizás el space es mucho darle tanto arcoiris
+Cambiaste la forma de hacer instrucciones. TIenes este cartel gigante que se mueve
+HAy que ser lo más consistente posible con la forma de instrucción
+Que la instrucción esté similar en un formato parecido. SI usarás flechas, que se vean parecidas
+Que se muevan todas parecidas. Si no hay consistencia, me hace pensar demasiado
+
+Que diga space y me apunte al mismo tiempo en un lado es extraño lo tengo en mi teclado
+(porque la flecha indica space hacia la línea)
+El botón menú de arriba parece conectado al código
+Pensé que el menú es la consola
+
+Sale popup de data structures y en las instruccione sno dice DATA Structures
+
+Quizás debería ser, para SELECCIONAR la variable, apretar W o S.
+Porque si no se piensa que se quiere MODIFICAR la variable
+mucho texto para explicar cómo moverme en el menú
+
+Quizás podrían ser unas imágenes (flechitas) que digan W / S.
+QUe diga como 
+las 2 rayas confunden. Era un círculo amarillo y 2 rayas ( por la cola)
+en ningún momento me dijiste qué estamos haciendo. Estoy creando estructuras de datos
+Estoy siguiendo instrucciones hasta ahora.
+
+EL NUCLEO DEL JUEGO SE DEBE TRATAR DE QUE ESTAS SIGUEINDO 
+LAS INSTRUCCIONES DEL JUEGO. LO IDEAL ES NO EXPLICITARLO
+Y QUE SE DÉ A ENTENDER POR SÍ SOLO
+si se da como un buen slide que le dice al usuario qué está haciendo
+bacán.
+
+Confía en el conocimiento de tu usuario. Gente universitaria que juega
+juegos. Selecciona este nodo y agrégalo a la variable. Que el usuario
+descubra a través de la interfaz cómo se hace eso
+Si la interfaz está bien hecha, el usuario debería encontrar cómo hacerlo.
+
+Ese space está demasiado llamativo. Hice una acción, apreté la R 
+y en la pantalla pasaron 3 cosas. Todas requerían mi atención
+Se agregó un nodo al dibujo, se highlighteó la variable y se destacó algo a la izq
+
+hay un concepto que se llama la ceguera del cambio.
+Uno no detecta los cambios en los que no está enfocado
+Si estoy enfocado en cierta parte de la pantalla, hay una parte que está cambiando
+y no la voy a ver. Si me pierdo esta información,
+Enfocar la atención del usuario en un solo lado, que es donde estoy dando la instrucción
+la instrucciones que se den con una sola forma.
+Si usas animaciones, que sean específicamente para lo que quiero enfocar
+Si hago cambios grandes en la interfaz, que sean donde quiero que el usuario vea que estoy cambiando cosas
+Piensa en la atencińo del usuario, dónde está enfocándose en este momento
+Apreté el no y no hubo una consecuencia de esa acción
+Solo me dijo, apreta SPACE.
+Quizás basta decir que space = next instruction y no tanta parafernalia
+
+Podría simplificar mucho más el primer acercamiento. 
+Tutirales interactivos de lenguajes de programación
+Esta es la función print()
+esto es un if, lo que está dentro, así conectas lo que hiciste en el primer
+paso con un conocimiento nuevo en el segundo paso
+
+En este tutorial tienes todo lo posible altiro. se va haciendo
+más difícil cómo funciona la cosa.
+
+Un escenario muy sencillo donde tenga un planeta, lo más básico lo que puedo
+hacer, así le muestro al usuario de a poco, las funcionalidades distintas
+Si hay un while, muestro una cosa
+Si es empty, saldrá una ventana que me preguntará a mí si está empty.
+
+Cada aprendizaje nuevo será un escenario distinto o irse agregando de a poco.
+
+TODO: Revisar tutoriales de lenguajes. tutorial básico de JS
+A ver cómo te introducen paso a paso las cosas
+otro buen ejemplo de juego que son muy complejos y muchos menúes
+Son los simuladores, Age of Empires, Civilization, Sim City,
+Kerbal Space Program. Es súper complejo, no te puede mostrar todo
+de una, te van mostrando pasito a pasito. Esto es todo lo que puedes
+hacer hasta ahora. Después te lo voy a mostrar.
+Busca juegos que sean muy complejos y ve cómo resuelven
+los tutoriales esos juegos.
+
+Usan popups, animaciones, cómo me indican qué teclas puedo usar.
+inspírate en cosas que ya existen.
+
+Algo muy importante en UX/UI es nunca sorprender al usuario
+Mientras menos tenga que aprender, mejor. Lo ideal es usar
+Estándares, hay que colgarse de eso. No vale la pena 
+reinventar la rueda
+
+Jacob's law: Los usuarios gastan la mayor parte de su tiempo en otros sitios
+Tu juego representa un porcentaje enano en la vida de los demás usuarios
+por eso debes colgarte de la vida del usuario. Tienes que hacer una investigación
+"in situ", jugar otors juegos, buscar otros tutoriales, sitios de aprendizaje, E-learning
+Etc, cómo resolver este aprendizaje inciial, tutorial.
+
+Por ejemplo, tenemos estos planetas y no sé qué hacen todavía
+Podrías entender: esto es un planeta, tengo que conectarlo con otro planeta, bacán
+siguiente paso, tengo 3 planetas. Muy progresivo.
+
+Nielsen Norman Group, tienen una organización. Tienen muchos artículos choros
+https://www.nngroup.com/articles/onboarding-tutorials/
+ANTI ejemplo: https://userinyerface.com/game.html
+
+
+Primer tutorial: panel, instrucciones
+Segundo tutorial: variables
+Dar gratificación, porque completa el nivel más fácil
+El nivel 1, le pongo una trompetita, para que dé serotonina porque estás avanzando
+
+
+Duolingo es muy buen ejemplo de UX, pasito a pasito de la gamification brígida
+Te enseña cosas, pero te las muestras como un juego, y está todo muy bien pensado
+Te muestra un leaderboard, para que te sientas en competencia. Todas las cosas para UX de juegos
+duolingo lo incorpora para enseñarte juegos.
+Duolingo lo usan boomers y adultos mayores. Ese sentido de ganar cositas paso a paso es universal
+no tiene que ver con la edad. Se afirman de eso para introducir conceptos que uno piensa uqe 
+son más mileanls como juegos y aplicarlo a públicos más mayores.
+Ahora hay muchos nuevos features, ahora completas esto y ganas aún más puntos!
+principios de persuasión de cialdini de marketing.
+Escasez, presión social, cosas que te hacen hacer cosas. 
 

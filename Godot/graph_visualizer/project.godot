@@ -224,6 +224,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Screen/ADT/Queue/queue_representation.gd"
 }, {
+"base": "Node2D",
+"class": "SecondTutorial",
+"language": "GDScript",
+"path": "res://GameFlow/Tutorials/second_tutorial.gd"
+}, {
 "base": "Object",
 "class": "Set",
 "language": "GDScript",
@@ -328,6 +333,7 @@ _global_script_class_icons={
 "QueueADT": "",
 "QueueForTesting": "",
 "QueueRepresentation": "",
+"SecondTutorial": "",
 "Set": "",
 "SetADT": "",
 "ShowSkipToNextLevelPopup": "",

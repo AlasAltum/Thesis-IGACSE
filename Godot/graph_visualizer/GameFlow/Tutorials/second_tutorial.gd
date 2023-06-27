@@ -1,4 +1,4 @@
-class_name FirstTutorial
+class_name SecondTutorial
 extends Node2D
 
 # Governs the world for the first tutorial level
@@ -8,6 +8,7 @@ var animation_played_once = false
 onready var starting_node: AGraphNode = $ColorRect/StartingNode
 onready var planet1: AGraphNode = $ColorRect/Planet1
 onready var planet2: AGraphNode = $ColorRect/Planet2
+onready var starting_planet: AGraphNode = $ColorRect/StartingNode
 onready var tutorial_animation_player: AnimationPlayer = $AnimationPlayer
 onready var dialogue_displayer: DialogueDisplayer = $DialogueCanvas/DialogueShower
 
