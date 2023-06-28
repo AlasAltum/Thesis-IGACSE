@@ -65,7 +65,7 @@ func on_win_animation_finished(anim_name):
 		]
 		dialogue_displayer.set_and_start_new_dialogues(new_dialogues_to_show)
 		# Set the next level to be the second tutorial
-		
+		dialogue_displayer.next_scene = StoredData.story_mode_scenes["BFS"]
 		
 func get_class() -> String:
 	return "Tutorial"

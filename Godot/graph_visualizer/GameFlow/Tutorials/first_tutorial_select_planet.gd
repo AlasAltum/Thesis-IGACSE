@@ -17,7 +17,7 @@ func _ready():
 	planet1.connect("node_selected", self, "send_ship_to_node")
 	planet2.connect("node_selected", self, "send_ship_to_node")
 	tutorial_animation_player.play("OnReady")
-	tutorial_animation_player.connect("animation_finished", self, "on_win_animation_finished")
+	tutorial_animation_player.connect("animation_finished", self, "on_animation_finished")
 	planet1.animation_player.connect("animation_finished", self, "on_ship_arrived_to_planet")
 	planet2.animation_player.connect("animation_finished", self, "on_ship_arrived_to_planet")
 
@@ -53,18 +53,33 @@ func _on_DialogueShower_dialogue_finished():
 func on_win_audio_play():
 	AudioPlayer.play_congratulations_audio()
 
-func on_win_animation_finished(anim_name):
+func on_animation_finished(anim_name):
+	if anim_name == "WinAnimation":
+		on_win_animation_finished(anim_name)
+	elif anim_name == "FadeIn":
+		on_end_animation_finished(anim_name)
+
+func on_win_animation_finished(_anim_name):
 	# Show the dialogue player again, telling the player that they won
 	# and that they can continue to the next level. Also congratulate them
 	# for saving a little red panda!
-	if anim_name == "WinAnimation":
-		var new_dialogues_to_show = [
-			"Congratulations! You saved a little red panda!",
-			"Click on the next level to continue!"
-		]
-		dialogue_displayer.set_and_start_new_dialogues(new_dialogues_to_show)
-		# Set the next level to be the second tutorial
-		
-		
+	var new_dialogues_to_show = [
+		"Congratulations! You saved a little red panda!",
+		"You are ready to go to the next level and rescue more pandas!"
+	]
+	dialogue_displayer.set_and_start_new_dialogues(new_dialogues_to_show)
+	# Set the next level to be the second tutorial
+	dialogue_displayer.connect("dialogue_finished", self, "on_ending_dialogue_finished")
+
+func on_end_animation_finished(_anim_name):
+	pass
+
 func get_class() -> String:
 	return "Tutorial"
+
+func on_ending_dialogue_finished() -> void:
+	# Go to the next scene
+	# Start fade animation
+	# once the fade animation finishes, queue_free the tree and go to next scene
+	NotificationManager._deferred_goto_scene(StoredData.story_mode_scenes["Tutorial2"])
+
