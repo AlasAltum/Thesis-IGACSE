@@ -81,5 +81,5 @@ func on_ending_dialogue_finished() -> void:
 	# Go to the next scene
 	# Start fade animation
 	# once the fade animation finishes, queue_free the tree and go to next scene
-	NotificationManager._deferred_goto_scene(StoredData.story_mode_scenes["Tutorial2"])
+	NotificationManager._deferred_goto_scene(StoredData.story_mode_scenes["Tutorial2"], true, self)
 

@@ -34,11 +34,11 @@ func send_ship_to_node(end_planet: AGraphNode):
 	# Check if both planets have been pressed. If so,
 	# win and go to the next level after an animation
 	# if planet1.selected and planet2.selected:
-	# Wait until the ship arrives at planet 1 and 2 to show the win animation		
+	# Wait until the ship arrives at planet 1 and 2 to show the win animation
 
 func on_ship_arrived_to_planet(animation_name):
 	if animation_name == "NodeBeingSelected":
-		if planet1.selected and planet2.selected and not animation_played_once:	
+		if planet1.selected and planet2.selected and not animation_played_once:
 			on_win()
 
 func on_win() -> void:

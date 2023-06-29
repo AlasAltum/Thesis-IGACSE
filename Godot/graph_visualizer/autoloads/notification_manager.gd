@@ -223,7 +223,9 @@ func show_skip_to_next_level_popup():
 func go_to_scene(path):
 	call_deferred("_deferred_goto_scene", path)
 
-func _deferred_goto_scene(path):
+func _deferred_goto_scene(path, destroy_current_world = false, calling_node = null):
+	if destroy_current_world and calling_node:
+		calling_node.queue_free()
 	var s = ResourceLoader.load(path)
 	var current_scene = s.instance()
 	StoredData.get_tree().root.add_child(current_scene)

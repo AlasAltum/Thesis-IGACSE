@@ -63,7 +63,11 @@ func _ready():
 
 
 func set_texture_randomly():
-	if StoredData.world_node and StoredData.world_node.get_class() == "GraphManager":
+	if (
+		StoredData.world_node and 
+		is_instance_valid(StoredData.world_node) and # instance has been freed
+		StoredData.world_node.get_class() == "GraphManager"
+	):
 		sprite_texture.texture = StoredData.world_node.planets_textures[randi() % len(StoredData.world_node.planets_textures)]
 		StoredData.world_node.planets_textures.erase(sprite_texture.texture)
 		var desired_size = Vector2(80,80)

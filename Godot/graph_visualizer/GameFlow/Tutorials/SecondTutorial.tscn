@@ -16,7 +16,7 @@
 [ext_resource path="res://Assets/textures/planets/RedLeftClick.png" type="Texture" id=14]
 [ext_resource path="res://Assets/animations/ShipFlyingAround.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Node/EdgeHardcoded.tscn" type="PackedScene" id=16]
-[ext_resource path="res://GameFlow/Tutorials/first_tutorial_select_planet.gd" type="Script" id=17]
+[ext_resource path="res://GameFlow/Tutorials/second_tutorial.gd" type="Script" id=17]
 [ext_resource path="res://Assets/textures/red_pandas/spaceman_red_panda_rescue.jpeg" type="Texture" id=18]
 [ext_resource path="res://GameFlow/Tutorials/SecondTutorialCodeBlock.tscn" type="PackedScene" id=19]
 
@@ -474,6 +474,7 @@ anims/RESET = SubResource( 24 )
 visible = false
 position = Vector2( 32, 48 )
 frames = SubResource( 26 )
+frame = 1
 speed_scale = 0.5
 playing = true
 

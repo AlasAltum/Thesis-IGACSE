@@ -124,6 +124,11 @@ func execute_command_methods_in_text(input_text: String, allow_repetition : bool
 	var is_inside_command_method = false
 
 	for character in input_text:
+		# add character to current command method if we are inside a command method {x___ 
+		# and haven't reached yet a closing curly brace
+		if is_inside_command_method:
+			current_command_method += character
+
 		# mark beginning or end, and start or stop adding characters to current command method
 		if character == "{":
 			is_inside_command_method = true
@@ -132,10 +137,6 @@ func execute_command_methods_in_text(input_text: String, allow_repetition : bool
 			command_methods.append(current_command_method)
 			current_command_method = ""
 
-		# add character to current command method if we are inside a command method {x___ 
-		# and haven't reached yet a closing curly brace
-		if is_inside_command_method:
-			current_command_method += character
 
 	# Execute all command methods in text
 	for command_method in command_methods:
