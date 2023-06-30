@@ -474,7 +474,6 @@ anims/RESET = SubResource( 24 )
 visible = false
 position = Vector2( 32, 48 )
 frames = SubResource( 26 )
-frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -559,7 +558,7 @@ expand = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="BFSCodeBlock" parent="HUD" instance=ExtResource( 19 )]
+[node name="CodeBlock" parent="HUD" instance=ExtResource( 19 )]
 margin_left = -471.0
 margin_bottom = 600.0
 
