@@ -1,6 +1,7 @@
 class_name CodeContainer
 extends ScrollContainer
 
+export (bool) var allow_advance
 onready var lines_container = $LinesContainer
 var code_lines: Array = []
 var curr_line_index : int = 0
@@ -39,3 +40,8 @@ func _input(event):
 
 func _on_code_finished():
 	pass
+
+func activate():
+	NotificationManager.allow_code_advance = false
+	self.visible = true
+	# TODO: maybe we could add an animation instead of just making it visible

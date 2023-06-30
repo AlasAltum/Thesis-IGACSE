@@ -383,6 +383,7 @@ stream = ExtResource( 2 )
 volume_db = -10.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
 margin_right = 1920.0
 margin_bottom = 1080.0
 mouse_filter = 2
@@ -474,6 +475,7 @@ anims/RESET = SubResource( 24 )
 visible = false
 position = Vector2( 32, 48 )
 frames = SubResource( 26 )
+frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -559,6 +561,7 @@ expand = true
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="CodeBlock" parent="HUD" instance=ExtResource( 19 )]
+visible = false
 margin_left = -471.0
 margin_bottom = 600.0
 
