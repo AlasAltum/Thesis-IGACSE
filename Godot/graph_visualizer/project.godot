@@ -194,6 +194,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ResourceClasses/null_adt.gd"
 }, {
+"base": "WindowDialog",
+"class": "OnGameLostPopup",
+"language": "GDScript",
+"path": "res://AlgorithmScenes/Screen/on_game_lost_popup.gd"
+}, {
 "base": "Control",
 "class": "Part1Background",
 "language": "GDScript",
@@ -327,6 +332,7 @@ _global_script_class_icons={
 "NodeADT": "",
 "NodeRepresentation": "",
 "NullADT": "",
+"OnGameLostPopup": "",
 "Part1Background": "",
 "PopupForObjectCreation": "",
 "Queue": "",

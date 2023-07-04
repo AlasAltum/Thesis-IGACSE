@@ -230,7 +230,7 @@ func _deferred_goto_scene(path, destroy_current_world = false, calling_node = nu
 	var current_scene = s.instance()
 	StoredData.get_tree().root.add_child(current_scene)
 	StoredData.get_tree().current_scene = current_scene
-	
+
 func reset_data():
 	self.finished_popup = null
 	self.u_is_explored_popup = null

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Assets/textures/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/sound/menu_button_click _trimmed.mp3" type="AudioStream" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://GameFlow/command_methods_scripts/second_level_show_instructions.gd" type="Script" id=4]
 [ext_resource path="res://GameFlow/DialogueScenesContent/DialogueDisplayerFont.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Node/graph_node.gd" type="Script" id=6]
-[ext_resource path="res://Assets/textures/planets/EarthAtlas.png" type="Texture" id=7]
+[ext_resource path="res://Assets/textures/planets/SunExample.png" type="Texture" id=7]
 [ext_resource path="res://GameFlow/moving_sprite_texture.gd" type="Script" id=8]
 [ext_resource path="res://Assets/textures/planets/MoonPlanetRotation.png" type="Texture" id=9]
 [ext_resource path="res://Node/hightlight_node_with_frequency_and_bool.gdshader" type="Shader" id=10]
@@ -82,8 +82,9 @@ tracks/0/keys = {
 "values": [  ]
 }
 
-[sub_resource type="CircleShape2D" id=19]
-radius = 39.3722
+[sub_resource type="CircleShape2D" id=37]
+resource_local_to_scene = true
+radius = 99.8499
 
 [sub_resource type="ShaderMaterial" id=20]
 resource_local_to_scene = true
@@ -94,64 +95,36 @@ shader_param/FREQ = 3.0
 shader_param/highlight = 0.0
 shader_param/amplitude = 0.1
 
-[sub_resource type="Animation" id=22]
-resource_name = "ClickNode"
-length = 2.0
+[sub_resource type="Animation" id=36]
+resource_name = "PlanetMovement"
+loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("MouseButtonLeft:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1.1, 2 ),
-"transitions": PoolRealArray( 2.92817, 1, 1.51572 ),
-"update": 0,
-"values": [ Vector2( 48, 72 ), Vector2( 44, 60 ), Vector2( 32, 48 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("MouseButtonLeft:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, true ]
-}
-
-[sub_resource type="Animation" id=23]
-resource_name = "NodeBeingSelected"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite/StationSimple:self_modulate")
+tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite/StationSimple:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false, true ]
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 }
+
+[sub_resource type="Animation" id=22]
+resource_name = "ClickNode"
+length = 2.0
+
+[sub_resource type="Animation" id=23]
+resource_name = "NodeBeingSelected"
+length = 1.5
 
 [sub_resource type="Animation" id=24]
 length = 0.001
+
+[sub_resource type="CircleShape2D" id=19]
+resource_local_to_scene = true
+radius = 39.3722
 
 [sub_resource type="SpriteFrames" id=26]
 animations = [ {
@@ -285,7 +258,7 @@ tracks/2/keys = {
 } ]
 }
 
-[node name="TutorialNode" type="Node2D"]
+[node name="SecondTutorialNode" type="Node2D"]
 script = ExtResource( 17 )
 
 [node name="Background" parent="." instance=ExtResource( 1 )]
@@ -389,50 +362,43 @@ margin_bottom = 1080.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
-[node name="Planet1" type="KinematicBody2D" parent="ColorRect"]
+[node name="Star" type="KinematicBody2D" parent="ColorRect"]
 show_behind_parent = true
 use_parent_material = true
-position = Vector2( 504, 176 )
+position = Vector2( 242, 250 )
 scale = Vector2( 2, 2 )
 input_pickable = true
 script = ExtResource( 6 )
 index = 2
+should_show_ship_flying_around = false
 
-[node name="Area2D" type="Area2D" parent="ColorRect/Planet1"]
+[node name="Area2D" type="Area2D" parent="ColorRect/Star"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Planet1/Area2D"]
-shape = SubResource( 19 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Star/Area2D"]
+shape = SubResource( 37 )
 
-[node name="Sprite" type="Node2D" parent="ColorRect/Planet1"]
+[node name="Sprite" type="Node2D" parent="ColorRect/Star"]
 material = SubResource( 20 )
 use_parent_material = true
 
-[node name="StationSimple" type="Sprite" parent="ColorRect/Planet1/Sprite"]
-visible = false
-self_modulate = Color( 1, 1, 1, 0 )
-use_parent_material = true
-position = Vector2( 0, -1.43051e-06 )
-scale = Vector2( 0.479042, 0.479042 )
-z_index = 1
-texture = ExtResource( 11 )
-
-[node name="SpriteTexture" type="Sprite" parent="ColorRect/Planet1/Sprite"]
+[node name="SpriteTexture" type="Sprite" parent="ColorRect/Star/Sprite"]
 use_parent_material = true
 z_index = -1
 texture = ExtResource( 7 )
-hframes = 4
+hframes = 12
+frame = 5
 script = ExtResource( 8 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect/Planet1"]
+[node name="SunMovement" type="AnimationPlayer" parent="ColorRect/Star/Sprite/SpriteTexture"]
+playback_process_mode = 0
+playback_speed = 0.25
+method_call_mode = 1
+anims/PlanetMovement = SubResource( 36 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect/Star"]
 anims/ClickNode = SubResource( 22 )
 anims/NodeBeingSelected = SubResource( 23 )
 anims/RESET = SubResource( 24 )
-
-[node name="MouseButtonLeft" type="AnimatedSprite" parent="ColorRect/Planet1"]
-visible = false
-position = Vector2( 48, 72 )
-frames = SubResource( 26 )
-speed_scale = 0.5
 
 [node name="Planet2" type="KinematicBody2D" parent="ColorRect"]
 show_behind_parent = true
@@ -530,7 +496,7 @@ rotation_speed_factor = 2.5
 [node name="Edge1S" parent="ColorRect" instance=ExtResource( 16 )]
 show_behind_parent = true
 weight = 0.0
-nodeA = NodePath("../Planet1")
+nodeA = NodePath("../Star")
 nodeB = NodePath("../StartingNode")
 
 [node name="Edge2S" parent="ColorRect" instance=ExtResource( 16 )]
@@ -568,9 +534,9 @@ margin_bottom = 600.0
 [connection signal="dialogue_finished" from="DialogueCanvas/DialogueShower" to="." method="_on_DialogueShower_dialogue_finished"]
 [connection signal="button_up" from="DialogueCanvas/DialogueShower/MarginContainer/VBoxContainer/HBoxContainer/SkipButton" to="DialogueCanvas/DialogueShower" method="_on_SkipButton_button_up"]
 [connection signal="button_up" from="DialogueCanvas/DialogueShower/MarginContainer/VBoxContainer/HBoxContainer/NextButton" to="DialogueCanvas/DialogueShower" method="_on_NextButton_button_up"]
-[connection signal="input_event" from="ColorRect/Planet1/Area2D" to="ColorRect/Planet1" method="_on_Area2D_input_event"]
-[connection signal="mouse_entered" from="ColorRect/Planet1/Area2D" to="ColorRect/Planet1" method="_on_Area2D_mouse_entered"]
-[connection signal="mouse_exited" from="ColorRect/Planet1/Area2D" to="ColorRect/Planet1" method="_on_Area2D_mouse_exited"]
+[connection signal="input_event" from="ColorRect/Star/Area2D" to="ColorRect/Star" method="_on_Area2D_input_event"]
+[connection signal="mouse_entered" from="ColorRect/Star/Area2D" to="ColorRect/Star" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="ColorRect/Star/Area2D" to="ColorRect/Star" method="_on_Area2D_mouse_exited"]
 [connection signal="input_event" from="ColorRect/Planet2/Area2D" to="ColorRect/Planet2" method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="ColorRect/Planet2/Area2D" to="ColorRect/Planet2" method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="ColorRect/Planet2/Area2D" to="ColorRect/Planet2" method="_on_Area2D_mouse_exited"]

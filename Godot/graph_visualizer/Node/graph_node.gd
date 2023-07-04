@@ -4,6 +4,8 @@ extends KinematicBody2D
 
 var selected : bool = false
 export var index : int = 0
+# True for all cases except some tutorials
+export var should_show_ship_flying_around : bool = true
 var edges : Array setget set_edges, get_edges
 var pressed: bool = false
 var aux_position: Vector2
@@ -22,7 +24,6 @@ onready var mouse_button_left_animation: AnimatedSprite = $MouseButtonLeft
 
 var variable_highlighted: bool = false
 var floating_variable_radius: float = 0.0
-var accumulated_angle: float = 0.0
 onready var animation_player : AnimationPlayer = $AnimationPlayer
 
 const representation_prefab = preload("res://Node/NodeRepresentation.tscn")
@@ -43,6 +44,7 @@ const NORMAL_COLOR = Color(1.0, 1.0, 1.0, 1.0)
 const ITERATED_COLOR = Color(0.7, 0.4, 0.2)
 const SELECTED_COLOR = Color(1.0, 1.0, 0.0, 0.8)
 const SELECTED_LABEL_COLOR = Color(0.0, 1.0, 0.0, 1.0)
+
 
 
 signal node_add_to_object_request(node)
@@ -175,12 +177,15 @@ func unselect_node():
 
 func select_node(emit_signal=true):
 	if self.index in StoredData.selectable_nodes:
-		self.selected = true
-		AudioPlayer.play_element_selected()
-		representation.set_selected()
-		mouse_button_left_animation.visible = false
 		if emit_signal:
 			emit_signal("node_selected", self)
+		self.selected = true
+		AudioPlayer.play_element_selected()
+
+		if representation and mouse_button_left_animation:
+			representation.set_selected()
+			mouse_button_left_animation.visible = false
+
 		return
 
 	else:
@@ -300,8 +305,9 @@ func highlight_variable(variable_name):
 		floating_variable_radius = difference.length()
 
 func show_ship_flying_around():
-	self.ship_flying_around_node = ship_flying_around_scene.instance()
-	self.add_child(self.ship_flying_around_node)
+	if should_show_ship_flying_around:
+		self.ship_flying_around_node = ship_flying_around_scene.instance()
+		self.add_child(self.ship_flying_around_node)
 
 func make_ship_flying_around_dissapear():
 	self.ship_flying_around_node.queue_free()
@@ -326,3 +332,9 @@ func show_animation_of_clicking_mouse():
 	mouse_button_left_animation.visible = true
 	animation_player.play("ClickNode")
 
+# After this function is called, the textures in SpriteTexture
+# are going to change repeatedly.
+# Only during tutorials, elsewise it would be hard for the browser
+func start_changing_frames_of_planet(rate: float) -> void:
+	pass
+	

@@ -512,6 +512,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="SkipToNextLevelPopup" parent="CanvasLayer" instance=ExtResource( 27 )]
+visible = true
 anchor_top = 0.292
 anchor_right = 0.503
 anchor_bottom = 0.531
