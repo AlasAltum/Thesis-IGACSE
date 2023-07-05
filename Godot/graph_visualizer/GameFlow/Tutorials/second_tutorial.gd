@@ -6,6 +6,10 @@ var animation_played_once = false
 const lost_popup_scene = preload("res://AlgorithmScenes/Screen/LosePopup.tscn")
 var lost_scene
 
+var timer_to_lose_when_sending_ship_to_sun: Timer
+
+export (float) var time_to_lose_when_sending_ship_to_sun = 1.5
+
 onready var starting_node: AGraphNode = $ColorRect/StartingNode
 onready var star: AGraphNode = $ColorRect/Star
 onready var planet2: AGraphNode = $ColorRect/Planet2
@@ -20,10 +24,12 @@ func _ready():
 	planet2.connect("node_selected", self, "send_ship_to_node")
 	tutorial_animation_player.play("OnReady")
 	tutorial_animation_player.connect("animation_finished", self, "on_win_animation_finished")
-	star.animation_player.connect("animation_finished", self, "on_ship_arrived_to_sun")
+#	star.animation_player.connect("animation_finished", self, "on_ship_arrived_to_sun")
 	planet2.animation_player.connect("animation_finished", self, "on_ship_arrived_to_planet")
 	StoredData.world_node = self
 	NotificationManager.allow_code_advance = false
+	timer_to_lose_when_sending_ship_to_sun = Timer.new()
+	add_child(timer_to_lose_when_sending_ship_to_sun)
 
 func send_ship_to_node(end_planet: AGraphNode):
 	# Since there is always only one edge, this should work fine
@@ -32,7 +38,14 @@ func send_ship_to_node(end_planet: AGraphNode):
 		edge = $ColorRect/Edge1S
 	elif end_planet == planet2:
 		edge = $ColorRect/Edge2S
-	if edge:
+	if edge and end_planet == star:
+		edge.send_ship_from_nodeA_to_nodeB(starting_node, end_planet)
+		# await for 1.5 seconds and lose
+		timer_to_lose_when_sending_ship_to_sun.
+		timer_to_lose_when_sending_ship_to_sun.start(time_to_lose_when_sending_ship_to_sun)
+		
+
+	else:
 		edge.send_ship_from_nodeA_to_nodeB(starting_node, end_planet)
 	# Check if both planets have been pressed. If so,
 	# win and go to the next level after an animation
