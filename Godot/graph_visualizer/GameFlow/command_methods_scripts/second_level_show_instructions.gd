@@ -16,4 +16,5 @@ func show_pointer_of_first_instruction():
 	if code_block:
 		var first_instruction = code_block.get_node("LinesContainer/PanelContainer00")
 		# TODO: make pointer of first instruction visible
-		
+		first_instruction.focus()
+		NotificationManager.allow_code_advance = true

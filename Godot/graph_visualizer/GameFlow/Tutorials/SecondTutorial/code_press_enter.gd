@@ -12,5 +12,8 @@ func _input(event):
 
 
 func check_actions_correct() -> bool:
+	if Input.is_action_just_pressed("code_advance"):
+		if NotificationManager.allow_code_advance:
+			has_enter_been_pressed = true
 	return has_enter_been_pressed
 
