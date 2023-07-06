@@ -6,9 +6,8 @@ var animation_played_once = false
 const lost_popup_scene = preload("res://AlgorithmScenes/Screen/LosePopup.tscn")
 var lost_scene
 
-var timer_to_lose_when_sending_ship_to_sun: Timer
 
-export (float) var time_to_lose_when_sending_ship_to_sun = 1.5
+export (float) var time_to_lose_when_sending_ship_to_sun = 2.0
 
 onready var starting_node: AGraphNode = $ColorRect/StartingNode
 onready var star: AGraphNode = $ColorRect/Star
@@ -16,6 +15,7 @@ onready var planet2: AGraphNode = $ColorRect/Planet2
 onready var starting_planet: AGraphNode = $ColorRect/StartingNode
 onready var tutorial_animation_player: AnimationPlayer = $AnimationPlayer
 onready var dialogue_displayer: DialogueDisplayer = $DialogueCanvas/DialogueShower
+onready var timer_to_lose_when_sending_ship_to_sun: Timer = $TimerToLose
 
 
 func _ready():
@@ -28,8 +28,7 @@ func _ready():
 	planet2.animation_player.connect("animation_finished", self, "on_ship_arrived_to_planet")
 	StoredData.world_node = self
 	NotificationManager.allow_code_advance = false
-	timer_to_lose_when_sending_ship_to_sun = Timer.new()
-	add_child(timer_to_lose_when_sending_ship_to_sun)
+	timer_to_lose_when_sending_ship_to_sun.connect("timeout", self, "on_ship_arrived_to_sun")
 
 func send_ship_to_node(end_planet: AGraphNode):
 	# Since there is always only one edge, this should work fine
@@ -39,11 +38,9 @@ func send_ship_to_node(end_planet: AGraphNode):
 	elif end_planet == planet2:
 		edge = $ColorRect/Edge2S
 	if edge and end_planet == star:
-		edge.send_ship_from_nodeA_to_nodeB(starting_node, end_planet)
+		edge.send_ship_from_nodeA_to_nodeB( starting_node, end_planet)
 		# await for 1.5 seconds and lose
-		timer_to_lose_when_sending_ship_to_sun.
 		timer_to_lose_when_sending_ship_to_sun.start(time_to_lose_when_sending_ship_to_sun)
-		
 
 	else:
 		edge.send_ship_from_nodeA_to_nodeB(starting_node, end_planet)
@@ -83,10 +80,9 @@ func on_win_animation_finished(anim_name):
 		# Set the next level to be the second tutorial
 		dialogue_displayer.next_scene = StoredData.story_mode_scenes["BFS"]
 
-func on_ship_arrived_to_sun(animation_name):
-	if animation_name == "NodeBeingSelected":
-		# TODO: make the player lose, open a popup and reset
-		on_lose()
+func on_ship_arrived_to_sun():
+	# TODO: make the player lose, open a popup and reset
+	on_lose()
 
 func on_lose() -> void:
 	# Show a popup
