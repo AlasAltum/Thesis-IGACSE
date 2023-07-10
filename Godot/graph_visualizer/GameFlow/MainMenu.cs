@@ -21,6 +21,7 @@ public class MainMenu : CanvasLayer
 	private PackedScene algorithmSelectionMenuScene; // "res://GameFlow/AlgorithmSelectionMenu.tscn";
 
 	private String BFS_TEST = "res://AlgorithmScenes/TestScenes/BFS_test.tscn";
+
 	private String DFS_TEST = "res://AlgorithmScenes/TestScenes/DFS_test.tscn";
 
 	// private AlgorithmSelectionMenu algorithmSelectionMenu;
@@ -28,12 +29,12 @@ public class MainMenu : CanvasLayer
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		startGameButton = GetNode<Button>("VBoxContainer/StartGame");
-		TutorialButton = GetNode<Button>("VBoxContainer/TestButton");
-		selectLevelButton = GetNode<Button>("VBoxContainer/SelectLevelButton");
+		startGameButton = GetNode<Button>("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/StartGame");
+		TutorialButton = GetNode<Button>("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/TestGraphKnowledge");
+		selectLevelButton = GetNode<Button>("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/SelectLevelButton2");
 
 		// The exitGame button is not necessary in the HTML version
-		//	exitGame = GetNode<Button>("VBoxContainer/ExitGame");
+		//	exitGame = GetNode<Button>("MarginContainer/VBoxContainer/ExitGame");
 		startGameButton.GrabFocus();
 
 		startGameButton .Connect("pressed", this, nameof(OnStartGameButtonPressed));
