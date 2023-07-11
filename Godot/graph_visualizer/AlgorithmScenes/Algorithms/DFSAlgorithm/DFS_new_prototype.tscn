@@ -1,11 +1,14 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Code/DebugBlock.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/queue.png" type="Texture" id=2]
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/DFSCodeBlockCentered.tscn" type="PackedScene" id=3]
 [ext_resource path="res://AlgorithmScenes/Screen/TextHintContainer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://AlgorithmScenes/Screen/GameplayMenuPopup.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/textures/Background.tscn" type="PackedScene" id=6]
 [ext_resource path="res://AlgorithmScenes/Screen/GameplayMenuButton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/visual_guide/VisualGuide.tscn" type="PackedScene" id=8]
+[ext_resource path="res://AlgorithmScenes/Screen/Assets/home.png" type="Texture" id=9]
 [ext_resource path="res://AlgorithmScenes/Screen/graph_screen.gd" type="Script" id=15]
 [ext_resource path="res://AlgorithmScenes/Screen/GUI/ADTsShower.tscn" type="PackedScene" id=28]
 [ext_resource path="res://AlgorithmScenes/Code/ADTs/ADTMediator.tscn" type="PackedScene" id=34]
@@ -27,6 +30,7 @@ position = Vector2( 1, 0 )
 layer = -1
 
 [node name="LeftPanel" type="VBoxContainer" parent="CanvasLayer"]
+visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -34,18 +38,15 @@ margin_left = -560.0
 margin_bottom = -306.0
 mouse_filter = 2
 
-[node name="GameplayMenuButton" parent="CanvasLayer/LeftPanel" instance=ExtResource( 7 )]
-margin_right = 560.0
-text = "Menu"
-
 [node name="DFSCodeBlock" parent="CanvasLayer/LeftPanel" instance=ExtResource( 3 )]
-margin_top = 56.0
+visible = false
 margin_right = 560.0
 margin_bottom = 774.0
 rect_clip_content = false
 mouse_filter = 2
 
 [node name="BottomPanel" type="HBoxContainer" parent="CanvasLayer"]
+visible = false
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -83,6 +84,7 @@ margin_bottom = 220.0
 position = Vector2( 118, 155 )
 
 [node name="NodeContainer" type="AspectRatioContainer" parent="CanvasLayer"]
+visible = false
 margin_right = 1417.0
 margin_bottom = 823.0
 rect_clip_content = true
@@ -90,6 +92,7 @@ mouse_filter = 2
 stretch_mode = 0
 
 [node name="EdgeContainer" type="AspectRatioContainer" parent="CanvasLayer"]
+visible = false
 anchor_left = 0.579
 anchor_top = 0.333
 anchor_right = 0.579
@@ -145,6 +148,7 @@ margin_right = 313.0
 margin_bottom = -94.5
 
 [node name="TextHintContainer" parent="CanvasLayer" instance=ExtResource( 4 )]
+visible = false
 margin_left = 1370.0
 margin_top = 661.0
 margin_right = 1917.0
@@ -152,7 +156,175 @@ margin_bottom = 811.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer"]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+margin_right = 1920.0
+margin_bottom = 130.0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer"]
+margin_right = 1920.0
+margin_bottom = 130.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer"]
+margin_right = 1920.0
+margin_bottom = 130.0
+
+[node name="HORIZONTAL3" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer"]
+margin_right = 1920.0
+margin_bottom = 130.0
+size_flags_vertical = 3
+
+[node name="GameplayMenuButton" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/HORIZONTAL3" instance=ExtResource( 7 )]
+margin_right = 95.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 0 )
+size_flags_horizontal = 0
+text = "Menu"
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/HORIZONTAL3"]
+margin_left = 99.0
+margin_right = 229.0
+margin_bottom = 130.0
+texture_normal = ExtResource( 9 )
+
+[node name="HORIZONTAL1" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+margin_top = 134.0
+margin_right = 1920.0
+margin_bottom = 876.0
+size_flags_vertical = 3
+
+[node name="Nodos" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HORIZONTAL1"]
+margin_right = 1650.0
+margin_bottom = 742.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HORIZONTAL1"]
+margin_left = 1654.0
+margin_right = 1920.0
+margin_bottom = 742.0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/MarginContainer/VBoxContainer/HORIZONTAL1/MarginContainer"]
+margin_right = 266.0
+margin_bottom = 742.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HORIZONTAL1/MarginContainer"]
+margin_right = 266.0
+margin_bottom = 742.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HORIZONTAL1/MarginContainer/MarginContainer"]
+margin_right = 266.0
+margin_bottom = 742.0
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HORIZONTAL1/MarginContainer/MarginContainer/VBoxContainer"]
+margin_right = 266.0
+margin_bottom = 14.0
+text = "PARA QUE VEAMOS COMO SE COMPORTA"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HORIZONTAL1/MarginContainer/MarginContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 266.0
+margin_bottom = 32.0
+text = "eSTOY AGREGANDO OTRO TEXTO"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HORIZONTAL2" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+margin_top = 880.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_min_size = Vector2( 0, 200 )
+size_flags_vertical = 0
+
+[node name="variables" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HORIZONTAL2"]
+margin_right = 1650.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="CanvasLayer/MarginContainer/VBoxContainer/HORIZONTAL2/variables"]
+margin_right = 1650.0
+margin_bottom = 200.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HORIZONTAL2/variables"]
+margin_right = 1650.0
+margin_bottom = 200.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HORIZONTAL2/variables/MarginContainer"]
+margin_right = 1650.0
+margin_bottom = 200.0
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HORIZONTAL2/variables/MarginContainer/VBoxContainer"]
+margin_right = 1650.0
+margin_bottom = 14.0
+text = "PARA QUE VEAMOS COMO SE COMPORTA"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HORIZONTAL2/variables/MarginContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 1650.0
+margin_bottom = 32.0
+text = "eSTOY AGREGANDO OTRO TEXTO"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="estructura" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HORIZONTAL2"]
+margin_left = 1654.0
+margin_right = 1920.0
+margin_bottom = 200.0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/MarginContainer/VBoxContainer/HORIZONTAL2/estructura"]
+margin_right = 266.0
+margin_bottom = 200.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HORIZONTAL2/estructura"]
+margin_right = 266.0
+margin_bottom = 200.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HORIZONTAL2/estructura/MarginContainer"]
+margin_right = 266.0
+margin_bottom = 200.0
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HORIZONTAL2/estructura/MarginContainer/VBoxContainer"]
+margin_right = 266.0
+margin_bottom = 14.0
+text = "PARA QUE VEAMOS COMO SE COMPORTA"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HORIZONTAL2/estructura/MarginContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 266.0
+margin_bottom = 32.0
+text = "eSTOY AGREGANDO OTRO TEXTO"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="Background" parent="." instance=ExtResource( 6 )]
+
+[node name="VisualGuide" parent="." instance=ExtResource( 8 )]
 
 [editable path="CanvasLayer/BottomPanel/ADTShower"]
 [editable path="CanvasLayer/FinishedPopup"]
