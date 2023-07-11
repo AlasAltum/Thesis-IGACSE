@@ -1,4 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/GUI/sci-fi-theme.tres" type="Theme" id=1]
 
 [node name="MenuButton" type="Button"]
 margin_right = 1200.0
@@ -8,6 +10,7 @@ focus_neighbour_top = NodePath("../TestButton")
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 5
 size_flags_vertical = 0
+theme = ExtResource( 1 )
 text = "BUTTON"
 __meta__ = {
 "_edit_use_anchors_": true
