@@ -16,7 +16,7 @@ func _ready():
 
 func _on_FadeInOut_animation_finished(anim_name):
 	if anim_name == "FadeIn":
-		var dialogue_shower: DialogueDisplayer = $CanvasLayer/DialogueShower
+		var dialogue_shower: DialogueDisplayer = $CanvasLayer/DialogueDisplayer
 		if dialogue_shower:
 			dialogue_shower.show_first_dialogue()
 

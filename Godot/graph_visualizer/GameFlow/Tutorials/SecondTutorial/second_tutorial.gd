@@ -14,12 +14,12 @@ onready var star: AGraphNode = $ColorRect/Star
 onready var planet2: AGraphNode = $ColorRect/Planet2
 onready var starting_planet: AGraphNode = $ColorRect/StartingNode
 onready var tutorial_animation_player: AnimationPlayer = $AnimationPlayer
-onready var dialogue_displayer: DialogueDisplayer = $DialogueCanvas/DialogueShower
+onready var dialogue_displayer: DialogueDisplayer = $DialogueCanvas/DialogueDisplayer
 onready var timer_to_lose_when_sending_ship_to_sun: Timer = $TimerToLose
 
 
 func _ready():
-	StoredData.selectable_nodes.append_array([star.index, planet2.index])
+#	StoredData.selectable_nodes.append_array([star.index, planet2.index])
 	star.connect("node_selected", self, "send_ship_to_node")
 	planet2.connect("node_selected", self, "send_ship_to_node")
 	tutorial_animation_player.play("OnReady")
@@ -92,7 +92,7 @@ func on_lose() -> void:
 	lost_scene.connect("restart_level", self, "on_restart_level_pressed")
 
 func on_restart_level_pressed():
-	NotificationManager._deferred_goto_scene("res://GameFlow/Tutorials/SecondTutorial.tscn", true, self)
+	NotificationManager._deferred_goto_scene(StoredData.story_mode_scenes["Tutorial2"], true, self)
 
 func get_class() -> String:
 	return "Tutorial"

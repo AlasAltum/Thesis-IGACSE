@@ -9,7 +9,7 @@ onready var starting_node: AGraphNode = $ColorRect/StartingNode
 onready var planet1: AGraphNode = $ColorRect/Planet1
 onready var planet2: AGraphNode = $ColorRect/Planet2
 onready var tutorial_animation_player: AnimationPlayer = $AnimationPlayer
-onready var dialogue_displayer: DialogueDisplayer = $DialogueCanvas/DialogueShower
+onready var dialogue_displayer: DialogueDisplayer = $DialogueCanvas/DialogueDisplayer
 
 
 func _ready():
@@ -20,7 +20,8 @@ func _ready():
 	tutorial_animation_player.connect("animation_finished", self, "on_animation_finished")
 	planet1.animation_player.connect("animation_finished", self, "on_ship_arrived_to_planet")
 	planet2.animation_player.connect("animation_finished", self, "on_ship_arrived_to_planet")
-
+	dialogue_displayer.connect("dialogue_finished", self, "_on_DialogueShower_dialogue_finished")
+	
 func send_ship_to_node(end_planet: AGraphNode):
 	# Since there is always only one edge, this should work fine
 	var edge #  = $ColorRect/Edge1S:

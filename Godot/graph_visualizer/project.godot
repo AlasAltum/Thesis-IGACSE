@@ -157,7 +157,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "FirstTutorial",
 "language": "GDScript",
-"path": "res://GameFlow/Tutorials/first_tutorial_select_planet.gd"
+"path": "res://GameFlow/Tutorials/FirstTutorial/first_tutorial_select_planet.gd"
 }, {
 "base": "WindowDialog",
 "class": "GameplayMenuPopup",
@@ -232,7 +232,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "SecondTutorial",
 "language": "GDScript",
-"path": "res://GameFlow/Tutorials/second_tutorial.gd"
+"path": "res://GameFlow/Tutorials/SecondTutorial/second_tutorial.gd"
 }, {
 "base": "Object",
 "class": "Set",
@@ -272,7 +272,7 @@ _global_script_classes=[ {
 "base": "Control",
 "class": "StoryModeScene",
 "language": "GDScript",
-"path": "res://GameFlow/first_story_mode_scene.gd"
+"path": "res://GameFlow/StoryMode/first_story_mode_scene.gd"
 }, {
 "base": "GraphManager",
 "class": "TestManager",

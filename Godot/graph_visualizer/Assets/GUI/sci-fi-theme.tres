@@ -4,10 +4,10 @@
 [ext_resource path="res://Assets/GUI/sci-fi.png" type="Texture" id=2]
 
 [sub_resource type="DynamicFont" id=92]
-size = 100
+size = 30
 use_mipmaps = true
-extra_spacing_top = 1
-extra_spacing_bottom = -1
+extra_spacing_top = 20
+extra_spacing_bottom = -6
 extra_spacing_space = -2
 font_data = ExtResource( 1 )
 
@@ -608,6 +608,7 @@ margin_top = 1.28512
 default_font = SubResource( 92 )
 Button/colors/font_color = Color( 1, 1, 1, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
 Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
 Button/colors/font_color_pressed = Color( 0.0862745, 0.105882, 0.4, 1 )
 Button/constants/hseparation = 0

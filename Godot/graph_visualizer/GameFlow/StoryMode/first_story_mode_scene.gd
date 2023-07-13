@@ -12,11 +12,11 @@ func _ready():
 	animation_node = $FadeInOut
 	animation_node.play("FadeIn")
 	StoredData.world_node = self 
-	$CanvasLayer/DialogueShower.connect("dialogue_finished", self, "_on_DialogueShower_dialogue_finished")
+	$DialogueCanvas/DialogueDisplayer.connect("dialogue_finished", self, "_on_DialogueShower_dialogue_finished")
 
 func _on_FadeInOut_animation_finished(anim_name):
 	if anim_name == "FadeIn":
-		var dialogue_shower: DialogueDisplayer = $CanvasLayer/DialogueShower
+		var dialogue_shower: DialogueDisplayer = $CanvasLayer/DialogueDisplayer
 		if dialogue_shower:
 			dialogue_shower.show_first_dialogue()
 
