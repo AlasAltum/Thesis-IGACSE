@@ -15,14 +15,20 @@ onready var skip_button: Button = $MarginContainer/VBoxContainer/HBoxContainer/S
 onready var next_button: Button = $MarginContainer/VBoxContainer/HBoxContainer/NextButton
 onready var confirm_action_audio: AudioStreamPlayer = $ConfirmActionAudio
 
+
 export (float) var original_dialogue_speed = 0.5
 export (Array, String, MULTILINE) var dialogues_to_show = []
 export (int) var current_dialogue_index = -1
 export (PackedScene) var next_scene = null
+# This script should contain all the command methods that are going to be called
+# from this dialogue
 export (Resource) var command_methods_script;  # : CommandMethod
 export (bool) var should_transfer_to_next_scene = true
+export (bool) var should_close_on_finish = true
 
 var has_finished : bool = false
+var command_methods: Array = [] # Array<String>
+var executed_command_methods = {}
 
 signal dialogue_finished
 
@@ -37,12 +43,18 @@ func _ready():
 	text_shower_animation.playback_speed = original_dialogue_speed
 	dialogue_text.text = ""
 
+	# We identify previously the command methods so we can execute them
+	# if the dialogue is skipped.
+	command_methods = _get_command_methods_in_conversation()
+	
 	# Create instance of command script
 	if command_methods_script:
 		command_methods_script = command_methods_script.new()
 		command_methods_script.parent_dialogue = self
 
 	show_first_dialogue()
+
+
 
 func show_first_dialogue():
 	# Show an animation of the dialogue player being displayed
@@ -63,26 +75,29 @@ func _input(event):
 # This function will be called when the player clicks on the next dialogue button.
 # It will show the next dialogue in the list.
 func _on_next_dialogue():
+	# Check if dialogue finished
 	if current_dialogue_index >= dialogues_to_show.size() - 1:
-		dialogue_text.text = ""
 		_on_dialogue_finished()
 		return
 
+	_update_dialogue_and_text()
+	execute_command_methods_in_text(dialogues_to_show[current_dialogue_index])
+
+
+func _update_dialogue_and_text():
+	# UNSAFE: Assume we already checked the current_dialogue_index
 	current_dialogue_index += 1
-	var new_text = dialogues_to_show[current_dialogue_index]
-	dialogue_text.text = _get_clean_text_from_dialogue(new_text)
+	dialogue_text.text = _get_clean_text_from_dialogue(dialogues_to_show[current_dialogue_index])
 	text_shower_animation.stop()
 	text_shower_animation.play("ShowText") # Show the text with an animation.
-	if _has_command_method(new_text):
-		execute_command_methods_in_text(new_text)
-
 
 func _on_dialogue_finished():
 	# Do not allow this function to be repeated
+	dialogue_text.text = ""
 	if has_finished:
 		return
-
-	self.visible = false
+	if should_close_on_finish:
+		self.visible = false
 	has_finished = true
 	emit_signal("dialogue_finished")
 	# Here we could start next scene
@@ -110,38 +125,14 @@ func _has_command_method(input_text: String) -> bool:
 		return true
 	return false
 
-func execute_command_methods_in_dialogue() -> void:
-	# Execute all command methods in the current dialogue, in case the user skips the dialogue
-	for dialogue in dialogues_to_show:
-		if _has_command_method(dialogue):
-			execute_command_methods_in_text(dialogue)
 
 # This function will execute the command methods in the input text.
-func execute_command_methods_in_text(input_text: String, allow_repetition : bool = false) -> void:
-	# Get every command method in the input text by getting the text between the curly braces
-	var command_methods = []
-	var current_command_method = ""
-	var is_inside_command_method = false
+func execute_command_methods_in_text(input_text: String) -> void:
+	if _has_command_method(input_text):
+		var command_methods_in_text = _get_command_methods_in_text(input_text)
+		for _command_method in command_methods_in_text:
+			_execute_single_command_method(_command_method)
 
-	for character in input_text:
-		# mark beginning or end, and start or stop adding characters to current command method
-		if character == "{":
-			is_inside_command_method = true
-			continue
-		elif character == "}":
-			is_inside_command_method = false
-			command_methods.append(current_command_method)
-			current_command_method = ""
-			continue
-
-		# add character to current command method if we are inside a command method {x___ 
-		# and haven't reached yet a closing curly brace
-		if is_inside_command_method:
-			current_command_method += character
-
-	# Execute all command methods in text
-	for command_method in command_methods:
-		command_methods_script.execute_command(command_method, allow_repetition)
 
 # This function will be called when the animation of the text being displayed
 # is finished. It will set the playback speed of the animation to the original
@@ -161,6 +152,7 @@ func _on_SkipButton_button_up():
 	skip_button.set_focus_mode(0)
 
 func _on_SkipButton_pressed():
+	_activate_remaining_command_methods()
 	_on_dialogue_finished()
 	confirm_action_audio.play()
 
@@ -170,8 +162,48 @@ func _on_SkipButton_pressed():
 func set_and_start_new_dialogues(new_dialogues: Array):
 	dialogues_to_show = new_dialogues
 	current_dialogue_index = -1
-	# a reset must be performed
+	# A reset must be performed
 	self.visible = true
 	self.has_finished = false
 	show_first_dialogue()
+
+
+func _get_command_methods_in_conversation():
+	# A conversation may have multiple dialogues or texts
+	for dialogue in dialogues_to_show:
+		if _has_command_method(dialogue):  # { "something" }
+			# Get an array of strings with all command methods in the text
+			var command_methods_in_text: Array = _get_command_methods_in_text(dialogue)
+			command_methods.append_array(command_methods_in_text)
+	return command_methods
+
+
+func _get_command_methods_in_text(input_text: String):
+	var temp_command_methods = []
+	var is_inside_command_method = false
+	var current_command_method = ""
+
+	# mark beginning or end, and start or stop adding characters to current command method
+	# basically, add everything between the curly braces {  }
+	for character in input_text:
+		if character == "{":
+			is_inside_command_method = true
+			continue
+		elif character == "}":
+			is_inside_command_method = false
+			temp_command_methods.append(current_command_method)
+			current_command_method = ""
+			continue
+
+		if is_inside_command_method:
+			current_command_method += character
+
+	return temp_command_methods
+
+func _activate_remaining_command_methods():
+	pass
+
+func _execute_single_command_method(command_method_name: String):
+	command_methods_script.execute_command(command_method_name)
+	self.executed_command_methods.append(command_method_name)
 
