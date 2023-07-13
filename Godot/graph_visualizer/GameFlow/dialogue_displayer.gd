@@ -28,7 +28,7 @@ export (bool) var should_close_on_finish = true
 
 var has_finished : bool = false
 var command_methods: Array = [] # Array<String>
-var executed_command_methods = {}
+var executed_command_methods = []
 
 signal dialogue_finished
 
@@ -53,7 +53,6 @@ func _ready():
 		command_methods_script.parent_dialogue = self
 
 	show_first_dialogue()
-
 
 
 func show_first_dialogue():
@@ -201,7 +200,10 @@ func _get_command_methods_in_text(input_text: String):
 	return temp_command_methods
 
 func _activate_remaining_command_methods():
-	pass
+	# Assume we already have populated the self.command_methods array
+	for curr_command_method in self.command_methods:
+		if not curr_command_method in self.executed_command_methods:
+			_execute_single_command_method(curr_command_method)
 
 func _execute_single_command_method(command_method_name: String):
 	command_methods_script.execute_command(command_method_name)
