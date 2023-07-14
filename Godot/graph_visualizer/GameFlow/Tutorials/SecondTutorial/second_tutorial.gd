@@ -29,6 +29,8 @@ func _ready():
 	StoredData.world_node = self
 	NotificationManager.allow_code_advance = false
 	timer_to_lose_when_sending_ship_to_sun.connect("timeout", self, "on_ship_arrived_to_sun")
+	var sun_movement_anim = $ColorRect/Star/Sprite/SpriteTexture/SunMovement
+	sun_movement_anim.play("PlanetMovement")
 
 func send_ship_to_node(end_planet: AGraphNode):
 	# Since there is always only one edge, this should work fine
