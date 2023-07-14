@@ -92,9 +92,8 @@ func _on_dialogue_finished():
 		return
 	if should_close_on_finish:
 		self.visible = false
-	else:
 		has_finished = true
-	emit_signal("dialogue_finished")
+		emit_signal("dialogue_finished")
 	# Here we could start next scene
 	# But it is better that each world node knows when to end
 	# They can use the dialogue_finished signal anyway
