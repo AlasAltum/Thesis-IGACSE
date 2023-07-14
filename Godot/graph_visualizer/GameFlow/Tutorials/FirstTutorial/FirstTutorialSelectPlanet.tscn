@@ -8,7 +8,6 @@
 [ext_resource path="res://Assets/textures/planets/MoonPlanetRotation.png" type="Texture" id=6]
 [ext_resource path="res://Assets/textures/planets/GasGiant.png" type="Texture" id=7]
 [ext_resource path="res://Assets/textures/planets/EarthAtlas.png" type="Texture" id=8]
-[ext_resource path="res://GameFlow/moving_sprite_texture.gd" type="Script" id=9]
 [ext_resource path="res://Node/EdgeHardcoded.tscn" type="PackedScene" id=10]
 [ext_resource path="res://GameFlow/DialogueDisplayer.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/animations/ShipFlyingAround.tscn" type="PackedScene" id=12]
@@ -28,6 +27,19 @@ shader_param/WHITE = Plane( 1, 1, 1, 0.2 )
 shader_param/FREQ = 3.0
 shader_param/highlight = 0.0
 shader_param/amplitude = 0.1
+
+[sub_resource type="GDScript" id=36]
+script/source = "extends Sprite
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+
+"
 
 [sub_resource type="Animation" id=22]
 resource_name = "ClickNode"
@@ -263,7 +275,7 @@ use_parent_material = true
 z_index = -1
 texture = ExtResource( 8 )
 hframes = 4
-script = ExtResource( 9 )
+script = SubResource( 36 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect/Planet1"]
 anims/ClickNode = SubResource( 22 )
