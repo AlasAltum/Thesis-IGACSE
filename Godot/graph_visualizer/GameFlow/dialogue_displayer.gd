@@ -19,11 +19,9 @@ onready var confirm_action_audio: AudioStreamPlayer = $ConfirmActionAudio
 export (float) var original_dialogue_speed = 0.5
 export (Array, String, MULTILINE) var dialogues_to_show = []
 export (int) var current_dialogue_index = -1
-export (PackedScene) var next_scene = null
 # This script should contain all the command methods that are going to be called
 # from this dialogue
 export (Resource) var command_methods_script;  # : CommandMethod
-export (bool) var should_transfer_to_next_scene = true
 export (bool) var should_close_on_finish = true
 
 var has_finished : bool = false
@@ -34,9 +32,6 @@ signal dialogue_finished
 
 
 func _ready():
-	if next_scene == null:
-		printerr("Dialogue Displayer: next scene is null!")
-
 	next_button.connect("pressed", self, "_on_NextButton_pressed")
 	skip_button.connect("pressed", self, "_on_SkipButton_pressed")
 	text_shower_animation.connect("animation_finished", self, "on_dialogue_displayed_to_the_end")
@@ -97,7 +92,8 @@ func _on_dialogue_finished():
 		return
 	if should_close_on_finish:
 		self.visible = false
-	has_finished = true
+	else:
+		has_finished = true
 	emit_signal("dialogue_finished")
 	# Here we could start next scene
 	# But it is better that each world node knows when to end
