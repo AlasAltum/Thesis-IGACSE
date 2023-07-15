@@ -42,6 +42,6 @@ func _on_code_finished():
 	pass
 
 func activate():
-	NotificationManager.allow_code_advance = false
+
 	self.visible = true
 	# TODO: maybe we could add an animation instead of just making it visible

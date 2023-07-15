@@ -16,7 +16,9 @@ func show_pointer_of_first_instruction():
 	if code_block:
 		var first_instruction = code_block.get_node("LinesContainer/PanelContainer0")
 #		# TODO: make pointer of first instruction visible
+		yield(code_block.get_tree().create_timer(1.2), "timeout")
 		first_instruction.focus()
+		NotificationManager.allow_code_advance = true
 
 
 func make_dialogue_buttons_invisible():
@@ -29,5 +31,3 @@ func make_dialogue_buttons_invisible():
 	skip_button.visible = false
 	next_button.visible = false
 
-
-	

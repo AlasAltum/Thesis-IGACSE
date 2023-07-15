@@ -35,6 +35,7 @@ func _ready():
 	next_button.connect("pressed", self, "_on_NextButton_pressed")
 	skip_button.connect("pressed", self, "_on_SkipButton_pressed")
 	text_shower_animation.connect("animation_finished", self, "on_dialogue_displayed_to_the_end")
+	
 	text_shower_animation.playback_speed = original_dialogue_speed
 	dialogue_text.text = ""
 
@@ -87,13 +88,13 @@ func _update_dialogue_and_text():
 
 func _on_dialogue_finished():
 	# Do not allow this function to be repeated
-	dialogue_text.text = ""
 	if has_finished:
 		return
 	if should_close_on_finish:
+		dialogue_text.text = ""
 		self.visible = false
 		has_finished = true
-		emit_signal("dialogue_finished")
+	emit_signal("dialogue_finished")
 	# Here we could start next scene
 	# But it is better that each world node knows when to end
 	# They can use the dialogue_finished signal anyway
