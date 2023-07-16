@@ -368,7 +368,7 @@ config/icon="res://Node/white-circle.png"
 StoredData="*res://autoloads/stored_data.gd"
 NotificationManager="*res://autoloads/notification_manager.gd"
 InputRecorder="*res://c_sharp_src/InputRecorderScene.tscn"
-AudioPlayer="*res://autoloads/ErrorAudio.tscn"
+AudioPlayer="*res://autoloads/AudioPlayer.tscn"
 VolumeSlider="*res://AlgorithmScenes/Screen/VolumeSlider.tscn"
 
 [display]
