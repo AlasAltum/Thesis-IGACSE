@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/custom_shaders/tremor_movement_material.tres" type="Material" id=1]
 [ext_resource path="res://AlgorithmScenes/Code/focused_line_code_style.tres" type="StyleBox" id=2]
-[ext_resource path="res://GameFlow/Tutorials/SecondTutorial/code_press_enter.gd" type="Script" id=3]
+[ext_resource path="res://GameFlow/Tutorials/SecondTutorial/CodeBlockSrc/code_press_enter.gd" type="Script" id=3]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/1_take_node_0.gd" type="Script" id=6]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/3_add_to_queue.gd" type="Script" id=7]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/4_while_q_is_not_empty.gd" type="Script" id=8]
@@ -11,6 +11,7 @@
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/13_bfs_code_finished.gd" type="Script" id=16]
 [ext_resource path="res://AlgorithmScenes/Code/CodeLine.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Assets/themes/CodeBlockTheme.tres" type="Theme" id=23]
+
 
 [sub_resource type="Animation" id=3]
 resource_name = "AnimateLabel"
