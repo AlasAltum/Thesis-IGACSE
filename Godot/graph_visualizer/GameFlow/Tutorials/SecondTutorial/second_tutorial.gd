@@ -26,6 +26,7 @@ func _ready():
 	tutorial_animation_player.connect("animation_finished", self, "on_win_animation_finished")
 #	star.animation_player.connect("animation_finished", self, "on_ship_arrived_to_sun")
 	planet2.animation_player.connect("animation_finished", self, "on_ship_arrived_to_planet")
+	dialogue_displayer.connect("dialogue_finished", self, "on_dialogue_finished")
 	StoredData.world_node = self
 	NotificationManager.allow_code_advance = false
 	timer_to_lose_when_sending_ship_to_sun.connect("timeout", self, "on_ship_arrived_to_sun")
@@ -98,3 +99,7 @@ func on_restart_level_pressed():
 
 func get_class() -> String:
 	return "Tutorial"
+
+func on_dialogue_finished():
+	# Show the last text when skipping or finishing
+	dialogue_displayer.set_dialogue_by_index(len(dialogue_displayer.dialogues_to_show) - 1)

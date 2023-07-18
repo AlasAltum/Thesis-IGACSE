@@ -205,3 +205,8 @@ func _execute_single_command_method(command_method_name: String):
 	command_methods_script.execute_command(command_method_name)
 	self.executed_command_methods.append(command_method_name)
 
+
+func set_dialogue_by_index(index: int):
+	if index < len(self.dialogues_to_show):
+		var raw_text = dialogues_to_show[len(dialogues_to_show) - 1]
+		dialogue_text.text = _get_clean_text_from_dialogue(raw_text)
