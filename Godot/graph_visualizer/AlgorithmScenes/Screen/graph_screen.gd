@@ -165,7 +165,6 @@ func _on_node_instanced(node):
 	node.init_position_regarding_container(StoredData.number_of_nodes, node_container_key_properties)
 	# Connect signals
 	node.connect("node_add_to_object_request", NotificationManager, "_on_node_add_to_object")
-	StoredData.nodes.append(node)
 
 
 func instance_edges():

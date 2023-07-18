@@ -10,7 +10,7 @@ var edges : Array setget set_edges, get_edges
 var pressed: bool = false
 var aux_position: Vector2
 var clickable = false
-var node_color: Color setget set_color, get_color
+var node_color: Color
 
 onready var node_name: Label = $Sprite/Node2D/NodeName
 onready var node_action_menu: Popup = $Popup
@@ -62,6 +62,8 @@ func _ready():
 	self.radius_distance = $Sprite/SpriteTexture.get_rect().size.x / 2
 	randomize()
 	call_deferred("set_texture_randomly")
+	if not self.index in StoredData.nodes:
+		StoredData.nodes.append(self) 
 
 
 func set_texture_randomly():
@@ -277,11 +279,14 @@ func hide_node_action_menu():
 		self.clickable = false
 
 func set_color(in_color: Color) -> void:
-	node_color = in_color
-	$Sprite.material.set_shader_param("assigned_color", in_color)
+	if $Sprite:
+		node_color = in_color
+		$Sprite.material.set_shader_param("assigned_color", in_color)
 
 func get_color() -> Color:
-	return $Sprite.material.get_shader_param("assigned_color")
+	if $Sprite:
+		return $Sprite.material.get_shader_param("assigned_color")
+	return Color(0)
 
 func get_class() -> String:
 	return "AGraphNode"
