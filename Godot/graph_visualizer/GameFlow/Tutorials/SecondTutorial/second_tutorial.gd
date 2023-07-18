@@ -16,7 +16,7 @@ onready var starting_planet: AGraphNode = $ColorRect/StartingNode
 onready var tutorial_animation_player: AnimationPlayer = $AnimationPlayer
 onready var dialogue_displayer: DialogueDisplayer = $DialogueCanvas/DialogueDisplayer
 onready var timer_to_lose_when_sending_ship_to_sun: Timer = $TimerToLose
-
+onready var code_block = $HUD/CodeBlock
 
 func _ready():
 #	StoredData.selectable_nodes_indexes.append_array([star.index, planet2.index])
@@ -27,6 +27,7 @@ func _ready():
 #	star.animation_player.connect("animation_finished", self, "on_ship_arrived_to_sun")
 	planet2.animation_player.connect("animation_finished", self, "on_ship_arrived_to_planet")
 	dialogue_displayer.connect("dialogue_finished", self, "on_dialogue_finished")
+	code_block.connect("code_finished", self, "on_win")
 	StoredData.world_node = self
 	NotificationManager.allow_code_advance = false
 	timer_to_lose_when_sending_ship_to_sun.connect("timeout", self, "on_ship_arrived_to_sun")
@@ -80,8 +81,6 @@ func on_win_animation_finished(anim_name):
 			"You are almost ready to save galaxies!"
 		]
 		dialogue_displayer.set_and_start_new_dialogues(new_dialogues_to_show)
-		# Set the next level to be the second tutorial
-		dialogue_displayer.next_scene = StoredData.story_mode_scenes["BFS"]
 
 func on_ship_arrived_to_sun():
 	# TODO: make the player lose, open a popup and reset
@@ -103,3 +102,4 @@ func get_class() -> String:
 func on_dialogue_finished():
 	# Show the last text when skipping or finishing
 	dialogue_displayer.set_dialogue_by_index(len(dialogue_displayer.dialogues_to_show) - 1)
+

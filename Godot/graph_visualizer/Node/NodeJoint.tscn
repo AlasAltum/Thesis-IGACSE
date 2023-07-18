@@ -20,7 +20,6 @@ func _ready():
 "
 
 [node name="Node2D" type="Node2D"]
-position = Vector2( 323, 293 )
 script = SubResource( 1 )
 
 [node name="NodeA" parent="." instance=ExtResource( 1 )]

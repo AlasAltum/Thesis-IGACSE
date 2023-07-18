@@ -7,6 +7,7 @@ var code_lines: Array = []
 var curr_line_index : int = 0
 var current_line: CodeLine
 
+signal code_finished
 
 func _ready():
 	for child in lines_container.get_children():
@@ -39,7 +40,7 @@ func _input(event):
 
 
 func _on_code_finished():
-	pass
+	emit_signal("code_finished")
 
 func activate():
 
