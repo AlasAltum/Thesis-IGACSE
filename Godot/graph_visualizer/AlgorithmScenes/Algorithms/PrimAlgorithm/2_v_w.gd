@@ -10,8 +10,8 @@ func effect_check_on_focused():
 	var v_w = _edge.get_connecting_nodes()
 	v = v_w[0]
 	w = v_w[1]
-	StoredData.selectable_nodes.append(v.index)
-	StoredData.selectable_nodes.append(w.index)
+	StoredData.selectable_nodes_indexes.append(v.index)
+	StoredData.selectable_nodes_indexes.append(w.index)
 
 func check_actions_correct() -> bool:
 	if (

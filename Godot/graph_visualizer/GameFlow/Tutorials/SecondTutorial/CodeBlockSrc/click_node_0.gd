@@ -3,16 +3,15 @@ extends EffectCheck
 # Press Enter
 var has_enter_been_pressed : bool = false
 var helping_timer: Timer
-
+var node_0: AGraphNode = null
 
 func effect_check_on_focused() -> void:
+	# Set the node 0 that must be selected
 	if StoredData.world_node: # : SecondTutorial
-		helping_timer = Timer.new()
-		StoredData.world_node.add_child(helping_timer)
-		helping_timer.one_shot = true
-		helping_timer.connect("timeout", self, "on_user_takes_time_to_press_nodes")
-		helping_timer.start(3.5)
-
+		for _node in StoredData.nodes:
+			if _node.index == 0:
+				node_0 = _node
+				StoredData.selectable_nodes_indexes.append(0)
 
 # We want to help the user when not clicking the first node
 func on_user_takes_time_to_press_nodes():

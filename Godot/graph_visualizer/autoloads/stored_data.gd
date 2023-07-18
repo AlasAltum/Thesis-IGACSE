@@ -47,7 +47,7 @@ var adt_hovering : bool = false
 var popup_captures_input : bool = false
 var assign_name_popup : WindowDialog
 var world_node: Node  # : GraphManager
-var selectable_nodes = []
+var selectable_nodes_indexes = [] # Indexes of nodes
 var selected_edges = []
 var iterated_nodes = []
 var allow_nodes_dragging = false
@@ -218,7 +218,7 @@ func reset_data():
 	self.popup_captures_input = false
 	self.assign_name_popup = null
 	self.world_node = null
-	self.selectable_nodes = []
+	self.selectable_nodes_indexes = []
 	self.selected_edges = []
 	self.iterated_nodes = []
 

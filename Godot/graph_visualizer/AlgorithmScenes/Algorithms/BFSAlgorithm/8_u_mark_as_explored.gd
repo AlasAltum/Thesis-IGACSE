@@ -13,7 +13,7 @@ func effect_check_on_focused():
 	var u : AGraphNode = StoredData.get_variable("u").get_node()
 	u.show_animation_of_clicking_mouse()
 	u.highlight_node()
-	StoredData.selectable_nodes.append(u.index)
+	StoredData.selectable_nodes_indexes.append(u.index)
 
 func _edge_connects_nodes_u_and_v(_edge, u, v):
 	if (_edge.joint_end1 == u and _edge.joint_end2 == v) or \

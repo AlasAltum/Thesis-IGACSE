@@ -176,7 +176,7 @@ func unselect_node():
 	node_action_menu.visible = false
 
 func select_node(emit_signal=true):
-	if self.index in StoredData.selectable_nodes:
+	if self.index in StoredData.selectable_nodes_indexes:
 		if emit_signal:
 			emit_signal("node_selected", self)
 		self.selected = true

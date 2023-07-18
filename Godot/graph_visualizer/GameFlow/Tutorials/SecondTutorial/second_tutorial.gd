@@ -19,7 +19,7 @@ onready var timer_to_lose_when_sending_ship_to_sun: Timer = $TimerToLose
 
 
 func _ready():
-#	StoredData.selectable_nodes.append_array([star.index, planet2.index])
+#	StoredData.selectable_nodes_indexes.append_array([star.index, planet2.index])
 	star.connect("node_selected", self, "send_ship_to_node")
 	planet2.connect("node_selected", self, "send_ship_to_node")
 	tutorial_animation_player.play("OnReady")

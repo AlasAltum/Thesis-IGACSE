@@ -41,7 +41,7 @@ func _initialize_test_game_mode():
 	# Make all nodes selectable
 	# node type: AGraphNode
 	for node in StoredData.nodes:
-		StoredData.selectable_nodes.append(node.index)
+		StoredData.selectable_nodes_indexes.append(node.index)
 		node.connect("node_selected", self, "_store_node_selected_event")
 
 func _store_node_selected_event(node):

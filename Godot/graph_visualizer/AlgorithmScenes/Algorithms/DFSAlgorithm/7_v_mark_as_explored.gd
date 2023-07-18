@@ -11,5 +11,5 @@ func check_actions_correct() -> bool:
 # Once we are in this line, node v may be added
 func effect_check_on_focused():
 	var v : AGraphNode = StoredData.get_variable("v").get_node()
-	StoredData.selectable_nodes.append(v.index)
+	StoredData.selectable_nodes_indexes.append(v.index)
 

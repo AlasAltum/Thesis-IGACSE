@@ -13,7 +13,7 @@ onready var dialogue_displayer: DialogueDisplayer = $DialogueCanvas/DialogueDisp
 
 
 func _ready():
-	StoredData.selectable_nodes.append_array([planet1.index, planet2.index])
+	StoredData.selectable_nodes_indexes.append_array([planet1.index, planet2.index])
 	planet1.connect("node_selected", self, "send_ship_to_node")
 	planet2.connect("node_selected", self, "send_ship_to_node")
 	tutorial_animation_player.play("OnReady")
