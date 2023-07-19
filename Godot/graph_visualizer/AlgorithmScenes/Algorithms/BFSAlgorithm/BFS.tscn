@@ -14,19 +14,20 @@
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/9_q_add_u.gd" type="Script" id=16]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/4_while_q_is_not_empty.gd" type="Script" id=17]
 [ext_resource path="res://AlgorithmScenes/Screen/GameplayMenuPopup.tscn" type="PackedScene" id=18]
-[ext_resource path="res://AlgorithmScenes/Code/null_effect.gd" type="Script" id=19]
+[ext_resource path="res://AlgorithmScenes/Code/CodeBlock/null_effect.gd" type="Script" id=19]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/5_v_q_top.gd" type="Script" id=20]
 [ext_resource path="res://AlgorithmScenes/Screen/AddNodePopup.tscn" type="PackedScene" id=21]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/6_for_u_in_v_edges.gd" type="Script" id=23]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/7_if_u_is_not_explored.gd" type="Script" id=24]
-[ext_resource path="res://AlgorithmScenes/Code/code_block.gd" type="Script" id=25]
+[ext_resource path="res://AlgorithmScenes/Code/CodeBlock/code_block.gd" type="Script" id=25]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/8_u_mark_as_explored.gd" type="Script" id=26]
-[ext_resource path="res://AlgorithmScenes/Code/CodeLine.tscn" type="PackedScene" id=30]
+[ext_resource path="res://AlgorithmScenes/Code/CodeBlock/CodeLine.tscn" type="PackedScene" id=30]
 [ext_resource path="res://AlgorithmScenes/Code/ADTs/ADTMediator.tscn" type="PackedScene" id=34]
 [ext_resource path="res://AlgorithmScenes/Screen/GUI/HintLabel.tscn" type="PackedScene" id=35]
 [ext_resource path="res://AlgorithmScenes/Screen/ADTIsNotEmptyPopup.tscn" type="PackedScene" id=36]
 [ext_resource path="res://AlgorithmScenes/Screen/UNodeIsExploredPopup.tscn" type="PackedScene" id=37]
 [ext_resource path="res://AlgorithmScenes/Screen/FinishedPopup.tscn" type="PackedScene" id=38]
+
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 4.0

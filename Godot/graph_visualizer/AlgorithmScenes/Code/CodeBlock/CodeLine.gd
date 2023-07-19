@@ -25,9 +25,9 @@ onready var arrow_hightlight_enter: Node2D = $HBoxContainer/ArrowHightlightEnter
 const NOT_SELECTED_COLOR: Color = Color(0.24, 0.24, 0.24, 1.0);
 const SELECTED_COLOR: Color = Color(0.6, 0.6, 0.24, 1.0);
 
-const unfocused_style: StyleBox = preload("res://AlgorithmScenes/Code/default_line_code_style.tres")
+const unfocused_style: StyleBox = preload("res://AlgorithmScenes/Code/CodeBlock/default_line_code_style.tres")
 const focused_style: StyleBox = preload("res://AlgorithmScenes/Code/focused_line_code_style.tres")
-const completed_style: StyleBox = preload("res://AlgorithmScenes/Code/completed_line_code_style.tres")
+const completed_style: StyleBox = preload("res://AlgorithmScenes/Code/CodeBlock/completed_line_code_style.tres")
 
 
 # Change this variable for a given line if it should not play a confirmation audio

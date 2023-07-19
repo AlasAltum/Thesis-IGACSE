@@ -77,12 +77,12 @@ _global_script_classes=[ {
 "base": "ScrollContainer",
 "class": "CodeContainer",
 "language": "GDScript",
-"path": "res://AlgorithmScenes/Code/code_block.gd"
+"path": "res://AlgorithmScenes/Code/CodeBlock/code_block.gd"
 }, {
 "base": "PanelContainer",
 "class": "CodeLine",
 "language": "GDScript",
-"path": "res://AlgorithmScenes/Code/CodeLine.gd"
+"path": "res://AlgorithmScenes/Code/CodeBlock/CodeLine.gd"
 }, {
 "base": "Resource",
 "class": "ColorInterpolator",
@@ -142,7 +142,7 @@ _global_script_classes=[ {
 "base": "EffectCheck",
 "class": "FinishCodeEffect",
 "language": "GDScript",
-"path": "res://AlgorithmScenes/Code/finish_code.gd"
+"path": "res://AlgorithmScenes/Code/CodeBlock/finish_code.gd"
 }, {
 "base": "WindowDialog",
 "class": "FinishedPopup",

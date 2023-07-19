@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://AlgorithmScenes/Code/CodeLine.gd" type="Script" id=1]
+[ext_resource path="res://AlgorithmScenes/Code/CodeBlock/CodeLine.gd" type="Script" id=1]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/ArrowHighlightEnter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://AlgorithmScenes/Code/InstructionPointer.tscn" type="PackedScene" id=3]
-[ext_resource path="res://AlgorithmScenes/Code/default_line_code_style.tres" type="StyleBox" id=4]
+[ext_resource path="res://AlgorithmScenes/Code/CodeBlock/default_line_code_style.tres" type="StyleBox" id=4]
 [ext_resource path="res://Assets/custom_shaders/tremor_movement_material.tres" type="Material" id=5]
+[ext_resource path="res://Assets/GUI/code_block_sci_fi_theme.tres" type="Theme" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "AnimateLabel"
@@ -25,12 +26,13 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=4]
 length = 0.001
 
-[node name="PanelContainer" type="PanelContainer"]
+[node name="CodeLine" type="PanelContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = -558.0
+rect_min_size = Vector2( 0, 60 )
 size_flags_horizontal = 3
-size_flags_vertical = 0
+size_flags_vertical = 12
+theme = ExtResource( 6 )
 custom_styles/panel = ExtResource( 4 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -40,26 +42,31 @@ code_text = "code_here()"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_right = 1920.0
-margin_bottom = 14.0
+margin_bottom = 1080.0
 size_flags_horizontal = 3
-size_flags_vertical = 0
+size_flags_vertical = 3
 
 [node name="InstructionPointer" parent="HBoxContainer" instance=ExtResource( 3 )]
 visible = false
 position = Vector2( 15, 16 )
 scale = Vector2( 0.1, 0.1 )
+centered = false
 
 [node name="Tab" type="Label" parent="HBoxContainer"]
-margin_right = 16.0
-margin_bottom = 14.0
+margin_top = 526.0
+margin_right = 60.0
+margin_bottom = 553.0
 text = "    "
+valign = 1
 
 [node name="CodeText" type="Label" parent="HBoxContainer"]
-margin_left = 20.0
+margin_left = 64.0
+margin_top = 526.0
 margin_right = 1920.0
-margin_bottom = 14.0
+margin_bottom = 553.0
 size_flags_horizontal = 3
 text = "code_here()"
+valign = 3
 
 [node name="ArrowHightlightEnter" parent="HBoxContainer" instance=ExtResource( 2 )]
 visible = false

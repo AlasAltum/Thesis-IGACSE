@@ -17,7 +17,7 @@
 [ext_resource path="res://GameFlow/Tutorials/SecondTutorial/second_tutorial.gd" type="Script" id=17]
 [ext_resource path="res://Assets/textures/red_pandas/spaceman_red_panda_rescue.jpeg" type="Texture" id=18]
 [ext_resource path="res://GameFlow/Tutorials/SecondTutorial/SecondTutorialCodeBlock.tscn" type="PackedScene" id=19]
-[ext_resource path="res://AlgorithmScenes/Code/default_line_code_style.tres" type="StyleBox" id=20]
+[ext_resource path="res://AlgorithmScenes/Code/CodeBlock/default_line_code_style.tres" type="StyleBox" id=20]
 
 [sub_resource type="CircleShape2D" id=37]
 resource_local_to_scene = true
