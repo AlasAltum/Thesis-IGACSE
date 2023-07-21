@@ -4,6 +4,7 @@
 [ext_resource path="res://GameFlow/DialogueDisplayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Node/NodeName.tscn" type="PackedScene" id=3]
 [ext_resource path="res://GameFlow/command_methods_scripts/second_level_show_instructions.gd" type="Script" id=4]
+[ext_resource path="res://GameFlow/Tutorials/SecondTutorial/CodeBlockSrc/SecondTutorialCodBlock.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Node/graph_node.gd" type="Script" id=6]
 [ext_resource path="res://Assets/textures/planets/SunExample.png" type="Texture" id=7]
 [ext_resource path="res://Assets/textures/planets/MoonPlanetRotation.png" type="Texture" id=9]
@@ -16,8 +17,7 @@
 [ext_resource path="res://Node/EdgeHardcoded.tscn" type="PackedScene" id=16]
 [ext_resource path="res://GameFlow/Tutorials/SecondTutorial/second_tutorial.gd" type="Script" id=17]
 [ext_resource path="res://Assets/textures/red_pandas/spaceman_red_panda_rescue.jpeg" type="Texture" id=18]
-[ext_resource path="res://GameFlow/Tutorials/SecondTutorial/SecondTutorialCodeBlock.tscn" type="PackedScene" id=19]
-[ext_resource path="res://AlgorithmScenes/Code/CodeBlock/default_line_code_style.tres" type="StyleBox" id=20]
+[ext_resource path="res://AlgorithmScenes/Code/CodeBlock/code_block.gd" type="Script" id=19]
 
 [sub_resource type="CircleShape2D" id=37]
 resource_local_to_scene = true
@@ -407,47 +407,16 @@ expand = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="CodeBlock" parent="HUD" instance=ExtResource( 19 )]
-visible = false
-margin_left = -471.0
-margin_bottom = 600.0
-
-[node name="LinesContainer" parent="HUD/CodeBlock" index="0"]
-margin_right = 462.0
-margin_bottom = 589.0
-
-[node name="PanelContainer0" parent="HUD/CodeBlock/LinesContainer" index="0"]
-margin_top = 224.0
-margin_right = 462.0
-margin_bottom = 259.0
-custom_styles/panel = ExtResource( 20 )
-
-[node name="HBoxContainer" parent="HUD/CodeBlock/LinesContainer/PanelContainer0" index="0"]
-margin_right = 462.0
-
-[node name="CodeText" parent="HUD/CodeBlock/LinesContainer/PanelContainer0/HBoxContainer" index="2"]
-margin_right = 462.0
-
-[node name="PanelContainer1" parent="HUD/CodeBlock/LinesContainer" index="1"]
-margin_top = 259.0
-margin_right = 462.0
-margin_bottom = 294.0
-custom_styles/panel = ExtResource( 20 )
-
-[node name="PanelContainer2" parent="HUD/CodeBlock/LinesContainer" index="2"]
-margin_top = 294.0
-margin_right = 462.0
-margin_bottom = 329.0
-
-[node name="PanelContainer3" parent="HUD/CodeBlock/LinesContainer" index="3"]
-margin_top = 329.0
-margin_right = 462.0
-margin_bottom = 364.0
-
-[node name="PanelContainer4" parent="HUD/CodeBlock/LinesContainer" index="4"]
-margin_top = 364.0
-margin_right = 462.0
-margin_bottom = 399.0
+[node name="CodeBlock" parent="HUD" instance=ExtResource( 5 )]
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+margin_left = -518.0
+margin_top = 7.0
+margin_right = -29.0
+margin_bottom = 531.0
+script = ExtResource( 19 )
 
 [connection signal="input_event" from="ColorRect/Star/Area2D" to="ColorRect/Star" method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="ColorRect/Star/Area2D" to="ColorRect/Star" method="_on_Area2D_mouse_entered"]
@@ -458,7 +427,3 @@ margin_bottom = 399.0
 [connection signal="input_event" from="ColorRect/StartingNode/Area2D" to="ColorRect/StartingNode" method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="ColorRect/StartingNode/Area2D" to="ColorRect/StartingNode" method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="ColorRect/StartingNode/Area2D" to="ColorRect/StartingNode" method="_on_Area2D_mouse_exited"]
-
-[editable path="HUD/CodeBlock"]
-[editable path="HUD/CodeBlock/LinesContainer/PanelContainer0"]
-[editable path="HUD/CodeBlock/LinesContainer/PanelContainer1"]

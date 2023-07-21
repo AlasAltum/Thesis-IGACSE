@@ -14,7 +14,7 @@ func show_code_instructions():
 # of the code block 
 func show_pointer_of_first_instruction():
 	if code_block:
-		var first_instruction = code_block.get_node("LinesContainer/PanelContainer0")
+		var first_instruction = code_block.lines_container.get_node("PanelContainer0")
 #		# TODO: make pointer of first instruction visible
 		yield(code_block.get_tree().create_timer(1.2), "timeout")
 		first_instruction.focus()

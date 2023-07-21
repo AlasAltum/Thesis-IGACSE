@@ -2,7 +2,7 @@ class_name CodeContainer
 extends ScrollContainer
 
 export (bool) var allow_advance
-onready var lines_container = $LinesContainer
+onready var lines_container = $MarginContainer/LinesContainer
 var code_lines: Array = []
 var curr_line_index : int = 0
 var current_line: CodeLine

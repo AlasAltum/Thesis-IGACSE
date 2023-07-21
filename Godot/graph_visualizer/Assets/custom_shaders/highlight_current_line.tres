@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=6]
+code = "shader_type canvas_item;
+
+void vertex()
+{
+	COLOR = COLOR * (1.0 + 0.1 * cos(VERTEX.x +  3.0 * TIME));
+}"
+
+[resource]
+shader = SubResource( 6 )
