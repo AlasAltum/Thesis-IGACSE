@@ -2,4 +2,7 @@
 
 [resource]
 draw_center = false
+border_width_left = 4
+border_width_right = 4
+border_color = Color( 0.8, 0.8, 0.8, 0 )
 anti_aliasing = false

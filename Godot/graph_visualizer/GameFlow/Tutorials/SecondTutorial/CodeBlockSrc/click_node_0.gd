@@ -9,7 +9,7 @@ func effect_check_on_focused() -> void:
 	# Set the node 0 that must   be selected
 	if StoredData.world_node: # : SecondTutorial
 		for _node in StoredData.nodes:
-			if _node.index == 0:
+			if is_instance_valid(_node) and _node.index == 0:
 				node_0 = _node
 				StoredData.selectable_nodes_indexes.append(0)
 

@@ -21,13 +21,14 @@ var executed_correct_effects_once: bool = false
 onready var code_label = $HBoxContainer/CodeText
 onready var instruction_pointer : Sprite = $HBoxContainer/InstructionPointer
 onready var arrow_hightlight_enter: Node2D = $HBoxContainer/ArrowHightlightEnter
+onready var right_pointer: Sprite = $HBoxContainer/RightPointer
 
 const NOT_SELECTED_COLOR: Color = Color(0.24, 0.24, 0.24, 1.0);
 const SELECTED_COLOR: Color = Color(0.6, 0.6, 0.24, 1.0);
 
-const unfocused_style: StyleBox = preload("res://AlgorithmScenes/Code/CodeBlock/default_line_code_style.tres")
-const focused_style: StyleBox = preload("res://AlgorithmScenes/Code/focused_line_code_style.tres")
-const completed_style: StyleBox = preload("res://AlgorithmScenes/Code/CodeBlock/completed_line_code_style.tres")
+const unfocused_style: StyleBox = preload("res://AlgorithmScenes/Code/CodeBlock/new_default_line_code_style.tres")
+const focused_style: StyleBox = preload("res://AlgorithmScenes/Code/CodeBlock/new_progress_line_code_style.tres")
+const completed_style: StyleBox = preload("res://AlgorithmScenes/Code/CodeBlock/new_completed_line_code_style.tres")
 
 
 # Change this variable for a given line if it should not play a confirmation audio
@@ -47,7 +48,7 @@ func _process(_delta: float) -> void:
 	if self.effect_check:
 		var action_completed = self.effect_check.check_actions_correct()
 		if action_completed:
-			execute_correct_effects_once()
+			on_correct_instruction_execute_effects_once()
 
 		# If the player was correct, but then made a mistake
 		if self.was_completed_correctly and not action_completed:
@@ -55,21 +56,40 @@ func _process(_delta: float) -> void:
 			self.executed_correct_effects_once = false
 			NotificationManager.set_hint_text(self.hint_text)
 
-func execute_correct_effects_once():
+# Triggered when the instructions from the method EffectCheck.check_actions_correct 
+# Have returned true. Should be executed only once.
+func on_correct_instruction_execute_effects_once():
 	if not self.executed_correct_effects_once:
 		add_stylebox_override("panel", completed_style)
 		self.was_completed_correctly = true
 		self.executed_correct_effects_once = true
-		self._show_hightlight_enter()
+		self._hide_instruction_pointer()
+		self._show_right_instruction_ticket()
 		if self.effect_check and self.should_play_confirmation_audio():
 			NotificationManager.play_confirmation_audio()
-			# erase instructions to make the player focus on the next line
+			# Erase instructions to make the player focus on the next line
 			NotificationManager.set_hint_text("")
+
+func _show_instruction_pointer():
+	if instruction_pointer:
+		instruction_pointer.visible = true
+
+func _hide_instruction_pointer():
+	if instruction_pointer:
+		instruction_pointer.visible = false
+
+
+func _show_right_instruction_ticket():
+	right_pointer.visible =  true
+
+func _hide_right_instruction_ticket():
+	right_pointer.visible = false
+
 
 func _show_hightlight_enter():
 	arrow_hightlight_enter.visible = true
 
-func _hide_hightlight_enter():
+func _hide_hightlight_arrow():
 	arrow_hightlight_enter.visible = false
 
 
@@ -86,8 +106,7 @@ func _on_focused():
 		self.effect_check.effect_check_on_focused()
 		self.on_focus_effect_triggered = true
 		# Visual effects, change color and add InsPointer
-		if instruction_pointer:
-			instruction_pointer.visible = true
+		_show_instruction_pointer()
 		add_stylebox_override("panel", focused_style)
 
 
@@ -100,7 +119,7 @@ func unfocus():
 func _on_unfocus():
 	focused = false
 	# RESET variables
-	_hide_hightlight_enter()
+	_hide_right_instruction_ticket()
 	reset_effect_check()
 	# Visual effects, change color and add InsPointer
 	if instruction_pointer:

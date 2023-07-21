@@ -43,7 +43,8 @@ __meta__ = {
 code_text = "code_here()"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 1916.0
+margin_left = 4.0
+margin_right = 1912.0
 margin_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -70,7 +71,7 @@ valign = 1
 [node name="CodeText" type="Label" parent="HBoxContainer"]
 margin_left = 64.0
 margin_top = 526.0
-margin_right = 1916.0
+margin_right = 1908.0
 margin_bottom = 553.0
 size_flags_horizontal = 3
 text = "code_here()"
