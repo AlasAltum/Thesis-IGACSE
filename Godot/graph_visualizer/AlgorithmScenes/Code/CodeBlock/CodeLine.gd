@@ -80,11 +80,16 @@ func _hide_instruction_pointer():
 
 
 func _show_right_instruction_ticket():
-	right_pointer.visible =  true
+	if right_pointer:
+		right_pointer.visible =  true
+	else:
+		 breakpoint
 
 func _hide_right_instruction_ticket():
-	right_pointer.visible = false
-
+	if right_pointer:
+		right_pointer.visible = false
+	else:
+		breakpoint
 
 func _show_hightlight_enter():
 	arrow_hightlight_enter.visible = true
