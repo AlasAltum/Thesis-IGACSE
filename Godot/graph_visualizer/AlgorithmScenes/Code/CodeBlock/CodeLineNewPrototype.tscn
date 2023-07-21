@@ -27,7 +27,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=4]
 length = 0.001
 
-[node name="CodeLineNew" type="PanelContainer"]
+[node name="CodeLine" type="PanelContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -51,7 +51,7 @@ size_flags_vertical = 3
 
 [node name="InstructionPointer" parent="HBoxContainer" instance=ExtResource( 3 )]
 visible = false
-position = Vector2( 15, 16 )
+position = Vector2( 3, 16 )
 scale = Vector2( 0.1, 0.1 )
 centered = false
 
@@ -63,13 +63,13 @@ texture = ExtResource( 7 )
 
 [node name="Tab" type="Label" parent="HBoxContainer"]
 margin_top = 526.0
-margin_right = 60.0
+margin_right = 30.0
 margin_bottom = 553.0
-text = "    "
+text = "  "
 valign = 1
 
 [node name="CodeText" type="Label" parent="HBoxContainer"]
-margin_left = 64.0
+margin_left = 34.0
 margin_top = 526.0
 margin_right = 1908.0
 margin_bottom = 553.0

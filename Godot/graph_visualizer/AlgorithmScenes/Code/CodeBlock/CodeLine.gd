@@ -83,7 +83,7 @@ func _show_right_instruction_ticket():
 	if right_pointer:
 		right_pointer.visible =  true
 	else:
-		 breakpoint
+		breakpoint
 
 func _hide_right_instruction_ticket():
 	if right_pointer:

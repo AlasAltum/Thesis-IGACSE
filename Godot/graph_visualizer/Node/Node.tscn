@@ -22,7 +22,7 @@ shader_param/FREQ = 3.0
 shader_param/highlight = 0.0
 shader_param/amplitude = 0.1
 
-[sub_resource type="Shader" id=6]
+[sub_resource type="Shader" id=18]
 code = "shader_type canvas_item;
 
 uniform float frequency = 10.f;
@@ -35,7 +35,7 @@ void vertex()
 }"
 
 [sub_resource type="ShaderMaterial" id=7]
-shader = SubResource( 6 )
+shader = SubResource( 18 )
 shader_param/frequency = 0.0
 shader_param/amplitude = 10.0
 
@@ -221,7 +221,6 @@ __meta__ = {
 }
 
 [node name="Variable" type="Node2D" parent="."]
-visible = false
 material = SubResource( 7 )
 position = Vector2( 35, -40 )
 

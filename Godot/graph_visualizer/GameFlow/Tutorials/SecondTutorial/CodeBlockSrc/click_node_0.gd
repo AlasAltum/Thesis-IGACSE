@@ -12,9 +12,14 @@ func effect_check_on_focused() -> void:
 			if is_instance_valid(_node) and _node.index == 0:
 				node_0 = _node
 				StoredData.selectable_nodes_indexes.append(0)
+				break
+
+#func _trigger_on_next_line_side_effect():
+#	if node_0:
 
 
 func check_actions_correct() -> bool:
-	if node_0:
-		return node_0.selected
+	if node_0 and node_0.selected:
+		node_0.highlight_variable("t")
+		return true
 	return false

@@ -9,10 +9,10 @@ var lost_scene
 
 export (float) var time_to_lose_when_sending_ship_to_sun = 2.0
 
-onready var starting_node: AGraphNode = $ColorRect/StartingNode
-onready var star: AGraphNode = $ColorRect/Star
-onready var planet2: AGraphNode = $ColorRect/Planet2
-onready var starting_planet: AGraphNode = $ColorRect/StartingNode
+onready var starting_node: AGraphNode = $Nodes/StartingNode1
+onready var star: AGraphNode = $Nodes/Star
+onready var planet2: AGraphNode = $Nodes/Planet2
+onready var starting_planet: AGraphNode = $Nodes/StartingNode1
 onready var tutorial_animation_player: AnimationPlayer = $AnimationPlayer
 onready var dialogue_displayer: DialogueDisplayer = $DialogueCanvas/DialogueDisplayer
 onready var timer_to_lose_when_sending_ship_to_sun: Timer = $TimerToLose
@@ -31,16 +31,16 @@ func _ready():
 	StoredData.world_node = self
 	NotificationManager.allow_code_advance = false
 	timer_to_lose_when_sending_ship_to_sun.connect("timeout", self, "on_ship_arrived_to_sun")
-	var sun_movement_anim = $ColorRect/Star/Sprite/SpriteTexture/SunMovement
+	var sun_movement_anim = $Nodes/Star/Sprite/SpriteTexture/SunMovement
 	sun_movement_anim.play("PlanetMovement")
 
 func send_ship_to_node(end_planet: AGraphNode):
 	# Since there is always only one edge, this should work fine
-	var edge #  = $ColorRect/Edge1S:
+	var edge #  = $Nodes/Edge1S:
 	if end_planet == star:
-		edge = $ColorRect/Edge1S
+		edge = $Nodes/Edge1S
 	elif end_planet == planet2:
-		edge = $ColorRect/Edge2S
+		edge = $Nodes/Edge2S
 	if edge and end_planet == star:
 		edge.send_ship_from_nodeA_to_nodeB( starting_node, end_planet)
 		# await for 1.5 seconds and lose
@@ -65,7 +65,7 @@ func on_win() -> void:
 # with the instruction to visit (click on) the planets
 func _on_DialogueShower_dialogue_finished():
 	# Here we could emphasize the code somehow
-	$ColorRect/Star/Sprite/SpriteTexture/SunMovement.play("PlanetMovement")
+	$Nodes/Star/Sprite/SpriteTexture/SunMovement.play("PlanetMovement")
 
 
 func on_win_audio_play():
