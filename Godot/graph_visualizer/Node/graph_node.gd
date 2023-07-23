@@ -178,22 +178,24 @@ func unselect_node():
 	node_action_menu.visible = false
 
 func select_node(emit_signal=true):
-	if self.index in StoredData.selectable_nodes_indexes:
-		if emit_signal:
-			emit_signal("node_selected", self)
-		self.selected = true
-		AudioPlayer.play_element_selected()
-
-		if representation and mouse_button_left_animation:
-			representation.set_selected()
-			mouse_button_left_animation.visible = false
-
-		return
-
-	else:
+	# if node is not selectable
+	if not self.index in StoredData.selectable_nodes_indexes:
 		# Adding user feedback when a node is not selectable and is clicked
 		self.animation_player.play("ErrorSelectingNode")
-		print("Not selectable Node")
+		return
+
+	# If node is selectable
+	if emit_signal:
+		emit_signal("node_selected", self)
+	self.selected = true
+	AudioPlayer.play_element_selected()
+
+	if representation:
+		representation.set_selected()
+	if  mouse_button_left_animation:
+		mouse_button_left_animation.visible = false
+
+
 
 func on_error_audio():
 	AudioPlayer.play_error_audio()
