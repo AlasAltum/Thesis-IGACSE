@@ -16,7 +16,7 @@
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/13_bfs_code_finished.gd" type="Script" id=16]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/10_end_for.gd" type="Script" id=17]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithm/12_end_while.gd" type="Script" id=19]
-[ext_resource path="res://AlgorithmScenes/Code/CodeBlock/PanelContainer00.tscn" type="PackedScene" id=20]
+[ext_resource path="res://AlgorithmScenes/Code/CodeBlock/CodeLine.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Assets/themes/CodeBlockTheme.tres" type="Theme" id=23]
 
 

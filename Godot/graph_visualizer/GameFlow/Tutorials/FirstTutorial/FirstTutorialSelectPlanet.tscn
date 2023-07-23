@@ -350,19 +350,19 @@ shape = SubResource( 19 )
 [node name="Sprite" type="Node2D" parent="ColorRect/StartingNode"]
 material = SubResource( 29 )
 
-[node name="StationSimple" type="Sprite" parent="ColorRect/StartingNode/Sprite"]
-show_behind_parent = true
-position = Vector2( 0, -1.43051e-06 )
-scale = Vector2( 0.479042, 0.479042 )
-texture = ExtResource( 3 )
-
 [node name="SpriteTexture" type="Sprite" parent="ColorRect/StartingNode/Sprite"]
-show_behind_parent = true
-use_parent_material = true
+material = ExtResource( 9 )
 position = Vector2( 0, -4 )
 texture = ExtResource( 6 )
 hframes = 4
 region_rect = Rect2( 0, 0, 80, 80 )
+
+[node name="StationSimple" type="Sprite" parent="ColorRect/StartingNode/Sprite"]
+show_behind_parent = true
+position = Vector2( 0, -1.43051e-06 )
+scale = Vector2( 0.479042, 0.479042 )
+z_index = 1
+texture = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect/StartingNode"]
 anims/ClickNode = SubResource( 30 )

@@ -16,7 +16,7 @@
 [ext_resource path="res://AlgorithmScenes/Code/CodeBlock/null_effect.gd" type="Script" id=15]
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/1_take_node_0.gd" type="Script" id=16]
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/13_dfs_code_finished.gd" type="Script" id=17]
-[ext_resource path="res://AlgorithmScenes/Code/CodeBlock/PanelContainer00.tscn" type="PackedScene" id=20]
+[ext_resource path="res://AlgorithmScenes/Code/CodeBlock/CodeLine.tscn" type="PackedScene" id=20]
 
 
 [node name="DFSCodeBlock2" type="ScrollContainer"]
