@@ -8,13 +8,14 @@
 [ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/3_create_mst.gd" type="Script" id=8]
 [ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/5_if_len_c_equals_1_break.gd" type="Script" id=9]
 [ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/6_v_w_vertices_e.gd" type="Script" id=10]
-[ext_resource path="res://AlgorithmScenes/Code/CodeBlock/CodeLine.tscn" type="PackedScene" id=11]
+[ext_resource path="res://AlgorithmScenes/Code/CodeBlock/PanelContainer00.tscn" type="PackedScene" id=11]
 [ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/8_mst_append_e.gd" type="Script" id=12]
 [ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/9_union_find_v_find_w.gd" type="Script" id=13]
 [ext_resource path="res://AlgorithmScenes/Code/CodeBlock/code_block.gd" type="Script" id=14]
 [ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/4_for_e_in_graph_edges.gd" type="Script" id=15]
 [ext_resource path="res://AlgorithmScenes/Algorithms/KruskalAlgorithm/7_if_find_v_unequal_find_w.gd" type="Script" id=16]
 [ext_resource path="res://AlgorithmScenes/Code/CodeBlock/null_effect.gd" type="Script" id=17]
+
 
 
 [node name="KruskalCodeBlock" type="ScrollContainer"]

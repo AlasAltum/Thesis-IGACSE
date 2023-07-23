@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Code/CodeBlock/CodeLine.gd" type="Script" id=1]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/ArrowHighlightEnter.tscn" type="PackedScene" id=2]
@@ -23,6 +23,9 @@ tracks/0/keys = {
 "update": 1,
 "values": [ ExtResource( 5 ), null ]
 }
+
+[sub_resource type="Animation" id=5]
+resource_name = "OnError"
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -57,19 +60,19 @@ centered = false
 
 [node name="RightPointer" type="Sprite" parent="HBoxContainer"]
 visible = false
-position = Vector2( 35, 30 )
+position = Vector2( 20, 30 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 
 [node name="Tab" type="Label" parent="HBoxContainer"]
 margin_top = 526.0
-margin_right = 30.0
+margin_right = 45.0
 margin_bottom = 553.0
-text = "  "
+text = "   "
 valign = 1
 
 [node name="CodeText" type="Label" parent="HBoxContainer"]
-margin_left = 34.0
+margin_left = 49.0
 margin_top = 526.0
 margin_right = 1908.0
 margin_bottom = 553.0
@@ -86,4 +89,5 @@ z_as_relative = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/AnimateLabel = SubResource( 1 )
+anims/OnError = SubResource( 5 )
 anims/RESET = SubResource( 4 )

@@ -19,10 +19,11 @@
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/13_dfs_code_finished.gd" type="Script" id=17]
 [ext_resource path="res://AlgorithmScenes/Code/InstructionPointer.tscn" type="PackedScene" id=18]
 [ext_resource path="res://AlgorithmScenes/Code/CodeBlock/CodeLine.gd" type="Script" id=19]
-[ext_resource path="res://AlgorithmScenes/Code/CodeBlock/CodeLine.tscn" type="PackedScene" id=20]
+[ext_resource path="res://AlgorithmScenes/Code/CodeBlock/PanelContainer00.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Assets/custom_shaders/tremor_movement_material.tres" type="Material" id=21]
 [ext_resource path="res://AlgorithmScenes/Code/CodeBlock/CodeLineNewPrototype.tscn" type="PackedScene" id=22]
 [ext_resource path="res://AlgorithmScenes/Code/CodeBlock/new_progress_line_code_style.tres" type="StyleBox" id=23]
+
 
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.956863, 0.827451, 0.121569, 1 )
