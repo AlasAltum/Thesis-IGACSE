@@ -94,7 +94,7 @@ margin_top = 256.0
 margin_right = 764.0
 margin_bottom = 316.0
 line_index = 4
-code_text = "  if node.is_not_a_star():"
+code_text = "  if u.is_not_a_star():"
 effect_check = ExtResource( 15 )
 
 [node name="PanelContainer5" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
@@ -105,7 +105,6 @@ margin_top = 320.0
 margin_right = 764.0
 margin_bottom = 380.0
 line_index = 5
-jump_index = 13
 code_text = "      node.click()"
 effect_check = ExtResource( 15 )
 plays_confirmation_audio = false
@@ -118,6 +117,18 @@ margin_top = 384.0
 margin_right = 764.0
 margin_bottom = 444.0
 line_index = 6
+code_text = "endfor"
+effect_check = ExtResource( 15 )
+plays_confirmation_audio = false
+
+[node name="PanelContainer7" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 448.0
+margin_right = 764.0
+margin_bottom = 508.0
+line_index = 7
 code_text = " end"
 effect_check = ExtResource( 15 )
 plays_confirmation_audio = false
