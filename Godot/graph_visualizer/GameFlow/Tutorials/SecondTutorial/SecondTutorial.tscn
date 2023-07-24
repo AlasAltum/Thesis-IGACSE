@@ -338,6 +338,7 @@ scale = Vector2( 2, 2 )
 input_pickable = true
 script = ExtResource( 6 )
 index = 1
+should_show_ship_flying_around = false
 
 [node name="Area2D" type="Area2D" parent="Nodes/Planet2"]
 
@@ -371,6 +372,7 @@ anims/RESET = SubResource( 24 )
 visible = false
 position = Vector2( 32, 48 )
 frames = SubResource( 26 )
+frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -403,7 +405,8 @@ position = Vector2( 1580, 715 )
 scale = Vector2( 2, 2 )
 input_pickable = true
 script = ExtResource( 6 )
-index = 2
+index = 3
+should_show_ship_flying_around = false
 
 [node name="Area2D" type="Area2D" parent="Nodes/Planet3"]
 
@@ -445,7 +448,6 @@ anims/RESET = SubResource( 40 )
 visible = false
 position = Vector2( 32, 48 )
 frames = SubResource( 26 )
-frame = 1
 speed_scale = 0.5
 playing = true
 

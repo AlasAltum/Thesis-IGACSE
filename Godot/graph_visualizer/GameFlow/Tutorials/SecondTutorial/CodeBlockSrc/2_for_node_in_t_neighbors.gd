@@ -1,13 +1,24 @@
 extends EffectCheck
-# for node in t.neighbors:
+# for u in t.neighbors:
 
 var iteration_index : int = 0
 var nodes_to_visit = []
 var nodes_to_visit_assigned: bool = false
 
+func effect_check_on_focused():
+	# Assuming StoredData.world_node is SecondTutorial
+	if StoredData.world_node:
+		nodes_to_visit = [
+			StoredData.world_node.planet2,
+			StoredData.world_node.star,
+			StoredData.world_node.planet3
+		]
+		var current_node_to_select: AGraphNode = nodes_to_visit[iteration_index]
+		current_node_to_select.highlight_variable("u")
+
 
 func get_max_iteration_index() -> int:
-	return StoredData.world_node.starting_node.edges.size()
+	return nodes_to_visit.size()
 
 # In this case, for is for an i < length(v.edges())
 func for_condition_is_true() -> bool:
@@ -18,9 +29,14 @@ func for_condition_is_true() -> bool:
 	return false
 
 
-# set next node
+# Set next node
 func execute_side_effect() -> void:
-	pass
+	# We need this condition to be true. This must have been checked previously
+	# But I am adding it here anyway for code safety
+	if for_condition_is_true():
+		var current_node_to_select: AGraphNode = nodes_to_visit[iteration_index]
+		StoredData.selectable_nodes_indexes = [current_node_to_select.index]
+		iteration_index = iteration_index + 1
 
 
 func get_next_line() -> int:

@@ -44,6 +44,5 @@ func _on_code_finished():
 	emit_signal("code_finished")
 
 func activate():
-
 	self.visible = true
 	# TODO: maybe we could add an animation instead of just making it visible
