@@ -12,11 +12,12 @@ export (float) var time_to_lose_when_sending_ship_to_sun = 2.0
 onready var starting_node: AGraphNode = $Nodes/StartingNode1
 onready var star: AGraphNode = $Nodes/Star
 onready var planet2: AGraphNode = $Nodes/Planet2
-onready var starting_planet: AGraphNode = $Nodes/StartingNode1
+onready var planet3: AGraphNode = $Nodes/Planet3
 onready var tutorial_animation_player: AnimationPlayer = $AnimationPlayer
 onready var dialogue_displayer: DialogueDisplayer = $DialogueCanvas/DialogueDisplayer
 onready var timer_to_lose_when_sending_ship_to_sun: Timer = $TimerToLose
 onready var code_block = $HUD/CodeBlock
+
 
 func _ready():
 #	StoredData.selectable_nodes_indexes.append_array([star.index, planet2.index])
@@ -102,4 +103,4 @@ func get_class() -> String:
 func on_dialogue_finished():
 	# Show the last text when skipping or finishing
 	dialogue_displayer.set_dialogue_by_index(len(dialogue_displayer.dialogues_to_show) - 1)
-
+	dialogue_displayer.has_finished = true

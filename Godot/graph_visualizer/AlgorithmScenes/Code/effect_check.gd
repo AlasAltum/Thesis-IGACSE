@@ -9,9 +9,8 @@ extends Resource
 var code_line: CodeLine
 
 
-func _ready():
-	pass
-
+# Triggered on initialization. It is not an equivalent of _ready
+# _ready does not work as expected since this is a Resource, not a node.
 func _init():
 	code_line = null
 

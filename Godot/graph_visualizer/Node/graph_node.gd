@@ -12,7 +12,7 @@ var aux_position: Vector2
 var clickable = false
 var node_color: Color
 
-onready var node_name: Label = $Sprite/Node2D/NodeName
+onready var node_name: Label = $Sprite/Name/NodeName
 onready var node_action_menu: Popup = $Popup
 onready var select_unselect_button: Button = $Popup/PanelContainer/VBoxContainer/SelectUnselectButton
 onready var add_to_object_button: Button = $Popup/PanelContainer/VBoxContainer/AddToObjectButton
