@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Node/graph_node.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Node/CircleNode80.png" type="Texture" id=7]
 [ext_resource path="res://Assets/textures/planets/DarkRedClick.png" type="Texture" id=8]
 [ext_resource path="res://Assets/textures/planets/RedLeftClick.png" type="Texture" id=9]
+[ext_resource path="res://Assets/materials/Outline2D.tres" type="Material" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 39.3722
@@ -160,7 +161,7 @@ shape = SubResource( 1 )
 material = SubResource( 11 )
 
 [node name="SpriteTexture" type="Sprite" parent="Sprite"]
-use_parent_material = true
+material = ExtResource( 10 )
 z_index = -1
 texture = ExtResource( 7 )
 region_rect = Rect2( 0, 0, 80, 80 )

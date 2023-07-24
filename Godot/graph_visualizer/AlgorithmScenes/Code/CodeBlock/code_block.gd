@@ -37,6 +37,7 @@ func _input(event):
 		else:
 			# TODO: Warn the player that the code has not been completed yet
 			AudioPlayer.play_not_doable_action_sound()
+			current_line.show_error_animation()
 
 
 func _on_code_finished():

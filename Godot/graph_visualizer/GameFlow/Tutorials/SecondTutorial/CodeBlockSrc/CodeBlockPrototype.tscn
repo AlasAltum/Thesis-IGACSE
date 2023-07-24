@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/10_v_mark_as_iterated.gd" type="Script" id=1]
 [ext_resource path="res://Assets/GUI/code_block_sci_fi_theme.tres" type="Theme" id=2]
@@ -16,6 +16,21 @@
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/1_take_node_0.gd" type="Script" id=16]
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/13_dfs_code_finished.gd" type="Script" id=17]
 [ext_resource path="res://AlgorithmScenes/Code/CodeBlock/CodeLine.tscn" type="PackedScene" id=20]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float MAX_DISPLACEMENT = 1.0f;
+
+void vertex()
+{
+	VERTEX.x = VERTEX.x + MAX_DISPLACEMENT * cos(sin(1.5 + TIME) * TIME);
+	VERTEX.y = VERTEX.y + MAX_DISPLACEMENT * sin(cos(0.2 + TIME) * TIME + 0.2) + sin(TIME);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/MAX_DISPLACEMENT = 1.0
 
 [node name="DFSCodeBlock" type="ScrollContainer"]
 anchor_left = 0.007
@@ -49,8 +64,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="PanelContainer0" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
+material = SubResource( 2 )
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_left = 0.0
 margin_right = 764.0
 margin_bottom = 60.0
 size_flags_vertical = 0
@@ -58,30 +75,10 @@ code_text = "DFS(starting_node=0):"
 effect_check = ExtResource( 15 )
 hint_text = "Press [b]SPACE[/b]"
 
-[node name="HBoxContainer" parent="MarginContainer/LinesContainer/PanelContainer0" index="0"]
-margin_right = 764.0
-margin_bottom = 60.0
-
-[node name="InstructionPointer" parent="MarginContainer/LinesContainer/PanelContainer0/HBoxContainer" index="0"]
-position = Vector2( 15, 32.6395 )
-scale = Vector2( 0.1, 0.103004 )
-
-[node name="Tab" parent="MarginContainer/LinesContainer/PanelContainer0/HBoxContainer" index="1"]
-margin_top = 0.0
-margin_bottom = 60.0
-size_flags_vertical = 3
-
-[node name="CodeText" parent="MarginContainer/LinesContainer/PanelContainer0/HBoxContainer" index="2"]
-margin_top = 0.0
-margin_right = 764.0
-margin_bottom = 60.0
-size_flags_vertical = 3
-valign = 2
-autowrap = true
-
 [node name="PanelContainer1" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_left = 0.0
 margin_top = 64.0
 margin_right = 764.0
 margin_bottom = 124.0
@@ -91,24 +88,10 @@ code_text = "    t = starting_node"
 effect_check = ExtResource( 16 )
 hint_text = "[b]LEFT CLICK[/b] Node [color=#00FF00]t=0[/color] and then [b]SPACE[/b]"
 
-[node name="HBoxContainer" parent="MarginContainer/LinesContainer/PanelContainer1" index="0"]
-margin_right = 764.0
-margin_bottom = 60.0
-
-[node name="Tab" parent="MarginContainer/LinesContainer/PanelContainer1/HBoxContainer" index="1"]
-margin_top = 16.0
-margin_bottom = 43.0
-valign = 0
-
-[node name="CodeText" parent="MarginContainer/LinesContainer/PanelContainer1/HBoxContainer" index="2"]
-margin_top = 16.0
-margin_right = 764.0
-margin_bottom = 43.0
-valign = 0
-
 [node name="PanelContainer2" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_left = 0.0
 margin_top = 128.0
 margin_right = 764.0
 margin_bottom = 188.0
@@ -120,6 +103,7 @@ hint_text = "Go to Data Structures, click the Slot [b]Stack[/b] and name it [col
 [node name="PanelContainer3" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_left = 0.0
 margin_top = 192.0
 margin_right = 764.0
 margin_bottom = 252.0
@@ -131,6 +115,7 @@ hint_text = "[b]Hover mouse[/b] on Node [color=#00FF00]t[/color], then add it to
 [node name="PanelContainer4" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_left = 0.0
 margin_top = 256.0
 margin_right = 764.0
 margin_bottom = 316.0
@@ -143,6 +128,7 @@ hint_text = ""
 [node name="PanelContainer5" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_left = 0.0
 margin_top = 320.0
 margin_right = 764.0
 margin_bottom = 380.0
@@ -155,6 +141,7 @@ plays_confirmation_audio = false
 [node name="PanelContainer6" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_left = 0.0
 margin_top = 384.0
 margin_right = 764.0
 margin_bottom = 444.0
@@ -167,6 +154,7 @@ hint_text = ""
 [node name="PanelContainer7" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_left = 0.0
 margin_top = 448.0
 margin_right = 764.0
 margin_bottom = 508.0
@@ -179,6 +167,7 @@ hint_text = "Select the [color=#00FF00]v[/color] node with a [b]LEFT CLICK[/b]"
 [node name="PanelContainer8" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_left = 0.0
 margin_top = 512.0
 margin_right = 764.0
 margin_bottom = 572.0
@@ -192,6 +181,7 @@ plays_confirmation_audio = false
 [node name="PanelContainer9" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_left = 0.0
 margin_top = 576.0
 margin_right = 764.0
 margin_bottom = 636.0
@@ -204,6 +194,7 @@ hint_text = "Add the Node [color=#00FF00]u[/color] to the stack by hovering the 
 [node name="PanelContainer10" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_left = 0.0
 margin_top = 640.0
 margin_right = 764.0
 margin_bottom = 700.0
@@ -217,6 +208,7 @@ plays_confirmation_audio = false
 [node name="PanelContainer11" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_left = 0.0
 margin_top = 704.0
 margin_right = 764.0
 margin_bottom = 764.0
@@ -228,6 +220,7 @@ hint_text = "Press [b]SPACE[/b]"
 [node name="PanelContainer12" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_left = 0.0
 margin_top = 768.0
 margin_right = 764.0
 margin_bottom = 828.0
@@ -241,6 +234,7 @@ plays_confirmation_audio = false
 [node name="PanelContainer13" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_left = 0.0
 margin_top = 832.0
 margin_right = 764.0
 margin_bottom = 892.0
@@ -254,6 +248,3 @@ plays_confirmation_audio = false
 [node name="Panel" type="Panel" parent="MarginContainer"]
 margin_right = 764.0
 margin_bottom = 904.0
-
-[editable path="MarginContainer/LinesContainer/PanelContainer0"]
-[editable path="MarginContainer/LinesContainer/PanelContainer1"]

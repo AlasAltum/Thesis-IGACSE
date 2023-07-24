@@ -17,6 +17,7 @@
 [ext_resource path="res://AlgorithmScenes/Code/CodeBlock/null_effect.gd" type="Script" id=17]
 
 
+
 [node name="KruskalCodeBlock" type="ScrollContainer"]
 margin_right = 400.0
 margin_bottom = 471.0

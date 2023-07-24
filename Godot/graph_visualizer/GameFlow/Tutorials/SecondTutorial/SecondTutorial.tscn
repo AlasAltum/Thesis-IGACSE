@@ -371,7 +371,6 @@ anims/RESET = SubResource( 24 )
 visible = false
 position = Vector2( 32, 48 )
 frames = SubResource( 26 )
-frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -446,6 +445,7 @@ anims/RESET = SubResource( 40 )
 visible = false
 position = Vector2( 32, 48 )
 frames = SubResource( 26 )
+frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -489,6 +489,7 @@ material = SubResource( 29 )
 
 [node name="StationSimple" type="Sprite" parent="Nodes/StartingNode1/Sprite"]
 visible = false
+self_modulate = Color( 1, 1, 1, 0 )
 show_behind_parent = true
 position = Vector2( 0, -2 )
 scale = Vector2( 0.479042, 0.45509 )

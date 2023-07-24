@@ -22,6 +22,7 @@ onready var code_label = $HBoxContainer/CodeText
 onready var instruction_pointer : Sprite = $HBoxContainer/InstructionPointer
 onready var arrow_hightlight_enter: Node2D = $HBoxContainer/ArrowHightlightEnter
 onready var right_pointer: Sprite = $HBoxContainer/RightPointer
+onready var anim_player: AnimationPlayer = $AnimationPlayer
 
 const NOT_SELECTED_COLOR: Color = Color(0.24, 0.24, 0.24, 1.0);
 const SELECTED_COLOR: Color = Color(0.6, 0.6, 0.24, 1.0);
@@ -169,3 +170,9 @@ func get_line_jump() -> int:
 # Override this and make it return false if the line should not 
 func should_play_confirmation_audio() -> bool:
 	return self.plays_confirmation_audio
+
+
+# When trying to go forward with a wrong instruction
+func show_error_animation():
+	anim_player.play("OnError")
+

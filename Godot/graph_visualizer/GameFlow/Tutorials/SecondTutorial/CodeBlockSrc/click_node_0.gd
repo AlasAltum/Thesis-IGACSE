@@ -1,7 +1,7 @@
 extends EffectCheck
 
 # Press Enter
-var has_enter_been_pressed : bool = false
+var side_effect_has_been_executed : bool = false
 var helping_timer: Timer
 var node_0: AGraphNode
 
@@ -26,8 +26,11 @@ func on_timeout_help_user():
 
 func check_actions_correct() -> bool:
 	if node_0 and node_0.selected:
-		node_0.highlight_variable("t")
 		if helping_timer and is_instance_valid(helping_timer):
 			helping_timer.queue_free()
+		if not side_effect_has_been_executed:
+			side_effect_has_been_executed = true
+			node_0.highlight_variable("t")
+			node_0.on_ship_arrived() # Show the base
 		return true
 	return false
