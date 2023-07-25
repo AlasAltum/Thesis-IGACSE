@@ -293,6 +293,11 @@ _global_script_classes=[ {
 "class": "UNodeIsExploredPopup",
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Screen/u_node_is_explorer_popup.gd"
+}, {
+"base": "WindowDialog",
+"class": "UNodeIsNotAStarPopup",
+"language": "GDScript",
+"path": "res://GameFlow/Tutorials/SecondTutorial/u_node_is_not_a_star_popup.gd"
 } ]
 _global_script_class_icons={
 "ADT": "",
@@ -351,7 +356,8 @@ _global_script_class_icons={
 "TestManager": "",
 "TutorialPlayer": "",
 "TutorialPopup": "",
-"UNodeIsExploredPopup": ""
+"UNodeIsExploredPopup": "",
+"UNodeIsNotAStarPopup": ""
 }
 
 [application]

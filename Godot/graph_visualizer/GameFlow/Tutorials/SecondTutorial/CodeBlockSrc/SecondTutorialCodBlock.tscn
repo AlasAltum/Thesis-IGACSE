@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
+[ext_resource path="res://GameFlow/Tutorials/SecondTutorial/CodeBlockSrc/3_if_u_is_not_a_star.gd" type="Script" id=1]
 [ext_resource path="res://Assets/GUI/code_block_sci_fi_theme.tres" type="Theme" id=2]
 [ext_resource path="res://GameFlow/Tutorials/SecondTutorial/CodeBlockSrc/code_press_enter.gd" type="Script" id=3]
 [ext_resource path="res://GameFlow/Tutorials/SecondTutorial/CodeBlockSrc/click_node_0.gd" type="Script" id=4]
@@ -95,7 +96,7 @@ margin_right = 764.0
 margin_bottom = 316.0
 line_index = 4
 code_text = "  if u.is_not_a_star():"
-effect_check = ExtResource( 15 )
+effect_check = ExtResource( 1 )
 
 [node name="PanelContainer5" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0

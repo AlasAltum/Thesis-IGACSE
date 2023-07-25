@@ -5,7 +5,10 @@ extends Node2D
 var animation_played_once = false
 const lost_popup_scene = preload("res://AlgorithmScenes/Screen/LosePopup.tscn")
 var lost_scene
-
+# Used by the if in the CodeBlock. Check res../SecondTutorial/CodeBlockSrc/3_if_u_is_not_a_star.gd
+var u_is_not_a_star_correct_answer = false
+var u_node: AGraphNode = null
+var current_selectable_node: AGraphNode
 
 export (float) var time_to_lose_when_sending_ship_to_sun = 2.0
 
@@ -25,7 +28,6 @@ func _ready():
 	planet2.connect("node_selected", self, "send_ship_to_node")
 	tutorial_animation_player.play("OnReady")
 	tutorial_animation_player.connect("animation_finished", self, "on_win_animation_finished")
-#	star.animation_player.connect("animation_finished", self, "on_ship_arrived_to_sun")
 	planet2.animation_player.connect("animation_finished", self, "on_ship_arrived_to_planet")
 	dialogue_displayer.connect("dialogue_finished", self, "on_dialogue_finished")
 	code_block.connect("code_finished", self, "on_win")
@@ -104,3 +106,12 @@ func on_dialogue_finished():
 	# Show the last text when skipping or finishing
 	dialogue_displayer.set_dialogue_by_index(len(dialogue_displayer.dialogues_to_show) - 1)
 	dialogue_displayer.has_finished = true
+
+func ask_user_if_u_node_is_a_star(input_u_is_not_a_star):
+	# Show popup of class UNodeIsNotAStarPopup
+	var u_node_is_not_a_star_popup = $HUD/UNodeIsNotAStarPopup
+	self.u_is_not_a_star_correct_answer = input_u_is_not_a_star
+	if is_instance_valid(u_node_is_not_a_star_popup):
+		u_node_is_not_a_star_popup.popup()
+
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Assets/textures/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GameFlow/DialogueDisplayer.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://GameFlow/Tutorials/SecondTutorial/second_tutorial.gd" type="Script" id=17]
 [ext_resource path="res://Assets/textures/red_pandas/spaceman_red_panda_rescue.jpeg" type="Texture" id=18]
 [ext_resource path="res://Node/CircleNode80.png" type="Texture" id=19]
+[ext_resource path="res://GameFlow/Tutorials/SecondTutorial/UNodeIsNotAStar.tscn" type="PackedScene" id=20]
 
 [sub_resource type="CircleShape2D" id=37]
 resource_local_to_scene = true
@@ -601,6 +602,8 @@ margin_left = -518.0
 margin_top = 7.0
 margin_right = -29.0
 margin_bottom = 531.0
+
+[node name="UNodeIsNotAStarPopup" parent="HUD" instance=ExtResource( 20 )]
 
 [connection signal="input_event" from="Nodes/Star/Area2D" to="Nodes/Star" method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="Nodes/Star/Area2D" to="Nodes/Star" method="_on_Area2D_mouse_entered"]

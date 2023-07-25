@@ -37,7 +37,7 @@ func execute_side_effect() -> void:
 		var current_node_to_select: AGraphNode = nodes_to_visit[iteration_index]
 		StoredData.selectable_nodes_indexes = [current_node_to_select.index]
 		iteration_index = iteration_index + 1
-
+		StoredData.world_node.current_selectable_node = current_node_to_select
 
 func get_next_line() -> int:
 	if self.for_condition_is_true():

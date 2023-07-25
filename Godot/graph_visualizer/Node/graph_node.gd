@@ -294,10 +294,12 @@ func get_class() -> String:
 	return "AGraphNode"
 
 func highlight_node():
-	$Sprite.material.set_shader_param("highlight", 1.0)
+	if $Sprite and $Sprite.material:
+		$Sprite.material.set_shader_param("highlight", 1.0)
 
 func stop_highlight_node():
-	$Sprite.material.set_shader_param("highlight", 0.0)
+	if $Sprite and $Sprite.material:
+		$Sprite.material.set_shader_param("highlight", 0.0)
 
 # Show the variable close to this node and let it float towards this node
 # We use a Node2D as parent of the variable label because the label has a rect
