@@ -89,6 +89,7 @@ line_index = 3
 jump_index = 7
 code_text = "for u in t.neighbors:"
 effect_check = ExtResource( 6 )
+plays_confirmation_audio = false
 
 [node name="PanelContainer4" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
