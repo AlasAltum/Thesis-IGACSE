@@ -3,7 +3,6 @@ extends EffectCheck
 
 var iteration_index : int = 0
 var nodes_to_visit = []
-var nodes_to_visit_assigned: bool = false
 
 func effect_check_on_focused():
 	# Assuming StoredData.world_node is SecondTutorial
@@ -13,6 +12,7 @@ func effect_check_on_focused():
 			StoredData.world_node.star,
 			StoredData.world_node.planet3
 		]
+	if for_condition_is_true():
 		var current_node_to_select: AGraphNode = nodes_to_visit[iteration_index]
 		current_node_to_select.highlight_variable("u")
 

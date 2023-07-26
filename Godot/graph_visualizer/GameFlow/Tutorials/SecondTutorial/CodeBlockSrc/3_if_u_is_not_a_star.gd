@@ -20,7 +20,7 @@ func effect_check_on_focused():
 
 
 func highlight_node():
-	if StoredData.world_node.u_node:
+	if StoredData.world_node and StoredData.world_node.u_node:
 		StoredData.world_node.u_node.highlight_node()
 
 func stop_node_highlight():

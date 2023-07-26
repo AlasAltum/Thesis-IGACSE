@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://GameFlow/Tutorials/SecondTutorial/CodeBlockSrc/3_if_u_is_not_a_star.gd" type="Script" id=1]
 [ext_resource path="res://Assets/GUI/code_block_sci_fi_theme.tres" type="Theme" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://GameFlow/Tutorials/SecondTutorial/CodeBlockSrc/click_node_0.gd" type="Script" id=4]
 [ext_resource path="res://AlgorithmScenes/Code/CodeBlock/code_block.gd" type="Script" id=5]
 [ext_resource path="res://GameFlow/Tutorials/SecondTutorial/CodeBlockSrc/2_for_node_in_t_neighbors.gd" type="Script" id=6]
+[ext_resource path="res://GameFlow/Tutorials/SecondTutorial/CodeBlockSrc/6_end_for.gd" type="Script" id=7]
+[ext_resource path="res://GameFlow/Tutorials/SecondTutorial/CodeBlockSrc/4_click_node_u.gd" type="Script" id=8]
 [ext_resource path="res://AlgorithmScenes/Code/CodeBlock/null_effect.gd" type="Script" id=15]
 [ext_resource path="res://AlgorithmScenes/Code/CodeBlock/CodeLine.tscn" type="PackedScene" id=20]
 
@@ -84,6 +86,7 @@ margin_top = 192.0
 margin_right = 764.0
 margin_bottom = 252.0
 line_index = 3
+jump_index = 7
 code_text = "for u in t.neighbors:"
 effect_check = ExtResource( 6 )
 
@@ -95,6 +98,7 @@ margin_top = 256.0
 margin_right = 764.0
 margin_bottom = 316.0
 line_index = 4
+jump_index = 6
 code_text = "  if u.is_not_a_star():"
 effect_check = ExtResource( 1 )
 
@@ -106,9 +110,8 @@ margin_top = 320.0
 margin_right = 764.0
 margin_bottom = 380.0
 line_index = 5
-code_text = "      node.click()"
-effect_check = ExtResource( 15 )
-plays_confirmation_audio = false
+code_text = "      u.click()"
+effect_check = ExtResource( 8 )
 
 [node name="PanelContainer6" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
@@ -118,8 +121,9 @@ margin_top = 384.0
 margin_right = 764.0
 margin_bottom = 444.0
 line_index = 6
+jump_index = 3
 code_text = "endfor"
-effect_check = ExtResource( 15 )
+effect_check = ExtResource( 7 )
 plays_confirmation_audio = false
 
 [node name="PanelContainer7" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
