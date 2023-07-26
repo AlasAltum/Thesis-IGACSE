@@ -1,5 +1,6 @@
 class_name OnGameLostPopup
 extends WindowDialog
+# res://AlgorithmScenes/Screen/LosePopup.tscn
 
 signal restart_level
 

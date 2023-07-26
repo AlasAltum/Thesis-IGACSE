@@ -90,7 +90,7 @@ func on_ship_arrived_to_sun():
 func on_lose() -> void:
 	# Show a popup
 	lost_scene = lost_popup_scene.instance()
-	add_child(lost_scene)
+	$HUD.add_child(lost_scene)
 	lost_scene.popup()
 	lost_scene.connect("restart_level", self, "on_restart_level_pressed")
 

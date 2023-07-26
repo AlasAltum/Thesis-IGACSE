@@ -372,7 +372,6 @@ anims/RESET = SubResource( 24 )
 visible = false
 position = Vector2( 32, 48 )
 frames = SubResource( 26 )
-frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -448,6 +447,7 @@ anims/RESET = SubResource( 40 )
 visible = false
 position = Vector2( 32, 48 )
 frames = SubResource( 26 )
+frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -591,6 +591,7 @@ texture = ExtResource( 18 )
 expand = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
+layer = 10
 
 [node name="CodeBlock" parent="HUD" instance=ExtResource( 5 )]
 anchor_left = 1.0
