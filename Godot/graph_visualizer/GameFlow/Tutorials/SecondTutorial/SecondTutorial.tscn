@@ -347,7 +347,6 @@ should_show_ship_flying_around = false
 shape = SubResource( 19 )
 
 [node name="Sprite" type="Node2D" parent="Nodes/Planet2"]
-use_parent_material = true
 
 [node name="SpriteTexture" type="Sprite" parent="Nodes/Planet2/Sprite"]
 material = ExtResource( 21 )
@@ -373,6 +372,7 @@ anims/RESET = SubResource( 24 )
 visible = false
 position = Vector2( 32, 48 )
 frames = SubResource( 26 )
+frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -448,7 +448,6 @@ anims/RESET = SubResource( 40 )
 visible = false
 position = Vector2( 32, 48 )
 frames = SubResource( 26 )
-frame = 1
 speed_scale = 0.5
 playing = true
 

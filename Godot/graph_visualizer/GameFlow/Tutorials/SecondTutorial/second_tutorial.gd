@@ -40,21 +40,19 @@ func _ready():
 func send_ship_to_node(end_planet: AGraphNode):
 	# Since there is always only one edge, this should work fine
 	var edge #  = $Nodes/Edge1S:
-	if end_planet == star:
-		edge = $Nodes/Edge1S
-	elif end_planet == planet2:
-		edge = $Nodes/Edge2S
+	match end_planet:
+		star:
+			edge = $Nodes/Edge1Star
+		planet2:
+			edge = $Nodes/Edge2S
+		planet3:
+			edge = $Nodes/Edge2S
+
+	edge.send_ship_from_nodeA_to_nodeB(starting_node, end_planet)
 	if edge and end_planet == star:
-		edge.send_ship_from_nodeA_to_nodeB( starting_node, end_planet)
 		# await for 1.5 seconds and lose
 		timer_to_lose_when_sending_ship_to_sun.start(time_to_lose_when_sending_ship_to_sun)
 
-	else:
-		edge.send_ship_from_nodeA_to_nodeB(starting_node, end_planet)
-	# Check if both planets have been pressed. If so,
-	# win and go to the next level after an animation
-	# if planet1.selected and planet2.selected:
-	# Wait until the ship arrives at planet 1 and 2 to show the win animation
 
 func on_ship_arrived_to_planet(animation_name):
 	if animation_name == "NodeBeingSelected":
@@ -115,3 +113,5 @@ func ask_user_if_u_node_is_a_star(input_u_is_not_a_star):
 		u_node_is_not_a_star_popup.popup()
 
 
+func send_ship_to_the_sun():
+	send_ship_to_node(star)

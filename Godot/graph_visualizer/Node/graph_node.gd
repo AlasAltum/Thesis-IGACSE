@@ -11,12 +11,14 @@ var pressed: bool = false
 var aux_position: Vector2
 var clickable = false
 var node_color: Color
+var accum_time: float
 
 onready var node_name: Label = $Sprite/Name/NodeName
 onready var node_action_menu: Popup = $Popup
 onready var select_unselect_button: Button = $Popup/PanelContainer/VBoxContainer/SelectUnselectButton
 onready var add_to_object_button: Button = $Popup/PanelContainer/VBoxContainer/AddToObjectButton
 onready var variable_label: Node2D = $Variable
+onready var sprite_control: Node2D = $Sprite
 onready var variable_label_internal: Label = $Variable/Sprite/VariableHighlight
 onready var sprite_texture : Sprite = $Sprite/SpriteTexture
 onready var station_texture: Sprite = $Sprite/StationSimple
@@ -30,6 +32,7 @@ const representation_prefab = preload("res://Node/NodeRepresentation.tscn")
 
 var ship_flying_around_node: Node2D = null  # Used to highlight this node when  
 const ship_flying_around_scene = preload("res://Assets/animations/ShipFlyingAround.tscn")
+
 
 var adt_type = load("res://AlgorithmScenes/Code/ADTs/node_adt.gd")
 
@@ -64,6 +67,7 @@ func _ready():
 	call_deferred("set_texture_randomly")
 	if not self.index in StoredData.nodes:
 		StoredData.nodes.append(self) 
+	self.set_process(false)
 
 
 func set_texture_randomly():
@@ -341,9 +345,15 @@ func show_animation_of_clicking_mouse():
 	mouse_button_left_animation.visible = true
 	animation_player.play("ClickNode")
 
-# After this function is called, the textures in SpriteTexture
-# are going to change repeatedly.
-# Only during tutorials, elsewise it would be hard for the browser
-func start_changing_frames_of_planet(rate: float) -> void:
-	pass
-	
+
+func highlight_node_with_size():
+	self.set_process(true)
+
+func unhighlight_node_with_size():
+	self.set_process(false)
+
+const WAVE_FREQUENCY_FACTOR = 5.0
+ 
+func _process(delta: float):
+	accum_time += delta
+	sprite_control.scale = sprite_texture.scale + 0.1 * sprite_texture.scale * sin(self.accum_time * WAVE_FREQUENCY_FACTOR)

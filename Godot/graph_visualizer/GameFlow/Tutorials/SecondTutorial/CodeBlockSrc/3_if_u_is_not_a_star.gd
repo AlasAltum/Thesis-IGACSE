@@ -17,16 +17,15 @@ func effect_check_on_focused():
 	StoredData.world_node.ask_user_if_u_node_is_a_star(u_is_not_a_star)
 	highlight_node()
 
-
-
 func highlight_node():
 	if StoredData.world_node and StoredData.world_node.u_node:
 		StoredData.world_node.u_node.highlight_node()
+		StoredData.world_node.u_node.highlight_node_with_size()
 
 func stop_node_highlight():
 	if StoredData.world_node.u_node:
 		StoredData.world_node.u_node.stop_highlight_node()
-
+		StoredData.world_node.u_node.unhighlight_node_with_size()
 
 # Ask the user whether answer is true or false
 func check_actions_correct() -> bool:
@@ -43,6 +42,7 @@ func if_condition_is_true(node):
 func get_next_line() -> int:
 	var u = StoredData.world_node.u_node
 	if self.if_condition_is_true(u):
+		stop_node_highlight()
 		return .get_next_line()  # super.get_next_line()
 
 	stop_node_highlight()
