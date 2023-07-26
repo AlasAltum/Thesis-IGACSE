@@ -6,6 +6,7 @@ onready var lines_container = $MarginContainer/LinesContainer
 var code_lines: Array = []
 var curr_line_index : int = 0
 var current_line: CodeLine
+var code_has_finished = false
 
 signal code_finished
 
@@ -30,7 +31,8 @@ func advance_to_line(next_line: int) -> void:
 func _input(event):
 	if (event.is_action_pressed("code_advance") and 
 		not StoredData.popup_captures_input and 
-		NotificationManager.allow_code_advance
+		NotificationManager.allow_code_advance and
+		not code_has_finished
 	):
 		if current_line.effect_actions_are_correct():
 			advance_to_line(current_line.get_next_line())
@@ -42,6 +44,7 @@ func _input(event):
 
 func _on_code_finished():
 	emit_signal("code_finished")
+	code_has_finished = true
 
 func activate():
 	self.visible = true
