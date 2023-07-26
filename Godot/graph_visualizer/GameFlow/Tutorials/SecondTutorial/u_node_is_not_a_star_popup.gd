@@ -11,24 +11,25 @@ func _notification(what):
 
 func _on_YesButton_pressed() -> void:
 	if StoredData.world_node.u_is_not_a_star_correct_answer:  # Wrong answer
-		notify_u_is_explored_wrong_answer()
+		notify_u_is_a_star_wrong_answer()
 	else:  # Expected answer
-		notify_u_is_explored_correct_answer()
+		notify_u_is_a_star_correct_answer()
 
 func _on_NoButton_pressed() -> void:
 	if StoredData.world_node.u_is_not_a_star_correct_answer: # Expected answer
-		notify_u_is_explored_correct_answer()
+		notify_u_is_a_star_correct_answer()
 	else:    # Wrong answer
-		notify_u_is_explored_wrong_answer()
+		notify_u_is_a_star_wrong_answer()
 
 
-func notify_u_is_explored_wrong_answer():
+func notify_u_is_a_star_wrong_answer():
 	# Visual effect
 	$ErrorNotification/AnimationPlayer.stop()
 	$ErrorNotification/AnimationPlayer.play("message_modulation")
 	AudioPlayer.play_error_audio()
+	StoredData.world_node.send_ship_to_the_sun()
 
-func notify_u_is_explored_correct_answer():
+func notify_u_is_a_star_correct_answer():
 	# set the correct answer to true, so the script can advance and is marked as correct
 	StoredData.world_node.u_is_not_a_star_correct_answer = true
 	self.hide()
