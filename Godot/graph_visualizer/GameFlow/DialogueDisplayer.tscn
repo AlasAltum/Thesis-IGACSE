@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
+[ext_resource path="res://AlgorithmScenes/Audio/dialogue.wav" type="AudioStream" id=1]
 [ext_resource path="res://GameFlow/dialogue_displayer.gd" type="Script" id=2]
 [ext_resource path="res://Assets/sound/menu_button_click _trimmed.mp3" type="AudioStream" id=3]
 [ext_resource path="res://Assets/GUI/sci-fi-theme.tres" type="Theme" id=4]
@@ -90,3 +91,12 @@ anims/ShowText = SubResource( 3 )
 [node name="ConfirmActionAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -10.0
+
+[node name="DialogueAudioTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="DialogueAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -19.21
+pitch_scale = 0.76
+bus = "Effects"

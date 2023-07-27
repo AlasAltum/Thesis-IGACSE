@@ -607,7 +607,6 @@ margin_right = -29.0
 margin_bottom = 531.0
 
 [node name="UNodeIsNotAStarPopup" parent="HUD" instance=ExtResource( 20 )]
-visible = true
 
 [connection signal="input_event" from="Nodes/Star/Area2D" to="Nodes/Star" method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="Nodes/Star/Area2D" to="Nodes/Star" method="_on_Area2D_mouse_entered"]

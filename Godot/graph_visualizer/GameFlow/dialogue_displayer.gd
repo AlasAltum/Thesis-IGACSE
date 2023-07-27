@@ -15,7 +15,10 @@ onready var skip_button: Button = $MarginContainer/VBoxContainer/HBoxContainer/S
 onready var next_button: Button = $MarginContainer/VBoxContainer/HBoxContainer/NextButton
 onready var confirm_action_audio: AudioStreamPlayer = $ConfirmActionAudio
 
+onready var dialogue_audio: AudioStreamPlayer = $DialogueAudio
+onready var sound_timer: Timer = $DialogueAudioTimer
 
+export (float) var sound_repetition_speed = 0.1
 export (float) var original_dialogue_speed = 0.5
 export (Array, String, MULTILINE) var dialogues_to_show = []
 export (int) var current_dialogue_index = -1
@@ -27,15 +30,16 @@ export (bool) var should_close_on_finish = true
 var has_finished : bool = false
 var command_methods: Array = [] # Array<String>
 var executed_command_methods = []
-
+var rand_generator : RandomNumberGenerator
 signal dialogue_finished
 
 
 func _ready():
+	rand_generator = RandomNumberGenerator.new()
 	next_button.connect("pressed", self, "_on_NextButton_pressed")
 	skip_button.connect("pressed", self, "_on_SkipButton_pressed")
 	text_shower_animation.connect("animation_finished", self, "on_dialogue_displayed_to_the_end")
-	
+	sound_timer.connect("timeout", self, "_play_dialogue_sound")
 	text_shower_animation.playback_speed = original_dialogue_speed
 	dialogue_text.text = ""
 
@@ -49,6 +53,7 @@ func _ready():
 		command_methods_script.parent_dialogue = self
 
 	show_first_dialogue()
+	_play_dialogue_sound()
 
 
 func show_first_dialogue():
@@ -84,6 +89,10 @@ func _update_dialogue_and_text():
 	current_dialogue_index += 1
 	dialogue_text.text = _get_clean_text_from_dialogue(dialogues_to_show[current_dialogue_index])
 	text_shower_animation.stop()
+	# Start sound timer
+	sound_timer.start()
+	sound_timer.wait_time = sound_repetition_speed
+
 	text_shower_animation.play("ShowText") # Show the text with an animation.
 
 func _on_dialogue_finished():
@@ -134,6 +143,8 @@ func execute_command_methods_in_text(input_text: String) -> void:
 # speed. In case the player pressed a button to accelerate the dialogue	
 func on_dialogue_displayed_to_the_end(_animation_name):
 	text_shower_animation.playback_speed = original_dialogue_speed
+	if _animation_name == "ShowText":
+		sound_timer.stop()
 
 func _on_NextButton_button_up():
 	next_button.set_focus_mode(0)
@@ -210,3 +221,7 @@ func set_dialogue_by_index(index: int):
 	if index < len(self.dialogues_to_show):
 		var raw_text = dialogues_to_show[len(dialogues_to_show) - 1]
 		dialogue_text.text = _get_clean_text_from_dialogue(raw_text)
+
+func _play_dialogue_sound():
+	sound_timer.wait_time = sound_repetition_speed + rand_generator.randfn(0, 0.01)
+	dialogue_audio.play()

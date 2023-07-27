@@ -1,8 +1,10 @@
 Sounds, assets, textures: GameSupplyGuy
 https://gamesupply.itch.io/ultimate-space-game-mega-asset-package
 
-Audios: https://godotassetlibrary.com/asset/kfcg17/kenney-interface-sounds
-Confirmation_kenney.ogg
+Audios: 
+https://godotassetlibrary.com/asset/kfcg17/kenney-interface-sounds
+https://gamesupply.itch.io/300-futuristic-sfx-with-names
+
 
 Fonts:
 PTSans:
@@ -26,11 +28,13 @@ https://managore.itch.io/m5x7
 pixel-keys-x16
 https://joshuajennerdev.itch.io/pixel-keys-x16/
 
+styles:
 
-Some GUI elements: (I am not using them, but are inspiration)
+
+Some GUI elements: (I am not using them, but were used as inspiration)
 https://free-game-assets.itch.io/free-space-shooter-game-user-interface
 
-LeftMouse
+LeftMouse animation:
 https://greenpixels.itch.io/pixel-art-asset-3
 
 Planets generated using:
@@ -41,4 +45,5 @@ Circle Node
 Noemí Zúñiga
 
 
-Engine: Godot Engine
+
+Game Engine: Godot Engine
