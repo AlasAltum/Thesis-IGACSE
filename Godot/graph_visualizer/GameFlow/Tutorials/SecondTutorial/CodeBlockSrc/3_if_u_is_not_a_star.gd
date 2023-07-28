@@ -4,6 +4,8 @@ extends EffectCheck
 func restart_values_between_iterations():
 	StoredData.world_node.u_is_not_a_star_correct_answer = false
 
+func _trigger_on_next_line_side_effect():
+	restart_values_between_iterations()
 
 func effect_check_on_focused():
 	# Show a popup that asks the user whether u is a star or not
