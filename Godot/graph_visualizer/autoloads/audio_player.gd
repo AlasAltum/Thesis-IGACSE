@@ -60,7 +60,7 @@ func play_error_audio():
 	error_audio.play()
 
 func play_not_doable_action_sound():
-	not_doable_action_player_audio.play()
+	play_error_audio()
 
 func play_confirmation_audio():
 	confirmation_audio.play()
