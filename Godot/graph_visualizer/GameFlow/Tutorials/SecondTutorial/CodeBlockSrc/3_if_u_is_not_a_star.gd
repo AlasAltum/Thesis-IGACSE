@@ -1,6 +1,10 @@
 extends EffectCheck
 # if u is not a star
 
+func restart_values_between_iterations():
+	StoredData.world_node.u_is_not_a_star_correct_answer = false
+
+
 func effect_check_on_focused():
 	# Show a popup that asks the user whether u is a star or not
 	# condition is true if u is not a star
@@ -10,6 +14,7 @@ func effect_check_on_focused():
 	# Normally, we would the NotificationManager singleton, but since this is a tutorial
 	# and not the typical game, it is better to have a containarized logic and not add more
 	# variables that are not going to be used through the game
+	restart_values_between_iterations()
 	var u = StoredData.world_node.current_selectable_node
 	var star_node = StoredData.world_node.star
 	StoredData.world_node.u_node = u
