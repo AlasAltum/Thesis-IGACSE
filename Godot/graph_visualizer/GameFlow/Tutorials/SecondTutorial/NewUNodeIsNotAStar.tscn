@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://GameFlow/Tutorials/SecondTutorial/u_node_is_not_a_star_popup.gd" type="Script" id=1]
-[ext_resource path="res://AlgorithmScenes/Screen/PopupTheme.tres" type="Theme" id=2]
-[ext_resource path="res://AlgorithmScenes/Screen/ErrorInPopupTheme.tres" type="Theme" id=3]
+[ext_resource path="res://Assets/GUI/popup_sci-fi-theme.tres" type="Theme" id=2]
 
 [sub_resource type="Animation" id=1]
 length = 2.0
@@ -32,20 +31,36 @@ tracks/1/keys = {
 }
 
 [node name="UNodeIsNotAStarPopup" type="WindowDialog"]
-margin_left = 524.122
-margin_top = 233.47
-margin_right = 1036.12
-margin_bottom = 392.47
+margin_left = 500.0
+margin_top = 220.0
+margin_right = 1080.0
+margin_bottom = 400.0
 theme = ExtResource( 2 )
 popup_exclusive = true
-window_title = "Confirmation"
 script = ExtResource( 1 )
 
-[node name="Explanation" type="Label" parent="."]
-margin_left = 5.0
-margin_top = 13.0
-margin_right = 506.0
-margin_bottom = 39.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -6.0
+margin_bottom = -2.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 574.0
+margin_bottom = 178.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+
+[node name="Explanation" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_right = 574.0
+margin_bottom = 41.0
 rect_pivot_offset = Vector2( 265.108, 0 )
 size_flags_horizontal = 3
 text = "Is the U node a star?"
@@ -55,15 +70,65 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ErrorNotification" type="Label" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 61.0
+margin_right = 574.0
+margin_bottom = 106.0
+custom_constants/separation = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 134.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="YesButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+modulate = Color( 0.121569, 0.913725, 0, 1 )
+margin_left = 146.0
+margin_right = 281.0
+margin_bottom = 45.0
+focus_neighbour_right = NodePath("../NoButton")
+focus_next = NodePath("../NoButton")
+focus_previous = NodePath("../../../..")
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+text = "Yes"
+
+[node name="NoButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+modulate = Color( 1, 0, 0, 1 )
+margin_left = 293.0
+margin_right = 427.0
+margin_bottom = 45.0
+focus_neighbour_left = NodePath(".")
+focus_next = NodePath("../../../..")
+focus_previous = NodePath("../YesButton")
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "No"
+icon_align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 439.0
+margin_right = 574.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ErrorNotification" type="Label" parent="MarginContainer/VBoxContainer"]
 visible = false
-margin_left = 2.05951
-margin_top = 112.692
-margin_right = 503.06
-margin_bottom = 138.692
+modulate = Color( 1, 0.0117647, 0.0117647, 1 )
+margin_top = 126.0
+margin_right = 574.0
+margin_bottom = 178.0
 rect_pivot_offset = Vector2( 265.108, 0 )
 size_flags_horizontal = 3
-theme = ExtResource( 3 )
+size_flags_vertical = 3
+custom_colors/font_color_shadow = Color( 1, 0, 0, 0.227451 )
+custom_constants/shadow_as_outline = 180
 text = "Error: Wrong answer"
 align = 1
 autowrap = true
@@ -71,35 +136,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ErrorNotification"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/ErrorNotification"]
 anims/message_modulation = SubResource( 1 )
 
-[node name="YesButton" type="Button" parent="."]
-modulate = Color( 0.121569, 0.913725, 0, 1 )
-margin_left = 115.407
-margin_top = 63.2947
-margin_right = 209.407
-margin_bottom = 89.2947
-focus_neighbour_right = NodePath("../NoButton")
-focus_next = NodePath("../NoButton")
-focus_previous = NodePath("..")
-mouse_default_cursor_shape = 2
-text = "Yes"
-
-[node name="NoButton" type="Button" parent="."]
-modulate = Color( 0.980392, 0.156863, 0.156863, 1 )
-margin_left = 317.165
-margin_top = 64.6618
-margin_right = 411.165
-margin_bottom = 90.6618
-focus_neighbour_left = NodePath(".")
-focus_next = NodePath("..")
-focus_previous = NodePath("../YesButton")
-mouse_default_cursor_shape = 2
-text = "No"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[connection signal="pressed" from="YesButton" to="." method="_on_YesButton_pressed"]
-[connection signal="pressed" from="NoButton" to="." method="_on_NoButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/YesButton" to="." method="_on_YesButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/NoButton" to="." method="_on_NoButton_pressed"]

@@ -1,11 +1,10 @@
 class_name UNodeIsNotAStarPopup
 extends WindowDialog
 
-
 func _notification(what):
 	if what == NOTIFICATION_POST_POPUP:
 		StoredData.popup_captures_input = true
-		$YesButton.grab_focus()
+		$MarginContainer/VBoxContainer/HBoxContainer/YesButton.grab_focus()
 	elif what == NOTIFICATION_POPUP_HIDE:
 		StoredData.popup_captures_input = false
 
@@ -24,8 +23,8 @@ func _on_NoButton_pressed() -> void:
 
 func notify_u_is_a_star_wrong_answer():
 	# Visual effect
-	$ErrorNotification/AnimationPlayer.stop()
-	$ErrorNotification/AnimationPlayer.play("message_modulation")
+	$MarginContainer/VBoxContainer/ErrorNotification/AnimationPlayer.stop()
+	$MarginContainer/VBoxContainer/ErrorNotification/AnimationPlayer.play("message_modulation")
 	AudioPlayer.play_error_audio()
 	StoredData.world_node.send_ship_to_the_sun()
 

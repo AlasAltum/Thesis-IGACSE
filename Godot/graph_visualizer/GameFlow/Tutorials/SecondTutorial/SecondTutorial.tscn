@@ -19,7 +19,7 @@
 [ext_resource path="res://GameFlow/Tutorials/SecondTutorial/second_tutorial.gd" type="Script" id=17]
 [ext_resource path="res://Assets/textures/red_pandas/spaceman_red_panda_rescue.jpeg" type="Texture" id=18]
 [ext_resource path="res://Node/CircleNode80.png" type="Texture" id=19]
-[ext_resource path="res://GameFlow/Tutorials/SecondTutorial/UNodeIsNotAStar.tscn" type="PackedScene" id=20]
+[ext_resource path="res://GameFlow/Tutorials/SecondTutorial/NewUNodeIsNotAStar.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Assets/materials/Outline2D.tres" type="Material" id=21]
 
 [sub_resource type="CircleShape2D" id=37]
@@ -374,6 +374,7 @@ anims/RESET = SubResource( 24 )
 visible = false
 position = Vector2( 32, 48 )
 frames = SubResource( 26 )
+frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -449,7 +450,6 @@ anims/RESET = SubResource( 40 )
 visible = false
 position = Vector2( 32, 48 )
 frames = SubResource( 26 )
-frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -607,6 +607,7 @@ margin_right = -29.0
 margin_bottom = 531.0
 
 [node name="UNodeIsNotAStarPopup" parent="HUD" instance=ExtResource( 20 )]
+visible = true
 
 [connection signal="input_event" from="Nodes/Star/Area2D" to="Nodes/Star" method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="Nodes/Star/Area2D" to="Nodes/Star" method="_on_Area2D_mouse_entered"]
