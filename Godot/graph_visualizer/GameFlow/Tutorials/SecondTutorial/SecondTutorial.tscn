@@ -180,6 +180,19 @@ length = 0.001
 
 [sub_resource type="Animation" id=43]
 resource_name = "LoseAnimation"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Nodes:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=35]
 resource_name = "OnReady"
@@ -574,6 +587,8 @@ weight = 0.0
 nodeA = NodePath("../Planet2")
 nodeB = NodePath("../StartingNode1")
 
+[node name="Tween" type="Tween" parent="Nodes"]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/LoseAnimation = SubResource( 43 )
 anims/OnReady = SubResource( 35 )
@@ -608,9 +623,9 @@ margin_right = -29.0
 margin_bottom = 531.0
 
 [node name="UNodeIsNotAStarPopup" parent="HUD" instance=ExtResource( 20 )]
-visible = true
 
 [node name="OnGameLostPopup" parent="HUD" instance=ExtResource( 22 )]
+visible = false
 margin_left = -464.0
 margin_top = -324.0
 margin_right = 222.0

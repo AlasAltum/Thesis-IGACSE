@@ -1,6 +1,7 @@
 class_name SecondTutorial
 extends Node2D
 
+const lost_static_noise_material : Material  = preload("res://Assets/custom_shaders/static_noise_lose_material.tres")
 # Governs the world for the first tutorial level
 var animation_played_once = false
 
@@ -12,6 +13,7 @@ var current_selectable_node: AGraphNode
 export (float) var time_to_lose_when_sending_ship_to_sun = 2.0
 
 onready var starting_node: AGraphNode = $Nodes/StartingNode1
+onready var nodes_background: ColorRect = $Nodes
 onready var star: AGraphNode = $Nodes/Star
 onready var planet2: AGraphNode = $Nodes/Planet2
 onready var planet3: AGraphNode = $Nodes/Planet3
@@ -84,13 +86,29 @@ func on_win_animation_finished(anim_name):
 		dialogue_displayer.set_and_start_new_dialogues(new_dialogues_to_show)
 
 func on_ship_arrived_to_sun():
-	# TODO: make the player lose, open a popup and reset
 	on_lose()
+
+
+const NOISE_SHADER_TRANSITION_DURATION = 5.0
 
 func on_lose() -> void:
 	# Show a popup
 	lost_scene.popup()
 	lost_scene.connect("restart_level", self, "on_restart_level_pressed")
+	tutorial_animation_player.play("LoseAnimation")
+	nodes_background.material = lost_static_noise_material as ShaderMaterial
+	nodes_background.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
+	var tween = $Nodes/Tween
+
+#	static_noise_shader
+	tween.interpolate_method(
+		nodes_background.material,
+		"set_shader_param",
+		0.0,
+		40.0,
+		NOISE_SHADER_TRANSITION_DURATION
+	)
+	tween.start()
 
 func on_restart_level_pressed():
 	NotificationManager._deferred_goto_scene(StoredData.story_mode_scenes["Tutorial2"], true, self)
