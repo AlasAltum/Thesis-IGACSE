@@ -2,7 +2,7 @@
 
 [ext_resource path="res://AlgorithmScenes/Audio/confirmation_kenney.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Assets/sound/world_select.wav" type="AudioStream" id=2]
-[ext_resource path="res://Assets/sound/teleport_level.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Assets/sound/win_loud.mp3" type="AudioStream" id=3]
 [ext_resource path="res://AlgorithmScenes/Audio/music/bg1.mp3" type="AudioStream" id=4]
 [ext_resource path="res://AlgorithmScenes/Audio/error_audio.ogg" type="AudioStream" id=5]
 [ext_resource path="res://autoloads/audio_player.gd" type="Script" id=6]
@@ -36,3 +36,4 @@ volume_db = -11.556
 
 [node name="CongratulationsAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+volume_db = -15.0
