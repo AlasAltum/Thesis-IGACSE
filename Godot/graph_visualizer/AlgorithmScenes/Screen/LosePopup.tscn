@@ -1,23 +1,21 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Screen/on_game_lost_popup.gd" type="Script" id=1]
-[ext_resource path="res://AlgorithmScenes/Screen/PopupTheme.tres" type="Theme" id=2]
+[ext_resource path="res://Assets/GUI/popup_sci-fi-theme.tres" type="Theme" id=2]
 
 [node name="OnGameLostPopup" type="WindowDialog"]
+visible = true
 anchor_left = 0.5
-anchor_top = 0.444
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.681
-margin_left = -256.0
-margin_top = 1.47995
-margin_right = 256.0
-margin_bottom = 0.519958
+anchor_bottom = 0.5
+margin_left = -401.0
+margin_top = -205.0
+margin_right = 285.0
+margin_bottom = 80.0
 theme = ExtResource( 2 )
 popup_exclusive = true
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 104.0
@@ -27,8 +25,8 @@ margin_bottom = 199.0
 custom_constants/separation = 12
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
-margin_right = 304.0
-margin_bottom = 30.0
+margin_right = 484.0
+margin_bottom = 42.0
 rect_pivot_offset = Vector2( 520, 144 )
 bbcode_enabled = true
 bbcode_text = "[center]You lost!"
@@ -37,17 +35,17 @@ fit_content_height = true
 
 [node name="RestartLevelButton" type="Button" parent="VBoxContainer"]
 modulate = Color( 0.121569, 0.913725, 0, 1 )
-margin_top = 42.0
-margin_right = 304.0
-margin_bottom = 88.0
+margin_top = 54.0
+margin_right = 484.0
+margin_bottom = 99.0
 rect_pivot_offset = Vector2( 72.8572, 10.7062 )
 text = "     Restart Level    "
 
 [node name="MenuButton" type="Button" parent="VBoxContainer"]
 modulate = Color( 0.827451, 0.717647, 0.117647, 1 )
-margin_top = 100.0
-margin_right = 304.0
-margin_bottom = 146.0
+margin_top = 111.0
+margin_right = 484.0
+margin_bottom = 156.0
 rect_pivot_offset = Vector2( 72.8572, 10.7062 )
 text = "  Return to Menu  "
 

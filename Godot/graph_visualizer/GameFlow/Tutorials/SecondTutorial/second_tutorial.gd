@@ -3,8 +3,7 @@ extends Node2D
 
 # Governs the world for the first tutorial level
 var animation_played_once = false
-const lost_popup_scene = preload("res://AlgorithmScenes/Screen/LosePopup.tscn")
-var lost_scene
+
 # Used by the if in the CodeBlock. Check res../SecondTutorial/CodeBlockSrc/3_if_u_is_not_a_star.gd
 var u_is_not_a_star_correct_answer = false
 var u_node: AGraphNode = null
@@ -20,6 +19,7 @@ onready var tutorial_animation_player: AnimationPlayer = $AnimationPlayer
 onready var dialogue_displayer: DialogueDisplayer = $DialogueCanvas/DialogueDisplayer
 onready var timer_to_lose_when_sending_ship_to_sun: Timer = $TimerToLose
 onready var code_block = $HUD/CodeBlock
+onready var lost_scene = $HUD/OnGameLostPopup
 
 
 func _ready():
@@ -89,8 +89,6 @@ func on_ship_arrived_to_sun():
 
 func on_lose() -> void:
 	# Show a popup
-	lost_scene = lost_popup_scene.instance()
-	$HUD.add_child(lost_scene)
 	lost_scene.popup()
 	lost_scene.connect("restart_level", self, "on_restart_level_pressed")
 
@@ -115,3 +113,9 @@ func ask_user_if_u_node_is_a_star(input_u_is_not_a_star):
 
 func send_ship_to_the_sun():
 	send_ship_to_node(star)
+
+func go_back_to_menu():
+	AudioPlayer.stop_playing_music() # Whatever the music soundtrack playing, stop it when coming back to the menu
+	self.set_name("TempMain")
+	call_deferred("queue_free")
+	NotificationManager.go_to_scene("res://GameFlow/MainMenu.tscn")
