@@ -8,8 +8,8 @@ extends Control
 export var audio_bus_name := "Master"
 
 onready var _bus := AudioServer.get_bus_index(audio_bus_name)
-onready var hslider = $HBoxContainer/HSlider
-onready var audio_texture_button : TextureButton = $HBoxContainer/AudioTextureButton
+onready var hslider = $MC/HBoxContainer/HSlider
+onready var audio_texture_button : TextureButton = $MC/HBoxContainer/AudioTextureButton
 
 
 func _ready() -> void:
@@ -33,3 +33,7 @@ func _on_AudioTextureButton_toggled(button_pressed):
 		AudioServer.set_bus_volume_db(_bus, linear2db(0.0))
 	else:
 		AudioServer.set_bus_volume_db(_bus, linear2db(hslider.value))
+
+
+func _on_MenuButton_pressed():
+	get_parent().get_node("GameplayMenuPopup").popup()

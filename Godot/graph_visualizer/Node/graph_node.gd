@@ -117,7 +117,8 @@ func init_position_regarding_container(total_nodes: int, node_container_key_prop
 func set_index(_index: int):
 	self.index = _index
 	representation.set_index(_index)
-	node_name.text = str(_index)
+	if node_name:
+		node_name.text = str(_index)
 
 # Edges type is:
 # pairs<node_index <int>, weight <float>>

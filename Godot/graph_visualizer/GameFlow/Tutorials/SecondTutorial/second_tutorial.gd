@@ -22,6 +22,7 @@ onready var dialogue_displayer: DialogueDisplayer = $DialogueCanvas/DialogueDisp
 onready var timer_to_lose_when_sending_ship_to_sun: Timer = $TimerToLose
 onready var code_block = $HUD/CodeBlock
 onready var lost_scene = $HUD/OnGameLostPopup
+onready var noise_audio_player : AudioStreamPlayer = $NoiseAudioPlayer  # When losing
 
 
 func _ready():
@@ -106,6 +107,16 @@ func on_lose() -> void:
 		"set_shader_param",
 		0.0,
 		40.0,
+		NOISE_SHADER_TRANSITION_DURATION
+	)
+	tween.start()
+	noise_audio_player.play()
+
+	tween.interpolate_method(
+		noise_audio_player,
+		"volume_db",
+		-30.0,
+		-20.0,
 		NOISE_SHADER_TRANSITION_DURATION
 	)
 	tween.start()

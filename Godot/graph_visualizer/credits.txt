@@ -32,6 +32,8 @@ styles:
 sci-fi theme used for menus and font
 https://azagaya.itch.io/sci-fi-theme
 
+Some GUI elements (inspiration)
+https://sungraphica.itch.io/sci-fi-game-ui-collection-free-version?download
 
 Some GUI elements: (I am not using them, but were used as inspiration)
 https://free-game-assets.itch.io/free-space-shooter-game-user-interface

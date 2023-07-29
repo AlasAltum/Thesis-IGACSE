@@ -7,7 +7,9 @@ func _ready() -> void:
 	$VBoxContainer/ResetButton.connect("pressed", self, "_on_ResetButton_pressed")
 	$VBoxContainer/MenuButton.connect("pressed", self, "_on_MenuButton_pressed")
 	var main_node = get_tree().get_root().get_node("Main")
-	main_node.gameplay_menu_popup = self
+#	main_node.gameplay_menu_popup = self
+	get_close_button().visible = false
+	
 
 func _input(event):
 	# If there is no other popup capturing input
