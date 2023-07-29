@@ -160,7 +160,7 @@ func instance_nodes():
 # node: AGraphNode
 func _on_node_instanced(node):
 	# Set index and edges for node
-	node.set_index(StoredData.nodes.size())  # This array will change after each instantation
+	node.set_index(StoredData.nodes.size() - 1)  # This array will change after each instantation
 	node.set_edges(StoredData.matrix[node.index])
 	node.init_position_regarding_container(StoredData.number_of_nodes, node_container_key_properties)
 	# Connect signals
