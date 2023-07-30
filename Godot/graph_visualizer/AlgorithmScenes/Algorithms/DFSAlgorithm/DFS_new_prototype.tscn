@@ -151,7 +151,6 @@ size_flags_vertical = 3
 layer = 2
 
 [node name="VNodeIsExploredPopup" parent="Popups" instance=ExtResource( 37 )]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

@@ -347,16 +347,12 @@ margin_top = 2.0
 margin_bottom = 2.0
 
 [sub_resource type="StyleBoxTexture" id=55]
-content_margin_left = 15.0
-content_margin_right = 16.0
-content_margin_top = 16.0
-content_margin_bottom = 17.0
 texture = ExtResource( 2 )
-region_rect = Rect2( 1, 49, 46, 46 )
-margin_left = 15.3636
+region_rect = Rect2( 1, 49, 47, 46 )
+margin_left = 16.0
 margin_right = 15.5896
 margin_top = 16.0414
-margin_bottom = 17.1711
+margin_bottom = 16.0
 
 [sub_resource type="AtlasTexture" id=56]
 atlas = ExtResource( 2 )

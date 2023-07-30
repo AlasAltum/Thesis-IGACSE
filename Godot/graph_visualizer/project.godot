@@ -483,4 +483,5 @@ project/assembly_name="GraphVisualizator"
 
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+quality/filters/anisotropic_filter_level=1
 environment/default_clear_color=Color( 0.172549, 0.180392, 0.298039, 1 )
