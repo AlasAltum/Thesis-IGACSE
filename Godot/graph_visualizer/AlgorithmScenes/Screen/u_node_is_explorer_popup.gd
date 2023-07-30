@@ -11,7 +11,7 @@ func _ready() -> void:
 func _notification(what):
 	if what == NOTIFICATION_POST_POPUP:
 		StoredData.popup_captures_input = true
-		$YesButton.grab_focus()
+		$"%YesButton".grab_focus()
 	elif what == NOTIFICATION_POPUP_HIDE:
 		StoredData.popup_captures_input = false
 
@@ -24,6 +24,6 @@ func _on_NoButton_pressed() -> void:
 
 func notify_u_is_explored_wrong_answer():
 	# Visual effect
-	$ErrorNotification/AnimationPlayer.stop()
-	$ErrorNotification/AnimationPlayer.play("message_modulation")
+	$"%AnimPlayer".stop()
+	$"%AnimPlayer".play("message_modulation")
 	AudioPlayer.play_error_audio()

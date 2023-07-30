@@ -22,10 +22,12 @@ func _input(event):
 func _on_ResetButton_pressed() -> void:
 	AudioPlayer.play_button_sound()
 	NotificationManager.reset_game()
+	self.visible = false
 
 func _on_MenuButton_pressed():
 	AudioPlayer.play_button_sound()
 	StoredData.world_node.go_back_to_menu()
+	self.visible = false
 
 func _deferred_goto_scene(path):
 	NotificationManager.go_to_scene(path)

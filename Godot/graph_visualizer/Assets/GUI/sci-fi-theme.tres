@@ -196,7 +196,8 @@ color = Color( 0.0705882, 0.627451, 0.780392, 1 )
 
 [sub_resource type="AtlasTexture" id=36]
 atlas = ExtResource( 2 )
-region = Rect2( 69, 68, 5, 7 )
+region = Rect2( 69, 68.138, 5, 7 )
+margin = Rect2( 0, -2, 0, 0 )
 
 [sub_resource type="AtlasTexture" id=37]
 atlas = ExtResource( 2 )

@@ -1,27 +1,16 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Code/DebugBlock.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/queue.png" type="Texture" id=2]
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/DFSCodeBlockCentered.tscn" type="PackedScene" id=3]
 [ext_resource path="res://AlgorithmScenes/Screen/TextHintContainer.tscn" type="PackedScene" id=4]
-[ext_resource path="res://AlgorithmScenes/Screen/GameplayMenuPopup.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/textures/Background.tscn" type="PackedScene" id=6]
-[ext_resource path="res://AlgorithmScenes/Screen/GameplayMenuButton.tscn" type="PackedScene" id=7]
 [ext_resource path="res://AlgorithmScenes/Code/NewDebugBlock.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Assets/GUI/sci-fi-theme.tres" type="Theme" id=9]
 [ext_resource path="res://AlgorithmScenes/Screen/graph_screen.gd" type="Script" id=15]
 [ext_resource path="res://AlgorithmScenes/Screen/GUI/ADTsShower.tscn" type="PackedScene" id=28]
 [ext_resource path="res://AlgorithmScenes/Code/ADTs/ADTMediator.tscn" type="PackedScene" id=34]
 [ext_resource path="res://AlgorithmScenes/Screen/ADTIsNotEmptyPopup.tscn" type="PackedScene" id=36]
 [ext_resource path="res://AlgorithmScenes/Screen/UNodeIsExploredPopup.tscn" type="PackedScene" id=37]
 [ext_resource path="res://AlgorithmScenes/Screen/FinishedPopup.tscn" type="PackedScene" id=38]
-
-[sub_resource type="StyleBoxFlat" id=1]
-
-[sub_resource type="StyleBoxFlat" id=2]
-
-[sub_resource type="StyleBoxFlat" id=3]
-anti_aliasing = false
 
 [node name="Main" type="Node2D"]
 position = Vector2( -1, 0 )
@@ -30,6 +19,7 @@ level_name = "DFS"
 graph_size = 8
 
 [node name="ADTMediator" parent="." instance=ExtResource( 34 )]
+unique_name_in_owner = true
 visible = false
 position = Vector2( 1, 0 )
 
@@ -51,92 +41,6 @@ margin_bottom = 300.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ADTShower" parent="CanvasLayer/BottomPanel" instance=ExtResource( 28 )]
-margin_left = 1686.0
-margin_right = 1920.0
-margin_bottom = 300.0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-
-[node name="VBoxContainer" parent="CanvasLayer/BottomPanel/ADTShower" index="0"]
-margin_right = 227.0
-margin_bottom = 227.0
-size_flags_horizontal = 3
-size_flags_vertical = 0
-
-[node name="VarNameLabel" parent="CanvasLayer/BottomPanel/ADTShower/VBoxContainer" index="0"]
-margin_right = 220.0
-
-[node name="Container" parent="CanvasLayer/BottomPanel/ADTShower/VBoxContainer" index="1"]
-margin_right = 220.0
-margin_bottom = 220.0
-
-[node name="CollisionShape2D" parent="CanvasLayer/BottomPanel/ADTShower/Area2D" index="0"]
-position = Vector2( 118, 155 )
-
-[node name="NodeContainer" type="AspectRatioContainer" parent="CanvasLayer"]
-visible = false
-margin_right = 1417.0
-margin_bottom = 823.0
-rect_clip_content = true
-mouse_filter = 2
-stretch_mode = 0
-
-[node name="EdgeContainer" type="AspectRatioContainer" parent="CanvasLayer"]
-visible = false
-anchor_left = 0.579
-anchor_top = 0.333
-anchor_right = 0.579
-anchor_bottom = 0.333
-margin_left = -1109.68
-margin_top = -362.64
-margin_right = 280.32
-margin_bottom = 447.36
-rect_clip_content = true
-mouse_filter = 2
-stretch_mode = 0
-
-[node name="VNodeIsExploredPopup" parent="CanvasLayer" instance=ExtResource( 37 )]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -469.0
-margin_top = -239.0
-margin_right = 42.998
-margin_bottom = -80.0
-
-[node name="ADTIsNotEmptyPopup" parent="CanvasLayer" instance=ExtResource( 36 )]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -198.999
-margin_top = -233.0
-margin_right = 312.999
-margin_bottom = -74.0
-ADT_type_and_var_name = "Stack s"
-
-[node name="FinishedPopup" parent="CanvasLayer" instance=ExtResource( 38 )]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -199.0
-margin_top = -233.0
-margin_right = 313.0
-margin_bottom = -74.0
-explanation_in_label = "Congratulations! You have successfully finished the DFS Algorithm! Go back to menu and try new levels!"
-
-[node name="Explanation" parent="CanvasLayer/FinishedPopup" index="1"]
-text = "Congratulations! You have successfully finished the DFS Algorithm!"
-
-[node name="GameplayMenuPopup" parent="CanvasLayer" instance=ExtResource( 5 )]
-margin_left = -199.0
-margin_top = -212.5
-margin_right = 313.0
-margin_bottom = -94.5
-
 [node name="TextHintContainer" parent="CanvasLayer" instance=ExtResource( 4 )]
 visible = false
 margin_left = 1370.0
@@ -152,130 +56,130 @@ visible = false
 [node name="Screen" type="MarginContainer" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = -179.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
 
 [node name="VB" type="VBoxContainer" parent="CanvasLayer/Screen"]
-margin_right = 1920.0
-margin_bottom = 901.0
-
-[node name="Top" type="MarginContainer" parent="CanvasLayer/Screen/VB"]
-margin_right = 1920.0
-margin_bottom = 46.0
-size_flags_horizontal = 3
-size_flags_vertical = 12
-theme = ExtResource( 9 )
-
-[node name="Panel" type="Panel" parent="CanvasLayer/Screen/VB/Top"]
-margin_right = 1920.0
-margin_bottom = 46.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1915.0
+margin_bottom = 1075.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Screen/VB/Top"]
-margin_right = 1920.0
-margin_bottom = 46.0
-size_flags_vertical = 12
-
-[node name="HORIZONTAL3" type="HBoxContainer" parent="CanvasLayer/Screen/VB/Top/MarginContainer"]
-margin_right = 1920.0
-margin_bottom = 46.0
-size_flags_vertical = 12
-alignment = 2
-
-[node name="GameplayMenuButton" parent="CanvasLayer/Screen/VB/Top/MarginContainer/HORIZONTAL3" instance=ExtResource( 7 )]
-margin_left = 1837.0
-margin_right = 1920.0
-margin_bottom = 46.0
-rect_min_size = Vector2( 0, 20 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/normal = SubResource( 3 )
-text = "Menu"
 
 [node name="Mid" type="HBoxContainer" parent="CanvasLayer/Screen/VB"]
-margin_top = 50.0
-margin_right = 1920.0
-margin_bottom = 597.0
-size_flags_vertical = 3
-
-[node name="Nodos" type="TextureRect" parent="CanvasLayer/Screen/VB/Mid"]
-margin_right = 1416.0
-margin_bottom = 547.0
+margin_right = 1910.0
+margin_bottom = 766.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource( 2 )
+
+[node name="Container" type="Container" parent="CanvasLayer/Screen/VB/Mid"]
+margin_right = 1406.0
+margin_bottom = 766.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NodeContainer" type="AspectRatioContainer" parent="CanvasLayer/Screen/VB/Mid/Container"]
+unique_name_in_owner = true
+margin_left = 708.0
+margin_top = 296.0
+margin_right = 708.0
+margin_bottom = 296.0
+rect_clip_content = true
+mouse_filter = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+stretch_mode = 0
+
+[node name="EdgeContainer" type="AspectRatioContainer" parent="CanvasLayer/Screen/VB/Mid/Container"]
+unique_name_in_owner = true
+margin_left = 708.0
+margin_top = 296.0
+margin_right = 708.0
+margin_bottom = 296.0
+rect_clip_content = true
+mouse_filter = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+stretch_mode = 0
 
 [node name="MC" type="MarginContainer" parent="CanvasLayer/Screen/VB/Mid"]
-margin_left = 1420.0
-margin_right = 1920.0
-margin_bottom = 547.0
+margin_left = 1410.0
+margin_right = 1910.0
+margin_bottom = 766.0
 rect_min_size = Vector2( 500, 0 )
 
 [node name="DFS" type="VBoxContainer" parent="CanvasLayer/Screen/VB/Mid/MC"]
 margin_right = 500.0
-margin_bottom = 547.0
+margin_bottom = 766.0
 mouse_filter = 2
 
 [node name="DFSCodeBlock" parent="CanvasLayer/Screen/VB/Mid/MC/DFS" instance=ExtResource( 3 )]
 margin_right = 500.0
-margin_bottom = 547.0
+margin_bottom = 766.0
 rect_clip_content = false
 mouse_filter = 2
 
 [node name="Bottom" type="HBoxContainer" parent="CanvasLayer/Screen/VB"]
-margin_top = 601.0
-margin_right = 1920.0
-margin_bottom = 901.0
+margin_top = 770.0
+margin_right = 1910.0
+margin_bottom = 1070.0
 rect_min_size = Vector2( 0, 300 )
-size_flags_vertical = 0
 
-[node name="Variables" type="MarginContainer" parent="CanvasLayer/Screen/VB/Bottom"]
-margin_right = 1650.0
+[node name="DebugBlock" parent="CanvasLayer/Screen/VB/Bottom" instance=ExtResource( 8 )]
+unique_name_in_owner = true
+margin_top = 0.0
+margin_right = 1406.0
 margin_bottom = 300.0
 size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="DebugBlock" parent="CanvasLayer/Screen/VB/Bottom/Variables" instance=ExtResource( 8 )]
-margin_top = 0.0
-margin_right = 1650.0
+[node name="ADTShower" parent="CanvasLayer/Screen/VB/Bottom" instance=ExtResource( 28 )]
+margin_left = 1410.0
+margin_right = 1910.0
 margin_bottom = 300.0
-
-[node name="ADT" type="MarginContainer" parent="CanvasLayer/Screen/VB/Bottom"]
-margin_left = 1654.0
-margin_right = 1920.0
-margin_bottom = 300.0
-
-[node name="Panel" type="Panel" parent="CanvasLayer/Screen/VB/Bottom/ADT"]
-margin_right = 266.0
-margin_bottom = 300.0
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Screen/VB/Bottom/ADT"]
-margin_right = 266.0
-margin_bottom = 300.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Screen/VB/Bottom/ADT/MarginContainer"]
-margin_right = 266.0
-margin_bottom = 300.0
-
-[node name="Label" type="Label" parent="CanvasLayer/Screen/VB/Bottom/ADT/MarginContainer/VBoxContainer"]
-margin_right = 266.0
-margin_bottom = 14.0
-text = "PARA QUE VEAMOS COMO SE COMPORTA"
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Label2" type="Label" parent="CanvasLayer/Screen/VB/Bottom/ADT/MarginContainer/VBoxContainer"]
-margin_top = 18.0
-margin_right = 266.0
-margin_bottom = 32.0
-text = "eSTOY AGREGANDO OTRO TEXTO"
-__meta__ = {
-"_edit_use_anchors_": true
-}
+rect_min_size = Vector2( 500, 200 )
+size_flags_vertical = 3
 
 [node name="Background" parent="." instance=ExtResource( 6 )]
 
-[editable path="CanvasLayer/BottomPanel/ADTShower"]
-[editable path="CanvasLayer/FinishedPopup"]
+[node name="Popups" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="VNodeIsExploredPopup" parent="Popups" instance=ExtResource( 37 )]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -603.0
+margin_top = -272.0
+margin_right = 112.0
+margin_bottom = -56.0
+
+[node name="ADTIsNotEmptyPopup" parent="Popups" instance=ExtResource( 36 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -523.0
+margin_top = -238.0
+margin_right = 23.0
+margin_bottom = -79.0
+ADT_type_and_var_name = "Stack s"
+
+[node name="FinishedPopup" parent="Popups" instance=ExtResource( 38 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -526.0
+margin_top = -321.0
+margin_right = 91.0
+margin_bottom = -39.0
+explanation_in_label = "Congratulations! You have successfully finished the DFS Algorithm! Go back to menu and try new levels!"

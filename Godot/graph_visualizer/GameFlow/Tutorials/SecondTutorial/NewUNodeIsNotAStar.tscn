@@ -31,6 +31,7 @@ tracks/1/keys = {
 }
 
 [node name="UNodeIsNotAStarPopup" type="WindowDialog"]
+visible = true
 margin_left = 500.0
 margin_top = 220.0
 margin_right = 1080.0

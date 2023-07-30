@@ -77,7 +77,7 @@ func _ready():
 	up = + int(self.screen_size.y)
 	down = 100
 	randomize()
-	self.adt_mediator = $ADTMediator
+	self.adt_mediator = $"%ADTMediator"
 	node_container_key_properties = _init_node_container_key_properties()
 	## Create Graph ##
 	# create nodes and their connecting edges by initializing the matrix
@@ -123,7 +123,7 @@ const RADIUS_THAT_FULLY_CONTAINS_TEXTURE_IN_CONTAINER = 0.45
 
 # Return an array of positions, representing the four positions of the square
 func _init_node_container_key_properties() -> Array:  # Array[Vector2]
-	var node_container: AspectRatioContainer = $CanvasLayer/NodeContainer
+	var node_container: AspectRatioContainer = $"%NodeContainer"
 	# The container begins at the top left
 	var upper_left = node_container.rect_global_position
 	var center_position = upper_left + node_container.rect_size * 0.5
@@ -154,7 +154,7 @@ func create_nodes_with_weights(num_nodes: int):
 func instance_nodes():
 	for _i in range(StoredData.matrix.size()):
 		var curr_node = circle.instance()  # curr_node: AGraphNode
-		$CanvasLayer/NodeContainer.add_child(curr_node)
+		$"%NodeContainer".add_child(curr_node)
 		_on_node_instanced(curr_node)
 
 # node: AGraphNode
@@ -180,7 +180,7 @@ func instance_edge_between_nodes(node_idx1: int, node_idx2: int, label_with_weig
 	# Set a name like Edge_0_to_2 to represent an edge connecting nodes 0 and 2
 	curr_edge.set_name("Edge_%s_to_%s" % [str(node_idx1), str(node_idx2)])
 	StoredData.edges.append(curr_edge)
-	$CanvasLayer/EdgeContainer.add_child(curr_edge)
+	$"%EdgeContainer".add_child(curr_edge)
 	curr_edge.set_label_and_positions_with_nodes(
 		StoredData.nodes[node_idx1],  # pos node_idx1,
 		StoredData.nodes[node_idx2],  # pos node_idx2,

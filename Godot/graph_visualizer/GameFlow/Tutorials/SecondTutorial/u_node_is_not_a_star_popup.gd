@@ -1,6 +1,9 @@
 class_name UNodeIsNotAStarPopup
 extends WindowDialog
 
+func _ready():
+	get_close_button().visible = false
+
 func _notification(what):
 	if what == NOTIFICATION_POST_POPUP:
 		StoredData.popup_captures_input = true
