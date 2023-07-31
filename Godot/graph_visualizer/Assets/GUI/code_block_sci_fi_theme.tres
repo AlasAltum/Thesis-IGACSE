@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/GUI/sci-fi.png" type="Texture" id=2]
 
 [sub_resource type="DynamicFont" id=92]
-size = 20
+size = 25
 extra_spacing_char = -1
 extra_spacing_space = -2
 font_data = ExtResource( 1 )

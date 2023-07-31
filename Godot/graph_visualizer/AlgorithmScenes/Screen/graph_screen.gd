@@ -15,14 +15,14 @@ const level_to_idx: Dictionary = {
 # We keep the textures in this class since there will be only a single instance of it
 # Since textures use a lot of memory, we do not want to have multiple copies of them
 const __planets_textures_original = [
-	preload("res://Assets/textures/OrbsWithoutOutline_0000_Circle.png"),
-	preload("res://Assets/textures/OrbsWithoutOutline_0001_Circle.png"),
-	preload("res://Assets/textures/OrbsWithoutOutline_0002_Circle.png"),
-	preload("res://Assets/textures/OrbsWithoutOutline_0003_Circle.png"),
-	preload("res://Assets/textures/OrbsWithoutOutline_0004_Circle.png"),
-	preload("res://Assets/textures/OrbsWithoutOutline_0005_Circle.png"),
-	preload("res://Assets/textures/OrbsWithoutOutline_0006_Circle.png"),
-	preload("res://Assets/textures/OrbsWithoutOutline_0007_Circle.png"),
+	preload("res://Assets/textures/planets/level_planets/IceWorld.png"),
+	preload("res://Assets/textures/planets/level_planets/LavaWorld.png"),
+	preload("res://Assets/textures/planets/level_planets/MuddyTerranWet.png"),
+	preload("res://Assets/textures/planets/level_planets/NoAtmosphere2.png"),
+	preload("res://Assets/textures/planets/level_planets/NoAtmosphere.png"),
+	preload("res://Assets/textures/planets/level_planets/PurpleTerranWet.png"),
+	preload("res://Assets/textures/planets/level_planets/RedTerran.png"),
+	preload("res://Assets/textures/planets/level_planets/TerranDryGreenBrownPink.png"),
 ]
 
 var planets_textures = []
@@ -284,7 +284,7 @@ func _is_graph_connected() -> bool:
 
 
 func _get_center_position_of_node_container() -> Vector2:
-	var cont = $CanvasLayer/NodeContainer
+	var cont = $"%NodeContainer"
 	return cont.rect_size * 0.5 
 
 
@@ -340,4 +340,4 @@ func go_back_to_menu():
 	NotificationManager.go_to_scene("res://GameFlow/MainMenu.tscn")
 
 func get_class() -> String:
-	return "GraphScreen"
+	return "GraphManager"

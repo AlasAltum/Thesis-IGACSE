@@ -57,7 +57,7 @@ func _on_SelectNodeButton_pressed():
 
 ## Hint related methods ##
 func set_hint_text(new_text: String) -> void:
-	if self.hint_label and self.allow_code_advance:
+	if is_instance_valid(self.hint_label) and self.allow_code_advance:
 		hint_label.bbcode_text = "[center]" + new_text
 #		hint_label.bbcode_text += new_text
 ## Hint related methods ##

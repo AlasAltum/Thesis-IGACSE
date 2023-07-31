@@ -98,6 +98,7 @@ margin_bottom = 766.0
 mouse_filter = 2
 
 [node name="DFSCodeBlock" parent="CanvasLayer/Screen/VB/Mid/MC/DFS" instance=ExtResource( 3 )]
+unique_name_in_owner = true
 margin_right = 500.0
 margin_bottom = 766.0
 rect_clip_content = false

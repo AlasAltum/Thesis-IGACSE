@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Node/graph_node.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Assets/textures/planets/DarkRedClick.png" type="Texture" id=8]
 [ext_resource path="res://Assets/textures/planets/RedLeftClick.png" type="Texture" id=9]
 [ext_resource path="res://Assets/materials/Outline2D.tres" type="Material" id=10]
+[ext_resource path="res://Assets/fonts/PixelGameFont/PixelGameFont.ttf" type="DynamicFontData" id=11]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 39.3722
@@ -22,6 +23,13 @@ shader_param/WHITE = Plane( 1, 1, 1, 0.2 )
 shader_param/FREQ = 3.0
 shader_param/highlight = 0.0
 shader_param/amplitude = 0.1
+
+[sub_resource type="DynamicFont" id=19]
+size = 55
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 11 )
 
 [sub_resource type="Shader" id=18]
 code = "shader_type canvas_item;
@@ -136,10 +144,6 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=14]
 length = 0.001
 
-[sub_resource type="StreamTexture" id=15]
-flags = 4
-load_path = "res://import/Ice.png-5577a69acca68b0338625921493d50bb.stex"
-
 [sub_resource type="SpriteFrames" id=16]
 animations = [ {
 "frames": [ ExtResource( 9 ), ExtResource( 8 ) ],
@@ -161,6 +165,7 @@ shape = SubResource( 1 )
 material = SubResource( 11 )
 
 [node name="SpriteTexture" type="Sprite" parent="Sprite"]
+unique_name_in_owner = true
 material = ExtResource( 10 )
 z_index = -1
 texture = ExtResource( 7 )
@@ -178,6 +183,12 @@ texture = ExtResource( 6 )
 
 [node name="NodeName" parent="Sprite/Node2D" instance=ExtResource( 4 )]
 unique_name_in_owner = true
+margin_left = -36.0
+margin_top = -31.0
+margin_right = 44.0
+margin_bottom = 50.0
+theme = null
+custom_fonts/font = SubResource( 19 )
 
 [node name="Popup" type="Popup" parent="."]
 visible = true
@@ -248,12 +259,6 @@ anims/ClickNode = SubResource( 13 )
 anims/ErrorSelectingNode = SubResource( 17 )
 anims/NodeBeingSelected = SubResource( 12 )
 anims/RESET = SubResource( 14 )
-
-[node name="Ice" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0.313726 )
-position = Vector2( -2.86102e-06, 5.96046e-08 )
-scale = Vector2( 1.66667, 1.70833 )
-texture = SubResource( 15 )
 
 [node name="MouseButtonLeft" type="AnimatedSprite" parent="."]
 visible = false

@@ -34,23 +34,23 @@ margin_bottom = 40.0
 script = ExtResource( 1 )
 
 [node name="MC" type="MarginContainer" parent="Control"]
-margin_right = 171.0
-margin_bottom = 84.0
+margin_right = 161.0
+margin_bottom = 51.0
 custom_constants/margin_top = 8
 custom_constants/margin_left = 8
 
 [node name="Panel" type="Panel" parent="Control/MC"]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 171.0
-margin_bottom = 84.0
+margin_right = 161.0
+margin_bottom = 51.0
 theme = ExtResource( 4 )
 
 [node name="MC" type="MarginContainer" parent="Control/MC"]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 171.0
-margin_bottom = 84.0
+margin_right = 161.0
+margin_bottom = 51.0
 custom_constants/margin_right = 5
 custom_constants/margin_top = 5
 custom_constants/margin_left = 10
@@ -59,12 +59,12 @@ custom_constants/margin_bottom = 3
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/MC/MC"]
 margin_left = 10.0
 margin_top = 5.0
-margin_right = 158.0
-margin_bottom = 73.0
+margin_right = 148.0
+margin_bottom = 40.0
 
 [node name="MenuButton" type="TextureButton" parent="Control/MC/MC/HBoxContainer"]
 margin_right = 40.0
-margin_bottom = 70.0
+margin_bottom = 35.0
 rect_min_size = Vector2( 40, 35 )
 size_flags_vertical = 3
 shortcut_in_tooltip = false
@@ -75,7 +75,7 @@ expand = true
 [node name="AudioTextureButton" type="TextureButton" parent="Control/MC/MC/HBoxContainer"]
 margin_left = 44.0
 margin_right = 84.0
-margin_bottom = 70.0
+margin_bottom = 35.0
 rect_min_size = Vector2( 40, 35 )
 size_flags_horizontal = 0
 toggle_mode = true
@@ -86,9 +86,9 @@ expand = true
 
 [node name="HSlider" type="HSlider" parent="Control/MC/MC/HBoxContainer"]
 margin_left = 88.0
-margin_right = 148.0
-margin_bottom = 68.0
-rect_min_size = Vector2( 60, 35 )
+margin_right = 128.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 40, 35 )
 size_flags_horizontal = 0
 size_flags_vertical = 3
 theme = ExtResource( 4 )

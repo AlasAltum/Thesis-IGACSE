@@ -78,7 +78,8 @@ func set_texture_randomly():
 	):
 		sprite_texture.texture = StoredData.world_node.planets_textures[randi() % len(StoredData.world_node.planets_textures)]
 		StoredData.world_node.planets_textures.erase(sprite_texture.texture)
-		var desired_size = Vector2(80,80)
+		var desired_size = Vector2(128, 128)
+		self.self_modulate = Color(0.7, 0.7, 0.7, 1.0)
 		var size = sprite_texture.texture.get_size()
 		var scale_factor = desired_size/size
 		sprite_texture.scale = scale_factor
