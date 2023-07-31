@@ -123,7 +123,7 @@ const RADIUS_THAT_FULLY_CONTAINS_TEXTURE_IN_CONTAINER = 0.45
 
 # Return an array of positions, representing the four positions of the square
 func _init_node_container_key_properties() -> Array:  # Array[Vector2]
-	var node_container: AspectRatioContainer = $"%NodeContainer"
+	var node_container = $"%NodeContainer"
 	# The container begins at the top left
 	var upper_left = node_container.rect_global_position
 	var center_position = upper_left + node_container.rect_size * 0.5

@@ -177,6 +177,7 @@ texture = ExtResource( 6 )
 [node name="Node2D" type="Node2D" parent="Sprite"]
 
 [node name="NodeName" parent="Sprite/Node2D" instance=ExtResource( 4 )]
+unique_name_in_owner = true
 
 [node name="Popup" type="Popup" parent="."]
 visible = true

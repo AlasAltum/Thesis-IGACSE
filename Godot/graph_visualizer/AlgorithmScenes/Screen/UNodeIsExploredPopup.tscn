@@ -32,7 +32,6 @@ tracks/1/keys = {
 }
 
 [node name="VNodeIsExploredPopup" type="WindowDialog"]
-visible = true
 margin_left = 331.0
 margin_top = 199.0
 margin_right = 1074.0
@@ -49,6 +48,7 @@ size_flags_vertical = 3
 custom_constants/separation = 24
 
 [node name="Explanation" type="Label" parent="VB"]
+unique_name_in_owner = true
 margin_right = 738.0
 margin_bottom = 85.0
 rect_pivot_offset = Vector2( 265.108, 0 )

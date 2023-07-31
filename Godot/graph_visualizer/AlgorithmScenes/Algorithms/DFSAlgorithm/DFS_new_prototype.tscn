@@ -1,6 +1,5 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://AlgorithmScenes/Code/DebugBlock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/DFSCodeBlockCentered.tscn" type="PackedScene" id=3]
 [ext_resource path="res://AlgorithmScenes/Screen/TextHintContainer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/textures/Background.tscn" type="PackedScene" id=6]
@@ -20,26 +19,10 @@ graph_size = 8
 
 [node name="ADTMediator" parent="." instance=ExtResource( 34 )]
 unique_name_in_owner = true
-visible = false
 position = Vector2( 1, 0 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
-
-[node name="BottomPanel" type="HBoxContainer" parent="CanvasLayer"]
-visible = false
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -300.0
-mouse_filter = 2
-
-[node name="DebugBlock" parent="CanvasLayer/BottomPanel" instance=ExtResource( 1 )]
-margin_top = 0.0
-margin_right = 1682.0
-margin_bottom = 300.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="TextHintContainer" parent="CanvasLayer" instance=ExtResource( 4 )]
 visible = false
@@ -50,12 +33,12 @@ margin_bottom = 811.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer"]
-visible = false
-
 [node name="Screen" type="MarginContainer" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 2.0
+margin_bottom = 2.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 5
@@ -68,44 +51,40 @@ margin_left = 5.0
 margin_top = 5.0
 margin_right = 1915.0
 margin_bottom = 1075.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Mid" type="HBoxContainer" parent="CanvasLayer/Screen/VB"]
 margin_right = 1910.0
 margin_bottom = 766.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Container" type="Container" parent="CanvasLayer/Screen/VB/Mid"]
+[node name="Container" type="MarginContainer" parent="CanvasLayer/Screen/VB/Mid"]
 margin_right = 1406.0
 margin_bottom = 766.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="NodeContainer" type="AspectRatioContainer" parent="CanvasLayer/Screen/VB/Mid/Container"]
+[node name="NodeContainer" type="MarginContainer" parent="CanvasLayer/Screen/VB/Mid/Container"]
 unique_name_in_owner = true
-margin_left = 708.0
-margin_top = 296.0
-margin_right = 708.0
-margin_bottom = 296.0
-rect_clip_content = true
+margin_right = 1406.0
+margin_bottom = 766.0
 mouse_filter = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 3
 size_flags_vertical = 3
-stretch_mode = 0
 
-[node name="EdgeContainer" type="AspectRatioContainer" parent="CanvasLayer/Screen/VB/Mid/Container"]
+[node name="EdgeContainer" type="MarginContainer" parent="CanvasLayer/Screen/VB/Mid/Container"]
 unique_name_in_owner = true
-margin_left = 708.0
-margin_top = 296.0
-margin_right = 708.0
-margin_bottom = 296.0
+margin_right = 1406.0
+margin_bottom = 766.0
 rect_clip_content = true
 mouse_filter = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 3
 size_flags_vertical = 3
-stretch_mode = 0
 
 [node name="MC" type="MarginContainer" parent="CanvasLayer/Screen/VB/Mid"]
 margin_left = 1410.0
@@ -129,6 +108,7 @@ margin_top = 770.0
 margin_right = 1910.0
 margin_bottom = 1070.0
 rect_min_size = Vector2( 0, 300 )
+mouse_filter = 2
 
 [node name="DebugBlock" parent="CanvasLayer/Screen/VB/Bottom" instance=ExtResource( 8 )]
 unique_name_in_owner = true
@@ -144,8 +124,6 @@ margin_right = 1910.0
 margin_bottom = 300.0
 rect_min_size = Vector2( 500, 200 )
 size_flags_vertical = 3
-
-[node name="Background" parent="." instance=ExtResource( 6 )]
 
 [node name="Popups" type="CanvasLayer" parent="."]
 layer = 2
@@ -182,3 +160,5 @@ margin_top = -321.0
 margin_right = 91.0
 margin_bottom = -39.0
 explanation_in_label = "Congratulations! You have successfully finished the DFS Algorithm! Go back to menu and try new levels!"
+
+[node name="Background" parent="." instance=ExtResource( 6 )]

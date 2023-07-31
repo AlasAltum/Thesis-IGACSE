@@ -13,7 +13,7 @@ var clickable = false
 var node_color: Color
 var accum_time: float
 
-onready var node_name: Label = $Sprite/Name/NodeName
+onready var node_name: Label = $"%NodeName"
 onready var node_action_menu: Popup = $Popup
 onready var select_unselect_button: Button = $Popup/PanelContainer/VBoxContainer/SelectUnselectButton
 onready var add_to_object_button: Button = $Popup/PanelContainer/VBoxContainer/AddToObjectButton
