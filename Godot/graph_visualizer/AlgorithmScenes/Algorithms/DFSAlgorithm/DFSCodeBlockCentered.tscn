@@ -228,7 +228,6 @@ margin_top = 673.0
 margin_right = 400.0
 margin_bottom = 713.0
 line_index = 13
-jump_index = 4
 code_text = "end DFS"
 effect_check = ExtResource( 17 )
 hint_text = "Press [b]SPACE[/b]"
