@@ -31,13 +31,13 @@ mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="LinesContainer" type="VBoxContainer" parent="."]
+[node name="VB" type="VBoxContainer" parent="."]
 margin_right = 409.0
-margin_bottom = 42.0
+margin_bottom = 46.0
 mouse_filter = 2
 size_flags_horizontal = 3
 
-[node name="DebuggerTitle" type="Label" parent="LinesContainer"]
+[node name="DebuggerTitle" type="Label" parent="VB"]
 margin_right = 409.0
 margin_bottom = 42.0
 size_flags_horizontal = 3
@@ -46,5 +46,22 @@ custom_fonts/font = SubResource( 3 )
 text = "  LOCAL VARIABLES"
 valign = 1
 clip_text = true
+
+[node name="MarginContainer" type="MarginContainer" parent="VB"]
+margin_top = 46.0
+margin_right = 409.0
+margin_bottom = 46.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 10
+custom_constants/margin_left = 10
+
+[node name="LinesContainer" type="VBoxContainer" parent="VB/MarginContainer"]
+unique_name_in_owner = true
+margin_left = 10.0
+margin_right = 399.0
+mouse_filter = 2
+size_flags_horizontal = 3
+custom_constants/separation = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

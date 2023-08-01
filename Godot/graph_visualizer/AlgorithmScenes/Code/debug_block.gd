@@ -11,7 +11,7 @@ const focused_material: Material = preload("res://AlgorithmScenes/Screen/DebugBl
 const unfocused_style: StyleBox = preload("res://AlgorithmScenes/Screen/DebugBlock/unfocus_line_stylebox.stylebox")
 
 # This lines container will have the Labels with format var_name: var_data
-onready var lines_container: VBoxContainer = $LinesContainer
+onready var lines_container: VBoxContainer = $"%LinesContainer"
 
 
 var mouse_inside_area: bool = false
@@ -45,7 +45,7 @@ func _add_variable(var_name: String, var_data: ADT):
 	_set_data_to_label(new_label, var_name, var_data)
 	lines_container.add_child(new_label)
 	if var_data and not var_data.is_new:
-		call_deferred("_play_anim", new_label, "emphasize_modification") #_play_anim(new_label, "emphasize_modification")
+		call_deferred ("_play_anim", new_label, "emphasize_modification") #_play_anim(new_label, "emphasize_modification")
 		var_data.is_new = true
 
 func _set_data_to_label(label: Label, var_name: String, var_data):
@@ -88,7 +88,7 @@ func highlight_variable(var_name: String) -> void:
 
 func _play_anim(input_label: Label, anim_name: String) -> void:
 	if input_label:
-		var anim: AnimationPlayer = input_label.get_node("./AnimationPlayer")
+		var anim: AnimationPlayer = input_label.anim_player
 		anim.stop(true)
 		anim.play(anim_name)
 

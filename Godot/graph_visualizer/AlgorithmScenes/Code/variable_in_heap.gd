@@ -1,5 +1,6 @@
 extends Label
 
+onready var anim_player: AnimationPlayer = $AnimationPlayer
 onready var area_2d : Area2D = $Area2D
 onready var collision_object: CollisionShape2D = $Area2D/CollisionShape2D
 var collision_shape: RectangleShape2D = null
