@@ -27,8 +27,9 @@ func _on_ResetButton_pressed() -> void:
 
 func _on_MenuButton_pressed():
 	AudioPlayer.play_button_sound()
-	if StoredData.world_node:
-		StoredData.world_node.go_back_to_menu()
+	var main_node = get_tree().root.get_node("Main")
+	if is_instance_valid(main_node):
+		main_node.go_back_to_menu()
 
 func _deferred_goto_scene(path):
 	NotificationManager.go_to_scene(path)
