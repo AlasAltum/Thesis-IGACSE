@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Node/graph_node.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/textures/planets/RedLeftClick.png" type="Texture" id=9]
 [ext_resource path="res://Assets/materials/Outline2D.tres" type="Material" id=10]
 [ext_resource path="res://Assets/fonts/PixelGameFont/PixelGameFont.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://Assets/GUI/sci-fi-theme.tres" type="Theme" id=12]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 39.3722
@@ -197,6 +198,7 @@ margin_top = -31.0
 margin_right = 44.0
 margin_bottom = 40.0
 mouse_filter = 2
+theme = ExtResource( 12 )
 
 [node name="PanelContainer" type="PanelContainer" parent="Popup"]
 use_parent_material = true
@@ -207,8 +209,8 @@ mouse_filter = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="Popup/PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 230.0
-margin_bottom = 75.0
+margin_right = 232.0
+margin_bottom = 83.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -218,15 +220,15 @@ __meta__ = {
 }
 
 [node name="SelectUnselectButton" type="Button" parent="Popup/PanelContainer/VBoxContainer"]
-margin_right = 223.0
-margin_bottom = 32.0
+margin_right = 225.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 text = "E: Select/Unselect"
 
 [node name="AddToObjectButton" type="Button" parent="Popup/PanelContainer/VBoxContainer"]
-margin_top = 36.0
-margin_right = 223.0
-margin_bottom = 68.0
+margin_top = 40.0
+margin_right = 225.0
+margin_bottom = 76.0
 size_flags_horizontal = 3
 text = "R: Add to selected object"
 __meta__ = {
@@ -262,10 +264,11 @@ anims/RESET = SubResource( 14 )
 
 [node name="MouseButtonLeft" type="AnimatedSprite" parent="."]
 visible = false
-position = Vector2( 48, 72 )
+position = Vector2( 32, 48 )
 frames = SubResource( 16 )
 frame = 1
 speed_scale = 0.5
+playing = true
 
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]

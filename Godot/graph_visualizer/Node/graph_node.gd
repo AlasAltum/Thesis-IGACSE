@@ -6,6 +6,7 @@ var selected : bool = false
 export var index : int = 0
 # True for all cases except some tutorials
 export var should_show_ship_flying_around : bool = true
+export var should_show_base_when_selected : bool = false 
 var edges : Array setget set_edges, get_edges
 var pressed: bool = false
 var aux_position: Vector2
@@ -70,6 +71,8 @@ func _ready():
 	self.set_process(false)
 
 
+const PLANET_SIZE = 128
+
 func set_texture_randomly():
 	if (
 		StoredData.world_node and 
@@ -78,7 +81,9 @@ func set_texture_randomly():
 	):
 		sprite_texture.texture = StoredData.world_node.planets_textures[randi() % len(StoredData.world_node.planets_textures)]
 		StoredData.world_node.planets_textures.erase(sprite_texture.texture)
-		var desired_size = Vector2(128, 128)
+		var desired_size = Vector2(PLANET_SIZE, PLANET_SIZE)
+		var collision_circle = $Area2D/CollisionShape2D.shape as CircleShape2D
+		collision_circle.radius = PLANET_SIZE * 0.5
 		self.self_modulate = Color(0.7, 0.7, 0.7, 1.0)
 		var size = sprite_texture.texture.get_size()
 		var scale_factor = desired_size/size
@@ -193,6 +198,9 @@ func select_node(emit_signal=true):
 	# If node is selectable
 	if emit_signal:
 		emit_signal("node_selected", self)
+	should_show_base_when_selected = self.index == 0
+	if should_show_base_when_selected:
+		self.animation_player.play("NodeBeingSelected")
 	self.selected = true
 	AudioPlayer.play_element_selected()
 
@@ -252,7 +260,7 @@ func _input(event):
 				get_added_to_focused_object_in_variables()
 
 func is_mouse_inside_node() -> bool:
-	return get_global_mouse_position().distance_to(self.global_position) < self.radius_distance
+	return get_global_mouse_position().distance_to(self.global_position) < PLANET_SIZE
 
 # Show hover menu
 func _on_Area2D_mouse_entered() -> void:
