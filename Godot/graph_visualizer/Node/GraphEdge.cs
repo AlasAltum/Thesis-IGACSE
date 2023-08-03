@@ -256,6 +256,14 @@ public class GraphEdge : PinJoint2D
 		shipAnimationPlayer.Play("ShipTravel");
 	}
 
+	public bool edge_connects_nodes_u_and_v(Node u, Node v){
+		if ((this.joint_end1 == u && this.joint_end2 == v) || (this.joint_end1 == v && this.joint_end2 == u))
+		{
+			return true;
+		}
+		return false;
+	}
+
 	protected void _on_ShipAnimationPlayer_animation_finished(String anim_name)
 	{
 		NotifiyNodeBToPlayStationAnimation();

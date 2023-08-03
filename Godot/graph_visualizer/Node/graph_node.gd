@@ -13,6 +13,7 @@ var aux_position: Vector2
 var clickable = false
 var node_color: Color
 var accum_time: float
+var visited_from_node = null
 
 onready var node_name: Label = $"%NodeName"
 onready var node_action_menu: Popup = $Popup

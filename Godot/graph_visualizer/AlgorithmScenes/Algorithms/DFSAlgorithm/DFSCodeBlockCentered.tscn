@@ -110,7 +110,7 @@ margin_top = 375.0
 margin_right = 400.0
 margin_bottom = 415.0
 line_index = 4
-jump_index = 13
+jump_index = 12
 code_text = "    while s.is_not_empty():"
 effect_check = ExtResource( 8 )
 

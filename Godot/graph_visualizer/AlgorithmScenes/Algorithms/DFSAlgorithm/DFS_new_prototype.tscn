@@ -15,7 +15,7 @@
 position = Vector2( -1, 0 )
 script = ExtResource( 15 )
 level_name = "DFS"
-graph_size = 4
+graph_size = 6
 
 [node name="ADTMediator" parent="." instance=ExtResource( 34 )]
 unique_name_in_owner = true

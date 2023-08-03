@@ -14,12 +14,25 @@ func effect_check_on_focused():
 	var v : AGraphNode = StoredData.get_variable("v").get_node()
 	StoredData.selectable_nodes_indexes.append(v.index)
 
-#func _trigger_on_next_line_side_effect():
-#	var v : AGraphNode = StoredData.get_variable("v").get_node()
-#	# The first time we should skip sending the ship from node v to u
-#	if v == StoredData.get_variable("t").get_node():
-#		return
-#
+func _trigger_on_next_line_side_effect():
+	var v : AGraphNode = StoredData.get_variable("v").get_node()
+	# The first time we should skip sending the ship from node v to u
+	if v == StoredData.get_variable("t").get_node():
+		v.select_node()
+		return
+
+	if is_instance_valid(v.visited_from_node):
+		send_ship_from_node_A_to_node_B(v.visited_from_node, v)
+
+
+func send_ship_from_node_A_to_node_B(node_A, node_B):
+	for _edge in StoredData.edges:
+		if _edge.edge_connects_nodes_u_and_v(node_A, node_B):
+			_edge.send_ship_from_nodeA_to_nodeB(node_A, node_B)
+
+		
+		 
+#   This is what should happen, but we do not have access to the u variable at this point
 #	var u : AGraphNode = StoredData.get_variable("u").get_node() 
 #	for _edge in StoredData.edges:
 #		if _edge._edge_connects_nodes_u_and_v(_edge, u, v):

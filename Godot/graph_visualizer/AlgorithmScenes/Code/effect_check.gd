@@ -24,6 +24,11 @@ func effect_check_on_focused() -> void:
 func check_actions_correct() -> bool:
 	return true
 
+
+# Code that will be called the first time the actions are correct, but only once 
+func _trigger_on_correct_once() -> void:
+	pass
+
 # Execute side effect when the code line that contains
 # this effect check was executed and the next line is focused
 func _trigger_on_next_line_side_effect() -> void:

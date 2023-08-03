@@ -57,10 +57,12 @@ func _process(_delta: float) -> void:
 			self.executed_correct_effects_once = false
 			NotificationManager.set_hint_text(self.hint_text)
 
+
 # Triggered when the instructions from the method EffectCheck.check_actions_correct 
 # Have returned true. Should be executed only once.
 func on_correct_instruction_execute_effects_once():
 	if not self.executed_correct_effects_once:
+		effect_check._trigger_on_correct_once()
 		add_stylebox_override("panel", completed_style)
 		self.was_completed_correctly = true
 		self.executed_correct_effects_once = true

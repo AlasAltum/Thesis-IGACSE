@@ -75,7 +75,7 @@ hint_text = ""
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_left = 4.0
-margin_right = 161.0
+margin_right = 211.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -93,17 +93,17 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 
 [node name="Tab" type="Label" parent="HBoxContainer"]
-margin_top = 11.0
-margin_right = 21.0
-margin_bottom = 29.0
+margin_top = 8.0
+margin_right = 30.0
+margin_bottom = 31.0
 text = "   "
 valign = 1
 
 [node name="CodeText" type="Label" parent="HBoxContainer"]
-margin_left = 25.0
-margin_top = 11.0
-margin_right = 157.0
-margin_bottom = 29.0
+margin_left = 34.0
+margin_top = 8.0
+margin_right = 207.0
+margin_bottom = 31.0
 size_flags_horizontal = 3
 text = "code_here()"
 valign = 3

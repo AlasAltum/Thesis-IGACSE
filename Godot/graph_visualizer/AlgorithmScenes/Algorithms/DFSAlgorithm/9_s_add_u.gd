@@ -5,6 +5,8 @@ extends EffectCheck
 func effect_check_on_focused() -> void:
 	var u : AGraphNode = StoredData.get_variable("u").get_node()
 	StoredData.add_node_to_nodes_that_should_be_added_to_adt(u)
+	var v : AGraphNode = StoredData.get_variable("v").get_node()
+	u.visited_from_node = v
 
 # check that node U is inside stack S
 func check_actions_correct() -> bool:

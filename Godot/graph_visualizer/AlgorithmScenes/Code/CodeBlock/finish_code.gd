@@ -8,6 +8,11 @@ func check_actions_correct() -> bool:
 func _generate_message() -> String:
 	return "IMPLEMENT THIS MESSAGE OVERRIDING THIS METHOD"
 
+func effect_check_on_focused():
+	NotificationManager.show_code_finished_popup(self._generate_message())
+	_mark_level_as_finished()
+	self._reset_data()
+
 func _reset_data():
 	StoredData.reset_data()
 	NotificationManager.reset_data()
@@ -19,10 +24,6 @@ func _mark_level_as_finished():
 		# Remove the level from the remaining levels to finish, so we cannot get into it the next time
 		StoredData.remaining_levels_to_finish.erase(StoredData.world_node.level_name)
 
-func effect_check_on_focused() -> void:
-	NotificationManager.show_code_finished_popup(self._generate_message())
-	_mark_level_as_finished()
-	self._reset_data()
 
 # TODO: Erase this once the game has been fully tested
 func goto_scene(path):

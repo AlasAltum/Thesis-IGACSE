@@ -37,7 +37,6 @@ func _input(event):
 		if current_line.effect_actions_are_correct():
 			advance_to_line(current_line.get_next_line())
 		else:
-			# TODO: Warn the player that the code has not been completed yet
 			AudioPlayer.play_not_doable_action_sound()
 			current_line.show_error_animation()
 
