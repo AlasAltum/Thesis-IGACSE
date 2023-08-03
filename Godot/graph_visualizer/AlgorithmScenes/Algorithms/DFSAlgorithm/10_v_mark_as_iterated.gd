@@ -6,5 +6,3 @@ func _trigger_on_next_line_side_effect():
 	var v: AGraphNode = StoredData.get_variable("v").get_node()
 	v.mark_as_iterated()
 	# Add this to stop the highlight moving for node v
-	# v.stop_highlight_node() # Stop moving highlight
-	# StoredData.highlight_variable("v") # But highlight the variable changing

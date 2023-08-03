@@ -58,69 +58,10 @@ func get_non_explored_neighbors(v: AGraphNode) -> Array:
 func execute_side_effect() -> void:
 	var v : AGraphNode = StoredData.get_variable("v").get_node()
 	var non_explored_neighbors = get_non_explored_neighbors(v)
-
-	# v.edges[iteration_index] is a pair [node_index, weight]
-#	var new_u : AGraphNode  = new_get_next_u_node()
-	# We will try to skip nodes that have already been explored
-	# to avoid trying to come back. The if after this for stops that
-	# process, but it is boring for the user, so we will obscurely avoid it
 	var u:  AGraphNode = non_explored_neighbors[self.iteration_index]
-#	if new_u != u:
-#		breakpoint
-#		new_u  = new_get_next_u_node()
-#		u  = get_next_u_node()
-
 	StoredData.add_variable("u", u.get_adt())
 	# Get Edge between nodes v and u and highlight the edge and u
 	var edge_between_u_and_v = StoredData.get_edge_between_nodes(u, v)
 	StoredData.set_highlighted_edge(edge_between_u_and_v)
 	u.highlight_node()
 	iteration_index += 1
-
-
-
-func get_next_u_node() -> AGraphNode:
-	var u_index : int = 0
-	var u : AGraphNode = null
-	var first_u: AGraphNode = null
-	var first_u_already_chosen: bool = false
-	var loop_broken: bool = true
-	var v : AGraphNode = StoredData.get_variable("v").get_node()
-	# There are basically two cases:
-	# 1) Our u node was not explored or iterated and just return it
-	# 2) All nodes were explored or iterated, so we just return the first one 
-	while true:
-		# Make sure we do not get out of the array
-		if iteration_index >= v.edges.size():
-			loop_broken = true
-			break
-
-		u_index = v.edges[iteration_index][0]
-
-		# Make sure we do not get out of the array
-		if u_index >= StoredData.nodes.size(): 
-			loop_broken = true
-			break
-	
-		u = StoredData.nodes[u_index]
-		# If we have a break because all nodes were explored or iterated
-		# return the first u node
-		if not first_u_already_chosen:
-			first_u = u
-
-		iteration_index += 1
-		# This makes sure our u was not explored
-		if not u.is_iterated_or_explored():
-			break
-
-	# When already visited all neighbors of v
-	if loop_broken:
-		return first_u
-
-	return u
-
-
-
-
-
-
