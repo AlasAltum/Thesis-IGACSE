@@ -28,8 +28,6 @@
 [ext_resource path="res://AlgorithmScenes/Screen/UNodeIsExploredPopup.tscn" type="PackedScene" id=37]
 [ext_resource path="res://AlgorithmScenes/Screen/FinishedPopup.tscn" type="PackedScene" id=38]
 
-
-
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 4.0
 content_margin_right = 4.0
@@ -120,8 +118,8 @@ __meta__ = {
 [node name="LinesContainer" type="VBoxContainer" parent="CanvasLayer/CodeBlock"]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 396.0
-margin_bottom = 200.0
+margin_right = 523.0
+margin_bottom = 564.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 custom_constants/separation = 0
@@ -129,8 +127,9 @@ custom_constants/separation = 0
 [node name="PanelContainer0" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 392.0
-margin_bottom = 14.0
+margin_left = 0.0
+margin_right = 519.0
+margin_bottom = 40.0
 custom_styles/panel = ExtResource( 12 )
 focused = true
 code_text = "BFS(starting_node=0):"
@@ -138,18 +137,20 @@ effect_check = SubResource( 2 )
 hint_text = "Press [b]SPACE[/b]"
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0" index="0"]
-margin_right = 392.0
+margin_left = 0.0
+margin_right = 519.0
 
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0/HBoxContainer" index="2"]
-margin_right = 392.0
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer0/HBoxContainer" index="3"]
+margin_right = 519.0
 text = "BFS(starting_node=0):"
 
 [node name="PanelContainer1" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 14.0
-margin_right = 392.0
-margin_bottom = 28.0
+margin_left = 0.0
+margin_top = 40.0
+margin_right = 519.0
+margin_bottom = 80.0
 size_flags_horizontal = 1
 line_index = 1
 code_text = "    t = starting_node;"
@@ -157,18 +158,19 @@ effect_check = SubResource( 3 )
 hint_text = "[b]LEFT CLICK[/b] Node 0 and then [b]SPACE[/b]"
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1" index="0"]
-margin_right = 392.0
+margin_right = 515.0
 
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1/HBoxContainer" index="2"]
-margin_right = 392.0
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer1/HBoxContainer" index="3"]
+margin_right = 511.0
 text = "    t = starting_node;"
 
 [node name="PanelContainer2" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 28.0
-margin_right = 392.0
-margin_bottom = 42.0
+margin_left = 0.0
+margin_top = 80.0
+margin_right = 519.0
+margin_bottom = 120.0
 size_flags_horizontal = 1
 line_index = 2
 code_text = "    q = Queue();"
@@ -176,18 +178,19 @@ effect_check = SubResource( 4 )
 hint_text = "Go to Data Structures, click the Slot \"Queue\", bring it to Variables and then press [b]SPACE[/b]"
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2" index="0"]
-margin_right = 392.0
+margin_right = 515.0
 
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2/HBoxContainer" index="2"]
-margin_right = 392.0
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer2/HBoxContainer" index="3"]
+margin_right = 511.0
 text = "    q = Queue();"
 
 [node name="PanelContainer3" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 42.0
-margin_right = 392.0
-margin_bottom = 56.0
+margin_left = 0.0
+margin_top = 120.0
+margin_right = 519.0
+margin_bottom = 160.0
 size_flags_horizontal = 1
 line_index = 3
 code_text = "    q.add(t);"
@@ -195,38 +198,39 @@ effect_check = SubResource( 5 )
 hint_text = "[b]RIGHT CLICK[/b] on Node [color=#00FF00] t [/color], then add it to the Queue [color=#00FF00] q [/color]"
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3" index="0"]
-margin_right = 392.0
+margin_right = 515.0
 
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3/HBoxContainer" index="2"]
-margin_right = 392.0
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer3/HBoxContainer" index="3"]
+margin_right = 511.0
 text = "    q.add(t);"
 
 [node name="PanelContainer4" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 56.0
-margin_right = 392.0
-margin_bottom = 70.0
+margin_left = 0.0
+margin_top = 160.0
+margin_right = 519.0
+margin_bottom = 200.0
 size_flags_horizontal = 1
 line_index = 4
 jump_index = 13
 code_text = "    while q.is_not_empty():"
 effect_check = SubResource( 6 )
-hint_text = ""
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4" index="0"]
-margin_right = 392.0
+margin_right = 515.0
 
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4/HBoxContainer" index="2"]
-margin_right = 392.0
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer4/HBoxContainer" index="3"]
+margin_right = 511.0
 text = "    while q.is_not_empty():"
 
 [node name="PanelContainer5" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 70.0
-margin_right = 392.0
-margin_bottom = 84.0
+margin_left = 0.0
+margin_top = 200.0
+margin_right = 519.0
+margin_bottom = 240.0
 size_flags_horizontal = 1
 line_index = 5
 code_text = "        v = q.top(); q.pop();"
@@ -234,18 +238,19 @@ effect_check = SubResource( 7 )
 hint_text = "Look at the variables after you press [b]SPACE[/b]!"
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5" index="0"]
-margin_right = 392.0
+margin_right = 515.0
 
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5/HBoxContainer" index="2"]
-margin_right = 392.0
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer5/HBoxContainer" index="3"]
+margin_right = 511.0
 text = "        v = q.top(); q.pop();"
 
 [node name="PanelContainer6" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 84.0
-margin_right = 392.0
-margin_bottom = 98.0
+margin_left = 0.0
+margin_top = 240.0
+margin_right = 519.0
+margin_bottom = 280.0
 size_flags_horizontal = 1
 line_index = 6
 jump_index = 11
@@ -254,18 +259,19 @@ effect_check = SubResource( 8 )
 hint_text = "Check the U variable after you press [b]SPACE[/b]!"
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6" index="0"]
-margin_right = 392.0
+margin_right = 515.0
 
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6/HBoxContainer" index="2"]
-margin_right = 392.0
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer6/HBoxContainer" index="3"]
+margin_right = 511.0
 text = "        for (Edge u in v.edges()):"
 
 [node name="PanelContainer7" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 98.0
-margin_right = 392.0
-margin_bottom = 112.0
+margin_left = 0.0
+margin_top = 280.0
+margin_right = 519.0
+margin_bottom = 320.0
 size_flags_horizontal = 1
 line_index = 7
 jump_index = 10
@@ -274,18 +280,19 @@ effect_check = SubResource( 9 )
 hint_text = "Answer: is the [color=#00FF00] u [/color] node explored or iterated?"
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7" index="0"]
-margin_right = 392.0
+margin_right = 515.0
 
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7/HBoxContainer" index="2"]
-margin_right = 392.0
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer7/HBoxContainer" index="3"]
+margin_right = 511.0
 text = "            if u.is_not_explored():"
 
 [node name="PanelContainer8" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 112.0
-margin_right = 392.0
-margin_bottom = 126.0
+margin_left = 0.0
+margin_top = 320.0
+margin_right = 519.0
+margin_bottom = 360.0
 size_flags_horizontal = 1
 line_index = 8
 code_text = "                u.mark_as_explored();"
@@ -293,18 +300,19 @@ effect_check = SubResource( 10 )
 hint_text = "Select the [color=#00FF00] u [/color] node with a left click"
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8" index="0"]
-margin_right = 392.0
+margin_right = 515.0
 
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8/HBoxContainer" index="2"]
-margin_right = 392.0
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer8/HBoxContainer" index="3"]
+margin_right = 511.0
 text = "                u.mark_as_explored();"
 
 [node name="PanelContainer9" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 126.0
-margin_right = 392.0
-margin_bottom = 140.0
+margin_left = 0.0
+margin_top = 360.0
+margin_right = 519.0
+margin_bottom = 400.0
 size_flags_horizontal = 1
 line_index = 9
 code_text = "                q.add(u)"
@@ -312,18 +320,19 @@ effect_check = SubResource( 11 )
 hint_text = "Add the Node [color=#00FF00] u [/color] to the queue by right clicking on it"
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer9" index="0"]
-margin_right = 392.0
+margin_right = 515.0
 
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer9/HBoxContainer" index="2"]
-margin_right = 392.0
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer9/HBoxContainer" index="3"]
+margin_right = 511.0
 text = "                q.add(u)"
 
 [node name="PanelContainer10" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 140.0
-margin_right = 392.0
-margin_bottom = 154.0
+margin_left = 0.0
+margin_top = 400.0
+margin_right = 519.0
+margin_bottom = 440.0
 size_flags_horizontal = 1
 line_index = 10
 jump_index = 6
@@ -332,18 +341,19 @@ effect_check = SubResource( 12 )
 hint_text = "Press [b]SPACE[/b]"
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10" index="0"]
-margin_right = 392.0
+margin_right = 515.0
 
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10/HBoxContainer" index="2"]
-margin_right = 392.0
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer10/HBoxContainer" index="3"]
+margin_right = 511.0
 text = "        end for;"
 
 [node name="PanelContainer11" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 154.0
-margin_right = 392.0
-margin_bottom = 168.0
+margin_left = 0.0
+margin_top = 440.0
+margin_right = 519.0
+margin_bottom = 480.0
 size_flags_horizontal = 1
 line_index = 11
 code_text = "        v.mark_as_iterated();"
@@ -351,18 +361,19 @@ effect_check = SubResource( 13 )
 hint_text = "Press [b]SPACE[/b]"
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer11" index="0"]
-margin_right = 392.0
+margin_right = 515.0
 
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer11/HBoxContainer" index="2"]
-margin_right = 392.0
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer11/HBoxContainer" index="3"]
+margin_right = 511.0
 text = "        v.mark_as_iterated();"
 
 [node name="PanelContainer12" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 168.0
-margin_right = 392.0
-margin_bottom = 182.0
+margin_left = 0.0
+margin_top = 480.0
+margin_right = 519.0
+margin_bottom = 520.0
 size_flags_horizontal = 1
 line_index = 12
 jump_index = 4
@@ -371,18 +382,19 @@ effect_check = SubResource( 14 )
 hint_text = "Press [b]SPACE[/b]"
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer12" index="0"]
-margin_right = 392.0
+margin_right = 515.0
 
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer12/HBoxContainer" index="2"]
-margin_right = 392.0
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer12/HBoxContainer" index="3"]
+margin_right = 511.0
 text = "    end while;"
 
 [node name="PanelContainer13" parent="CanvasLayer/CodeBlock/LinesContainer" instance=ExtResource( 30 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 182.0
-margin_right = 392.0
-margin_bottom = 196.0
+margin_left = 0.0
+margin_top = 520.0
+margin_right = 519.0
+margin_bottom = 560.0
 size_flags_horizontal = 1
 line_index = 13
 jump_index = 4
@@ -391,10 +403,10 @@ effect_check = SubResource( 15 )
 hint_text = "Press [b]SPACE[/b]"
 
 [node name="HBoxContainer" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13" index="0"]
-margin_right = 392.0
+margin_right = 515.0
 
-[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13/HBoxContainer" index="2"]
-margin_right = 392.0
+[node name="CodeText" parent="CanvasLayer/CodeBlock/LinesContainer/PanelContainer13/HBoxContainer" index="3"]
+margin_right = 511.0
 text = "end BFS;"
 
 [node name="TextHintContainer" type="CenterContainer" parent="CanvasLayer"]
