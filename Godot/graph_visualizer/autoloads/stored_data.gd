@@ -26,7 +26,7 @@ var finished_levels = {
 
 var remaining_levels_to_finish = {
 	"BFS": "res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/BFS_tutorial.tscn",
-	"DFS": "res://AlgorithmScenes/Algorithms/DFSAlgorithm/DFS_styled.tscn",
+	"DFS": "res://AlgorithmScenes/Algorithms/DFSAlgorithm/DFS.tscn",
 	"Prim": "res://AlgorithmScenes/Algorithms/KruskalAlgorithm/Kruskal_styled.tscn",
 	"Kruskal": "res://AlgorithmScenes/Algorithms/PrimAlgorithm/Prim_styled.tscn",
 }
@@ -203,6 +203,14 @@ func get_node_by_index(input_index):
 		if node.index == input_index:
 			return node
 
+
+func get_random_unfinished_level_path() -> String:
+	# Get a random level from remaining_levels_to_finish
+	var keys = remaining_levels_to_finish.keys()
+	var random_key = keys[randi() % keys.size()]
+	return remaining_levels_to_finish[random_key]
+
+
 # When game gets reset, reset data excepting finished_levels 
 func reset_data():
 	self.allow_select_edges = false;
@@ -236,4 +244,5 @@ func reset_data():
 	self.adt_mediator = null
 	self.selected_variable_index = 0
 	self.adt_to_be_created = null
+
 

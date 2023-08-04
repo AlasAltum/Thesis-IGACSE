@@ -8,7 +8,6 @@ public class MainMenu : CanvasLayer
 	private Button TutorialButton;
 	private Button selectLevelButton;
 
-
 	private AnimationPlayer animPlayer;
 
 	[Export]

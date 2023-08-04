@@ -225,7 +225,8 @@ func get_added_to_focused_object_in_variables():
 	emit_signal("node_add_to_object_request", self)
 
 
-# Note: part of the input can also be found at the function
+# Note: part of the input can also be found at the function.
+# This function was to created to allow dragging nodes to the ADT.
 # _on_Area2D_input_event
 func _input(event):
 	# Menu must be open to allow these options

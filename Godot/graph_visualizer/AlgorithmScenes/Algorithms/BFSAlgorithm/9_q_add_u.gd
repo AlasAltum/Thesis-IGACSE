@@ -14,10 +14,10 @@ func check_actions_correct() -> bool:
 		# It will show Queue() if it is empty. The player must add the u node
 		if u_as_string in StoredData.get_variable("q").as_string():
 			StoredData.allow_nodes_dragging = false
-			u.stop_highlight_node()
+			u.unhighlight_node()
 			return true
 	return false
 
 func _trigger_on_next_line_side_effect():
-	StoredData.highlighted_edge.set_is_highlighted(false)
+	# Unhighlight the highlighted edge
 	StoredData.set_highlighted_edge(null)

@@ -15,7 +15,7 @@ func highlight_node():
 	StoredData.get_variable("u").get_node().highlight_node()
 
 func stop_node_highlight():
-	StoredData.get_variable("u").get_node().stop_highlight_node()
+	StoredData.get_variable("u").get_node().unhighlight_node()
 
 func ask_user() -> void:
 	# Show a popup that asks the user whether u is explored or not

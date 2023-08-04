@@ -23,3 +23,6 @@ func effect_check_on_focused():
 func _trigger_on_next_line_side_effect() -> void:
 	if NotificationManager.animation_player:
 		NotificationManager.animation_player.show_variables_panel()
+	var node_t = StoredData.get_node_by_index(0) # AGraphNode
+	if node_t:
+		node_t.unhighlight_node()

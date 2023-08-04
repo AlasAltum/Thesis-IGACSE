@@ -16,6 +16,6 @@ func check_actions_correct() -> bool:
 		# It will show Stack() if it is empty. The player must add the u node
 		# in order to show u_as_string inside the string of s
 		if u_as_string in StoredData.get_variable("s").as_string():
-			u.stop_highlight_node()
+			u.unhighlight_node()
 			return true
 	return false

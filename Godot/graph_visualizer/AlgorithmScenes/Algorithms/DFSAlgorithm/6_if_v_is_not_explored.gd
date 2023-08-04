@@ -34,7 +34,7 @@ func get_next_line() -> int:
 			return .get_next_line()  # super.get_next_line()
 
 		# Add this to stop highlighting node v
-		# v.stop_highlight_node()
+		# v.unhighlight_node()
 		return .get_jump_line()
 	# Else: Do not move
 	return self.code_line.line_index
