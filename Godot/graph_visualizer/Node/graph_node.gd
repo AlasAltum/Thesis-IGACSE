@@ -226,7 +226,7 @@ func get_added_to_focused_object_in_variables():
 
 
 # Note: part of the input can also be found at the function.
-# This function was to created to allow dragging nodes to the ADT.
+# Allow node-dragging to the ADT panel.
 # _on_Area2D_input_event
 func _input(event):
 	# Menu must be open to allow these options
@@ -310,7 +310,7 @@ func get_class() -> String:
 func highlight_node():
 	self.set_process(true)
 
-func stop_highlight_node():
+func unhighlight_node():
 	self.set_process(false)
 
 # Show the variable close to this node and let it float towards this node

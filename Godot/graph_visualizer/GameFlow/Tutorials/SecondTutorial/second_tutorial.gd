@@ -82,6 +82,16 @@ func on_win_animation_finished(anim_name):
 			"You are almost ready to save galaxies!"
 		]
 		dialogue_displayer.set_and_start_new_dialogues(new_dialogues_to_show)
+		dialogue_displayer.connect("dialogue_finished", self, "on_ending_dialogue_finished")
+
+
+func on_ending_dialogue_finished() -> void:
+	# Go to the next scene
+	# Start fade animation
+	# once the fade animation finishes, queue_free the tree and go to next scene
+	# TODO: Change this by with StoredData.get_random_unfinished_level_path()
+	NotificationManager._deferred_goto_scene(StoredData.remaining_levels_to_finish["DFS"], true, self)
+
 
 func on_ship_arrived_to_sun():
 	on_lose()

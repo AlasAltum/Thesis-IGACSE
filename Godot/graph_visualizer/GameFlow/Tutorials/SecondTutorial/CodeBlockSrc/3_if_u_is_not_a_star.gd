@@ -31,7 +31,7 @@ func highlight_node():
 
 func stop_node_highlight():
 	if StoredData.world_node.u_node:
-		StoredData.world_node.u_node.stop_highlight_node()
+		StoredData.world_node.u_node.unhighlight_node()
 		StoredData.world_node.u_node.unhighlight_node_with_size()
 
 # Ask the user whether answer is true or false
