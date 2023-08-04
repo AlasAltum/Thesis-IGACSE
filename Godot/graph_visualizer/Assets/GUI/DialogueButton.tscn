@@ -9,6 +9,7 @@ font_data = ExtResource( 2 )
 [node name="SkipButton" type="Button"]
 margin_right = 240.0
 margin_bottom = 104.0
+mouse_default_cursor_shape = 2
 size_flags_horizontal = 2
 theme = ExtResource( 1 )
 custom_fonts/font = SubResource( 14 )

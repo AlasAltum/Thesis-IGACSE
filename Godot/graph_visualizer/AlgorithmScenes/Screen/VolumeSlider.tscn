@@ -66,6 +66,7 @@ margin_bottom = 40.0
 margin_right = 40.0
 margin_bottom = 35.0
 rect_min_size = Vector2( 40, 35 )
+mouse_default_cursor_shape = 2
 size_flags_vertical = 3
 shortcut_in_tooltip = false
 texture_normal = SubResource( 1 )
@@ -77,6 +78,7 @@ margin_left = 44.0
 margin_right = 84.0
 margin_bottom = 35.0
 rect_min_size = Vector2( 40, 35 )
+mouse_default_cursor_shape = 2
 size_flags_horizontal = 0
 toggle_mode = true
 shortcut_in_tooltip = false
@@ -89,6 +91,7 @@ margin_left = 88.0
 margin_right = 128.0
 margin_bottom = 35.0
 rect_min_size = Vector2( 40, 35 )
+mouse_default_cursor_shape = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
 theme = ExtResource( 4 )
@@ -97,6 +100,7 @@ step = 0.05
 ticks_on_borders = true
 
 [node name="GameplayMenuPopup" parent="." instance=ExtResource( 2 )]
+visible = true
 
 [connection signal="pressed" from="Control/MC/MC/HBoxContainer/MenuButton" to="Control" method="_on_MenuButton_pressed"]
 [connection signal="toggled" from="Control/MC/MC/HBoxContainer/AudioTextureButton" to="Control" method="_on_AudioTextureButton_toggled"]
