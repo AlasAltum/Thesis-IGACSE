@@ -11,7 +11,7 @@ func check_actions_correct() -> bool:
 
 # Once we are in this line, node 0 may be added
 func effect_check_on_focused():
-	StoredData.selectable_nodes.append(0)
+	StoredData.selectable_nodes_indexes.append(0)
 	var node_t = StoredData.get_node_by_index(0) # AGraphNode
 	if node_t:
 		node_t.highlight_variable("t")
