@@ -39,7 +39,7 @@ public class GraphEdgeHardcoded : GraphEdge
 		shipAnimationPlayer = GetNode<AnimationPlayer>("ShipPath/ShipAnimationPlayer");
 		shipSprite = GetNode<Sprite>("ShipPath/ShipPathFollow/Sprite");
 		
-		// Get the node sfrom the node paths that are hardcoded from the scene and generate
+		// Get thshow_ship_flying_arounde node sfrom the node paths that are hardcoded from the scene and generate
 		// an edge between these nodes 
 		Node2D node1 = GetNode<Node2D>(nodeA);
 		Node2D node2 = GetNode<Node2D>(nodeB);

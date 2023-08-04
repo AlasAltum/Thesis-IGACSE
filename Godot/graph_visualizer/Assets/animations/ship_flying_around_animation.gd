@@ -10,6 +10,6 @@ const rotation_offset = PI
 
 func _process(delta):
 	ship_sprite.position = radius * Vector2(cos(angle), sin(angle))
-	angle -= rotation_speed_factor * delta
+	angle += rotation_speed_factor * delta
 	ship_sprite.rotation = angle + rotation_offset
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Node/GraphEdgeHardcoded.cs" type="Script" id=1]
+[ext_resource path="res://Assets/SpaceShip.png" type="Texture" id=2]
 [ext_resource path="res://Assets/textures/dotted_texture.png" type="Texture" id=3]
 [ext_resource path="res://Assets/textures/ShipSprite.tscn" type="PackedScene" id=4]
 
@@ -62,7 +63,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 0.5, 2.3, 2.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0.5, 0.5 ), Vector2( 0.3, 0.3 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0.3, 0.3 ), Vector2( 0.25, 0.25 ), Vector2( 0, 0 ) ]
 }
 tracks/4/type = "method"
 tracks/4/path = NodePath(".")
@@ -110,6 +111,8 @@ rotation = -2.9866
 offset = 674.846
 
 [node name="Sprite" parent="ShipPath/ShipPathFollow" instance=ExtResource( 4 )]
+rotation = 1.5708
+texture = ExtResource( 2 )
 
 [node name="ShipAnimationPlayer" type="AnimationPlayer" parent="ShipPath"]
 root_node = NodePath("../..")
