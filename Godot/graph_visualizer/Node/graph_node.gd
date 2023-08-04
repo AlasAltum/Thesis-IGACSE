@@ -199,9 +199,9 @@ func select_node(emit_signal=true):
 	# If node is selectable
 	if emit_signal:
 		emit_signal("node_selected", self)
-	should_show_base_when_selected = self.index == 0
-	if should_show_base_when_selected:
-		self.animation_player.play("NodeBeingSelected")
+
+	if should_show_base_when_selected or self.index == 0:
+		self.animation_player.play("NodeBeingSelected") 
 	self.selected = true
 	AudioPlayer.play_element_selected()
 
@@ -210,15 +210,13 @@ func select_node(emit_signal=true):
 	if  mouse_button_left_animation:
 		mouse_button_left_animation.visible = false
 
-
-
 func on_error_audio():
 	AudioPlayer.play_error_audio()
 
 func on_ship_arrived():
 	self.animation_player.play("NodeBeingSelected")
 	show_ship_flying_around()
-
+ 
 func _on_AddToObjectButton_pressed():
 	get_added_to_focused_object_in_variables()
 	node_action_menu.visible = false
@@ -309,12 +307,10 @@ func get_class() -> String:
 	return "AGraphNode"
 
 func highlight_node():
-	if $Sprite and $Sprite.material:
-		$Sprite.material.set_shader_param("highlight", 1.0)
+	self.set_process(true)
 
 func stop_highlight_node():
-	if $Sprite and $Sprite.material:
-		$Sprite.material.set_shader_param("highlight", 0.0)
+	self.set_process(false)
 
 # Show the variable close to this node and let it float towards this node
 # We use a Node2D as parent of the variable label because the label has a rect
@@ -344,7 +340,6 @@ func unhighlight_variable():
 	if variable_label:
 		variable_highlighted = false
 		variable_label.visible = false
-		variable_label.material.set_shader_param("frequency", GOOD_LOOKING_FREQUENCY_FOR_HIGHLIGHT_LABEL)
 
 func _deferred_goto_scene(path):
 	var s = ResourceLoader.load(path)
@@ -361,10 +356,12 @@ func highlight_node_with_size():
 	self.set_process(true)
 
 func unhighlight_node_with_size():
+	sprite_control.scale = Vector2(1.0, 1.0)
 	self.set_process(false)
 
 const WAVE_FREQUENCY_FACTOR = 5.0
  
 func _process(delta: float):
 	accum_time += delta
-	sprite_control.scale = sprite_texture.scale + 0.1 * sprite_texture.scale * sin(self.accum_time * WAVE_FREQUENCY_FACTOR)
+	sprite_control.scale = Vector2(1.0, 1.0)
+	sprite_control.scale += Vector2(1.0, 1.0) * 0.1 * sin(self.accum_time * WAVE_FREQUENCY_FACTOR)

@@ -29,9 +29,10 @@ func _ready():
 #	StoredData.selectable_nodes_indexes.append_array([star.index, planet2.index])
 	star.connect("node_selected", self, "send_ship_to_node")
 	planet2.connect("node_selected", self, "send_ship_to_node")
+	planet3.connect("node_selected", self, "send_ship_to_node")
 	tutorial_animation_player.play("OnReady")
 	tutorial_animation_player.connect("animation_finished", self, "on_win_animation_finished")
-	planet2.animation_player.connect("animation_finished", self, "on_ship_arrived_to_planet")
+
 	dialogue_displayer.connect("dialogue_finished", self, "on_dialogue_finished")
 	code_block.connect("code_finished", self, "on_win")
 	StoredData.world_node = self
@@ -49,17 +50,13 @@ func send_ship_to_node(end_planet: AGraphNode):
 		planet2:
 			edge = $Nodes/Edge2S
 		planet3:
-			edge = $Nodes/Edge2S
+			edge = $Nodes/Edge13
 
 	edge.send_ship_from_nodeA_to_nodeB(starting_node, end_planet)
 	if edge and end_planet == star:
 		# await for 1.5 seconds and lose
 		timer_to_lose_when_sending_ship_to_sun.start(time_to_lose_when_sending_ship_to_sun)
 
-
-func on_ship_arrived_to_planet(animation_name):
-	if animation_name == "NodeBeingSelected":
-		pass
 
 func on_win() -> void:
 	tutorial_animation_player.play("WinAnimation")

@@ -264,11 +264,10 @@ anims/RESET = SubResource( 14 )
 
 [node name="MouseButtonLeft" type="AnimatedSprite" parent="."]
 visible = false
-position = Vector2( 32, 48 )
+position = Vector2( 48, 72 )
 frames = SubResource( 16 )
 frame = 1
 speed_scale = 0.5
-playing = true
 
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
