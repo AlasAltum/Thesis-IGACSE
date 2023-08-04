@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/DFSCodeBlockCentered.tscn" type="PackedScene" id=3]
+[ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/DFSCode.tscn" type="PackedScene" id=3]
 [ext_resource path="res://AlgorithmScenes/Screen/TextHintContainer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/textures/Background.tscn" type="PackedScene" id=6]
 [ext_resource path="res://AlgorithmScenes/Code/NewDebugBlock.tscn" type="PackedScene" id=8]
