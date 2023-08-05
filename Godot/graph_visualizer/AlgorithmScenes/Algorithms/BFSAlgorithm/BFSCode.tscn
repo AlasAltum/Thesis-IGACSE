@@ -148,7 +148,7 @@ margin_top = 463.0
 margin_right = 400.0
 margin_bottom = 503.0
 line_index = 7
-jump_index = 8
+jump_index = 10
 code_text = "            if u.is_not_explored():"
 effect_check = ExtResource( 11 )
 hint_text = "Answer: is the node [color=#00FF00]u[/color] explored or iterated?"
