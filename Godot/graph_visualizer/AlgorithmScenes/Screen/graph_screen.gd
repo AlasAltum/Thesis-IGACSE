@@ -22,7 +22,7 @@ const __planets_textures_original = [
 	preload("res://Assets/textures/planets/level_planets/NoAtmosphere.png"),
 	preload("res://Assets/textures/planets/level_planets/PurpleTerranWet.png"),
 	preload("res://Assets/textures/planets/level_planets/RedTerran.png"),
-	preload("res://Assets/textures/planets/level_planets/TerranDryGreenBrownPink.png"),
+	preload("res://Assets/textures/planets/level_planets/WetPlanet.png")
 ]
 
 var planets_textures = []
