@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Screen/gameplay_menu_popup.gd" type="Script" id=1]
 [ext_resource path="res://Assets/GUI/popup_sci-fi-theme.tres" type="Theme" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.239216, 0.603922, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.682353, 0.0588235, 0.0588235, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.686275, 0.494118, 0.0745098, 1 )
 
 [node name="GameplayMenuPopup" type="WindowDialog"]
 visible = true
@@ -12,7 +21,7 @@ anchor_bottom = 0.5
 margin_left = -343.0
 margin_top = -78.0
 margin_right = 344.0
-margin_bottom = 140.0
+margin_bottom = 125.0
 theme = ExtResource( 2 )
 popup_exclusive = true
 script = ExtResource( 1 )
@@ -25,28 +34,28 @@ margin_bottom = 135.0
 custom_constants/separation = 12
 
 [node name="CloseButton" type="Button" parent="VBoxContainer"]
-modulate = Color( 0, 1, 0.0625, 1 )
-margin_right = 454.0
-margin_bottom = 45.0
+margin_right = 442.0
+margin_bottom = 39.0
 rect_pivot_offset = Vector2( 72.8572, 10.7062 )
 mouse_default_cursor_shape = 2
+custom_styles/normal = SubResource( 1 )
 text = "Close menu"
 icon_align = 1
 
 [node name="ResetButton" type="Button" parent="VBoxContainer"]
-modulate = Color( 1, 0, 0, 1 )
-margin_top = 57.0
-margin_right = 454.0
-margin_bottom = 102.0
+margin_top = 51.0
+margin_right = 442.0
+margin_bottom = 90.0
 rect_pivot_offset = Vector2( 72.8572, 10.7062 )
 mouse_default_cursor_shape = 2
+custom_styles/normal = SubResource( 2 )
 text = "     Reset Level    "
 
 [node name="MenuButton" type="Button" parent="VBoxContainer"]
-modulate = Color( 0.827451, 0.717647, 0.117647, 1 )
-margin_top = 114.0
-margin_right = 454.0
-margin_bottom = 159.0
+margin_top = 102.0
+margin_right = 442.0
+margin_bottom = 141.0
 rect_pivot_offset = Vector2( 72.8572, 10.7062 )
 mouse_default_cursor_shape = 2
+custom_styles/normal = SubResource( 3 )
 text = "  Return to Menu  "

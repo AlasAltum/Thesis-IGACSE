@@ -114,16 +114,16 @@ mouse_filter = 2
 [node name="DebugBlock" parent="CanvasLayer/Screen/VB/Bottom" instance=ExtResource( 8 )]
 unique_name_in_owner = true
 margin_top = 0.0
-margin_right = 1406.0
+margin_right = 1246.0
 margin_bottom = 300.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ADTShower" parent="CanvasLayer/Screen/VB/Bottom" instance=ExtResource( 28 )]
-margin_left = 1410.0
+margin_left = 1250.0
 margin_right = 1910.0
 margin_bottom = 300.0
-rect_min_size = Vector2( 500, 200 )
+rect_min_size = Vector2( 660, 200 )
 size_flags_vertical = 3
 
 [node name="Popups" type="CanvasLayer" parent="."]

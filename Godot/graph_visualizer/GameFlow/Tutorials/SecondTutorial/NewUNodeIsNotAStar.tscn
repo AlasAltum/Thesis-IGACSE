@@ -35,7 +35,7 @@ visible = true
 margin_left = 500.0
 margin_top = 220.0
 margin_right = 1080.0
-margin_bottom = 400.0
+margin_bottom = 352.0
 theme = ExtResource( 2 )
 popup_exclusive = true
 script = ExtResource( 1 )
@@ -44,7 +44,7 @@ script = ExtResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -6.0
-margin_bottom = -2.0
+margin_bottom = -8.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 2 )
@@ -54,7 +54,7 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_right = 574.0
-margin_bottom = 178.0
+margin_bottom = 124.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 20
@@ -119,12 +119,14 @@ margin_bottom = 45.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ErrorNotification" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="ErrorNotification" type="Label" parent="."]
+unique_name_in_owner = true
 visible = false
 modulate = Color( 1, 0.0117647, 0.0117647, 1 )
-margin_top = 126.0
-margin_right = 574.0
-margin_bottom = 178.0
+margin_left = -4.0
+margin_top = -68.0
+margin_right = 570.0
+margin_bottom = 4.0
 rect_pivot_offset = Vector2( 265.108, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -133,11 +135,8 @@ custom_constants/shadow_as_outline = 180
 text = "Error: Wrong answer"
 align = 1
 autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/ErrorNotification"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ErrorNotification"]
 anims/message_modulation = SubResource( 1 )
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/YesButton" to="." method="_on_YesButton_pressed"]

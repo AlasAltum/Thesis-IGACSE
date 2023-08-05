@@ -188,6 +188,7 @@ margin_left = -36.0
 margin_top = -31.0
 margin_right = 44.0
 margin_bottom = 50.0
+mouse_default_cursor_shape = 2
 theme = null
 custom_fonts/font = SubResource( 19 )
 

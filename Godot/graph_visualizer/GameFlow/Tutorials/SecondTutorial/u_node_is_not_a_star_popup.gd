@@ -26,8 +26,8 @@ func _on_NoButton_pressed() -> void:
 
 func notify_u_is_a_star_wrong_answer():
 	# Visual effect
-	$MarginContainer/VBoxContainer/ErrorNotification/AnimationPlayer.stop()
-	$MarginContainer/VBoxContainer/ErrorNotification/AnimationPlayer.play("message_modulation")
+	$"%ErrorNotification/AnimationPlayer".stop()
+	$"%ErrorNotification/AnimationPlayer".play("message_modulation")
 	AudioPlayer.play_error_audio()
 	StoredData.world_node.send_ship_to_the_sun()
 
