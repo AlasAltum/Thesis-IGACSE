@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Screen/u_node_is_explorer_popup.gd" type="Script" id=1]
 [ext_resource path="res://Assets/GUI/popup_sci-fi-theme.tres" type="Theme" id=2]
-[ext_resource path="res://AlgorithmScenes/Screen/ErrorInPopupTheme.tres" type="Theme" id=3]
 
 [sub_resource type="Animation" id=1]
 length = 2.0
@@ -32,10 +31,11 @@ tracks/1/keys = {
 }
 
 [node name="VNodeIsExploredPopup" type="WindowDialog"]
+visible = true
 margin_left = 331.0
 margin_top = 199.0
 margin_right = 1074.0
-margin_bottom = 416.0
+margin_bottom = 441.0
 theme = ExtResource( 2 )
 popup_exclusive = true
 script = ExtResource( 1 )
@@ -95,13 +95,13 @@ __meta__ = {
 }
 
 [node name="ErrorNotification" type="Label" parent="VB"]
-visible = false
+modulate = Color( 1, 0, 0, 1 )
 margin_top = 178.0
 margin_right = 738.0
-margin_bottom = 202.0
+margin_bottom = 219.0
 rect_pivot_offset = Vector2( 265.108, 0 )
 size_flags_horizontal = 3
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 text = "Error: Wrong answer"
 align = 1
 autowrap = true
