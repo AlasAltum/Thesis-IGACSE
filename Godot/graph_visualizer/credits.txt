@@ -10,6 +10,10 @@ Fonts:
 PTSans:
 Copyright (c) 2010, ParaType Ltd. (http://www.paratype.com/public),
 
+For variables and node variables:
+Alegreya Sans
+https://fonts.google.com/specimen/Alegreya+Sans+SC/about?preview.text=uvt&preview.text_type=custom
+
 bainsley: Paul Miller
 https://www.fontsquirrel.com/fonts/bainsley
 

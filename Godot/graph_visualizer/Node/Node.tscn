@@ -1,6 +1,6 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
-[ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Node/font/node_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Node/graph_node.gd" type="Script" id=2]
 [ext_resource path="res://Node/hightlight_node_with_frequency_and_bool.gdshader" type="Shader" id=3]
 [ext_resource path="res://Node/NodeName.tscn" type="PackedScene" id=4]
@@ -48,13 +48,6 @@ void vertex()
 shader = SubResource( 18 )
 shader_param/frequency = 0.0
 shader_param/amplitude = 10.0
-
-[sub_resource type="DynamicFont" id=8]
-resource_local_to_scene = true
-size = 80
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=13]
 resource_name = "ClickNode"
@@ -248,12 +241,12 @@ texture = ExtResource( 7 )
 
 [node name="VariableHighlight" type="Label" parent="Variable/Sprite"]
 use_parent_material = true
-margin_left = -20.0
-margin_top = -52.0
-margin_right = 20.0
-margin_bottom = 53.0
+margin_left = -22.5
+margin_top = -55.0
+margin_right = 21.5
+margin_bottom = 50.0
 custom_colors/font_color = Color( 0.0588235, 1, 0, 1 )
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = ExtResource( 1 )
 align = 1
 valign = 1
 
