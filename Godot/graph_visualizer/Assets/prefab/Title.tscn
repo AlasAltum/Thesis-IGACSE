@@ -1,8 +1,6 @@
 [gd_scene format=2]
 
-[node name="Label" type="Label"]
+[node name="Label" type="RichTextLabel"]
 margin_right = 1200.0
 margin_bottom = 14.0
 text = "UN TITULO"
-align = 1
-valign = 1
