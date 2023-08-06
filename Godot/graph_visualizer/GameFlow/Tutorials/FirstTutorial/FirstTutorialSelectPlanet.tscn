@@ -239,7 +239,6 @@ script = ExtResource( 1 )
 [node name="Background" parent="." instance=ExtResource( 13 )]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-self_modulate = Color( 1, 1, 1, 0 )
 margin_right = 1920.0
 margin_bottom = 1080.0
 mouse_filter = 2
@@ -331,7 +330,6 @@ anims/RESET = SubResource( 24 )
 visible = false
 position = Vector2( 32, 48 )
 frames = SubResource( 26 )
-frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -404,13 +402,12 @@ layer = 3
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 269.0
-margin_top = -40.0
-margin_right = -325.0
-margin_bottom = 171.0
+margin_left = 402.0
+margin_top = -66.0
+margin_right = -192.0
+margin_bottom = 390.0
 mouse_filter = 2
 texture = ExtResource( 5 )
-expand = true
 
 [node name="DialogueCanvas" type="CanvasLayer" parent="."]
 layer = 10

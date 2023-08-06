@@ -13,7 +13,6 @@ bg_color = Color( 0.682353, 0.0588235, 0.0588235, 1 )
 bg_color = Color( 0.686275, 0.494118, 0.0745098, 1 )
 
 [node name="GameplayMenuPopup" type="WindowDialog"]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

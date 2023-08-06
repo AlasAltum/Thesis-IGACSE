@@ -44,6 +44,7 @@ func _input(event):
 func _on_code_finished():
 	emit_signal("code_finished")
 	code_has_finished = true
+	AudioPlayer.play_congratulations_audio()
 
 func activate():
 	self.visible = true

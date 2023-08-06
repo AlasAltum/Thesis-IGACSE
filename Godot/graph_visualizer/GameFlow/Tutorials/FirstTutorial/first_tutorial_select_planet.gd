@@ -58,8 +58,6 @@ func on_win_audio_play():
 func on_animation_finished(anim_name):
 	if anim_name == "WinAnimation":
 		on_win_animation_finished(anim_name)
-	elif anim_name == "FadeIn":
-		on_end_animation_finished(anim_name)
 
 func on_win_animation_finished(_anim_name):
 	# Show the dialogue player again, telling the player that they won
@@ -73,8 +71,6 @@ func on_win_animation_finished(_anim_name):
 	# Set the next level to be the second tutorial
 	dialogue_displayer.connect("dialogue_finished", self, "on_ending_dialogue_finished")
 
-func on_end_animation_finished(_anim_name):
-	pass
 
 func get_class() -> String:
 	return "Tutorial"
