@@ -65,7 +65,6 @@ func _init():
 	StoredData.reset_data()
 
 func _ready():
-	Engine.time_scale = 5.0  # TODO: deactivate before deploy
 	StoredData.world_node = self
 	# Planets textures array is being modified each level when nodes are created
 	# So by triggering this function at the beginning, we make sure that these textures
@@ -107,6 +106,7 @@ func _ready():
 		level_to_idx[level_name]
 	)
 	self.set_name("Main")
+	$"%ReadyAnimation".play("OnStart")
 
 
 func send_data_level_transition():
@@ -297,8 +297,8 @@ func set_dragging_node(incoming_sprite: Sprite, real_node_reference: KinematicBo
 	self.last_dragged_node_reference = real_node_reference
 	# we use the control Canvas Layer to make sure the node is displayed
 	# in front of the UI
-	$Control.add_child(dragging_node)
-	drop_dragging_node_timer.stop()
+#	$Control.add_child(dragging_node)
+#	drop_dragging_node_timer.stop()
 
 func start_release_dragging_node():
 	drop_dragging_node_timer.start()

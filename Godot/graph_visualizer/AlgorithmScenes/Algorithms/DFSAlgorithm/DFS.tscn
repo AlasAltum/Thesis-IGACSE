@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/DFSCode.tscn" type="PackedScene" id=3]
 [ext_resource path="res://AlgorithmScenes/Screen/TextHintContainer.tscn" type="PackedScene" id=4]
@@ -10,6 +10,22 @@
 [ext_resource path="res://AlgorithmScenes/Screen/ADTIsNotEmptyPopup.tscn" type="PackedScene" id=36]
 [ext_resource path="res://AlgorithmScenes/Screen/UNodeIsExploredPopup.tscn" type="PackedScene" id=37]
 [ext_resource path="res://AlgorithmScenes/Screen/FinishedPopup.tscn" type="PackedScene" id=38]
+
+[sub_resource type="Animation" id=1]
+resource_name = "OnStart"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Screen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="Main" type="Node2D"]
 position = Vector2( -1, 0 )
@@ -34,6 +50,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Screen" type="MarginContainer" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 2.0
@@ -126,13 +143,14 @@ margin_bottom = 300.0
 rect_min_size = Vector2( 660, 200 )
 size_flags_vertical = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+[node name="ReadyAnimation" type="AnimationPlayer" parent="CanvasLayer"]
+unique_name_in_owner = true
+anims/OnStart = SubResource( 1 )
 
 [node name="Popups" type="CanvasLayer" parent="."]
 layer = 2
 
 [node name="VNodeIsExploredPopup" parent="Popups" instance=ExtResource( 37 )]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -143,7 +161,6 @@ margin_right = 112.0
 margin_bottom = -22.0
 
 [node name="ADTIsNotEmptyPopup" parent="Popups" instance=ExtResource( 36 )]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -155,7 +172,6 @@ margin_bottom = -79.0
 ADT_type_and_var_name = "Stack s"
 
 [node name="FinishedPopup" parent="Popups" instance=ExtResource( 38 )]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

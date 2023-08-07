@@ -31,11 +31,10 @@ tracks/1/keys = {
 }
 
 [node name="ADTIsNotEmptyPopup" type="WindowDialog"]
-visible = true
 margin_left = 492.0
 margin_top = 200.0
 margin_right = 1059.0
-margin_bottom = 402.0
+margin_bottom = 347.0
 focus_neighbour_left = NodePath("VB/HB/YesButton")
 focus_neighbour_right = NodePath("VB/HB/NoButton")
 focus_next = NodePath("VB/HB/YesButton")
@@ -53,7 +52,7 @@ __meta__ = {
 margin_left = 9.0
 margin_top = 6.0
 margin_right = 558.0
-margin_bottom = 195.0
+margin_bottom = 147.0
 custom_constants/separation = 20
 
 [node name="Explanation" type="Label" parent="VB"]
@@ -104,19 +103,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ErrorNotification" type="Label" parent="VB"]
+[node name="ErrorNotification" type="Label" parent="."]
+visible = false
 modulate = Color( 1, 0, 0, 1 )
-margin_top = 126.0
-margin_right = 549.0
-margin_bottom = 167.0
+margin_left = 9.0
+margin_top = 155.0
+margin_right = 558.0
+margin_bottom = 196.0
 rect_pivot_offset = Vector2( 265.108, 0 )
 size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource( 2 )
 text = "Error: Wrong answer"
 align = 1
+valign = 3
 autowrap = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="VB/ErrorNotification"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ErrorNotification"]
 anims/message_modulation = SubResource( 1 )
 
 [connection signal="popup_hide" from="." to="." method="_on_ADTIsNotEmptyPopup_popup_hide"]

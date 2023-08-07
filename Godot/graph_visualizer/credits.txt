@@ -1,6 +1,16 @@
 Sounds, assets, textures: GameSupplyGuy
 https://gamesupply.itch.io/ultimate-space-game-mega-asset-package
 
+Menu Background:
+https://helianthus-games.itch.io/parallax-space-background
+
+Planets generated using:
+https://deep-fold.itch.io/pixel-planet-generator
+
+Circle Variable Node:
+Noemí Zúñiga
+
+
 Audios: 
 https://godotassetlibrary.com/asset/kfcg17/kenney-interface-sounds
 https://gamesupply.itch.io/300-futuristic-sfx-with-names
@@ -44,14 +54,6 @@ https://free-game-assets.itch.io/free-space-shooter-game-user-interface
 
 LeftMouse animation:
 https://greenpixels.itch.io/pixel-art-asset-3
-
-Planets generated using:
-https://deep-fold.itch.io/pixel-planet-generator
-
-Textures:
-Circle Node
-Noemí Zúñiga
-
 
 
 Game Engine: Godot Engine

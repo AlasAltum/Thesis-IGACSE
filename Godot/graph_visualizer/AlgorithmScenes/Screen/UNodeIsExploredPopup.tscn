@@ -35,7 +35,7 @@ visible = true
 margin_left = 331.0
 margin_top = 199.0
 margin_right = 1074.0
-margin_bottom = 441.0
+margin_bottom = 333.0
 theme = ExtResource( 2 )
 popup_exclusive = true
 script = ExtResource( 1 )
@@ -50,10 +50,10 @@ custom_constants/separation = 24
 [node name="Explanation" type="Label" parent="VB"]
 unique_name_in_owner = true
 margin_right = 738.0
-margin_bottom = 85.0
+margin_bottom = 41.0
 rect_pivot_offset = Vector2( 265.108, 0 )
 size_flags_horizontal = 3
-text = "Is the V node (index) explored or iterated?"
+text = "Is the V node (index) explored?"
 align = 1
 autowrap = true
 __meta__ = {
@@ -61,9 +61,9 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VB"]
-margin_top = 109.0
+margin_top = 65.0
 margin_right = 738.0
-margin_bottom = 154.0
+margin_bottom = 110.0
 custom_constants/separation = 20
 alignment = 1
 
@@ -94,11 +94,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ErrorNotification" type="Label" parent="VB"]
+[node name="ErrorNotification" type="Label" parent="."]
+visible = false
 modulate = Color( 1, 0, 0, 1 )
-margin_top = 178.0
+margin_top = 134.0
 margin_right = 738.0
-margin_bottom = 219.0
+margin_bottom = 175.0
 rect_pivot_offset = Vector2( 265.108, 0 )
 size_flags_horizontal = 3
 theme = ExtResource( 2 )
@@ -106,7 +107,7 @@ text = "Error: Wrong answer"
 align = 1
 autowrap = true
 
-[node name="AnimPlayer" type="AnimationPlayer" parent="VB/ErrorNotification"]
+[node name="AnimPlayer" type="AnimationPlayer" parent="ErrorNotification"]
 unique_name_in_owner = true
 anims/message_modulation = SubResource( 1 )
 
