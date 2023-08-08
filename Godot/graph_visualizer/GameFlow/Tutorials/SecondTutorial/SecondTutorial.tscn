@@ -335,7 +335,7 @@ __meta__ = {
 }
 dialogues_to_show = [ "Now we are going to show you how to use our code instructions.", "{show_code_instructions} Follow these instructions to fulfil your mission. The AI copilot neural network is too expensive. It is better to use manual instructions.", "The panel will notify you when an instruction is ready and you can keep with the next one.
 We are counting on you.
-", "Press the SPACE button to initialize the instructions. When you complete the instruciton of each line, press SPACE to go to the next one.
+", "Press the SPACE button to initialize the instructions. When you complete the instruction of each line, press SPACE to go to the next one.
 {show_pointer_of_first_instruction} {make_dialogue_buttons_invisible}" ]
 command_methods_script = ExtResource( 4 )
 should_close_on_finish = false
@@ -660,9 +660,10 @@ modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 344.0
-margin_top = 9.0
+margin_top = -301.0
 margin_right = -506.0
-margin_bottom = -5.0
+margin_bottom = -315.0
+rect_pivot_offset = Vector2( 1164, 1161 )
 mouse_filter = 2
 texture = ExtResource( 18 )
 expand = true
