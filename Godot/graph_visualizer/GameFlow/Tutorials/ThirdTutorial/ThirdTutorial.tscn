@@ -507,7 +507,6 @@ command_methods_script = ExtResource( 22 )
 should_close_on_finish = false
 
 [node name="Nodes" type="ColorRect" parent="."]
-visible = false
 self_modulate = Color( 1, 1, 1, 0 )
 margin_right = 1920.0
 margin_bottom = 1080.0
@@ -866,10 +865,12 @@ margin_right = 222.0
 margin_bottom = -39.0
 
 [node name="ColorRect" type="ColorRect" parent="HUD"]
+visible = false
 margin_right = 1920.0
 margin_bottom = 819.0
 
 [node name="StackQueue" type="Sprite" parent="HUD"]
+visible = false
 position = Vector2( 963.5, 411 )
 scale = Vector2( 0.914436, 0.879386 )
 texture = ExtResource( 25 )
