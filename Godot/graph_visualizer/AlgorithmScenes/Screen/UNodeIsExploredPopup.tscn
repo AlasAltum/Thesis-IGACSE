@@ -31,7 +31,6 @@ tracks/1/keys = {
 }
 
 [node name="VNodeIsExploredPopup" type="WindowDialog"]
-visible = true
 margin_left = 331.0
 margin_top = 199.0
 margin_right = 1074.0
