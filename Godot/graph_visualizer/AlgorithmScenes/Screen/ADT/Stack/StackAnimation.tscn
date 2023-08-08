@@ -157,7 +157,7 @@ tracks/8/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="Main" type="Node2D"]
+[node name="StackAnimation" type="Node2D"]
 position = Vector2( 0.5, 0.5 )
 script = ExtResource( 2 )
 
@@ -178,18 +178,18 @@ scale = Vector2( 1.03759, 1 )
 curve = SubResource( 1 )
 
 [node name="PathFollowIn1" type="PathFollow2D" parent="PathIn"]
-position = Vector2( 9.54525, 76.5434 )
-offset = 147.584
+position = Vector2( -53.1848, -29.6405 )
 rotate = false
 
 [node name="NodeIn" type="Label" parent="PathIn/PathFollowIn1"]
 visible = false
+self_modulate = Color( 1, 1, 1, 0 )
 margin_left = -15.686
 margin_top = -2.24492
 margin_right = 22.314
 margin_bottom = 13.7551
-custom_styles/normal = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_styles/normal = SubResource( 2 )
 text = "A"
 align = 1
 valign = 1
@@ -219,8 +219,8 @@ margin_left = -16.3323
 margin_top = 3.56762
 margin_right = 21.6677
 margin_bottom = 19.5676
-custom_styles/normal = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_styles/normal = SubResource( 7 )
 text = "B"
 align = 1
 valign = 1
@@ -234,8 +234,7 @@ position = Vector2( 2.30949, 5.17839 )
 curve = SubResource( 4 )
 
 [node name="PathFollowOut" type="PathFollow2D" parent="PathOut"]
-position = Vector2( 72.5149, -33.6635 )
-offset = 108.526
+position = Vector2( 24.2339, 43.2064 )
 rotate = false
 
 [node name="NodeOut" type="Label" parent="PathOut/PathFollowOut"]
@@ -245,8 +244,8 @@ margin_left = -21.8944
 margin_top = 15.7514
 margin_right = 16.1056
 margin_bottom = 31.7514
-custom_styles/normal = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_styles/normal = SubResource( 7 )
 text = "B"
 align = 1
 valign = 1
@@ -255,5 +254,4 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "HoverAnimation"
 anims/HoverAnimation = SubResource( 8 )

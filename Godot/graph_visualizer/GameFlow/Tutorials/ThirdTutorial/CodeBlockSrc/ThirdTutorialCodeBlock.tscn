@@ -1,0 +1,142 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://GameFlow/Tutorials/SecondTutorial/CodeBlockSrc/3_if_u_is_not_a_star.gd" type="Script" id=1]
+[ext_resource path="res://Assets/GUI/code_block_sci_fi_theme.tres" type="Theme" id=2]
+[ext_resource path="res://GameFlow/Tutorials/SecondTutorial/CodeBlockSrc/code_press_enter.gd" type="Script" id=3]
+[ext_resource path="res://GameFlow/Tutorials/SecondTutorial/CodeBlockSrc/click_node_0.gd" type="Script" id=4]
+[ext_resource path="res://AlgorithmScenes/Code/CodeBlock/code_block.gd" type="Script" id=5]
+[ext_resource path="res://GameFlow/Tutorials/SecondTutorial/CodeBlockSrc/2_for_node_in_t_neighbors.gd" type="Script" id=6]
+[ext_resource path="res://GameFlow/Tutorials/SecondTutorial/CodeBlockSrc/6_end_for.gd" type="Script" id=7]
+[ext_resource path="res://GameFlow/Tutorials/SecondTutorial/CodeBlockSrc/4_click_node_u.gd" type="Script" id=8]
+[ext_resource path="res://AlgorithmScenes/Code/CodeBlock/null_effect.gd" type="Script" id=15]
+[ext_resource path="res://AlgorithmScenes/Code/CodeBlock/CodeLine.tscn" type="PackedScene" id=20]
+
+[node name="CodeBlock" type="ScrollContainer"]
+anchor_left = 0.007
+anchor_top = 0.018
+anchor_right = 0.007
+anchor_bottom = 0.018
+margin_left = 0.559999
+margin_top = -0.439999
+margin_right = 764.56
+margin_bottom = 537.56
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+theme_type_variation = "Codeblock"
+scroll_horizontal_enabled = false
+script = ExtResource( 5 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 764.0
+margin_bottom = 538.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+margin_right = 764.0
+margin_bottom = 538.0
+
+[node name="LinesContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 764.0
+margin_bottom = 538.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="PanelContainer0" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 95.0
+margin_right = 764.0
+margin_bottom = 135.0
+code_text = "Press SPACE"
+effect_check = ExtResource( 3 )
+
+[node name="PanelContainer1" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 139.0
+margin_right = 764.0
+margin_bottom = 179.0
+line_index = 1
+code_text = "Press SPACE again"
+effect_check = ExtResource( 3 )
+
+[node name="PanelContainer2" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 183.0
+margin_right = 764.0
+margin_bottom = 223.0
+line_index = 2
+code_text = "t = click_node_0"
+effect_check = ExtResource( 4 )
+
+[node name="PanelContainer3" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 227.0
+margin_right = 764.0
+margin_bottom = 267.0
+line_index = 3
+jump_index = 7
+code_text = "for u in t.neighbors:"
+effect_check = ExtResource( 6 )
+plays_confirmation_audio = false
+
+[node name="PanelContainer4" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 271.0
+margin_right = 764.0
+margin_bottom = 311.0
+line_index = 4
+jump_index = 6
+code_text = "  if u.is_not_a_star():"
+effect_check = ExtResource( 1 )
+
+[node name="PanelContainer5" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 315.0
+margin_right = 764.0
+margin_bottom = 355.0
+line_index = 5
+code_text = "      u.click()"
+effect_check = ExtResource( 8 )
+
+[node name="PanelContainer6" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 359.0
+margin_right = 764.0
+margin_bottom = 399.0
+line_index = 6
+jump_index = 3
+code_text = "endfor"
+effect_check = ExtResource( 7 )
+plays_confirmation_audio = false
+
+[node name="PanelContainer7" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 403.0
+margin_right = 764.0
+margin_bottom = 443.0
+line_index = 7
+code_text = " end"
+effect_check = ExtResource( 15 )
+plays_confirmation_audio = false
