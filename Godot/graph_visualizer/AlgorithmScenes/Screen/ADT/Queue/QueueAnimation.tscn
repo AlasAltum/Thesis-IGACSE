@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/fonts/PixelGameFont/dogica.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://AlgorithmScenes/Screen/ADT/on_hover_adt_animation.gd" type="Script" id=2]
@@ -25,6 +25,11 @@ anti_aliasing = false
 [sub_resource type="Curve2D" id=4]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -48.1226, -35.807, -10.7252, -14.2973, 10.7252, 14.2973, -3.19501, -15.942, 0, 0, 0, 0, 7.82592, 53.644 )
+}
+
+[sub_resource type="Curve2D" id=10]
+_data = {
+"points": PoolVector2Array(  )
 }
 
 [sub_resource type="Animation" id=8]
@@ -195,7 +200,7 @@ scale = Vector2( 1.03759, 1 )
 curve = SubResource( 4 )
 
 [node name="PathFollowIn2" type="PathFollow2D" parent="PathIn2"]
-position = Vector2( 5.60581, 17.1076 )
+position = Vector2( 5.6058, 17.1076 )
 offset = 84.4706
 rotate = false
 
@@ -218,6 +223,7 @@ rotate = false
 [node name="PathOut" type="Path2D" parent="."]
 self_modulate = Color( 0.501961, 0.6, 1, 0 )
 position = Vector2( 35, 29 )
+curve = SubResource( 10 )
 
 [node name="PathFollowOut" type="PathFollow2D" parent="PathOut"]
 position = Vector2( -9, 71 )
@@ -244,10 +250,10 @@ autoplay = "HoverAnimation"
 anims/HoverAnimation = SubResource( 8 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 60.0
-margin_top = 39.0
-margin_right = 100.0
-margin_bottom = 53.0
+margin_left = -11.0
+margin_top = -29.0
+margin_right = 79.0
+margin_bottom = -15.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 9 )
