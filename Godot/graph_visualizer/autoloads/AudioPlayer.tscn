@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Audio/confirmation_kenney.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Assets/sound/world_select.wav" type="AudioStream" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://AlgorithmScenes/Audio/error_audio.ogg" type="AudioStream" id=5]
 [ext_resource path="res://autoloads/audio_player.gd" type="Script" id=6]
 [ext_resource path="res://Assets/sound/menu_button_click _trimmed.mp3" type="AudioStream" id=7]
+[ext_resource path="res://AlgorithmScenes/Audio/pop.ogg" type="AudioStream" id=8]
 
 [node name="AudioPlayer" type="Node"]
 script = ExtResource( 6 )
@@ -37,3 +38,6 @@ volume_db = -11.556
 [node name="CongratulationsAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -15.0
+
+[node name="PopAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )

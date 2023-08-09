@@ -13,7 +13,7 @@ onready var error_audio: AudioStreamPlayer = $ErrorAudioPlayer
 onready var confirmation_audio: AudioStreamPlayer = $ConfirmationAudioPlayer
 onready var not_doable_action_player_audio: AudioStreamPlayer = $NotDoableActionAudioPlayer
 onready var congratulations_audio: AudioStreamPlayer = $CongratulationsAudioPlayer
-
+onready var pop_audio: AudioStreamPlayer = $PopAudioPlayer
 
 
 func _ready():
@@ -68,3 +68,6 @@ func play_confirmation_audio():
 
 func play_congratulations_audio():
 	congratulations_audio.play()
+
+func play_pop_sound():
+	pop_audio.play()

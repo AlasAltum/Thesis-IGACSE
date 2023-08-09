@@ -21,12 +21,7 @@ func execute_side_effect() -> void:
 		# v.highlight_node()
 
 func _play_pop_sound():
-	audio = AudioStreamPlayer.new()
-	StoredData.add_child(audio)
-	pop_stream.set_loop(false)
-	audio.stream = pop_stream
-	audio.play()
-
+	AudioPlayer.play_pop_sound()
 
 func get_next_line() -> int:
 	self.execute_side_effect()
