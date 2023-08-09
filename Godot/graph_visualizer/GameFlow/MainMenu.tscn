@@ -55,8 +55,8 @@ rect_min_size = Vector2( 0, 100 )
 theme = ExtResource( 3 )
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
-bbcode_text = "[center][wave amp=50.0 freq=1.0 connected=1]CosmoGraphica: A GRAPHical Advernture"
-text = "CosmoGraphica: A GRAPHical Advernture"
+bbcode_text = "[center][wave amp=50.0 freq=1.0 connected=1]CosmoGraphica: A GRAPHical Adventure"
+text = "CosmoGraphica: A GRAPHical Adventure"
 fit_content_height = true
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
