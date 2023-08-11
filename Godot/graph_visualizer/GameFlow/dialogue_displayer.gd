@@ -18,6 +18,7 @@ onready var confirm_action_audio: AudioStreamPlayer = $ConfirmActionAudio
 onready var dialogue_audio: AudioStreamPlayer = $DialogueAudio
 onready var sound_timer: Timer = $DialogueAudioTimer
 
+export (bool) var accepts_input = true
 export (float) var sound_repetition_speed = 0.1
 export (float) var original_dialogue_speed = 0.5
 export (Array, String, MULTILINE) var dialogues_to_show = []
@@ -31,8 +32,8 @@ var has_finished : bool = false
 var command_methods: Array = [] # Array<String>
 var executed_command_methods = []
 var rand_generator : RandomNumberGenerator
+signal next_dialogue
 signal dialogue_finished
-
 
 func _ready():
 	rand_generator = RandomNumberGenerator.new()
@@ -62,7 +63,12 @@ func show_first_dialogue():
 	_on_next_dialogue()
 
 func _input(event):
-	if not has_finished and event is InputEventKey and event.is_action_pressed("NextDialogue"):
+	if (
+		accepts_input and 
+		not has_finished and 
+		event is InputEventKey and 
+		event.is_action_pressed("NextDialogue")
+	):
 		# When the player presses for next dialogue we want to show the text
 		# immediately. So we will stop the animation and set the playback speed
 		# to a very high value, simulating that the animation is finished.
@@ -82,7 +88,7 @@ func _on_next_dialogue():
 
 	_update_dialogue_and_text()
 	execute_command_methods_in_text(dialogues_to_show[current_dialogue_index])
-
+	emit_signal("next_dialogue")
 
 func _update_dialogue_and_text():
 	# UNSAFE: Assume we already checked the current_dialogue_index

@@ -372,6 +372,11 @@ Good luck!" ]
 command_methods_script = ExtResource( 22 )
 should_close_on_finish = false
 
+[node name="DialogueTimer" type="Timer" parent="DialogueCanvas"]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
 [node name="Nodes" type="ColorRect" parent="."]
 margin_right = 1920.0
 margin_bottom = 1080.0
@@ -496,7 +501,6 @@ margin_bottom = 819.0
 mouse_filter = 2
 
 [node name="StackQueue" type="Sprite" parent="HUD"]
-visible = false
 position = Vector2( 963.5, 411 )
 scale = Vector2( 0.914436, 0.879386 )
 texture = ExtResource( 25 )

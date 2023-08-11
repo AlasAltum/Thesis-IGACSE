@@ -7,7 +7,7 @@
 [ext_resource path="res://GameFlow/Tutorials/SecondTutorial/CodeBlockSrc/SecondTutorialCodBlock.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Node/graph_node.gd" type="Script" id=6]
 [ext_resource path="res://Assets/textures/planets/SunExample.png" type="Texture" id=7]
-[ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Assets/fonts/AlegreyaSansSC/AlegreyaSansSC-Regular.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://Assets/textures/planets/level_planets/IceWorld.png" type="Texture" id=9]
 [ext_resource path="res://Node/hightlight_node_with_frequency_and_bool.gdshader" type="Shader" id=10]
 [ext_resource path="res://Assets/textures/station_explored.png" type="Texture" id=11]
@@ -662,10 +662,10 @@ layer = 20
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 344.0
-margin_top = -301.0
-margin_right = -506.0
-margin_bottom = -315.0
+margin_left = 376.0
+margin_top = 10.0
+margin_right = -474.0
+margin_bottom = -4.0
 rect_pivot_offset = Vector2( 1164, 1161 )
 mouse_filter = 2
 texture = ExtResource( 18 )

@@ -15,6 +15,8 @@ export (float) var time_to_lose_when_sending_ship_to_sun = 2.0
 onready var tutorial_animation_player: AnimationPlayer = $"%AnimationPlayer"
 onready var dialogue_displayer: DialogueDisplayer = $DialogueCanvas/DialogueDisplayer
 onready var code_block = $HUD/CodeBlock
+onready var dialogue_timer = $DialogueCanvas/DialogueTimer
+
 
 const __planets_textures_original = [
 	preload("res://Assets/textures/planets/level_planets/IceWorld.png"),
@@ -45,11 +47,15 @@ func _ready():
 	tutorial_animation_player.connect("animation_finished", self, "on_win_animation_finished")
 	reset_planets_textures()
 	dialogue_displayer.connect("dialogue_finished", self, "on_dialogue_finished")
+	dialogue_displayer.connect("next_dialogue", self, "on_next_dialogue")
 	code_block.connect("code_finished", self, "on_win")
 	StoredData.world_node = self
 	NotificationManager.allow_code_advance = false
 	call_deferred("update_names_indexes_of_nodes")
 	dialogue_displayer.skip_button.visible = false
+	dialogue_displayer.accepts_input = false
+	yield(dialogue_timer, "timeout")
+	dialogue_displayer.accepts_input = true
 
 
 func update_names_indexes_of_nodes():
@@ -61,6 +67,12 @@ func reset_planets_textures():
 
 func assign_texture_randomly() -> bool:
 	return true
+
+func on_next_dialogue():
+	dialogue_displayer.accepts_input = false
+	dialogue_timer.start(5.0)
+	yield(dialogue_timer, "timeout")
+	dialogue_displayer.accepts_input = true
 
 func on_win() -> void:
 	tutorial_animation_player.play("WinAnimation")

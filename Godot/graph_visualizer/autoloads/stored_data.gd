@@ -14,7 +14,7 @@ var story_mode_scenes = {
 	"Story1": "res://GameFlow/Tutorials/StoryModeChapterOne.tscn",
 	"Tutorial1": "res://GameFlow/Tutorials/FirstTutorial/FirstTutorialSelectPlanet.tscn",
 	"Tutorial2": "res://GameFlow/Tutorials/SecondTutorial/SecondTutorial.tscn",
-	"BFS": "res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/BFS_tutorial.tscn",
+	"Tutorial3": "res://GameFlow/Tutorials/ThirdTutorial/ThirdTutorial.tscn",
 }
 
 var finished_levels = {

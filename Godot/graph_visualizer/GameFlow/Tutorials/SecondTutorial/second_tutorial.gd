@@ -62,13 +62,6 @@ func on_win() -> void:
 	tutorial_animation_player.play("WinAnimation")
 	animation_played_once = true
 
-# Show the click suggestion on each planet, since the dialogue finished
-# with the instruction to visit (click on) the planets
-func _on_DialogueShower_dialogue_finished():
-	# Here we could emphasize the code somehow
-	$Nodes/Star/Sprite/SpriteTexture/SunMovement.play("PlanetMovement")
-
-
 func on_win_audio_play():
 	AudioPlayer.play_congratulations_audio()
 
@@ -90,7 +83,7 @@ func on_ending_dialogue_finished() -> void:
 	# Start fade animation
 	# once the fade animation finishes, queue_free the tree and go to next scene
 	# TODO: Change this by with StoredData.get_random_unfinished_level_path()
-	NotificationManager._deferred_goto_scene(StoredData.remaining_levels_to_finish["DFS"], true, self)
+	NotificationManager._deferred_goto_scene(StoredData.story_mode_scenes["Tutorial3"], true, self)
 
 
 func on_ship_arrived_to_sun():
@@ -150,6 +143,12 @@ func ask_user_if_u_node_is_a_star(input_u_is_not_a_star):
 func assign_texture_randomly() -> bool:
 	return false
 
+
+# Show the click suggestion on each planet, since the dialogue finished
+# with the instruction to visit (click on) the planets
+func _on_DialogueShower_dialogue_finished():
+	# Here we could emphasize the code somehow
+	$Nodes/Star/Sprite/SpriteTexture/SunMovement.play("PlanetMovement")
 
 func send_ship_to_the_sun():
 	send_ship_to_node(star)
