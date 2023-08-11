@@ -25,6 +25,7 @@ __meta__ = {
 }
 
 [node name="Panel" type="Panel" parent="."]
+use_parent_material = true
 margin_right = 409.0
 margin_bottom = 300.0
 mouse_filter = 2
@@ -32,6 +33,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VB" type="VBoxContainer" parent="."]
+use_parent_material = true
 margin_right = 409.0
 margin_bottom = 46.0
 mouse_filter = 2
@@ -48,6 +50,7 @@ valign = 1
 clip_text = true
 
 [node name="MarginContainer" type="MarginContainer" parent="VB"]
+use_parent_material = true
 margin_top = 46.0
 margin_right = 409.0
 margin_bottom = 46.0
@@ -58,6 +61,7 @@ custom_constants/margin_left = 10
 
 [node name="LinesContainer" type="VBoxContainer" parent="VB/MarginContainer"]
 unique_name_in_owner = true
+use_parent_material = true
 margin_left = 10.0
 margin_right = 399.0
 mouse_filter = 2

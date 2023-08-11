@@ -81,3 +81,5 @@ func on_ending_dialogue_finished() -> void:
 	# once the fade animation finishes, queue_free the tree and go to next scene
 	NotificationManager._deferred_goto_scene(StoredData.story_mode_scenes["Tutorial2"], true, self)
 
+func assign_texture_randomly() -> bool:
+	return false

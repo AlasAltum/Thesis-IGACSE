@@ -66,19 +66,18 @@ func _ready():
 	self.adt = adt_type.new(self)
 	self.radius_distance = $Sprite/SpriteTexture.get_rect().size.x / 2
 	randomize()
-	call_deferred("set_texture_randomly")
 	if not self.index in StoredData.nodes:
 		StoredData.nodes.append(self) 
 	self.set_process(false)
+	call_deferred("set_texture_randomly")
 
 
 const PLANET_SIZE = 128
-
 func set_texture_randomly():
 	if (
 		StoredData.world_node and 
 		is_instance_valid(StoredData.world_node) and # instance has been freed
-		StoredData.world_node.get_class() == "GraphManager"
+		StoredData.world_node.assign_texture_randomly()
 	):
 		sprite_texture.texture = StoredData.world_node.planets_textures[randi() % len(StoredData.world_node.planets_textures)]
 		StoredData.world_node.planets_textures.erase(sprite_texture.texture)

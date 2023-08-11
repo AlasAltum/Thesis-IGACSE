@@ -16,25 +16,55 @@ onready var tutorial_animation_player: AnimationPlayer = $"%AnimationPlayer"
 onready var dialogue_displayer: DialogueDisplayer = $DialogueCanvas/DialogueDisplayer
 onready var code_block = $HUD/CodeBlock
 
+const __planets_textures_original = [
+	preload("res://Assets/textures/planets/level_planets/IceWorld.png"),
+	preload("res://Assets/textures/planets/level_planets/LavaWorld.png"),
+	preload("res://Assets/textures/planets/level_planets/MuddyTerranWet.png"),
+	preload("res://Assets/textures/planets/level_planets/NoAtmosphere2.png"),
+	preload("res://Assets/textures/planets/level_planets/NoAtmosphere.png"),
+	preload("res://Assets/textures/planets/level_planets/PurpleTerranWet.png"),
+	preload("res://Assets/textures/planets/level_planets/RedTerran.png"),
+	preload("res://Assets/textures/planets/level_planets/WetPlanet.png")
+]
+
+var planets_textures = [
+	preload("res://Assets/textures/planets/level_planets/IceWorld.png"),
+	preload("res://Assets/textures/planets/level_planets/LavaWorld.png"),
+	preload("res://Assets/textures/planets/level_planets/MuddyTerranWet.png"),
+	preload("res://Assets/textures/planets/level_planets/NoAtmosphere2.png"),
+	preload("res://Assets/textures/planets/level_planets/NoAtmosphere.png"),
+	preload("res://Assets/textures/planets/level_planets/PurpleTerranWet.png"),
+	preload("res://Assets/textures/planets/level_planets/RedTerran.png"),
+	preload("res://Assets/textures/planets/level_planets/WetPlanet.png")
+]
+
+
 
 func _ready():
 	tutorial_animation_player.play("OnReady")
 	tutorial_animation_player.connect("animation_finished", self, "on_win_animation_finished")
-
+	reset_planets_textures()
 	dialogue_displayer.connect("dialogue_finished", self, "on_dialogue_finished")
 	code_block.connect("code_finished", self, "on_win")
 	StoredData.world_node = self
 	NotificationManager.allow_code_advance = false
+	call_deferred("update_names_indexes_of_nodes")
+	dialogue_displayer.skip_button.visible = false
+
+
+func update_names_indexes_of_nodes():
+	for _node in StoredData.nodes: # _node: AGraphNode
+		_node.set_index(_node.index)
+
+func reset_planets_textures():
+	self.planets_textures = __planets_textures_original.duplicate(true)
+
+func assign_texture_randomly() -> bool:
+	return true
 
 func on_win() -> void:
 	tutorial_animation_player.play("WinAnimation")
 	animation_played_once = true
-
-# Show the click suggestion on each planet, since the dialogue finished
-# with the instruction to visit (click on) the planets
-func _on_DialogueShower_dialogue_finished():
-	# Here we could emphasize the code somehow
-	pass
 
 func on_win_audio_play():
 	AudioPlayer.play_congratulations_audio()
@@ -71,8 +101,12 @@ func get_class() -> String:
 
 func on_dialogue_finished():
 	# Show the last text when skipping or finishing
-	dialogue_displayer.has_finished =   true
+	dialogue_displayer.has_finished = true
+	NotificationManager.allow_code_advance = true
 	tutorial_animation_player.play("FinishDialogue")
+	# Bottom receives a highlight material during the animation
+	# Erase that material}
+	$HUD/Bottom.material = null
 
 func ask_user_if_u_node_is_a_star(input_u_is_not_a_star):
 	# Show popup of class UNodeIsNotAStarPopup

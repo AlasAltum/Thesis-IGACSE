@@ -341,3 +341,6 @@ func go_back_to_menu():
 
 func get_class() -> String:
 	return "GraphManager"
+
+func assign_texture_randomly() -> bool:
+	return true

@@ -54,6 +54,7 @@ margin_left = 0.0
 margin_top = 95.0
 margin_right = 764.0
 margin_bottom = 135.0
+focused = true
 code_text = "Press SPACE"
 effect_check = ExtResource( 3 )
 
@@ -119,7 +120,7 @@ margin_left = 0.0
 margin_top = 359.0
 margin_right = 764.0
 margin_bottom = 399.0
-line_index = 5
+line_index = 6
 code_text = "v.click_node()"
 
 [node name="PanelContainer7" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
@@ -129,7 +130,7 @@ margin_left = 0.0
 margin_top = 403.0
 margin_right = 764.0
 margin_bottom = 443.0
-line_index = 6
+line_index = 7
 code_text = " end"
 effect_check = ExtResource( 15 )
 plays_confirmation_audio = false

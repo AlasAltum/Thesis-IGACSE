@@ -41,3 +41,7 @@ func _on_DialogueShower_dialogue_finished():
 
 func get_class() -> String:
 	return "StoryModeChapter"
+
+func assign_texture_randomly() -> bool:
+	return false
+

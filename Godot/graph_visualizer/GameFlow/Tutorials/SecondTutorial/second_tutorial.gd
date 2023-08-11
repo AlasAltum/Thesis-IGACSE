@@ -147,6 +147,10 @@ func ask_user_if_u_node_is_a_star(input_u_is_not_a_star):
 		u_node_is_not_a_star_popup.popup()
 
 
+func assign_texture_randomly() -> bool:
+	return false
+
+
 func send_ship_to_the_sun():
 	send_ship_to_node(star)
 

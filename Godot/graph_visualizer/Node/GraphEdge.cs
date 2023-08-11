@@ -137,15 +137,9 @@ public class GraphEdge : PinJoint2D
 
 	}
 
-	public Node2D getJointEnd1()
-	{
-		return joint_end1;
-	}
+	public Node2D getJointEnd1() => joint_end1;
 
-	public Node2D getJointEnd2()
-	{
-		return joint_end2;
-	}
+	public Node2D getJointEnd2() => joint_end2;
 
 	/// <summary>
 	/// To set this quad, we will set the extent of the rectangle like the following
@@ -194,13 +188,9 @@ public class GraphEdge : PinJoint2D
 		StoredData.Set("selected_edge", this);
 	}
 
-	public Resource get_adt(){
-		return GraphEdge.adt;
-	}
+	public Resource get_adt() => GraphEdge.adt;
 
-	public String get_class(){
-		return "GraphEdge";
-	}
+	public String get_class() => "GraphEdge";
 
 	public String as_string(){
 		return "Edge (" + joint_end1.Get("index") + "-" + joint_end2.Get("index") + ")";
