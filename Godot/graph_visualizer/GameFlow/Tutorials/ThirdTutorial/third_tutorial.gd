@@ -10,7 +10,7 @@ var u_is_not_a_star_correct_answer = false
 var u_node: AGraphNode = null
 var current_selectable_node: AGraphNode
 
-export (float) var time_to_lose_when_sending_ship_to_sun = 2.0
+export (float) var time_between_dialogs = 5.0
 
 onready var tutorial_animation_player: AnimationPlayer = $"%AnimationPlayer"
 onready var dialogue_displayer: DialogueDisplayer = $DialogueCanvas/DialogueDisplayer
@@ -56,7 +56,8 @@ func _ready():
 	dialogue_displayer.accepts_input = false
 	yield(dialogue_timer, "timeout")
 	dialogue_displayer.accepts_input = true
-
+	for _node in StoredData.nodes:
+		_node.connect("node_add_to_object_request", NotificationManager, "_on_node_add_to_object")
 
 func update_names_indexes_of_nodes():
 	for _node in StoredData.nodes: # _node: AGraphNode
@@ -70,7 +71,7 @@ func assign_texture_randomly() -> bool:
 
 func on_next_dialogue():
 	dialogue_displayer.accepts_input = false
-	dialogue_timer.start(5.0)
+	dialogue_timer.start(time_between_dialogs)
 	yield(dialogue_timer, "timeout")
 	dialogue_displayer.accepts_input = true
 

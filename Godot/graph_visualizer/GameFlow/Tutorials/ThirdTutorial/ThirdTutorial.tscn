@@ -339,6 +339,7 @@ _data = {
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 21 )
+time_between_dialogs = 2.748
 
 [node name="ADTMediator" parent="." instance=ExtResource( 4 )]
 

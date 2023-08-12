@@ -71,7 +71,6 @@ func _ready():
 	self.set_process(false)
 	call_deferred("set_texture_randomly")
 
-
 const PLANET_SIZE = 128
 func set_texture_randomly():
 	if (
