@@ -9,6 +9,7 @@ var animation_played_once = false
 var u_is_not_a_star_correct_answer = false
 var u_node: AGraphNode = null
 var current_selectable_node: AGraphNode
+var allow_edge_selection : bool = false
 
 export (float) var time_between_dialogs = 5.0
 
@@ -43,13 +44,13 @@ var planets_textures = [
 
 
 func _ready():
+	StoredData.world_node = self
 	tutorial_animation_player.play("OnReady")
 	tutorial_animation_player.connect("animation_finished", self, "on_win_animation_finished")
 	reset_planets_textures()
 	dialogue_displayer.connect("dialogue_finished", self, "on_dialogue_finished")
 	dialogue_displayer.connect("next_dialogue", self, "on_next_dialogue")
 	code_block.connect("code_finished", self, "on_win")
-	StoredData.world_node = self
 	NotificationManager.allow_code_advance = false
 	call_deferred("update_names_indexes_of_nodes")
 	dialogue_displayer.skip_button.visible = false
@@ -58,6 +59,7 @@ func _ready():
 	dialogue_displayer.accepts_input = true
 	for _node in StoredData.nodes:
 		_node.connect("node_add_to_object_request", NotificationManager, "_on_node_add_to_object")
+	StoredData.world_node = self
 
 func update_names_indexes_of_nodes():
 	for _node in StoredData.nodes: # _node: AGraphNode
@@ -138,9 +140,3 @@ func go_back_to_menu():
 
 func fade_stack_queue():
 	tutorial_animation_player.play("ShowStack")
-
-func show_stack_animation():
-	pass
-
-func show_queue_animation():
-	pass

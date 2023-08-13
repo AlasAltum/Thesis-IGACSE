@@ -27,7 +27,6 @@ onready var station_texture: Sprite = $Sprite/StationSimple
 onready var mouse_button_left_animation: AnimatedSprite = $MouseButtonLeft
 
 var variable_highlighted: bool = false
-var floating_variable_radius: float = 0.0
 onready var animation_player : AnimationPlayer = $AnimationPlayer
 
 const representation_prefab = preload("res://Node/NodeRepresentation.tscn")
@@ -321,10 +320,9 @@ func highlight_variable(variable_name):
 	if variable_label:
 		variable_highlighted = true
 		variable_label.visible = true
-		variable_label.material.set_shader_param("frequency", 0.0)
+#		variable_label.material.set_shader_param("frequency", 0.0)
 		variable_label_internal.text = variable_name
 		var difference: Vector2 = variable_label.global_position - self.global_position
-		floating_variable_radius = difference.length()
 
 func show_ship_flying_around():
 	if should_show_ship_flying_around:

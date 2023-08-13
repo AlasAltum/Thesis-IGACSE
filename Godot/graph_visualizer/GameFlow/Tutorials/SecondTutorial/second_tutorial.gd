@@ -83,8 +83,8 @@ func on_ending_dialogue_finished() -> void:
 	# Start fade animation
 	# once the fade animation finishes, queue_free the tree and go to next scene
 	# TODO: Change this by with StoredData.get_random_unfinished_level_path()
+	StoredData.reset_data()
 	NotificationManager._deferred_goto_scene(StoredData.story_mode_scenes["Tutorial3"], true, self)
-
 
 func on_ship_arrived_to_sun():
 	on_lose()

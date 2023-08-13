@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Node/font/node_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Node/graph_node.gd" type="Script" id=2]
@@ -31,23 +31,6 @@ outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 11 )
-
-[sub_resource type="Shader" id=18]
-code = "shader_type canvas_item;
-
-uniform float frequency = 10.f;
-uniform float amplitude = 10.f;
-
-
-void vertex()
-{
-	VERTEX.y += sin(TIME * frequency) * amplitude;
-}"
-
-[sub_resource type="ShaderMaterial" id=7]
-shader = SubResource( 18 )
-shader_param/frequency = 0.0
-shader_param/amplitude = 10.0
 
 [sub_resource type="Animation" id=13]
 resource_name = "ClickNode"
@@ -230,7 +213,6 @@ __meta__ = {
 }
 
 [node name="Variable" type="Node2D" parent="."]
-material = SubResource( 7 )
 position = Vector2( 35, -40 )
 
 [node name="Sprite" type="Sprite" parent="Variable"]
@@ -258,10 +240,10 @@ anims/RESET = SubResource( 14 )
 
 [node name="MouseButtonLeft" type="AnimatedSprite" parent="."]
 visible = false
-position = Vector2( 48, 72 )
+position = Vector2( 32, 48 )
 frames = SubResource( 16 )
-frame = 1
 speed_scale = 0.5
+playing = true
 
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
