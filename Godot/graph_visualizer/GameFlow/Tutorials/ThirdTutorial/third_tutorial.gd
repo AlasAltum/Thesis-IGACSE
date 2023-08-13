@@ -81,9 +81,11 @@ func assign_texture_randomly() -> bool:
 
 func on_next_dialogue():
 	dialogue_displayer.accepts_input = false
+	dialogue_displayer.next_button.visible = false
 	dialogue_timer.start(time_between_dialogs)
 	yield(dialogue_timer, "timeout")
 	dialogue_displayer.accepts_input = true
+	dialogue_displayer.next_button.visible = true
 
 func on_win() -> void:
 	tutorial_animation_player.play("WinAnimation")
@@ -98,8 +100,8 @@ func on_win_animation_finished(anim_name):
 	# for saving a little red panda!
 	if anim_name == "WinAnimation":
 		var new_dialogues_to_show = [
-			"Congratulations! Now you know how to follow our instructions",
-			"You are almost ready to save galaxies!"
+			"Congratulations! Now you know how to use the variables and add nodes to a Stack",
+			"Save these sad pandas please! THEY NEED YOU!"
 		]
 		dialogue_displayer.set_and_start_new_dialogues(new_dialogues_to_show)
 		dialogue_displayer.connect("dialogue_finished", self, "on_ending_dialogue_finished")

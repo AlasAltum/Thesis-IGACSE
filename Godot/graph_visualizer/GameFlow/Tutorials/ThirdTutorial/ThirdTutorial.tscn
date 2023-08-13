@@ -9,9 +9,9 @@
 [ext_resource path="res://GameFlow/Tutorials/SecondTutorial/NewUNodeIsNotAStar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://AlgorithmScenes/Code/NewDebugBlock.tscn" type="PackedScene" id=8]
 [ext_resource path="res://GameFlow/Tutorials/ThirdTutorial/CodeBlockSrc/ThirdTutorialCodBlock.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/textures/red_pandas/CryingPandaOnMoon.png" type="Texture" id=10]
 [ext_resource path="res://GameFlow/Tutorials/ThirdTutorial/third_tutorial.gd" type="Script" id=21]
 [ext_resource path="res://GameFlow/Tutorials/ThirdTutorial/CodeBlockSrc/third_tutorial_show_ADTs.gd" type="Script" id=22]
-[ext_resource path="res://Assets/textures/red_pandas/PandaRescuePixel.jpg" type="Texture" id=23]
 [ext_resource path="res://GameFlow/Tutorials/ThirdTutorial/StackQueue.png" type="Texture" id=25]
 [ext_resource path="res://AlgorithmScenes/Screen/ADT/Queue/QueueAnimation.tscn" type="PackedScene" id=26]
 [ext_resource path="res://AlgorithmScenes/Screen/ADT/Stack/StackAnimation.tscn" type="PackedScene" id=27]
@@ -353,8 +353,8 @@ anchor_left = 0.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -250.0
-margin_bottom = 34.9946
+margin_top = -268.0
+margin_bottom = -10.0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 __meta__ = {
@@ -453,7 +453,7 @@ margin_right = -450.0
 margin_bottom = -10.0
 rect_pivot_offset = Vector2( 1164, 1161 )
 mouse_filter = 2
-texture = ExtResource( 23 )
+texture = ExtResource( 10 )
 expand = true
 
 [node name="HUD" type="CanvasLayer" parent="."]

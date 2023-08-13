@@ -28,6 +28,7 @@ export (int) var current_dialogue_index = -1
 export (Resource) var command_methods_script;  # : CommandMethod
 export (bool) var should_close_on_finish = true
 
+var single_text : bool = false
 var has_finished : bool = false
 var command_methods: Array = [] # Array<String>
 var executed_command_methods = []
@@ -42,7 +43,7 @@ func _ready():
 	text_shower_animation.connect("animation_finished", self, "on_dialogue_displayed_to_the_end")
 	sound_timer.connect("timeout", self, "_play_dialogue_sound")
 	text_shower_animation.playback_speed = original_dialogue_speed
-	dialogue_text.text = ""
+	set_text("")
 
 	# We identify previously the command methods so we can execute them
 	# if the dialogue is skipped.
@@ -63,20 +64,19 @@ func show_first_dialogue():
 	_on_next_dialogue()
 
 func _input(event):
-	if (
-		accepts_input and 
-		not has_finished and 
-		event is InputEventKey and 
-		event.is_action_pressed("NextDialogue")
-	):
-		# When the player presses for next dialogue we want to show the text
-		# immediately. So we will stop the animation and set the playback speed
-		# to a very high value, simulating that the animation is finished.
-		if text_shower_animation.current_animation == "ShowText":
-			text_shower_animation.playback_speed = 100
+	if event is InputEventKey and event.is_action_pressed("NextDialogue"):
+		if single_text:
+			return
 
-		else:
-			_on_next_dialogue()
+		if accepts_input and not has_finished:
+			# When the player presses for next dialogue we want to show the text
+			# immediately. So we will stop the animation and set the playback speed
+			# to a very high value, simulating that the animation is finished.
+			if text_shower_animation.current_animation == "ShowText":
+				text_shower_animation.playback_speed = 100
+
+			else:
+				_on_next_dialogue()
 
 # This function will be called when the player clicks on the next dialogue button.
 # It will show the next dialogue in the list.
@@ -93,7 +93,9 @@ func _on_next_dialogue():
 func _update_dialogue_and_text():
 	# UNSAFE: Assume we already checked the current_dialogue_index
 	current_dialogue_index += 1
-	dialogue_text.text = _get_clean_text_from_dialogue(dialogues_to_show[current_dialogue_index])
+	set_text(
+		_get_clean_text_from_dialogue(dialogues_to_show[current_dialogue_index])
+	)
 	text_shower_animation.stop()
 	# Start sound timer
 	sound_timer.start()
@@ -106,7 +108,7 @@ func _on_dialogue_finished():
 	if has_finished:
 		return
 	if should_close_on_finish:
-		dialogue_text.text = ""
+		set_text("")
 		self.visible = false
 		has_finished = true
 	emit_signal("dialogue_finished")
@@ -226,8 +228,33 @@ func _execute_single_command_method(command_method_name: String):
 func set_dialogue_by_index(index: int):
 	if index < len(self.dialogues_to_show):
 		var raw_text = dialogues_to_show[len(dialogues_to_show) - 1]
-		dialogue_text.text = _get_clean_text_from_dialogue(raw_text)
+		set_text(
+			_get_clean_text_from_dialogue(raw_text)
+		)
 
 func _play_dialogue_sound():
 	sound_timer.wait_time = sound_repetition_speed + rand_generator.randfn(0, 0.01)
 	dialogue_audio.play()
+
+func set_text(_text: String) -> void:
+	dialogue_text.text = _text
+
+
+func show_single_text(_text: String) -> void:
+	skip_button.visible = false
+	next_button.visible = false
+	dialogues_to_show = [_text]
+	accepts_input = false
+	current_dialogue_index = 0
+	set_text(_text)
+	self.visible = true
+	self.modulate = Color(1.0, 1.0, 1.0, 1.0)
+	text_shower_animation.play("ShowText")
+	single_text = true
+
+
+func close_single_text():
+	skip_button.visible = true
+	next_button.visible = true
+	self.visible = false
+
