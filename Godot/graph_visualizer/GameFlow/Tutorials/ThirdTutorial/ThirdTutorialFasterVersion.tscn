@@ -391,22 +391,18 @@ position = Vector2( 404, 222 )
 [node name="GraphNode1" parent="Nodes" instance=ExtResource( 3 )]
 position = Vector2( 323, 473 )
 index = 1
-should_show_base_when_selected = true
 
 [node name="GraphNode2" parent="Nodes" instance=ExtResource( 3 )]
 position = Vector2( 752, 574 )
 index = 2
-should_show_base_when_selected = true
 
 [node name="GraphNode3" parent="Nodes" instance=ExtResource( 3 )]
 position = Vector2( 1028, 316 )
 index = 3
-should_show_base_when_selected = true
 
 [node name="GraphNode4" parent="Nodes" instance=ExtResource( 3 )]
 position = Vector2( 824, 126 )
 index = 4
-should_show_base_when_selected = true
 
 [node name="Edge01" parent="Nodes" instance=ExtResource( 5 )]
 node_a = NodePath("../GraphNode0")

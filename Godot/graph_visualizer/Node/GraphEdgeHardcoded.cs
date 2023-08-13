@@ -48,6 +48,8 @@ public class GraphEdgeHardcoded : GraphEdge
 	}
 
 	public override void _Process(float delta){}
+	
+	public string get_class() => "GraphEdge";
 
 	/// This is called from godot, therefore, it uses snake_case
 	new public void set_label_and_positions_with_nodes(Node2D node1, Node2D node2, String label_text)

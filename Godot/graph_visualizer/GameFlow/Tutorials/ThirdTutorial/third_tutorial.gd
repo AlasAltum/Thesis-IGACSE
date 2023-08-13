@@ -44,6 +44,7 @@ var planets_textures = [
 
 
 func _ready():
+	Engine.time_scale = 5.0
 	StoredData.world_node = self
 	tutorial_animation_player.play("OnReady")
 	tutorial_animation_player.connect("animation_finished", self, "on_win_animation_finished")
@@ -59,7 +60,14 @@ func _ready():
 	dialogue_displayer.accepts_input = true
 	for _node in StoredData.nodes:
 		_node.connect("node_add_to_object_request", NotificationManager, "_on_node_add_to_object")
+	populate_edges()
 	StoredData.world_node = self
+	
+func populate_edges():
+	var nodes_and_edges = $Nodes.get_children()
+	for _child in nodes_and_edges:
+		if _child.get_class() == "GraphEdge":
+			StoredData.edges.append(_child)
 
 func update_names_indexes_of_nodes():
 	for _node in StoredData.nodes: # _node: AGraphNode

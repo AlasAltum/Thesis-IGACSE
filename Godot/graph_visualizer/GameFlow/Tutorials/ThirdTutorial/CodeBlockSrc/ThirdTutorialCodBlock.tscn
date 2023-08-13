@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/2_stack.gd" type="Script" id=1]
 [ext_resource path="res://Assets/GUI/code_block_sci_fi_theme.tres" type="Theme" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://GameFlow/Tutorials/ThirdTutorial/CodeBlockSrc/3_add_to_stack_third_tutorial.gd" type="Script" id=6]
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/5_v_s_top.gd" type="Script" id=7]
 [ext_resource path="res://GameFlow/Tutorials/ThirdTutorial/CodeBlockSrc/4_add_to_stack_third_tutorial.gd" type="Script" id=8]
+[ext_resource path="res://GameFlow/Tutorials/ThirdTutorial/CodeBlockSrc/6_click_node_v.gd" type="Script" id=9]
 [ext_resource path="res://AlgorithmScenes/Code/CodeBlock/null_effect.gd" type="Script" id=15]
 [ext_resource path="res://AlgorithmScenes/Code/CodeBlock/CodeLine.tscn" type="PackedScene" id=20]
 
@@ -123,6 +124,7 @@ margin_right = 764.0
 margin_bottom = 399.0
 line_index = 6
 code_text = "v.click_node()"
+effect_check = ExtResource( 9 )
 
 [node name="PanelContainer7" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
