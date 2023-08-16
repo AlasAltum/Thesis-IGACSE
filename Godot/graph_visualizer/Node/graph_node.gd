@@ -261,7 +261,7 @@ func _on_Area2D_mouse_entered() -> void:
 	if node_action_menu:
 		node_action_menu.set_position(get_global_mouse_position())
 		node_action_menu.popup()
-		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 
 # Hide hover menu
 func _on_Area2D_mouse_exited() -> void:
