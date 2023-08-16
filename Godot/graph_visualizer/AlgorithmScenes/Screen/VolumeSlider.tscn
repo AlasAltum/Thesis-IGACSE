@@ -20,18 +20,22 @@ func set_menu_visibility(_visibility: bool):
 "
 
 [sub_resource type="AtlasTexture" id=1]
+flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 792, 333, 320, 320 )
 
 [sub_resource type="AtlasTexture" id=2]
+flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 792, 2190, 320, 320 )
 
 [sub_resource type="AtlasTexture" id=4]
+flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 792, 772, 320, 320 )
 
 [sub_resource type="AtlasTexture" id=5]
+flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 1287, 772, 320, 320 )
 

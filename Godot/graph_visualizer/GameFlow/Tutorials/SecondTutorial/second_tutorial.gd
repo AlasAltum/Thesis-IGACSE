@@ -40,6 +40,8 @@ func _ready():
 	timer_to_lose_when_sending_ship_to_sun.connect("timeout", self, "on_ship_arrived_to_sun")
 	var sun_movement_anim = $Nodes/Star/Sprite/SpriteTexture/SunMovement
 	sun_movement_anim.play("PlanetMovement")
+	VolumeSlider.set_menu_visibility(true)
+	StoredData.selectable_nodes_indexes = []
 
 func send_ship_to_node(end_planet: AGraphNode):
 	# Since there is always only one edge, this should work fine

@@ -69,7 +69,8 @@ func _remove_child(adt_representation):
 func _add_child(adt_representation):
 	rep_container.add_child(adt_representation)
 	adt_representation.global_position = get_container_center()
-
+	if adt_representation.has_method("adjust_position_in_adt_shower"):
+		adt_representation.adjust_position_in_adt_shower()
 
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:

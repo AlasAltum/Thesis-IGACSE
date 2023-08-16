@@ -38,6 +38,12 @@ func clear():
 	for child in nodes_vbox.get_children():
 		child.queue_free()
 
+# Move the representation such that it is in the center of the ADT Shower
+const GOOD_LOOKING_ADJUSTING_POSITION = Vector2(-45, -95)
+
+func adjust_position_in_adt_shower():
+	# Move the stack up
+	self.position += GOOD_LOOKING_ADJUSTING_POSITION
 
 func get_class() -> String:
 	return "StackRepresentation"

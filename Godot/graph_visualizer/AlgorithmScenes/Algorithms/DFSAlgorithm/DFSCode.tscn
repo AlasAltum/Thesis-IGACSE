@@ -148,7 +148,7 @@ margin_right = 400.0
 margin_bottom = 520.0
 line_index = 7
 jump_index = 8
-code_text = "            v.mark_as_explored()"
+code_text = "            v.mark_as_explored() [click]"
 effect_check = ExtResource( 12 )
 hint_text = "Select the [color=#00FF00]v[/color] node with a [b]LEFT CLICK[/b]"
 
