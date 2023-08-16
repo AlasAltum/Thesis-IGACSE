@@ -35,7 +35,6 @@ func execute_side_effect() -> void:
 	# But I am adding it here anyway for code safety
 	if for_condition_is_true():
 		var current_node_to_select: AGraphNode = nodes_to_visit[iteration_index]
-		StoredData.selectable_nodes_indexes = [current_node_to_select.index]
 		iteration_index = iteration_index + 1
 		StoredData.world_node.current_selectable_node = current_node_to_select
 

@@ -24,10 +24,12 @@ func on_timeout_help_user():
 	if node_0 and is_instance_valid(helping_timer):
 		node_0.show_animation_of_clicking_mouse()
 
+func _trigger_on_correct_once() -> void:
+	if helping_timer and is_instance_valid(helping_timer):
+		helping_timer.queue_free()
+
 func check_actions_correct() -> bool:
 	if node_0 and node_0.selected:
-		if helping_timer and is_instance_valid(helping_timer):
-			helping_timer.queue_free()
 		if not side_effect_has_been_executed:
 			side_effect_has_been_executed = true
 			node_0.highlight_variable("t")
