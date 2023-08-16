@@ -21,7 +21,7 @@ func _ready():
 	planet1.animation_player.connect("animation_finished", self, "on_ship_arrived_to_planet")
 	planet2.animation_player.connect("animation_finished", self, "on_ship_arrived_to_planet")
 	dialogue_displayer.connect("dialogue_finished", self, "_on_DialogueShower_dialogue_finished")
-
+	StoredData.world_node = self
 
 func send_ship_to_node(end_planet: AGraphNode):
 	# Since there is always only one edge, this should work fine

@@ -66,6 +66,7 @@ func _init():
 
 func _ready():
 	StoredData.world_node = self
+	VolumeSlider.set_menu_visibility(true)
 	# Planets textures array is being modified each level when nodes are created
 	# So by triggering this function at the beginning, we make sure that these textures
 	# are available again so they can be used by the nodes

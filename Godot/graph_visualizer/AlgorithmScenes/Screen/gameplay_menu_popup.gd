@@ -28,7 +28,15 @@ func _on_CloseButton_pressed():
 
 func _on_MenuButton_pressed():
 	AudioPlayer.play_button_sound()
-	StoredData.world_node.go_back_to_menu()
+	if is_instance_valid(StoredData.world_node) and StoredData.world_node.has_method("go_back_to_menu"):
+		StoredData.world_node.go_back_to_menu()
+	else:
+		AudioPlayer.stop_playing_music() # Whatever the music soundtrack playing, stop it when coming back to the menu
+		self.set_name("TempMain")
+		self.queue_free()
+		if is_instance_valid(StoredData.world_node):
+			NotificationManager._deferred_goto_scene("res://GameFlow/MainMenu.tscn", true, StoredData.world_node)
+
 	self.visible = false
 
 

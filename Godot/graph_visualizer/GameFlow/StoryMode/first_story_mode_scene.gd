@@ -13,6 +13,7 @@ func _ready():
 	animation_node.play("FadeIn")
 	StoredData.world_node = self 
 	$DialogueCanvas/DialogueDisplayer.connect("dialogue_finished", self, "_on_DialogueShower_dialogue_finished")
+	VolumeSlider.set_menu_visibility(true)
 
 func _on_FadeInOut_animation_finished(anim_name):
 	if anim_name == "FadeIn":

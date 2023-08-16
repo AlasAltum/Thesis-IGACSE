@@ -61,6 +61,7 @@ func _ready():
 		_node.connect("node_add_to_object_request", NotificationManager, "_on_node_add_to_object")
 	populate_edges()
 	StoredData.world_node = self
+	VolumeSlider.visible = true
 	
 func populate_edges():
 	var nodes_and_edges = $Nodes.get_children()
