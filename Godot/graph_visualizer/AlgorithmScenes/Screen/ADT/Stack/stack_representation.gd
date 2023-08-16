@@ -7,9 +7,9 @@ const node_label_prefab = preload("res://AlgorithmScenes/Screen/ADT/NodeInADT.ts
 onready var nodes_vbox: VBoxContainer = $NodesVBox
 var label_indexes: Dictionary = {}  # Dictionary<int, Label>
 
-
-func _ready() -> void:
-	self.position = Vector2(80.0, 20.0)
+#
+#func _ready() -> void:
+#	self.position = Vector2(80.0, 20.0)
 
 
 # Add new node to the StackADT representation

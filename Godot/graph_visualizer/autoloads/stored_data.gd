@@ -25,7 +25,7 @@ var finished_levels = {
 }
 
 var remaining_levels_to_finish = {
-	"BFS": "res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/BFS_tutorial.tscn",
+	"BFS": "res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/BFS.tscn",
 	"DFS": "res://AlgorithmScenes/Algorithms/DFSAlgorithm/DFS.tscn",
 	"Prim": "res://AlgorithmScenes/Algorithms/KruskalAlgorithm/Kruskal_styled.tscn",
 	"Kruskal": "res://AlgorithmScenes/Algorithms/PrimAlgorithm/Prim_styled.tscn",

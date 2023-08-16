@@ -11,10 +11,10 @@ public class AlgorithmSelectionMenu : CanvasLayer
 	private bool playerHasFinishedBFS = false;
 
 	[Export]
-	private String BFS_SCENE = "res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/BFS_tutorial.tscn";
+	private String BFS_SCENE = "res://AlgorithmScenes/Algorithms/BFSAlgorithm/BFS.tscn";
 
 	[Export]
-	private String DFS_SCENE = "res://AlgorithmScenes/Algorithms/DFSAlgorithm/DFS_styled.tscn";
+	private String DFS_SCENE = "res://AlgorithmScenes/Algorithms/DFSAlgorithm/DFS.tscn";
 
 	[Export]
 	private String PRIM_SCENE = "res://AlgorithmScenes/Algorithms/PrimAlgorithm/Prim_styled.tscn";
