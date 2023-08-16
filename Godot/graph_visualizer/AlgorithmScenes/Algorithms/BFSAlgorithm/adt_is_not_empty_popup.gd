@@ -31,8 +31,9 @@ func _on_adt_is_empty_NoButton_pressed() -> void:
 	NotificationManager._on_adt_is_empty_NoButton_pressed()
 
 func play_wrong_animation():
-	$"%AnimationPlayer".stop()
-	$"%AnimationPlayer".play('message_modulation')
+	if $"%AnimationPlayer":
+		$"%AnimationPlayer".stop()
+		$"%AnimationPlayer".play('message_modulation')
 
 
 func _on_ADTIsNotEmptyPopup_popup_hide():

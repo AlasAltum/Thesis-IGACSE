@@ -68,6 +68,8 @@ func _remove_child(adt_representation):
 
 func _add_child(adt_representation):
 	rep_container.add_child(adt_representation)
+	adt_representation.global_position = get_container_center()
+
 
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -83,7 +85,18 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 				# Free dragging node
 				StoredData.world_node.mouse_has_entered_adt_shower = false
 				StoredData.world_node.free_dragging_node()
-#
+
+
+func get_container_center() -> Vector2:
+	var container = $VBoxContainer/Container
+	var container_size = container.rect_size
+	# Calculate the center position relative to the container's local coordinates
+	var center_local = container_size / 2
+	var global_rect = container.get_global_rect().position
+	var center_global = center_local + global_rect
+	# Convert the center position to global coordinates
+	return center_global
+
 #func _on_Area2D_mouse_entered():
 #	print("entering mouse")
 #	StoredData.world_node.mouse_has_entered_adt_shower = true

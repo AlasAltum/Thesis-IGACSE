@@ -93,10 +93,7 @@ func get_adt():
 
 func get_representation():
 	self.representation = representation_prefab.instance()
-	self.representation.set_index(self.index)
-	if self.selected:
-		self.representation.set_selected()
-
+	self.representation.add_child(sprite_control.duplicate(DUPLICATE_USE_INSTANCING))
 	return self.representation
 
 
