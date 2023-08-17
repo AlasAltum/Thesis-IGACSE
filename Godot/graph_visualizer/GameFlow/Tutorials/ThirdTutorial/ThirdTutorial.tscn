@@ -363,10 +363,10 @@ __meta__ = {
 dialogues_to_show = [ "You are doing very well!
 The next galaxy will be the hard one, so I need you to be ready.", "You need to use Stacks and Queues.
 Both are like Lists. They can contain nodes.", "{fade_stack_queue_and_show_stack}
-This is a stack. You put, A and B in that order.
-You pop one element. This will be B, because the last that came in, is the first to come out. Last In, First Out.", "{show_queue_animation}
-This is a queue. You put  A and B in that order.
-You pop one element. This will be A, because the first that came in, is the first to come out. First In, First Out.", "I will show you the variable selector and the selected variable panel.
+This is a stack. You put two nodes: A and B in that order.
+You pop one node out. This will be B, because the last that came in, is the first to come out. Last In, First Out.", "{show_queue_animation}
+This is a queue. You put two nodes:  A and B in that order.
+You pop one node out. This will be A, because the first that came in, is the first to come out. First In, First Out.", "I will show you the variable selector and the selected variable panel.
 These panels allow you to manipulate variables.
 {show_variable_selectors}", "I will explain you more when you need it!
 Good luck!" ]
