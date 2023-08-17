@@ -2,8 +2,8 @@ extends EffectCheck
 # s.add(t)
 
 const HINT_TEXT = """Press W and S to move the current selected variable.
-After selecting the stack S, hover the mouse on the planet 0 and press R.
-The selected variable will be shown on the bottom right panel. Check it after pressing R!
+After selecting the stack S, hover the mouse on the planet 0 and press R/r.
+The selected variable will be shown on the bottom right panel. Check it after pressing R/r!
 """
 
 func effect_check_on_focused() -> void:
