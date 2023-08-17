@@ -3,6 +3,7 @@ extends KinematicBody2D
 
 
 var selected : bool = false
+var mouse_hovering : bool = false
 export var index : int = 0
 # True for all cases except some tutorials
 export var should_show_ship_flying_around : bool = true
@@ -261,11 +262,13 @@ func _on_Area2D_mouse_entered() -> void:
 	if node_action_menu:
 		node_action_menu.set_position(get_global_mouse_position())
 		node_action_menu.popup()
+	mouse_hovering = true
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 
 # Hide hover menu
 func _on_Area2D_mouse_exited() -> void:
 	self.hide_node_action_menu()
+	mouse_hovering = false
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
 
