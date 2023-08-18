@@ -164,6 +164,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://AlgorithmScenes/Screen/gameplay_menu_popup.gd"
 }, {
+"base": "PinJoint2D",
+"class": "GraphEdge",
+"language": "GDScript",
+"path": "res://Node/graph_edge.gd"
+}, {
 "base": "Node2D",
 "class": "GraphManager",
 "language": "GDScript",
@@ -336,6 +341,7 @@ _global_script_class_icons={
 "FirstStoryModeScene": "",
 "FirstTutorial": "",
 "GameplayMenuPopup": "",
+"GraphEdge": "",
 "GraphManager": "",
 "LengthCIsOnePopup": "",
 "MSTTest": "",

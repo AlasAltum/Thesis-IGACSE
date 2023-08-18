@@ -7,6 +7,7 @@ export (String) var explanation_in_label = "Congratulations! You have successful
 func _ready() -> void:
 	# Needed for the Notification Manager to show when the game is finished
 	NotificationManager.finished_popup = self
+	$"%NextLevelButton".connect("pressed", self, "_on_NextLevelButton_pressed")
 	$"%ResetButton".connect("pressed", self, "_on_ResetButton_pressed")
 	$"%MenuButton".connect("pressed", self, "_on_MenuButton_pressed")
 	$"%Explanation".text = explanation_in_label
@@ -20,6 +21,9 @@ func _notification(what):
 	elif what == NOTIFICATION_POPUP_HIDE:
 		StoredData.popup_captures_input = false
 
+func _on_NextLevelButton_pressed():
+	var new_level = StoredData.get_random_unfinished_level_path()
+	call_deferred("_deferred_goto_scene", new_level)
 
 func _on_ResetButton_pressed() -> void:
 	AudioPlayer.stop_playing_music()

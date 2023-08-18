@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Node/GraphEdge.cs" type="Script" id=1]
+[ext_resource path="res://Node/graph_edge.gd" type="Script" id=1]
 [ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/textures/dotted_texture.png" type="Texture" id=3]
 [ext_resource path="res://Assets/textures/ShipSprite.tscn" type="PackedScene" id=4]
