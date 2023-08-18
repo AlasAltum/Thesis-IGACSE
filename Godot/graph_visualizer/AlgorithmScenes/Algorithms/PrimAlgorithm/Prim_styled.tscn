@@ -2,7 +2,7 @@
 
 [ext_resource path="res://AlgorithmScenes/Code/DebugBlock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://AlgorithmScenes/Screen/ADTSelectionPanel.tscn" type="PackedScene" id=2]
-[ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/PrimCode.tscn" type="PackedScene" id=3]
+[ext_resource path="res://AlgorithmScenes/Algorithms/PrimAlgorithm/PrimCodeNew.tscn" type="PackedScene" id=3]
 [ext_resource path="res://AlgorithmScenes/Screen/TextHintContainer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://AlgorithmScenes/Screen/GameplayMenuPopup.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/textures/Background.tscn" type="PackedScene" id=6]
@@ -35,6 +35,7 @@ layer = -1
 
 [node name="TextHintContainer" parent="CanvasLayer" instance=ExtResource( 4 )]
 anchor_left = 0.209
+anchor_right = 0.209
 anchor_bottom = 0.17
 margin_left = -1.28
 margin_top = 680.0
@@ -50,14 +51,13 @@ mouse_filter = 2
 margin_right = 384.0
 text = "Menu"
 
-[node name="PrimCode" parent="CanvasLayer/LeftPanel" instance=ExtResource( 3 )]
-margin_left = 0.0
-margin_top = 56.0
-margin_right = 384.0
-margin_bottom = 776.0
-
 [node name="ADTSelectionPanel" parent="CanvasLayer/LeftPanel" instance=ExtResource( 2 )]
-margin_top = 780.0
+margin_top = 56.0
+margin_bottom = 356.0
+
+[node name="PrimCode" parent="CanvasLayer/LeftPanel" instance=ExtResource( 3 )]
+margin_top = 360.0
+margin_right = 384.0
 margin_bottom = 1080.0
 
 [node name="BottomPanel" type="HBoxContainer" parent="CanvasLayer"]
@@ -77,12 +77,7 @@ size_flags_vertical = 3
 
 [node name="ADTShower" parent="CanvasLayer/BottomPanel" instance=ExtResource( 28 )]
 visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 1294.0
-margin_top = 0.0
 margin_right = 1528.0
 margin_bottom = 300.0
 size_flags_vertical = 1
