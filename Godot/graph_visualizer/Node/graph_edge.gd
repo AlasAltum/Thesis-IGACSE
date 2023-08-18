@@ -171,7 +171,7 @@ func send_ship_from_nodeA_to_nodeB(nodeA: Node2D, nodeB: Node2D) -> void:
 	ship_travel_animation.loop = false
 	ship_animation_player.play("ShipTravel")
 	# When the animation finishes, show the station at node B
-	yield(ship_travel_animation, "animation_finished")
+	yield(ship_animation_player, "animation_finished")
 	notify_node_to_play_station_animation(nodeB)
 
 
@@ -186,5 +186,5 @@ func edge_connects_nodes_u_and_v(u: Node, v: Node) -> bool:
 # Once the ship arrives at node B, we want to notify the node to play its animation
 # of the station being built and the ship being flying around it
 func notify_node_to_play_station_animation(input_node) -> void:
-	if input_node and input_node.get_class() == "GraphNode":
+	if input_node and input_node.get_class() == "AGraphNode":
 		input_node.on_ship_arrived()
