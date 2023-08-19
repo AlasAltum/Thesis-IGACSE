@@ -17,6 +17,10 @@ func _ready():
 
 func set_menu_visibility(_visibility: bool):
 	$Control/MC/MC/HBoxContainer/MenuButton.visible = _visibility
+
+
+func _on_MenuButton_pressed():
+	$GameplayMenuPopup.popup()
 "
 
 [sub_resource type="AtlasTexture" id=1]
@@ -78,7 +82,6 @@ margin_right = 166.0
 margin_bottom = 55.0
 
 [node name="MenuButton" type="TextureButton" parent="Control/MC/MC/HBoxContainer"]
-visible = false
 margin_right = 40.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 40, 35 )
@@ -90,7 +93,8 @@ texture_hover = SubResource( 2 )
 expand = true
 
 [node name="AudioTextureButton" type="TextureButton" parent="Control/MC/MC/HBoxContainer"]
-margin_right = 40.0
+margin_left = 44.0
+margin_right = 84.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 40, 35 )
 mouse_default_cursor_shape = 2
@@ -102,8 +106,8 @@ texture_pressed = SubResource( 5 )
 expand = true
 
 [node name="HSlider" type="HSlider" parent="Control/MC/MC/HBoxContainer"]
-margin_left = 44.0
-margin_right = 84.0
+margin_left = 88.0
+margin_right = 128.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 40, 35 )
 mouse_default_cursor_shape = 2
@@ -116,6 +120,6 @@ ticks_on_borders = true
 
 [node name="GameplayMenuPopup" parent="." instance=ExtResource( 2 )]
 
-[connection signal="pressed" from="Control/MC/MC/HBoxContainer/MenuButton" to="Control" method="_on_MenuButton_pressed"]
+[connection signal="pressed" from="Control/MC/MC/HBoxContainer/MenuButton" to="." method="_on_MenuButton_pressed"]
 [connection signal="toggled" from="Control/MC/MC/HBoxContainer/AudioTextureButton" to="Control" method="_on_AudioTextureButton_toggled"]
 [connection signal="value_changed" from="Control/MC/MC/HBoxContainer/HSlider" to="Control" method="_on_HSlider_value_changed"]

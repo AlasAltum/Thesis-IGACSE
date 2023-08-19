@@ -34,5 +34,3 @@ func _on_AudioTextureButton_toggled(button_pressed):
 		AudioServer.set_bus_volume_db(_bus, linear2db(hslider.value))
 
 
-func _on_MenuButton_pressed():
-	get_parent().get_node("GameplayMenuPopup").popup()

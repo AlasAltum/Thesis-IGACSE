@@ -87,7 +87,7 @@ margin_bottom = 232.0
 focus_neighbour_top = NodePath("")
 text = "Test Graph Kn"
 
-[node name="SelectLevelButton2" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource( 5 )]
+[node name="SelectLevelButton" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource( 5 )]
 margin_top = 132.0
 margin_bottom = 232.0
 focus_neighbour_top = NodePath("")
@@ -98,3 +98,15 @@ visible = false
 position = Vector2( 960, 540 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 6 )
+
+[node name="LanguageButton" parent="." instance=ExtResource( 5 )]
+anchor_left = 0.187
+anchor_right = 0.187
+margin_left = -102.04
+margin_top = 4.0
+margin_right = 106.96
+margin_bottom = 64.0
+rect_min_size = Vector2( 200, 60 )
+focus_neighbour_top = NodePath("")
+text = "Idioma"
+icon_align = 1

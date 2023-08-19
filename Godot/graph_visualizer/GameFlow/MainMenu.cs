@@ -5,10 +5,11 @@ public class MainMenu : CanvasLayer
 {
 	public Node CurrentScene { get; set; }
 	private Button startGameButton;
-	private Button TutorialButton;
 	private Button selectLevelButton;
+	private Button languageButton;
 
-	private AnimationPlayer animPlayer;
+	private enum Language { English, Spanish };
+	private Language currentLanguage = Language.Spanish;
 
 	[Export]
 	private Godot.Collections.Array<string> TutorialLevelsPaths = new Godot.Collections.Array<string>();
@@ -19,25 +20,21 @@ public class MainMenu : CanvasLayer
 	[Export]
 	private PackedScene algorithmSelectionMenuScene; // "res://GameFlow/AlgorithmSelectionMenu.tscn";
 
-	private String BFS_TEST = "res://AlgorithmScenes/TestScenes/BFS_test.tscn";
-
-	private String DFS_TEST = "res://AlgorithmScenes/TestScenes/DFS_test.tscn";
-
 	// private AlgorithmSelectionMenu algorithmSelectionMenu;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		startGameButton = GetNode<Button>("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/StartGame");
-		TutorialButton = GetNode<Button>("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/TestGraphKnowledge");
-		selectLevelButton = GetNode<Button>("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/SelectLevelButton2");
-
+		selectLevelButton = GetNode<Button>("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/SelectLevelButton");
+		languageButton = GetNode<Button>("LanguageButton");
 		// The exitGame button is not necessary in the HTML version
 		//	exitGame = GetNode<Button>("MarginContainer/VBoxContainer/ExitGame");
 		startGameButton.GrabFocus();
 
 		startGameButton .Connect("pressed", this, nameof(OnStartGameButtonPressed));
 		selectLevelButton.Connect("pressed", this, nameof(OnSelectLevelButtonPressed));
+		languageButton.Connect("pressed", this, nameof(OnLanguageButtonPressed));
 
 		CurrentScene = this;
 
@@ -61,8 +58,6 @@ public class MainMenu : CanvasLayer
 		PlayButtonSound();
 		Node AudioPlayer = GetNode<Node>("/root/AudioPlayer");
 		AudioPlayer.Call("play_button_sound");
-		// algorithmSelectionMenu.BackButton.Disabled = true;
-		// animPlayer.Play("ShowMenu");
 	}
 
 	public void OnStartGameButtonPressed()
@@ -79,23 +74,26 @@ public class MainMenu : CanvasLayer
 		GotoScene(algorithmSelectionMenuScene.ResourcePath);
 	}
 
-
-	private void _on_TestButton_pressed()
+	public void OnLanguageButtonPressed()
 	{
 		PlayButtonSound();
+		Node2D StoredData = GetTree().Root.GetNode<Node2D>("/root/StoredData");
+		// For now, we can only toggle between English and Spanish
+		if (currentLanguage == Language.Spanish)
+		{
+			StoredData.Call("set_language", "en");
+			currentLanguage = Language.English;
+			languageButton.SetText("Idioma");
+		}
+		else 
+		{
+			StoredData.Call("set_language", "es");
+			currentLanguage = Language.Spanish;
+			languageButton.SetText("Language");
+		}
 
-		// Generate random number, with 50% probability, choose BFS or DFS
-		Random rand = new Random();
-		int randNum = rand.Next(0, 2);
-		if (randNum == 0)
-		{
-			GotoScene(DFS_TEST);
-		}
-		else if (randNum == 1)
-		{
-			GotoScene(BFS_TEST);
-		}
 	}
+
 
 	public void onAnimationFinished(String animName)
 	{
