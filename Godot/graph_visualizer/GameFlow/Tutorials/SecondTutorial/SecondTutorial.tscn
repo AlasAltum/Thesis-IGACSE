@@ -333,13 +333,7 @@ size_flags_vertical = 1
 __meta__ = {
 "_editor_description_": ""
 }
-dialogues_to_show = [ "The AI copilot neural network is too expensive.
-It is better to use manual instructions.", "Now we are going to show you how to use our code instructions.", "The panel will notify you when an instruction is ready and you can keep with the next one.
-Follow the instructions to fulfil your mission.
-We are counting on you.
-", "Press the SPACE button to initialize the instructions. When you complete the instruction of each line, press SPACE to go to the next one.
-{show_code_instructions}
-{show_pointer_of_first_instruction} {make_dialogue_buttons_invisible}" ]
+dialogues_to_show = [ "TUTORIAL_2_DIALOGUE_1", "TUTORIAL_2_DIALOGUE_2", "TUTORIAL_2_DIALOGUE_3", "TUTORIAL_2_DIALOGUE_4{show_code_instructions}{show_pointer_of_first_instruction}{make_dialogue_buttons_invisible}" ]
 command_methods_script = ExtResource( 4 )
 should_close_on_finish = false
 
@@ -448,6 +442,7 @@ anims/RESET = SubResource( 24 )
 visible = false
 position = Vector2( 32, 48 )
 frames = SubResource( 26 )
+frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -521,7 +516,6 @@ anims/RESET = SubResource( 40 )
 visible = false
 position = Vector2( 32, 48 )
 frames = SubResource( 26 )
-frame = 1
 speed_scale = 0.5
 playing = true
 

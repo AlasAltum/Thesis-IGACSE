@@ -73,8 +73,8 @@ func on_win_animation_finished(anim_name):
 	# for saving a little red panda!
 	if anim_name == "WinAnimation":
 		var new_dialogues_to_show = [
-			"Congratulations! Now you know how to follow our instructions",
-			"You are almost ready to save galaxies!"
+			"TUTORIAL_2_DIALOGUE_5", #"Congratulations! Now you know how to follow our instructions",
+			"TUTORIAL_2_DIALOGUE_6", #You are almost ready to save galaxies!"
 		]
 		dialogue_displayer.set_and_start_new_dialogues(new_dialogues_to_show)
 		dialogue_displayer.connect("dialogue_finished", self, "on_ending_dialogue_finished")

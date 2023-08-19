@@ -64,8 +64,8 @@ func on_win_animation_finished(_anim_name):
 	# and that they can continue to the next level. Also congratulate them
 	# for saving a little red panda!
 	var new_dialogues_to_show = [
-		"Congratulations! You saved a little red panda!",
-		"You are ready to go to the next level and rescue more pandas!"
+		"FIRST_TUTORIAL_DIALOGUE2",
+		"FIRST_TUTORIAL_DIALOGUE3", #"You are ready to go to the next level and rescue more pandas!"
 	]
 	dialogue_displayer.set_and_start_new_dialogues(new_dialogues_to_show)
 	# Set the next level to be the second tutorial

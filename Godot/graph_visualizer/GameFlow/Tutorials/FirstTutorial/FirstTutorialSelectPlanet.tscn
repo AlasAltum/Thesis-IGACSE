@@ -330,6 +330,7 @@ anims/RESET = SubResource( 24 )
 visible = false
 position = Vector2( 32, 48 )
 frames = SubResource( 26 )
+frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -416,8 +417,7 @@ layer = 10
 anchor_left = 0.125
 anchor_right = 0.875
 anchor_bottom = 0.886
-dialogues_to_show = [ "Here are some red pandas expecting to be rescued.
-Visit each planet to rescue the red pandas in those planets" ]
+dialogues_to_show = [ "FIRST_TUTORIAL_DIALOGUE1" ]
 command_methods_script = ExtResource( 16 )
 
 [connection signal="input_event" from="ColorRect/Planet1/Area2D" to="ColorRect/Planet1" method="_on_Area2D_input_event"]

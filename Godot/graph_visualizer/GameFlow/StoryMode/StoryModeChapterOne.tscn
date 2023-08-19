@@ -121,13 +121,7 @@ layer = 10
 anchor_left = 0.125
 anchor_right = 0.875
 anchor_bottom = 0.886
-dialogues_to_show = [ "Ship: Hello? DCC Station... Can you hear me? Copy... 
-We have not found any red pandas yet...", "Station: Yes, we can barely hear you...
-Just keep searching. 
-We suspect there is a red panda in the next galaxy.", "Ship: There is a problem though... 
-Our fuel levels are nearly depleted.
-We are unable to proceed with our rescue task.", "Station: Proceed to deactivate the AI copilot.
-It wastes too much energy. Just use a  Breadth First Search algorithm.", "Ship: Breadth First ... what?", "Station: I will send you the instructions. Just follow them. Ok? The red pandas need us, this is serious.", "Ship: That's why I am here... Okay, let's go!" ]
+dialogues_to_show = [ "STORYMODE_DIALOGUE1", "STORYMODE_DIALOGUE2", "STORYMODE_DIALOGUE3", "STORYMODE_DIALOGUE4", "STORYMODE_DIALOGUE5", "STORYMODE_DIALOGUE6", "STORYMODE_DIALOGUE7" ]
 command_methods_script = ExtResource( 9 )
 
 [connection signal="animation_finished" from="FadeInOut" to="." method="_on_FadeInOut_animation_finished"]

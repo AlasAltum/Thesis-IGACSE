@@ -1,11 +1,8 @@
 extends EffectCheck
 # s.add(t)
 
-const HINT_TEXT = """Press W and S to move the current selected variable.
-Select the stack S by checking that the line "S: stack()" is green and moving.
-After selecting the stack S, hover the mouse on the planet 0 and press r/R.
-The selected variable will be shown on the bottom right panel. Check it after pressing r/R!
-"""
+const HINT_TEXT = "TUTORIAL_3_HINT_1"
+# """Press W and S to move the current selected variable. Select the stack S by checking that the line "S: stack()" is green and moving. After selecting the stack S, hover the mouse on the planet 0 and press r/R. The selected variable will be shown on the bottom right panel. Check it after pressing r/R!
 
 func effect_check_on_focused() -> void:
 	var t : AGraphNode = StoredData.get_variable("t").get_node()

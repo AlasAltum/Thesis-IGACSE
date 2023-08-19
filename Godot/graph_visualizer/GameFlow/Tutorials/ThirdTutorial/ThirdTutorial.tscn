@@ -360,16 +360,7 @@ size_flags_vertical = 1
 __meta__ = {
 "_editor_description_": ""
 }
-dialogues_to_show = [ "You are doing very well!
-The next galaxy will be the hard one, so I need you to be ready.", "You need to use Stacks and Queues.
-Both are like Lists. They can contain nodes.", "{fade_stack_queue_and_show_stack}
-This is a stack. You put two nodes: A and B in that order.
-You pop one node out. This will be B, because the last that came in, is the first to come out. Last In, First Out.", "{show_queue_animation}
-This is a queue. You put two nodes:  A and B in that order.
-You pop one node out. This will be A, because the first that came in, is the first to come out. First In, First Out.", "I will show you the variable selector and the selected variable panel.
-These panels allow you to manipulate variables.
-{show_variable_selectors}", "I will explain you more when you need it!
-Good luck!" ]
+dialogues_to_show = [ "TUTORIAL_3_DIALOGUE_0", "TUTORIAL_3_DIALOGUE_1", "TUTORIAL_3_DIALOGUE_2{fade_stack_queue_and_show_stack}", "TUTORIAL_3_DIALOGUE_3{show_queue_animation}", "TUTORIAL_3_DIALOGUE_4{show_variable_selectors}", "TUTORIAL_3_DIALOGUE_5" ]
 command_methods_script = ExtResource( 22 )
 should_close_on_finish = false
 

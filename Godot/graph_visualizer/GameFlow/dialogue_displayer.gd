@@ -257,4 +257,5 @@ func close_single_text():
 	skip_button.visible = true
 	next_button.visible = true
 	self.visible = false
+	self.single_text = false
 

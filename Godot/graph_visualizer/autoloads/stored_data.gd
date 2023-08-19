@@ -30,7 +30,7 @@ var remaining_levels_to_finish = {
 	"Prim": "res://AlgorithmScenes/Algorithms/KruskalAlgorithm/Kruskal_styled.tscn",
 	"Kruskal": "res://AlgorithmScenes/Algorithms/PrimAlgorithm/Prim_styled.tscn",
 }
-
+var current_language = "en" # Options are: ["es", "en"]
 var API_URL = "http://localhost:7071/api/igasce"
 var types_with_adt: Array = ["KinematicBody2D", "GraphEdge", "AGraphNode"]
 var has_initialized: bool = false  # Used in C# in the main menu
@@ -210,6 +210,8 @@ func get_random_unfinished_level_path() -> String:
 	var random_key = keys[randi() % keys.size()]
 	return remaining_levels_to_finish[random_key]
 
+func set_language(lang: String) -> void:
+	TranslationServer.set_locale(lang)
 
 # When game gets reset, reset data excepting finished_levels 
 func reset_data():
