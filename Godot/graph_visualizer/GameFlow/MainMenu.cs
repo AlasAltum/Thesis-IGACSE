@@ -83,13 +83,13 @@ public class MainMenu : CanvasLayer
 		{
 			StoredData.Call("set_language", "en");
 			currentLanguage = Language.English;
-			languageButton.SetText("Idioma");
+			languageButton.SetText("English");
 		}
 		else 
 		{
 			StoredData.Call("set_language", "es");
 			currentLanguage = Language.Spanish;
-			languageButton.SetText("Language");
+			languageButton.SetText("Español");
 		}
 
 	}

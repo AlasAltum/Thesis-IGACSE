@@ -108,5 +108,5 @@ margin_right = 106.96
 margin_bottom = 64.0
 rect_min_size = Vector2( 200, 60 )
 focus_neighbour_top = NodePath("")
-text = "Idioma"
+text = "Español"
 icon_align = 1
