@@ -54,8 +54,10 @@ func _ready():
 	NotificationManager.allow_code_advance = false
 	call_deferred("update_names_indexes_of_nodes")
 	dialogue_displayer.skip_button.visible = false
+	dialogue_displayer.next_button.visible = false
 	dialogue_displayer.accepts_input = false
 	yield(dialogue_timer, "timeout")
+	dialogue_displayer.next_button.visible = true
 	dialogue_displayer.accepts_input = true
 	for _node in StoredData.nodes:
 		_node.connect("node_add_to_object_request", NotificationManager, "_on_node_add_to_object")
