@@ -32,16 +32,16 @@ script = ExtResource( 2 )
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 15.0
 margin_top = 16.0
-margin_right = 358.0
+margin_right = 366.0
 margin_bottom = 239.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VarNameLabel" type="Label" parent="VBoxContainer"]
-margin_right = 343.0
+margin_right = 351.0
 margin_bottom = 41.0
 rect_min_size = Vector2( 220, 0 )
-text = "SELECTED VARIABLE"
+text = "SELECTED_VARIABLE"
 align = 1
 valign = 1
 __meta__ = {
@@ -50,7 +50,7 @@ __meta__ = {
 
 [node name="Container" type="Container" parent="VBoxContainer"]
 margin_top = 45.0
-margin_right = 343.0
+margin_right = 351.0
 margin_bottom = 223.0
 size_flags_horizontal = 3
 size_flags_vertical = 3

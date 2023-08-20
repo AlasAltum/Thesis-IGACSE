@@ -31,7 +31,6 @@ tracks/1/keys = {
 }
 
 [node name="UNodeIsNotAStarPopup" type="WindowDialog"]
-visible = true
 margin_left = 500.0
 margin_top = 220.0
 margin_right = 1080.0
@@ -64,7 +63,7 @@ margin_right = 574.0
 margin_bottom = 41.0
 rect_pivot_offset = Vector2( 265.108, 0 )
 size_flags_horizontal = 3
-text = "Is the U node a star?"
+text = "IS_U_A_STAR?"
 align = 1
 autowrap = true
 __meta__ = {

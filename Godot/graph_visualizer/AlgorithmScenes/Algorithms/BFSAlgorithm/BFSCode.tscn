@@ -20,7 +20,7 @@
 
 [sub_resource type="Theme" id=1]
 
-[node name="DFSCodeBlock" type="ScrollContainer"]
+[node name="BFSCodeBlock" type="ScrollContainer"]
 margin_right = 400.0
 margin_bottom = 906.0
 size_flags_horizontal = 3

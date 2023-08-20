@@ -160,17 +160,17 @@ margin_left = -523.0
 margin_top = -238.0
 margin_right = 23.0
 margin_bottom = -58.0
-ADT_type_and_var_name = "Stack s"
 
 [node name="FinishedPopup" parent="Popups" instance=ExtResource( 38 )]
+visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -605.0
 margin_top = -359.0
-margin_right = 162.0
-margin_bottom = -4.0
-explanation_in_label = "Congratulations! You have successfully finished the BFS Algorithm! Go back to menu and try new levels!"
+margin_right = 145.0
+margin_bottom = 5.0
+explanation_in_label = "BFS_WIN_MESSAGE"
 
 [node name="Background" parent="." instance=ExtResource( 6 )]

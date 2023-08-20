@@ -8,6 +8,7 @@ func _ready() -> void:
 	$VBoxContainer/CloseButton.connect("pressed", self, "_on_CloseButton_pressed")
 	$VBoxContainer/MenuButton.connect("pressed", self, "_on_MenuButton_pressed")
 	var main_node = get_tree().get_root().get_node("Main")
+	get_close_button().visible = false
 
 func _input(event):
 	# If there is no other popup capturing input

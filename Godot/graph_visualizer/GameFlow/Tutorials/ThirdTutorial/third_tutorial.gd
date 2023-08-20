@@ -100,12 +100,12 @@ func on_win_animation_finished(anim_name):
 	# for saving a little red panda!
 	if anim_name == "WinAnimation":
 		var new_dialogues_to_show = [
-			"Congratulations! Now you know how to use the variables and add nodes to a Stack",
-			"Save these sad pandas please! THEY NEED YOU!"
+			"TUTORIAL_3_DIALOGUE_6", # "Congratulations! Now you know how to use the variables and add nodes to a Stack",
+			"TUTORIAL_3_DIALOGUE_7", # "Save these sad pandas please! THEY NEED YOU!"
 		]
 		dialogue_displayer.set_and_start_new_dialogues(new_dialogues_to_show)
 		dialogue_displayer.connect("dialogue_finished", self, "on_ending_dialogue_finished")
-
+		dialogue_displayer.single_text = false
 
 func on_ending_dialogue_finished() -> void:
 	# Go to the next scene

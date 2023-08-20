@@ -75,4 +75,15 @@ The selected variable will be shown on the bottom right panel. Check it after pr
 Selecciona la pila (Stack) S. la línea ""S: stack()"" se pondá verse y se moverá.
 Después de seleccionar la pila (Stack) S, posiciona el mouse sobre el planeta 0 y presiona r/R.
 La variable seleccionada se mostrará en el panel de la esquina inferior derecha. ¡Fíjate en ella después de presionar r/R!"
-;;
+SELECTED_VARIABLE;SELECTED VARIABLE;VARIABLE SELECCIONADA
+E: Select/Unselect;E: Select/Unselect;E: Seleccionar/Deseleccionar
+R: Add to selected object;R: Add to selected object;R: Agregar al objeto seleccionado
+IS_U_A_STAR?;Is the U node a star?;Es el nodo U una estrella?
+BFS_WIN_MESSAGE;"Congratulations! You have successfully finished the BFS Level!
+Go and finish the next level!";"¡Felicidades! Completaste el nivel de BFS (Breadth First Search / Búsqueda en achura)
+¡Ve al siguiente nivel!"
+DFS_WIN_MESSAGE;"Congratulations! You have successfully finished the DFS Level!
+Go and finish the next level!";"¡Felicidades! Completaste el nivel de DFS (Depth First Search / Búsqueda en profundidad)
+¡Ve al siguiente nivel!"
+Next Level;Next Level;Siguiente nivel
+Reset Level;Reset Level;Reiniciar nivel

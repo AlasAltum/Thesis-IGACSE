@@ -13,6 +13,10 @@ func _ready() -> void:
 func set_text(ADT_type_name: String) -> void:
 	var explanation_label: Label = $VB/Explanation
 	var explanation = "Is the {ADT_type_name} empty?"
+	match TranslationServer.get_locale():
+		"es":
+			explanation = "Está la estructura {ADT_type_name} vacía?"
+
 	explanation = explanation.format({"ADT_type_name": ADT_type_name})
 	explanation_label.text = explanation
 
