@@ -260,6 +260,12 @@ func _on_Area2D_mouse_exited() -> void:
 	mouse_hovering = false
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
+
+# Click on the node = Press select/unselect node
+func _on_Area2D_input_event(_viewport, event, _shape_idx):
+	if _event_is_left_click(event):
+		_on_Select_UnselectButton_pressed()
+
 func _event_is_left_click(event):
 	return (event is InputEventMouseButton and
 		event.button_index == BUTTON_LEFT and
