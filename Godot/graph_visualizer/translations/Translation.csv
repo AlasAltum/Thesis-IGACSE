@@ -76,8 +76,8 @@ Selecciona la pila (Stack) S. la línea ""S: stack()"" se pondá verse y se move
 Después de seleccionar la pila (Stack) S, posiciona el mouse sobre el planeta 0 y presiona r/R.
 La variable seleccionada se mostrará en el panel de la esquina inferior derecha. ¡Fíjate en ella después de presionar r/R!"
 SELECTED_VARIABLE;SELECTED VARIABLE;VARIABLE SELECCIONADA
-E: Select/Unselect;E: Select/Unselect;E: Seleccionar/Deseleccionar
-R: Add to selected object;R: Add to selected object;R: Agregar al objeto seleccionado
+Click: Select/Unselect;Click: Select/Unselect;Click: Seleccionar/Deseleccionar
+R: Add to Current Var;R: Add to Current Var;R: Agregar a la variable seleccionada
 IS_U_A_STAR?;Is the U node a star?;Es el nodo U una estrella?
 BFS_WIN_MESSAGE;"Congratulations! You have successfully finished the BFS Level!
 Go and finish the next level!";"¡Felicidades! Completaste el nivel de BFS (Breadth First Search / Búsqueda en achura)

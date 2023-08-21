@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Node/font/node_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Node/graph_node.gd" type="Script" id=2]
@@ -24,6 +24,14 @@ shader_param/WHITE = Plane( 1, 1, 1, 0.2 )
 shader_param/FREQ = 3.0
 shader_param/highlight = 0.0
 shader_param/amplitude = 0.1
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0.121569, 0.0117647, 0.596078, 0.145098 )
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 8
+anti_aliasing = false
 
 [sub_resource type="Animation" id=13]
 resource_name = "ClickNode"
@@ -171,16 +179,14 @@ mouse_filter = 2
 theme = ExtResource( 12 )
 
 [node name="PanelContainer" type="PanelContainer" parent="Popup"]
-use_parent_material = true
 margin_right = 112.0
 margin_bottom = 58.0
 mouse_filter = 2
+custom_styles/panel = SubResource( 18 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Popup/PanelContainer"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 232.0
-margin_bottom = 83.0
+margin_right = 201.0
+margin_bottom = 76.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -190,17 +196,17 @@ __meta__ = {
 }
 
 [node name="SelectUnselectButton" type="Button" parent="Popup/PanelContainer/VBoxContainer"]
-margin_right = 225.0
+margin_right = 201.0
 margin_bottom = 36.0
 size_flags_horizontal = 3
-text = "E: Select/Unselect"
+text = "Click: Select/Unselect"
 
 [node name="AddToObjectButton" type="Button" parent="Popup/PanelContainer/VBoxContainer"]
 margin_top = 40.0
-margin_right = 225.0
+margin_right = 201.0
 margin_bottom = 76.0
 size_flags_horizontal = 3
-text = "R: Add to selected object"
+text = "R: Add to Current Var"
 __meta__ = {
 "_edit_use_anchors_": false
 }
