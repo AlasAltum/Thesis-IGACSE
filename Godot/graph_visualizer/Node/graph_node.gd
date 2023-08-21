@@ -7,7 +7,7 @@ var mouse_hovering : bool = false
 export var index : int = 0
 # True for all cases except some tutorials
 export var should_show_ship_flying_around : bool = true
-export var should_show_base_when_selected : bool = false 
+export var should_show_base_when_selected : bool = false
 var edges : Array setget set_edges, get_edges
 var pressed: bool = false
 var aux_position: Vector2
@@ -51,13 +51,8 @@ const SELECTED_COLOR = Color(1.0, 1.0, 0.0, 0.8)
 const SELECTED_LABEL_COLOR = Color(0.0, 1.0, 0.0, 1.0)
 
 
-
 signal node_add_to_object_request(node)
 signal node_selected(node)
-
-
-var node_is_being_dragged = false
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -224,29 +219,8 @@ func get_added_to_focused_object_in_variables():
 # Allow node-dragging to the ADT panel.
 # _on_Area2D_input_event
 func _input(event):
-	# Menu must be open to allow these options
-	if node_is_being_dragged:
-		if StoredData.world_node.dragging_node and event is InputEventMouseMotion:
-			# User is dragging the sprite
-			StoredData.world_node.set_dragging_node_global_pos()
-		# Relase event
-		# if node is dropped on the ADTShower, add it to the variables		
-		elif event is InputEventMouseButton and event.button_index == BUTTON_LEFT and !event.pressed:
-			if StoredData.adt_shower and StoredData.adt_shower.get_rect().has_point(get_global_mouse_position()):
-				get_added_to_focused_object_in_variables()
-				StoredData.world_node.dragging_node.call_deferred("queue_free")
-				StoredData.world_node.start_release_dragging_node()
-
-			# User has released the mouse button
-			# if node is dropped out of the ADTshower, delete it
-			else:
-				StoredData.world_node.start_release_dragging_node()
-
-			node_is_being_dragged = false
-
-	else:
-		# Case click on the node, no dragging
-		if event is InputEventKey and is_mouse_inside_node():
+	if is_mouse_inside_node():
+		if event is InputEventKey:
 			# E action corresponds to add select the node
 			if Input.is_action_just_pressed("NodeSelect"):
 				_on_Select_UnselectButton_pressed()
@@ -254,8 +228,23 @@ func _input(event):
 			elif Input.is_action_just_pressed("NodeAddToObject"):
 				get_added_to_focused_object_in_variables()
 
+		elif event is InputEventMouseMotion:
+			if node_action_menu:
+				node_action_menu.set_position(get_global_mouse_position())
+				node_action_menu.popup()
+				mouse_hovering = true
+				Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+
+		elif Input.is_action_just_pressed("NodeSelect"):
+				_on_Select_UnselectButton_pressed()
+
+	else:
+		self.hide_node_action_menu()
+		mouse_hovering = false
+
+	
 func is_mouse_inside_node() -> bool:
-	return get_global_mouse_position().distance_to(self.global_position) < PLANET_SIZE
+	return get_global_mouse_position().distance_to(self.global_position) < PLANET_SIZE * 0.5
 
 # Show hover menu
 func _on_Area2D_mouse_entered() -> void:
@@ -270,17 +259,6 @@ func _on_Area2D_mouse_exited() -> void:
 	self.hide_node_action_menu()
 	mouse_hovering = false
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
-
-
-# Click on the node = Press select/unselect node
-func _on_Area2D_input_event(_viewport, event, _shape_idx):
-	if _event_is_left_click(event):
-		if StoredData.allow_nodes_dragging:
-			node_is_being_dragged = true
-			StoredData.world_node.set_dragging_node($Sprite/SpriteTexture, self)
-
-		else:
-			_on_Select_UnselectButton_pressed()
 
 func _event_is_left_click(event):
 	return (event is InputEventMouseButton and
