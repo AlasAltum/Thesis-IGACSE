@@ -16,7 +16,7 @@ export (float) var time_between_dialogs = 5.0
 onready var tutorial_animation_player: AnimationPlayer = $"%AnimationPlayer"
 onready var dialogue_displayer: DialogueDisplayer = $DialogueCanvas/DialogueDisplayer
 onready var code_block = $HUD/CodeBlock
-onready var dialogue_timer = $DialogueCanvas/DialogueTimer
+onready var dialogue_timer : Timer = $DialogueCanvas/DialogueTimer
 
 
 const __planets_textures_original = [
@@ -56,9 +56,12 @@ func _ready():
 	dialogue_displayer.skip_button.visible = false
 	dialogue_displayer.next_button.visible = false
 	dialogue_displayer.accepts_input = false
+	# The wait time of the dialogue_timer is lower the first time
+	dialogue_timer.wait_time = 2.0
 	yield(dialogue_timer, "timeout")
 	dialogue_displayer.next_button.visible = true
 	dialogue_displayer.accepts_input = true
+	dialogue_timer.wait_time = 4.0
 	for _node in StoredData.nodes:
 		_node.connect("node_add_to_object_request", NotificationManager, "_on_node_add_to_object")
 	populate_edges()

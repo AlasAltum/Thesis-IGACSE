@@ -365,7 +365,7 @@ command_methods_script = ExtResource( 22 )
 should_close_on_finish = false
 
 [node name="DialogueTimer" type="Timer" parent="DialogueCanvas"]
-wait_time = 4.0
+wait_time = 2.0
 one_shot = true
 autostart = true
 
