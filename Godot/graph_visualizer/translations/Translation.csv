@@ -68,12 +68,11 @@ Good luck!";"Te explicaré más cuando lo necesites!
 Buena suerte!"
 TUTORIAL_3_DIALOGUE_6;Congratulations! Now you know how to use the variables and add nodes to a Stack;¡Felicidades! Ahora sabes cómo usar variables y agregar nodos a la pila (Stack)
 TUTORIAL_3_DIALOGUE_7;Save these sad pandas please! THEY NEED YOU!;Por favor, salva a estos pandas tristes. TE NECESITAN! uwu
-TUTORIAL_3_HINT_1;"Press W and S to change the current selected variable.
-Select the stack S by checking that the line ""S: stack()"" is green and moving.
-After selecting the stack S, hover the mouse on the planet 0 and press r/R.
-The selected variable will be shown on the bottom right panel. Check it after pressing r/R!";"Presiona W y S para cambiar la variable seleccionada.
-Selecciona la pila (Stack) S. la línea ""S: stack()"" se pondá verse y se moverá.
-Después de seleccionar la pila (Stack) S, posiciona el mouse sobre el planeta 0 y presiona r/R.
+TUTORIAL_3_HINT_1;"Press the keys W and S to change the current variable.
+Select the variable s: stack() by pressing S once.";"Presiona las teclas W y S para cambiar la variable seleccionada.
+Selecciona la variable s: stack() presionando la tecla S una vez."
+TUTORIAL_3_HINT_2;"While the selected variable is the stack S, hover the mouse on the planet 0 and press r/R.
+The selected variable will be shown on the bottom right panel. Check it after pressing r/R";"Mientras la pila (Stack) S está como variable seleccionada, posiciona el mouse sobre el planeta 0 y presiona r/R.
 La variable seleccionada se mostrará en el panel de la esquina inferior derecha. ¡Fíjate en ella después de presionar r/R!"
 SELECTED_VARIABLE;SELECTED VARIABLE;VARIABLE SELECCIONADA
 Click: Select/Unselect;Click: Select/Unselect;Click: Seleccionar/Deseleccionar

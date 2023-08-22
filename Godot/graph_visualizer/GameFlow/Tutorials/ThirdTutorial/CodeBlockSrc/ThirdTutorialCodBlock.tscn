@@ -1,15 +1,16 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/2_stack.gd" type="Script" id=1]
 [ext_resource path="res://Assets/GUI/code_block_sci_fi_theme.tres" type="Theme" id=2]
 [ext_resource path="res://GameFlow/Tutorials/SecondTutorial/CodeBlockSrc/code_press_enter.gd" type="Script" id=3]
 [ext_resource path="res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/1_take_node_0_tutorial.gd" type="Script" id=4]
 [ext_resource path="res://AlgorithmScenes/Code/CodeBlock/code_block.gd" type="Script" id=5]
-[ext_resource path="res://GameFlow/Tutorials/ThirdTutorial/CodeBlockSrc/3_add_to_stack_third_tutorial.gd" type="Script" id=6]
+[ext_resource path="res://GameFlow/Tutorials/ThirdTutorial/CodeBlockSrc/5_add_to_stack_third_tutorial.gd" type="Script" id=6]
 [ext_resource path="res://AlgorithmScenes/Algorithms/DFSAlgorithm/5_v_s_top.gd" type="Script" id=7]
-[ext_resource path="res://GameFlow/Tutorials/ThirdTutorial/CodeBlockSrc/4_add_to_stack_third_tutorial.gd" type="Script" id=8]
-[ext_resource path="res://GameFlow/Tutorials/ThirdTutorial/CodeBlockSrc/6_click_node_v.gd" type="Script" id=9]
-[ext_resource path="res://GameFlow/Tutorials/ThirdTutorial/CodeBlockSrc/7_hover_mouse_on_node_0.gd" type="Script" id=10]
+[ext_resource path="res://GameFlow/Tutorials/ThirdTutorial/CodeBlockSrc/6_add_to_stack_third_tutorial.gd" type="Script" id=8]
+[ext_resource path="res://GameFlow/Tutorials/ThirdTutorial/CodeBlockSrc/8_click_node_v.gd" type="Script" id=9]
+[ext_resource path="res://GameFlow/Tutorials/ThirdTutorial/CodeBlockSrc/3_hover_mouse_on_node_0.gd" type="Script" id=10]
+[ext_resource path="res://GameFlow/Tutorials/ThirdTutorial/CodeBlockSrc/4_s_make_current_variable.gd" type="Script" id=11]
 [ext_resource path="res://AlgorithmScenes/Code/CodeBlock/null_effect.gd" type="Script" id=15]
 [ext_resource path="res://AlgorithmScenes/Code/CodeBlock/CodeLine.tscn" type="PackedScene" id=20]
 
@@ -54,9 +55,9 @@ alignment = 1
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 73.0
+margin_top = 51.0
 margin_right = 764.0
-margin_bottom = 113.0
+margin_bottom = 91.0
 focused = true
 code_text = "Press SPACE"
 effect_check = ExtResource( 3 )
@@ -65,9 +66,9 @@ effect_check = ExtResource( 3 )
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 117.0
+margin_top = 95.0
 margin_right = 764.0
-margin_bottom = 157.0
+margin_bottom = 135.0
 line_index = 1
 code_text = "t = click_node_0"
 effect_check = ExtResource( 4 )
@@ -76,9 +77,9 @@ effect_check = ExtResource( 4 )
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 161.0
+margin_top = 139.0
 margin_right = 764.0
-margin_bottom = 201.0
+margin_bottom = 179.0
 line_index = 2
 code_text = "s = stack()"
 effect_check = ExtResource( 1 )
@@ -87,9 +88,9 @@ effect_check = ExtResource( 1 )
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 205.0
+margin_top = 183.0
 margin_right = 764.0
-margin_bottom = 245.0
+margin_bottom = 223.0
 line_index = 3
 code_text = "hover_mouse_on_node_0()"
 effect_check = ExtResource( 10 )
@@ -98,54 +99,65 @@ effect_check = ExtResource( 10 )
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 249.0
+margin_top = 227.0
 margin_right = 764.0
-margin_bottom = 289.0
+margin_bottom = 267.0
 line_index = 4
-code_text = "s.add(t)"
-effect_check = ExtResource( 6 )
+code_text = "s.make_current_variable() [Press S]"
+effect_check = ExtResource( 11 )
 
 [node name="PanelContainer5" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 293.0
+margin_top = 271.0
 margin_right = 764.0
-margin_bottom = 333.0
+margin_bottom = 311.0
 line_index = 5
-code_text = "s.add(2)"
-effect_check = ExtResource( 8 )
+code_text = "s.add(t)"
+effect_check = ExtResource( 6 )
 
 [node name="PanelContainer6" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 337.0
+margin_top = 315.0
 margin_right = 764.0
-margin_bottom = 377.0
+margin_bottom = 355.0
 line_index = 6
-code_text = "v = s.pop()"
-effect_check = ExtResource( 7 )
+code_text = "s.add(2)"
+effect_check = ExtResource( 8 )
 
 [node name="PanelContainer7" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 381.0
+margin_top = 359.0
 margin_right = 764.0
-margin_bottom = 421.0
+margin_bottom = 399.0
 line_index = 7
-code_text = "v.click_node()"
-effect_check = ExtResource( 9 )
+code_text = "v = s.pop()"
+effect_check = ExtResource( 7 )
 
 [node name="PanelContainer8" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 425.0
+margin_top = 403.0
 margin_right = 764.0
-margin_bottom = 465.0
+margin_bottom = 443.0
 line_index = 8
+code_text = "v.click_node()"
+effect_check = ExtResource( 9 )
+
+[node name="PanelContainer9" parent="MarginContainer/LinesContainer" instance=ExtResource( 20 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 447.0
+margin_right = 764.0
+margin_bottom = 487.0
+line_index = 9
 code_text = " end"
 effect_check = ExtResource( 15 )
 plays_confirmation_audio = false

@@ -140,6 +140,8 @@ func erase_variable(var_name: String) -> void:
 	else:
 		printerr("The variable " + var_name + " does not exist")
 
+func get_selected_variable_name():
+	return adt_mediator.get_selected_variable_name()
 
 func add_node_to_adt(object_name: String, incoming_node: Object) -> void:
 	adt_mediator.add_node_to_adt(object_name, incoming_node)
@@ -167,10 +169,6 @@ func selected_variable_allows_object_adition(node) -> bool:
 		var selected_variable_allows_object_adition = adt_mediator.selected_variable_allows_object_adition()
 		return node_may_be_added_to_adt && selected_variable_allows_object_adition
 	return false
-
-func get_selected_variable_name() -> String:
-	return adt_mediator.get_selected_variable_name()
-
 
 ## These functions are to avoid user from adding multiple times the same
 ## node or the wrong node to an ADT, avoiding to make the user feel frustrated

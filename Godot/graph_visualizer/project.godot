@@ -490,7 +490,6 @@ NextDialogue={
 
 [locale]
 
-test="es"
 translations=PoolStringArray( "res://translations/Translation.en.translation", "res://translations/Translation.es.translation" )
 locale_filter=[ 1, [ "en", "es" ] ]
 
