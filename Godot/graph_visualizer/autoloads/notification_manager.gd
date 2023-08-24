@@ -2,7 +2,7 @@
 extends Node2D
 
 
-const CREDITS_PATH = ""
+const CREDITS_PATH = "res://AlgorithmScenes/Screen/Credits.tscn"
 ## Code execution popups ##
 var finished_popup : WindowDialog # : FinishedPopup
 var u_is_explored_popup : WindowDialog  # : $UNodeIsExploredPopup

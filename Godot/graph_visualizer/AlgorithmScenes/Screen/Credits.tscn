@@ -1,0 +1,109 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/GUI/sci-fi-theme.tres" type="Theme" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "CreditsMovement"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -2000 ) ]
+}
+
+[node name="Credits" type="Node2D"]
+
+[node name="CreditsCanvas" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CreditsCanvas"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -960.0
+margin_top = -2540.0
+margin_right = 966.0
+margin_bottom = 229.0
+theme = ExtResource( 1 )
+text = "Creator: AlasAltum (Alonso Utreras)
+Source Code: https://github.com/AlasAltum
+Sounds, assets, textures: GameSupplyGuy
+https://gamesupply.itch.io/ultimate-space-game-mega-asset-package
+
+Menu Background:
+https://helianthus-games.itch.io/parallax-space-background
+
+Planets generated using:
+https://deep-fold.itch.io/pixel-planet-generator
+
+Circle Variable Node:
+Noemí Zúñiga
+
+
+Audios: 
+https://godotassetlibrary.com/asset/kfcg17/kenney-interface-sounds
+https://gamesupply.itch.io/300-futuristic-sfx-with-names
+
+
+Fonts:
+PTSans:
+Copyright (c) 2010, ParaType Ltd. (http://www.paratype.com/public),
+
+For variables and node variables:
+Alegreya Sans
+https://fonts.google.com/specimen/Alegreya+Sans+SC/about?preview.text=uvt&preview.text_type=custom
+
+bainsley: Paul Miller
+https://www.fontsquirrel.com/fonts/bainsley
+
+createland: Awansenja Type
+https://www.dafont.com/createland.font
+
+fresh_lychee: Khurasan
+https://www.dafont.com/fresh-lychee.font
+
+ubuntu_title: Volvoguy
+https://www.dafont.com/es/ubuntu-title.font
+
+m5x7: 
+https://managore.itch.io/m5x7
+
+pixel-keys-x16
+https://joshuajennerdev.itch.io/pixel-keys-x16/
+
+styles:
+sci-fi theme used for menus and font
+https://azagaya.itch.io/sci-fi-theme
+
+Some GUI elements (inspiration)
+https://sungraphica.itch.io/sci-fi-game-ui-collection-free-version?download
+
+Some GUI elements: (I am not using them, but were used as inspiration)
+https://free-game-assets.itch.io/free-space-shooter-game-user-interface
+
+LeftMouse animation:
+https://greenpixels.itch.io/pixel-art-asset-3
+
+Thanks for playing!
+I hope you enjoyed and learnt a lot!
+Game Engine: Godot Engine
+"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CreditsCanvas"]
+anims/CreditsMovement = SubResource( 1 )
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )

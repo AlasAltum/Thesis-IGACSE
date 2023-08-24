@@ -4,12 +4,10 @@ https://gamesupply.itch.io/ultimate-space-game-mega-asset-package
 Menu Background:
 https://helianthus-games.itch.io/parallax-space-background
 
-Planets generated using:
+Planets textures generated using:
 https://deep-fold.itch.io/pixel-planet-generator
 
-Circle Variable Node:
-Noemí Zúñiga
-
+Circle Variable Node: Noemí Zúñiga
 
 Audios: 
 https://godotassetlibrary.com/asset/kfcg17/kenney-interface-sounds
@@ -20,27 +18,24 @@ Fonts:
 PTSans:
 Copyright (c) 2010, ParaType Ltd. (http://www.paratype.com/public),
 
-For variables and node variables:
-Alegreya Sans
+Alegreya Sans For variables and node variables:
 https://fonts.google.com/specimen/Alegreya+Sans+SC/about?preview.text=uvt&preview.text_type=custom
 
-bainsley: Paul Miller
+Bbainsley: Paul Miller
 https://www.fontsquirrel.com/fonts/bainsley
 
-createland: Awansenja Type
+Createland for Popups: Awansenja Type
 https://www.dafont.com/createland.font
 
-fresh_lychee: Khurasan
-https://www.dafont.com/fresh-lychee.font
+Dogica by Roberto Mocci
+https://www.dafont.com/dogica.font
 
-ubuntu_title: Volvoguy
+Pixel Game Fonts by Bryndan Meyerholt
+https://www.dafont.com/pixelgamefont.font
+
+Ubuntu_title: Volvoguy for Dialogues
 https://www.dafont.com/es/ubuntu-title.font
 
-m5x7: 
-https://managore.itch.io/m5x7
-
-pixel-keys-x16
-https://joshuajennerdev.itch.io/pixel-keys-x16/
 
 styles:
 sci-fi theme used for menus and font
