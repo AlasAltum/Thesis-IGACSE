@@ -37,7 +37,7 @@ public class MainMenu : CanvasLayer
 		languageButton.Connect("pressed", this, nameof(OnLanguageButtonPressed));
 
 		CurrentScene = this;
-
+		TranslationServer.SetLocale("es"); // By default it should be spanish
 		Node2D StoredData = GetTree().Root.GetNode<Node2D>("/root/StoredData");
 	}
 
