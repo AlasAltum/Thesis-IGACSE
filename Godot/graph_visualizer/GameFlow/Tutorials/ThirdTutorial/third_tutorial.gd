@@ -44,7 +44,6 @@ var planets_textures = [
 
 
 func _ready():
-	Engine.time_scale = 10.0
 	StoredData.world_node = self
 	tutorial_animation_player.play("OnReady")
 	tutorial_animation_player.connect("animation_finished", self, "on_win_animation_finished")

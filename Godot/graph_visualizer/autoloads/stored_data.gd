@@ -20,15 +20,15 @@ var story_mode_scenes = {
 var finished_levels = {
 	"BFS": false,
 	"DFS": false,
-	"Prim": false,
-	"Kruskal": false,
+	# "Prim": false,
+	# "Kruskal": false,
 }
 
 var remaining_levels_to_finish = {
-	"BFS": "res://AlgorithmScenes/Algorithms/BFSAlgorithmTutorial/BFS.tscn",
+	"BFS": "res://AlgorithmScenes/Algorithms/BFSAlgorithm/BFS.tscn",
 	"DFS": "res://AlgorithmScenes/Algorithms/DFSAlgorithm/DFS.tscn",
-	"Prim": "res://AlgorithmScenes/Algorithms/KruskalAlgorithm/Kruskal_styled.tscn",
-	"Kruskal": "res://AlgorithmScenes/Algorithms/PrimAlgorithm/Prim_styled.tscn",
+	# "Prim": "res://AlgorithmScenes/Algorithms/KruskalAlgorithm/Kruskal_styled.tscn",
+	# "Kruskal": "res://AlgorithmScenes/Algorithms/PrimAlgorithm/Prim_styled.tscn",
 }
 var current_language = "en" # Options are: ["es", "en"]
 var API_URL = "http://localhost:7071/api/igasce"
@@ -205,6 +205,10 @@ func get_node_by_index(input_index):
 func get_random_unfinished_level_path() -> String:
 	# Get a random level from remaining_levels_to_finish
 	var keys = remaining_levels_to_finish.keys()
+	if keys.size() == 0:
+#		NotificationManager._deferred_goto_scene(path, destroy_current_world = true, calling_node = null)
+		NotificationManager.show_credits(get_node("Main"))
+
 	var random_key = keys[randi() % keys.size()]
 	return remaining_levels_to_finish[random_key]
 
