@@ -1,0 +1,127 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://AlgorithmScenes/Screen/graph_screen.gd" type="Script" id=2]
+[ext_resource path="res://Node/font/PT_Sans_Narrow/PTSansNarrow-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://AlgorithmScenes/Screen/button_theme.tres" type="Theme" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+border_color = Color( 1, 0, 0, 1 )
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=3]
+default_font = SubResource( 2 )
+
+[sub_resource type="CSharpScript" id=4]
+script/source = "using Godot;
+using System;
+using System.Linq; // Import the C# collection query api
+
+
+public class OneToggleButtonVBoxContaner : VBoxContainer
+{
+
+    private Godot.Collections.Array<Button> toggle_buttons;
+
+    [Export]
+    private Godot.Collections.Array<String> available_modes;
+    public String mode;
+
+    public void set_mode(int index){
+        this.mode = available_modes[index];
+    }
+
+    public String get_mode(){
+        return this.mode;
+    }
+
+    private void ToggleButton(Button incoming_button)
+    {
+        foreach (Button child_button in toggle_buttons){
+            if (child_button == incoming_button)
+            {
+                incoming_button.Pressed = true;
+                
+            } else {
+                child_button.Pressed = false;
+            }
+        }
+        this.set_mode(toggle_buttons.IndexOf(incoming_button));
+    }
+
+    public override void _Ready()
+    {
+        var mapped_buttons = GetChildren().Cast<Button>();
+        
+        toggle_buttons = new Godot.Collections.Array<Button>();
+
+        foreach(var button in mapped_buttons)
+        {
+            toggle_buttons.Add(button);
+            button.Connect(\"pressed\", this, \"ToggleButton\", new Godot.Collections.Array { button });
+        }
+        GD.Print(toggle_buttons);
+    }
+
+}
+"
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 234.0
+margin_bottom = 166.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OneToggleButtonVBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 214.0
+margin_bottom = 146.0
+theme = SubResource( 3 )
+script = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+available_modes = [ "SelectNode", "AllowGraphMovement" ]
+
+[node name="SelectNodeButton" type="Button" parent="CanvasLayer/PanelContainer/OneToggleButtonVBoxContainer"]
+margin_right = 204.0
+margin_bottom = 33.0
+toggle_mode = true
+text = "Select Mode"
+
+[node name="AllowGraphMovementButton" type="Button" parent="CanvasLayer/PanelContainer/OneToggleButtonVBoxContainer"]
+margin_top = 37.0
+margin_right = 204.0
+margin_bottom = 70.0
+theme = ExtResource( 4 )
+toggle_mode = true
+pressed = true
+text = " Move Nodes Mode"
+
+[connection signal="pressed" from="CanvasLayer/PanelContainer/OneToggleButtonVBoxContainer/SelectNodeButton" to="." method="_on_SelectNodeButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/OneToggleButtonVBoxContainer/AllowGraphMovementButton" to="." method="_on_AllowGraphMovementButton_pressed"]

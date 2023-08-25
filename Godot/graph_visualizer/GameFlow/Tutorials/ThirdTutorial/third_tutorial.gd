@@ -155,3 +155,7 @@ func go_back_to_menu():
 
 func fade_stack_queue():
 	tutorial_animation_player.play("ShowStack")
+
+
+func _on_CodeBlock_code_finished():
+	self.set_name("TempMain")

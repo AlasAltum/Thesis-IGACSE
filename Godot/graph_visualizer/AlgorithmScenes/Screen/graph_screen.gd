@@ -106,9 +106,12 @@ func _ready():
 	AudioPlayer.play_background_by_index(
 		level_to_idx[level_name]
 	)
-	self.set_name("Main")
 	$"%ReadyAnimation".play("OnStart")
+	call_deferred("deferred_set_world_node")
 
+func deferred_set_world_node():
+	StoredData.world_node = self
+	call_deferred("set_name", "Main")
 
 func send_data_level_transition():
 	var data_to_send = {"eventid": "", "deviceid": "", "intype": "", "mousepos": "", "keyboardpos": "", "timestamp": ""}

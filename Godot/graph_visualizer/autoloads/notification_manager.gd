@@ -238,7 +238,7 @@ func _deferred_goto_scene(path, destroy_current_world = true, calling_node = nul
 	StoredData.get_tree().current_scene = current_scene
 
 func show_credits(calling_node):
- 	_deferred_goto_scene(CREDITS_PATH, true, calling_node)
+	_deferred_goto_scene(CREDITS_PATH, true, calling_node)
 
 func reset_data():
 	self.finished_popup = null

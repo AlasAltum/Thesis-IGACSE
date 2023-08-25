@@ -530,4 +530,6 @@ curve = SubResource( 46 )
 [node name="PathFollowOut" parent="HUD/QueueAnimation/PathOut" index="0"]
 position = Vector2( -8.40001, 70.4 )
 
+[connection signal="code_finished" from="HUD/CodeBlock" to="." method="_on_CodeBlock_code_finished"]
+
 [editable path="HUD/QueueAnimation"]

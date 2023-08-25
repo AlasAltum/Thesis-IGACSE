@@ -36,8 +36,10 @@ func _on_MenuButton_pressed():
 		main_node.go_back_to_menu()
 
 func _deferred_goto_scene(path):
-	NotificationManager._deferred_goto_scene(path, true, get_tree().root.get_node("Main"))
-
+	if StoredData.world_node:
+		NotificationManager._deferred_goto_scene(path, true, StoredData.world_node)
+	else:
+		NotificationManager._deferred_goto_scene(path, true, get_tree().root.get_node("Main"))
 
 func _on_FinishedPopup_about_to_show():
 	StoredData.popup_captures_input = true
