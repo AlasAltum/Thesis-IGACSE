@@ -18,10 +18,6 @@ func _ready():
 
 
 func _on_FadeInOut_animation_finished(anim_name):
-	if anim_name == "FadeIn":
-		if dialogue_displayer:
-			dialogue_displayer.show_first_dialogue()
-
 	if anim_name == "FadeOut":
 		go_to_scene(on_fade_out_next_scene.get_path())
 
