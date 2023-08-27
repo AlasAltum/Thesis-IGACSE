@@ -71,12 +71,6 @@ var adt_to_be_created: ADT
 
 var allow_sending_request: bool = true
 
-const target_cursor = preload("res://AlgorithmScenes/Screen/Assets/TargetWorldCursor.png")
-
-
-func _ready():
-	Input.set_custom_mouse_cursor(target_cursor, Input.CURSOR_CROSS)
-	Engine.time_scale = 10.0
 
 func set_adt_mediator(_adt_mediator):
 	adt_mediator = _adt_mediator
