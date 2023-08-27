@@ -1,6 +1,10 @@
 # class_name NotificationManager
 extends Node2D
 
+# This class is responsible for showing popups and other notifications
+# to the user, such as when an if answer is answered correctly, etc.
+# it also manages scene transitions through the go_to_scene method
+
 
 const CREDITS_PATH = "res://AlgorithmScenes/Screen/Credits.tscn"
 ## Code execution popups ##
@@ -22,8 +26,6 @@ var allow_code_advance : bool = true  # Only in tutorial level starts as false
 var animation_player: AnimationPlayer
 
 var hint_label
-
-
 
 func _on_variable_creation_popup(ADT_name: String):
 	object_creation_popup.set_next_adt_name(ADT_name)
@@ -223,22 +225,40 @@ func notify_find_w_unequal_find_v_wrong_answer():
 ## if _find_w_unequal_find_v popup signals ##
 
 func show_skip_to_next_level_popup():
-	if skip_to_next_level_popup:
+	if is_instance_valid(skip_to_next_level_popup):
 		skip_to_next_level_popup.popup()
 
 func go_to_scene(path):
 	call_deferred("_deferred_goto_scene", path)
 
-func _deferred_goto_scene(path, destroy_current_world = true, calling_node = null):
-	if destroy_current_world and calling_node:
-		calling_node.queue_free()
+func deferred_goto_scene(path, destroy_current_world=true, calling_node=null):
+	call_deferred("_deferred_goto_scene", path, true, calling_node)
+
+func _deferred_goto_scene(path, destroy_current_world=true, calling_node=null):
+	# Destroy current scene
+	if destroy_current_world:
+		if StoredData.world_node:
+			StoredData.world_node.free()
+		elif is_instance_valid(calling_node):
+			calling_node.free()
+
+	StoredData.reset_data()
+	# Add new scene
 	var scene = ResourceLoader.load(path)
 	var current_scene = scene.instance()
 	StoredData.get_tree().root.add_child(current_scene)
 	StoredData.get_tree().current_scene = current_scene
 
 func show_credits(calling_node):
-	_deferred_goto_scene(CREDITS_PATH, true, calling_node)
+	if is_instance_valid(calling_node):
+		_deferred_goto_scene(CREDITS_PATH, true, calling_node)
+	else:
+		_deferred_goto_scene(CREDITS_PATH, true, StoredData.world_node)
+
+const MAIN_MENU_PATH = "res://GameFlow/MainMenu.tscn"
+func go_to_main_menu():
+	call_deferred("_deferred_goto_scene", MAIN_MENU_PATH)
+
 
 func reset_data():
 	self.finished_popup = null

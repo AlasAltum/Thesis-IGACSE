@@ -35,7 +35,7 @@ func send_ship_to_node(end_planet: AGraphNode):
 	# Check if both planets have been pressed. If so,
 	# win and go to the next level after an animation
 	# if planet1.selected and planet2.selected:
-	# Wait until the ship arrives at planet 1 and 2 to show the win animation		
+	# Wait until the ship arrives at planet 1 and 2 to show the win animation
 
 func on_ship_arrived_to_planet(animation_name):
 	if animation_name == "NodeBeingSelected":
@@ -79,7 +79,8 @@ func on_ending_dialogue_finished() -> void:
 	# Go to the next scene
 	# Start fade animation
 	# once the fade animation finishes, queue_free the tree and go to next scene
-	NotificationManager._deferred_goto_scene(StoredData.story_mode_scenes["Tutorial2"], true, self)
+	NotificationManager.deferred_goto_scene(StoredData.story_mode_scenes["Tutorial2"])
+
 
 func assign_texture_randomly() -> bool:
 	return false

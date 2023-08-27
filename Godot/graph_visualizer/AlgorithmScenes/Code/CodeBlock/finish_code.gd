@@ -14,7 +14,6 @@ func effect_check_on_focused():
 	self._reset_data()
 
 func _reset_data():
-	StoredData.reset_data()
 	NotificationManager.reset_data()
 
 func _mark_level_as_finished():

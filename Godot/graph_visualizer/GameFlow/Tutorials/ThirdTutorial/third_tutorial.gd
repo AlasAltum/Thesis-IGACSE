@@ -117,14 +117,14 @@ func on_ending_dialogue_finished() -> void:
 	# Start fade animation
 	# once the fade animation finishes, queue_free the tree and go to next scene
 	# TODO: Change this by with StoredData.get_random_unfinished_level_path()
-	NotificationManager._deferred_goto_scene(StoredData.remaining_levels_to_finish["DFS"], true, self)
+	NotificationManager.deferred_goto_scene(StoredData.remaining_levels_to_finish["DFS"])
 
 
 const NOISE_SHADER_TRANSITION_DURATION = 5.0
 
 
 func on_restart_level_pressed():
-	NotificationManager._deferred_goto_scene(StoredData.story_mode_scenes["Tutorial2"], true, self)
+	NotificationManager.deferred_goto_scene(StoredData.story_mode_scenes["Tutorial2"])
 
 func get_class() -> String:
 	return "Tutorial"

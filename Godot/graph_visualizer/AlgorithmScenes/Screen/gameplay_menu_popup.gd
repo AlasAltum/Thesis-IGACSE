@@ -7,7 +7,7 @@ func _ready() -> void:
 	$VBoxContainer/ResetButton.connect("pressed", self, "_on_ResetButton_pressed")
 	$VBoxContainer/CloseButton.connect("pressed", self, "_on_CloseButton_pressed")
 	$VBoxContainer/MenuButton.connect("pressed", self, "_on_MenuButton_pressed")
-	var main_node = get_tree().get_root().get_node("Main")
+	
 	get_close_button().visible = false
 
 func _input(event):
@@ -33,17 +33,13 @@ func _on_MenuButton_pressed():
 		StoredData.world_node.go_back_to_menu()
 	else:
 		AudioPlayer.stop_playing_music() # Whatever the music soundtrack playing, stop it when coming back to the menu
-		self.set_name("TempMain")
-		self.queue_free()
-		if is_instance_valid(StoredData.world_node):
-			NotificationManager._deferred_goto_scene("res://GameFlow/MainMenu.tscn", true, StoredData.world_node)
+		NotificationManager.go_to_main_menu()
+#		self.set_name("TempMain")
+#		self.queue_free()
+#		if is_instance_valid(StoredData.world_node):
+#			NotificationManager._deferred_goto_scene("res://GameFlow/MainMenu.tscn", true, StoredData.world_node)
 
 	self.visible = false
-
-
-func _deferred_goto_scene(path):
-	NotificationManager.go_to_scene(path)
-
 
 func _on_ADTIsNotEmptyPopup_about_to_show():
 	StoredData.popup_captures_input = true

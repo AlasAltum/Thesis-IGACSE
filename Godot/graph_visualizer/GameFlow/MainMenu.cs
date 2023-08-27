@@ -39,6 +39,7 @@ public class MainMenu : CanvasLayer
 		CurrentScene = this;
 		TranslationServer.SetLocale("es"); // By default it should be spanish
 		Node2D StoredData = GetTree().Root.GetNode<Node2D>("/root/StoredData");
+		StoredData.Set("world_node", this);
 	}
 
 
@@ -83,13 +84,13 @@ public class MainMenu : CanvasLayer
 		{
 			StoredData.Call("set_language", "en");
 			currentLanguage = Language.English;
-			languageButton.SetText("English");
+			languageButton.Text = "English";
 		}
 		else 
 		{
 			StoredData.Call("set_language", "es");
 			currentLanguage = Language.Spanish;
-			languageButton.SetText("Español");
+			languageButton.Text = "Español";
 		}
 
 	}

@@ -12,7 +12,7 @@ limitations when using it, I am trying to write everything in GDscript.
 /// GraphEdge keeps the nodes together and moves the lines when nodes are moved
 /// This version is for tutorials, so they are not spawned automatically by the level.
 /// </summary>
-public class GraphEdgeHardcoded : GraphEdge
+public class GraphEdgeHardcodedCS : GraphEdgeCS
 {
 	/// since these are hardcoded edges that are always the same and
 	/// are not set by randomness at the beginning of the level, we can
@@ -49,8 +49,6 @@ public class GraphEdgeHardcoded : GraphEdge
 
 	public override void _Process(float delta){}
 	
-	public string get_class() => "GraphEdge";
-
 	/// This is called from godot, therefore, it uses snake_case
 	new public void set_label_and_positions_with_nodes(Node2D node1, Node2D node2, String label_text)
 	{

@@ -85,8 +85,7 @@ func on_ending_dialogue_finished() -> void:
 	# Start fade animation
 	# once the fade animation finishes, queue_free the tree and go to next scene
 	# TODO: Change this by with StoredData.get_random_unfinished_level_path()
-	StoredData.reset_data()
-	NotificationManager._deferred_goto_scene(StoredData.story_mode_scenes["Tutorial3"], true, self)
+	NotificationManager.deferred_goto_scene(StoredData.story_mode_scenes["Tutorial3"])
 
 func on_ship_arrived_to_sun():
 	on_lose()
@@ -124,7 +123,7 @@ func on_lose() -> void:
 	tween.start()
 
 func on_restart_level_pressed():
-	NotificationManager._deferred_goto_scene(StoredData.story_mode_scenes["Tutorial2"], true, self)
+	NotificationManager.deferred_goto_scene(StoredData.story_mode_scenes["Tutorial2"], true, self)
 
 func get_class() -> String:
 	return "Tutorial"

@@ -108,6 +108,7 @@ func _ready():
 	)
 	$"%ReadyAnimation".play("OnStart")
 	call_deferred("deferred_set_world_node")
+	self.add_to_group("Main")
 
 func deferred_set_world_node():
 	StoredData.world_node = self

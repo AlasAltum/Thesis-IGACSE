@@ -30,7 +30,7 @@ tracks/0/keys = {
 [node name="Main" type="Node2D"]
 position = Vector2( -1, 0 )
 script = ExtResource( 15 )
-graph_size = 4
+graph_size = 2
 
 [node name="ADTMediator" parent="." instance=ExtResource( 34 )]
 unique_name_in_owner = true

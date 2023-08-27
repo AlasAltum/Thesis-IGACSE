@@ -29,9 +29,9 @@ func _check_for_skip_level():
 		if node.is_iterated_or_explored():
 			explored_nodes.append(node)
 
-	if StoredData.nodes.size() == explored_nodes.size():
-		# Allow the user to skip level by showing a popup
-		NotificationManager.show_skip_to_next_level_popup()
+#	if StoredData.nodes.size() == explored_nodes.size():
+#		# Allow the user to skip level by showing a popup
+#		NotificationManager.show_skip_to_next_level_popup()
 
 
 # We want to see the ship moving from node v to node u as soon as the

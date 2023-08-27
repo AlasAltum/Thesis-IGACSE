@@ -7,7 +7,6 @@ func _trigger_on_next_line_side_effect():
 	self._reset_data()
 
 func _reset_data():
-	StoredData.reset_data()
 	NotificationManager.reset_data()
 
 

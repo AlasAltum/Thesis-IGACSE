@@ -76,6 +76,7 @@ const target_cursor = preload("res://AlgorithmScenes/Screen/Assets/TargetWorldCu
 
 func _ready():
 	Input.set_custom_mouse_cursor(target_cursor, Input.CURSOR_CROSS)
+	Engine.time_scale = 10.0
 
 func set_adt_mediator(_adt_mediator):
 	adt_mediator = _adt_mediator
@@ -206,8 +207,8 @@ func get_random_unfinished_level_path() -> String:
 	# Get a random level from remaining_levels_to_finish
 	var keys = remaining_levels_to_finish.keys()
 	if keys.size() == 0:
-#		NotificationManager._deferred_goto_scene(path, destroy_current_world = true, calling_node = null)
-		NotificationManager.show_credits(get_node("Main"))
+		NotificationManager.call_deferred("show_credits", get_node("Main"))
+		return ""
 
 	var random_key = keys[randi() % keys.size()]
 	return remaining_levels_to_finish[random_key]
@@ -215,8 +216,10 @@ func get_random_unfinished_level_path() -> String:
 func set_language(lang: String) -> void:
 	TranslationServer.set_locale(lang)
 
+
 # When game gets reset, reset data excepting finished_levels 
 func reset_data():
+	self.world_node = null
 	self.allow_select_edges = false;
 	self.nodes = []  # PoolAGraphNodeArray
 	self.edges = []
@@ -229,7 +232,6 @@ func reset_data():
 	self.adt_hovering = false
 	self.popup_captures_input = false
 	self.assign_name_popup = null
-	self.world_node = null
 	self.selectable_nodes_indexes = []
 	self.selected_edges = []
 	self.iterated_nodes = []

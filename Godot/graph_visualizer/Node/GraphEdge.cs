@@ -10,7 +10,7 @@ limitations when using it, I am trying to write everything in GDscript.
 /*
 GraphEdge keeps the nodes together and moves the lines when nodes are moved
 */
-public class GraphEdge : PinJoint2D
+public class GraphEdgeCS : PinJoint2D
 {
 
 	protected Label curr_label;
@@ -188,7 +188,7 @@ public class GraphEdge : PinJoint2D
 		StoredData.Set("selected_edge", this);
 	}
 
-	public Resource get_adt() => GraphEdge.adt;
+	public Resource get_adt() => GraphEdgeCS.adt;
 
 	public String get_class() => "GraphEdge";
 
