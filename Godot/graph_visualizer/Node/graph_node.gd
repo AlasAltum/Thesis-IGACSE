@@ -215,6 +215,8 @@ func get_added_to_focused_object_in_variables():
 	emit_signal("node_add_to_object_request", self)
 
 
+# This offset is needed so the pointing cursor is not interrupted
+const MENU_OFFSET = Vector2(2.0, -2.0)
 # Note: part of the input can also be found at the function.
 # Allow node-dragging to the ADT panel.
 # _on_Area2D_input_event
@@ -230,10 +232,9 @@ func _input(event):
 
 		elif event is InputEventMouseMotion:
 			if node_action_menu:
-				node_action_menu.set_position(get_global_mouse_position())
+				node_action_menu.set_position(get_global_mouse_position() + MENU_OFFSET)
 				node_action_menu.popup()
 				mouse_hovering = true
-				Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 
 		elif Input.is_action_just_pressed("NodeSelect"):
 				_on_Select_UnselectButton_pressed()
@@ -242,23 +243,25 @@ func _input(event):
 		self.hide_node_action_menu()
 		mouse_hovering = false
 
-	
+
 func is_mouse_inside_node() -> bool:
 	return get_global_mouse_position().distance_to(self.global_position) < PLANET_SIZE * 0.5
 
 # Show hover menu
 func _on_Area2D_mouse_entered() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 	if node_action_menu:
 		node_action_menu.set_position(get_global_mouse_position())
 		node_action_menu.popup()
 	mouse_hovering = true
-	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+
 
 # Hide hover menu
 func _on_Area2D_mouse_exited() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 	self.hide_node_action_menu()
 	mouse_hovering = false
-	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+
 
 
 # Click on the node = Press select/unselect node
