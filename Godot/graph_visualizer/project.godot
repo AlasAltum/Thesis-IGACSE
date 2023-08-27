@@ -385,7 +385,6 @@ config/description="Visualization for Graphs"
 run/main_scene="res://GameFlow/MainMenu.tscn"
 config/use_hidden_project_data_directory=false
 config/use_custom_user_dir=true
-config/icon="res://Node/white-circle.png"
 
 [autoload]
 
