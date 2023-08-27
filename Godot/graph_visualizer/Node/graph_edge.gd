@@ -31,10 +31,10 @@ func _ready():
 func _process(delta: float) -> void:
 	line.set_point_position(0, joint_end1.global_position)
 	line.set_point_position(1, joint_end2.global_position)
-
-	curr_label.set_position(
-		(joint_end1.global_position + joint_end2.global_position) / 2
-	)
+	if curr_label:
+		curr_label.set_position(
+			(joint_end1.global_position + joint_end2.global_position) / 2
+		)
 	set_collision_box()
 
 
@@ -109,12 +109,9 @@ func event_is_left_click(event: InputEvent) -> bool:
 
 func _on_Area2D_input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
 	if event_is_left_click(event):
-		var main_node = $"/root/Main" # Note: There is no MainNode in tutorials
-		if not is_instance_valid(main_node): # therefore, this action does not matter during tutorials
-			return
-
-		if main_node.allow_edge_selection:
-			_on_edge_click()
+		if StoredData.world_node and StoredData.world_node.get("allow_edge_selection"):
+			if StoredData.world_node.allow_edge_selection:
+				_on_edge_click()
 
 func get_joint_end1():
 	return joint_end1
@@ -134,8 +131,8 @@ func get_class() -> String:
 	return "GraphEdge"
 
 func as_string() -> String:
-	return "Edge (" + str(joint_end1.get("index")) + "-" + str(joint_end2.get("index")) + ")"
 
+	return "Edge (" + str(joint_end1.get("index")) + "-" + str(joint_end2.get("index")) + ")"
 func get_connecting_nodes() -> Array:
 	return [joint_end1, joint_end2]
 
