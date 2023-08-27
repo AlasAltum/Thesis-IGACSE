@@ -176,6 +176,7 @@ margin_top = -31.0
 margin_right = 44.0
 margin_bottom = 40.0
 mouse_filter = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource( 12 )
 
 [node name="PanelContainer" type="PanelContainer" parent="Popup"]
@@ -241,6 +242,7 @@ anims/RESET = SubResource( 14 )
 visible = false
 position = Vector2( 32, 48 )
 frames = SubResource( 16 )
+frame = 1
 speed_scale = 0.5
 playing = true
 

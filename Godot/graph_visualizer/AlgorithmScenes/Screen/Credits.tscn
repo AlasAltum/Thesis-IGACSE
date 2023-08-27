@@ -11,7 +11,8 @@ onready var anim_player: AnimationPlayer = $CreditsCanvas/AnimationPlayer
 func _ready():
 	Engine.time_scale = 1.0
 	StoredData.world_node = self
-
+	AudioPlayer.play_congratulations_audio()
+	anim_player.play(\"CreditsMovement\")
 
 func _input(event):
 	if event is InputEventKey and event.is_action_pressed(\"PauseCredits\"):
@@ -34,7 +35,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 10 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -2000 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, -3050 ) ]
 }
 
 [node name="Credits" type="Node2D"]
@@ -50,9 +51,21 @@ anchor_bottom = 0.5
 margin_left = -960.0
 margin_top = -540.0
 margin_right = 966.0
-margin_bottom = 2229.0
+margin_bottom = 2713.0
 theme = ExtResource( 1 )
-text = "Creator: AlasAltum (Alonso Utreras)
+text = "
+
+
+
+
+
+
+
+
+
+
+
+Creator: AlasAltum (Alonso Utreras)
 Source Code: https://github.com/AlasAltum
 
 Sounds, assets, textures: GameSupplyGuy
@@ -110,14 +123,14 @@ https://free-game-assets.itch.io/free-space-shooter-game-user-interface
 LeftMouse animation:
 https://greenpixels.itch.io/pixel-art-asset-3
 
+Red panda images generated with IA using Bing's Dall-E.
+
 Thanks for playing!
-I hope you enjoyed and learnt a lot!
 Game Engine: Godot Engine
 "
 align = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CreditsCanvas"]
-autoplay = "CreditsMovement"
 anims/CreditsMovement = SubResource( 1 )
 
 [node name="Background" type="CanvasLayer" parent="."]
