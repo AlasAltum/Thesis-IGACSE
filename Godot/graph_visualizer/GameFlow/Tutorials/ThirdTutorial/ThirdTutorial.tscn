@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://GameFlow/DialogueDisplayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/textures/Background.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://AlgorithmScenes/Code/NewDebugBlock.tscn" type="PackedScene" id=8]
 [ext_resource path="res://GameFlow/Tutorials/ThirdTutorial/CodeBlockSrc/ThirdTutorialCodBlock.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/textures/red_pandas/CryingPandaOnMoon.png" type="Texture" id=10]
+[ext_resource path="res://Node/graph_edge_hardcoded.gd" type="Script" id=11]
 [ext_resource path="res://GameFlow/Tutorials/ThirdTutorial/third_tutorial.gd" type="Script" id=21]
 [ext_resource path="res://GameFlow/Tutorials/ThirdTutorial/CodeBlockSrc/third_tutorial_show_ADTs.gd" type="Script" id=22]
 [ext_resource path="res://GameFlow/Tutorials/ThirdTutorial/StackQueue.png" type="Texture" id=25]
@@ -402,26 +403,27 @@ should_show_base_when_selected = true
 [node name="Edge01" parent="Nodes" instance=ExtResource( 5 )]
 node_a = NodePath("../GraphNode0")
 node_b = NodePath("../GraphNode1")
-nodeA = NodePath("../GraphNode0")
-nodeB = NodePath("../GraphNode1")
+script = ExtResource( 11 )
 
 [node name="Edge02" parent="Nodes" instance=ExtResource( 5 )]
-nodeA = NodePath("../GraphNode0")
-nodeB = NodePath("../GraphNode2")
+node_a = NodePath("../GraphNode0")
+node_b = NodePath("../GraphNode2")
+script = ExtResource( 11 )
 
 [node name="Edge31" parent="Nodes" instance=ExtResource( 5 )]
-nodeA = NodePath("../GraphNode1")
-nodeB = NodePath("../GraphNode3")
+node_a = NodePath("../GraphNode3")
+node_b = NodePath("../GraphNode1")
+script = ExtResource( 11 )
 
 [node name="Edge42" parent="Nodes" instance=ExtResource( 5 )]
-nodeA = NodePath("../GraphNode4")
-nodeB = NodePath("../GraphNode2")
+node_a = NodePath("../GraphNode4")
+node_b = NodePath("../GraphNode2")
+script = ExtResource( 11 )
 
 [node name="Edge20" parent="Nodes" instance=ExtResource( 5 )]
 node_a = NodePath("../GraphNode2")
 node_b = NodePath("../GraphNode0")
-nodeA = NodePath("../GraphNode2")
-nodeB = NodePath("../GraphNode0")
+script = ExtResource( 11 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -502,7 +504,6 @@ scale = Vector2( 0.914436, 0.879386 )
 texture = ExtResource( 25 )
 
 [node name="StackAnimation" parent="HUD" instance=ExtResource( 27 )]
-visible = false
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 780, 200 )
 scale = Vector2( 5, 5 )
