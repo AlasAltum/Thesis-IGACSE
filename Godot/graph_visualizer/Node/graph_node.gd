@@ -190,7 +190,7 @@ func select_node(emit_signal=true):
 	if emit_signal:
 		emit_signal("node_selected", self)
 
-	if should_show_base_when_selected or self.index == 0:
+	if should_show_base_when_selected:
 		self.animation_player.play("NodeBeingSelected") 
 	self.selected = true
 	AudioPlayer.play_element_selected()

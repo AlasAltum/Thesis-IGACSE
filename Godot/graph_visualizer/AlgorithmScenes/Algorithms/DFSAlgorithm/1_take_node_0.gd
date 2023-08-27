@@ -9,6 +9,7 @@ func effect_check_on_focused() -> void:
 
 	if StoredData.world_node: # : SecondTutorial
 		node_0 = StoredData.get_node_by_index(0)
+		node_0.should_show_base_when_selected = false
 		StoredData.selectable_nodes_indexes.append(0)
 
 	helping_timer = Timer.new()
@@ -34,3 +35,7 @@ func _trigger_on_next_line_side_effect() -> void:
 	var t = StoredData.nodes[0]
 	StoredData.add_variable("t", t.get_adt())
 	t.unhighlight_node()
+	# This is a trick, so the user must click the node 0 at the beginning
+	# and then click node 0 later on the same game
+	node_0.should_show_base_when_selected = true
+	node_0.selected = false
