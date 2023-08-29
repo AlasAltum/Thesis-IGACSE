@@ -5,7 +5,6 @@ extends EffectCheck
 func check_actions_correct() -> bool:
 	var v : AGraphNode = StoredData.get_variable("v").get_node()
 	if v in StoredData.get_selected_nodes():
-
 		return true  # This is not required
 	return false
 
@@ -14,7 +13,7 @@ func effect_check_on_focused():
 	var v : AGraphNode = StoredData.get_variable("v").get_node()
 	StoredData.selectable_nodes_indexes.append(v.index)
 
-func _trigger_on_next_line_side_effect():
+func _trigger_on_correct_once():
 	var v : AGraphNode = StoredData.get_variable("v").get_node()
 	# The first time we should skip sending the ship from node v to u
 	if v == StoredData.get_variable("t").get_node():
@@ -23,7 +22,7 @@ func _trigger_on_next_line_side_effect():
 
 	if is_instance_valid(v.visited_from_node):
 		send_ship_from_node_A_to_node_B(v.visited_from_node, v)
-
+	
 
 func send_ship_from_node_A_to_node_B(node_A, node_B):
 	for _edge in StoredData.edges:
