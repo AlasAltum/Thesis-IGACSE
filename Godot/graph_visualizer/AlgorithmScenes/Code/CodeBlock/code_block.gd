@@ -7,15 +7,23 @@ var code_lines: Array = []
 var curr_line_index : int = 0
 var current_line: CodeLine
 var code_has_finished = false
+var is_waiting_for_space: bool = false
 
+signal instruction_completed_forward
 signal code_finished
+signal instruction_advanced
+
 
 func _ready():
 	for child in lines_container.get_children():
 		if child.get_class() == "CodeLine":
 			code_lines.append(child)
+			child.connect("instruction_completed", self, "on_instruction_completed")
 	current_line = code_lines[0]
 
+func on_instruction_completed(code_line):
+	is_waiting_for_space = true
+	emit_signal("instruction_completed_forward", code_line)
 
 func advance_to_line(next_line: int) -> void:
 	if next_line < code_lines.size():
@@ -23,6 +31,7 @@ func advance_to_line(next_line: int) -> void:
 		self.curr_line_index = next_line
 		code_lines[curr_line_index].focus()
 		current_line = code_lines[curr_line_index]
+		emit_signal("instruction_advanced")
 	else:
 		_on_code_finished()
 
@@ -35,6 +44,7 @@ func _input(event):
 		not code_has_finished
 	):
 		if current_line.effect_actions_are_correct():
+			is_waiting_for_space = false
 			advance_to_line(current_line.get_next_line())
 		else:
 			AudioPlayer.play_not_doable_action_sound()

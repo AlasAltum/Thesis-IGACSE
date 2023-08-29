@@ -318,6 +318,10 @@ script = ExtResource( 17 )
 wait_time = 2.0
 one_shot = true
 
+[node name="HintTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [node name="Background" parent="." instance=ExtResource( 1 )]
 
 [node name="DialogueCanvas" type="CanvasLayer" parent="."]
@@ -443,7 +447,6 @@ anims/RESET = SubResource( 24 )
 visible = false
 position = Vector2( 32, 48 )
 frames = SubResource( 26 )
-frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -517,6 +520,7 @@ anims/RESET = SubResource( 40 )
 visible = false
 position = Vector2( 32, 48 )
 frames = SubResource( 26 )
+frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -630,18 +634,27 @@ show_behind_parent = true
 node_a = NodePath("../StartingNode1")
 node_b = NodePath("../Planet3")
 script = ExtResource( 25 )
+clickable_area = null
+weight = 1.0
+is_selected = false
 
 [node name="Edge1Star" parent="Nodes" instance=ExtResource( 16 )]
 show_behind_parent = true
 node_a = NodePath("../StartingNode1")
 node_b = NodePath("../Star")
 script = ExtResource( 25 )
+clickable_area = null
+weight = 1.0
+is_selected = false
 
 [node name="Edge2S" parent="Nodes" instance=ExtResource( 16 )]
 show_behind_parent = true
 node_a = NodePath("../StartingNode1")
 node_b = NodePath("../Planet2")
 script = ExtResource( 25 )
+clickable_area = null
+weight = 1.0
+is_selected = false
 
 [node name="Tween" type="Tween" parent="Nodes"]
 

@@ -35,6 +35,7 @@ const completed_style: StyleBox = preload("res://AlgorithmScenes/Code/CodeBlock/
 # Change this variable for a given line if it should not play a confirmation audio
 export (bool) var plays_confirmation_audio = true 
 
+signal instruction_completed
 
 
 func _ready():
@@ -64,6 +65,7 @@ func on_correct_instruction_execute_effects_once():
 	if not self.executed_correct_effects_once:
 		effect_check._trigger_on_correct_once()
 		add_stylebox_override("panel", completed_style)
+		emit_signal("instruction_completed", self)
 		self.was_completed_correctly = true
 		self.executed_correct_effects_once = true
 		self._hide_instruction_pointer()
@@ -91,15 +93,6 @@ func _show_right_instruction_ticket():
 func _hide_right_instruction_ticket():
 	if right_pointer:
 		right_pointer.visible = false
-	else:
-		breakpoint
-
-func _show_hightlight_enter():
-	arrow_hightlight_enter.visible = true
-
-func _hide_hightlight_arrow():
-	arrow_hightlight_enter.visible = false
-
 
 func focus():
 	_on_focused()

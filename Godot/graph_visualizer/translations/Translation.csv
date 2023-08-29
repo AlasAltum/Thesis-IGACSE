@@ -69,11 +69,11 @@ Buena suerte!"
 TUTORIAL_3_DIALOGUE_6;Congratulations! Now you know how to use the variables and add nodes to a Stack;¡Felicidades! Ahora sabes cómo usar variables y agregar nodos a la pila (Stack)
 TUTORIAL_3_DIALOGUE_7;Save these sad pandas please! THEY NEED YOU!;Por favor, salva a estos pandas tristes. TE NECESITAN! uwu
 TUTORIAL_3_HINT_1;"Press the keys W and S to change the current variable.
-Select the variable s: stack() by pressing S once.";"Presiona las teclas W y S para cambiar la variable seleccionada.
-Selecciona la variable s: stack() presionando la tecla S una vez."
-TUTORIAL_3_HINT_2;"While the selected variable is the stack S, hover the mouse on the planet 0 and press r/R.
-The selected variable will be shown on the bottom right panel. Check it after pressing r/R";"Mientras la pila (Stack) S está como variable seleccionada, posiciona el mouse sobre el planeta 0 y presiona r/R.
-La variable seleccionada se mostrará en el panel de la esquina inferior derecha. ¡Fíjate en ella después de presionar r/R!"
+Set the current variable s: stack().";"Presiona las teclas W y S para cambiar la variable seleccionada.
+Cambia la variable seleccionada a s: stack()."
+TUTORIAL_3_HINT_2;"While the selected variable is the stack S, hover the mouse on the planet 0 and press r.
+The selected variable will be shown on the bottom right panel. Check it after pressing r";"Mientras la pila (Stack) S está como variable seleccionada, posiciona el mouse sobre el planeta 0 y presiona r.
+La variable seleccionada se mostrará en el panel de la esquina inferior derecha. ¡Fíjate en ella después de presionar r!"
 SELECTED_VARIABLE;SELECTED VARIABLE;VARIABLE SELECCIONADA
 Click: Select/Unselect;Click: Select/Unselect;Click: Seleccionar/Deseleccionar
 R: Add to Current Var;R: Add to Current Var;R: Agregar a la variable seleccionada
@@ -88,3 +88,4 @@ Next Level;Next Level;Siguiente nivel
 Reset Level;Reset Level;Reiniciar nivel
 Error: Wrong answer;Error: Wrong answer;Error: Respuesta equivocada
 Is the Stack s empty?;Is the Stack s empty?;Está la pila (Stack) S vacía?
+PRESS_SPACE_HINT_TEXT;Press SPACE to navigate to the next instruction;Presiona ESPACIO para navegar a la siguiente instrucción

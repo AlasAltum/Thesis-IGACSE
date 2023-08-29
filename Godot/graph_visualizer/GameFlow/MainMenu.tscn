@@ -5,7 +5,6 @@
 [ext_resource path="res://Assets/GUI/sci-fi-theme.tres" type="Theme" id=3]
 [ext_resource path="res://GameFlow/AlgorithmSelectionMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/prefab/MenuButton.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/visual_guide/visual_guide.png" type="Texture" id=6]
 [ext_resource path="res://Assets/prefab/Title.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/textures/Blue_Nebula.png" type="Texture" id=8]
 [ext_resource path="res://Assets/GUI/Pixel Square 10.ttf" type="DynamicFontData" id=9]
@@ -18,6 +17,9 @@ region_rect = Rect2( 0, 0, 512, 512 )
 size = 40
 extra_spacing_top = 31
 font_data = ExtResource( 9 )
+
+[sub_resource type="StreamTexture" id=3]
+flags = 4
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -97,7 +99,7 @@ text = "Select Level"
 visible = false
 position = Vector2( 960, 540 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 6 )
+texture = SubResource( 3 )
 
 [node name="LanguageButton" parent="." instance=ExtResource( 5 )]
 anchor_left = 0.187
