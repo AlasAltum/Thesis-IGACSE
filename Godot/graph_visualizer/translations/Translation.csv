@@ -3,7 +3,7 @@ Start Game;Start Game;Iniciar juego
 Select Level;Select Level;Seleccionar nivel
 Choose a level or algorithm;Choose a level or algorithm;Elige un nivel (algoritmo)
 Skip;Skip;Saltar
-Next;Next;Siguiente
+Next;Next (SPACE);Siguiente (ESPACIO)
 Yes;Yes;Sí
 No;No;No
 STORYMODE_DIALOGUE1;"Ship: Hello? DCC Station...
