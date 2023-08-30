@@ -35,7 +35,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 10 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -3050 ) ]
+"values": [ Vector2( 282, 0 ), Vector2( 282, -3050 ) ]
 }
 
 [node name="Credits" type="Node2D"]
@@ -44,14 +44,10 @@ script = SubResource( 2 )
 [node name="CreditsCanvas" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="CreditsCanvas"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -678.0
-margin_top = -1648.5
-margin_right = 678.0
-margin_bottom = 1648.5
+margin_right = 1356.0
+margin_bottom = 3297.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource( 1 )
 text = "
 
@@ -129,6 +125,7 @@ Thanks for playing!
 Game Engine: Godot Engine
 "
 align = 1
+valign = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CreditsCanvas"]
 anims/CreditsMovement = SubResource( 1 )
