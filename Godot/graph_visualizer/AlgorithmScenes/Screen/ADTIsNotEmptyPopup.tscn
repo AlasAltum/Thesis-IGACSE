@@ -31,6 +31,7 @@ tracks/1/keys = {
 }
 
 [node name="ADTIsNotEmptyPopup" type="WindowDialog"]
+visible = true
 margin_left = 492.0
 margin_top = 200.0
 margin_right = 1059.0
@@ -44,9 +45,6 @@ input_pass_on_modal_close_click = false
 theme = ExtResource( 2 )
 popup_exclusive = true
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VB" type="VBoxContainer" parent="."]
 margin_left = 9.0
@@ -120,6 +118,7 @@ valign = 3
 autowrap = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ErrorNotification"]
+unique_name_in_owner = true
 anims/message_modulation = SubResource( 1 )
 
 [connection signal="popup_hide" from="." to="." method="_on_ADTIsNotEmptyPopup_popup_hide"]
