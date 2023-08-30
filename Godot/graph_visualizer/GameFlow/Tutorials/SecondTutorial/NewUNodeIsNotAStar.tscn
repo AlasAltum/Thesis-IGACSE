@@ -31,7 +31,6 @@ tracks/1/keys = {
 }
 
 [node name="UNodeIsNotAStarPopup" type="WindowDialog"]
-visible = true
 margin_left = 500.0
 margin_top = 220.0
 margin_right = 1080.0
@@ -121,6 +120,7 @@ size_flags_vertical = 3
 
 [node name="ErrorNotification" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 modulate = Color( 1, 0.0117647, 0.0117647, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
