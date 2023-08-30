@@ -93,7 +93,7 @@ func ask_user_if_graph_node_is_explored_bfs(u, condition_value: bool):
 	var new_text = "Has the U node (" + str(u.index) + ") been explored?"
 	match TranslationServer.get_locale():
 		"es":
-			new_text = "Está el nodo nodo U (" + str(u.index) + ") explorado?"
+			new_text = "Está el nodo U (" + str(u.index) + ") explorado?"
 	u_is_explored_popup.get_node("%Explanation").text = new_text
 	 # This stablishes whether yes or no should be pressed
 	self.u_is_explored = condition_value
@@ -103,7 +103,7 @@ func ask_user_if_graph_node_is_explored_dfs(u, condition_value: bool):
 	var new_text = "Has the V node (" + str(u.index) + ") been explored?"
 	match TranslationServer.get_locale():
 		"es":
-			new_text = "Está el nodo nodo V (" + str(u.index) + ") explorado?"
+			new_text = "Está el nodo V (" + str(u.index) + ") explorado?"
 	u_is_explored_popup.get_node("%Explanation").text = new_text
 	 # This sets which button should be pressed
 	self.u_is_explored = condition_value
