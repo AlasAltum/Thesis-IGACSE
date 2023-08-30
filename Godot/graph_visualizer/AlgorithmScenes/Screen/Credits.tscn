@@ -44,7 +44,8 @@ script = SubResource( 2 )
 [node name="CreditsCanvas" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="CreditsCanvas"]
-margin_right = 1356.0
+margin_left = 282.0
+margin_right = 1638.0
 margin_bottom = 3297.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
