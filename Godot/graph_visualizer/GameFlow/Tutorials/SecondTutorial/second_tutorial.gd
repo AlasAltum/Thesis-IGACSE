@@ -11,7 +11,7 @@ var u_node: AGraphNode = null
 var current_selectable_node: AGraphNode
 
 export (float) var time_to_lose_when_sending_ship_to_sun = 1.8
-export (float) var time_to_show_hint_after_instruction_completed = 2.0
+export (float) var time_to_show_hint_after_instruction_completed = 5.0
 onready var starting_node: AGraphNode = $Nodes/StartingNode1
 onready var nodes_background: ColorRect = $Nodes
 onready var star: AGraphNode = $Nodes/Star
@@ -36,7 +36,6 @@ func _ready():
 
 	dialogue_displayer.connect("dialogue_finished", self, "on_dialogue_finished")
 	code_block.connect("code_finished", self, "on_win")
-#	code_block.connect("instruction_completed_forward", self, "on_instruction_completed")
 	code_block.connect("instruction_advanced", self, "on_instruction_advance")
 	hint_timer.connect("timeout", self, "on_hint_timer_timeout")
 	StoredData.world_node = self
