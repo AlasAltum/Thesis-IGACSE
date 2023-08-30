@@ -139,4 +139,5 @@ margin_bottom = 443.0
 line_index = 7
 code_text = " end"
 effect_check = ExtResource( 15 )
+should_show_hint_on_completed = false
 plays_confirmation_audio = false
