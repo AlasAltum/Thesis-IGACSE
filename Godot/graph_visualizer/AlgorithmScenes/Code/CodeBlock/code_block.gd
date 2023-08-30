@@ -22,8 +22,11 @@ func _ready():
 	current_line = code_lines[0]
 
 func on_instruction_completed(code_line):
-	is_waiting_for_space = true
-	emit_signal("instruction_completed_forward", code_line)
+	# The graph screen can read in _process the is_waiting_for_space
+	# flag, so it can send a hint or other effect
+	if code_line.should_show_hint_on_completed:
+		is_waiting_for_space = true
+		emit_signal("instruction_completed_forward", code_line)
 
 func advance_to_line(next_line: int) -> void:
 	if next_line < code_lines.size():

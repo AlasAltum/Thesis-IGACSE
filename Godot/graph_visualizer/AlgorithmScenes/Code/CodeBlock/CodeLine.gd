@@ -13,6 +13,7 @@ export (bool) var focused = false
 export (String) var code_text = 'BFS():'
 export (Resource) var effect_check;  # : EffectCheck
 export (String) var hint_text = "Press Enter";
+export (bool) var should_show_hint_on_completed = true
 
 var on_focus_effect_triggered : bool = false
 var was_completed_correctly: bool = false
