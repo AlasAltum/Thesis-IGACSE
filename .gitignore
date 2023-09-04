@@ -49,3 +49,9 @@ Godot/Export/igasce.zip
 # All files from the export folder
 Godot/Export/*
 ReunionesYAvances/FeedbacksPruebasDeUso.txt
+Tesis/anexoA.tex
+Tesis/*.lof
+Tesis/*.fls
+Tesis/*.blg
+Tesis/*.toc
+Tesis/*.lot

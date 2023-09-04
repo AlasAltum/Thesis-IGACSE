@@ -199,6 +199,10 @@ func select_node(emit_signal=true):
 		representation.set_selected()
 	if  mouse_button_left_animation:
 		mouse_button_left_animation.visible = false
+		if animation_player.is_playing() and animation_player.current_animation == "NodeBeingSelected":
+			animation_player.seek(0.0)
+			animation_player.stop()
+
 
 func on_error_audio():
 	AudioPlayer.play_error_audio()
@@ -333,10 +337,21 @@ func _deferred_goto_scene(path):
 	var current_scene = s.instance()
 	StoredData.get_tree().root.add_child(current_scene)
 	StoredData.get_tree().current_scene = current_scene
-	
+
+# Show an animation of the mouse clicking this node
+# To hint the user	
 func show_animation_of_clicking_mouse():
 	mouse_button_left_animation.visible = true
 	animation_player.play("ClickNode")
+
+# Show an animation of a R button being pressed
+func show_animation_of_R():
+	animation_player.play("PressButtonR")
+
+# Show an animation of a R button being pressed
+func stop_animation_of_R():
+	animation_player.stop()
+	$RButtonPress.visible = false
 
 
 func highlight_node_with_size():
@@ -352,3 +367,5 @@ func _process(delta: float):
 	accum_time += delta
 	sprite_control.scale = Vector2(1.0, 1.0)
 	sprite_control.scale += Vector2(1.0, 1.0) * 0.1 * sin(self.accum_time * WAVE_FREQUENCY_FACTOR)
+
+

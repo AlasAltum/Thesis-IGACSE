@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Node/font/node_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Node/graph_node.gd" type="Script" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Assets/materials/Outline2D.tres" type="Material" id=10]
 [ext_resource path="res://Node/NodeFont.tres" type="DynamicFont" id=11]
 [ext_resource path="res://Assets/GUI/sci-fi-theme.tres" type="Theme" id=12]
+[ext_resource path="res://Assets/textures/planets/PressRKeyFrame2.png" type="Texture" id=13]
+[ext_resource path="res://Assets/textures/planets/PressRKeyFrame1.png" type="Texture" id=14]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 39.3722
@@ -59,6 +61,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MouseButtonLeft:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
 }
 
 [sub_resource type="Animation" id=17]
@@ -119,6 +133,46 @@ tracks/1/keys = {
 "values": [ false, true ]
 }
 
+[sub_resource type="Animation" id=20]
+resource_name = "PressButtonR"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("RButtonPress:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.001, 1.001, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 40, 54 ), Vector2( 44, 55 ), Vector2( 31, 40 ), Vector2( 19, 27 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RButtonPress:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("RButtonPress:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
 [sub_resource type="Animation" id=14]
 length = 0.001
 
@@ -128,6 +182,14 @@ animations = [ {
 "loop": true,
 "name": "default",
 "speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=19]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.5
 } ]
 
 [node name="GraphNode" type="KinematicBody2D"]
@@ -236,15 +298,20 @@ valign = 1
 anims/ClickNode = SubResource( 13 )
 anims/ErrorSelectingNode = SubResource( 17 )
 anims/NodeBeingSelected = SubResource( 12 )
+anims/PressButtonR = SubResource( 20 )
 anims/RESET = SubResource( 14 )
 
 [node name="MouseButtonLeft" type="AnimatedSprite" parent="."]
 visible = false
-position = Vector2( 32, 48 )
+position = Vector2( 48, 72 )
 frames = SubResource( 16 )
-frame = 1
 speed_scale = 0.5
-playing = true
+
+[node name="RButtonPress" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 40, 54 )
+scale = Vector2( 3.73077, 3.40909 )
+frames = SubResource( 19 )
 
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]

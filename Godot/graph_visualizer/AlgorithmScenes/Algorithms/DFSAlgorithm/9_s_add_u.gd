@@ -19,3 +19,17 @@ func check_actions_correct() -> bool:
 			u.unhighlight_node()
 			return true
 	return false
+
+func _show_hint_to_user():
+	var u : AGraphNode = StoredData.get_variable("u").get_node()
+	u.show_animation_of_R()
+	# Get s label and highlight it with a looping animation
+	# deactivate the animation once the user navigates to the next line
+	StoredData.highlight_variable("s", true)
+
+func _trigger_on_correct_once():
+	deactivate_hint_timer()
+	StoredData.stop_highlight_variable("s")
+	var u : AGraphNode = StoredData.get_variable("u").get_node()
+	u.stop_animation_of_R()
+

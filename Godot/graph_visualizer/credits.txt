@@ -16,7 +16,7 @@ https://gamesupply.itch.io/300-futuristic-sfx-with-names
 
 Fonts:
 PTSans:
-Copyright (c) 2010, ParaType Ltd. (http://www.paratype.com/public),
+Copyright (c) 2010, ParaType Ltd. (http://www.paratype.com/public)
 
 Alegreya Sans For variables and node variables:
 https://fonts.google.com/specimen/Alegreya+Sans+SC/about?preview.text=uvt&preview.text_type=custom
@@ -49,6 +49,9 @@ https://free-game-assets.itch.io/free-space-shooter-game-user-interface
 
 LeftMouse animation:
 https://greenpixels.itch.io/pixel-art-asset-3
+
+Keyboard buttons:
+https://dreammix.itch.io/keyboard-keys-for-ui/
 
 
 Game Engine: Godot Engine

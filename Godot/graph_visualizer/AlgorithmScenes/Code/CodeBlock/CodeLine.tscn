@@ -119,3 +119,9 @@ z_as_relative = false
 anims/AnimateLabel = SubResource( 1 )
 anims/OnError = SubResource( 5 )
 anims/RESET = SubResource( 4 )
+
+[node name="HintTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="HintTimer" to="." method="_on_HintTimer_timeout"]

@@ -81,16 +81,35 @@ func _focus_current_label():
 		curr_label.add_stylebox_override("normal", focused_style)
 		curr_label.material = focused_material
 
-func highlight_variable(var_name: String) -> void:
+func highlight_variable(var_name: String, loop=false) -> void:
 	var corresponding_label: Label = names_to_label[var_name]
-	_play_anim(corresponding_label, "emphasize_modification")
+	_play_anim(corresponding_label, "emphasize_modification", loop)
+
+func stop_highlight_variable(var_name: String) -> void:
+	var corresponding_label: Label = names_to_label[var_name]
+	if corresponding_label:
+		var anim_player: AnimationPlayer = corresponding_label.anim_player
+		anim_player.stop(true)
+		var animations = anim_player.get_animation_list()
+		# Make sure we deactivate the looping of all animations of 
+		# this animation player.
+		# NOTE: This may cause unwanted behaviors for other looping animations of
+		# variables in the debug block. Nevertheless, there should not be looping animations
+		# in this case.
+		for anim_name in animations:
+			anim_player.get_animation(anim_name).loop = false
 
 
-func _play_anim(input_label: Label, anim_name: String) -> void:
+func _play_anim(input_label: Label, anim_name: String, loop=false) -> void:
 	if input_label:
 		var anim: AnimationPlayer = input_label.anim_player
 		anim.stop(true)
 		anim.play(anim_name)
+		var animation_track = anim.get_animation(anim_name)
+		if loop:
+			if not is_instance_valid(animation_track):
+				return
+			animation_track.loop = true
 
 # To emphasize that a recent action has happened on selected variable
 func emphasize_current_selected_variable():

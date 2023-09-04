@@ -27,12 +27,20 @@ func check_actions_correct() -> bool:
 
 # Code that will be called the first time the actions are correct, but only once 
 func _trigger_on_correct_once() -> void:
-	pass
+	deactivate_hint_timer()
 
 # Execute side effect when the code line that contains
 # this effect check was executed and the next line is focused
 func _trigger_on_next_line_side_effect() -> void:
-	return
+	pass
+
+func deactivate_hint_timer() -> void:
+	# By default, deactivate the hint timer of the instruction
+	if not is_instance_valid(code_line):
+		printerr("Invalid code line!")
+		return
+
+	code_line.deactivate_hint_timer()
 
 # By default, do nothing. This method may be overriden
 # Reset to default variables of a given effect check to allow loops
@@ -68,3 +76,10 @@ func get_jump_line() -> int:
 func _hightlight_code_line() -> void:
 	if code_line:
 		code_line.hightlight_code_line()
+
+# When the user is stuck a while, this shows the users what to do
+# This method should be overriden by the particular effect check that inherits
+# from this method.
+func _show_hint_to_user() -> void:
+	# UserTracker.log("show_hint_to_user")
+	return

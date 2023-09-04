@@ -56,12 +56,15 @@ func add_or_update_variable(var_name: String, _data) -> void:
 	update()
 
 
-func highlight_variable(var_name: String) -> void:
+func highlight_variable(var_name: String, loop=false) -> void:
 	var_name = var_name.to_lower()
 	if has_variable(var_name):
-		debug_block.highlight_variable(var_name)
+		debug_block.highlight_variable(var_name, loop)
 	else:
 		printerr("Var name {} doesn't exist!", var_name)
+
+func stop_highlight_variable(var_name: String):
+	debug_block.stop_highlight_variable(var_name)
 
 func _update_variable(var_name: String, _data: ADT, update_on_finish = false) -> void:
 	var_name = var_name.to_lower()

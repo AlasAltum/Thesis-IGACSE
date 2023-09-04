@@ -119,9 +119,12 @@ func add_variable(var_name, data):
 	adt_mediator.add_or_update_variable(var_name, data)
 	highlight_variable(var_name)
 
-func highlight_variable(var_name: String) -> void:
+func highlight_variable(var_name: String, loop=false) -> void:
 	var_name = var_name.to_lower()
-	adt_mediator.highlight_variable(var_name)
+	adt_mediator.highlight_variable(var_name, loop)
+
+func stop_highlight_variable(var_name: String) -> void:
+	adt_mediator.stop_highlight_variable(var_name)
 
 func has_variable(variable_name: String) -> bool:
 	return adt_mediator.has_variable(variable_name)
