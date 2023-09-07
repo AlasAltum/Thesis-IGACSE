@@ -21,3 +21,16 @@ func check_actions_correct() -> bool:
 func _trigger_on_next_line_side_effect():
 	# Unhighlight the highlighted edge
 	StoredData.set_highlighted_edge(null)
+
+func _show_hint_to_user():
+	var u : AGraphNode = StoredData.get_variable("u").get_node()
+	u.show_animation_of_R()
+	# Get s label and highlight it with a looping animation
+	# deactivate the animation once the user navigates to the next line
+	StoredData.highlight_variable("q", true)
+
+func _trigger_on_correct_once():
+	._trigger_on_correct_once()
+	StoredData.stop_highlight_variable("q")
+	var u : AGraphNode = StoredData.get_variable("u").get_node()
+	u.stop_animation_of_R()

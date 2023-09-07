@@ -9,6 +9,7 @@ func check_actions_correct() -> bool:
 	return false
 
 func _trigger_on_correct_once():
+	._trigger_on_correct_once()
 	var selected_nodes = StoredData.get_selected_nodes()
 	StoredData.add_variable("t", selected_nodes[0].get_adt())
 
@@ -26,7 +27,7 @@ func effect_check_on_focused():
 func _trigger_on_next_line_side_effect() -> void:
 	if NotificationManager.animation_player:
 		NotificationManager.animation_player.show_variables_panel()
-		var node_t = StoredData.get_node_by_index(0) # AGraphNode
+
 	var node_t = StoredData.get_node_by_index(0) # AGraphNode
 	if node_t:
 		node_t.unhighlight_node()

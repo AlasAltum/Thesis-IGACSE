@@ -7,6 +7,8 @@ var mouse_hovering : bool = false
 export var index : int = 0
 # True for all cases except some tutorials
 export var should_show_ship_flying_around : bool = true
+# This should be false, because the base is shown when the ship arrives
+# But there may be exceptions in the first node
 export var should_show_base_when_selected : bool = false
 var edges : Array setget set_edges, get_edges
 var pressed: bool = false
@@ -190,18 +192,22 @@ func select_node(emit_signal=true):
 	if emit_signal:
 		emit_signal("node_selected", self)
 
-	if should_show_base_when_selected:
-		self.animation_player.play("NodeBeingSelected") 
 	self.selected = true
-	AudioPlayer.play_element_selected()
 
 	if representation:
 		representation.set_selected()
-	if  mouse_button_left_animation:
+
+	if mouse_button_left_animation:
 		mouse_button_left_animation.visible = false
-		if animation_player.is_playing() and animation_player.current_animation == "NodeBeingSelected":
+		# To stop animations like the hints or clicking mouse once the planet
+		# is selected
+		if animation_player.is_playing() and animation_player.current_animation != "NodeBeingSelected":
 			animation_player.seek(0.0)
 			animation_player.stop()
+
+	if should_show_base_when_selected:
+		self.animation_player.play("NodeBeingSelected") 
+		AudioPlayer.play_element_selected()
 
 
 func on_error_audio():

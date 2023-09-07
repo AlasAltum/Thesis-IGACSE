@@ -121,7 +121,6 @@ margin_right = 500.0
 margin_bottom = 766.0
 rect_clip_content = false
 mouse_filter = 2
-allow_advance = false
 
 [node name="Bottom" type="HBoxContainer" parent="CanvasLayer/Screen/VB"]
 margin_top = 770.0

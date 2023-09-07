@@ -21,6 +21,7 @@ func _show_hint_to_user():
 	StoredData.highlight_variable("s", true)
 
 func _trigger_on_correct_once():
+	._trigger_on_correct_once()
 	StoredData.stop_highlight_variable("s")
 	var t : AGraphNode = StoredData.get_variable("t").get_node()
 	t.stop_animation_of_R()
