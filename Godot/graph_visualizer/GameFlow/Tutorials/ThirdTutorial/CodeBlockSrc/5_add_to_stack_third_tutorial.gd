@@ -23,3 +23,18 @@ func check_actions_correct() -> bool:
 func _trigger_on_next_line_side_effect():
 	var dialogue_displayer = StoredData.world_node.dialogue_displayer
 	dialogue_displayer.close_single_text()
+
+func _show_hint_to_user():
+	var t : AGraphNode = StoredData.get_variable("t").get_node()
+	t.show_animation_of_R()
+	# Get s label and highlight it with a looping animation
+	# deactivate the animation once the user navigates to the next line
+	StoredData.highlight_variable("s", true)
+
+func _trigger_on_correct_once():
+	._trigger_on_correct_once()
+	StoredData.stop_highlight_variable("s")
+	var t : AGraphNode = StoredData.get_variable("t").get_node()
+	t.stop_animation_of_R()
+
+

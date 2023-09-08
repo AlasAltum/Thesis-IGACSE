@@ -404,26 +404,41 @@ should_show_base_when_selected = true
 node_a = NodePath("../GraphNode0")
 node_b = NodePath("../GraphNode1")
 script = ExtResource( 11 )
+clickable_area = null
+weight = 1.0
+is_selected = false
 
 [node name="Edge02" parent="Nodes" instance=ExtResource( 5 )]
 node_a = NodePath("../GraphNode0")
 node_b = NodePath("../GraphNode2")
 script = ExtResource( 11 )
+clickable_area = null
+weight = 1.0
+is_selected = false
 
 [node name="Edge31" parent="Nodes" instance=ExtResource( 5 )]
 node_a = NodePath("../GraphNode3")
 node_b = NodePath("../GraphNode1")
 script = ExtResource( 11 )
+clickable_area = null
+weight = 1.0
+is_selected = false
 
 [node name="Edge42" parent="Nodes" instance=ExtResource( 5 )]
 node_a = NodePath("../GraphNode4")
 node_b = NodePath("../GraphNode2")
 script = ExtResource( 11 )
+clickable_area = null
+weight = 1.0
+is_selected = false
 
 [node name="Edge20" parent="Nodes" instance=ExtResource( 5 )]
 node_a = NodePath("../GraphNode2")
 node_b = NodePath("../GraphNode0")
 script = ExtResource( 11 )
+clickable_area = null
+weight = 1.0
+is_selected = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
