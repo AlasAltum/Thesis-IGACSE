@@ -91,3 +91,9 @@ Is the Stack s empty?;Is the Stack s empty?;Está la pila (Stack) S vacía?
 PRESS_SPACE_HINT_TEXT;Remember to Press SPACE to navigate to the next instruction;Recuerda que puedes presionar ESPACIO para navegar a la siguiente instrucción
 Restart Level;Restart Level;Reiniciar nivel
 "  Return to Menu  ";"  Return to Menu  ";"  Volver al Menu  "
+STORYMODE_DFS1;This is the DFS  (Depth First Search) algorithm. It allows traversing a graph.;Este es el algoritmo Búsqueda en Profundidad (DFS / Depth First Search). Permite recorrer grafos
+STORYMODE_DFS2;It prioritizes one branch first, reaching the end of the branch, and then getting to the next one.;DFS prioriza revisar completamente un camino primero hasta el fondo, luego se pasa al siguiente y así sucesivamente.
+STORYMODE_DFS3;You can do it! We trust in you! The pandas are waiting for you!;Tú puedes! Confiamos en ti! Los pandas te esperan!
+STORYMODE_BFS1;This is the BFS  (Breadth First Search) algorithm. It allows traversing a graph (like DFS);Este es el algoritmo Búsqueda en Anchura (BFS / Breadth First Search). Permite recorrer grafos
+STORYMODE_BFS2;"DFS prioritizes ";BFS prioriza buscar radialmente, por lo que avanza en todas las ramas al mismo tiempo.
+STORYMODE_BFS3;You can do it! We trust in you! The pandas are waiting for you!;Tú puedes! Confiamos en ti! Los pandas te esperan!
