@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://GameFlow/StoryMode/DFS_SpriteSheet.png" type="Texture" id=1]
+[ext_resource path="res://GameFlow/StoryMode/story_before_level.gd" type="Script" id=2]
 [ext_resource path="res://GameFlow/DialogueDisplayer.tscn" type="PackedScene" id=3]
 
 [sub_resource type="AtlasTexture" id=12]
@@ -71,8 +72,8 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Main" type="CanvasLayer"]
-layer = 5
+[node name="StoryBeforeLevelDFS" type="Control"]
+script = ExtResource( 2 )
 
 [node name="DialogueCanvas" type="CanvasLayer" parent="."]
 layer = 10
@@ -85,16 +86,12 @@ anchor_bottom = 0.886
 dialogues_to_show = [ "STORYMODE_DFS1", "STORYMODE_DFS2", "STORYMODE_DFS3" ]
 
 [node name="Image" type="CanvasLayer" parent="."]
-layer = 10
+layer = 5
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Image"]
 position = Vector2( 960, 540 )
 scale = Vector2( 3.84, 2.16 )
 frames = SubResource( 11 )
-frame = 9
+frame = 5
 speed_scale = 0.5
 playing = true
-
-[node name="Control" type="Control" parent="Image"]
-anchor_right = 1.0
-anchor_bottom = 1.0

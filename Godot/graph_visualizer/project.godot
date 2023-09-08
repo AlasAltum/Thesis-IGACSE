@@ -280,6 +280,11 @@ _global_script_classes=[ {
 "path": "res://AlgorithmScenes/Screen/ADT/Stack/stack_representation.gd"
 }, {
 "base": "Control",
+"class": "StoryBeforeLevel",
+"language": "GDScript",
+"path": "res://GameFlow/StoryMode/story_before_level.gd"
+}, {
+"base": "Control",
 "class": "StoryModeScene",
 "language": "GDScript",
 "path": "res://GameFlow/StoryMode/first_story_mode_scene.gd"
@@ -369,6 +374,7 @@ _global_script_class_icons={
 "StackADT": "",
 "StackForTesting": "",
 "StackRepresentation": "",
+"StoryBeforeLevel": "",
 "StoryModeScene": "",
 "TestManager": "",
 "ThirdTutorial": "",

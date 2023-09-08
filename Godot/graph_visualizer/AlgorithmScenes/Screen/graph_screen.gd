@@ -48,6 +48,8 @@ export (bool) var is_weighted_graph = false
 export (bool) var allow_edge_selection = false
 export (bool) var returns_mst = false  # Kruskal and Prim return MST, this is to make sure the graph has more than n-1 edges
 export (bool) var random_graph = true
+export (bool) var expects_dialogue_first = false
+
 
 # The copy moved by the player when dragging a node
 var dragging_node: Sprite
@@ -67,6 +69,18 @@ func _init():
 func _ready():
 	StoredData.world_node = self
 	VolumeSlider.set_menu_visibility(true)
+	AudioPlayer.play_background_by_index(
+		level_to_idx[level_name]
+	)
+	
+	# The rest of the code will be stopped by this if there is 
+	# a dialogue being expected
+	if expects_dialogue_first and $StoryBeforeLevel:
+		# Dialogue works like a popup
+		StoredData.popup_captures_input = true
+		yield($StoryBeforeLevel, "forward_dialogue_finished")
+		StoredData.popup_captures_input = false
+
 	# Planets textures array is being modified each level when nodes are created
 	# So by triggering this function at the beginning, we make sure that these textures
 	# are available again so they can be used by the nodes
@@ -103,9 +117,6 @@ func _ready():
 	# send information to server
 	send_data_level_transition()
 
-	AudioPlayer.play_background_by_index(
-		level_to_idx[level_name]
-	)
 	$"%ReadyAnimation".play("OnStart")
 	call_deferred("deferred_set_world_node")
 	self.add_to_group("Main")
@@ -349,3 +360,4 @@ func get_class() -> String:
 
 func assign_texture_randomly() -> bool:
 	return true
+
