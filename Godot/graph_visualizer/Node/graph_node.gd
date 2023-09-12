@@ -17,6 +17,7 @@ var clickable = false
 var node_color: Color
 var accum_time: float
 var visited_from_node = null
+var STOP_ANIMATIONS = ["ClickNode", "PressButtonR"]
 
 onready var node_name: Label = $"%NodeName"
 onready var node_action_menu: Popup = $Popup
@@ -201,8 +202,8 @@ func select_node(emit_signal=true):
 		mouse_button_left_animation.visible = false
 		# To stop animations like the hints or clicking mouse once the planet
 		# is selected
-		if animation_player.is_playing() and animation_player.current_animation != "NodeBeingSelected":
-			animation_player.seek(0.0)
+		if animation_player.is_playing() and animation_player.current_animation in STOP_ANIMATIONS:
+			animation_player.seek(0.0, true)
 			animation_player.stop()
 
 	if should_show_base_when_selected:
@@ -356,8 +357,9 @@ func show_animation_of_R():
 
 # Show an animation of a R button being pressed
 func stop_animation_of_R():
-	animation_player.stop()
-	$RButtonPress.visible = false
+	if animation_player.current_animation == "PressButtonR":
+		animation_player.stop()
+		$RButtonPress.visible = false
 
 
 func highlight_node_with_size():
