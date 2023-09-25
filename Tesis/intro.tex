@@ -1,16 +1,80 @@
 \chapter{Introducción}
 
-\lipsum[30-35]
-\begin{enumerate}
-	\item Item 1
-	\begin{enumerate}
-		\item Subitem 1
-		\item Subitem 2 (ver Figura \ref{logofcfm})
-	\end{enumerate}
-	\item Item 2
-	\item Item 3
-\end{enumerate}
-\begin{teo}
-Se tiene que $$\int_0^t e^sds=e^t-1.$$
-\end{teo}
-\lipsum[36-40]
+La presente investigación busca llevar las instrucciones llevadas a cabo por los algoritmos relacionados a grafos 
+a una representación visual e interactiva para que los estudiantes de computación puedan aprender acompañándose con 
+esta herramienta con el fin de determinar si el uso de herramientas interactivas y con feedback visual logra mejores 
+resultados a nivel de aprendizaje y motivación en los estudiantes.
+
+El trabajo consiste en presentar a estudiantes de ciencias de la computación un videojuego donde se muestren grafos, 
+en que el jugador debe ejecutar las instrucciones de estos algoritmos, apoyándose en elementos visuales. 
+El objetivo de esta investigación de tesis es determinar si se ven diferencias en los niveles de motivación percibidos por 
+el estudiantado y en el entendimiento de los algoritmos, medido a través de una prueba donde se pregunta por algoritmos de grafos.
+El público objetivo son estudiantes que estén en su primer año de ciencias de la computación (CS por sus siglas en inglés), 
+aunque también es aplicable a estudiantes de otras carreras relacionadas a ingeniería que sepan de programación pero que
+no hayan aprendido de grafos todavía.
+
+
+\section{Motivación}
+
+% Hablar que existen formas más eficientes de aprendizaje
+% Revisar si el feedback inmediato ofrece ventajas sobre el feedback a largo plazo. 
+El uso de tecnologías digitales ha permitido acelerar el acceso al conocimiento y su escabilidad, permitiendo que estudiantes que
+habrían sido excluidos en otros contextos, ahora puedan acceder a la educación. Sin embargo, la educación en línea tiene sus propios
+retos \cite{UN2023_ImpactDigitalTechnologies}.
+En este contexto, se vuelve importante buscar metodologías que permitan acelerar el aprendizaje de los estudiantes con 
+tecnologías adaptables, escalables, y que permitan un aprendizaje más eficiente.
+Se postula popularmente que la capacidad de atención de forma prolongada ha disminuido en las nuevas generaciones.
+Hay estudios que contradicen estas afirmaciones \cite{The_Role_of_Attention_Learning_Digital_Age}, indicando que las
+habilidades cognitivas de los estudiantes han cambiado, pero no necesariamente empeorado. Existen términos como ``doomsters'' y ``boosters'' 
+\cite{Selwyn2014LookingF}, para descibrir la polarización entre estas miradas con respecto a la tecnología.
+En lo que sí existe consenso, es que la tecnología y su portabilidad ha incrementado la cantidad de distracciones a las que se exponen
+los estudiantes \cite{Zimmerman2011HandbookOS, Wang2022ComprehensivelySummarizeDistractions}. 
+A intentar realizar más de una tarea a la vez se le llama multitasking, y se ha demostrado que disminuye la productividad y el aprendizaje, 
+aunque las personas creen que pueden hacer más de una cosa a la vez \cite{Domoff2019AddictivePU}.  Con la popularización de los 
+smartphones y las clases en línea, el multitasking -desde hacer labores del hogar hasta sacar el celular y revisar alguna aplicación- durante clases se ha incrementado \cite{Wang2022ComprehensivelySummarizeDistractions}. 
+Una forma de distracción reconocida en la literatura es la interferencia motivacional, propuesta y explicada por Fries y Dietz \cite{Fries2007LearningMotivationalInterference}. 
+Esta indica que la motivación respecto a la clase disminuye debido a la presencia de tentaciones más atractivas para la atención, como los smartphones. 
+En este contexto, donde los estudiantes se ven tentados a distraerse, es importante buscar formas de mantenerlos motivados y enfocados durante las clases. Es aquí donde
+se proponen utilizar videojuegos educativos como una manera de mantener a los estudiantes motivados y enfocados en la tarea que se les pide realizar.
+Estos se destacan porque tienen potencial como una herramienta complementaria para la enseñanza, evaluación y entretemiento para los estudiantes. 
+Entre los beneficios que reportan los videojuegos educativos se destaca la motivación. En \cite{Bisson1996FunInLEarningPedagogicalRole} se indica
+que para disfrutar una actividad, primero se debe permitir a la mente de un individuo percibir tal actividad como motivante. 
+En \cite{Yu2020TheEffectsOfEducationGames}, Yu hace una revisión sistemática de la literatura sobre los efectos de los videojuegos educativos en el aprendizaje de los estudiantes y su motivación,
+En este estudio, con respecto a la motivación, se señala que en un contexto de aprendizaje que utilice o se complemente con videojuegos educativos afecta positivamente 
+la motivación e incluso los logros académicos, pero también indica que han habido estudios que contradicen esta afirmación, por lo que se requiere más investigación en el área.
+Además, Yu también indica que los juegos logran resultados positivos en el aprendizaje, pero indicando que son utilizados como complementos a la enseñanza tradicional, y no como un reemplazo total,
+además, se indica que el diseño del videojuego afecta totalmente el resultado final. Por ejemplo, los juegos de acción o realidad aumentada tenían mejores resultados que un
+juego tradicional, y que las mecánicas, elementos visuales y narrativos afectan significativamente el resultado final.
+Considerando estos antecedentes, de que un videojuego educativo puede enseñar, es escalable, repetible y flexible, es que se presenta una oportunidad para analizar la percepción
+de estudiantes de computación con respecto a un videojuego educativo que enseñe algoritmos relacionados a grafos.
+En la mayoría de los estudios citados previamente se indica que falta tener certeza respecto de la percepción de los usuarios al jugar videojuegos educativos y que 
+se requiere indagar más. Por lo mismo, resulta conveniente utilizar la misma prueba estandarizada para probar distintos diseños de videojuegos,
+con distintas poblaciones objetivo. Por esta razón, se utilizó el formulario MEEGA+ para medir la motivación de los estudiantes, y una prueba de conocimiento para 
+medir el aprendizaje de los estudiantes.
+
+
+\section{Objetivo General}
+
+% Indicar aquí que queremos medir aprendizaje y motivación
+El objetivo principal de este trabajo es medir el aprendizaje y la motivación de los estudiantes de computación al 
+utilizar un videojuego educativo para enseñar algoritmos relacionados a grafos con las características presentadas en este trabajo.
+
+\section{Objetivos Específicos}
+
+% Determinar falencias, recomendaciones de diseño para un futuro videojuego
+% Factores a considerar, como fecha en que se hace el estudio, la naturaleza de la muestra
+% Su disponibilidad, etc
+\begin{itemize}
+
+\item Diseñar una aplicación interactiva que muestre grafos y permita seguir los pasos relacionados a
+algoritmos que trabajen con grafos.
+
+\item Aplicar una prueba estandarizada para medir la percepción de los estudiantes sobre el videojuego creado.
+
+\item Proponer, diseñar e implementar una mecánica de juego y arquitectura de programación que permita ser transferida a 
+otros videojuegos que enseñen materias relacionadas a la programación. 
+
+
+\end{itemize}
+
+

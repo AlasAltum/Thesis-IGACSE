@@ -2,19 +2,19 @@
 %  memorias o tesis en inglés (borrando el archivo .aux)
 \documentclass{umemoria} 
 
-\depto{Departamento de ???}
-\author{Nombre Completo Autor}
-\title{Título de la Memoria/Tesis}
+\depto{Departamento de Ciencias de la Computación}
+\author{Alonso Utreras Miranda}
+\title{IGASCE: Un videojuego educativo para enseñar algoritmos relacionados a grafos a estudiantes de universidad}
 
 % incluir ambos comandos para una doble titulación
 %  o quitar el comando que no aplica
-\memoria{Ingenier[o/a?] Civil en ???}
-\tesis{Magíster en ???}
+\memoria{Ingeniero Civil en Computación}
+\tesis{Magíster en Ciencias, mención Computación}
 %\tesis{Doctor en ???} % incluir solo este comando para doctorados
 
 % puede haber varios profesores guía seperados por coma;
 % pero si es una memoria, solo puede haber un profesor guía
-\guia{Nombre Completo Guía} 
+\guia{Iván Sipirán Mendoza} 
 
 % puede haber varios profesores co-guía seperados por coma;
 % pero si es una memoria, el profesor co-guía será el primer
@@ -49,22 +49,36 @@
 %\end{abstract}
 
 \begin{dedicatoria}
-Una dedicatoria corta.
+A mi abuelo, que siempre me apoyó en mis estudios. 
 \end{dedicatoria}
 
 \begin{thanks}
-\lipsum[1-2]
+    Gracias a Noemí por acompañarme en todo este proceso, de inicio a fin. A mi familia por su apoyo incondicional en todos los niveles.
+
+    A mí profesor guía y maestro, Iván Sipirán, quien siempre me recibió con una sonrisa, una conversación muy amena y dando excelentes consejos.
+    
+    A mis profesores por su ayuda, por ayudarme a crecer no solo como profesional y como estudiante, sino también como persona. No sería quien soy de no ser por ustedes. 
+    
+    Gracias a mis amistades, por su apoyo, pero también a quienes me pidieron apoyo, porque en la ayuda mutua es donde surgen las mejores ideas. Gracias Alfonso, Gabriel, Ricardo, Felipes, Jeremy, Nancy, Isa, Enri, Fernanda, Dani, Nico, Mati, Martín, Bea, Tommy. Se pasaron, sin ustedes no estaría escribiendo la tesis. 
+    
+    Gracias a mis colegas, que me ayudaron sin esperar nada a cambio. Me dieron excelentes guías que jamás se me hubieran ocurrido.
+    
+    Gracias a la Facultad por brindarme el espacio de trabajo, donde sufrí, disfruté, lloré de tristeza y felicidad más de una vez. Por permitirme trabajar de lunes a domingo, de sol a sol. Por poder pasar la noche aquí y vivir en un ambiente de trabajo propicio.
+
 \end{thanks}
 
 \tableofcontents
-\listoftables % opcional
 \listoffigures % opcional
+\listoftables % opcional
 
 \mainmatter
 
 \input{intro.tex}
-\input{cap2.tex}
-\input{cap3.tex}
+\input{trabajo_relacionado.tex}
+\input{diseno_y_requisitos.tex}
+\input{metodologia.tex}
+\input{resultados.tex}
+\input{discusion.tex}
 \input{conclu.tex}
 
 % ver https://www.overleaf.com/learn/latex/Glossaries
