@@ -9,7 +9,7 @@ public class MainMenu : CanvasLayer
 	private Button languageButton;
 
 	private enum Language { English, Spanish };
-	private Language currentLanguage = Language.Spanish;
+	private Language currentLanguage = Language.English;
 
 	[Export]
 	private Godot.Collections.Array<string> TutorialLevelsPaths = new Godot.Collections.Array<string>();
@@ -37,7 +37,7 @@ public class MainMenu : CanvasLayer
 		languageButton.Connect("pressed", this, nameof(OnLanguageButtonPressed));
 
 		CurrentScene = this;
-		TranslationServer.SetLocale("es"); // By default it should be spanish
+		TranslationServer.SetLocale("en"); // By default it should be spanish
 		Node2D StoredData = GetTree().Root.GetNode<Node2D>("/root/StoredData");
 		StoredData.Set("world_node", this);
 	}
@@ -75,22 +75,37 @@ public class MainMenu : CanvasLayer
 		GotoScene(algorithmSelectionMenuScene.ResourcePath);
 	}
 
+	private void SetCurrentLanguage(Language inLanguage)
+	{
+		currentLanguage = inLanguage;
+		Node2D StoredData = GetTree().Root.GetNode<Node2D>("/root/StoredData");
+
+		if (currentLanguage == Language.Spanish)
+		{
+			StoredData.Call("set_language", "es");
+			languageButton.Text = "Español";
+		}
+		else if (currentLanguage == Language.English)
+		{
+			StoredData.Call("set_language", "en");
+			languageButton.Text = "English";
+		}
+	}
+
 	public void OnLanguageButtonPressed()
 	{
 		PlayButtonSound();
 		Node2D StoredData = GetTree().Root.GetNode<Node2D>("/root/StoredData");
+
 		// For now, we can only toggle between English and Spanish
-		if (currentLanguage == Language.Spanish)
+		switch (currentLanguage)
 		{
-			StoredData.Call("set_language", "en");
-			currentLanguage = Language.English;
-			languageButton.Text = "English";
-		}
-		else 
-		{
-			StoredData.Call("set_language", "es");
-			currentLanguage = Language.Spanish;
-			languageButton.Text = "Español";
+			case Language.English:
+				SetCurrentLanguage(Language.Spanish);
+				break;
+			case Language.Spanish:
+				SetCurrentLanguage(Language.English);
+				break;
 		}
 
 	}
