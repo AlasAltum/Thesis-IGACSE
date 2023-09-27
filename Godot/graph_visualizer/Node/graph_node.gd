@@ -357,9 +357,9 @@ func show_animation_of_R():
 
 # Show an animation of a R button being pressed
 func stop_animation_of_R():
-	if animation_player.current_animation == "PressButtonR":
-		animation_player.stop()
-		$RButtonPress.visible = false
+	animation_player.seek(0.0)
+	animation_player.stop(true)
+	$RButtonPress.visible = false
 
 
 func highlight_node_with_size():
