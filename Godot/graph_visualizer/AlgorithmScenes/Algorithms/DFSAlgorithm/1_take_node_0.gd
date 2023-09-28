@@ -39,3 +39,4 @@ func _trigger_on_next_line_side_effect() -> void:
 	# and then click node 0 later on the same game
 	node_0.should_show_base_when_selected = true
 	node_0.selected = false
+	StoredData.selectable_nodes_indexes.erase(0)
