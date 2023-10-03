@@ -17,9 +17,13 @@ func effect_check_on_focused():
 	# and not the typical game, it is better to have a containarized logic and not add more
 	# variables that are not going to be used through the game
 	restart_values_between_iterations()
-	var u = StoredData.world_node.current_selectable_node
+	# Get current u_node
+	var world_node = StoredData.world_node
+	var u = world_node.current_selectable_node
+	world_node.u_node = u
+	# Get star
 	var star_node = StoredData.world_node.star
-	StoredData.world_node.u_node = u
+	# Check if star != current u node
 	var u_is_not_a_star: bool = ( u != star_node)
 	StoredData.world_node.ask_user_if_u_node_is_a_star(u_is_not_a_star)
 	highlight_node()

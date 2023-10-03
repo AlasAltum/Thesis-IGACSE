@@ -139,7 +139,6 @@ func on_dialogue_finished():
 func ask_user_if_u_node_is_a_star(input_u_is_not_a_star):
 	# Show popup of class UNodeIsNotAStarPopup
 	var u_node_is_not_a_star_popup = $HUD/UNodeIsNotAStarPopup
-	self.u_is_not_a_star_correct_answer = input_u_is_not_a_star
 	if is_instance_valid(u_node_is_not_a_star_popup):
 		u_node_is_not_a_star_popup.popup()
 
