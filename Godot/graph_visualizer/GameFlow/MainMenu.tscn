@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://GameFlow/MainMenu.cs" type="Script" id=1]
 [ext_resource path="res://GameFlow/StoryMode/StoryModeChapterOne.tscn" type="PackedScene" id=2]
@@ -17,9 +17,6 @@ region_rect = Rect2( 0, 0, 512, 512 )
 size = 40
 extra_spacing_top = 31
 font_data = ExtResource( 9 )
-
-[sub_resource type="StreamTexture" id=3]
-flags = 4
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -82,24 +79,11 @@ __meta__ = {
 focus_neighbour_top = NodePath("")
 text = "Start Game"
 
-[node name="TestGraphKnowledge" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource( 5 )]
-visible = false
-margin_top = 132.0
-margin_bottom = 232.0
-focus_neighbour_top = NodePath("")
-text = "Test Graph Kn"
-
 [node name="SelectLevelButton" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource( 5 )]
 margin_top = 132.0
 margin_bottom = 232.0
 focus_neighbour_top = NodePath("")
 text = "Select Level"
-
-[node name="VisualGuide" type="Sprite" parent="."]
-visible = false
-position = Vector2( 960, 540 )
-scale = Vector2( 4, 4 )
-texture = SubResource( 3 )
 
 [node name="LanguageButton" parent="." instance=ExtResource( 5 )]
 anchor_left = 0.187
