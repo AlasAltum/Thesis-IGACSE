@@ -55,3 +55,7 @@ Tesis/*.fls
 Tesis/*.blg
 Tesis/*.toc
 Tesis/*.lot
+Tesis/*.synctex(busy)
+Tesis/*.synctex
+Propuesta/*.blg
+Propuesta/*.fls
