@@ -8,7 +8,6 @@ El objetivo de esta investigación de tesis es determinar si se ven diferencias 
 
 El público objetivo son estudiantes que estén en su primer año de ciencias de la computación (CS por sus siglas en inglés), aunque también es aplicable a estudiantes de otras carreras relacionadas a ingeniería que sepan de programación. El requisito principal es que no hayan aprendido de grafos todavía.
 
-    
 \section{Motivación}
 
 El uso de tecnologías digitales ha permitido acelerar el acceso al conocimiento y su escabilidad, permitiendo que estudiantes que habrían sido excluidos en otros contextos, ahora puedan acceder a la educación. Sin embargo, la educación en línea tiene sus propios retos \cite{UN2023ImpactDigitalTechnologies}. En este contexto, se vuelve importante buscar metodologías que permitan acelerar el aprendizaje de los estudiantes con tecnologías adaptables, escalables, y que permitan un aprendizaje más eficiente.
@@ -16,13 +15,13 @@ El uso de tecnologías digitales ha permitido acelerar el acceso al conocimiento
 Se postula popularmente que la capacidad de atención de forma prolongada ha disminuido en las nuevas generaciones. Hay estudios que contradicen estas afirmaciones \cite{The_Role_of_Attention_Learning_Digital_Age}, indicando que las habilidades cognitivas de los estudiantes han cambiado, pero no necesariamente empeorado. Existen términos como ``doomsters'' y ``boosters'' \cite{Selwyn2014LookingF}, para descibrir la polarización entre estas miradas con respecto a la tecnología.
 
 En lo que sí existe consenso, es que la tecnología y su portabilidad ha incrementado la cantidad de distracciones a las que se exponen
-los estudiantes \cite{Zimmerman2011HandbookOS, Wang2022ComprehensivelySummarizeDistractions}. A intentar realizar más de una tarea a la vez se le llama multitasking, y se ha demostrado que disminuye la productividad y el aprendizaje, aunque las personas creen que pueden hacer más de una cosa a la vez \cite{Domoff2019AddictivePU}.  Con la popularización de los smartphones y las clases en línea, el multitasking -desde hacer labores del hogar hasta sacar el celular y revisar alguna aplicación- durante clases se ha incrementado \cite{Wang2022ComprehensivelySummarizeDistractions}.
+los estudiantes \cite{Zimmerman2011HandbookOS, Wang2022ComprehensivelySummarizeDistractions}. Se le llama multitasking al acto de intentar realizar más de una tarea a la vez. Se ha demostrado que esta práctica disminuye la productividad y el aprendizaje, aunque las personas creen que pueden hacer más de una cosa a la vez \cite{Domoff2019AddictivePU}.  Con la popularización de los smartphones y las clases en línea, el multitasking -desde hacer labores del hogar hasta sacar el celular y revisar alguna aplicación- durante clases se ha incrementado \cite{Wang2022ComprehensivelySummarizeDistractions}.
 
 Una forma de distracción reconocida en la literatura es la interferencia motivacional, propuesta y explicada por Fries y Dietz \cite{Fries2007LearningMotivationalInterference}. Esta señala que la motivación respecto a la clase disminuye debido a la presencia de tentaciones más atractivas para la atención, como los smartphones. En este contexto, donde los estudiantes se ven tentados a distraerse, es importante buscar formas de mantenerlos motivados y enfocados durante las clases. Es aquí donde se proponen utilizar videojuegos educativos como una manera de mantener a los estudiantes motivados y enfocados en la tarea que se les pide realizar.
 
 Los videjuegos educativos destacan porque tienen potencial como una herramienta complementaria para la enseñanza, evaluación y entretemiento para los estudiantes. Entre sus beneficios se destaca la motivación. En \cite{Bisson1996FunInLEarningPedagogicalRole} se indica que para disfrutar una actividad, primero se debe permitir a la mente de un individuo percibir tal actividad como motivante. 
 
-Yu hace una revisión sistemática de la literatura \cite{Yu2020TheEffectsOfEducationGames} sobre los efectos de los videojuegos educativos en el aprendizaje de los estudiantes y su motivación. En este estudio, relativo a la motivación, se señala que en un contexto de aprendizaje que utilice o se complemente con videojuegos educativos afecta positivamente la motivación e incluso los logros académicos, pero también señala que han habido estudios que contradicen esta afirmación, por lo que se requiere más investigación en el área. 
+Yu hace una revisión sistemática de la literatura \cite{Yu2020TheEffectsOfEducationGames} sobre los efectos de los videojuegos educativos en el aprendizaje de los estudiantes y su motivación. En este estudio, relativo a la motivación, se señala que el uso de videojuegos educativos como complemento afecta positivamente la motivación e incluso los logros académicos, pero también señala que han habido estudios que contradicen esta afirmación, por lo que se requiere más investigación en el área.
 
 En el estudio mencionado, se asevera que el diseño del videojuego afecta totalmente el resultado final. Por ejemplo, los juegos de acción o realidad aumentada tenían mejores resultados que un juego tradicional, y que las mecánicas, elementos visuales y narrativos tienen un efecto significativo en el resultado final.
 
@@ -34,11 +33,11 @@ En la mayoría de los estudios citados previamente se indica que falta tener cer
 % Hablar que existen formas más eficientes de aprendizaje
 % Revisar si el feedback inmediato ofrece ventajas sobre el feedback a largo plazo. 
 
+
 \section{Objetivo General}
 
 % Indicar aquí que queremos medir aprendizaje y motivación
-El objetivo principal de este trabajo es medir el aprendizaje y la motivación de los estudiantes de computación al 
-utilizar un videojuego educativo para enseñar algoritmos relacionados a grafos con las características presentadas en este trabajo.
+El objetivo principal de este trabajo es medir el aprendizaje y la motivación de los estudiantes de computación al utilizar un videojuego educativo para instruir en algoritmos vinculados a grafos, incorporando las características expuestas en este documento.
 
 \section{Objetivos Específicos}
 
@@ -47,15 +46,27 @@ utilizar un videojuego educativo para enseñar algoritmos relacionados a grafos 
 % Su disponibilidad, etc
 \begin{itemize}
 
-\item Diseñar una aplicación interactiva que muestre grafos y permita seguir los pasos relacionados a
-algoritmos que trabajen con grafos.
+\item Concebir una aplicación interactiva que visualice grafos y permita seguir los pasos relacionados con algoritmos que operan en dichos grafos.
 
-\item Aplicar una prueba estandarizada para medir la percepción de los estudiantes sobre el videojuego creado.
+\item Implementar una evaluación estandarizada para medir la percepción de los estudiantes respecto al videojuego creado.
 
-\item Proponer, diseñar e implementar una mecánica de juego y arquitectura de programación que permita ser transferida a 
-otros videojuegos que enseñen materias relacionadas a la programación. 
+\item Idear, desarrollar e implementar mecánicas de juego y una arquitectura de programación transferibles a otros videojuegos que instruyan en materias relacionadas con la programación.
 
 
 \end{itemize}
 
+
+
+% \section{Marco teórico}
+
+% All statistical model needs an assumption or a set of assumption to work correctly. As mention
+% before, IRT unidimensional dichotomous models need to hold three principal assumptions:
+% (i) The monotonicity in the relationship between the latent trait and the probability to
+% answer a specific category (i.e., the shape of the Item Characteristic Curve (ICC)), (ii)
+% the unidimensionality, and (iii) the Local independence principle. The variation on these
+% assumptions for unidimensional polytomous IRT models is related to the first assumption.
+% In that case, the ICC is a set of curves where only one of them satisfies the assumption (i).
+% When assumption (ii) does not hold, multidimensional dichotomous and polytomous IRT
+% models (MIRT) are appropriate, which allows more than one latent trait dimension. All these
+% details are explained in the next subsections.
 
