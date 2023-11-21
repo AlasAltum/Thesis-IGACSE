@@ -1,12 +1,25 @@
-\chapter*{Anexo E: Consentimiento de participación voluntaria}\label{AnexoE}
+\chapter*{Anexo E: Script en R que permite obtener el valor indicador de la calidad de juego}\label{AnexoE}
 
-Revisar siguiente página. Este consentimiento debió firmarlo cada participante antes de empezar con la actividad. Era requerido por parte de la facultad para asegurar que cada individuo voluntario estuviera de acuerdo con formar parte del trabajo.
+\newgeometry{margin=0.5in}
 
-\newgeometry{margin=0.0in}
 
-\begin{figure}[h]
-   \centering
-   \fbox{\includegraphics[page=1, width=0.9\textwidth]{imagenes/ConsentimientoInformadoCosmoGraphica.pdf}}
-\end{figure}
+\begin{lstlisting}[language=R, caption=Script en R para evaluar el videojuego]
+library(data.table)
+library(mirt)
+library(mirtCAT)
+# CALCULATING THE SCORES
+responses <- fread(input = "EXTRA.csv", header = T)
+pars <- fread(input = "param.csv", header = T)
+pars <- data.frame(
+   a1=pars$a1, d1=pars$d1, d2=pars$d2, d3=pars$d3, d4=pars$d4)
+modelo <- generate.mirt_object(
+   parameters = pars, itemtype = "graded", min_category=1)
+escore <- fscores(
+   object = modelo, method = "EAP", response.pattern = used_responses)
+SCORE_TRI <- escore[ , 1]
+# Theta is adjusted to improve interpretability.
+final_theta <- SCORE_TRI * 0.15 + 0.5
+mean(final_theta) # Theta is = 0.6055371
+\end{lstlisting}
 
 \restoregeometry

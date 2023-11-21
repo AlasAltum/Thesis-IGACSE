@@ -37,8 +37,11 @@ categories = [
     'De acuerdo',
     'Muy de acuerdo',
 ]
-questions_indexes = [f'Q{i+1}' for i in range(31)]
-values = df.loc[:, 'Q1':'Q31'].values  # Numpy array that can be plotted with bars, it has all the values
+# question_indexes = [1, 9] U [13, 21] U [25, 35]
+questions_indexes = [f'Q{i}' for i in range(1, 10)]
+questions_indexes.extend([f'Q{i}' for i in range(13, 22)])
+questions_indexes.extend([f'Q{i}' for i in range(25, 36)])
+values = df.loc[:, 'Q1':'Q35'].values  # Numpy array that can be plotted with bars, it has all the values
 
 plt.figure(figsize=(15, 6))
 bar_width = 0.15

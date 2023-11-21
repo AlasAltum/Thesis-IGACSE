@@ -2,19 +2,19 @@
 
 \section{Resultados durante la fase exploratoria}
 
-Inicialmente, una vez probado el videojuego hasta terminar el nivel o llevar 12 minutos jugando, se le preguntaba al usuario con conocimiento experto cuánta usabilidad le daban al juego en una escala del 1 al 10.
+Inicialmente, tras finalizar el nivel o jugar durante 12 minutos, se pidió a usuarios expertos que evaluaran la usabilidad del juego en una escala del 1 al 10.
 
-Se hicieron tres iteraciones con esta metodología, además de aceptar los comentarios abiertos. En la primera fase, el promedio de usabilidad con 4 usuarios fue 2.5.
+Se realizaron tres iteraciones utilizando esta metodología, junto con la recopilación de comentarios abiertos. En la primera fase, la usabilidad promedio entre 4 usuarios fue de 2.5.
 
-Posteriormente, una vez añadidas las implementaciones sugeridas anteriormente, la usabilidad ascendió a 6 con un tamaño muestral de 4, pero los usuarios reportaban que era muy fácil cometer errores, además de que la monotonía del juego y el tener que leer mucho producían mucha insatisfacción, pese a que era comprensible qué se podía hacer.
+Posteriormente, después de implementar las sugerencias previas, la usabilidad aumentó a 6 con una muestra de 4 usuarios. Sin embargo, los usuarios señalaron la facilidad para cometer errores y la monotonía del juego, así como la necesidad de leer mucho, lo cual generaba insatisfacción, a pesar de entender las acciones posibles.
 
-Finalmente, antes de probar con el público objetivo, se hizo una última prueba de usuario con un tamaño muestral de 6, obteniendo en promedio un puntaje de 8 sobre 10. En este caso los usuarios reportaron problemas menores, principalmente asociados a la interpretabilidad de ciertas animaciones o a la falta de estímulos, como la indicación de apretar ENTER para avanzar en el código.
+Finalmente, antes de probar con el público objetivo, se llevó a cabo una última prueba con una muestra de 6 usuarios, obteniendo un promedio de calificación de 8 sobre 10. En este caso, los usuarios mencionaron problemas menores, principalmente relacionados con la interpretación de algunas animaciones o la falta de indicaciones, como la necesidad de presionar ENTER para avanzar en el código.
 
 \section{Resultados de la fase de evaluación académica}
 
 \subsection{Prueba académica}
 
-Las 15 personas que hicieron la prueba tuvieron ambas respuestas correctas, identificando correctamente el recorrido BFS y DFS en cada caso.
+Las 15 personas que hicieron la prueba tuvieron ambas respuestas correctas, identificando correctamente el recorrido BFS y DFS en cada caso. La prueba realizada se encuentra en el \hyperref[AnexoB]{anexo B}.
 
 \subsection{Formulario MEEGA+: Percepción de usuario}
 
@@ -22,23 +22,25 @@ Las 15 personas que hicieron la prueba tuvieron ambas respuestas correctas, iden
 % Poner acá gráficos y demás
 Según \cite{meegaplus} un set de respuestas de un individuo se considera correcto y válido cuando tiene más del 85\% de las preguntas contestadas. En este caso no hubo omisiones.
 
-En la figura \ref{RespuestasAgregadas} se muestran los resultados agregados para cada pregunta en cada categoría. Las preguntas se acortaron con acrónimos, pero la indexación está disponible en el anexo A \ref{AnexoA}.
+En la figura \ref{RespuestasAgregadas} se muestran los resultados agregados para cada pregunta en cada categoría. Las preguntas se acortaron con acrónimos, pero la indexación está disponible en el \hyperref[AnexoA]{anexo A}.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=.5]{imagenes/answers.png}
+	\includegraphics[scale=.45]{imagenes/answers.png}
 	\caption{Agregación de respuestas por categoría y por pregunta}
 	\label{RespuestasAgregadas}
 \end{figure}
 
 Por otra parte, en \cite{meegaplus} se utiliza Item Response Theory (IRT) para asignar un valor $\theta$ para la calidad del juego. Este se calcula a través de un script de R entregado en la \href{http://www.gqs.ufsc.br/quality-evaluation/meega-plus/}{\text{página del Software Quality Group de la Universidad Federal Santa Catarina de Brasil}} \cite{meegaplusQualityEvaluationPage}.
 
-En tal página, se entrega un archivo de parámetros que pondera cada pregunta, además de asignar un valor de dificultad de elección entre cada item. Es decir, indica qué tan difícil es que un usuario se encuentre entre responder, por ejemplo, muy en desacuerdo y de acuerdo, facilitando la distinción entre opiniones.
+En tal página, se entrega un archivo de parámetros que pondera cada pregunta, además de asignar un valor de dificultad de elección entre cada item. Es decir, indica qué tan difícil es que un usuario se encuentre entre responder, por ejemplo, muy en desacuerdo y en desacuerdo, facilitando la distinción entre opiniones.
 
+Aplicando el script en el \hyperref[AnexoE]{anexo E} con los parámetros entregados en la página con el manual de uso del modelo MEEGA+ \cite{meegaplusQualityEvaluationPage}, y las respuestas al formulario, se entrega un valor $\theta$ que indica la calidad del juego producido y permite clasificarlo. En este caso, el resultado obtenido fue de un $\theta = 0.613$, lo que significa que es un juego de buena calidad, mas no de excelente calidad según \cite{meegaplus}, pues para lograr la calidad excelente se requiere un valor $\theta \geq 0.65$.
 
-
+En el anexo \hyperref[AnexoF]{Anexo F} se muestran los comentarios abiertos que se exigen en la metodología MEEGA+ \cite{meegaplus}.  
 
 \section{Resultados de la encuesta libre}
 
-Todavía en curso. Se mostrará otro gráfico como le de la figura \ref{RespuestasAgregadas}.
-% TODO: Publicar aquí los resultados de la encuesta libre
+Esta encuesta sigue libre al momento de la escritura de esta tesis. Hasta ahora, se han recolectado 11 respuestas. El resultado de la percepción con la metodología \cite{meegaplus} es un  $\theta = 0.616$. Los resultados se encuentran en los anexos de forma análoga a las respuestas posteriores. Se observa un valor $\theta$ más alto que en el caso anterior. Además, los comentarios abiertos muestran una actitud de mayor aceptación con respecto al grupo que se expuso a la prueba académica. Esto se puede deber al sesgo del voluntario \cite{volunterBias}, puesto que la comunidad que participó de este trabajo es una comunidad indie de creación de videojuegos, por lo que aprecian cada aspecto de los videojuegos y reconocen la dificutad de realizarlos.
+
+En el anexo \hyperref[AnexoF]{Anexo F} se muestran los comentarios abiertos que se exigen en la metodología MEEGA+ \cite{meegaplus}. Las respuestas están separadas con respecto al grupo anterior. 

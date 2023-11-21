@@ -85,11 +85,7 @@
 %% Entornos nuevos
 \newenvironment{abstract}{%
 \clearpage
-\if@en
 	\chapter*{Abstract}
-\else
-	\chapter*{Resumen}
-\fi
 }{\vfill\null}
 
 \newenvironment{resumen}{%
