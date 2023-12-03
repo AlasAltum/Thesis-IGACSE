@@ -18,8 +18,8 @@ escore <- fscores(
    object = modelo, method = "EAP", response.pattern = used_responses)
 SCORE_TRI <- escore[ , 1]
 # Theta is adjusted to improve interpretability.
-final_theta <- SCORE_TRI * 0.15 + 0.5
-mean(final_theta) # Theta is = 0.6055371
+final_theta <- SCORE_TRI * 15 + 50.0
+mean(final_theta) # Theta is =
 \end{lstlisting}
 
 \restoregeometry
