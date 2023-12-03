@@ -11,21 +11,17 @@ func _notification(what):
 	elif what == NOTIFICATION_POPUP_HIDE:
 		StoredData.popup_captures_input = false
 
-
-func _node_is_star(u_node) -> bool:
-	return u_node.name == "Star"
-
 func _on_YesButton_pressed() -> void:
-	if _node_is_star(StoredData.world_node.u_node):  # Wrong answer
-		notify_u_is_a_star_correct_answer()
-	else:  # Expected answer
+	if StoredData.world_node.u_is_not_a_star_correct_answer:  # Wrong answer
 		notify_u_is_a_star_wrong_answer()
+	else:  # Expected answer
+		notify_u_is_a_star_correct_answer()
 
 func _on_NoButton_pressed() -> void:
-	if _node_is_star(StoredData.world_node.u_node):  # Expected answer
-		notify_u_is_a_star_wrong_answer()
-	else:    # Wrong answer
+	if StoredData.world_node.u_is_not_a_star_correct_answer: # Expected answer
 		notify_u_is_a_star_correct_answer()
+	else:    # Wrong answer
+		notify_u_is_a_star_wrong_answer()
 
 
 func notify_u_is_a_star_wrong_answer():
