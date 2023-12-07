@@ -82,25 +82,45 @@ Aquellos estudios que tenían múltiples grupos con asignación aleatoria eran c
 
 En una reseña, Calderón y Ruiz \cite{CalderonRuizReviewSeriousGamesEvaluation}, los autores identifican que la mayoría de los videojuegos educativos son evaluados en términos de aprendizaje, usabilidad y experiencia de usuario. Además, indican que la mayoría de los estudios se realizaron de una forma ad-hoc, sin sistematización. Este trabajo asevera que la mayoría de los estudios realizados utilizan cuestionarios y entrevistas como métodos de validación de resultados. Por otra parte, se crea una categorización de características que indican calidad en un juego, que posteriormente son utilizadas por \cite{meegaplus} en su cuestionario. Ejemplos de items evaluados son: Diseño de juego, satisfacción del usuario, usabilidad, motivación, resultados del aprendizaje, entre otros.
 
-En su reseña sobre videojuegos serios, Calderón y Ruiz también tabulan los tipos de procedimientos utilizados para validar estos trabajos, identificando tres tipos: 1) simple; 2) pre/post y 3) pre/post/post. 1) En el primero, los autores llevan a cabo una sesión con un juego serio, después de jugarlo, se aplican los mecanismos de evaluación a los jugadores; 2) En el pre/post, la prueba tiene dos etapas de evaluación. Uno antes del juego serio, y otro después, de manera que se establece el conocimiento anterior a la prueba; 3) Para el caso pre/post/post se hace, además de las pruebas pre y post, una prueba posterior semanas después para analizar los niveles de retención \cite{CalderonRuizReviewSeriousGamesEvaluation}. Respecto a las frencuencias, 50 de 89 de estos estudios se hicieron con una metodología simple y el 55\% lo hizo con tamaños muestrales inferiores a 40.
+En su reseña sobre videojuegos serios, Calderón y Ruiz \cite{CalderonRuizReviewSeriousGamesEvaluation} también tabulan los tipos de procedimientos utilizados para validar estos trabajos, identificando tres tipos: 1) simple; 2) pre/post y 3) pre/post/post. 1) En el primero, los autores llevan a cabo una sesión con un juego serio, después de jugarlo, se aplican los mecanismos de evaluación a los jugadores; 2) En el pre/post, la prueba tiene dos etapas de evaluación. Uno antes del juego serio, y otro después, de manera que se establece el conocimiento anterior a la prueba; 3) Para el caso pre/post/post se hace, además de las pruebas pre y post, una prueba posterior semanas después para analizar los niveles de retención. Respecto a las frencuencias, 50 de 89 de estos estudios se hicieron con una metodología simple y el 55\% lo hizo con tamaños muestrales inferiores a 40 \cite{CalderonRuizReviewSeriousGamesEvaluation}.
 
-En la reseña de literatura \cite{ReviewGamesTeachingComputing} se analizan exclusivamente videojuegos educativos relacionados a computación. 
- 
-
-
-This procedure is characterized by two stages of evaluation. One before using the serious game and another one after. This kind of procedure is usually used by authors who evaluated the level of knowledge acquisition that players acquired using the serious game
-
-z
+Apoyándose en esta conclusión, Petri y Christiane Gresse von Wangenheim, en su reseña de literatura sobre videojuegos educativos \cite{HowGamesComputingEducationEvaluated} aseveran que la mayoría de los estudios sobre videojuegos educativos son realizados de una manera ad-hoc en términos de diseño de investigación, medición, recolección de datos y análisis. Sin embargo, destacan el modelo MEEGA \cite{meegaplusQualityEvaluationPage}, indicando que ha sido utilizado además en otras áreas distintas de la computación, proporcionando mayor sistematización y logrando que los trabajos basados en este modelo tengan mayor validez científica.
 
 
-\subsection{Teoría de respuesta al ítem, Item Response Theory o IRT}
+\subsection{Teoría de respuesta al ítem, Item Response Theory o IRT, intuición cualitativa}
+
+Es un modelo estadístico utilizado utilizado por muchos tests globales como pruebas de inglés como lengua extranjera y el programa para la evaluación de estudiantes internacional. La cualidad que se le destacad es que permite evaluar propiedades estadísticas de forma detallada sobre cada item (o pregunta según sea el caso), viendo la dificultad y la capacidad de diferenciación de cada pregunta \cite{Linden2015HandbookOI, IRTShojima2022}.
+
+Los modelos basados en IRT se basan en tres asunciones: Primero, existe una relación funcional entre la rasgo latente que se busca medir y la probabilidad de responder un ítem (o pregunta) en una cierta categoría, por ejemplo, en desacuerdo, de acuerdo o ninguno \cite{CalderonStatisticalIRT}.
+
+Un segundo supuesto es que existe una escala continua y unidimensional de habilidad denotada como $\theta$ (parámetro theta). Esta es una suposición fuerte, pues los datos nunca son compeletamente unidimensionales, sin embargo, existen técnicas para verificar la unidimensionalidad de los datos de testeo \cite{IRTShojima2022}. Si se quieren medir más características al mismo tiempo, existen otros modelos de IRT multidimensionales \cite{Reckase2009MultidimensionalIRT}.
+
+El tercer supuesto es la independencia local, la persona responde de forma independiente a cada uno de los items o preguntas de la prueba, sin influenciar la respuesta de una pregunta la respuesta de otra \cite{CalderonStatisticalIRT}.
+
+Por definición, $\theta$ está en el rango $]-\infty, \infty [$, pero prácticamente la totalidad de los datos se encuentra en el rango aproximado de $]-3, 3[$. Un valor $\theta = 0$ se asume como un nivel promedio \cite{IRTShojima2022}. 
+
+Existen distintos modelos logísticos para evaluar $\theta$. El que se usa en este trabajo es el modelo logístico de 2 parámetros (2PLM o Two-Parameter Logistic Model) y otra variante de tres parámetros. Los parámetros en estos casos buscan representar rasgos asociados a cada ítem o pregunta. El de 2 parámetros incluye dificultad y discriminación, aunque en español se podría interpretar mejor como distinción o graduación, asociado a indicar la probabilidad entre elegir un valor u otro \cite{CalderonStatisticalIRT}.  El valor de $\theta$ se puede aproximar utilizando el método bayesiano EAP (Expected A Posteriori), el cual se calcula utilizando los paquetes de R \textit{mirt} \cite{RMIRT} y \textit{mirtCAT} \cite{RPackageMIRTCAT} aplicados en este trabajo. 
+
+El modelo 2PLM se compone del parámetro dificultad $b_j$ y de discriminación $a_j$ asignados para cada pregunta. Este último representa la pendiente de la curva e indica en qué medida el ítem diferencia a los examinados con un nivel en el rasgo latente por encima o debajo del parámetro de dificultad \cite{TeoriaRespuestaAlItemPsicologia}. En un modelo con respuestas correctas e incorrectas, un ítem con un parámetro de dificultad mayor $b_j$ será respondido incorrectamente con mayor probabilidad para casi cualquier nivel de $\theta$ \cite{IRTShojima2022}.
 
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=.5]{imagenes/IRTparambdifficulty.png}
+	\caption{Probabilidad de responder correctamente para distintos valores del parámetro dificultad b}
+	\label{ParamDifficulty}
+\end{figure}
+
+
+Es importante destacar que cada ítem discrimina mejor en torno a valores de $\theta$ que sean cercanos al parámetro de locación $b$. Además, un parámetro $a$ indica que el item es un mejor indicador para $\theta$, pero teniendo en consideración que este poder discriminativo funciona mejor cuando $\theta \approx b$. Por esta razón, cada pregunta por separado entrega información acerca del valor $\theta$ que se quiere obtener, de manera que las preguntas deben estar formuladas de tal manera que permitan distinguir distintos niveles del rasgo a evaluar \cite{TeoriaRespuestaAlItemPsicologia}.
+
+Aplicando este modelo a una escala de Likert de formato ordinal, para cada pregunta se indican 4 parámetros b, para diferenciar entre los niveles 1) Muy en desacuerdo; 2) En desacuerdo; 3) Ni en desacuerdo ni de acuerdo; 4) De acuerdo y 5) Muy de acuerdo \cite{TeoriaRespuestaAlItemPsicologia, meegaplusQualityEvaluationPage}. De esta manera, a medida que $\theta$, la calidad de juego es mejor según \cite{meegaplusQualityEvaluationPage}, las respuestas más tenderán a ser del formato Muy de acuerdo, a excepción de algunas preguntas que no se incluyen en la valoración. El script de R utilizado para el cálculo de $\theta$ se encuentra disponible en \cite{meegaplusQualityEvaluationPage}.
+
+Las fórmulas empleadas, demostraciones relacionadas con IRT o mostrar cómo afectan los distintos parámetros al resultado final está fuera del alcance de este estudio, principalmente porque los paquetes de R se encargan de realizar este trabajo.
 
 \subsection{Motores de videojuegos: Godot}
 
+Existen diversos motores de videojuegos, como Unreal Engine \cite{UE}, Unity \cite{Unity} y Godot \cite{Godot}. Este último resalta por ser completamente gratuito, de código abierto y poseer una comunidad que también participa activamente en el desarrollo del motor \cite{GodotGithubRepository}. La principal ventaja que ofrecen los motores de videojuegos es ofrecer un programa monolítico capaz de integrar diversas funcionalidades para distintos tipos de profesionales. Por ejemplo, ofrecen interfaces para integrar animaciones, así como trabajo con efectos visuales, de audio. Además, vienen con librerías integradas que se suelen utilizar en videojuegos, como colisiones, texturizado o composición de elementos, permitiendo unir la representación visual, auditiva y programática de un personaje. Los motores de videojuegos permiten exportar la aplicación a distintas plataformas sin necesidad de modificar el código \cite{GodotExport}.
 
-
-
-
+Godot utiliza principalmente dos lenguajes de programación, GDScript, similar a Python, y C#. Para este trabajo se utilizaron ambos. El primero permite prototipar rápidamente debido a su simpleza e integración con el motor. El último es más rápido, pero hay características del motor que no están integradas en la versión utilizada durante este trabajo, que es la 3.5.2 \cite{GodotCSharpGDDifferences}.
 
