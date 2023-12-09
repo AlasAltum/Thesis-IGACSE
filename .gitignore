@@ -44,7 +44,7 @@ AzureFunction/*
 *.meeting
 ReunionesYAvances/tesis.blg
 ReunionesYAvances/tesis.fls
-Godot/Export/igasce.zip
+Godot/Export/IGACSE.zip
 
 # All files from the export folder
 Godot/Export/*

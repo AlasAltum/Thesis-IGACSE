@@ -161,7 +161,7 @@ Se crearon 4 niveles para el juego, incluyendo los algoritmos de Kruskal y Prim.
 
 Para diseñar el videojuego, primero se determinaron problemas que se querían solucionar. En particular, el autor hipotetiza que los estudiantes de computación tienen dificultades para comprender completamente los algoritmos que se enseñan en los cursos de programación, y que no siempre son conscientes de esta falta de comprensión. Por lo tanto, se busca que este videojuego sea una herramienta que permita a los estudiantes entender los algoritmos paso a paso, guiándolos sutilmente a lo largo del proceso de aprendizaje.
 
-En la Universidad de Chile, históricamente y al momento de realizar este trabajo, para entrar a computación se requiere aprobar anteriormente dos años de cursos de plan común, donde existe una práctica conocida como ``pauteo'', la cual consiste en estudiar y revisar pautas de pruebas de semestres pasados para preparase para los exámenes. Con esta práctica, el alumnado revisa las ecuaciones o procedimientos para responder una pregunta sin haber realizado los ejercicios o repetido el procedimiento paso por paso. Muchas veces revisan un algoritmo superficialmente, o lo reproducen mentalmente sin hacerlo en papel. Por lo mismo, se busca que el videojuego sea una herramienta que permita a los estudiantes entender los algoritmos paso a paso y acompañarlo con una visualización.
+En la Universidad de Chile, históricamente y al momento de realizar este trabajo, para entrar a computación se requiere aprobar anteriormente dos años de cursos de plan común, donde existe una práctica conocida como ``pauteo'', la cual consiste en estudiar y revisar pautas de pruebas de semestres anteriores con el fin de prepararse para los exámenes. Con esta práctica, el alumnado revisa las ecuaciones o procedimientos para responder una pregunta sin haber realizado los ejercicios o repetido el procedimiento paso por paso. Muchas veces revisan un algoritmo superficialmente, o lo reproducen mentalmente sin hacerlo en papel. Por lo mismo, se busca que el videojuego sea una herramienta que permita a los estudiantes entender los algoritmos paso a paso y acompañarlo con una visualización.
 
 La idea principal es forzar al usuario a reproducir el algoritmo paso a paso. Esto se puede observar al utilizar el debugger. El debugger permite ver el estado de las variables en cada paso, y permite avanzar paso a paso en el código. El videojuego busca ser una herramienta que permita al usuario reproducir el algoritmo paso a paso, pero de una manera más lúdica. Por esto, el debugger que se utiliza en Visual Studio Code se utilizó como modelo.
 
@@ -173,7 +173,7 @@ Una vez definido cierto nivel de avance con todos los algoritmos definidos, se p
 
 Los diseñadores, en entrevistas separadas coincidieron en la necesidad de introducir tutoriales que mostraran los elementos del juego uno a uno, por lo que se decidió agregar tutoriales. Además, se decidió agregar una historia de fondo para lograr que el jugador se sienta identificado con el juego y comprenda un uso inmediato de estos algoritmos y estructuras. Por otra parte, los diseñadores enfatizaron la necesidad de agregar una componente de premiación y gamificación para despertar la motivación de los usuarios.
 
-Una vez finalizados los tutoriales, junto con la incorporación de los estilos, música y elementos narrativos, se procedió a publicar \href{https://alasaltum.itch.io/igasce}{el videojuego en la plataforma de itch.io}, un servidor de venta de videojuegos y elementos relacionados de creadores con bajos recursos o del mundo indie. El estilo se compró en itch.io a través de la \href{https://azagaya.itch.io/sci-fi-theme}{tienda de assets}. Los sonidos también se descargaron desde la misma tienda.
+Una vez finalizados los tutoriales, junto con la incorporación de los estilos, música y elementos narrativos, se procedió a publicar \href{https://alasaltum.itch.io/IGACSE}{el videojuego en la plataforma de itch.io}, un servidor de venta de videojuegos y elementos relacionados de creadores con bajos recursos o del mundo indie. El estilo se compró en itch.io a través de la \href{https://azagaya.itch.io/sci-fi-theme}{tienda de assets}. Los sonidos también se descargaron desde la misma tienda.
 
 % Agregar fotos de distintas versiones del juego
 % TODO: podríamos mostrar el proceso de diseño, con las distintas evoluciones.
@@ -189,7 +189,7 @@ La interfaz de usuario está basada principalmente en el debugger de Visual Stud
 	\label{VScodeDebugger}
 \end{figure}
 
-Hay otros juegos cuya interfaz sirvió de inspiración para la realización del juego final, como 7 Billion Humans\cite{7billionhumans}, donde el código se ve a la derecha de la pantalla. La porción que contiene los elementos y eventos del juego está al lado izquierdo. Lo que ocurre en la interfaz de la derecha afecta al mundo virtual, tal como en la aplicación IGASCE.
+Hay otros juegos cuya interfaz sirvió de inspiración para la realización del juego final, como 7 Billion Humans\cite{7billionhumans}, donde el código se ve a la derecha de la pantalla. La porción que contiene los elementos y eventos del juego está al lado izquierdo. Lo que ocurre en la interfaz de la derecha afecta al mundo virtual, tal como en la aplicación IGACSE.
 
 \begin{figure}[h]
 	\centering
@@ -199,7 +199,7 @@ Hay otros juegos cuya interfaz sirvió de inspiración para la realización del 
 \end{figure}
 
 
-Otro videojuego con una interfaz similar es CodeCombat \cite{CodeCombat}. Aquí el código también está a la derecha, mientras que abajo se ven diálogos y elementos seleccionables. En el caso de IGASCE, los diálogos también se muestran abajo, así como las variables actuales y la seleccionada.
+Otro videojuego con una interfaz similar es CodeCombat \cite{CodeCombat}. Aquí el código también está a la derecha, mientras que abajo se ven diálogos y elementos seleccionables. En el caso de IGACSE, los diálogos también se muestran abajo, así como las variables actuales y la seleccionada.
 Además, el menú del juego se accede en la esquina superior izquierda (Ver figura \ref{CodeCombat}).
 
 \begin{figure}[h]
@@ -214,14 +214,14 @@ Además, el menú del juego se accede en la esquina superior izquierda (Ver figu
 
 Los juegos retro comúnmente emplean bucles de música de 8 a 16 bits. Ejemplos notables incluyen Golden Sun \cite{Wiki_Golden_Sun}, ProtoCorgi \cite{ProtoCorgi}, Pokemon Emerald \cite{PokemonEmerald}, Space Invaders \cite{SpaceInvaders}, y Final Fantasy IV \cite{FinalFantasyIV}.
 
-En juegos como Pokemon \cite{PokemonEmerald} y Golden Sun \cite{Wiki_Golden_Sun}, cada vez que se hace click en algún botón y se gatilla un evento, se emite un sonido de confirmación, como cuando el jugador selecciona un ataque. El objetivo es confirmarle al usuario que se está ejecutando correctamente una acción. IGASCE sigue una estrategia similar, utilizando sonidos agudos de confirmación al hacer clic en planetas, caminos o al presionar teclas correctamente (espacio o R). Estos sonidos nítidos cumplen la función de validar la ejecución exitosa de una acción sin distraer al jugador.
+En juegos como Pokemon \cite{PokemonEmerald} y Golden Sun \cite{Wiki_Golden_Sun}, cada vez que se hace click en algún botón y se gatilla un evento, se emite un sonido de confirmación, como cuando el jugador selecciona un ataque. El objetivo es confirmarle al usuario que se está ejecutando correctamente una acción. IGACSE sigue una estrategia similar, utilizando sonidos agudos de confirmación al hacer clic en planetas, caminos o al presionar teclas correctamente (espacio o R). Estos sonidos nítidos cumplen la función de validar la ejecución exitosa de una acción sin distraer al jugador.
 
-En contraste, los sonidos de error en IGASCE emplean tonos graves con desvanecimiento, generando una sensación de vibración (ver figura \ref{EspectroOndasSonidoError}). Estos sonidos más intensos se activan cuando el jugador comete errores, como hacer clic en un planeta incorrecto o un camino equivocado, presionar una tecla antes de completar una instrucción, o responder incorrectamente a preguntas del tipo Sí/No. La intención es que el jugador reconozca inmediatamente los errores y tome medidas correctivas.
+En contraste, los sonidos de error en IGACSE emplean tonos graves con desvanecimiento, generando una sensación de vibración (ver figura \ref{EspectroOndasSonidoError}). Estos sonidos más intensos se activan cuando el jugador comete errores, como hacer clic en un planeta incorrecto o un camino equivocado, presionar una tecla antes de completar una instrucción, o responder incorrectamente a preguntas del tipo Sí/No. La intención es que el jugador reconozca inmediatamente los errores y tome medidas correctivas.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{imagenes/EspectroOndasConfirmacion.png}
-	\caption{Espectro de Ondas del sonido de Confirmación de IGASCE}
+	\caption{Espectro de Ondas del sonido de Confirmación de IGACSE}
 	\label{EspectroOndasSonidoConfirmacion}
 \end{figure}
 
@@ -229,7 +229,7 @@ En contraste, los sonidos de error en IGASCE emplean tonos graves con desvanecim
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{imagenes/EspectroOndasError.png}
-	\caption{Espectro de Ondas del sonido de Error de IGASCE}
+	\caption{Espectro de Ondas del sonido de Error de IGACSE}
 	\label{EspectroOndasSonidoError}
 \end{figure}
 
@@ -266,7 +266,7 @@ Otra ventaja clave de Godot es la capacidad de utilizar variables exportadas. Es
 
 En comparación, trabajar a un nivel más bajo con bibliotecas como PyGame, que emplea OpenGL, requiere abordar individualmente cada aspecto de la representación de un objeto. Por ejemplo, mover un personaje implica gestionar texturas y colisiones por separado en el código, aumentando costos y complejidad de desarrollo \cite{GodotCollisionsAndRendering}.
 
-\subsection{Arquitectura de software de la aplicación IGASCE}
+\subsection{Arquitectura de software de la aplicación IGACSE}
 
 La aplicación se desarrolla en diferentes fases, las cuales abarcan tres tipos de escenas: menús, tutoriales y niveles jugables. Cada fase hace uso de módulos distintos, y cada nivel, menú o tutorial representa una escena.
 
@@ -275,7 +275,7 @@ Los menús se construyen principalmente mediante nodos de control, comúnmente u
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{imagenes/GodotInterfaceMainMenu.png}
-	\caption{Interfaz de Godot describiendo la escena del menú principal de IGASCE. El juego públicamente se dio a conocer como CosmoGraphica, pero el proyecto completo se llama IGASCE.}
+	\caption{Interfaz de Godot describiendo la escena del menú principal de IGACSE. El juego públicamente se dio a conocer como CosmoGraphica, pero el proyecto completo se llama IGACSE.}
 	\label{GodotMenuInterface}
 \end{figure}
 

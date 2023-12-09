@@ -7,4 +7,4 @@ The idea of this game is to make the steps a computer must perform in order to d
 The user must follow a sequence of instructions to perform the given algorithm. Each algorithm represents a level.
 
 One of the final releases can be found at the following link:
-https://alasaltum.itch.io/igasce
+https://alasaltum.itch.io/IGACSE

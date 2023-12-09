@@ -1,7 +1,7 @@
 from preprocess_results import main as process_results
 
 def main():
-    INPUT_FILE_NAME = "EvaluacionIGASCEAlternativa.tsv"
+    INPUT_FILE_NAME = "EvaluacionIGACSEAlternativa.tsv"
     MEEGA_PLUS_CSV_ANSWERS_NAME = "EXTRAAlternative.csv"
     PREFIX_FOR_MIDDLE_FILES = "Alternative_"
     process_results(

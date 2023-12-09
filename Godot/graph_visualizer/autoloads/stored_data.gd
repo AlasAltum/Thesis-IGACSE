@@ -31,7 +31,7 @@ var remaining_levels_to_finish = {
 	# "Kruskal": "res://AlgorithmScenes/Algorithms/PrimAlgorithm/Prim_styled.tscn",
 }
 var current_language = "en" # Options are: ["es", "en"]
-var API_URL = "http://localhost:7071/api/igasce"
+var API_URL = "http://localhost:7071/api/IGACSE"
 var types_with_adt: Array = ["KinematicBody2D", "GraphEdge", "AGraphNode"]
 var has_initialized: bool = false  # Used in C# in the main menu
 var allow_select_edges = false

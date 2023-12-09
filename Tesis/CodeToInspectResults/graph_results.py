@@ -10,7 +10,7 @@ import pandas as pd
 import numpy as np
 
 
-INPUT_CSV_FILE = "SumOfResultsIGASCE.csv"
+INPUT_CSV_FILE = "SumOfResultsIGACSE.csv"
 OUTPUT_GRAPH_NAME = "answers.png"
 
 

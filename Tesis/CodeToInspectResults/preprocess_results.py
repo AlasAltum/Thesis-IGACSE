@@ -109,7 +109,7 @@ os.chdir(script_directory)
 # Although the values should be between "quotes", this may not work always.
 # To get the .tsv file, we need to download it from the forms Google Sheet and
 # Save it as a .tsv file
-ORIGINAL_FILE_NAME = "Evaluación de videojuego educativo IGASCE.tsv"
+ORIGINAL_FILE_NAME = "Evaluación de videojuego educativo IGACSE.tsv"
 MEEGA_PLUS_CSV_ANSWERS_NAME = "EXTRA.csv"
 QUESTIONS_THAT_ARE_NOT_FOR_THETA_CALCULATION = [
     'i3', # 'Tuve que aprender cosas antes de poder jugar', # i3
