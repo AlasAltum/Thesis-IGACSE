@@ -1,13 +1,13 @@
 \chapter{Diseño de la Solución}
 
 % Contenidos basados en https://repositorio.uchile.cl/bitstream/handle/2250/191381/TablaConten.pdf?sequence=2&isAllowed=y
-La aplicación creada, llamada IGACSE (Interactive Graph Algorithms for Computer Science Education) de ahora en adelante, es propuesta y diseñada en base a algunos requerimientos y necesidades de los estudiantes de computación que se nombrarán en las siguientes secciones.
+La aplicación creada, llamada IGACSE (Interactive Graph Algorithms for Computer Science Education) de ahora en adelante, fue diseñada en base a algunos requerimientos y necesidades de los estudiantes de computación que se nombrarán en las siguientes secciones.
 
 \section{Referentes}
 
-Los referentes más importantes son aquellos videojuegos que tienen un rol educativo relacionado a la programación, como CodeCombat \ref{CodeCombat} y 7 Billion Humans \ref{7BillionHumans}.
+Los referentes más importantes son aquellos videojuegos que tienen un rol educativo relacionado a la programación, como CodeCombat (Figura \ref{CodeCombat}) y 7 Billion Humans (Figura \ref{7BillionHumans}).
 
-Se observa que estos juegos tienen una componente textual que destaca en la interfaz del juego principal, ocupando al menos el 20\% de la pantalla. Por otra parte, hay texto que avanza en una línea narrativa al inicio y final de cada nivel.
+Se observa que estos juegos tienen ventanas de texto que destacan en la interfaz del juego principal, ocupando al menos el 20\% de la pantalla. Asimismo, hay diálogos que avanzan en una línea narrativa al inicio y final de cada nivel en la parte inferior de la ventana gráfica.
 
 En ambos casos la interfaz de código se encuentra a la derecha. Además, estos juegos permiten mostrar al usuario cómo la ejecución de las instrucciones afecta al juego paso a paso.
 
@@ -15,38 +15,22 @@ De este análisis se desprende que el juego tiene por requisito mostrar la ejecu
 
 \section{Objetivos a nivel de diseño}
 
-En este apartado se justifican las decisiones de diseño que llevaron a las mecánicas de juego, cuáles son los elementos interactivos y la ubicación y responsividad de estos. Según Rogers en su libro sobre diseño interactivo \cite{Rogers2002InteractionDesign}, es relevante entender primero cuál es el problema que busca resolverse, qué usuarios se ven afectados por esto, qué características poseen y cómo podría solucionarse en base a prototipos.
+En esta sección se explican las decisiones de diseño que dan origen a las mecánicas de juego. Se indica cuáles son los elementos interactivos, así como su ubicación y responsividad. Según Rogers en su libro sobre diseño interactivo \cite{Rogers2002InteractionDesign}, es necesario identificar: cuál es el problema que busca resolverse, qué usuarios se ven afectados por esto, qué características poseen y cómo podría solucionarse en base a prototipos.
 
-Se parte del supuesto de que, en muchas ocasiones, los estudiantes creen entender cómo funciona cierto código o algoritmo, pero no lo aplican paso a paso con papel y lápiz. Cuando se les asigna como ejercicio realizar el procedimiento siguiendo cada instrucción rigurosamente, los estudiantes no lo llevan a cabo o lo hacen de forma incorrecta sin darse cuenta. Por ejemplo, en \cite{IdentifyingStudentDifficultiesDataStructures}, se menciona que los estudiantes a menudo creen entender los contenidos, pero tienen conceptos erróneos sin percatarse.
+Se parte del supuesto de que, en muchas ocasiones, los estudiantes creen entender cómo funciona cierto código o algoritmo, pero no lo aplican paso a paso con papel y lápiz. Cuando se les asigna como ejercicio realizar el procedimiento siguiendo cada instrucción rigurosamente, los alumnos no lo llevan a cabo o lo hacen de forma incorrecta sin darse cuenta. Por ejemplo, en \cite{IdentifyingStudentDifficultiesDataStructures}, se menciona que los estudiantes a menudo creen entender los contenidos, pero tienen conceptos erróneos sin percatarse.
 
 En el trabajo de Zingaro et al. \cite{IdentifyingStudentDifficultiesDataStructures}, se mencionan algunos ejemplos de malentendidos por parte de los estudiantes, como errores al comprender los heaps y las formas en que pueden representarse o construirse. Estos malentendidos pasan desapercibidos y no son detectables por los mismos estudiantes.
 
 Adicionalmente a la revisión de textos, se revisaron canales de YouTube educativos como 3Blue1Brown \cite{3Blue1BrownYT}, donde el propietario del canal, Grant Sanderson, habla repetidamente sobre cómo las visualizaciones ayudan a comprender la abstracción matemática subyacente.
 
-Un requisito esencial es que el videojuego creado debe evitar la mecanización por parte del estudiante, obligándolo a revisar exhaustivamente cada paso relacionado con el algoritmo, evitando dar por sentado que se entiende el código y saltar a la siguiente actividad.
+Un requisito esencial es que el videojuego creado debe evitar la mecanización por parte del estudiante, instándolo a revisar de manera consciente y exhaustiva cada paso relacionado con el algoritmo, evitando dar por sentado que se entiende el código y saltar a la siguiente actividad.
 
-Por otra parte, para enseñar conceptos relacionados con programación, lo ideal es buscar usuarios que entiendan cómo funciona, pero que no tengan mucha experiencia y que no visualicen un código al nivel de entender cómo funciona instrucción por instrucción. Por lo mismo, se propone basarse en un modelo similar a los debuggers, donde se puede ver el estado de las variables en cada paso, así como la instrucción por ejecutarse y el resultado que conlleva.
-
-\section{Descripción de la aplicación al momento de la realización de los experimentos}
-
-El videojuego se separa en distintos niveles. Consta de un menú principal, tutoriales y niveles jugables. En el menú principal se puede seleccionar el nivel a jugar o un modo historia. En el modo historia, se juegan todos los niveles en orden, y se desbloquean a medida que se avanza.
-
-En los tutoriales se abordan los conceptos básicos de grafos sin indicar explícitamente al usuario qué es un grafo. Además, se enseñan conceptos de jugabilidad, como explorar o seleccionar un nodo, navegar en el código ejecutando instrucciones y responder preguntas del tipo Sí/No cuando el código incluye una instrucción con un if.
-
-Finalmente, se presentan los niveles jugables, correspondientes a los algoritmos que se buscan enseñar: BFS (Breadth First Search) y DFS (Depth First Search). En estos niveles, no se presenta una historia y hay menos ayuda para el usuario. Una vez completados los niveles jugables, se mostrarán los créditos del juego.
-
-El juego se centra en explorar planetas a través de rutas, utilizando una metáfora de grafos, donde los planetas representan nodos y los caminos entre ellos son aristas. El objetivo es rescatar pandas rojos dispersos en los planetas. Para lograrlo, es necesario explorar todos los nodos en una galaxia, correspondiente a un nivel. En cada nivel, se enseña un algoritmo distinto.
-
-El juego guía al usuario mediante instrucciones que aparecen en el lado derecho de la pantalla. El jugador pasa a la siguiente instrucción presionando la tecla de espacio. Cada vez que avanza a la siguiente instrucción, se desencadenan efectos y animaciones que muestran qué está sucediendo en el código. Estas animaciones se reflejan en el viewport del juego, donde se destaca un planeta, un camino o una nave que se desplaza hacia otro planeta.
-
-En los tutoriales se enseñan los conceptos básicos de grafos, pero sin indicarle al usuario explícitamente qué es un grafo. Además, se enseñan conceptos de jugabilidad, cómo explorar o seleccionar un nodo, cómo navegar en el código ejecutando instrucciones, y cómo contestar preguntas del tipo Sí/No cuando el código tiene una instrucción que incluya un if.
-
-Al seguir las instrucciones en su totalidad, el jugador repite el algoritmo paso a paso, lo que le permite entender cómo funciona y cuál es su finalidad.
-
-Las acciones del jugador pueden ir acompañadas de un sonido recompensante, permitiéndole avanzar a la siguiente instrucción. En caso de cometer un error, se indicará al jugador mediante una animación visual y un sonido. Si el jugador no sabe qué hacer, en ciertos casos se mostrará un hint visual indicándole que debe presionar alguna tecla específica o hacer clic en algún planeta.
+Por otra parte, para enseñar conceptos relacionados con programación, el escenario ideal consta de usuarios que tengan nociones, pero que carezcan de amplia experiencia y que no visualicen un código al nivel de entender cómo funciona instrucción por instrucción. Por lo mismo, se propone basarse en un modelo similar a los debuggers, donde se puede ver el estado de las variables en cada paso, así como la instrucción por ejecutarse y el resultado que conlleva.
 
 
-\subsection{Diagrama de flujo de juego}
+\section{Descripción del videojuego realizado}
+
+\subsection{Flujo de juego}
 
 El juego inicia mostrando el menú principal, donde se puede seleccionar el modo historia o los niveles jugables. Si se elige el modo historia, se mostrarán los tutoriales. Una vez terminados los tutoriales, se mostrará el primer nivel jugable, que es DFS. Si se eligen los niveles jugables, se mostrarán los niveles jugables, donde se puede seleccionar el nivel a jugar, BFS o DFS.
 Terminados los niveles BFS y DFS, se mostrarán los créditos.
@@ -57,6 +41,22 @@ Terminados los niveles BFS y DFS, se mostrarán los créditos.
 	\caption{ Flujo de juego de IGACSE}
 	\label{FlujoDeJuego}
 \end{figure}
+
+
+El videojuego se separa en distintos niveles. Consta de un menú principal, tutoriales y niveles jugables. En el menú principal se puede seleccionar el nivel a jugar o un modo historia. 
+% En el modo historia, se juegan todos los niveles en orden, y se desbloquean a medida que se avanza.
+
+En los tutoriales se abordan los conceptos básicos de grafos sin indicar explícitamente al usuario qué es un grafo, para no irrumpir en la narrativa. Además, se enseñan conceptos de jugabilidad, como explorar o seleccionar un nodo, navegar en el código ejecutando instrucciones y responder preguntas del tipo Sí/No cuando el código incluye una instrucción con un if.
+
+Finalmente, se presentan los niveles jugables, correspondientes a los algoritmos que se buscan enseñar: BFS (Breadth First Search) y DFS (Depth First Search). En estos niveles, no se avanza en la narrativa y no se guía al usuario. Una vez completados los niveles jugables, se mostrarán los créditos del juego.
+
+El juego se centra en explorar planetas a través de rutas, utilizando una metáfora de grafos, donde los planetas representan nodos y los caminos entre ellos son aristas. El objetivo es rescatar pandas rojos dispersos en los planetas. Para lograrlo, es necesario explorar todos los nodos en una galaxia, correspondiente a un nivel. En cada nivel, se enseña un algoritmo distinto. Se emplea el uso de una narrativa ficticia para ayudar en la comprensión de grafos. 
+
+El juego guía al usuario mediante instrucciones que aparecen en el lado derecho de la pantalla. El jugador pasa a la siguiente instrucción presionando la tecla espacio. Cada vez que avanza a la siguiente instrucción, se desencadenan efectos y animaciones que muestran qué está sucediendo en el código. Estas animaciones se reflejan en el viewport del juego, donde se destaca un planeta, un camino o una nave que se desplaza hacia otro planeta. 
+
+Al seguir las instrucciones en su totalidad, el jugador repite el algoritmo paso a paso, lo que le permite entender cómo funciona y cuál es su finalidad.
+
+Las acciones del jugador pueden ir acompañadas de un sonido de recompensa, permitiéndole avanzar a la siguiente instrucción. En caso de cometer un error, se le notificará al jugador mediante una animación visual y un sonido. Si el jugador no sabe qué hacer, en ciertos casos se mostrará un hint visual indicándole que debe presionar alguna tecla específica o hacer clic en algún planeta.
 
 
 \subsection{Narrativa}
@@ -80,7 +80,7 @@ En el menú principal, se puede seleccionar el idioma presionando el botón en l
 
 \subsection{Tutoriales}
 
-Los tutoriales tienen como objetivo familiarizar al jugador con las mecánicas básicas que se utilizarán a lo largo del juego. Además, introducen al jugador en la historia, ambientada en una nave que rescata pandas rojos dispersos en los planetas de la galaxia. La trama busca ilustrar la aplicación de los grafos sin detallar explícitamente el contenido que se está enseñando. Las mecánicas se presentan mediante una combinación de elementos, como texto y pistas visuales, que pueden incluir un ratón realizando clic izquierdo o una tecla R siendo presionada sobre el planeta. Cada nivel y tutorial son repetibles, permitiendo al jugador revisarlos en caso de no comprender algún aspecto.
+Los tutoriales tienen como objetivo familiarizar al jugador con las mecánicas básicas que se utilizarán a lo largo del juego. Además, introducen al jugador en la historia. La trama busca ilustrar la aplicación de los grafos sin detallar explícitamente el contenido que se está enseñando. Las mecánicas se presentan mediante una combinación de elementos, como texto y pistas visuales, que pueden incluir un ratón realizando clic izquierdo o una tecla R siendo presionada sobre el planeta. Cada nivel y tutorial son repetibles, permitiendo al jugador revisarlos en caso de no comprender algún aspecto.
 
 \subsubsection{Primer Tutorial}
 
@@ -159,11 +159,11 @@ Se crearon 4 niveles para el juego, incluyendo los algoritmos de Kruskal y Prim.
 
 \section{Proceso de diseño}
 
-Para diseñar el videojuego, primero se determinaron problemas que se querían solucionar. En particular, el autor hipotetiza que los estudiantes de computación tienen dificultades para comprender completamente los algoritmos que se enseñan en los cursos de programación, y que no siempre son conscientes de esta falta de comprensión. Por lo tanto, se busca que este videojuego sea una herramienta que permita a los estudiantes entender los algoritmos paso a paso, guiándolos sutilmente a lo largo del proceso de aprendizaje.
+Para diseñar el videojuego, primero se determinaron problemas que se querían solucionar. En particular, el autor hipotetiza que los estudiantes de computación tienen dificultades para comprender completamente los algoritmos que se enseñan en los cursos de programación, y que no siempre son conscientes de esta falta de comprensión. Por lo tanto, se busca que este videojuego sea una herramienta que permita a los alumnos entender los algoritmos paso a paso, guiándolos sutilmente a lo largo del proceso de aprendizaje.
 
 En la Universidad de Chile, históricamente y al momento de realizar este trabajo, para entrar a computación se requiere aprobar anteriormente dos años de cursos de plan común, donde existe una práctica conocida como ``pauteo'', la cual consiste en estudiar y revisar pautas de pruebas de semestres pasados para preparase para los exámenes. Con esta práctica, el alumnado revisa las ecuaciones o procedimientos para responder una pregunta sin haber realizado los ejercicios o repetido el procedimiento paso por paso. Muchas veces revisan un algoritmo superficialmente, o lo reproducen mentalmente sin hacerlo en papel. Por lo mismo, se busca que el videojuego sea una herramienta que permita a los estudiantes entender los algoritmos paso a paso y acompañarlo con una visualización.
 
-La idea principal es forzar al usuario a reproducir el algoritmo paso a paso. Esto se puede observar al utilizar el debugger. El debugger permite ver el estado de las variables en cada paso, y permite avanzar paso a paso en el código. El videojuego busca ser una herramienta que permita al usuario reproducir el algoritmo paso a paso, pero de una manera más lúdica. Por esto, el debugger que se utiliza en Visual Studio Code se utilizó como modelo.
+La idea principal es instar al usuario a reproducir el algoritmo paso a paso. Esto se puede observar al utilizar el debugger. El debugger permite ver el estado de las variables en cada paso, y permite avanzar paso a paso en el código. El videojuego busca ser una herramienta que permita al usuario reproducir el algoritmo paso a paso, pero de una manera más lúdica. Por esto, el debugger que se usa en Visual Studio Code es el referente principal.
 
 % Agregar imagen de debugger en VSCode con un código de Python.
 
@@ -171,7 +171,7 @@ Posteriormente, se realizaron distintos bocetos. Se le mostraron estos bocetos a
 
 Una vez definido cierto nivel de avance con todos los algoritmos definidos, se probó con 4 usuarios expertos que ya conocían el algoritmo. Sin embargo, no fueron capaces de seguirlo o comprenderlo a cabalidad, por lo que no se cumpliría el objetivo con personas neófitas en los grafos. Por esta razón, se decidió conseguir la asesoría directa de un diseñador de videojuegos y un diseñador de UX/UI.
 
-Los diseñadores, en entrevistas separadas coincidieron en la necesidad de introducir tutoriales que mostraran los elementos del juego uno a uno, por lo que se decidió agregar tutoriales. Además, se decidió agregar una historia de fondo para lograr que el jugador se sienta identificado con el juego y comprenda un uso inmediato de estos algoritmos y estructuras. Por otra parte, los diseñadores enfatizaron la necesidad de agregar una componente de premiación y gamificación para despertar la motivación de los usuarios.
+Los diseñadores, en entrevistas separadas coincidieron en la necesidad de introducir tutoriales que mostraran los elementos del juego uno a uno, por lo que se decidió incluirlos. Además, se decidió agregar una historia de fondo para lograr que el jugador se sienta identificado con el juego y comprenda un uso inmediato de estos algoritmos y estructuras. Por otra parte, los diseñadores enfatizaron la necesidad de agregar una componente de premiación y gamificación para despertar la motivación de los usuarios.
 
 Una vez finalizados los tutoriales, junto con la incorporación de los estilos, música y elementos narrativos, se procedió a publicar \href{https://alasaltum.itch.io/igasce}{el videojuego en la plataforma de itch.io}, un servidor de venta de videojuegos y elementos relacionados de creadores con bajos recursos o del mundo indie. El estilo se compró en itch.io a través de la \href{https://azagaya.itch.io/sci-fi-theme}{tienda de assets}. Los sonidos también se descargaron desde la misma tienda.
 
@@ -180,7 +180,7 @@ Una vez finalizados los tutoriales, junto con la incorporación de los estilos, 
 
 \subsection{Diseño de la interfaz de usuario}
 
-La interfaz de usuario está basada principalmente en el debugger de Visual Studio Code \cite{vscode} (Ver figura \ref{VScodeDebugger}). Se observa aquí que la instrucción actual está destacada por un puntero y en color. Además, las variables locales muestran su valor en un formato "nombre: valor". El usuario puede avanzar paso a paso en el código.
+La interfaz de usuario está basada principalmente en el debugger de Visual Studio Code \cite{vscode} (Ver figura \ref{VScodeDebugger}). Se observa aquí que la instrucción actual está destacada por un puntero yArquitectura de software de un nivel de IGACSE en color. Además, las variables locales muestran su valor en un formato ``nombre: valor''. El usuario puede avanzar paso a paso en el código.
 
 \begin{figure}[h]
 	\centering
@@ -189,7 +189,7 @@ La interfaz de usuario está basada principalmente en el debugger de Visual Stud
 	\label{VScodeDebugger}
 \end{figure}
 
-Hay otros juegos cuya interfaz sirvió de inspiración para la realización del juego final, como 7 Billion Humans\cite{7billionhumans}, donde el código se ve a la derecha de la pantalla. La porción que contiene los elementos y eventos del juego está al lado izquierdo. Lo que ocurre en la interfaz de la derecha afecta al mundo virtual, tal como en la aplicación IGASCE.
+Hay otros juegos cuya interfaz sirvió de inspiración para la realización del juego final, como 7 Billion Humans\cite{7billionhumans}, donde el código se ve a la derecha de la pantalla. La porción que contiene los elementos y eventos del juego está al lado izquierdo. Lo que ocurre en la interfaz de la derecha afecta al mundo virtual, tal como en la aplicación IGACSE.
 
 \begin{figure}[h]
 	\centering
@@ -199,7 +199,7 @@ Hay otros juegos cuya interfaz sirvió de inspiración para la realización del 
 \end{figure}
 
 
-Otro videojuego con una interfaz similar es CodeCombat \cite{CodeCombat}. Aquí el código también está a la derecha, mientras que abajo se ven diálogos y elementos seleccionables. En el caso de IGASCE, los diálogos también se muestran abajo, así como las variables actuales y la seleccionada.
+Otro videojuego con una interfaz similar es CodeCombat \cite{CodeCombat}. Aquí el código también está a la derecha, mientras que abajo se ven diálogos y elementos seleccionables. En el caso de IGACSE, los diálogos también se muestran abajo, así como las variables actuales y la seleccionada.
 Además, el menú del juego se accede en la esquina superior izquierda (Ver figura \ref{CodeCombat}).
 
 \begin{figure}[h]
@@ -214,14 +214,14 @@ Además, el menú del juego se accede en la esquina superior izquierda (Ver figu
 
 Los juegos retro comúnmente emplean bucles de música de 8 a 16 bits. Ejemplos notables incluyen Golden Sun \cite{Wiki_Golden_Sun}, ProtoCorgi \cite{ProtoCorgi}, Pokemon Emerald \cite{PokemonEmerald}, Space Invaders \cite{SpaceInvaders}, y Final Fantasy IV \cite{FinalFantasyIV}.
 
-En juegos como Pokemon \cite{PokemonEmerald} y Golden Sun \cite{Wiki_Golden_Sun}, cada vez que se hace click en algún botón y se gatilla un evento, se emite un sonido de confirmación, como cuando el jugador selecciona un ataque. El objetivo es confirmarle al usuario que se está ejecutando correctamente una acción. IGASCE sigue una estrategia similar, utilizando sonidos agudos de confirmación al hacer clic en planetas, caminos o al presionar teclas correctamente (espacio o R). Estos sonidos nítidos cumplen la función de validar la ejecución exitosa de una acción sin distraer al jugador.
+En juegos como Pokemon \cite{PokemonEmerald} y Golden Sun \cite{Wiki_Golden_Sun}, cada vez que se hace click en algún botón y se gatilla un evento, se emite un sonido de confirmación, como cuando el jugador selecciona un ataque. El objetivo es confirmarle al usuario que se está ejecutando correctamente una acción. IGACSE sigue una estrategia similar, utilizando sonidos agudos de confirmación al hacer clic en planetas, caminos o al presionar teclas correctamente (espacio o R). Estos sonidos nítidos cumplen la función de validar la ejecución exitosa de una acción sin distraer al jugador.
 
-En contraste, los sonidos de error en IGASCE emplean tonos graves con desvanecimiento, generando una sensación de vibración (ver figura \ref{EspectroOndasSonidoError}). Estos sonidos más intensos se activan cuando el jugador comete errores, como hacer clic en un planeta incorrecto o un camino equivocado, presionar una tecla antes de completar una instrucción, o responder incorrectamente a preguntas del tipo Sí/No. La intención es que el jugador reconozca inmediatamente los errores y tome medidas correctivas.
+En contraste, los sonidos de error en IGACSE emplean tonos graves con desvanecimiento, generando una sensación de vibración (ver figura \ref{EspectroOndasSonidoError}). Estos sonidos más intensos se activan cuando el jugador comete errores, como hacer clic en un planeta incorrecto o un camino equivocado, presionar una tecla antes de completar una instrucción, o responder incorrectamente a preguntas del tipo Sí/No. La intención es que el jugador reconozca inmediatamente los errores y tome medidas correctivas.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{imagenes/EspectroOndasConfirmacion.png}
-	\caption{Espectro de Ondas del sonido de Confirmación de IGASCE}
+	\caption{Espectro de Ondas del sonido de Confirmación de IGACSE}
 	\label{EspectroOndasSonidoConfirmacion}
 \end{figure}
 
@@ -229,7 +229,7 @@ En contraste, los sonidos de error en IGASCE emplean tonos graves con desvanecim
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{imagenes/EspectroOndasError.png}
-	\caption{Espectro de Ondas del sonido de Error de IGASCE}
+	\caption{Espectro de Ondas del sonido de Error de IGACSE}
 	\label{EspectroOndasSonidoError}
 \end{figure}
 
@@ -266,7 +266,7 @@ Otra ventaja clave de Godot es la capacidad de utilizar variables exportadas. Es
 
 En comparación, trabajar a un nivel más bajo con bibliotecas como PyGame, que emplea OpenGL, requiere abordar individualmente cada aspecto de la representación de un objeto. Por ejemplo, mover un personaje implica gestionar texturas y colisiones por separado en el código, aumentando costos y complejidad de desarrollo \cite{GodotCollisionsAndRendering}.
 
-\subsection{Arquitectura de software de la aplicación IGASCE}
+\subsection{Arquitectura de software de la aplicación IGACSE}
 
 La aplicación se desarrolla en diferentes fases, las cuales abarcan tres tipos de escenas: menús, tutoriales y niveles jugables. Cada fase hace uso de módulos distintos, y cada nivel, menú o tutorial representa una escena.
 
@@ -275,7 +275,7 @@ Los menús se construyen principalmente mediante nodos de control, comúnmente u
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{imagenes/GodotInterfaceMainMenu.png}
-	\caption{Interfaz de Godot describiendo la escena del menú principal de IGASCE. El juego públicamente se dio a conocer como CosmoGraphica, pero el proyecto completo se llama IGASCE.}
+	\caption{Interfaz de Godot describiendo la escena del menú principal de IGACSE. El juego públicamente se dio a conocer como CosmoGraphica, pero el proyecto completo se llama IGACSE.}
 	\label{GodotMenuInterface}
 \end{figure}
 
@@ -316,7 +316,7 @@ La clase ADTShower se encarga de mostrar en la esquina inferior derecha la varia
 
 Inicialmente, cada cambio en el código debido al efecto de alguna CodeLine o línea de código del juego requería modificar las clases DebugBlock, ADTShower y StoredData (explicada más adelante), además de afectar la misma línea de código. Además, estos efectos deben reflejarse en las líneas de código siguientes para lograr cohesión. Por ejemplo, si la quinta línea crea la variable ``u'' y la sexta la modifica, esto se refleja correctamente en todas las estructuras mencionadas.
 
-Para resolver el problema del alto costo de implementación, se optó por crear una clase llamada ADTMediator, siguiendo el patrón Mediator \cite{Freeman2015TheMP}. Esta clase se inspiró en la arquitectura de React, donde el código generado por React funciona como una única fuente de verdad o "Single Source of Truth" \cite{ReactSingleSourceOfTruth}. Con este tipo de arquitectura, se envía un mensaje a ADTMediator solicitando modificar, crear o eliminar una variable. Esta clase ajusta sus variables internas, luego informa a las clases DebugBlock y ADTShower sobre qué mostrar. Una desventaja de esta arquitectura es que realiza copias innecesarias en cada paso, perdiendo eficiencia. Sin embargo, dado que se trabaja con menos de seis variables, este costo es despreciable a nivel de usuario.
+Para resolver el problema del alto costo de implementación, se optó por crear una clase llamada ADTMediator, siguiendo el patrón Mediator \cite{Freeman2015TheMP}. Esta clase se inspiró en la arquitectura de React, donde el código generado por React funciona como una única fuente de verdad o ``Single Source of Truth'' \cite{ReactSingleSourceOfTruth}. Con este tipo de arquitectura, se envía un mensaje a ADTMediator solicitando modificar, crear o eliminar una variable. Esta clase ajusta sus variables internas, luego informa a las clases DebugBlock y ADTShower sobre qué mostrar. Una desventaja de esta arquitectura es que realiza copias innecesarias en cada paso, perdiendo eficiencia. Sin embargo, dado que se trabaja con menos de seis variables, este costo es despreciable a nivel de usuario.
 
 \begin{figure}[h!]
 	\centering
