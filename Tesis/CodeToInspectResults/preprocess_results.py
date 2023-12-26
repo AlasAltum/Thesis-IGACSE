@@ -217,6 +217,7 @@ def read_csv(file_path: str):
         raise
 
     except Exception as e:
+        # Do not erase this part, despite it looks a bad practice. It helps debugging using breakpoints.
         print(f"An error occurred: {e}")
         raise
 
