@@ -180,7 +180,7 @@ Una vez finalizados los tutoriales, junto con la incorporación de los estilos, 
 
 \subsection{Diseño de la interfaz de usuario}
 
-La interfaz de usuario está basada principalmente en el debugger de Visual Studio Code \cite{vscode} (Ver figura \ref{VScodeDebugger}). Se observa aquí que la instrucción actual está destacada por un puntero yArquitectura de software de un nivel de IGACSE en color. Además, las variables locales muestran su valor en un formato ``nombre: valor''. El usuario puede avanzar paso a paso en el código.
+La interfaz de usuario está basada principalmente en el debugger de Visual Studio Code \cite{vscode} (Ver figura \ref{VScodeDebugger}). Se observa aquí que la instrucción actual está destacada a través de un puntero y un énfasis con color. Además, las variables locales muestran su valor en un formato ``nombre: valor''. El usuario puede avanzar paso a paso en el código.
 
 \begin{figure}[h]
 	\centering
@@ -202,7 +202,7 @@ Hay otros juegos cuya interfaz sirvió de inspiración para la realización del 
 Otro videojuego con una interfaz similar es CodeCombat \cite{CodeCombat}. Aquí el código también está a la derecha, mientras que abajo se ven diálogos y elementos seleccionables. En el caso de IGACSE, los diálogos también se muestran abajo, así como las variables actuales y la seleccionada.
 Además, el menú del juego se accede en la esquina superior izquierda (Ver figura \ref{CodeCombat}).
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.3]{imagenes/CodeCombat.png}
 	\caption{Videojuego CodeCombat}
@@ -239,7 +239,7 @@ En contraste, los sonidos de error en IGACSE emplean tonos graves con desvanecim
 % Agregar diagrama de jugabilidad
 La condición de victoria en cada nivel implica completar todas las instrucciones proporcionadas por el algoritmo. En los niveles de BFS y DFS, esto implica visitar todos los nodos del grafo. El puntero de instrucciones señala la tarea actual, y el jugador debe ejecutar correctamente lo indicado en la instrucción, ya sea haciendo clic, respondiendo una pregunta, o agregando un nodo a una estructura de datos. Algunas instrucciones, especialmente aquellas que contienen la palabra clave \textit{for}, no requieren acción por parte del jugador. Una vez que se han ejecutado correctamente los pasos requeridos, la instrucción cambiará de color y el cursor se transformará en un ticket.
 
-Para avanzar en las instrucciones, el jugador debe presionar la tecla espacio. Si se presiona la tecla espacio sin completar la instrucción, se activará un sonido de error y el color de la instrucción parpadeará entre rojo y amarillo durante un segundo. Presionar la tecla espacio después de completar la instrucción generará un sonido de confirmación y avanzará a la siguiente instrucción. Si se presiona la tecla espacio cuando no hay más instrucciones, se emitirá un sonido de victoria, permitiendo al jugador pasar al siguiente nivel o visualizar los créditos según corresponda. Este proceso se resume en el diagrama \ref{FlujoMecanicaDeNivel}.
+Para avanzar en las instrucciones, el jugador debe presionar la tecla espacio. Si esta se presiona sin completar la instrucción, se activará un sonido de error y el color de la instrucción parpadeará entre rojo y amarillo durante un segundo. Presionar la tecla espacio después de completar la instrucción generará un sonido de confirmación y avanzará a la siguiente instrucción. Si se presiona la tecla espacio cuando no hay más instrucciones, se emitirá un sonido de victoria, permitiendo al jugador pasar al siguiente nivel o visualizar los créditos según corresponda. Este proceso se resume en el diagrama \ref{FlujoMecanicaDeNivel}.
 
 \begin{figure}[h]
 	\centering
@@ -256,7 +256,7 @@ Antes de abordar la arquitectura específica del programa, es crucial comprender
 
 \subsection{Arquitectura de una aplicación en Godot}
 
-Una aplicación en Godot se construye en base a escenas. Una escena es un conjunto de objetos instanciados al mismo tiempo. Un programa creado en este motor se compone de escenas, que típicamente serán los niveles en un juego. Las escenas tienen un grafo de escena compuesto por uno o más nodos.
+Una aplicación en Godot se construye en base a escenas. Una escena es un conjunto de objetos instanciados al mismo tiempo. Un programa creado en este motor se compone de escenas, que suelen ser los niveles en un juego. Las escenas tienen un grafo de escena compuesto por uno o más nodos.
 
 Los nodos en Godot son las unidades fundamentales de construcción del programa, representando diversos elementos como botones, texturas, reproductores de sonido o áreas de colisión. Para crear personajes con lógica compleja, como habilidades, movimiento y colisiones, se combinan múltiples nodos.
 
@@ -292,7 +292,9 @@ Los tutoriales presentan una lógica más compleja y se asemejan a los niveles. 
 
 En cuanto a los niveles jugables, hay varios elementos destacables, como el código, las variables, la variable seleccionada y la ventana de juego.
 
-El código que se muestra a la derecha de la pantalla durante el juego está controlado por un nodo de la clase CodeContainer. Este objeto se encarga de recibir la entrada del jugador para avanzar en el código. Si las acciones ejecutadas son correctas, el usuario pasa a la siguiente instrucción, desbloqueando nuevas tareas. La clase CodeContainer posee un arreglo de objetos del tipo CodeLine llamado code\_lines. La clase CodeLine contiene toda la lógica de una única línea de código. Entre sus funciones se encuentran dar énfasis visual a la línea de código actual, proporcionar feedback audiovisual al usuario cuando la instrucción de la línea se completa correctamente y verificar constantemente si la instrucción de línea se ha completado correctamente (ver figura \ref{CodeLinesArchitecture}).
+El bloque de código que se muestra a la derecha de la pantalla durante el juego está controlado por un nodo de la clase CodeContainer. Este objeto se encarga de recibir la entrada del jugador para avanzar en el código. Si las acciones ejecutadas son correctas, el usuario pasa a la siguiente instrucción, desbloqueando nuevas tareas. La clase CodeContainer posee un arreglo de objetos del tipo CodeLine llamado code\_lines. 
+
+La clase CodeLine contiene la lógica de una única línea de código. Entre sus funciones se encuentran: dar énfasis visual a la línea de código actual, proporcionar feedback audiovisual al usuario cuando la instrucción de la línea se completa correctamente y verificar constantemente si la instrucción de línea se ha completado correctamente (ver figura \ref{CodeLinesArchitecture}).
 
 \begin{figure}[h]
 	\centering
@@ -301,7 +303,7 @@ El código que se muestra a la derecha de la pantalla durante el juego está con
 	\label{CodeLinesArchitecture}
 \end{figure}
 
-Cada CodeLine posee un script que se puede indicar desde el editor de Godot a través de una variable exportada. Este script debe heredar de la clase EffectCheck, la cual actúa como interfaz. Cada script que implemente la interfaz EffectCheck debe definir métodos para: 1) cuando el puntero de instrucción llega a la línea del script; 2) verificar que la instrucción actual se ha realizado correctamente; y 3) si es necesario, manejar efectos colaterales de la instrucción. Este último se utiliza en los ciclos for, donde se mueve el índice utilizado para avanzar por los ciclos y recorrer arreglos, así como para la creación de variables.
+Cada CodeLine tiene asociado un script que puede ser especificado desde el editor de Godot a través de una variable exportada. Este script debe heredar de la clase EffectCheck, la cual actúa como interfaz. Cada script que implemente la interfaz EffectCheck debe definir métodos para: 1) cuando el puntero de instrucción llega a la línea del script; 2) verificar que la instrucción actual se ha realizado correctamente; y 3) si es necesario, manejar efectos colaterales de la instrucción. Este último se utiliza en los ciclos for, donde se mueve el índice utilizado para avanzar por los ciclos y recorrer arreglos, así como para la creación de variables.
 
 En el panel inferior, se encuentran dos clases esenciales: DebugBlock y ADTShower. DebugBlock se encarga de mostrar las variables instanciadas, su nombre y su valor actual. Contiene la lógica para agregar, modificar o eliminar alguna variable. Cada vez que se pasa por un ciclo for o se declara una variable, este ajusta sus variables internas. Hay una variable seleccionada que puede ser manipulada por el usuario de diversas maneras. Al presionar la flecha hacia arriba, se selecciona la variable que está encima de la actual y viceversa para la flecha hacia abajo. En la figura \ref{BFSFullGame}, se observa que la variable ``q'' está seleccionada.
 
@@ -312,11 +314,13 @@ En el panel inferior, se encuentran dos clases esenciales: DebugBlock y ADTShowe
 	\label{BFSFullGame}
 \end{figure}
 
-La clase ADTShower se encarga de mostrar en la esquina inferior derecha la variable que ha sido seleccionada por el usuario. Busca añadir una representación visual al objeto seleccionado para permitir arrastrar nodos a la cola o la pila según el algoritmo que se esté enseñando, BFS o DFS, respectivamente.
+La clase ADTShower se encarga de mostrar en la esquina inferior derecha la variable que ha sido seleccionada por el usuario. Esta visualiza al objeto, enfatizando cuando un nodo se agrega o elimina de una cola o pila, lo cual depende del algoritmo que se esté enseñando, BFS o DFS, respectivamente.
 
-Inicialmente, cada cambio en el código debido al efecto de alguna CodeLine o línea de código del juego requería modificar las clases DebugBlock, ADTShower y StoredData (explicada más adelante), además de afectar la misma línea de código. Además, estos efectos deben reflejarse en las líneas de código siguientes para lograr cohesión. Por ejemplo, si la quinta línea crea la variable ``u'' y la sexta la modifica, esto se refleja correctamente en todas las estructuras mencionadas.
+Inicialmente, cada vez que se creaba un nuevo script por una nueva línea de código se debían modificar las clases DebugBlock, ADTShower y StoredData (explicada más adelante). Además, estos efectos debían reflejarse en las líneas de código siguientes para lograr cohesión. Por ejemplo, si la quinta línea crea la variable ``u'' y la sexta la modifica, esto se debe reflejar correctamente en todas las estructuras mencionadas.
 
-Para resolver el problema del alto costo de implementación, se optó por crear una clase llamada ADTMediator, siguiendo el patrón Mediator \cite{Freeman2015TheMP}. Esta clase se inspiró en la arquitectura de React, donde el código generado por React funciona como una única fuente de verdad o ``Single Source of Truth'' \cite{ReactSingleSourceOfTruth}. Con este tipo de arquitectura, se envía un mensaje a ADTMediator solicitando modificar, crear o eliminar una variable. Esta clase ajusta sus variables internas, luego informa a las clases DebugBlock y ADTShower sobre qué mostrar. Una desventaja de esta arquitectura es que realiza copias innecesarias en cada paso, perdiendo eficiencia. Sin embargo, dado que se trabaja con menos de seis variables, este costo es despreciable a nivel de usuario.
+Para resolver el problema del alto costo de implementación, se optó por crear una clase llamada ADTMediator, siguiendo el patrón Mediator \cite{Freeman2015TheMP}. Esta clase se inspiró en la arquitectura de React, donde el código generado por React funciona como una ``única fuente de verdad'' o ``Single Source of Truth'' \cite{ReactSingleSourceOfTruth}. Con esta arquitectura, se envía un mensaje a ADTMediator para solicitar la modificación, creación o eliminación de una variable. Posteriormente, esta clase ajusta sus variables internas y luego notifica a las clases DebugBlock y ADTShower qué información mostrar.
+
+Una desventaja de esta arquitectura es que realiza copias innecesarias en cada paso, perdiendo eficiencia. Sin embargo, dado que se trabaja con menos de seis variables, este costo es despreciable a nivel de usuario.
 
 \begin{figure}[h!]
 	\centering
@@ -325,13 +329,13 @@ Para resolver el problema del alto costo de implementación, se optó por crear 
 	\label{ArquitecturaMediatorAfter}
 \end{figure}
 
-Una clase que sirve de puente para comunicarse con el ADTMediator es StoredData. Este es un singleton que contiene datos como los avances del usuario en los distintos niveles y el estado del juego. Cuando una línea de código quiere modificar variables dentro del juego, ejecuta un método de este singleton, el cual reenvía esta información al ADTMediator. Esto se hace así porque es fácil obtener el puntero a StoredData, ya que usa el patrón singleton.
+Una clase que sirve de puente para comunicarse con el ADTMediator es StoredData. Este es un singleton que contiene datos, tales como los avances del usuario en los distintos niveles y el estado del juego. Cuando una línea de código busca modificar variables dentro del juego, ejecuta un método de este singleton, el cual reenvía esta información al ADTMediator. Se optó por esta metodología, pues es fácil obtener el puntero a StoredData, ya que usa el patrón singleton.
 
-Otros singletons son: AudioPlayer, encargado de emitir sonidos específicos en cualquier momento del juego y NotificationManager, que genera ventanas emergentes para el usuario, como menúes, avisos o pestañas donde se debe responder sí o no.
+Otros singletons son: AudioPlayer, encargado de emitir sonidos específicos en cualquier momento del juego, y NotificationManager, que genera ventanas emergentes para el usuario, como menús, avisos o pestañas donde se debe responder sí o no.
 
 \subsection{Cómo agregar una nueva CodeLine y ajustarse a otro algoritmo}
 
-El framework creado en IGACSE permite que se puedan crear líneas nuevas de código en menos de diez pasos. Con estas líneas se puede recrear un algoritmo perfectamente. En este capítulo se entrega un ejemplo y muestras de código. En primer lugar, se debe crear el script que ejecuta una línea de código en el programa, para esto, se debe crear un nuevo archivo GDScript que herede de la clase EffectCheck como se muestra en la figura \ref{effect_check_script}.
+El framework creado en IGACSE permite la creación de líneas nuevas de código en menos de diez pasos. Facilitando la reproducción de algoritmos de manera precisa. En este capítulo se entrega un ejemplo y muestras de código. En primer lugar, se debe crear el script que ejecuta una línea de código en el programa. Para esto, se debe crear un nuevo archivo GDScript que herede de la clase EffectCheck como se muestra en la figura \ref{effect_check_script}.
 
 \begin{figure}[h!]
 	\centering
@@ -374,7 +378,7 @@ Los métodos de esta clase que pueden ser redefinidos según cada caso. Estos se
 
 \restoregeometry
 
-A modo de ejemplo, en la figura \ref{v_is_not_explored_effect_check} se muestra la instrucción \emph{If v.is\_not\_explored()} usada en el algoritmo DFS. Esta instrucción se asegura de que no se explore dos veces el mismo nodo. Se le pregunta al usuario si se ha explorado el nodo v. Una vez el usuario ha contestado correctamente, se le permite avanzar.
+A modo de ejemplo, en la figura \ref{v_is_not_explored_effect_check} se muestra la instrucción \emph{If v.is\_not\_explored()} usada en el algoritmo DFS. Esta instrucción asegura que un mismo nodo no sea explorado más de una vez. Se le pregunta al usuario si se ha explorado el nodo v. Una vez el usuario ha contestado correctamente, se le permite avanzar.
 
 \begin{figure}[h!]
 	\centering
@@ -389,20 +393,20 @@ A modo de ejemplo, en la figura \ref{v_is_not_explored_effect_check} se muestra 
 % scripts pueden leer estas señales. Que con estas señales se pueden gatillar
 % Eventos del juego. Mostrar ejemplos donde se selecciona un nodo, como el nodo_u.
 
-Para hacer una nueva línea perteneciente a un algoritmo, se debe crear un nuevo objeto que herede de CodeLine. Luego, se deben redefinir los métodos de esta clase según el comportamiento esperado. 
+Para crear una nueva línea perteneciente a un algoritmo, es necesario generar un nuevo objeto que herede de CodeLine. Posteriormente, se deben redefinir los métodos de esta clase según el comportamiento esperado. 
 
 Por ejemplo, en el caso de \emph{If v.is\_not\_explored()}, es esperable que al usuario se le pregunte si el nodo v está explorado una vez que se alcanza esta parte del código (Ver función effect\_check\_on\_focused en la figura \ref{v_is_not_explored_effect_check}). La instrucción se finaliza cuando el usuario responde correctamente si el nodo v ha sido explorado o no (Líneas 5 a 7 en la figura \ref{v_is_not_explored_effect_check}).
 
-Respecto a implementar una nueva línea de código a nivel de usuario, el proceso es como se indica en la figura \ref{Godot_v_is_not_explored}. 
+Respecto a la implementación de una nueva línea de código a nivel de usuario, el proceso es como se indica en la figura \ref{Godot_v_is_not_explored}. 
 
-\begin{figure}[h!]
+\begin{figure}[!h]
 	\centering
-	\includegraphics[width=1.2\textwidth]{imagenes/DFS_if_v_is_not_explored.png}
+	\includegraphics[width=0.8\textwidth]{imagenes/DFS_if_v_is_not_explored.png}
 	\caption{Ventana de Godot mostrando un nodo que contiene la instrucción \emph{If v.is\_not\_explored()}.}
 	\label{Godot_v_is_not_explored}
 \end{figure}
 
-Se debe tener un CodeBlock como raíz de un árbol jerárquico. Este CodeBlock debe contener un nodo del tipo VBoxContainer que se encarga de alinear los elementos de forma vertical. En este VBoxContainer, llamado LinesContainer en el presente caso. El LinesContainer tiene como hijos PanelContainers que son, en realidad, CodeLines.
+Se debe tener un CodeBlock como raíz de un árbol jerárquico. Este CodeBlock debe contener un nodo del tipo VBoxContainer que se encarga de alinear los elementos de forma vertical. Dentro de este VBoxContainer, denominado LinesContainer en este caso, se encuentran los PanelContainers que, en realidad, representan las CodeLines (Ver figuras \ref{Godot_v_is_not_explored}).
 
 Cada CodeLine tiene ciertas variables exportadas, como se observa en el lado derecho de la figura \ref{Godot_v_is_not_explored}. Estas variables se pueden ver en la tabla \ref{table_code_line_variables}
 
@@ -432,7 +436,7 @@ Cada CodeLine tiene ciertas variables exportadas, como se observa en el lado der
 \end{table}
 
 
-Cada efecto desencadena modificaciones en las estructuras de datos del nivel. Por ejemplo, al crearse la variable \emph{v} al recorrer un grafo, StoredData guarda una referencia a esta nueva variable, el ADTMediator es notificado y reenvía esta señal a las clases DebugBlock y ADTShower, para que puedan desplegar este objeto como un elemento visible en el juego.
+Cada efecto desencadena modificaciones en las estructuras de datos del nivel. Por ejemplo, al crear la variable \emph{v} al recorrer un grafo, StoredData guarda una referencia a esta nueva variable, el ADTMediator es notificado y reenvía esta señal a las clases DebugBlock y ADTShower, permitiéndoles desplegar este objeto como un elemento visible en el juego.
 
 
 
@@ -456,7 +460,7 @@ Un nivel en IGACSE está compuesto por varios nodos de Godot. Los nodos más rel
 
 \restoregeometry
 
-En este caso, los singletons son aquellas clases que se mantienen durante todo el juego. AudioPlayer administra los sonidos y música de fondo del videojuego. NotificationManager muestra las popups que se cierran y abren durante el juego, relacionadas con menúes y preguntas del tipo if.
+En este caso, los singletons son aquellas clases que se mantienen durante todo el juego. AudioPlayer administra los sonidos y música de fondo del videojuego, mientras que NotificationManager maneja las popups que se cierran y abren durante el juego, relacionadas con menús y preguntas del tipo if.
 
 En cuanto al singleton StoredData, este almacena información sobre los niveles jugados, las acciones realizadas por el jugador, el estado de avance y las variables en juego actualmente. Además, esta clase proporciona una librería de funciones relacionadas con la manipulación de variables durante el nivel, como funciones para obtener los datos relacionados a una variable a partir de un nombre en forma de texto.
 
@@ -464,7 +468,7 @@ La clase GraphManager inicializa el grafo y proporciona las referencias de nodos
 
 Posteriormente, se inicializan el ADTMediator, DebugBlock y ADTShower, cuyos roles ya fueron explicados anteriormente. En conjunto con estos objetos, el CodeContainer aparece en el nivel, construyendo cada línea de código con sus respectivos scripts.
 
-El jugador introduce inputs constantemente, lo que le permite avanzar a lo largo de las líneas de código hasta completarlas todas. Una vez finalizado el algoritmo, StoredData se encarga de realizar la transición al siguiente nivel.
+El jugador introduce inputs, lo que le permite avanzar a lo largo de las líneas de código hasta completarlas todas. Una vez finalizado el algoritmo, StoredData se encarga de realizar la transición al siguiente nivel.
 
 
 
