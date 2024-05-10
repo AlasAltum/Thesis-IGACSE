@@ -1,51 +1,94 @@
 \chapter{Introducción}
 
-Esta investigación tiene como objetivo transformar las instrucciones de algoritmos de grafos en una representación visual e interactiva a través de un videojuego. Esta representación se destina a estudiantes de informática, con lo que se puede evaluar si el uso de herramientas interactivas con feedback visual mejora tanto el aprendizaje como la motivación.
+La adopción de tecnologías digitales ha agilizado el acceso al conocimiento, permitiendo que cada vez más personas puedan acceder a la educación \cite{UN2023ImpactDigitalTechnologies}. Sin embargo, este avance no está exento de desafíos, especialmente en el contexto de la educación en línea, donde surgen obstáculos adicionales que requieren soluciones innovadoras y adaptativas.
 
-El trabajo implica presentar a estudiantes de ciencias de la computación (CS) un videojuego que exhiba grafos. En este juego, el usuario debe ejecutar las instrucciones de los algoritmos de grafos con la asistencia de elementos interactivos de caracter visual y auditivo.
+Un desafío presente en la educación contemporánea es mantener la atención de los estudiantes durante periodos prolongados. Aunque se plantea comúnmente que la capacidad de atención ha disminuido en las nuevas generaciones, diversos estudios contradicen dicha afirmación \cite{The_Role_of_Attention_Learning_Digital_Age}. Este contraste de opiniones refleja la polarización entre dos perspectivas extremas: los "doomsters", quienes tienen una visión pesimista sobre el impacto de la tecnología en la sociedad, y los "boosters", que adoptan una visión optimista frente al avance de esta \cite{Selwyn2014LookingF}.
 
-El objetivo de esta investigación de tesis es identificar posibles diferencias en los niveles de motivación y comprensión de los algoritmos relacionados a grafos entre los estudiantes. Esto se medirá mediante una prueba que evaluará su conocimiento de estos procesos. Los algoritmos a enseñar y evaluar son BFS y DFS.
+Existe consenso en que la tecnología y su portabilidad han incrementado notablemente la exposición de los estudiantes a distracciones \cite{Zimmerman2011HandbookOS, Wang2022ComprehensivelySummarizeDistractions}. El término “multitasking” se refiere al intento de llevar a cabo múltiples tareas simultáneamente. Aunque las personas tienden a creer que son capaces de realizar varias actividades de manera concurrente, diversos estudios han demostrado que esta práctica conlleva una disminución en la productividad y en el proceso de aprendizaje \cite{Domoff2019AddictivePU}. Con la generalización de los dispositivos móviles y la adopción de clases en línea, se ha observado un aumento significativo en la tendencia al multitasking durante las clases \cite{Wang2022ComprehensivelySummarizeDistractions}.
 
-El público objetivo son estudiantes de primer año de ciencias de la computación, aunque también es aplicable a estudiantes de ingeniería con conocimientos de programación. El requisito principal es que no hayan estudiado grafos previamente.
 
-\section{Motivación}
+Una forma de distracción reconocida en la literatura es la interferencia motivacional, concepto propuesto y explicado por Fries y Dietz \cite{Fries2007LearningMotivationalInterference}. El término indica que la motivación por los contenidos educativos disminuye ante la presencia de estímulos más atractivos, como los dispositivos móviles. Ante este panorama, surge la necesidad de explorar estrategias que mantengan la motivación y el enfoque de los estudiantes durante las clases.
 
-La adopción de tecnologías digitales ha agilizado el acceso al conocimiento, permitiendo que estudiantes previamente excluidos ahora puedan acceder a la educación. Sin embargo, la educación en línea presenta desafíos propios \cite{UN2023ImpactDigitalTechnologies}. En este contexto, es crucial buscar metodologías que aceleren el aprendizaje con tecnologías adaptables, escalables y eficientes.
+Los videojuegos educativos surgen como estrategias válidas ante el escenario actual, como una potencial herramienta complementaria para la enseñanza, evaluación y entretenimiento de los estudiantes. Entre sus beneficios se destaca la motivación. De hecho, para disfrutar de una actividad, primero se debe permitir a la mente de un individuo percibir tal actividad como motivante \cite{Bisson1996FunInLEarningPedagogicalRole}.
 
-Se postula popularmente que la capacidad de atención de forma prolongada ha disminuido en las nuevas generaciones. Hay estudios que contradicen estas afirmaciones \cite{The_Role_of_Attention_Learning_Digital_Age}, indicando que las habilidades cognitivas de los estudiantes han cambiado, pero no necesariamente empeorado. Existen términos como ``doomsters'' y ``boosters'' \cite{Selwyn2014LookingF}, para descibrir la polarización entre estas miradas con respecto a la tecnología.
+Yu et al. \cite{Yu2020TheEffectsOfEducationGames} llevaron a cabo una revisión sistemática de la literatura sobre los efectos de los videojuegos educativos en el aprendizaje de los estudiantes y su motivación. En relación con este último aspecto, el estudio señala que la incorporación de videojuegos educativos como recurso complementario impacta positivamente en la motivación. Sin embargo, se menciona que la evidencia es insuficiente para concluir sobre la efectividad en los resultados del aprendizaje.
 
-Existe consenso en que la tecnología y su portabilidad han incrementado notablemente la exposición de los estudiantes a distracciones \cite{Zimmerman2011HandbookOS, Wang2022ComprehensivelySummarizeDistractions}. El término "multitasking" se refiere al intento de llevar a cabo múltiples tareas simultáneamente. Aunque las personas tienden a creer que son capaces de realizar varias actividades de manera concurrente, diversos estudios han demostrado que esta práctica conlleva una disminución en la productividad y en el proceso de aprendizaje \cite{Domoff2019AddictivePU}. Con la generalización de los smartphones y la adopción de clases en línea, se ha observado un aumento significativo en la tendencia al multitasking durante las clases \cite{Wang2022ComprehensivelySummarizeDistractions}.
+El equipo de Yu también menciona una ventaja asociada a los videojuegos educativos: pueden proporcionar servicios educacionales de alta calidad, flexibles, portátiles y de bajo costo, aumentando las interacciones entre materiales de aprendizaje, estudiantes y profesores \cite{Yu2020TheEffectsOfEducationGames}.
 
-Una forma de distracción reconocida en la literatura es la interferencia motivacional, propuesta y explicada por Fries y Dietz \cite{Fries2007LearningMotivationalInterference}. Esta teoría postula que la motivación por los contenidos disminuye ante la presencia de estímulos más atractivos para la atención, tales como los smartphones. En este contexto, donde los estudiantes enfrentan la tentación de distraerse, resulta fundamental explorar estrategias destinadas a mantener su motivación y enfoque durante las clases.
+En el estudio mencionado, se afirma que el diseño del videojuego tiene una gran incidencia en el resultado final. Concluyen que las mecánicas, elementos visuales y narrativos tienen un efecto significativo, sugiriendo que los juegos educativos deberían implementar varios elementos de ludificación, como rankings, sistemas de recompensa, entre otros aspectos \cite{Yu2020TheEffectsOfEducationGames}.
 
-Los videjuegos educativos destacan porque tienen potencial como una herramienta complementaria para la enseñanza, evaluación y entretemiento para los estudiantes. Entre sus beneficios se destaca la motivación. En \cite{Bisson1996FunInLEarningPedagogicalRole} se indica que para disfrutar una actividad, primero se debe permitir a la mente de un individuo percibir tal actividad como motivante. 
+En más del 50\% de los estudios citados anteriormente, se señala la falta de certeza con respecto a la percepción de los usuarios al jugar videojuegos educativos, concluyendo que se necesita una investigación más profunda. Por lo tanto, es pertinente emplear una prueba estandarizada que permita evaluar diversos diseños de videojuegos, abarcando diferentes poblaciones objetivo, y cuyos resultados sean medidos conforme a un estándar uniforme \cite{Yu2020TheEffectsOfEducationGames}. Con el fin de estandarizar los resultados, Petri et al. desarrolló el modelo MEEGA+ para medir la percepción de los usuarios respecto a un videojuego educativo \cite{meegaplus}.
 
-Yu et al. \cite{Yu2020TheEffectsOfEducationGames} llevan a cabo una revisión sistemática de la literatura acerca de los efectos de los videojuegos educativos en el aprendizaje de los estudiantes y su motivación. En relación con este último aspecto, el estudio señala que la incorporación de videojuegos educativos como recurso complementario impacta positivamente en la motivación y, además, mejora los logros académicos. Sin embargo, también destaca la existencia de investigaciones que contradicen esta afirmación, subrayando así la necesidad de llevar a cabo más estudios en esta área.
 
-En el estudio mencionado, se asevera que el diseño del videojuego tiene una gran incidencia en el resultado final. Estos concluyen que las mecánicas, elementos visuales y narrativos tienen un efecto significativo, sugiriendo que los juegos educativos deberían implementar varios elementos de gamificación, como rankings, sistemas de recompensa, entre otros aspectos \cite{Yu2020TheEffectsOfEducationGames}.
+Esta investigación surge a partir de los antecedentes planteados inicialmente, y en relación con los contenidos del campo de las ciencias de la computación. Se observa que, en muchas ocasiones, los estudiantes de esta área creen entender cómo funciona cierto código o algoritmo, sólo haciendo una revisión preliminar de las instrucciones, pero no hay una ejecución y lectura del paso a paso en paralelo. Estas prácticas llevan a que no se aprenda adecuadamente los contenidos, y se crea erradamente que se entienden a cabalidad los contenidos, pero posteriormente no logran extrapolarlos ni reproducirlos con otras variables, arrastrando conceptos erróneos sin percatarse \cite{IdentifyingStudentDifficultiesDataStructures}.
 
-Yu et al. \cite{Yu2020TheEffectsOfEducationGames} además mencionan una ventaja asociada a los videojuegos educativos, y es que pueden proveer servicios educacionales de alta calidad, flexible, portable y de bajo costo, incrementando las interacciones entre materiales de aprendizaje, estudiantes y profesores. Considerando lo anterior, se presenta una oportunidad para crear un videojuego educativo que enseñe algoritmos relacionados a grafos y analizar la percepción de sus usuarios.
+El trabajo busca tener un impacto positivo en el aprendizaje y la motivación de los estudiantes de computación con la aplicación del videojuego educativo IGASCE. Se enseñan contenidos de dos algoritmos vinculados a grafos. Estos son Búsqueda en Anchura (BFS) y Búsqueda en Profundidad (DFS). La idea del juego es represetar las instrucciones de algoritmos de grafos en una forma visual, interactiva y lúdica.
 
-En más del 50\% de los estudios citados anteriormente, se señala la falta de certeza con respecto a la percepción de los usuarios al jugar videojuegos educativos, concluyendo que se requiere profundizar la investigación. Por lo tanto, resulta pertinente emplear una prueba estandarizada que permita evaluar diversos diseños de videojuegos, abarcando distintas poblaciones objetivo, y cuyos resultados sean medidos conforme a un estándar uniforme. Con este propósito, se utilizó un formulario basado en el modelo MEEGA+ \cite{meegaplus} para evaluar la motivación de los estudiantes, y una prueba de conocimientos para medir su aprendizaje.
+Se eligieron grafos y los algoritmos BFS y DFS porque poseen una representación visual directa y más fácil de diseñar en un videojuego. Visualizar los algoritmos permite una comprensión mayor a las explicaciones basadas en texto e ideas abstractas \cite{surti2023NeoRoute}.
+
+Con esto, la investigación de tesis realiza una evaluación cuantitativa, mediante la medición de la motivación y percepción general del juego y el grado de aprendizaje adquirido, de los contenidos de algoritmos relacionados con grafos, en particular BFS y DFS. Además, existe una componente cualitativa basada en comentarios abiertos por parte de los participantes del estudio.
+
+El público objetivo son estudiantes de primer año de ciencias de la computación, aunque también es aplicable a estudiantes de ingeniería con conocimientos de programación. El requisito principal es que no hayan estudiado grafos previamente. La evaluación se realiza mediante una prueba académica escrita, con un puntaje y nota; y el formulario MEEGA+, también con un puntaje asignable a cada criterio a evaluar.
+
+
+\section{Trabajo Relacionado}
+
+\subsection{Videojuegos educativos o serios}
+
+Un videojuego representa una modalidad de aprendizaje activo, donde el proceso de enseñanza no sigue la estructura tradicional que consiste en tener a un profesor exponiendo frente a un estudiante. En este enfoque, el aprendizaje implica la ejecución de pasos y la participación activa del estudiante en actividades que contribuyen a la construcción del conocimiento. La revisión realizada por Hartikainen et al. \cite{active_learning_review} presenta argumentos a favor del aprendizaje activo, destacando mejores resultados, respaldo político y las demandas contemporáneas del entorno laboral, como habilidades de comunicación y la capacidad de aprendizaje autónomo.
+
+Los videojuegos serios, también conocidos como ``Serious Gaming'', constituyen una forma de aprendizaje activo. Bell y Gibson \cite{evaluation_of_games_for_teaching_cs} sostienen que los juegos educativos son más efectivos que las clases tradicionales, lecturas, videos y tareas. Estos autores afirman que el uso de juegos conlleva a una mejora en la retención, conocimiento factual, habilidades basadas en el conocimiento, y autoeficacia. No obstante, recomiendan que los juegos deben complementarse con otras formas de enseñanza y actividades posteriores al juego que permitan a los estudiantes reflexionar sobre la relación entre los juegos y la materia.
+
+\subsection{Análisis de otros autores}
+
+Bell y Gibson \cite{evaluation_of_games_for_teaching_cs} identificaron y clasificaron 41 videojuegos de Ciencias de la Computación (CS). Uno de ellos, ``Map Coloring", aborda el tema de grafos, en particular el coloreo de grafos. Aunque se realizó una búsqueda del juego hasta la fecha (2022), no se encontró material al respecto.
+
+Kiili y su equipo \cite{using_videogames_maths} analizaron el uso de videojuegos en enseñanza y evaluación en matemáticas a través de los títulos ``Semideus'' y "Wuzzit Trouble". A través de estos, llegaron a la conclusión de que es posible utilizar videojuegos para enseñar y evaluar al mismo tiempo. Además, caracterizaron estadísticamente las diferencias producidas por el uso de videojuegos entre resultados de un pre test y un post test.
+
+% En otro trabajo de Kiili et. al \cite{Kiili_game_based_rational} realizaron una regresión lineal entre dos variables, puntaje obtenido en el videojuego y mejoras en una prueba académica relacionada con la materia enseñada. En este caso se enseñaba sobre fracciones y números racionales. En este caso, el tiempo dedicado por los grupos de estudio, fue un total de 2 horas y media. % TODO: revisar mejor la relación entre las variables.
+% @article{Kiili_game_based_rational,
+%   title = {Evaluating the effectiveness of a game-based rational number training - In-game metrics as learning indicators},
+%   author = {Kristian Kiili and Korbinian Moeller and Manuel Ninaus},
+%   journal = {Computers & Education},
+%   volume = {120},
+%   pages = {13-28},
+%   year = {2018},
+%   doi = {https://doi.org/10.1016/j.compedu.2018.01.012},
+%   url = {https://www.sciencedirect.com/science/article/pii/S0360131518300125}
+% }
+
+En el trabajo de Zhao y Shute \cite{video_game_foster_computational_thinking}, se listan ejemplos de videojuegos diseñados para enseñar programación, como Wu's Castle \cite{wuscastle}, CodeCombat \cite{CodeCombat}, CodeSpell \cite{codespells}, y MiniColon \cite{minicolon}. Estos ejemplos emplean programación con texto. No obstante, también existen numerosos referentes que utilizan programación por bloques, como LightBot \cite{LightBot}, Scratch \cite{ scratch, maloney2010scratch}, y RoboBuilder \cite{RoboBuilder}, los cuales simplifican el proceso de aprender la sintaxis relacionada con los lenguajes de programación.
+
+A pesar de esto, el impacto de estos videojuegos no ha sido evaluado rigurosamente en muchos casos. En las instancias documentadas, las muestras suelen ser reducidas, y las evaluaciones se centran principalmente en aspectos cualitativos, sin evaluar un aprendizaje determinado ni entregar números que permitan la comparación de estos juegos educativos con otros \cite{video_game_foster_computational_thinking, effectiveness_gbl}.
+
+Petri y otros \cite{meegaplus} coinciden en la falta de sistematización en la evaluación de los videojuegos educativos. Se ha observado que algunos juegos serios ni siquiera se autodenominan o se consideran como tales \cite{evaluation_of_games_for_teaching_cs}. Además, muchos estudios carecen de resultados cuantitativos, lo que dificulta su comparación. 
+
+Para abordar estas deficiencias, Petri et al. \cite{meegaplus} desarrollaron el modelo MEEGA+ (Modelo para la Evaluación de Juegos Educativos y Escala EGameFlow). Entre las deficiencias identificadas al momento de crear videojuegos según Petri et al. \cite{meegaplus} se encuentran la falta de: 
+(1) Definición de un objetivo de evaluación; (2) Diseño de investigación; (3) Plan de medición; (4) Instrumentos de recopilación de datos; y (5) Métodos de análisis de datos. Una práctica común al analizar estas herramientas es utilizar comentarios informales por parte del estudiantado, en lugar de aplicar escalas psicométricas \cite{meegaplus}.
+
+% Entre las deficiencias señaladas al momento de crear videojuegos según Petri et al. \cite{meegaplus} se encuentran la carencia de: 1) Definición de un objetivo de evaluación; 2) Diseño de investigación; 3) Plan de medición; 4) Instrumentos de recopilación de datos; y 5) Métodos de análisis de datos. Una práctica que era común al analizar estas herramientas es hacer uso de comentarios informales por parte del estudiantado, sin la aplicación de escalas psicométricas \cite{meegaplus}.
 
 
 \section{Preguntas de Investigación}
+\label{RQ1}
+\emph{RQ1}: ¿Puede un grupo de estudiantes que no tenga conocimiento previo sobre grafos, identificar y construir un recorrido BFS y DFS solo habiendo sido expuesto a un videojuego educativo sobre grafos?
 
-\emph{Q1} ¿Puede un grupo de estudiantes que no tenga conocimiento previo sobre grafos, identificar y construir un recorrido BFS y DFS solo habiendo sido expuesto a un videojuego educativo sobre grafos?
-
-\emph{Q2}: ¿Cómo perciben los estudiantes de ciencias de la computación sin conocimientos de grafos un videojuego educativo sobre grafos?
+\label{RQ2}
+\emph{RQ2}: ¿Cómo perciben los estudiantes de ciencias de la computación sin conocimientos de grafos un videojuego educativo sobre grafos?
 
 
 \section{Hipótesis}
 
+\label{Hip1}
 \emph{H1}: Un videojuego que utilice conceptos relacionados a grafos puede enseñar sobre los algoritmos de BFS y DFS.
 
+\label{Hip2}
 \emph{H2}: Un videojuego que enseñe grafos será percibido de manera positiva por los estudiantes que todavía no aprenden sobre esos contenidos.
 
 
 \section{Objetivo General}
 
-El objetivo principal de este trabajo es medir el aprendizaje y la motivación de los estudiantes de computación al utilizar un videojuego educativo para instruir en algoritmos vinculados a grafo.
+El objetivo principal de este trabajo es medir el aprendizaje y la motivación de los estudiantes de computación al utilizar un videojuego educativo para instruir en algoritmos vinculados a grafos.
 
 \section{Objetivos Específicos}
 
@@ -59,57 +102,3 @@ El objetivo principal de este trabajo es medir el aprendizaje y la motivación d
 
 \end{itemize}
 
-
-\section{Marco teórico}
-
-Es importante comprender sobre las tres ideas que se explicarán a continuación para entender mejor el trabajo. Primero que todo, comprender cómo se han llevado a cabo los estudios de videojuegos educativos y por qué estos requieren mayor rigor científico. Luego, entender el rol de un motor de videojuegos y cómo esto afecta al desarrollo de la aplicación.
-
-\subsection{Metodología de validación de videojuegos educativos}
-
-Petri y Gresse von Wangenheim, en su trabajo \cite{HowGamesComputingEducationEvaluated}, llevaron a cabo una revisión de la literatura antes de desarrollar el modelo MEEGA+, cuya publicación tuvo lugar en 2018 \cite{meegaplus}. En dicha revisión, analizaron la evaluación de videojuegos educativos relacionados con la computación a partir de una muestra de 3617 artículos. Clasificaron los estudios según la metodología empleada en verdaderos estudios, cuasi-experimentales, no experimentales y ad-hoc.
-
-Los estudios que distribuyen personas de forma aleatoria en distintos grupos se consideraron experimentales. Si un estudio empleaba múltiples grupos o múltiples momentos de medida sin asignación aleatoria, se clasificaba como cuasi-experimental. Los estudios que no utilizaban múltiples grupos, pero que se llevaban a cabo de manera sistemática con estudios de casos, se consideraban no experimentales. Por último, los estudios que no se llevaban a cabo de manera sistemática, ni indicaban cómo se miden resultados, se clasificaban como estudios ad-hoc.
-
-En una reseña de literatura realizada por Calderón y Ruiz \cite{CalderonRuizReviewSeriousGamesEvaluation}, se identificó que la mayoría de los videojuegos educativos se evaluaban en términos de aprendizaje, usabilidad y experiencia de usuario. Además, se señaló que la mayoría de los estudios se realizaban de manera ad-hoc, sin sistematización. Este trabajo afirma que la mayoría de los estudios utilizan cuestionarios y entrevistas como métodos de validación de resultados. Además, se crea una categorización de características que indican la calidad de un juego, la cual fue posteriormente utilizada por \cite{meegaplus} en su cuestionario. Algunos ejemplos de los ítems evaluados incluyen el diseño del juego, la satisfacción del usuario, la usabilidad, la motivación y los resultados del aprendizaje, entre otros.
-
-En su revisión sobre videojuegos serios, Calderón y Ruiz \cite{CalderonRuizReviewSeriousGamesEvaluation} también clasificaron los tipos de procedimientos utilizados para validar estos trabajos, identificando tres tipos: 1) simple; 2) pre/post y 3) pre/post/post. En el primer tipo, los autores llevaron a cabo una sesión con un juego serio, y después de jugarlo, aplicaron los mecanismos de evaluación a los jugadores. En el segundo tipo, la prueba tenía dos etapas de evaluación, una antes del juego serio y otra después, estableciendo así el conocimiento anterior a la prueba. Para el tercer tipo, pre/post/post, además de las pruebas pre y post, se realizaba una prueba semanas después para analizar los niveles de retención. En cuanto a las frecuencias, 50 de 89 de estos estudios utilizaron una metodología simple y el 55\% lo hizo con tamaños de muestra inferiores a 40 \cite{CalderonRuizReviewSeriousGamesEvaluation}.
-
-Basándose en estas conclusiones, Petri y Christiane Gresse von Wangenheim, en su revisión de literatura sobre videojuegos educativos \cite{HowGamesComputingEducationEvaluated}, afirman que la mayoría de los estudios sobre videojuegos educativos se realizan de manera ad-hoc en términos de diseño de investigación, medición, recolección de datos y análisis. Sin embargo, destacan el modelo MEEGA \cite{meegaplusQualityEvaluationPage}, indicando que ha sido utilizado en otras áreas distintas de la computación, proporcionando mayor sistematización y conferiendo mayor validez científica a los trabajos basados en este modelo.
-
-
-\subsection{Teoría de Respuesta al Ítem (IRT): Intuición Cualitativa}
-
-La Teoría de Respuesta al Ítem (IRT) es un modelo estadístico utilizado en pruebas globales, como exámenes de inglés como lengua extranjera y programas de evaluación internacional de estudiantes. Este modelo destaca por su capacidad para evaluar detalladamente propiedades estadísticas de cada ítem (o pregunta) en términos de dificultad y capacidad de diferenciación \cite{Linden2015HandbookOI, IRTShojima2022}.
-
-Los modelos basados en IRT parten de tres suposiciones fundamentales. Primero, establecen una relación entre el rasgo latente que se busca medir y la probabilidad de responder un ítem en una categoría específica, como "en desacuerdo" o "de acuerdo" \cite{CalderonStatisticalIRT}.
-
-El segundo supuesto es que existe una escala continua y unidimensional de habilidad, denotada como $\theta$. Aunque esta suposición es fuerte, hay técnicas para verificar la unidimensionalidad de los datos de prueba \cite{IRTShojima2022}. Para medir múltiples características simultáneamente, existen modelos IRT multidimensionales \cite{Reckase2009MultidimensionalIRT}.
-
-La tercera suposición es la independencia local, que establece que las personas responden de forma independiente a cada ítem o pregunta, sin que la respuesta a una influya en la respuesta a otra \cite{CalderonStatisticalIRT}.
-
-Por definición, $\theta$ está en el rango $]-\infty, \infty [$, pero prácticamente la totalidad de los datos está en el rango aproximado de $]-3, 3[$. Un valor $\theta = 0$ se asume como un nivel promedio \cite{IRTShojima2022}. 
-
-Existen distintos modelos logísticos para evaluar $\theta$. El que se usa en este trabajo es el modelo logístico de 2 parámetros (2PLM o Two-Parameter Logistic Model) y otra variante de tres parámetros. Los parámetros en estos casos buscan representar rasgos asociados a cada ítem o pregunta. El de 2 parámetros incluye dificultad y discriminación, aunque en español se podría interpretar mejor como distinción o graduación, asociado a indicar la probabilidad entre elegir un valor u otro \cite{CalderonStatisticalIRT}.  El valor de $\theta$ se puede aproximar utilizando el método bayesiano EAP (Expected A Posteriori), el cual se calcula utilizando los paquetes de R \textit{mirt} \cite{RMIRT} y \textit{mirtCAT} \cite{RPackageMIRTCAT} aplicados en este trabajo. 
-
-El modelo 2PLM se compone del parámetro dificultad $b_j$ y de discriminación $a_j$ asignados para cada pregunta. Este último representa la pendiente de la curva e indica en qué medida el ítem diferencia a los examinados con un nivel en el rasgo latente por encima o debajo del parámetro de dificultad \cite{TeoriaRespuestaAlItemPsicologia}. En un modelo con respuestas correctas e incorrectas, un ítem con un parámetro de dificultad mayor $b_j$ será respondido incorrectamente con mayor probabilidad para casi cualquier nivel de $\theta$ \cite{IRTShojima2022}.
-
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=.5]{imagenes/IRTparambdifficulty.png}
-	\caption{Probabilidad de responder correctamente para distintos valores del parámetro dificultad \textit{b}.}
-	\label{ParamDifficulty}
-\end{figure}
-
-
-Es importante destacar que cada ítem discrimina mejor en torno a valores de $\theta$ que sean cercanos al parámetro de locación $b$. Además, un parámetro $a$ indica que el item es un mejor indicador para $\theta$, pero teniendo en consideración que este poder discriminativo funciona mejor cuando $\theta \approx b$. Por esta razón, cada pregunta por separado entrega información acerca del valor $\theta$ que se quiere obtener, de manera que las preguntas deben estar formuladas de tal manera que permitan distinguir distintos niveles del rasgo a evaluar \cite{TeoriaRespuestaAlItemPsicologia}.
-
-Aplicando este modelo a una escala de Likert de formato ordinal, para cada pregunta se indican 4 parámetros b, para diferenciar entre los niveles 1) Muy en desacuerdo; 2) En desacuerdo; 3) Ni en desacuerdo ni de acuerdo; 4) De acuerdo y 5) Muy de acuerdo \cite{TeoriaRespuestaAlItemPsicologia, meegaplusQualityEvaluationPage}. De esta manera, a medida que $\theta$, la calidad de juego es mejor según \cite{meegaplusQualityEvaluationPage}, las respuestas más tenderán a ser del formato Muy de acuerdo, a excepción de algunas preguntas que no se incluyen en la valoración. El script de R utilizado para el cálculo de $\theta$ se encuentra disponible en \cite{meegaplusQualityEvaluationPage}.
-
-Las fórmulas empleadas, demostraciones relacionadas con IRT o mostrar cómo afectan los distintos parámetros al resultado final está fuera del alcance de este estudio, principalmente porque los paquetes de R se encargan de realizar este trabajo. Para entender mejor cómo funciona este modelo por debajo, puede consultarse \cite{IRTShojima2022, CalderonStatisticalIRT}.
-
-\subsection{Motores de videojuegos: Godot}
-
-Existen diversos motores de videojuegos, como Unreal Engine \cite{UE}, Unity \cite{Unity} y Godot \cite{Godot}. Este último resalta por ser completamente gratuito, de código abierto y poseer una comunidad activa en el desarrollo del motor \cite{GodotGithubRepository}. Los motores de videojuegos ofrecen una ventaja significativa al proporcionar un entorno integrado que abarca diversas funcionalidades para diferentes profesionales. Por ejemplo, facilitan la integración de animaciones, efectos visuales, y trabajo con sonido. Además, incluyen bibliotecas incorporadas comúnmente utilizadas en videojuegos, como colisiones, texturizado, o composición de elementos, permitiendo la unificación de la representación visual, auditiva y programática de un personaje. Los motores de videojuegos también posibilitan la exportación de la aplicación a diversas plataformas sin necesidad de modificar el código \cite{GodotExport}.
-
-Godot emplea principalmente dos lenguajes de programación: GDScript, similar a Python, y C\#. Ambos fueron utilizados en este trabajo. GDScript permite prototipar rápidamente debido a su simplicidad y estrecha integración con el motor. Por otro lado, C\# es más rápido, pero algunas características del motor no están completamente integradas en la versión utilizada durante este trabajo, que es la 3.5.2 \cite{GodotCSharpGDDifferences}.

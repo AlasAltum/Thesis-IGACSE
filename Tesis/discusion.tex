@@ -1,4 +1,4 @@
-\chapter{Discusión}
+\chapter{Discusión y Conclusión}
 
 % \cite{Yu2020TheEffectsOfEducationGames} Difficulty in Determining the Effectiveness of Educational Games
 % Mencionar aquí que desde ya se ven varias debilidades en general en el área STEM, además que no es aceptado.
@@ -17,7 +17,8 @@
 
 La principal fortaleza de la metodología empleada radica en la utilización de un formulario estandarizado y previamente validado. Se tiene una alta confianza en que dicho formulario mide de manera efectiva lo que busca evaluar, como se validó a través de la alfa $\alpha$ de Cronbach, medida en el trabajo de Petri et al. \cite{MeegaPlusManual}. Esta medida indica que las preguntas evalúan efectivamente lo que el cuestionario buscan evaluar \cite{MeegaPlusManual}. Esta metodología proporciona una valoración numérica de la calidad del juego según las opiniones de los usuarios, representando este valor numérico como un rasgo latente (latent trait) comúnmente denotado como $\theta$ en IRT \cite{maldonado2021statistical, RashMeasurementTheoryAndrichMarais}.
 
-El proceso de diseño se considera robusto, ya que incorporó retroalimentación de expertos y la aplicación de la metodología de ``Loud Thinking'' en cada iteración. Esto permitió que los jugadores se familiarizaran adecuadamente con el juego, culminando en la exitosa realización de la prueba escrita. Se ha comprobado empíricamente cómo la usabilidad mejoró en cada fase del desarrollo.
+El proceso de diseño se considera robusto, ya que incorporó retroalimentación de expertos y la aplicación de la metodología de ``Think Aloud'' en cada iteración. Esto permitió que los jugadores se familiaricen adecuadamente con el juego, culminando en la realización exitosa de la prueba escrita. Se ha comprobado empíricamente como la mejor usabilidad en cada fase del desarrollo.
+
 
 Además, el proceso está rigurosamente documentado, ya que la historia completa del desarrollo se encuentra disponible en un repositorio de Github \cite{GithubRepo}. Esto posibilita que cada iteración del juego sea reproducible, incluso los experimentos con usuarios, lo que permite a otros investigadores volver a versiones anteriores del videojuego y realizar pruebas con diferentes grupos de usuarios en cada instancia.
 
@@ -31,12 +32,24 @@ Una debilidad identificada es que la prueba académica no logró detectar difere
 
 Un aspecto a mejorar es que el videojuego no tiene componentes sociales, tales como multijugador, ya sea de forma competitiva o cooperativa. Estos elementos se descartaron debido a la dificultad para aplicar pruebas de usuario multijugador y la complejidad de agregar cooperatividad o competitividad a nivel de diseño. El modelo MEEGA+ \cite{meegaplus} busca evaluar también esta dimensión social. Para objeto de la evaluación de la calidad de juego, las preguntas relacionadas con este item se omitieron en el formulario.
 
-Por otra parte, no se puede garantizar la heterogeneidad de la muestra. Existe el sesgo del voluntario, que afecta según \cite{volunterBias}. El caso ideal implica una separación aleatoria en los cursos como parte de las actividades de la clase. No obstante, es probable que aún existan sesgos en los cursos debido a la selección de estudiantes de carreras asociadas a computación o informática. Se recomienda acotar el grupo solo a estudiantes afines a la informática. Por esta misma razón, también se aconseja acotar estos estudios únicamente a estudiantes de carreras relacionadas con STEM y agregar segmentación.
+Por otra parte, no se puede garantizar la heterogeneidad de la muestra. Existe el sesgo del voluntario, que afecta según \cite{volunterBias}. El caso ideal implica una separación aleatoria en los cursos como parte de las actividades de la clase. No obstante, es probable que aún existan sesgos en los cursos debido a la selección de estudiantes de carreras asociadas a computación o informática. Se recomienda acotar el grupo solo a estudiantes afines a la informática. Por esta misma razón, también se aconseja acotar estos estudios únicamente a estudiantes de carreras relacionadas con ciencias, tecnología e ingeniería. Además de agregar segmentación en la mayor cantidad de aspectos posibles, como edad, carrera, estudios cursados, entre otros.
 
 %  Por otra parte, existe el sesgo de novedad. % CITAR
 Además, según libros como \cite{Rogers2002InteractionDesign}, es más efectivo realizar una prueba dos semanas después para medir aprendizajes efectivos. No obstante, esto fue difícil de realizar dadas las condiciones del trabajo, ya que conseguir voluntarios en un contexto donde los estudiantes prefieren dedicar su tiempo a preparar exámenes en lugar de participar en una actividad universitaria fue un desafío. Se sugiere buscar apoyo institucional y aumentar los incentivos a la participación, por ejemplo, mediante actividades que fomenten la comunidad al inicio del semestre académico.
 
 Finalmente, el autor de este trabajo no es un diseñador de videojuegos y su principal énfasis está en la programación. Se destaca el rol y la importancia del diseño en los videojuegos, que deben ser atractivos y ofrecer mecánicas que recompensen al jugador, así como agregarle una dimensión social a través de un ranking, componentes cooperativas o competitivas. La narrativa tampoco está completamente desarrollada; no presenta una historia con un fin, desarrollo de personaje ni antagonista. Estos elementos suelen despertar más el interés del jugador \cite{Zea2014ModelingST, FrangoSilveira2019BuildingEN}.
+
+
+\section{Fortalezas del software}
+
+Se programó un software funcional, interactivo y percibido positivamente por los usuarios. La arquitectura construida es portable debido a los patrones que sigue y se entrega documentación para poder avanzar en la misma metodología, aunque se quiera modificar la estructura de datos subyacente y los algoritmos a enseñar. Por ejemplo, este trabajo podría transferirse a la enseñanza de arreglos.
+
+El diseño que consiste en obligar al usuario a pasar instrucción por instrucción pudo ser comprendido satisfactoriamente por todos los usuarios. Sin embargo, se determinaron puntos de mejora en el diseño del videojuego. Cabe destacar que estos puntos de mejora son a nivel de diseño e interacción, no de código.
+
+
+\section{Aspectos a mejorar del software}
+
+A partir del \hyperref[AnexoG]{anexo G} se pueden identificar puntos de mejora. Entre estos, la legibilidad, colocación de títulos, elección de fuentes y colores se menciona en un total de 7 comentarios. Por otra parte, se sugieren cambios en la progresión de los desafíos 
 
 
 \section{Trabajo futuro}

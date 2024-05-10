@@ -1,5 +1,3 @@
-% se puede agregar la opción [english] para 
-%  memorias o tesis en inglés (borrando el archivo .aux)
 \documentclass{umemoria} 
 
 \depto{Departamento de Ciencias de la Computación}
@@ -23,7 +21,7 @@
 
 %\cotutela{Nombre Institución} % incluir en caso de cotutela
 % TODO: Agregar comision
-% \comision{Nombre Completo Uno,Nombre Completo Dos,Nombre Completo Tres}
+\comision{Juan Álvarez, Nelson Baloian , Federico Meza}
 
 %\auspicio{Nombre Institución} % incluir en caso de recibir financiamiento
 
@@ -36,8 +34,14 @@
 \maketitle
 
 \begin{resumen}
-% citas \cite{meegaplus}, pero no excelente \cite{MeegaPlusManual}
-Los videojuegos educativos son reconocidos como herramientas motivadoras para enseñar y entretener a los estudiantes. Con el fin de validar estas afirmaciones, se han desarrollado diversos marcos de trabajo y se han realizado revisiones de literatura analizando el estado de arte y criticando cómo se realizan los estudios relacionados a videojuegos educativos. En este proyecto, se presenta IGACSE, un videojuego educativo diseñado para enseñar conceptos de grafos y los algoritmos BFS y DFS. Se utilizó la metodología MEEGA+  para evaluar la calidad de la aplicación, solicitando a dos grupos que probaran el juego y respondieran cuestionarios donde se le pregunta a los participantes por su percepción respecto del juego. El primero (N=15) realizó una prueba académica después de contestar el formulario. Este grupo, sin conocimiento previo de grafos, obtuvo una puntuación perfecta después de haber probado el videojuego y calificó al juego como bueno según la metodología MEEGA+. El segundo grupo (N=15), aquel que no realizó la prueba académica, dio una puntuación similar. Esto sugiere que el juego facilitó el aprendizaje de los estudiantes, pero se identifican espacios de mejora a nivel de diseño de juego. Por otra parte, se requieren más pruebas con distintas metodologías de estudio y tamaños muestrales más significativos para dar mayor validez científica a los resultados. La percepción de los usuarios señaló posibles áreas de mejora en usabilidad, interfaz y gamificación. La arquitectura de software desarrollada permite su reutilización con otros algoritmos y estructuras de datos. Además, se proporcionan pautas para obtener resultados más precisos en futuras investigaciones relacionadas.
+
+Los videojuegos educativos se utilizan como herramientas destinadas a motivar y entretener durante el proceso de aprendizaje. Para respaldar estas afirmaciones, se han desarrollado marcos de trabajo y revisiones de literatura que analizan los enfoques utilizados en los estudios relacionados con los videojuegos educativos, como por ejemplo MEEGA+.
+
+En este estudio se crea y pone a prueba un videojuego educativo en el campo de la computación, centrándose en el contenido de grafos. Para esto, se desarrolla IGACSE, un videojuego educativo diseñado para enseñar sobre grafos y los algoritmos Búsqueda en Anchura (Breadth First Search o BFS) y Búsqueda en Profundidad (Depth First Search o DFS). La elección de grafos se sustenta en que estas estructuras de datos tienen una representación visual directa, facilitando el diseño del videojuego.
+
+Para la evaluación cuantitativa de IGACSE, se evalúan dos factores: la percepción del usuario y su aprendizaje. Para el primer aspecto, se utiliza como referencia metodológica el enfoque de MEEGA+, que permite medir la percepción general de los participantes respecto al juego a través de un valor numérico; para el segundo aspecto, se estableció una prueba académica para medir el aprendizaje adquirido en el juego. Como muestra se consideran dos grupos, el primer grupo (N=15) para la medición de percepción y aprendizaje; y un segundo grupo (N=15) para validar solo los resultados de percepción del videojuego.
+
+Los resultados obtenidos sugieren que el juego facilitó el aprendizaje de los estudiantes, pero se identifican espacios de mejora a nivel de diseño de juego. Además, es necesario llevar a cabo un mayor número de pruebas empleando diferentes metodologías de estudio y muestras de tamaño más significativo, con el fin de otorgar una mayor validez científica a los resultados obtenidos. La percepción de los usuarios señaló posibles áreas de mejora en usabilidad, interfaz y ludificación. La arquitectura de software desarrollada permite su reutilización con otros algoritmos y estructuras de datos. Además, se proporcionan pautas para obtener resultados más precisos en futuras investigaciones relacionadas.
 
 
 \end{resumen}
@@ -76,6 +80,7 @@ A mi abuelo, que siempre me apoyó en mis estudios.
 
 \input{intro.tex}
 \input{trabajo_relacionado.tex}
+\input{marco_teorico.tex}
 \input{diseno_y_requisitos.tex}
 \input{metodologia.tex}
 \input{resultados.tex}
@@ -98,6 +103,7 @@ A mi abuelo, que siempre me apoyó en mis estudios.
 \input{anexoE.tex}
 \input{anexoF.tex}
 \input{anexoG.tex}
+\input{anexoH.tex}
 
 % \end{appendices}
 \end{document}
