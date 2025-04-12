@@ -1,99 +1,99 @@
-﻿;en;es
-Start Game;Start Game;Iniciar juego
-Select Level;Select Level;Seleccionar nivel
-Choose a level or algorithm;Choose a level or algorithm;Elige un nivel (algoritmo)
-Skip;Skip;Saltar
-Next;Next (SPACE);Siguiente (ESPACIO)
-Yes;Yes;Sí
-No;No;No
-STORYMODE_DIALOGUE1;"Ship: Hello? DCC Station...
+﻿keys,en,es
+Start Game,Start Game,Iniciar juego
+Select Level,Select Level,Seleccionar nivel
+Choose a level or algorithm,Choose a level or algorithm,Elige un nivel (algoritmo)
+Skip,Skip,Saltar
+Next,Next (SPACE),Siguiente (ESPACIO)
+Yes,Yes,Sí
+No,No,No
+STORYMODE_DIALOGUE1,"Ship: Hello? DCC Station...
 Can you hear me? Copy...
-We have not found any red pandas yet...";"Nave: ¿Alo? Estación DCC...
+We have not found any red pandas yet...",Nave: ¿Alo? Estación DCC...
 ¿Pueden oirme?
-No hemos encontrado ningún panda rojo todavía..."
-STORYMODE_DIALOGUE2;"Station: Yes; we can barely hear you...
+No hemos encontrado ningún panda rojo todavía...
+STORYMODE_DIALOGUE2,"Station: Yes, we can barely hear you...
 Just keep searching. 
-We suspect there is a red panda in the next galaxy.";"Estación DCC: Sí. Apenas  podemos oírte...
+We suspect there is a red panda in the next galaxy.",Estación DCC: Sí. Apenas  podemos oírte...
 Solo sigue buscando. 
-Tenemos pistas de que hay un panda rojo en la siguiente galaxia."
-STORYMODE_DIALOGUE3;"Ship: There is a problem though... 
+Tenemos pistas de que hay un panda rojo en la siguiente galaxia.
+STORYMODE_DIALOGUE3,"Ship: There is a problem though... 
 Our fuel levels are nearly depleted.
-We are unable to proceed with our rescue task.";"Nave: Pero hay un problema... 
+We are unable to proceed with our rescue task.",Nave: Pero hay un problema... 
 Casi se nos acaba el combustible.
-No podemos seguir con la misión de rescate."
-STORYMODE_DIALOGUE4;"Station: Proceed to deactivate the AI copilot.
-It wastes too much energy. Just use a  Breadth First Search algorithm.";"Estación DCC: Procedan a desactivar el copiloto de IA.
-Gasta mucha energía, solo usa un algoritmo de Breadth First Search."
-STORYMODE_DIALOGUE5;Ship: Breadth First ... what?;Nave: Be efe... qué?
-STORYMODE_DIALOGUE6;"Station: I will send you the instructions. Just follow them. Ok?
-The red pandas need us, this is serious.";"Estación DCC: Te enviaré las instrucciones. Solo síguelas. OK?
-Los pandas rojos nos necesitan. Esto es serio."
-STORYMODE_DIALOGUE7;Ship: That's why I am here... Okay, let's go!;Nave: Para eso estoy aquí... Bueno, vamos!
-FIRST_TUTORIAL_DIALOGUE1;"Here are some red pandas expecting to be rescued.
-Visit each planet to rescue the red pandas in those planets";"Aquí hay pandas rojos esperando ser rescatados.
-Visita cada planeta para rescatar los pandas rojos en esos planetas."
-FIRST_TUTORIAL_DIALOGUE2;Congratulations! You saved a little red panda!;¡Felicidades! ¡Has salvado un pandita rojo!
-FIRST_TUTORIAL_DIALOGUE3;You are ready to go to the next level and rescue more pandas!;¡Ve al próximo nivel y salva más pandas!
-TUTORIAL_2_DIALOGUE_1;"The AI copilot neural network is too expensive and you have almost no fuel.
-It is better to use manual instructions.";"La red neuronal del copiloto es muy costosa y casi no te queda combustible.
-Será mejor usar las instrucciones manuales."
-TUTORIAL_2_DIALOGUE_2;Now we are going to show you how to use our code instructions.;Ahora te mostraremos cómo usar nuestras instrucciones de código.
-TUTORIAL_2_DIALOGUE_3;"The panel will notify you when an instruction is ready and you can keep with the next one.
+No podemos seguir con la misión de rescate.
+STORYMODE_DIALOGUE4,"Station: Proceed to deactivate the AI copilot.
+It wastes too much energy. Just use a  Breadth First Search algorithm.",Estación DCC: Procedan a desactivar el copiloto de IA.
+Gasta mucha energía, solo usa un algoritmo de Breadth First Search.
+STORYMODE_DIALOGUE5,Ship: Breadth First ... what?,Nave: Be efe... qué?
+STORYMODE_DIALOGUE6,"Station: I will send you the instructions. Just follow them. Ok?
+The red pandas need us, this is serious.",Estación DCC: Te enviaré las instrucciones. Solo síguelas. OK?
+Los pandas rojos nos necesitan. Esto es serio.
+STORYMODE_DIALOGUE7,Ship: That's why I am here... Okay, let's go!,Nave: Para eso estoy aquí... Bueno, vamos!
+FIRST_TUTORIAL_DIALOGUE1,"Here are some red pandas expecting to be rescued.
+Visit each planet to rescue the red pandas in those planets",Aquí hay pandas rojos esperando ser rescatados.
+Visita cada planeta para rescatar los pandas rojos en esos planetas.
+FIRST_TUTORIAL_DIALOGUE2,Congratulations! You saved a little red panda!,¡Felicidades! ¡Has salvado un pandita rojo!
+FIRST_TUTORIAL_DIALOGUE3,You are ready to go to the next level and rescue more pandas!,¡Ve al próximo nivel y salva más pandas!
+TUTORIAL_2_DIALOGUE_1,"The AI copilot neural network is too expensive and you have almost no fuel.
+It is better to use manual instructions.",La red neuronal del copiloto es muy costosa y casi no te queda combustible.
+Será mejor usar las instrucciones manuales.
+TUTORIAL_2_DIALOGUE_2,Now we are going to show you how to use our code instructions.,Ahora te mostraremos cómo usar nuestras instrucciones de código.
+TUTORIAL_2_DIALOGUE_3,"The panel will notify you when an instruction is ready and you can keep with the next one.
 Complete the instructions to fulfil your mission.
 We are counting on you.
-";"El panel indicará cuando una instrucción o línea está lista y puedes avanzar con la siguiente.
-Completa las instrucciones para ganar."
-TUTORIAL_2_DIALOGUE_4;Press the SPACE button to initialize the instructions. When you complete the instruction of each line, press SPACE to go to the next one.;Presiona el botón ESPACIO para inicializar las instrucciones. Cuando completas la instrucción de cada línea, presiona ESPACIO para ir a la siguiente.
-TUTORIAL_2_DIALOGUE_5;Congratulations! Now you know how to follow our instructions;Felicitaciones! Ahora sabes cómo seguir nuestras instrucciones.
-TUTORIAL_2_DIALOGUE_6;You are almost ready to save the red pandas in other galaxies!;Pronto podrás salvar pandas rojos en otras galaxias!
-TUTORIAL_3_DIALOGUE_0;"You are doing very well!
-The next galaxy will be the hard one, so I need you to be ready.";"¡Vas muy bien!
-La próxima galaxia será difícil, así que prepárate."
-TUTORIAL_3_DIALOGUE_1;"You need to use Stacks and Queues.
-Both are like Lists. They can contain nodes.";"Necesitas usar Pilas (Stacks) y Colas (Queues).
-Ambas funcionan como listas. Pueden contener nodos."
-TUTORIAL_3_DIALOGUE_2;"This is a stack. You put two nodes: A and B in that order.
-You pop one node out. This will be B, because the last that came in, is the first to come out. Last In, First Out.";"Esta es una pila (Stack). Imagina que colocas 2 nodos: A y B en ese mismo orden.
+",El panel indicará cuando una instrucción o línea está lista y puedes avanzar con la siguiente.
+Completa las instrucciones para ganar.
+TUTORIAL_2_DIALOGUE_4,Press the SPACE button to initialize the instructions. When you complete the instruction of each line, press SPACE to go to the next one.,Presiona el botón ESPACIO para inicializar las instrucciones. Cuando completas la instrucción de cada línea, presiona ESPACIO para ir a la siguiente.
+TUTORIAL_2_DIALOGUE_5,Congratulations! Now you know how to follow our instructions,Felicitaciones! Ahora sabes cómo seguir nuestras instrucciones.
+TUTORIAL_2_DIALOGUE_6,You are almost ready to save the red pandas in other galaxies!,Pronto podrás salvar pandas rojos en otras galaxias!
+TUTORIAL_3_DIALOGUE_0,"You are doing very well!
+The next galaxy will be the hard one, so I need you to be ready.",¡Vas muy bien!
+La próxima galaxia será difícil, así que prepárate.
+TUTORIAL_3_DIALOGUE_1,"You need to use Stacks and Queues.
+Both are like Lists. They can contain nodes.",Necesitas usar Pilas (Stacks) y Colas (Queues).
+Ambas funcionan como listas. Pueden contener nodos.
+TUTORIAL_3_DIALOGUE_2,"This is a stack. You put two nodes: A and B in that order.
+You pop one node out. This will be B, because the last that came in, is the first to come out. Last In, First Out.",Esta es una pila (Stack). Imagina que colocas 2 nodos: A y B en ese mismo orden.
 Si sacas un elemento, este será B. El último en llegar es el primero en irse.
-Primero en llegar, último en irse (Last In, First Out or LIFO)"
-TUTORIAL_3_DIALOGUE_3;"This is a queue. You put two nodes:  A and B in that order.
-You pop one node out. This will be A, because the first that came in, is the first to come out. First In, First Out.";"Esta es una cola (Queue). Imagina que colocas 2 nodos: A y B en ese mismo orden.
+Primero en llegar, último en irse (Last In, First Out or LIFO)
+TUTORIAL_3_DIALOGUE_3,"This is a queue. You put two nodes:  A and B in that order.
+You pop one node out. This will be A, because the first that came in, is the first to come out. First In, First Out.",Esta es una cola (Queue). Imagina que colocas 2 nodos: A y B en ese mismo orden.
 Si sacas un elemento, este será A. El primero en llegar es el primero en irse.
-Primero en llegar, primero en irse (First In, First Out or FIFO)"
-TUTORIAL_3_DIALOGUE_4;"I will show you the variable selector and the selected variable panel.
-These panels allow you to manipulate variables.";"Te mostraré el selector de variables y el panel de la variable seleccionada.
-Estos paneles te permiten manipular variables. "
-TUTORIAL_3_DIALOGUE_5;"I will explain you more when you need it!
-Good luck!";"Te explicaré más cuando lo necesites!
-Buena suerte!"
-TUTORIAL_3_DIALOGUE_6;Congratulations! Now you know how to use the variables and add nodes to a Stack;¡Felicidades! Ahora sabes cómo usar variables y agregar nodos a la pila (Stack)
-TUTORIAL_3_DIALOGUE_7;Save these sad pandas please! THEY NEED YOU!;Por favor, salva a estos pandas tristes. TE NECESITAN! uwu
-TUTORIAL_3_HINT_1;"Press the keys W and S to change the current variable.
-Set the current variable s: stack().";"Presiona las teclas W y S para cambiar la variable seleccionada.
-Cambia la variable seleccionada a s: stack()."
-TUTORIAL_3_HINT_2;"While the selected variable is the stack S, hover the mouse on the planet 0 and press r.
-The selected variable will be shown on the bottom right panel. Check it after pressing r";"Mientras la pila (Stack) S está como variable seleccionada, posiciona el mouse sobre el planeta 0 y presiona r.
-La variable seleccionada se mostrará en el panel de la esquina inferior derecha. ¡Fíjate en ella después de presionar r!"
-SELECTED_VARIABLE;SELECTED VARIABLE;VARIABLE SELECCIONADA
-Click: Select/Unselect;Click: Select/Unselect;Click: Seleccionar/Deseleccionar
-R: Add to Current Var;R: Add to Current Var;R: Agregar a la variable seleccionada
-IS_U_A_STAR?;Is the U node a star?;Es el nodo U una estrella?
-BFS_WIN_MESSAGE;"Congratulations! You have successfully finished the BFS Level!
-Go and finish the next level!";"¡Felicidades! Completaste el nivel de BFS (Breadth First Search / Búsqueda en achura)
-¡Ve al siguiente nivel!"
-DFS_WIN_MESSAGE;"Congratulations! You have successfully finished the DFS Level!
-Go and finish the next level!";"¡Felicidades! Completaste el nivel de DFS (Depth First Search / Búsqueda en profundidad)
-¡Ve al siguiente nivel!"
-Next Level;Next Level;Siguiente nivel
-Reset Level;Reset Level;Reiniciar nivel
-Error: Wrong answer;Error: Wrong answer;Error: Respuesta equivocada
-Is the Stack s empty?;Is the Stack s empty?;Está la pila (Stack) S vacía?
-PRESS_SPACE_HINT_TEXT;Remember to Press SPACE to navigate to the next instruction;Recuerda que puedes presionar ESPACIO para navegar a la siguiente instrucción
-Restart Level;Restart Level;Reiniciar nivel
-"  Return to Menu  ";"  Return to Menu  ";"  Volver al Menu  "
-STORYMODE_DFS1;This is the DFS  (Depth First Search) algorithm. It allows traversing a graph.;Este es el algoritmo Búsqueda en Profundidad (DFS / Depth First Search). Permite recorrer grafos
-STORYMODE_DFS2;It prioritizes one branch first, reaching the end of the branch, and then getting to the next one.;DFS prioriza revisar completamente un camino primero hasta el fondo, luego se pasa al siguiente y así sucesivamente.
-STORYMODE_DFS3;You can do it! We trust in you! The pandas are waiting for you!;Tú puedes! Confiamos en ti! Los pandas te esperan!
-STORYMODE_BFS1;This is the BFS  (Breadth First Search) algorithm. It allows traversing a graph (like DFS);Este es el algoritmo Búsqueda en Anchura (BFS / Breadth First Search). Permite recorrer grafos
-STORYMODE_BFS2;"DFS prioritizes ";BFS prioriza buscar radialmente, por lo que avanza en todas las ramas al mismo tiempo.
-STORYMODE_BFS3;You can do it! We trust in you! The pandas are waiting for you!;Tú puedes! Confiamos en ti! Los pandas te esperan!
+Primero en llegar, primero en irse (First In, First Out or FIFO)
+TUTORIAL_3_DIALOGUE_4,"I will show you the variable selector and the selected variable panel.
+These panels allow you to manipulate variables. ",Te mostraré el selector de variables y el panel de la variable seleccionada.
+Estos paneles te permiten manipular variables. 
+TUTORIAL_3_DIALOGUE_5,"I will explain you more when you need it!
+Good luck!",Te explicaré más cuando lo necesites!
+Buena suerte!
+TUTORIAL_3_DIALOGUE_6,Congratulations! Now you know how to use the variables and add nodes to a Stack,¡Felicidades! Ahora sabes cómo usar variables y agregar nodos a la pila (Stack)
+TUTORIAL_3_DIALOGUE_7,Save these sad pandas please! THEY NEED YOU!,Por favor, salva a estos pandas tristes. TE NECESITAN! uwu
+TUTORIAL_3_HINT_1,"Press the keys W and S to change the current variable.
+Set the current variable s: stack().",Presiona las teclas W y S para cambiar la variable seleccionada.
+Cambia la variable seleccionada a s: stack().
+TUTORIAL_3_HINT_2,"While the selected variable is the stack S, hover the mouse on the planet 0 and press r.
+The selected variable will be shown on the bottom right panel. Check it after pressing r",Mientras la pila (Stack) S está como variable seleccionada, posiciona el mouse sobre el planeta 0 y presiona r.
+La variable seleccionada se mostrará en el panel de la esquina inferior derecha. ¡Fíjate en ella después de presionar r!
+SELECTED_VARIABLE,SELECTED VARIABLE,VARIABLE SELECCIONADA
+Click: Select/Unselect,Click: Select/Unselect,Click: Seleccionar/Deseleccionar
+R: Add to Current Var,R: Add to Current Var,R: Agregar a la variable seleccionada
+IS_U_A_STAR?,Is the U node a star?,Es el nodo U una estrella?
+BFS_WIN_MESSAGE,"Congratulations! You have successfully finished the BFS Level!
+Go and finish the next level!",¡Felicidades! Completaste el nivel de BFS (Breadth First Search / Búsqueda en achura)
+¡Ve al siguiente nivel!
+DFS_WIN_MESSAGE,"Congratulations! You have successfully finished the DFS Level!
+Go and finish the next level!",¡Felicidades! Completaste el nivel de DFS (Depth First Search / Búsqueda en profundidad)
+¡Ve al siguiente nivel!
+Next Level,Next Level,Siguiente nivel
+Reset Level,Reset Level,Reiniciar nivel
+Error: Wrong answer,Error: Wrong answer,Error: Respuesta equivocada
+Is the Stack s empty?,Is the Stack s empty?,Está la pila (Stack) S vacía?
+PRESS_SPACE_HINT_TEXT,Remember to Press SPACE to navigate to the next instruction,Recuerda que puedes presionar ESPACIO para navegar a la siguiente instrucción
+Restart Level,Restart Level,Reiniciar nivel
+"  Return to Menu  ","  Return to Menu  ","  Volver al Menu  "
+STORYMODE_DFS1,This is the DFS  (Depth First Search) algorithm. It allows traversing a graph.,Este es el algoritmo Búsqueda en Profundidad (DFS / Depth First Search). Permite recorrer grafos
+STORYMODE_DFS2,It prioritizes one branch first, reaching the end of the branch, and then getting to the next one.,DFS prioriza revisar completamente un camino primero hasta el fondo, luego se pasa al siguiente y así sucesivamente.
+STORYMODE_DFS3,You can do it! We trust in you! The pandas are waiting for you!,Tú puedes! Confiamos en ti! Los pandas te esperan!
+STORYMODE_BFS1,This is the BFS  (Breadth First Search) algorithm. It allows traversing a graph (like DFS),Este es el algoritmo Búsqueda en Anchura (BFS / Breadth First Search). Permite recorrer grafos
+STORYMODE_BFS2,DFS prioritizes ,BFS prioriza buscar radialmente, por lo que avanza en todas las ramas al mismo tiempo.
+STORYMODE_BFS3,You can do it! We trust in you! The pandas are waiting for you!,Tú puedes! Confiamos en ti! Los pandas te esperan!

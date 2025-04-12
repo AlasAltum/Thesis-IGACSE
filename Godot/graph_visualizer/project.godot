@@ -391,6 +391,7 @@ config/description="Visualization for Graphs"
 run/main_scene="res://GameFlow/MainMenu.tscn"
 config/use_hidden_project_data_directory=false
 config/use_custom_user_dir=true
+config/icon="res://Node/white-circle.png"
 
 [autoload]
 
@@ -419,6 +420,7 @@ singletons=[  ]
 localhost=true
 cursor=false
 audio=false
+locale=false
 
 [input]
 
@@ -506,7 +508,8 @@ PauseCredits={
 
 [locale]
 
-translations=PoolStringArray( "res://translations/Translation.en.translation", "res://translations/Translation.es.translation" )
+test=false
+translations=PoolStringArray( "res://translations/Translation.csv", "res://translations/Translation.en.translation", "res://translations/Translation.es.translation" )
 locale_filter=[ 1, [ "en", "es" ] ]
 
 [mono]
