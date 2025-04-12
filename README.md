@@ -15,15 +15,20 @@ Feel free to contact me if you have any questions!
 
 ## Folders:
 
-* AWS_Lambda_golang was used for telemetry using AWS lambdas, so the game can register the steps done by the player. This was not considered though.
-
 * Godot contains the Godot project.
 
-* Propuesta has the first proposal, done during the first semester.
+* Propuesta has the first proposal of my thesis, done during the first semester.
 
 * ReunionesYAvances has information about meetings, user testing and so on. It's all in Spanish and it has no documentation.
 
 * Tesis has the Latex code for generating the last pdf. The final thesis is main.pdf.
-
-
 The thesis can be found by following the path: Tesis/main.pdf 
+
+
+# Game samples
+
+![Main menu](MainMenu.png)
+
+![BFS](BFS.png)
+
+![DFS](DFS.png)
