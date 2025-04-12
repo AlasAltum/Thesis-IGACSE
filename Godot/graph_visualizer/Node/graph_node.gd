@@ -203,7 +203,7 @@ func select_node(emit_signal=true):
 		# To stop animations like the hints or clicking mouse once the planet
 		# is selected
 		if animation_player.is_playing() and animation_player.current_animation in STOP_ANIMATIONS:
-			animation_player.seek(0.0, true)
+			animation_player.seek(0.0, true) 
 			animation_player.stop()
 
 	if should_show_base_when_selected:
@@ -331,7 +331,6 @@ func make_ship_flying_around_dissapear():
 	self.ship_flying_around_node.queue_free()
 	self.ship_flying_around_node = null
 
-const GOOD_LOOKING_FREQUENCY_FOR_HIGHLIGHT_LABEL: float = 10.0
 
 # Stops the variable from floating around the node and hides it
 func unhighlight_variable():
@@ -339,11 +338,6 @@ func unhighlight_variable():
 		variable_highlighted = false
 		variable_label.visible = false
 
-func _deferred_goto_scene(path):
-	var s = ResourceLoader.load(path)
-	var current_scene = s.instance()
-	StoredData.get_tree().root.add_child(current_scene)
-	StoredData.get_tree().current_scene = current_scene
 
 # Show an animation of the mouse clicking this node
 # To hint the user	
@@ -357,9 +351,10 @@ func show_animation_of_R():
 
 # Show an animation of a R button being pressed
 func stop_animation_of_R():
-	animation_player.seek(0.0)
-	animation_player.stop(true)
-	$RButtonPress.visible = false
+	if animation_player.is_playing() and animation_player.current_animation in STOP_ANIMATIONS:
+		animation_player.seek(0.0)
+		animation_player.stop(true)
+		$RButtonPress.visible = false
 
 
 func highlight_node_with_size():
